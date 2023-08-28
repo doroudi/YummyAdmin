@@ -1,0 +1,47 @@
+.shake-item {
+    -webkit-animation: bell-shake 40s ease infinite;
+    -moz-animation: bell-shake 40s ease infinite;
+    animation: bell-shake 40s ease infinite;
+}
+
+@-webkit-keyframes bell-shake {
+    1% {
+        -webkit-transform: rotateZ(15deg);
+        transform-origin: 50% 0%;
+    }
+
+    2% {
+        -webkit-transform: rotateZ(-15deg);
+        transform-origin: 50% 0%;
+    }
+
+    3% {
+        -webkit-transform: rotateZ(20deg);
+        transform-origin: 50% 0%;
+    }
+
+    4% {
+        -webkit-transform: rotateZ(-20deg);
+        transform-origin: 50% 0%;
+    }
+
+    5% {
+        -webkit-transform: rotateZ(15deg);
+        transform-origin: 50% 0%;
+    }
+
+    6% {
+        -webkit-transform: rotateZ(-15deg);
+        transform-origin: 50% 0%;
+    }
+
+    7% {
+        -webkit-transform: rotateZ(0);
+        transform-origin: 50% 0%;
+    }
+
+    100% {
+        -webkit-transform: rotateZ(0);
+        transform-origin: 50% 0%;
+    }
+}

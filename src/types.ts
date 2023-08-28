@@ -1,3 +1,2 @@
-import { type ViteSSGContext } from 'vite-ssg'
-
-export type UserModule = (ctx: ViteSSGContext) => void
+export type AppModule = (app: any, router: any) => void
+export type Filter = (ctx: any) => void

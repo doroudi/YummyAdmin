@@ -1,0 +1,59 @@
+@import 'utils/variables';
+@import 'utils/fonts';
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  // font-family: "Lato",Arial,sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  // font-family: Open Sans,sans-serif;
+}
+
+.rtl {
+  html,
+  body,
+  #app {
+    font-family: Shabnam;
+    direction: rtl;
+
+    .p-component {
+      font-family: Shabnam;
+    }
+  }
+}
+body {
+    background: url('~/assets/images/background.svg') no-repeat fixed;
+    background-size: cover;
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+.main {
+  
+}
+#nprogress .bar {
+  background: rgb(13,148,136);
+  opacity: 0.75;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.main-content {
+  background: #fff;
+  border-radius: 10px;
+  min-height: 95vh;
+}
+
+@import 'dark';
+@import 'utils/override';
+@import 'utils/animations';
+

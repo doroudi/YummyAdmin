@@ -1,6 +1,11 @@
 {
   "extends": [
-    "@antfu",
-    "@unocss"
+    "@antfu"
+    // "@unocss"
+  ],
+  "ignorePatterns": [
+    "**/assets/**/*",
+    "*.css",
+    "*.scss"
   ]
 }

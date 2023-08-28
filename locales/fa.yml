@@ -1,0 +1,60 @@
+title: داشبورد
+direction: rtl
+en: انگلیسی
+fa: فارسی
+menu:
+  dashboard: داشبورد
+  stats: آمار
+  products: محصولات
+  categories: دسته ها
+  orders: سفارش ها
+  comments: نظرات
+  blog: وبلاگ
+  users: کاربران
+  customers: مشتریان
+  settings: تنظیمات
+userMenu:
+  language: زبان
+  theme: پوسته
+  options: تنظیمات
+  signOut: خروج
+  dark: تیره
+  light: روشن
+  en: انگلیسی
+  fa: فارسی
+button:
+  about: درباره
+  back: بازگشت
+  go: برو
+  home: خانه
+  toggle_dark: حالت تیره
+  toggle_langs: تغییر زبان
+login:
+  title: ورود به سیستم
+  username: نام کاربری
+  password: رمز عبور
+  loginButton: ورود
+  forgetPassword: فراموشی رمز عبور
+  rememberMe: مرا بخاطر بسپار
+  welcome: خوش آمدید
+  message: برای دسترسی به کلیه امکانات از این فرم برای ورود استفاده کنید
+  haveNotAccount: حساب کاربری ندارید؟
+  createAccount: یکی بسازید
+  failedMessage: خطا در ورود
+register:
+  title: ثبت نام
+  username: نام کاربری
+  password: رمز عبور
+  button: ثبت نام
+  haveAccount: اکانت دارید؟
+  login: وارد شوید!
+forgot:
+  title: فراموشی رمز عبور
+  username: نام کاربری
+  button: بازیابی
+  haveNotAccount: اکانت ندارید؟
+  register: یکی بسازید
+dashboard:
+  summary: خلاصه
+  transactions: تراکنش ها
+not-found: یافت نشد

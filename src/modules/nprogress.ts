@@ -1,14 +1,12 @@
 import NProgress from 'nprogress'
-import { type UserModule } from '~/types'
+import type { AppModule } from '~/types'
 
-export const install: UserModule = ({ isClient, router }) => {
-  if (isClient) {
-    router.beforeEach((to, from) => {
-      if (to.path !== from.path)
-        NProgress.start()
-    })
-    router.afterEach(() => {
-      NProgress.done()
-    })
-  }
+export const install: AppModule = (app: any, router: any) => {
+  router.beforeEach((to: any, from: any) => {
+    if (to.path !== from.path)
+      NProgress.start()
+  })
+  router.afterEach(() => {
+    NProgress.done()
+  })
 }

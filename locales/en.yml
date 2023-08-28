@@ -1,3 +1,28 @@
+title: Vue 3 Dashboard
+description: Vue 3 Dashboard
+direction: ltr
+en: English
+fa: Persian
+menu:
+  dashboard: Dashboard
+  stats: Stats
+  products: Products
+  categories: Categories
+  orders: Orders
+  comments: Comments
+  blog: Blog
+  users: Users
+  customers: Customers
+  settings: Settings
+userMenu:
+  language: Language
+  theme: Theme
+  options: Options
+  signOut: SignOut
+  dark: Dark
+  light: Light
+  en: English
+  fa: Persian
 button:
   about: About
   back: Back
@@ -5,10 +30,32 @@ button:
   home: Home
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
-intro:
-  desc: Opinionated Vite Starter Template
-  dynamic-route: Demo of dynamic route
-  hi: Hi, {name}!
-  aka: Also known as
-  whats-your-name: What's your name?
+login:
+  title: Login
+  username: User Name
+  password: Password
+  loginButton: Login
+  forgetPassword: Forget Password
+  rememberMe: Remember Me
+  welcome: Welcome Back!
+  message: To access to your account please login here
+  haveNotAccount: Don't have an account?
+  createAccount: Create One!
+  failedMessage: Login Failed
+register:
+  title: Register
+  username: User Name
+  password: Password
+  button: Register
+  haveAccount: Have Account?
+  login: Login!
+forgot:
+  title: Forgot Password
+  username: User Name
+  button: Recover
+  haveNotAccount: Haven't Account?
+  register: Create One!
+dashboard:
+  summary: Summary
+  transactions: Transactions
 not-found: Not found

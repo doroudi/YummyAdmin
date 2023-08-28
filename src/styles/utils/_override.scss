@@ -1,0 +1,54 @@
+
+.p-button:focus {
+  box-shadow: none;
+}
+
+.language {
+  .p-button.p-button-text.p-button-plain:enabled:hover {
+    background: transparent;
+    color: #444;
+  }
+}
+
+.p-sidebar {
+  background:transparent;
+  box-shadow: none;
+}
+
+.p-sidebar-left {
+  max-width: var(--sidebar-width);
+}
+
+  .p-button.p-button-link:enabled:focus {
+    box-shadow: none;
+    color: #000;
+  }
+
+  .p-overlay-badge .p-badge {
+    top: 2px;
+  }
+.rtl {
+
+
+  
+  .p-tieredmenu .p-menuitem-link .p-menuitem-icon {
+    margin-left: 0.5rem;
+    margin-right: 0;
+  }
+
+  .p-tieredmenu .p-menuitem-link .p-submenu-icon {
+    margin-right: auto;
+    margin-left:0;
+    transform: rotate(180deg);
+  }
+
+  .p-overlay-badge .p-badge {
+    left: -6px;
+    right: auto;
+    top: 2px;
+  }
+}
+
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
+  color: gold;
+}

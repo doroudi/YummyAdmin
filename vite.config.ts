@@ -2,21 +2,24 @@ import path from 'node:path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
-import generateSitemap from 'vite-ssg-sitemap'
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import Markdown from 'vite-plugin-vue-markdown'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
-import LinkAttributes from 'markdown-it-link-attributes'
 import Unocss from 'unocss/vite'
-import Shiki from 'markdown-it-shiki'
 import VueMacros from 'unplugin-vue-macros/vite'
-import WebfontDownload from 'vite-plugin-webfont-dl'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
+  server: {
+    port: 7000,
+    host: true,
+    hmr: {
+      host: 'localhost',
+    },
+  },
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
@@ -27,14 +30,14 @@ export default defineConfig({
     VueMacros({
       plugins: {
         vue: Vue({
-          include: [/\.vue$/, /\.md$/],
+          include: [/\.vue$/],
         }),
       },
     }),
 
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
-      extensions: ['vue', 'md'],
+      extensions: ['vue'],
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -44,10 +47,19 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
+        {
+          'naive-ui': [
+            'useDialog',
+            'useMessage',
+            'useNotification',
+            'useLoadingBar',
+            'usePopover',
+          ],
+        },
         'vue-router',
-        'vue-i18n',
+        'vue/macros',
         '@vueuse/head',
-        '@vueuse/core',
+        // '@vueuse/core',
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: [
@@ -57,41 +69,17 @@ export default defineConfig({
       vueTemplate: true,
     }),
 
-    // https://github.com/antfu/unplugin-vue-components
     Components({
       // allow auto load markdown components under `./src/components/`
-      extensions: ['vue', 'md'],
-      // allow auto import and register components used in markdown
-      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      extensions: ['vue'],
+      resolvers: [NaiveUiResolver()],
+      include: [/\.vue$/, /\.vue\?vue/],
       dts: 'src/components.d.ts',
     }),
 
     // https://github.com/antfu/unocss
     // see uno.config.ts for config
     Unocss(),
-
-    // https://github.com/antfu/vite-plugin-vue-markdown
-    // Don't need this? Try vitesse-lite: https://github.com/antfu/vitesse-lite
-    Markdown({
-      wrapperClasses: 'prose prose-sm m-auto text-left',
-      headEnabled: true,
-      markdownItSetup(md) {
-        // https://prismjs.com/
-        md.use(Shiki, {
-          theme: {
-            light: 'vitesse-light',
-            dark: 'vitesse-dark',
-          },
-        })
-        md.use(LinkAttributes, {
-          matcher: (link: string) => /^https?:\/\//.test(link),
-          attrs: {
-            target: '_blank',
-            rel: 'noopener',
-          },
-        })
-      },
-    }),
 
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({
@@ -130,9 +118,6 @@ export default defineConfig({
       include: [path.resolve(__dirname, 'locales/**')],
     }),
 
-    // https://github.com/feat-agency/vite-plugin-webfont-dl
-    WebfontDownload(),
-
     // https://github.com/webfansplz/vite-plugin-vue-devtools
     VueDevTools(),
   ],
@@ -145,21 +130,5 @@ export default defineConfig({
       inline: ['@vue', '@vueuse', 'vue-demi'],
     },
   },
-
-  // https://github.com/antfu/vite-ssg
-  ssgOptions: {
-    script: 'async',
-    formatting: 'minify',
-    crittersOptions: {
-      reduceInlineStyles: false,
-    },
-    onFinished() {
-      generateSitemap()
-    },
-  },
-
-  ssr: {
-    // TODO: workaround until they support native ESM
-    noExternal: ['workbox-window', /vue-i18n/],
-  },
+  define: { 'process.env': {} },
 })

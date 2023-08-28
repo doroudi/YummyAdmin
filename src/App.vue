@@ -1,11 +1,30 @@
 <script setup lang="ts">
-// https://github.com/vueuse/head
-// you can use this to manipulate the document head in any components,
-// they will be rendered correctly in the html results with vite-ssg
+import { alertRtl } from 'naive-ui/es/alert/styles'
+import { buttonRtl } from 'naive-ui/es/button/styles'
+import { inputRtl } from 'naive-ui/es/input/styles'
+import { messageRtl } from 'naive-ui/es/message/styles'
+import { paginationRtl } from 'naive-ui/es/pagination/styles'
+import { tableRtl } from 'naive-ui/es/table/styles'
+import scrollbarRtl from 'naive-ui/es/_internal/scrollbar/styles/rtl'
+import { tagRtl } from 'naive-ui/es/tag/styles'
+import themeOverrides from '~/common/theme/theme-overrides'
+
+const rtlStyles = [
+  buttonRtl,
+  tableRtl,
+  inputRtl,
+  paginationRtl,
+  messageRtl,
+  alertRtl,
+  scrollbarRtl,
+  tagRtl,
+]
+const { t } = useI18n()
+
 useHead({
   title: 'Vitesse',
   meta: [
-    { name: 'description', content: 'Opinionated Vite Starter Template' },
+    { name: 'description', content: t('description') },
     {
       name: 'theme-color',
       content: () => isDark.value ? '#00aba9' : '#ffffff',
@@ -22,5 +41,13 @@ useHead({
 </script>
 
 <template>
-  <RouterView />
+  <n-config-provider :theme-overrides="themeOverrides" :rtl="rtlStyles" preflight-style-disabled>
+    <n-notification-provider placement="bottom">
+      <n-message-provider placement="bottom">
+        <n-dialog-provider>
+          <router-view />
+        </n-dialog-provider>
+      </n-message-provider>
+    </n-notification-provider>
+  </n-config-provider>
 </template>
