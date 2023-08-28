@@ -19,12 +19,12 @@ const rtlStyles = [
   scrollbarRtl,
   tagRtl,
 ]
-const { t } = useI18n()
+// const { t } = useI18n()
 
 useHead({
   title: 'Vitesse',
   meta: [
-    { name: 'description', content: t('description') },
+    { name: 'description', content: 'Description' },
     {
       name: 'theme-color',
       content: () => isDark.value ? '#00aba9' : '#ffffff',

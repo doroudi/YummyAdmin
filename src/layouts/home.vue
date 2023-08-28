@@ -6,13 +6,13 @@ const collapsed = ref(false)
 <template>
   <n-layout has-sider>
     <n-layout-sider
-      bordered collapse-mode="width" :collapsed-width="64" :width="240" :collapsed="collapsed" show-trigger
+      bordered collapse-mode="width" :collapsed-width="64" :width="300" :collapsed="collapsed" show-trigger
       @collapse="collapsed = true" @expand="collapsed = false"
     >
       <Sidebar />
     </n-layout-sider>
     <n-layout>
-      <div class="main-content bg-slate-100 dark:bg-slate-800 dark:text-white">
+      <div class="main-content dark:text-white">
         <Navbar />
         <RouterView />
       </div>

@@ -7,15 +7,21 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    NAvatar: typeof import('naive-ui')['NAvatar']
+    Navbar: typeof import('./components/Navbar.vue')['default']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDialogProvider: typeof import('naive-ui')['NDialogProvider']
+    NLayout: typeof import('naive-ui')['NLayout']
+    NLayoutSider: typeof import('naive-ui')['NLayoutSider']
+    NMenu: typeof import('naive-ui')['NMenu']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NNotificationProvider: typeof import('naive-ui')['NNotificationProvider']
-    README: typeof import('./components/README.md')['default']
+    NPageHeader: typeof import('naive-ui')['NPageHeader']
+    NSidebar: typeof import('naive-ui')['NSidebar']
+    NToggle: typeof import('naive-ui')['NToggle']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TheCounter: typeof import('./components/TheCounter.vue')['default']
-    TheFooter: typeof import('./components/TheFooter.vue')['default']
-    TheInput: typeof import('./components/TheInput.vue')['default']
+    Sidebar: typeof import('./components/Sidebar.vue')['default']
+    UserProfile: typeof import('./components/UserProfile.vue')['default']
   }
 }

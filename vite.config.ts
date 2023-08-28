@@ -23,6 +23,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
+      '@/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
 
@@ -58,8 +59,9 @@ export default defineConfig({
         },
         'vue-router',
         'vue/macros',
+        'vue-i18n',
         '@vueuse/head',
-        // '@vueuse/core',
+        '@vueuse/core',
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: [
@@ -110,11 +112,10 @@ export default defineConfig({
       },
     }),
 
-    // https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n
+    // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
-      fullInstall: true,
       include: [path.resolve(__dirname, 'locales/**')],
     }),
 

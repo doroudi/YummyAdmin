@@ -36,6 +36,7 @@
     "@types/markdown-it-link-attributes": "^3.0.1",
     "@types/nprogress": "^0.2.0",
     "@unocss/eslint-config": "^0.53.5",
+    "@vicons/ionicons5": "^0.12.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue-macros/volar": "^0.12.1",
     "@vue/test-utils": "^2.4.0",
@@ -82,5 +83,8 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
