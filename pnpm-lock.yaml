@@ -49,9 +49,6 @@ devDependencies:
   '@intlify/unplugin-vue-i18n':
     specifier: ^0.12.2
     version: 0.12.2(rollup@2.79.1)(vue-i18n@9.2.2)
-  '@ricons/ionicons5':
-    specifier: ^0.12.0
-    version: 0.12.0
   '@types/markdown-it-link-attributes':
     specifier: ^3.0.1
     version: 3.0.1
@@ -2522,10 +2519,6 @@ packages:
 
   /@polka/url@1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
-    dev: true
-
-  /@ricons/ionicons5@0.12.0:
-    resolution: {integrity: sha512-CzS43wP5XDZTBXmSvuW9XvTgiAeRWLHeeYoUtvHS/3h6yfjlr/T0vqdB8Zhqb7xPnto3li7yXZ4gU9VEgv4w7w==}
     dev: true
 
   /@rollup/plugin-babel@5.3.1(@babel/core@7.21.8)(rollup@2.79.1):

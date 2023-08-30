@@ -17,8 +17,6 @@ declare module 'vue' {
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NNotificationProvider: typeof import('naive-ui')['NNotificationProvider']
     NPageHeader: typeof import('naive-ui')['NPageHeader']
-    NSidebar: typeof import('naive-ui')['NSidebar']
-    NToggle: typeof import('naive-ui')['NToggle']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Sidebar: typeof import('./components/Sidebar.vue')['default']
