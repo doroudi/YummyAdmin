@@ -1,14 +1,19 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
+import {
+  ChevronBackOutline as CollapseIcon,
+  ChevronForwardOutline as OpenIcon,
+} from '@vicons/ionicons5'
 
 const { t } = useI18n()
 const languageMenu = ref()
-const layout = useLayoutStore()
-const toggleButtonState = ref(layout.collapsed)
+const layoutStore = useLayoutStore()
+const { collapsed } = storeToRefs(layoutStore)
 const { availableLocales, locale } = useI18n()
 
 function update() {
-  layout.toggleSidebar()
+  layoutStore.toggleSidebar()
 }
 function toggleLanguageMenu(event: any) {
   languageMenu.value.toggle(event)
@@ -16,24 +21,27 @@ function toggleLanguageMenu(event: any) {
 const languages = availableLocales.map((x) => {
   return {
     label: t(x),
-    command: () => layout.changeLanguage(x),
+    command: () => layoutStore.changeLanguage(x),
   }
 })
 </script>
 
 <template>
-  <n-page-header subtitle="A podcast to improve designs">
-    <template #header />
-    <template #avatar>
-      <n-avatar
-        src="https://cdnimg103.lizhi.fm/user/2017/02/04/2583325032200238082_160x160.jpg"
-      />
+  <n-page-header class="p-2">
+    <template #title>
+      <n-button circle @click="layoutStore.toggleSidebar">
+        <template #icon>
+          <NIcon>
+            <OpenIcon v-if="collapsed" />
+            <CollapseIcon v-else />
+          </NIcon>
+        </template>
+      </n-button>
     </template>
-
     <template #extra>
       <div class="flex items-center">
-        <i v-if="isDark" class="i-bx-sun" @click="layout.toggleTheme()" />
-        <i v-else class="i-bx-moon" @click="layout.toggleTheme()" />
+        <i v-if="isDark" class="i-bx-sun" @click="layoutStore.toggleTheme()" />
+        <i v-else class="i-bx-moon" @click="layoutStore.toggleTheme()" />
         <div v-badge.danger class="mx-3">
           <i class="pi pi-bell p-badge-danger shake-item" />
         </div>
@@ -60,33 +68,33 @@ const languages = availableLocales.map((x) => {
 
 <style lang="scss">
 .navbar {
-    border-bottom: solid 1px #ececec;
-    padding-bottom: 0.4rem;
+  border-bottom: solid 1px #ececec;
+  padding-bottom: 0.4rem;
 }
 
 .p-togglebutton.p-button {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  box-shadow: none;
+
+  &.p-highlight {
     background-color: transparent;
     border: none;
-    color: #333;
-    box-shadow: none;
 
-    &.p-highlight {
-        background-color: transparent;
-        border: none;
-
-        .p-button-icon-left,
-        .p-togglebutton.p-button.p-highlight .p-button-icon-right {
-            color: var(--surface-600);
-        }
-
-        &:hover {
-            background-color: transparent;
-
-            .p-button-icon-left,
-            .p-togglebutton.p-button.p-highlight .p-button-icon-right {
-                color: var(--surface-600);
-            }
-        }
+    .p-button-icon-left,
+    .p-togglebutton.p-button.p-highlight .p-button-icon-right {
+      color: var(--surface-600);
     }
+
+    &:hover {
+      background-color: transparent;
+
+      .p-button-icon-left,
+      .p-togglebutton.p-button.p-highlight .p-button-icon-right {
+        color: var(--surface-600);
+      }
+    }
+  }
 }
 </style>
