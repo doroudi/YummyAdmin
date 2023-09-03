@@ -3,7 +3,9 @@ import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 import {
   ChevronBackOutline as CollapseIcon,
+  Moon as MoonIcon,
   ChevronForwardOutline as OpenIcon,
+  Sunny as SunIcon,
 } from '@vicons/ionicons5'
 
 const { t } = useI18n()
@@ -29,7 +31,7 @@ const languages = availableLocales.map((x) => {
 <template>
   <n-page-header class="p-2">
     <template #title>
-      <n-button circle @click="layoutStore.toggleSidebar">
+      <n-button text size="tiny" circle @click="layoutStore.toggleSidebar">
         <template #icon>
           <NIcon>
             <OpenIcon v-if="collapsed" />
@@ -40,8 +42,15 @@ const languages = availableLocales.map((x) => {
     </template>
     <template #extra>
       <div class="flex items-center">
-        <i v-if="isDark" class="i-bx-sun" @click="layoutStore.toggleTheme()" />
-        <i v-else class="i-bx-moon" @click="layoutStore.toggleTheme()" />
+        <n-button text size="small" circle @click="layoutStore.toggleTheme()">
+          <template #icon>
+            <NIcon>
+              <SunIcon v-if="isDark" />
+              <MoonIcon v-else />
+            </NIcon>
+          </template>
+        </n-button>
+
         <div v-badge.danger class="mx-3">
           <i class="pi pi-bell p-badge-danger shake-item" />
         </div>

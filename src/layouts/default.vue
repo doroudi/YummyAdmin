@@ -15,10 +15,11 @@
 
 <style lang="scss">
 .n-layout {
+  padding: 0.7rem!important;
   background-color: transparent!important;
 }
 .main {
-  padding-left: var(--sidebar-width);
+  // padding-left: var(--sidebar-width);
   padding-right: 1rem;
   transition: all 0.3s ease-in;
 
