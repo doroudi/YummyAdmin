@@ -15,7 +15,7 @@
 
 <style lang="scss">
 .n-layout {
-  padding: 0.7rem!important;
+  padding: 0.7rem .7rem .7rem 0!important;
   background-color: transparent!important;
 }
 .main {
