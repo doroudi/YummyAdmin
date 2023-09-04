@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { ref } from 'vue'
 import {
   ChevronBackOutline as CollapseIcon,
   Moon as MoonIcon,
@@ -9,23 +8,21 @@ import {
 } from '@vicons/ionicons5'
 
 const { t } = useI18n()
-const languageMenu = ref()
 const layoutStore = useLayoutStore()
-const { collapsed } = storeToRefs(layoutStore)
-const { availableLocales, locale } = useI18n()
+const { collapsed, activeLanguage } = storeToRefs(layoutStore)
+const { availableLocales } = useI18n()
+const language = ref(activeLanguage)
 
-function update() {
-  layoutStore.toggleSidebar()
-}
-function toggleLanguageMenu(event: any) {
-  languageMenu.value.toggle(event)
-}
 const languages = availableLocales.map((x) => {
   return {
     label: t(x),
-    command: () => layoutStore.changeLanguage(x),
+    value: x,
   }
 })
+
+function changeLanguage(lang: string) {
+  layoutStore.changeLanguage(lang)
+}
 </script>
 
 <template>
@@ -33,10 +30,10 @@ const languages = availableLocales.map((x) => {
     <template #title>
       <n-button text size="tiny" circle @click="layoutStore.toggleSidebar">
         <template #icon>
-          <NIcon>
+          <n-icon>
             <OpenIcon v-if="collapsed" />
             <CollapseIcon v-else />
-          </NIcon>
+          </n-icon>
         </template>
       </n-button>
     </template>
@@ -55,8 +52,11 @@ const languages = availableLocales.map((x) => {
           <i class="pi pi-bell p-badge-danger shake-item" />
         </div>
         <div>
-          <Button :label="t(locale)" class="p-button-plain p-button-text p-button-sm" @click="toggleLanguageMenu" />
-          <Menu ref="languageMenu" :model="languages" :popup="true" />
+          <n-popselect v-model="language" :options="languages" @change="changeLanguage">
+            <n-button>{{ t(activeLanguage) }}</n-button>
+          </n-popselect>
+          <!-- <Button :label="t(locale)" class="p-button-plain p-button-text p-button-sm" @click="toggleLanguageMenu" />
+          <Menu ref="languageMenu" :model="languages" :popup="true" /> -->
         </div>
 
         <UserProfile />
