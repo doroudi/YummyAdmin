@@ -26,9 +26,9 @@ function changeLanguage(lang: string) {
 </script>
 
 <template>
-  <n-page-header class="p-2">
+  <n-page-header class="p-2 navbar">
     <template #title>
-      <n-button text size="tiny" circle @click="layoutStore.toggleSidebar">
+      <n-button mx-2 text size="tiny" circle @click="layoutStore.toggleSidebar">
         <template #icon>
           <n-icon>
             <OpenIcon v-if="collapsed" />
@@ -48,10 +48,10 @@ function changeLanguage(lang: string) {
           </template>
         </n-button>
 
-        <div v-badge.danger class="mx-3">
+        <!-- <div v-badge.danger class="mx-3">
           <i class="pi pi-bell p-badge-danger shake-item" />
-        </div>
-        <div>
+        </div> -->
+        <div class="mx-2">
           <n-popselect v-model="language" :options="languages" @change="changeLanguage">
             <n-button>{{ t(activeLanguage) }}</n-button>
           </n-popselect>
@@ -63,16 +63,6 @@ function changeLanguage(lang: string) {
       </div>
     </template>
   </n-page-header>
-  <nav class="navbar flex p-1 justify-between items-center">
-    <div class="flex items-center justify-between">
-      <!-- <n-toggle
-        v-model="toggleButtonState" on-label=""
-        class="p-button p-button-rounded p-button-link  p-button-plain p-button-sm" off-label=""
-        off-icon="i-bx-menu-alt-left" on-icon="i-bx-menu" @change="update()"
-      /> -->
-      <!-- <BreadCrumb /> -->
-    </div>
-  </nav>
 </template>
 
 <style lang="scss">
