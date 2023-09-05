@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import {
-  ChevronBackOutline as CollapseIcon,
-  Moon as MoonIcon,
-  ChevronForwardOutline as OpenIcon,
-  Sunny as SunIcon,
-} from '@vicons/ionicons5'
+  WeatherMoon48Regular as MoonIcon,
+  WeatherSunny48Regular as SunIcon,
+} from '@vicons/fluent'
+import {
+  LayoutSidebarLeftCollapse as CollapseIcon,
+  LayoutSidebarLeftExpand as OpenIcon,
+} from '@vicons/tabler'
 
 const { t } = useI18n()
 const layoutStore = useLayoutStore()
@@ -28,9 +30,9 @@ function changeLanguage(lang: string) {
 <template>
   <n-page-header class="p-2 navbar">
     <template #title>
-      <n-button mx-2 text size="tiny" circle @click="layoutStore.toggleSidebar">
+      <n-button mx-2 text size="small" circle @click="layoutStore.toggleSidebar">
         <template #icon>
-          <n-icon>
+          <n-icon size="1.4rem">
             <OpenIcon v-if="collapsed" />
             <CollapseIcon v-else />
           </n-icon>
@@ -39,18 +41,14 @@ function changeLanguage(lang: string) {
     </template>
     <template #extra>
       <div class="flex items-center">
-        <n-button text size="small" circle @click="layoutStore.toggleTheme()">
+        <n-button text circle @click="layoutStore.toggleTheme()">
           <template #icon>
-            <NIcon>
+            <NIcon size="1.4rem">
               <SunIcon v-if="isDark" />
               <MoonIcon v-else />
             </NIcon>
           </template>
         </n-button>
-
-        <!-- <div v-badge.danger class="mx-3">
-          <i class="pi pi-bell p-badge-danger shake-item" />
-        </div> -->
         <div class="mx-2">
           <n-popselect v-model="language" :options="languages" @change="changeLanguage">
             <n-button>{{ t(activeLanguage) }}</n-button>

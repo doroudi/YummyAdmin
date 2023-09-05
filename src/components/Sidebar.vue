@@ -1,32 +1,32 @@
 <script setup lang="ts">
 import type { MenuOption } from 'naive-ui'
 import {
-  BookOutline as BookIcon,
-
-  PersonOutline as PersonIcon, WineOutline as WineIcon,
-} from '@vicons/ionicons5'
+  Folder28Regular as CategoryIcon,
+  Home28Regular as DashboardIcon,
+  Apps28Filled as ProductsIcon,
+} from '@vicons/fluent'
 
 import { storeToRefs } from 'pinia'
 import { NIcon } from 'naive-ui/es/icon'
 
 const layoutStore = useLayoutStore()
-const { collapsed, isRtl } = storeToRefs(layoutStore)
+const { collapsed } = storeToRefs(layoutStore)
 const { t } = useI18n()
 const menuOptions: MenuOption[] = [
   {
     label: 'Dashboard',
-    key: 'hear-the-wind-sing',
-    icon: renderIcon(BookIcon),
+    key: 'dashboard',
+    icon: renderIcon(DashboardIcon),
+  },
+  {
+    label: 'Categories',
+    key: 'categories',
+    icon: renderIcon(CategoryIcon),
   },
   {
     label: 'Products',
-    key: 'pinball-1973',
-    icon: renderIcon(PersonIcon),
-  },
-  {
-    label: 'A Wild Sheep Chase',
-    key: 'a-wild-sheep-chase',
-    icon: renderIcon(WineIcon),
+    key: 'products',
+    icon: renderIcon(ProductsIcon),
   },
 
 ]

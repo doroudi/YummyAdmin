@@ -7,15 +7,11 @@ const items = ref(
     { label: t('userMenu.options'), icon: 'i-bx-cog', to: '/options' },
     { label: t('userMenu.signOut'), icon: 'i-bx-log-out', to: '/logout' },
   ])
-
-function toggleMenu(event: any) {
-  menu.value.toggle(event)
-}
 </script>
 
 <template>
   <div class="flex items-center">
-    <n-avatar round size="medium" ml-2 src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" />
+    <img class="avatar" src="@/assets/images/profile.jpg">
     <div class="flex flex-col p-2">
       <h3 class="username">
         User Name
@@ -35,6 +31,11 @@ function toggleMenu(event: any) {
   font-weight: bold;
 }
 
+.avatar {
+  width: 35px;
+  border-radius: 50%;
+  height: 35px;
+}
 .role {
   font-size: 0.7rem;
 }

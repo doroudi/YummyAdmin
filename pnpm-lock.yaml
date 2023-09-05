@@ -58,7 +58,13 @@ devDependencies:
   '@unocss/eslint-config':
     specifier: ^0.53.5
     version: 0.53.5(eslint@8.44.0)(typescript@5.1.6)
+  '@vicons/fluent':
+    specifier: ^0.12.0
+    version: 0.12.0
   '@vicons/ionicons5':
+    specifier: ^0.12.0
+    version: 0.12.0
+  '@vicons/tabler':
     specifier: ^0.12.0
     version: 0.12.0
   '@vitejs/plugin-vue':
@@ -3192,8 +3198,16 @@ packages:
       - rollup
     dev: true
 
+  /@vicons/fluent@0.12.0:
+    resolution: {integrity: sha512-ATCiqPuiJ6RI5GBlD3BIpZ9Xw4MsCA4RpI5oR6MCti4quS4mX1Gp6N74FCzw7lgOj+80rV4HMKhZTVInwimpVQ==}
+    dev: true
+
   /@vicons/ionicons5@0.12.0:
     resolution: {integrity: sha512-Iy1EUVRpX0WWxeu1VIReR1zsZLMc4fqpt223czR+Rpnrwu7pt46nbnC2ycO7ItI/uqDLJxnbcMC7FujKs9IfFA==}
+    dev: true
+
+  /@vicons/tabler@0.12.0:
+    resolution: {integrity: sha512-3+wUFuxb7e8OzZ8Wryct1pzfA2vyoF4lwW98O9s27ZrfCGaJGNmqG+q8A7vQ92Mf+COCgxpK+rhNPTtTvaU6qw==}
     dev: true
 
   /@vitejs/plugin-vue@4.2.3(vite@4.4.3)(vue@3.3.4):
@@ -3853,7 +3867,7 @@ packages:
   /@vueuse/shared@10.2.1(vue@3.3.4):
     resolution: {integrity: sha512-QWHq2bSuGptkcxx4f4M/fBYC3Y8d3M2UYyLsyzoPgEoVzJURQ0oJeWXu79OiLlBb8gTKkqe4mO85T/sf39mmiw==}
     dependencies:
-      vue-demi: 0.14.5(vue@3.3.4)
+      vue-demi: 0.14.6(vue@3.3.4)
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -11093,7 +11107,6 @@ packages:
         optional: true
     dependencies:
       vue: 3.3.4
-    dev: true
 
   /vue-eslint-parser@9.3.0(eslint@8.44.0):
     resolution: {integrity: sha512-48IxT9d0+wArT1+3wNIy0tascRoywqSUe2E1YalIC1L8jsUGe5aJQItWfRok7DVFGz3UYvzEI7n5wiTXsCMAcQ==}
