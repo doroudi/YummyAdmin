@@ -1,22 +1,19 @@
 <script setup lang="ts">
+import { ChevronCircleDown20Regular as ChevronIcon } from '@vicons/fluent'
+
 const { t } = useI18n()
 
-const menu = ref()
-const items = ref(
-  [
+const items
+  = [
     { label: t('userMenu.options'), icon: 'i-bx-cog', to: '/options' },
     { label: t('userMenu.signOut'), icon: 'i-bx-log-out', to: '/logout' },
-  ])
-
-function toggleMenu(event: any) {
-  menu.value.toggle(event)
-}
+  ]
 </script>
 
 <template>
   <div class="flex items-center">
-    <Avatar class="mx-2" />
-    <div class="flex flex-col">
+    <img class="avatar" src="@/assets/images/profile.jpg">
+    <div class="flex flex-col p-2">
       <h3 class="username">
         User Name
       </h3>
@@ -24,33 +21,46 @@ function toggleMenu(event: any) {
         User Role
       </h5>
     </div>
-    <Button
-      icon="i-bx-chevron-down" class="p-button p-button-rounded p-button-link p-button-plain p-button-sm"
-      @click="toggleMenu"
-    />
-    <TieredMenu ref="menu" :model="items" :popup="true" />
+
+    <n-popselect :options="items">
+      <n-button mx-2 text size="small" circle>
+        <template #icon>
+          <n-icon size="1.4rem">
+            <ChevronIcon />
+          </n-icon>
+        </template>
+      </n-button>
+    </n-popselect>
+    <!-- <TieredMenu ref="menu" :model="items" :popup="true" /> -->
   </div>
 </template>
 
 <style lang="scss">
 .username {
-    font-size: 0.8rem;
-    font-weight: bold;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.avatar {
+  width: 35px;
+  border-radius: 50%;
+  height: 35px;
 }
 
 .role {
-    font-size: 0.7rem;
+  font-size: 0.7rem;
 }
 
 .p-tieredmenu .p-menuitem-active>.p-submenu-list {
-    right: 100%;
-    left: auto;
+  right: 100%;
+  left: auto;
 }
+
 .rtl {
 
-.p-tieredmenu .p-menuitem-active>.p-submenu-list {
+  .p-tieredmenu .p-menuitem-active>.p-submenu-list {
     right: auto;
     left: 100%;
-}
+  }
 }
 </style>

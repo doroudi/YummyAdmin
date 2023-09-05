@@ -9,6 +9,8 @@ import scrollbarRtl from 'naive-ui/es/_internal/scrollbar/styles/rtl'
 import { tagRtl } from 'naive-ui/es/tag/styles'
 import themeOverrides from '~/common/theme/theme-overrides'
 
+const layout = useLayoutStore()
+
 const rtlStyles = [
   buttonRtl,
   tableRtl,
@@ -37,6 +39,16 @@ useHead({
       href: () => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg',
     },
   ],
+})
+
+watch(() => layout.activeLanguage, () => {
+  const body = document.querySelector('body') as HTMLElement
+  if (layout.isRtl)
+    body.classList.add('rtl')
+  else
+    body.classList.remove('rtl')
+}, {
+  immediate: true,
 })
 </script>
 

@@ -47,10 +47,10 @@ body {
   height: 2px;
 }
 
-.main-content {
+.main-content { 
   background: #fff;
   border-radius: 10px;
-  min-height: 95vh;
+  min-height: calc(100vh - 1.6rem);
 }
 
 @import 'dark';

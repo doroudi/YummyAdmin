@@ -2,33 +2,35 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 
 export const useLayoutStore = defineStore('layout', () => {
   const collapsed = ref(false)
-  const activeLanguage = ref('en')
+  const activeLanguage = ref('English')
+  const isRtl = ref(false)
+  const { t, locale } = useI18n()
 
   function toggleSidebar() {
     collapsed.value = !collapsed.value
-  }
-
-  function changeLanguage(lang: string) {
-    activeLanguage.value = lang
   }
 
   function toggleTheme() {
     toggleDark()
   }
 
-  const isRtl = computed(() => {
-    const { t } = useI18n()
+  function changeLanguage(lang: string) {
+    activeLanguage.value = lang
+    locale.value = lang
     const dir = t('direction')
-    return (dir && dir === 'rtl')
-  })
+    isRtl.value = (dir !== null && dir === 'rtl')
+  }
 
   return {
     collapsed,
     toggleSidebar,
     toggleTheme,
-    changeLanguage,
     isRtl,
+    activeLanguage,
+    changeLanguage,
   }
+}, {
+  persist: true,
 })
 
 if (import.meta.hot)

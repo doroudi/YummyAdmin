@@ -1,16 +1,11 @@
 <script setup lang="ts">
 // const layout = useLayoutStore()
-const collapsed = ref(false)
 </script>
 
 <template>
   <n-layout has-sider>
-    <n-layout-sider
-      bordered collapse-mode="width" :collapsed-width="64" :width="240" :collapsed="collapsed" show-trigger
-      @collapse="collapsed = true" @expand="collapsed = false"
-    >
-      <Sidebar />
-    </n-layout-sider>
+    <Sidebar />
+
     <div class="main-content flex-1 bg-slate-100 dark:bg-slate-800 dark:text-white">
       <Navbar />
       <RouterView />
@@ -20,10 +15,11 @@ const collapsed = ref(false)
 
 <style lang="scss">
 .n-layout {
+  padding: 0.7rem .7rem .7rem 0!important;
   background-color: transparent!important;
 }
 .main {
-  padding-left: var(--sidebar-width);
+  // padding-left: var(--sidebar-width);
   padding-right: 1rem;
   transition: all 0.3s ease-in;
 
