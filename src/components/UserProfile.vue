@@ -1,12 +1,13 @@
 <script setup lang="ts">
+import { ChevronCircleDown20Regular as ChevronIcon } from '@vicons/fluent'
+
 const { t } = useI18n()
 
-const menu = ref()
-const items = ref(
-  [
+const items
+  = [
     { label: t('userMenu.options'), icon: 'i-bx-cog', to: '/options' },
     { label: t('userMenu.signOut'), icon: 'i-bx-log-out', to: '/logout' },
-  ])
+  ]
 </script>
 
 <template>
@@ -21,6 +22,15 @@ const items = ref(
       </h5>
     </div>
 
+    <n-popselect :options="items">
+      <n-button mx-2 text size="small" circle>
+        <template #icon>
+          <n-icon size="1.4rem">
+            <ChevronIcon />
+          </n-icon>
+        </template>
+      </n-button>
+    </n-popselect>
     <!-- <TieredMenu ref="menu" :model="items" :popup="true" /> -->
   </div>
 </template>
@@ -36,6 +46,7 @@ const items = ref(
   border-radius: 50%;
   height: 35px;
 }
+
 .role {
   font-size: 0.7rem;
 }

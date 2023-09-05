@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import type { MenuOption } from 'naive-ui'
 import {
-  Folder28Regular as CategoryIcon,
-  Home28Regular as DashboardIcon,
-  Apps28Filled as ProductsIcon,
+  Folder32Regular as CategoryIcon,
+  CommentMultiple32Regular as CommentsIcon,
+  People28Regular as CustomersIcon,
+  Home32Regular as DashboardIcon,
+  Cart24Regular as InvoicesIcon,
+  News20Regular as NewsIcon,
+  Apps24Filled as ProductsIcon,
+  Settings28Regular as SettingsIcon,
 } from '@vicons/fluent'
 
 import { storeToRefs } from 'pinia'
@@ -28,7 +33,31 @@ const menuOptions: MenuOption[] = [
     key: 'products',
     icon: renderIcon(ProductsIcon),
   },
-
+  {
+    label: 'Invoices',
+    key: 'products',
+    icon: renderIcon(InvoicesIcon),
+  },
+  {
+    label: 'Comments',
+    key: 'comments',
+    icon: renderIcon(CommentsIcon),
+  },
+  {
+    label: 'Customers',
+    key: 'customers',
+    icon: renderIcon(CustomersIcon),
+  },
+  {
+    label: 'Settings',
+    key: 'comments',
+    icon: renderIcon(SettingsIcon),
+  },
+  {
+    label: 'News',
+    key: 'news',
+    icon: renderIcon(NewsIcon),
+  },
 ]
 
 function renderIcon(icon: any) {
@@ -38,7 +67,7 @@ function renderIcon(icon: any) {
 
 <template>
   <n-layout-sider collapse-mode="width" :collapsed-width="64" :collapsed="collapsed" :class="{ collapsed }">
-    <div class="flex items-center justify-between w-full p-4">
+    <div flex items-center justify-between w-full p-4>
       <div flex items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
         {{ (!collapsed) ? t('title') : '' }}
