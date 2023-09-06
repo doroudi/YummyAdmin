@@ -10,51 +10,69 @@ import {
   Apps24Filled as ProductsIcon,
   Settings28Regular as SettingsIcon,
 } from '@vicons/fluent'
-
+import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { NIcon } from 'naive-ui/es/icon'
 
 const layoutStore = useLayoutStore()
 const { collapsed } = storeToRefs(layoutStore)
 const { t } = useI18n()
+
+function renderLabel(title: string, path: string) {
+  return h(
+    RouterLink,
+    {
+      to: {
+        path,
+      },
+    },
+    { default: () => title },
+  )
+}
 const menuOptions: MenuOption[] = [
   {
-    label: 'Dashboard',
+    label: () => renderLabel('Dashboard', ''),
     key: 'dashboard',
     icon: renderIcon(DashboardIcon),
   },
   {
-    label: 'Categories',
+    label: () => renderLabel('Categories', 'categories'),
     key: 'categories',
     icon: renderIcon(CategoryIcon),
   },
   {
-    label: 'Products',
+    label: () => renderLabel('Products', 'products'),
     key: 'products',
     icon: renderIcon(ProductsIcon),
+    children: [
+      {
+        label: renderLabel('Add New', 'products/create'),
+        key: 'add-product',
+      },
+    ],
   },
   {
-    label: 'Invoices',
-    key: 'products',
+    label: () => renderLabel('Invoices', 'invoices'),
+    key: 'invoices',
     icon: renderIcon(InvoicesIcon),
   },
   {
-    label: 'Comments',
+    label: () => renderLabel('Comments', 'comments'),
     key: 'comments',
     icon: renderIcon(CommentsIcon),
   },
   {
-    label: 'Customers',
+    label: () => renderLabel('Customers', 'customers'),
     key: 'customers',
     icon: renderIcon(CustomersIcon),
   },
   {
-    label: 'Settings',
+    label: () => renderLabel('Comments', 'comments'),
     key: 'comments',
     icon: renderIcon(SettingsIcon),
   },
   {
-    label: 'News',
+    label: () => renderLabel('News', 'news'),
     key: 'news',
     icon: renderIcon(NewsIcon),
   },
