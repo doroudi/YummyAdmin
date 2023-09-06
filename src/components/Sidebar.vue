@@ -31,7 +31,7 @@ function renderLabel(title: string, path: string) {
 }
 const menuOptions: MenuOption[] = [
   {
-    label: () => renderLabel('Dashboard', ''),
+    label: () => renderLabel('Dashboard', 'Dashboard'),
     key: 'dashboard',
     icon: renderIcon(DashboardIcon),
   },
@@ -67,7 +67,7 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(CustomersIcon),
   },
   {
-    label: () => renderLabel('Comments', 'comments'),
+    label: () => renderLabel('Settings', 'settings'),
     key: 'comments',
     icon: renderIcon(SettingsIcon),
   },
