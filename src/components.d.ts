@@ -7,7 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Card: typeof import('./components/Card.vue')['default']
+    DashboardCard: typeof import('./components/DashboardCard.vue')['default']
     Navbar: typeof import('./components/Navbar.vue')['default']
+    NBadge: typeof import('naive-ui')['NBadge']
     NButton: typeof import('naive-ui')['NButton']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDialogProvider: typeof import('naive-ui')['NDialogProvider']
