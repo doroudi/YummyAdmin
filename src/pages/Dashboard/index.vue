@@ -9,10 +9,11 @@ import {
 
 <template>
   <div class="margin-outside flex pb-3">
-    <DashboardCard :icon="UserIcon" title="Registers" :progress="10" :value="250" />
-    <DashboardCard :icon="BoxIcon" title="Products" :progress="10" :value="3600" />
-    <DashboardCard :icon="BasketIcon" title="Sells" :progress="-50" :value="5000" />
-    <DashboardCard :icon="StatIcon" title="Visits" :progress="-1" :value="1500" />
+    <DashboardCard class="w-1/5" :icon="UserIcon" title="Registers" :progress="10" :value="250" />
+    <DashboardCard class="w-1/5" :icon="BoxIcon" title="Products" :progress="10" :value="3600" />
+    <DashboardCard class="w-1/5" :icon="BasketIcon" title="Sells" :progress="-50" :value="5000" />
+    <DashboardCard class="w-1/5" :icon="StatIcon" title="Visits" :progress="-1" :value="1500" />
+    <DashboardCard class="w-1/5" :icon="StatIcon" title="Visits" :progress="-1" :value="1500" />
   </div>
 </template>
 

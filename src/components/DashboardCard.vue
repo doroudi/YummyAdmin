@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="p-2 w-1/4">
+  <div class="p-2" v-bind="props">
     <Card>
       <div class="inner flex flex-col">
         <div class="head flex justify-between items-center">

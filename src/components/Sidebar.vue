@@ -46,7 +46,7 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(ProductsIcon),
     children: [
       {
-        label: renderLabel('Add New', 'products/create'),
+        label: () => renderLabel('Add New', 'products'),
         key: 'add-product',
       },
     ],
@@ -85,13 +85,13 @@ function renderIcon(icon: any) {
 
 <template>
   <n-layout-sider collapse-mode="width" :collapsed-width="64" :collapsed="collapsed" :class="{ collapsed }">
-    <div flex items-center justify-between w-full p-4>
+    <div flex items-center justify-between w-full p-2>
       <div flex items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
         {{ (!collapsed) ? t('title') : '' }}
       </div>
     </div>
-    <n-menu :options="menuOptions" />
+    <n-menu :collapsed-width="64" :collapsed-icon-size="22" :options="menuOptions" />
   </n-layout-sider>
 </template>
 
