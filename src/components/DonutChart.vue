@@ -1,0 +1,117 @@
+<script setup lang="ts">
+import VueApexCharts from 'vue3-apexcharts'
+import { ref } from 'vue'
+
+const donutChartOptions = ref({
+  chart: {
+    type: 'donut',
+    toolbar: {
+      show: false,
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  legend: {
+    show: true,
+    position: 'right',
+    offsetX: -30,
+    offsetY: 20,
+    formatter: (value: any, opts: any): any => {
+      return `${value} - ${opts.w.globals.series[opts.seriesIndex]}`
+    },
+    markers: {
+      onClick: undefined,
+      offsetX: 0,
+      offsetY: 25,
+    },
+  },
+  labels: ['Tech', 'Cloth', 'HH', 'Food'],
+  stroke: {
+    width: 0,
+    show: true,
+    curve: 'smooth',
+    lineCap: 'round',
+  },
+  colors: ['#3db9af', '#37938d', '#276e6b', '#7fcdca'],
+  grid: {
+    padding: {
+      right: -20,
+      bottom: -8,
+      left: -20,
+    },
+  },
+  plotOptions: {
+    pie: {
+      borderRadius: 10,
+      startAngle: -20,
+      donut: {
+        borderRadius: 10,
+
+        labels: {
+          show: true,
+          name: {
+            offsetY: 15,
+          },
+          value: {
+            offsetY: -15,
+            formatter(t: string): any {
+              return ''.concat(Number.parseInt(t).toString(), '%')
+            },
+          },
+          total: {
+            show: true,
+            offsetY: 15,
+            label: 'App',
+            formatter() {
+              return '53%'
+            },
+          },
+        },
+      },
+    },
+  },
+  responsive: [{
+    breakpoint: 1325,
+    options: {
+      chart: {
+        height: 100,
+      },
+    },
+  }, {
+    breakpoint: 1200,
+    options: {
+      chart: {
+        height: 120,
+      },
+    },
+  }, {
+    breakpoint: 1045,
+    options: {
+      chart: {
+        height: 100,
+      },
+    },
+  }, {
+    breakpoint: 992,
+    options: {
+      chart: {
+        height: 120,
+      },
+    },
+  }],
+},
+)
+
+const donutSeries = ref(
+  [30, 40, 45, 10],
+)
+</script>
+
+<template>
+  <VueApexCharts :series="donutSeries" height="180" :options="donutChartOptions" />
+</template>
+
+<style lang="scss" scoped>
+
+</style>
