@@ -1,0 +1,96 @@
+<script lang="ts" setup>
+import VueApexCharts from 'vue3-apexcharts'
+import { ref } from 'vue'
+
+const barChartOptions = ref({
+  chart: {
+    type: 'line',
+    toolbar: {
+      show: false,
+    },
+    zoom: {
+      enabled: false,
+    },
+  },
+  grid: {
+    borderColor: '#ccc',
+    strokeDashArray: 5,
+    xaxis: {
+      lines: {
+        show: true,
+      },
+    },
+    yaxis: {
+      lines: {
+        show: false,
+      },
+    },
+    padding: {
+      top: -30,
+      bottom: -10,
+    },
+  },
+  stroke: {
+    width: 3,
+  },
+  colors: ['#377d71', '#fc0'],
+  markers: {
+    size: 3,
+    colors: ['#377d71', '#fc0'],
+    strokeColors: ['#377d71', '#fc0'],
+    strokeWidth: 3,
+    strokeOpacity: 1,
+    strokeDashArray: 0,
+    fillOpacity: 1,
+    // discrete: [{
+    //   seriesIndex: 0,
+    //   dataPointIndex: 5,
+    //   fillColor: '#15302b',
+    //   strokeColor: ['#15302b', '#eee'],
+    //   size: 6,
+    // }],
+    shape: 'circle',
+    radius: 2,
+    hover: {
+      size: 6,
+    },
+  },
+  xaxis: {
+    labels: {
+      show: true,
+      style: {
+        fontSize: '0px',
+      },
+    },
+    axisBorder: {
+      show: false,
+    },
+    axisTicks: {
+      show: false,
+    },
+  },
+  yaxis: {
+    show: false,
+  },
+  tooltip: {
+    x: {
+      show: false,
+    },
+  },
+})
+
+const series = ref([
+  {
+    name: 'series-1',
+    data: [30, 40, 35, 50, 49, 6, 70, 91],
+  },
+])
+</script>
+
+<template>
+  <VueApexCharts type="line" height="180" :options="barChartOptions" :series="series" />
+</template>
+
+<style lang="scss" scoped>
+
+</style>
