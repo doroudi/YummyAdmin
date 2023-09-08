@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  Dashboard
+  <div />
 </template>
 
 <style lang="scss" scoped>

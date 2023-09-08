@@ -10,51 +10,69 @@ import {
   Apps24Filled as ProductsIcon,
   Settings28Regular as SettingsIcon,
 } from '@vicons/fluent'
-
+import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { NIcon } from 'naive-ui/es/icon'
 
 const layoutStore = useLayoutStore()
 const { collapsed } = storeToRefs(layoutStore)
 const { t } = useI18n()
+
+function renderLabel(title: string, path: string) {
+  return h(
+    RouterLink,
+    {
+      to: {
+        path,
+      },
+    },
+    { default: () => title },
+  )
+}
 const menuOptions: MenuOption[] = [
   {
-    label: 'Dashboard',
+    label: () => renderLabel('Dashboard', 'Dashboard'),
     key: 'dashboard',
     icon: renderIcon(DashboardIcon),
   },
   {
-    label: 'Categories',
+    label: () => renderLabel('Categories', 'categories'),
     key: 'categories',
     icon: renderIcon(CategoryIcon),
   },
   {
-    label: 'Products',
+    label: () => renderLabel('Products', 'products'),
     key: 'products',
     icon: renderIcon(ProductsIcon),
+    children: [
+      {
+        label: () => renderLabel('Add New', 'products'),
+        key: 'add-product',
+      },
+    ],
   },
   {
-    label: 'Invoices',
-    key: 'products',
+    label: () => renderLabel('Invoices', 'invoices'),
+    key: 'invoices',
     icon: renderIcon(InvoicesIcon),
   },
   {
-    label: 'Comments',
+    label: () => renderLabel('Comments', 'comments'),
     key: 'comments',
     icon: renderIcon(CommentsIcon),
   },
   {
-    label: 'Customers',
+    label: () => renderLabel('Customers', 'customers'),
     key: 'customers',
     icon: renderIcon(CustomersIcon),
   },
   {
-    label: 'Settings',
+    label: () => renderLabel('Settings', 'settings'),
     key: 'comments',
     icon: renderIcon(SettingsIcon),
   },
   {
-    label: 'News',
+    label: () => renderLabel('News', 'news'),
     key: 'news',
     icon: renderIcon(NewsIcon),
   },
@@ -67,13 +85,13 @@ function renderIcon(icon: any) {
 
 <template>
   <n-layout-sider collapse-mode="width" :collapsed-width="64" :collapsed="collapsed" :class="{ collapsed }">
-    <div flex items-center justify-between w-full p-4>
+    <div flex items-center justify-between w-full p-2>
       <div flex items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
         {{ (!collapsed) ? t('title') : '' }}
       </div>
     </div>
-    <n-menu :options="menuOptions" />
+    <n-menu :collapsed-width="64" :collapsed-icon-size="22" :options="menuOptions" />
   </n-layout-sider>
 </template>
 

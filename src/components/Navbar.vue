@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import {
+  PanelLeftContract16Regular as CollapseIcon,
   WeatherMoon48Regular as MoonIcon,
+  PanelLeftExpand20Regular as OpenIcon,
   WeatherSunny48Regular as SunIcon,
 } from '@vicons/fluent'
-import {
-  LayoutSidebarLeftCollapse as CollapseIcon,
-  LayoutSidebarLeftExpand as OpenIcon,
-} from '@vicons/tabler'
 
 const { t } = useI18n()
 const layoutStore = useLayoutStore()

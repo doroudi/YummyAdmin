@@ -8,7 +8,9 @@
 
     <div class="main-content flex-1 bg-slate-100 dark:bg-slate-800 dark:text-white">
       <Navbar />
-      <RouterView />
+      <div class="p-3">
+        <RouterView />
+      </div>
     </div>
   </n-layout>
 </template>
