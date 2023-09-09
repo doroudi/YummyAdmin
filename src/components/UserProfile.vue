@@ -2,12 +2,17 @@
 import { ChevronCircleDown20Regular as ChevronIcon } from '@vicons/fluent'
 
 const { t } = useI18n()
-
+const selectedItem = ref('')
+const router = useRouter()
 const items
   = [
-    { label: t('userMenu.options'), icon: 'i-bx-cog', to: '/options' },
-    { label: t('userMenu.signOut'), icon: 'i-bx-log-out', to: '/logout' },
+    { label: t('userMenu.options'), to: '/options', value: () => { router.push('/options') } },
+    { label: t('userMenu.signOut'), to: '/logout', value: () => { router.push('/account/login') } },
   ]
+
+function doMenuAction(value: any) {
+  value()
+}
 </script>
 
 <template>
@@ -22,7 +27,7 @@ const items
       </h5>
     </div>
 
-    <n-popselect :options="items">
+    <n-popselect v-model="selectedItem" :options="items" @change="doMenuAction">
       <n-button mx-2 text size="small" circle>
         <template #icon>
           <n-icon size="1.4rem">

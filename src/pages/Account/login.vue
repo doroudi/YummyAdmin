@@ -6,12 +6,10 @@ import { storeToRefs } from 'pinia'
 
 const layoutStore = useLayoutStore()
 
-const loginFailed = ref(false)
-const isLoading = ref(false)
-const submitted = ref(false)
 const { t, availableLocales } = useI18n()
 const { activeLanguage } = storeToRefs(layoutStore)
-const accoutnStore = useAccountStore()
+const accountStore = useAccountStore()
+const { user, isLoading, loginFailed } = storeToRefs(accountStore)
 const language = ref(activeLanguage)
 
 const languages = availableLocales.map((x) => {
@@ -36,25 +34,8 @@ const rules = {
 }
 const v$ = useVuelidate(rules, state)
 
-async function login(isFormValid: boolean) {
-  submitted.value = true
-  if (!isFormValid)
-    return
-
-  isLoading.value = true
-  setTimeout(async () => {
-    if (user.value.username === 'admin' && user.value.password === 'admin') {
-      // const response = await authService.login(user.value.username, user.value.password)
-      isLoading.value = false
-      //   toast.add({ severity: 'success', summary: 'Login Succeed', detail: 'Redirecting', life: 3000 })
-      return
-    }
-
-    isLoading.value = false
-    loginFailed.value = true
-    // toast.add({ severity: 'error', summary: t('login.failedMessage'), detail: 'Error Message', life: 3000 })
-    setTimeout(() => loginFailed.value = false, 2000)
-  }, 1000)
+async function login() {
+  accountStore.login()
 }
 </script>
 
@@ -74,13 +55,13 @@ meta:
           <div class="text-2xl font-medium mb-8">
             {{ t('login.title') }}
           </div>
-          <form class="p-fluid" @submit.prevent="login(!v$.$invalid)">
+          <form class="p-fluid" @submit.prevent="login()">
             <div class="mb-5">
               <span class="p-float-label">
                 <label for="username" class="block font-medium">{{ t('login.username') }}</label>
                 <n-input
                   id="username" v-model="v$.username.$model" type="text" class="w-full"
-                  :class="{ 'p-invalid': v$.username.$invalid && submitted }"
+                  :class="{ 'p-invalid': v$.username.$invalid }"
                 />
               </span>
             </div>
@@ -89,7 +70,7 @@ meta:
               <label for="password" class="block  font-medium">{{ t('login.password') }}</label>
               <n-input
                 v-model="v$.password.$model" type="password" show-password-on="mousedown"
-                :class="{ 'p-invalid': v$.password.$invalid && submitted }" :toggle-mask="true"
+                :class="{ 'p-invalid': v$.password.$invalid }" :toggle-mask="true"
                 :feedback="false" class="w-full"
               />
             </div>
