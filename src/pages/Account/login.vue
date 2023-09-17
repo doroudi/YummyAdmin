@@ -1,38 +1,9 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
-import { required } from '@vuelidate/validators'
-import { useVuelidate } from '@vuelidate/core'
 import { storeToRefs } from 'pinia'
 
-const layoutStore = useLayoutStore()
-
-const { t, availableLocales } = useI18n()
-const { activeLanguage } = storeToRefs(layoutStore)
+const { t } = useI18n()
 const accountStore = useAccountStore()
-const { user, isLoading, loginFailed } = storeToRefs(accountStore)
-const language = ref(activeLanguage)
-
-const languages = availableLocales.map((x) => {
-  return {
-    label: t(x),
-    value: x,
-  }
-})
-
-function changeLanguage(lang: string) {
-  layoutStore.changeLanguage(lang)
-}
-
-const state = reactive({
-  username: '',
-  password: '',
-})
-
-const rules = {
-  username: { required },
-  password: { required },
-}
-const v$ = useVuelidate(rules, state)
+const { isLoading, loginFailed } = storeToRefs(accountStore)
 
 async function login() {
   accountStore.login()
@@ -55,24 +26,17 @@ meta:
           <div class="text-2xl font-medium mb-8">
             {{ t('login.title') }}
           </div>
-          <form class="p-fluid" @submit.prevent="login()">
+          <form @submit.prevent="login()">
             <div class="mb-5">
               <span class="p-float-label">
                 <label for="username" class="block font-medium">{{ t('login.username') }}</label>
-                <n-input
-                  id="username" v-model="v$.username.$model" type="text" class="w-full"
-                  :class="{ 'p-invalid': v$.username.$invalid }"
-                />
+                <n-input id="username" />
               </span>
             </div>
 
             <div class="mb-8">
               <label for="password" class="block  font-medium">{{ t('login.password') }}</label>
-              <n-input
-                v-model="v$.password.$model" type="password" show-password-on="mousedown"
-                :class="{ 'p-invalid': v$.password.$invalid }" :toggle-mask="true"
-                :feedback="false" class="w-full"
-              />
+              <n-input type="password" show-password-on="mousedown" />
             </div>
             <div class="flex align-items-center justify-between mb-10">
               <!-- <div class="flex align-items-center">
@@ -87,25 +51,20 @@ meta:
               </RouterLink>
             </div>
 
-            <n-button attr-type="submit" size="large" block type="primary" :loading="isLoading">
+            <n-button attr-type="submit" size="large" :block="true" type="primary" :loading="isLoading">
               {{ t('login.loginButton') }}
             </n-button>
           </form>
           <div class="text-center pt-4 text-sm">
             <span class="font-medium line-height-3">{{ t('login.haveNotAccount') }}</span>
-            <RouterLink
-              to="/Account/Register"
-              class="font-medium no-underline ml-2 text-blue-500 cursor-pointer"
-            >
+            <RouterLink to="/Account/Register" class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">
               {{ t('login.createAccount') }}
             </RouterLink>
           </div>
         </div>
       </div>
       <div class="mt-3">
-        <n-popselect v-model="language" :options="languages" @change="changeLanguage">
-          <n-button>{{ t(activeLanguage) }}</n-button>
-        </n-popselect>
+        <LanguageSelect />
       </div>
     </div>
   </div>
@@ -117,22 +76,22 @@ meta:
 // }
 
 .banner {
-    background-image: url('~/assets/images/login_banner.jpg');
-    background-size: cover;
-    background-position: center center;
-    height: 150px;
-    border-radius: 4px 4px 0 0;
+  background-image: url('~/assets/images/login_banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 150px;
+  border-radius: 4px 4px 0 0;
 }
 
 .login-box {
-    max-width: 400px;
+  max-width: 400px;
 
-    &.failed {
-        animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-        transform: translate3d(0, 0, 0);
-        backface-visibility: hidden;
-        perspective: 1000px;
-    }
+  &.failed {
+    animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
 }
 
 input:-webkit-autofill,
@@ -144,32 +103,32 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-    -webkit-text-fill-color: #000;
-    -webkit-box-shadow: 0 0 0 1000px #eff0f1 inset;
-    transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #000;
+  -webkit-box-shadow: 0 0 0 1000px #eff0f1 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 @keyframes shake {
 
-    10%,
-    90% {
-        transform: translate3d(-1px, 0, 0);
-    }
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
 
-    20%,
-    80% {
-        transform: translate3d(2px, 0, 0);
-    }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
 
-    30%,
-    50%,
-    70% {
-        transform: translate3d(-4px, 0, 0);
-    }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
 
-    40%,
-    60% {
-        transform: translate3d(4px, 0, 0);
-    }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 </style>

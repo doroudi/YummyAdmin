@@ -7,22 +7,8 @@ import {
   WeatherSunny48Regular as SunIcon,
 } from '@vicons/fluent'
 
-const { t } = useI18n()
 const layoutStore = useLayoutStore()
-const { collapsed, activeLanguage } = storeToRefs(layoutStore)
-const { availableLocales } = useI18n()
-const language = ref(activeLanguage)
-
-const languages = availableLocales.map((x) => {
-  return {
-    label: t(x),
-    value: x,
-  }
-})
-
-function changeLanguage(lang: string) {
-  layoutStore.changeLanguage(lang)
-}
+const { collapsed } = storeToRefs(layoutStore)
 </script>
 
 <template>
@@ -48,11 +34,7 @@ function changeLanguage(lang: string) {
           </template>
         </n-button>
         <div class="mx-2">
-          <n-popselect v-model="language" :options="languages" @change="changeLanguage">
-            <n-button>{{ t(activeLanguage) }}</n-button>
-          </n-popselect>
-          <!-- <Button :label="t(locale)" class="p-button-plain p-button-text p-button-sm" @click="toggleLanguageMenu" />
-          <Menu ref="languageMenu" :model="languages" :popup="true" /> -->
+          <LanguageSelect />
         </div>
 
         <UserProfile />
