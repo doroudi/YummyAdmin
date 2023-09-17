@@ -7,7 +7,7 @@ import {
   Home32Regular as DashboardIcon,
   Cart24Regular as InvoicesIcon,
   News20Regular as NewsIcon,
-  Apps24Filled as ProductsIcon,
+  Apps28Filled as ProductsIcon,
   Settings28Regular as SettingsIcon,
 } from '@vicons/fluent'
 import { RouterLink } from 'vue-router'

@@ -10,6 +10,16 @@ const { t } = useI18n()
 </script>
 
 <template>
+  <div>
+    <n-space vertical>
+      <n-input type="text" placeholder="Basic Input" />
+      <n-input
+        type="textarea"
+        placeholder="Basic Textarea"
+      />
+    </n-space>
+  </div>
+
   <div class="margin-outside flex pb-3">
     <DashboardCard class="w-1/5" :icon="UserIcon" title="Registers" :progress="10" :value="250" />
     <DashboardCard class="w-1/5" :icon="BoxIcon" title="Products" :progress="10" :value="3600" />
