@@ -3,7 +3,6 @@ import { alertRtl } from 'naive-ui/es/alert/styles'
 import { buttonRtl } from 'naive-ui/es/button/styles'
 import { inputRtl } from 'naive-ui/es/input/styles'
 import { messageRtl } from 'naive-ui/es/message/styles'
-import { paginationRtl } from 'naive-ui/es/pagination/styles'
 import { tableRtl } from 'naive-ui/es/table/styles'
 import scrollbarRtl from 'naive-ui/es/_internal/scrollbar/styles/rtl'
 import { tagRtl } from 'naive-ui/es/tag/styles'
@@ -15,7 +14,7 @@ const rtlStyles = [
   buttonRtl,
   tableRtl,
   inputRtl,
-  paginationRtl,
+  // paginationRtl,
   messageRtl,
   alertRtl,
   scrollbarRtl,
@@ -53,7 +52,7 @@ watch(() => layout.activeLanguage, () => {
 </script>
 
 <template>
-  <n-config-provider :theme-overrides="themeOverrides" :rtl="rtlStyles" preflight-style-disabled>
+  <n-config-provider :theme-overrides="themeOverrides" :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false">
     <n-notification-provider placement="bottom">
       <n-message-provider placement="bottom">
         <n-dialog-provider>

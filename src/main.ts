@@ -1,14 +1,12 @@
 import { setupLayouts } from 'virtual:generated-layouts'
-import '@unocss/reset/tailwind.css'
-import 'uno.css'
-import './styles/main.scss'
 import { createRouter, createWebHistory } from 'vue-router'
 import type { AppModule } from './types'
 import App from './App.vue'
 import generatedRoutes from '~pages'
+import 'uno.css'
+import './styles/main.scss'
 
 const routes = setupLayouts(generatedRoutes)
-
 const isMocking = import.meta.env.VITE_API_MOCKING_ENABLED
 
 if (isMocking === 'true') {

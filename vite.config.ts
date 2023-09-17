@@ -28,6 +28,7 @@ export default defineConfig({
   },
 
   plugins: [
+    // basicSsl(),
     VueMacros({
       plugins: {
         vue: Vue({
