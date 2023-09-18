@@ -17,7 +17,7 @@ function doMenuAction(value: any) {
 
 <template>
   <div class="flex items-center">
-    <img class="avatar" src="@/assets/images/profile.jpg">
+    <img class="avatar" src="@/assets/images/user.png">
     <div class="flex flex-col p-2">
       <h3 class="username">
         User Name

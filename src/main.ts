@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import type { AppModule } from './types'
 import App from './App.vue'
 import generatedRoutes from '~pages'
+import '@unocss/reset/tailwind.css'
 import 'uno.css'
 import './styles/main.scss'
 
