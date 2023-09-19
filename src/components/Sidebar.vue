@@ -31,7 +31,7 @@ function renderLabel(title: string, path: string) {
 }
 const menuOptions: MenuOption[] = [
   {
-    label: () => renderLabel('Dashboard', 'Dashboard'),
+    label: () => renderLabel('Dashboard', '/'),
     key: 'dashboard',
     icon: renderIcon(DashboardIcon),
   },
@@ -84,7 +84,10 @@ function renderIcon(icon: any) {
 </script>
 
 <template>
-  <n-layout-sider collapse-mode="width" :collapsed-width="64" :collapsed="collapsed" :class="{ collapsed }">
+  <n-layout-sider
+    :native-scrollbar="false" position="static" collapse-mode="width" :collapsed-width="64" :collapsed="collapsed"
+    :class="{ collapsed }"
+  >
     <div flex items-center justify-between w-full p-2>
       <div flex items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
