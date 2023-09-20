@@ -31,7 +31,7 @@ function renderLabel(title: string, path: string) {
 }
 const menuOptions: MenuOption[] = [
   {
-    label: () => renderLabel('Dashboard', 'Dashboard'),
+    label: () => renderLabel('Dashboard', '/'),
     key: 'dashboard',
     icon: renderIcon(DashboardIcon),
   },
@@ -84,8 +84,11 @@ function renderIcon(icon: any) {
 </script>
 
 <template>
-  <n-layout-sider collapse-mode="width" :collapsed-width="64" :collapsed="collapsed" :class="{ collapsed }">
-    <div flex items-center justify-between w-full p-2>
+  <n-layout-sider
+    :native-scrollbar="false" collapse-mode="width" :collapsed-width="64" :collapsed="collapsed"
+    :class="{ collapsed }"
+  >
+    <div class="logo-container">
       <div flex items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
         {{ (!collapsed) ? t('title') : '' }}
@@ -96,10 +99,23 @@ function renderIcon(icon: any) {
 </template>
 
 <style lang="scss">
-.logo {
-  width: 33px;
-  margin-right: 0.8rem;
-  margin-left: 0.5rem;
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1.1rem 0.5rem 1.1rem;
+  transition: all 100ms;
+  .logo {
+    width: 33px;
+    margin-right: 0.8rem;
+    margin-left: 0.5rem;
+  }
+
+}
+
+.collapsed {
+  .logo-container {
+    padding: 1.5rem 0.5rem 0.5rem .5rem;
+  }
 }
 
 .n-menu .n-menu-item-content:not(.n-menu-item-content--disabled):hover::before {
