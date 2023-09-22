@@ -13,7 +13,7 @@ const donutChartOptions = ref({
     enabled: false,
   },
   legend: {
-    show: true,
+    show: false,
     position: 'right',
     offsetX: -30,
     offsetY: 20,

@@ -53,6 +53,10 @@ body {
   min-height: calc(100vh - 1.6rem);
 }
 
+.page-title {
+  font-size: 1.1rem;
+  padding-bottom: 1.2rem;
+}
 @import 'dark';
 @import 'utils/override';
 @import 'utils/animations';

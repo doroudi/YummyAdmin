@@ -58,4 +58,6 @@ forgot:
 dashboard:
   summary: Summary
   transactions: Transactions
+category:
+  title: Categories
 not-found: Not found

@@ -27,5 +27,8 @@
   "files.associations": {
     "*.css": "postcss"
   },
-  "editor.formatOnSave": false
+  "editor.formatOnSave": false,
+  "conventionalCommits.scopes": [
+    "categories"
+  ]
 }
