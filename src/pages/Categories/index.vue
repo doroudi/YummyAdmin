@@ -73,14 +73,8 @@ function getItems() {
   store.getCategories(options.value)
 }
 
-function query(page: number, pageSize = 10, order = 'ascend', filterValues = []) {
-  console.log('🚀 ~ file: index.vue:77 ~ query ~ filterValues:', filterValues)
-  console.log('🚀 ~ file: index.vue:77 ~ query ~ order:', order)
-  console.log('🚀 ~ file: index.vue:77 ~ query ~ pageSize:', pageSize)
-  console.log('🚀 ~ file: index.vue:77 ~ query ~ page:', page)
-}
-
-function handlePageChange() {
+function handlePageChange(page: number) {
+  options.value.page = page
   getItems()
 }
 
@@ -112,7 +106,7 @@ function handleFiltersChange() {
         </div>
         <n-data-table
           remote :columns="columns" :data="categories" :loading="isLoading" :pagination="options"
-          :row-key="rowKey" @update="query" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
+          :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
           @update:page="handlePageChange"
         />
       </div>
