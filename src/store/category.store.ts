@@ -8,15 +8,21 @@ export interface CategoryState {
 }
 export const useCategoryStore = defineStore('Category', () => {
   const categories = ref<Category[]>([])
-  const totalCount = ref<number>(0)
   const categoryItem = ref<Category>()
   const isLoading = ref(false)
   const isSaving = ref(false)
+  const { options } = useOptions()
 
   async function getCategories(options: PagedAndSortedRequest) {
-    const response = await categoryService.getCategoryList(options)
-    categories.value = response.items
-    totalCount.value = response.totalCount
+    isLoading.value = true
+    try {
+      const response = await categoryService.getCategoryList(options)
+      categories.value = response.items
+      options.pageCount = Number.parseInt(response.totalCount / options.itemsPerPage)
+    }
+    finally {
+      isLoading.value = false
+    }
   }
 
   function getCategory() {
@@ -39,6 +45,7 @@ export const useCategoryStore = defineStore('Category', () => {
     isLoading,
     isSaving,
     categories,
+    options,
     categoryItem,
     getCategories,
     getCategory,
