@@ -1,0 +1,97 @@
+{
+    "create service": {
+        "prefix": "svc",
+        "body": [
+            "import { ApiService } from '~/common/api/api-service'",
+            "const apiService = new ApiService('$1')",
+            "class $1Service {",
+            "\tconstructor() { }",
+            "\tasync get$1List(id: string): Promise<$2> {",
+                "\t\tconst response = await apiService.get<$2>(`$3`)",
+                "\t\treturn response",
+            "\t}",
+            "}",
+            "export default new $1Service()"
+        ],
+        "description": "Create Business Service"
+    },
+    "create store": {
+        "prefix": "store",
+        "body": [
+            "import { acceptHMRUpdate, defineStore } from 'pinia'",
+            "import ${1/(.*)/${1:/capitalize}/}Service from '~/services/$1.service'",
+            "export interface $1State {",
+            "\t",
+            "}",
+            "export const use${1/(.*)/${1:/capitalize}/}Store = defineStore('$1',{",
+            "\tstate: (): $1State => ({",
+            "\t\t",
+            "\t}),",
+            "\tactions: {",
+            "\t\t",
+            "\t},",
+            "})",
+            "if (import.meta.hot)",
+            "\timport.meta.hot.accept(acceptHMRUpdate(use${1/(.*)/${1:/capitalize}/}Store, import.meta.hot))"
+        ]
+    },
+    "create vue template": {
+        "prefix": "vue",
+        "body": [
+            "<script setup lang='ts'>",
+            "\t$1",
+            "</script>",
+            "<template>",
+            "\t<div>$2</div>",
+            "</template>",
+            "<style scoped lang='scss'>",
+            "</style>"
+        ]
+    },
+    "handler": {
+        "prefix": "hand",
+        "body": [
+            "import { rest } from 'msw'\r",
+            "\r",
+            "const handlers = [\r",
+            "    rest.get('/:id', (req,res,ctx) => {\r",
+            "        const { id } = req.params\r",
+            "        const response = {}\r",
+            "        return res(\r",
+            "            ctx.status(200),\r",
+            "            ctx.delay(200),\r",
+            "            ctx.json(response)\r",
+            "        )\r",
+            "        \r",
+            "    })\r",
+            "]\r",
+            "\r",
+            "export default handlers\r",
+            ""
+        ],
+        "description": "create msw handler"
+    },
+    "req": {
+        "prefix": "req",
+        "body": [
+            "rest.get('/api/$1/:id', (req,res,ctx) => {\r",
+            "    const response: ServiceResult<$2> = $3\r",
+            "    return res(\r",
+            "        ctx.delay(1000),\r",
+            "        ctx.status(200),\r",
+            "        ctx.json(response)\r",
+            "    )\r",
+            "  }),"
+        ],
+        "description": "handler request"
+    },
+    "it": {
+        "prefix": "tst",
+        "body": [
+            "it('$1', () => {",
+            "    $2",
+            "})",
+        ],
+        "description": "test case"
+    }
+}

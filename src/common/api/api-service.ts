@@ -1,8 +1,9 @@
-import { AxiosInstance } from 'axios'
+import type { AxiosInstance } from 'axios'
 import HttpClient from './http-client'
 import type { PagedListResult } from '~/models/PagedListResult'
-import type { PagedAndSortedRequest } from '~/types/PagedAndSortedRequest'
-import { ListResult } from '~/models/ListResult'
+import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
+import type { ListResult } from '~/models/ListResult'
+
 export class ApiService {
   private readonly apiBase
   private httpClient: AxiosInstance
@@ -29,7 +30,7 @@ export class ApiService {
     return response.data as PagedListResult<T>
   }
 
-  async query<T>(url: string, params: any): Promise<T> {
+  async query<T>(url: string, params?: any): Promise<T> {
     const result = await this.httpClient.get<T>(`${this.apiBase}/${url}`, { params })
     return result.data
   }
@@ -54,15 +55,15 @@ export class ApiService {
     }
   }
 
-  async patch<T>(url: string, data: any): Promise<T> {
+  async delete<T>(url: string): Promise<T> {
     try {
-      return this.httpClient.patch(`${this.apiBase}/${url}`, data)
+      return this.httpClient.delete(`${this.apiBase}/${url}`)
     }
     catch (error) {
-      console.error(`${error} was occurred`)
-      throw new Error('cannot patch')
+      throw new Error(`${error} was occured`)
     }
   }
+
   async getBlobFile(url: string, params: any) {
     return this.httpClient
       .get(url, {
@@ -74,7 +75,7 @@ export class ApiService {
       })
   }
 
-  async postFile(url: string, params: { files: [] }) {
+  async postFile(url: string, params: { files: any[] }) {
     const formData = new FormData()
     params.files.forEach((file) => {
       formData.append('files', file)

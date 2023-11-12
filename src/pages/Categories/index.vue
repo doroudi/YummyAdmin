@@ -6,39 +6,13 @@ import {
   Edit32Regular as EditIcon,
   AddCircle20Regular as PlusIcon,
 } from '@vicons/fluent'
+import { storeToRefs } from 'pinia'
 
 const { t } = useI18n()
 const collapsed = ref(false)
-const data: RowData[] = [
-  {
-    name: 'Mobile',
-    count: 33,
-    children: [
-      {
-        name: 'Feature Phone',
-        count: 10,
-      },
-      {
-        name: 'Apple',
-        count: 3,
-      },
-      {
-        name: 'Samsung',
-        index: '08',
-        count: 20,
-      },
-    ],
-  },
-  {
-    name: 'Laptop',
-    index: '11',
-    count: 22,
-  },
-  {
-    name: 'Home Appliances',
-    count: 30,
-  },
-]
+const store = useCategoryStore()
+const { categories, isLoading } = storeToRefs(store)
+onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
     title: 'Name',
@@ -46,7 +20,7 @@ const columns: DataTableColumns<RowData> = [
   },
   {
     title: 'Products Count',
-    key: 'count',
+    key: 'productsCount',
   },
   {
     title: 'Actions',
@@ -59,6 +33,7 @@ const columns: DataTableColumns<RowData> = [
           {
             size: 'small',
             renderIcon: renderIcon(EditIcon),
+            ghost: true,
             class: 'mr-2',
             onClick: () => edit(row),
           },
@@ -79,6 +54,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
 ]
+const { options } = useOptions()
 
 function renderIcon(icon: any) {
   return () => h(NIcon, null, { default: () => h(icon) })
@@ -92,6 +68,25 @@ function deleteItem(row: RowData) {
 }
 function rowKey(row: RowData) {
   return row.index
+}
+function getItems() {
+  store.getCategories(options.value)
+}
+
+function query(page: number, pageSize = 10, order = 'ascend', filterValues = []) {
+
+}
+
+function handlePageChange() {
+  getItems()
+}
+
+function handleSorterChange() {
+  getItems()
+}
+
+function handleFiltersChange() {
+  getItems()
 }
 </script>
 
@@ -112,7 +107,11 @@ function rowKey(row: RowData) {
             Create
           </NButton>
         </div>
-        <n-data-table :columns="columns" :data="data" :row-key="rowKey" />
+        <n-data-table
+          remote :columns="columns" :data="categories" :loading="isLoading" :pagination="options"
+          :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
+          @update:page="handlePageChange"
+        />
       </div>
     </n-layout-content>
     <n-layout-sider
