@@ -18,7 +18,7 @@ export const useCategoryStore = defineStore('Category', () => {
     try {
       const response = await categoryService.getCategoryList(options)
       categories.value = response.items
-      options.pageCount = Number.parseInt(response.totalCount / options.itemsPerPage)
+      options.pageSize = Number.parseInt(response.totalCount / options.itemsPerPage)
     }
     finally {
       isLoading.value = false
@@ -29,8 +29,15 @@ export const useCategoryStore = defineStore('Category', () => {
 
   }
 
-  function addCategory() {
-
+  async function createCategory(categoryItem: Category) {
+    isLoading.value = true
+    try {
+      const response = await categoryService.createCategory(categoryItem)
+      categories.value.push(response)
+    }
+    finally {
+      isLoading.value = false
+    }
   }
 
   function deleteCategory() {
@@ -49,7 +56,7 @@ export const useCategoryStore = defineStore('Category', () => {
     categoryItem,
     getCategories,
     getCategory,
-    addCategory,
+    createCategory,
     deleteCategory,
     editCategory,
   }

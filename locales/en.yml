@@ -60,4 +60,9 @@ dashboard:
   transactions: Transactions
 category:
   title: Categories
+  create:
+    buttonTitle: Create
+    title: Create New Category
+    categoryName: Name
+    parent: Parent
 not-found: Not found

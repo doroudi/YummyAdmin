@@ -55,7 +55,7 @@ const columns: DataTableColumns<RowData> = [
   },
 ]
 const { options } = storeToRefs(store)
-
+const showAddDialog = ref(false)
 function renderIcon(icon: any) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
@@ -85,17 +85,21 @@ function handleSorterChange() {
 function handleFiltersChange() {
   getItems()
 }
+
+function createCategory() {
+  showAddDialog.value = true
+}
 </script>
 
 <template>
   <n-layout has-sider>
     <n-layout-content>
       <div>
-        <div class="flex justify-between">
-          <h1 class="page-title">
+        <div class="flex items-center mb-5">
+          <h1 class="page-title mx-2">
             {{ t('category.title') }}
           </h1>
-          <NButton type="primary" quaternary round>
+          <NButton type="primary" quaternary round @click="createCategory">
             <template #icon>
               <NIcon>
                 <PlusIcon />
@@ -117,6 +121,12 @@ function handleFiltersChange() {
     >
       <CategoryStatics />
     </n-layout-sider>
+
+    <n-drawer v-model:show="showAddDialog" :width="502" placement="right">
+      <n-drawer-content closable title="Create Category">
+        <CreateCategory @close="showAddDialog = false" />
+      </n-drawer-content>
+    </n-drawer>
   </n-layout>
 </template>
 
