@@ -29,8 +29,6 @@ export const useLayoutStore = defineStore('layout', () => {
     activeLanguage,
     changeLanguage,
   }
-}, {
-  persist: true,
 })
 
 if (import.meta.hot)

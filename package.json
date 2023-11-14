@@ -4,10 +4,9 @@
   "packageManager": "pnpm@8.6.7",
   "scripts": {
     "build": "vite-ssg build",
-    "dev": "vite --port 7000 --open",
+    "dev": "vite --port 7000 --open --mode development",
+    "dev:mock": "vite --open --port 7000 --mode mocking",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "preview-https": "serve dist",
     "test": "vitest",
     "test:e2e": "cypress open",
     "test:unit": "vitest",

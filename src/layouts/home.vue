@@ -20,9 +20,9 @@ const collapsed = ref(false)
 </template>
 
 <style lang="scss">
-.n-layout-content {
-  height: 100vh !important;
-}
+// .n-layout-content {
+//   height: 100vh !important;
+// }
 // .main {
 //   // padding-left: var(--sidebar-width);
 //   padding-right: 1rem;
