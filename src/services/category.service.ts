@@ -1,5 +1,5 @@
 import { ApiService } from '~/common/api/api-service'
-import type { Category } from '~/models/Category'
+import type { Category, CategoryCreateModel } from '~/models/Category'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import type { PagedListResult } from '~/models/PagedListResult'
 
@@ -11,7 +11,7 @@ class CategoryService {
     return response
   }
 
-  async createCategory(categoryItem: Category): Promise<Category> {
+  async createCategory(categoryItem: CategoryCreateModel): Promise<Category> {
     return apiService.post<Category>('', categoryItem)
   }
 }

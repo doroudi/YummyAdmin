@@ -58,11 +58,15 @@ forgot:
 dashboard:
   summary: Summary
   transactions: Transactions
-category:
+categories:
   title: Categories
+  createButton: Create
   create:
     buttonTitle: Create
     title: Create New Category
     categoryName: Name
     parent: Parent
+  validations:
+    nameRequired: Name is required
+    parentRequired: Parent Not Selected
 not-found: Not found

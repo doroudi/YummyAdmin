@@ -1,37 +1,75 @@
 <script setup lang='ts'>
+import type { FormInst, FormRules } from 'naive-ui/es/form'
+import type { SelectMixedOption } from 'naive-ui/es/select/src/interface'
 import { storeToRefs } from 'pinia'
-import type { Category } from '~/models/Category'
+import type { Category, CategoryCreateModel } from '~/models/Category'
 
 const emits = defineEmits(['close'])
 const categoryStore = useCategoryStore()
-const { isLoading } = storeToRefs(categoryStore)
-const categoryItem = ref<Category>({} as Category)
+const { isLoading, categories } = storeToRefs(categoryStore)
+const categoryItem = ref<CategoryCreateModel>({ name: '', parentId: 0 })
 const { t } = useI18n()
+const formRef = ref<FormInst | null>(null)
 async function create() {
   // TODO: validate
-  await categoryStore.createCategory(categoryItem.value)
-  emits('close')
+  formRef.value?.validate(async (errors: any) => {
+    console.log('🚀 ~ file: CreateCategory.vue:16 ~ formRef.value?.validate ~ errors:', errors)
+    if (!errors) {
+      await categoryStore.createCategory(categoryItem.value)
+      emits('close')
+    }
+  })
+}
+const categoriesOptions = categories.value.map((x: Category) => {
+  return {
+    value: x.id,
+    label: x.name,
+  }
+})
+const parents: SelectMixedOption[] = [{ value: 0, label: 'Root' }, ...categoriesOptions]
+const nameInput = ref()
+onMounted(() => {
+  nameInput.value?.focus()
+})
+
+const rules: FormRules = {
+  name: [
+    {
+      required: true,
+      trigger: ['blur', 'change'],
+      message: t('categories.validations.nameRequired'),
+    },
+  ],
+  parentId: [
+    {
+      required: true,
+      trigger: ['blur', 'change'],
+      message: t('categories.validations.parentRequired'),
+    },
+  ],
+
 }
 </script>
 
 <template>
-  <form @submit.prevent="create()">
-    <div class="mb-5">
-      <span class="p-float-label">
-        <label for="username" class="block font-medium">{{ t('category.create.categoryName') }}</label>
-        <n-input id="name" :placeholder="t('category.create.categoryName')" />
-      </span>
+  <n-form ref="formRef" :model="categoryItem" :rules="rules" @submit.prevent="create()">
+    <div class="form-control">
+      <n-form-item class="mb-5" path="name" :label="t('categories.create.categoryName')">
+        <n-input
+          id="name" ref="nameInput" v-model:value="categoryItem.name" autofocus
+          :placeholder="t('categories.create.categoryName')"
+        />
+      </n-form-item>
     </div>
-
-    <div class="mb-8">
-      <label for="parent" class="block font-medium">{{ t('category.create.parent') }}</label>
-      <n-input type="text" :placeholder="t('category.create.parent')" />
+    <div class="form-control">
+      <n-form-item class="mb-5" :label="t('categories.create.parent')">
+        <n-select id="parentId" v-model:value="categoryItem.parentId" :options="parents" :placeholder="t('categories.create.parent')" />
+      </n-form-item>
     </div>
-
     <n-button attr-type="submit" size="large" :block="true" type="primary" :loading="isLoading">
-      {{ t('category.create.buttonTitle') }}
+      {{ t('categories.create.buttonTitle') }}
     </n-button>
-  </form>
+  </n-form>
 </template>
 
 <style scoped lang='scss'></style>

@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { Category } from '~/models/Category'
+import type { Category, CategoryCreateModel } from '~/models/Category'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import categoryService from '~/services/category.service'
 
@@ -29,11 +29,12 @@ export const useCategoryStore = defineStore('Category', () => {
 
   }
 
-  async function createCategory(categoryItem: Category) {
+  async function createCategory(categoryItem: CategoryCreateModel) {
     isLoading.value = true
     try {
       const response = await categoryService.createCategory(categoryItem)
-      categories.value.push(response)
+      getCategories(options.value)
+      // categories.value.push(response)
     }
     finally {
       isLoading.value = false

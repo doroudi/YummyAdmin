@@ -4,3 +4,8 @@ export interface Category {
   productsCount: number
   subItems?: Category[]
 }
+
+export interface CategoryCreateModel {
+  name: string
+  parentId: number
+}
