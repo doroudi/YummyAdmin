@@ -5,11 +5,23 @@ en: English
 fa: Persian
 menu:
   dashboard: Dashboard
-  stats: Stats
+  productManagement: Products Management
   products: Products
   categories: Categories
+  brands: Brands
+  colors: Colors
   orders: Orders
+  feedbacks: Feedbacks
+  reviews: Reviews
+  messages: Messages
+  support: Support
   comments: Comments
+  announcement: Announcement
+  news: News
+  notifications: Notifications
+  sms: Sms
+  accountSettings: Account Settings
+  websiteSettings: Website Settings
   blog: Blog
   users: Users
   customers: Customers

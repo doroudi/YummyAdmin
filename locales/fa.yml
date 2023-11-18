@@ -4,14 +4,26 @@ en: انگلیسی
 fa: فارسی
 menu:
   dashboard: داشبورد
-  stats: آمار
+  productManagement: مدیریت محصولات
   products: محصولات
-  categories: دسته ها
-  orders: سفارش ها
+  categories: دسته بندی ها
+  brands: برند ها
+  colors: رنگ ها
+  orders: سفارشات
+  feedbacks: بازخورد ها
+  reviews: بررسی ها
+  messages: نظرات
+  support: پشتیبانی
   comments: نظرات
-  blog: وبلاگ
+  announcement: اطلاع رسانی
+  news: اخبار
+  notifications: نوتیفیکشن ها
+  sms: پیامک
+  accountSettings: تنظیمات کاربر
+  websiteSettings: تنظیمات وبسایت
+  blog: بلاگ
   users: کاربران
-  customers: مشتریان
+  customers: مشتری ها
   settings: تنظیمات
 userMenu:
   language: زبان

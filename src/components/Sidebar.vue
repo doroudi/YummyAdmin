@@ -41,7 +41,7 @@ function renderLabel(title: string, path: string) {
 }
 const menuOptions: MenuOption[] = [
   {
-    label: () => renderLabel('Dashboard', '/'),
+    label: () => renderLabel(t('menu.dashboard'), '/'),
     key: 'dashboard',
     icon: renderIcon(DashboardIcon),
   },
@@ -51,27 +51,27 @@ const menuOptions: MenuOption[] = [
   //   icon: renderIcon(StatsIcon),
   // },
   {
-    label: 'Product Management',
+    label: t('menu.productManagement'),
     key: 'productManagement',
     icon: renderIcon(ProductsIcon),
     children: [
       {
-        label: () => renderLabel('Products', 'products'),
+        label: () => renderLabel(t('menu.products'), 'products'),
         key: 'Products',
         icon: renderIcon(ProductsIcon2),
       },
       {
-        label: () => renderLabel('Categories', 'categories'),
+        label: () => renderLabel(t('menu.categories'), 'categories'),
         key: 'categories',
         icon: renderIcon(CategoryIcon),
       },
       {
-        label: () => renderLabel('Brands', 'brands'),
+        label: () => renderLabel(t('menu.brands'), 'brands'),
         key: 'brands',
         icon: renderIcon(BrandsIcon),
       },
       {
-        label: () => renderLabel('Colors', 'colors'),
+        label: () => renderLabel(t('menu.colors'), 'colors'),
         key: 'colors',
         icon: renderIcon(ColorsIcon),
       },
@@ -79,71 +79,71 @@ const menuOptions: MenuOption[] = [
     ],
   },
   {
-    label: () => renderLabel('Orders', 'orders'),
+    label: () => renderLabel(t('menu.orders'), 'orders'),
     key: 'orders',
     icon: renderIcon(InvoicesIcon),
   },
   {
-    label: 'Feedbacks',
+    label: t('menu.feedbacks'),
     key: 'feedbacks',
     icon: renderIcon(FeedbackIcon),
     children: [
       {
-        label: () => renderLabel('Reviews', 'reviews'),
+        label: () => renderLabel(t('menu.reviews'), 'reviews'),
         key: 'reviews',
         icon: renderIcon(ReviewIcon),
       },
       {
-        label: () => renderLabel('Messages', 'messages'),
+        label: () => renderLabel(t('menu.messages'), 'messages'),
         key: 'messages',
         icon: renderIcon(CommentsIcon),
       },
       {
-        label: () => renderLabel('Support', 'support'),
+        label: () => renderLabel(t('menu.support'), 'support'),
         key: 'messages',
         icon: renderIcon(SupportIcon),
       },
     ],
   },
   {
-    label: () => renderLabel('Customers', 'customers'),
+    label: () => renderLabel(t('menu.customers'), 'customers'),
     key: 'customers',
     icon: renderIcon(CustomersIcon),
   },
   {
-    label: () => renderLabel('Announcement', 'announcement'),
+    label: () => renderLabel(t('menu.announcement'), 'announcement'),
     key: 'notify',
     icon: renderIcon(NewsIcon),
     children: [
       {
-        label: () => renderLabel('News', 'news'),
+        label: () => renderLabel(t('menu.news'), 'news'),
         key: 'news',
         icon: renderIcon(NewsIcon),
       },
       {
-        label: () => renderLabel('Notifications', 'notify'),
+        label: () => renderLabel(t('menu.notifications'), 'notify'),
         key: 'notifications',
         icon: renderIcon(NotifyIcon),
       },
       {
-        label: () => renderLabel('SMS', 'sms'),
+        label: () => renderLabel(t('menu.sms'), 'sms'),
         key: 'sms',
         icon: renderIcon(SmsIcon),
       },
     ],
   },
   {
-    label: 'Settings',
+    label: t('menu.settings'),
     key: 'settings',
     icon: renderIcon(SettingsIcon),
     children: [
       {
-        label: () => renderLabel('AccountSettings', 'account'),
+        label: () => renderLabel(t('menu.accountSettings'), 'account'),
         key: 'account-settings',
         icon: renderIcon(AccountSettingsIcon),
       },
       {
-        label: () => renderLabel('Website Settings', 'website-settings'),
+        label: () => renderLabel(t('menu.websiteSettings'), 'website-settings'),
         key: 'website-settings',
         icon: renderIcon(WebsiteSettingsIcon),
       },
