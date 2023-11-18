@@ -1,14 +1,24 @@
 <script setup lang="ts">
 import type { MenuOption } from 'naive-ui'
 import {
+  PersonSettings20Regular as AccountSettingsIcon,
+  CheckmarkStarburst16Regular as BrandsIcon,
   Folder32Regular as CategoryIcon,
+  Color24Regular as ColorsIcon,
   CommentMultiple32Regular as CommentsIcon,
   People28Regular as CustomersIcon,
   Home32Regular as DashboardIcon,
+  Emoji24Regular as FeedbackIcon,
   Cart24Regular as InvoicesIcon,
   News20Regular as NewsIcon,
+  ChannelAlert24Regular as NotifyIcon,
   Apps28Filled as ProductsIcon,
+  BoxMultiple20Regular as ProductsIcon2,
+  StarThreeQuarter20Filled as ReviewIcon,
   Settings28Regular as SettingsIcon,
+  Chat24Regular as SmsIcon,
+  PeopleCall20Regular as SupportIcon,
+  ContentSettings20Regular as WebsiteSettingsIcon,
 } from '@vicons/fluent'
 import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
@@ -35,31 +45,65 @@ const menuOptions: MenuOption[] = [
     key: 'dashboard',
     icon: renderIcon(DashboardIcon),
   },
+  // {
+  //   label: 'Statistics',
+  //   key: 'statistics',
+  //   icon: renderIcon(StatsIcon),
+  // },
   {
-    label: () => renderLabel('Categories', 'categories'),
-    key: 'categories',
-    icon: renderIcon(CategoryIcon),
-  },
-  {
-    label: () => renderLabel('Products', 'products'),
-    key: 'products',
+    label: 'Product Management',
+    key: 'productManagement',
     icon: renderIcon(ProductsIcon),
     children: [
       {
-        label: () => renderLabel('Add New', 'products'),
-        key: 'add-product',
+        label: () => renderLabel('Products', 'products'),
+        key: 'Products',
+        icon: renderIcon(ProductsIcon2),
       },
+      {
+        label: () => renderLabel('Categories', 'categories'),
+        key: 'categories',
+        icon: renderIcon(CategoryIcon),
+      },
+      {
+        label: () => renderLabel('Brands', 'brands'),
+        key: 'brands',
+        icon: renderIcon(BrandsIcon),
+      },
+      {
+        label: () => renderLabel('Colors', 'colors'),
+        key: 'colors',
+        icon: renderIcon(ColorsIcon),
+      },
+
     ],
   },
   {
-    label: () => renderLabel('Invoices', 'invoices'),
-    key: 'invoices',
+    label: () => renderLabel('Orders', 'orders'),
+    key: 'orders',
     icon: renderIcon(InvoicesIcon),
   },
   {
-    label: () => renderLabel('Comments', 'comments'),
-    key: 'comments',
-    icon: renderIcon(CommentsIcon),
+    label: 'Feedbacks',
+    key: 'feedbacks',
+    icon: renderIcon(FeedbackIcon),
+    children: [
+      {
+        label: () => renderLabel('Reviews', 'reviews'),
+        key: 'reviews',
+        icon: renderIcon(ReviewIcon),
+      },
+      {
+        label: () => renderLabel('Messages', 'messages'),
+        key: 'messages',
+        icon: renderIcon(CommentsIcon),
+      },
+      {
+        label: () => renderLabel('Support', 'support'),
+        key: 'messages',
+        icon: renderIcon(SupportIcon),
+      },
+    ],
   },
   {
     label: () => renderLabel('Customers', 'customers'),
@@ -67,14 +111,43 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(CustomersIcon),
   },
   {
-    label: () => renderLabel('Settings', 'settings'),
-    key: 'comments',
-    icon: renderIcon(SettingsIcon),
+    label: () => renderLabel('Announcement', 'announcement'),
+    key: 'notify',
+    icon: renderIcon(NewsIcon),
+    children: [
+      {
+        label: () => renderLabel('News', 'news'),
+        key: 'news',
+        icon: renderIcon(NewsIcon),
+      },
+      {
+        label: () => renderLabel('Notifications', 'notify'),
+        key: 'notifications',
+        icon: renderIcon(NotifyIcon),
+      },
+      {
+        label: () => renderLabel('SMS', 'sms'),
+        key: 'sms',
+        icon: renderIcon(SmsIcon),
+      },
+    ],
   },
   {
-    label: () => renderLabel('News', 'news'),
-    key: 'news',
-    icon: renderIcon(NewsIcon),
+    label: 'Settings',
+    key: 'settings',
+    icon: renderIcon(SettingsIcon),
+    children: [
+      {
+        label: () => renderLabel('AccountSettings', 'account'),
+        key: 'account-settings',
+        icon: renderIcon(AccountSettingsIcon),
+      },
+      {
+        label: () => renderLabel('Website Settings', 'website-settings'),
+        key: 'website-settings',
+        icon: renderIcon(WebsiteSettingsIcon),
+      },
+    ],
   },
 ]
 
