@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import type { FormInst, FormRules } from 'naive-ui/es/form'
-import type { SelectMixedOption } from 'naive-ui/es/select/src/interface'
+import type { TreeSelectOption } from 'naive-ui/es/tree-select/src/interface'
 import { storeToRefs } from 'pinia'
 import type { Category, CategoryCreateModel } from '~/models/Category'
 
@@ -18,13 +18,17 @@ async function create() {
     }
   })
 }
-const categoriesOptions = categories.value.map((x: Category) => {
+
+const categoriesOptions = categories.value.map(mapCategoryToOptions)
+
+function mapCategoryToOptions(item: Category): TreeSelectOption {
   return {
-    value: x.id,
-    label: x.name,
+    key: item.id,
+    label: item.name,
+    children: item.children?.map(mapCategoryToOptions),
   }
-})
-const parents: SelectMixedOption[] = [{ value: 0, label: 'Root' }, ...categoriesOptions]
+}
+const parents: TreeSelectOption[] = [{ key: 0, label: 'Root' }, ...categoriesOptions]
 const nameInput = ref()
 onMounted(() => {
   nameInput.value?.focus()
@@ -69,7 +73,7 @@ const rules: FormRules = {
     </div>
     <div class="form-control">
       <n-form-item class="mb-5" :label="t('categories.create.parent')">
-        <n-select id="parentId" v-model:value="categoryItem.parentId" :options="parents" :placeholder="t('categories.create.parent')" />
+        <n-tree-select v-model="categoryItem.parentId" key-field="key" :options="parents" :placeholder="t('categories.create.parent')" default-value="Root" />
       </n-form-item>
     </div>
     <n-button attr-type="submit" size="large" :block="true" type="primary" :loading="isLoading">

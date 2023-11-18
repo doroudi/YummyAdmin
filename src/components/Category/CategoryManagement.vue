@@ -67,7 +67,7 @@ function deleteItem(row: RowData) {
 
 }
 function rowKey(row: RowData) {
-  return row.index
+  return row.id
 }
 function getItems() {
   store.getCategories(options.value)
