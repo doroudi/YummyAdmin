@@ -32,9 +32,8 @@ export const useCategoryStore = defineStore('Category', () => {
   async function createCategory(categoryItem: CategoryCreateModel) {
     isLoading.value = true
     try {
-      const response = await categoryService.createCategory(categoryItem)
+      await categoryService.createCategory(categoryItem)
       getCategories(options.value)
-      // categories.value.push(response)
     }
     finally {
       isLoading.value = false

@@ -20,7 +20,7 @@ const handlers = [
       id: faker.datatype.number({ max: 2000 }),
       name: newItem.name,
       productsCount: 0,
-      subItems: [],
+      children: [],
     }
     categories.push(category)
     return res(
@@ -37,6 +37,25 @@ function createFakeCategory(): Category {
     id: faker.datatype.number(),
     name: faker.commerce.productAdjective(),
     productsCount: faker.datatype.number({ min: 1, max: 130 }),
+    children: [
+      {
+        id: faker.datatype.number(),
+        name: faker.commerce.productAdjective(),
+        productsCount: faker.datatype.number({ min: 1, max: 130 }),
+      },
+      {
+        id: faker.datatype.number(),
+        name: faker.commerce.productAdjective(),
+        productsCount: faker.datatype.number({ min: 1, max: 130 }),
+        children: [
+          {
+            id: faker.datatype.number(),
+            name: faker.commerce.productAdjective(),
+            productsCount: faker.datatype.number({ min: 1, max: 130 }),
+          },
+        ],
+      },
+    ],
   }
 }
 
