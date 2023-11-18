@@ -11,9 +11,7 @@ const categoryItem = ref<CategoryCreateModel>({ name: '', parentId: 0 })
 const { t } = useI18n()
 const formRef = ref<FormInst | null>(null)
 async function create() {
-  // TODO: validate
   formRef.value?.validate(async (errors: any) => {
-    console.log('🚀 ~ file: CreateCategory.vue:16 ~ formRef.value?.validate ~ errors:', errors)
     if (!errors) {
       await categoryStore.createCategory(categoryItem.value)
       emits('close')
@@ -53,6 +51,14 @@ const rules: FormRules = {
 
 <template>
   <n-form ref="formRef" :model="categoryItem" :rules="rules" @submit.prevent="create()">
+    <div class="form-control">
+      <n-form-item class="mb-5" path="name" :label="t('categories.create.categoryName')">
+        <n-input
+          id="name" ref="nameInput" v-model:value="categoryItem.name" autofocus
+          :placeholder="t('categories.create.categoryName')"
+        />
+      </n-form-item>
+    </div>
     <div class="form-control">
       <n-form-item class="mb-5" path="name" :label="t('categories.create.categoryName')">
         <n-input
