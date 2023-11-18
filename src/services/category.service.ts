@@ -14,5 +14,9 @@ class CategoryService {
   async createCategory(categoryItem: CategoryCreateModel): Promise<Category> {
     return apiService.post<Category>('', categoryItem)
   }
+
+  async deleteCategory(id: string | number): Promise<boolean> {
+    return apiService.delete<boolean>(id)
+  }
 }
 export default new CategoryService()

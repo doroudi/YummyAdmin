@@ -40,8 +40,9 @@ export const useCategoryStore = defineStore('Category', () => {
     }
   }
 
-  function deleteCategory() {
-
+  async function deleteCategory(id: string | number) {
+    await categoryService.deleteCategory(id)
+    getCategories(options.value)
   }
 
   function editCategory() {
