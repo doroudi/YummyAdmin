@@ -29,6 +29,16 @@ const handlers = [
       ctx.json(category),
     )
   }),
+  rest.delete('/api/Category/:id', (req, res, ctx) => {
+    const id = req.params.id.toString()
+    const itemIndex = categories.findIndex(x => x.id === Number.parseInt(id))
+    categories.splice(itemIndex, 1)
+    return res(
+      ctx.delay(1000),
+      ctx.status(200),
+      ctx.json(true),
+    )
+  }),
 
 ]
 

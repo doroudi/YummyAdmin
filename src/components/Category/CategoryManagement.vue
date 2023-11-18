@@ -7,11 +7,14 @@ import {
   AddCircle20Regular as PlusIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
+import { useDialog, useMessage } from 'naive-ui'
 
 const { t } = useI18n()
 const collapsed = ref(false)
 const store = useCategoryStore()
 const { categories, isLoading } = storeToRefs(store)
+const dialog = useDialog()
+const message = useMessage()
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
@@ -46,7 +49,7 @@ const columns: DataTableColumns<RowData> = [
             type: 'error',
             ghost: true,
             renderIcon: renderIcon(DeleteIcon),
-            onClick: () => deleteItem(row),
+            onClick: () => handleDeleteItem(row),
           },
           { default: () => 'Delete' },
         ),
@@ -63,9 +66,20 @@ function renderIcon(icon: any) {
 function edit(row: RowData) {
 
 }
-function deleteItem(row: RowData) {
 
+function handleDeleteItem(row: RowData) {
+  dialog.error({
+    title: 'Confirm',
+    content: 'Are you sure?',
+    positiveText: 'Yes, Delete',
+    negativeText: 'Cancel',
+    onPositiveClick: () => {
+      store.deleteCategory(row.id)
+      message.success('Category was deleted!')
+    },
+  })
 }
+
 function rowKey(row: RowData) {
   return row.id
 }
