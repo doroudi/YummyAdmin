@@ -88,5 +88,12 @@ brands:
   create:
     buttonTitle: Create
     title: Create New Brand
+    image: Image
+    brandName: Name
+    url: Url
+  validations:
+    name: Name is required
+    url: Url is required
+    image: Image is required
 
 not-found: Not found
