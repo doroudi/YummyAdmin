@@ -8,9 +8,11 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BarChart: typeof import('./components/BarChart.vue')['default']
+    BrandManagement: typeof import('./components/Brand/BrandManagement.vue')['default']
     Card: typeof import('./components/Card.vue')['default']
     CategoryManagement: typeof import('./components/Category/CategoryManagement.vue')['default']
     CategoryStatics: typeof import('./components/Category/CategoryStatics.vue')['default']
+    CreateBrand: typeof import('./components/Brand/CreateBrand.vue')['default']
     CreateCategory: typeof import('./components/Category/CreateCategory.vue')['default']
     DashboardCard: typeof import('./components/DashboardCard.vue')['default']
     DonutChart: typeof import('./components/DonutChart.vue')['default']

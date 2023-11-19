@@ -81,4 +81,12 @@ categories:
   validations:
     nameRequired: Name is required
     parentRequired: Parent Not Selected
+
+brands:
+  title: Brands
+  createButton: Create
+  create:
+    buttonTitle: Create
+    title: Create New Brand
+
 not-found: Not found
