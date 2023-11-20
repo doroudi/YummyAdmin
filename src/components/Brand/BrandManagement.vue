@@ -2,9 +2,9 @@
 import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
-  DismissCircle24Regular as DeleteIcon,
+  Delete24Regular as DeleteIcon,
   Edit32Regular as EditIcon,
-  AddCircle20Regular as PlusIcon,
+  Add20Regular as PlusIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
@@ -17,40 +17,39 @@ const message = useMessage()
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
-    title: 'Name',
+    title: 'Brand',
     key: 'name',
   },
   {
-    title: 'Url Slog',
+    title: 'Slog',
     key: 'url',
   },
   {
     title: 'Actions',
     key: 'actions',
-    width: 200,
+    width: 110,
     render(row) {
       return [
         h(
           NButton,
           {
-            size: 'small',
+            size: 'medium',
             renderIcon: renderIcon(EditIcon),
-            ghost: true,
+            quaternary: true,
+            circle: true,
             class: 'mr-2',
-            onClick: () => edit(row),
+            onClick: () => { },
           },
-          { default: () => 'Edit' },
         ),
         h(
           NButton,
           {
-            size: 'small',
-            type: 'error',
-            ghost: true,
+            size: 'medium',
+            quaternary: true,
+            circle: true,
             renderIcon: renderIcon(DeleteIcon),
             onClick: () => handleDeleteItem(row),
           },
-          { default: () => 'Delete' },
         ),
       ]
     },
@@ -99,26 +98,22 @@ function createBrand() {
 <template>
   <n-layout>
     <n-layout-content>
-      <div>
-        <div class="flex items-center mb-5">
-          <h1 class="page-title mx-2">
-            {{ t('brands.title') }}
-          </h1>
-          <NButton type="primary" quaternary round @click="createBrand">
-            <template #icon>
-              <NIcon>
-                <PlusIcon />
-              </NIcon>
-            </template>
-            {{ t('brands.createButton') }}
-          </NButton>
-        </div>
-        <n-data-table
-          remote :columns="columns" :data="brands" :loading="isLoading" :pagination="options"
-          :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
-          @update:page="handlePageChange"
-        />
-      </div>
+      <n-space justify="space-between" class="mb-3">
+        <n-input placeholder="Search" />
+        <NButton type="primary" @click="createBrand">
+          <template #icon>
+            <NIcon>
+              <PlusIcon />
+            </NIcon>
+          </template>
+          {{ t('categories.createButton') }}
+        </NButton>
+      </n-space>
+      <n-data-table
+        remote :columns="columns" :data="brands" :loading="isLoading" :pagination="options"
+        :row-key="rowKey" @update:filters="handleFiltersChange"
+        @update:page="handlePageChange"
+      />
     </n-layout-content>
 
     <n-drawer v-model:show="showAddDialog" :width="502" placement="right">
