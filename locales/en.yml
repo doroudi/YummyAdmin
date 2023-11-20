@@ -96,4 +96,16 @@ brands:
     url: Url is required
     image: Image is required
 
+colors:
+  title: Colors
+  createButton: Create
+  create:
+    buttonTitle: Create
+    title: Create New Color
+    color: Color
+    name: Name
+  validations:
+    nameRequired: Name is required
+    colorRequired: Color not selected
+
 not-found: Not found
