@@ -5,4 +5,8 @@ export interface Brand {
   url: string
 }
 
-export interface BrandCreateModel extends Brand {}
+export interface BrandCreateModel {
+  name: string
+  image?: string
+  url: string
+}

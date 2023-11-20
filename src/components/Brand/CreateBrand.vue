@@ -1,12 +1,13 @@
 <script setup lang='ts'>
 import type { FormInst, FormRules } from 'naive-ui/es/form'
+import type { UploadFileInfo } from 'naive-ui/es/upload'
 import { storeToRefs } from 'pinia'
-import type { CategoryCreateModel } from '~/models/Category'
+import type { BrandCreateModel } from '~/models/Brand'
 
 const emits = defineEmits(['close'])
 const brandStore = useBrandStore()
 const { isLoading } = storeToRefs(brandStore)
-const brandItem = ref<CategoryCreateModel>({ name: '', parentId: 0 })
+const brandItem = ref<BrandCreateModel>({ name: '', url: '', image: '' })
 const { t } = useI18n()
 const formRef = ref<FormInst | null>(null)
 async function create() {
@@ -46,7 +47,8 @@ const rules: FormRules = {
     },
   ],
 }
-
+const previewImageUrl = ref('')
+const showModal = ref(false)
 const showModalRef = ref(false)
 const previewImageUrlRef = ref('')
 function handlePreview(file: UploadFileInfo) {
@@ -78,10 +80,9 @@ function handlePreview(file: UploadFileInfo) {
     <div class="form-control">
       <n-form-item class="mb-5" path="image" :label="t('brands.create.image')">
         <n-upload
-          :default-file-list="previewFileList"
           list-type="image-card"
           accept="image/png, image/jpeg"
-          max="1"
+          :max="1"
           @preview="handlePreview"
         />
         <n-modal
