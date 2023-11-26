@@ -8,31 +8,27 @@ import 'uno.css'
 import './styles/main.scss'
 
 const routes = setupLayouts(generatedRoutes)
-const isMocking = import.meta.env.VITE_API_MOCKING_ENABLED
 
-if (isMocking === 'true') {
-  import('~/mocks/browser').then((browser) => {
-    browser.worker.start({ onUnhandledRequest: 'bypass' })
-    initializeApp()
-  })
-}
-else {
-  initializeApp()
+async function enableMocking() {
+  const isMocking = import.meta.env.VITE_API_MOCKING_ENABLED
+  if (!isMocking)
+    return
+
+  const { worker } = await import('~/mocks/browser')
+  return worker.start()
 }
 
-function initializeApp() {
-  const router = createRouter({
-    history: createWebHistory(),
-    routes,
-  })
-  const app = createApp(App)
-  app.use(router)
-  Object.values(import.meta.glob<{ install: AppModule }>('./modules/*.ts', { eager: true }))
-    .forEach(i => i.install?.(app, router))
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
+const app = createApp(App)
+app.use(router)
+Object.values(import.meta.glob<{ install: AppModule }>('./modules/*.ts', { eager: true }))
+  .forEach(i => i.install?.(app, router))
 
-  router.beforeEach((to, from, next) => {
-    // TODO: implement route guards
-    next()
-  })
-  app.mount('#app')
-}
+router.beforeEach((to, from, next) => {
+  // TODO: implement route guards
+  next()
+})
+enableMocking().then(() => app.mount('#app'))

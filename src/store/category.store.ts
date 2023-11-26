@@ -3,9 +3,6 @@ import type { Category, CategoryCreateModel } from '~/models/Category'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import categoryService from '~/services/category.service'
 
-export interface CategoryState {
-
-}
 export const useCategoryStore = defineStore('Category', () => {
   const categories = ref<Category[]>([])
   const categoryItem = ref<Category>()
