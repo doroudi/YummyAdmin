@@ -1,13 +1,15 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
+import { type DataTableColumns, NButton, NIcon, NImage, NSpace, NSwitch, NTag, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Delete24Regular as DeleteIcon,
   Edit24Regular as EditIcon,
   Add24Filled as PlusIcon,
+  Star20Filled as StarIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
+import { ProductStatus } from '~/models/Product'
 
 const { t } = useI18n()
 const store = useProductStore()
@@ -19,17 +21,38 @@ const router = useRouter()
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
+    type: 'selection',
+  },
+  {
     title: 'PRODUCT',
     key: 'name',
+    render: row =>
+      h(NSpace, {}, {
+        default: () => [
+          h(NImage, { src: row.image, width: 35 }, {}),
+          h(NText, {}, { default: () => row.name }),
+        ],
+      }),
   },
   {
     title: 'Category',
     key: 'category',
+    render(row) {
+      return h(NText,
+        {}, {
+          default: () => row.category.name,
+        })
+    },
   },
-
   {
     title: 'Rate',
     key: 'rate',
+    render(row) {
+      return [
+        h(NIcon, { color: 'gold' }, { default: renderIcon(StarIcon) }),
+        h(NText, { class: 'mx-2' }, { default: () => row.rate }),
+      ]
+    },
   },
   {
     title: 'Price',
@@ -38,6 +61,14 @@ const columns: DataTableColumns<RowData> = [
   {
     title: 'Status',
     key: 'status',
+    render: row => h(NTag,
+      { type: getStatusColor(row.status) },
+      { default: () => ProductStatus[row.status] }),
+  },
+  {
+    title: 'Stock',
+    key: 'stock',
+    render: row => h(NSwitch, { value: row.stock, size: 'small' }, {}),
   },
   {
     title: 'Actions',
@@ -74,6 +105,17 @@ const { options } = storeToRefs(store)
 
 function renderIcon(icon: any) {
   return () => h(NIcon, null, { default: () => h(icon) })
+}
+
+function getStatusColor(status: ProductStatus) {
+  switch (status) {
+    case ProductStatus.Draft:
+      return 'info'
+    case ProductStatus.Active:
+      return 'success'
+    case ProductStatus.NotActive:
+      return 'warning'
+  }
 }
 
 function handleDeleteItem(row: RowData) {
@@ -114,7 +156,7 @@ function handleFiltersChange() {
   <n-layout>
     <n-layout-content>
       <div class="px-3">
-        <n-space justify="space-between" class="mb-3">
+        <NSpace justify="space-between" class="mb-3">
           <n-input placeholder="Search" />
           <NButton type="primary" @click="router.push('/Products/Create')">
             <template #icon>
@@ -124,10 +166,10 @@ function handleFiltersChange() {
             </template>
             {{ t('categories.createButton') }}
           </NButton>
-        </n-space>
+        </NSpace>
         <n-data-table
-          remote :columns="columns" :data="products" :loading="isLoading" :pagination="options"
-          selectable :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
+          remote :columns="columns" :data="products" :loading="isLoading" :pagination="options" selectable
+          :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
           @update:page="handlePageChange"
         />
       </div>

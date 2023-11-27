@@ -24,7 +24,7 @@ function createFakeProductListItem(): ProductListDto {
     status: faker.helpers.enumValue(ProductStatus),
     stock: faker.datatype.boolean(),
     category: createFakeCategory(),
-    image: faker.image.dataUri(),
+    image: faker.image.urlLoremFlickr(),
   }
 }
 

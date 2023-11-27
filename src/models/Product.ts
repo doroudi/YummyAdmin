@@ -29,9 +29,9 @@ export interface ProductListDto {
 }
 
 export enum ProductStatus {
-  notActive,
-  active,
-  draft,
+  NotActive,
+  Active,
+  Draft,
 }
 
 export interface ProductCreateModel {

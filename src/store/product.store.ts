@@ -1,7 +1,7 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import type { Product, ProductCreateModel } from '~/models/Product'
-import productService from '~/services/category.service'
+import productService from '~/services/product.service'
 
 export const useProductStore = defineStore('Product', () => {
   const products = ref<Product[]>([])
@@ -42,7 +42,7 @@ export const useProductStore = defineStore('Product', () => {
     getProducts(options.value)
   }
 
-  function editCategory() {
+  function editProduct() {
 
   }
 
@@ -56,7 +56,7 @@ export const useProductStore = defineStore('Product', () => {
     getProduct,
     createProduct,
     deleteProduct,
-    editCategory,
+    editProduct,
   }
 })
 if (import.meta.hot)
