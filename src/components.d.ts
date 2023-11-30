@@ -45,6 +45,8 @@ declare module 'vue' {
     NSpace: typeof import('naive-ui')['NSpace']
     NTreeSelect: typeof import('naive-ui')['NTreeSelect']
     NUpload: typeof import('naive-ui')['NUpload']
+    ProductManagement: typeof import('./components/Products/ProductManagement.vue')['default']
+    ProductsManagement: typeof import('./components/Products/ProductsManagement.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Sidebar: typeof import('./components/Sidebar.vue')['default']

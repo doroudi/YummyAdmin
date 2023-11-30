@@ -1,4 +1,4 @@
-import { rest } from 'msw'
+import { HttpResponse, http } from 'msw'
 import _ from 'lodash'
 import { faker } from '@faker-js/faker'
 import { CreatePagedResponse } from '../handlers.utility'
@@ -6,38 +6,26 @@ import type { Brand, BrandCreateModel } from '~/models/Brand'
 
 const brands = _.times(7, createFakeBrand)
 const handlers = [
-  rest.get('/api/Brand', (req, res, ctx) => {
-    const response = CreatePagedResponse<Brand>(req, brands)
-    return res(
-      ctx.status(200),
-      ctx.delay(200),
-      ctx.json(response),
-    )
+  http.get('/api/Brand', ({ request }) => {
+    const response = CreatePagedResponse<Brand>(request, brands)
+    return HttpResponse.json(response, { status: 200 })
   }),
-  rest.post('/api/brand', async (req, res, ctx) => {
-    const newItem = await req.json<BrandCreateModel>()
+  http.post('/api/brand', async ({ request }) => {
+    const newItem = (await request.json()) as BrandCreateModel
     const brand: Brand = {
-      id: faker.datatype.number({ max: 2000 }).toString(),
+      id: faker.number.int({ max: 2000 }).toString(),
       name: newItem.name,
       url: newItem.url,
-      image: newItem.image,
+      image: newItem.image!,
     }
     brands.push(brand)
-    return res(
-      ctx.status(200),
-      ctx.delay(200),
-      ctx.json(brand),
-    )
+    return HttpResponse.json(brand, { status: 201 })
   }),
-  rest.delete('/api/Brand/:id', (req, res, ctx) => {
-    const id = req.params.id.toString()
+  http.delete('/api/Brand/:id', ({ params }) => {
+    const { id } = params
     const itemIndex = brands.findIndex(x => x.id === id)
     brands.splice(itemIndex, 1)
-    return res(
-      ctx.delay(1000),
-      ctx.status(200),
-      ctx.json(true),
-    )
+    return HttpResponse.json(true, { status: 200 })
   }),
 
 ]

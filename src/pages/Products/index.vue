@@ -2,8 +2,13 @@
 
 </script>
 
+<route lang="yaml">
+meta:
+  title: Products Management
+</route>
+
 <template>
-  <div />
+  <ProductsManagement />
 </template>
 
 <style lang="scss" scoped>

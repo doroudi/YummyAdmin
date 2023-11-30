@@ -9,5 +9,8 @@ const themeOverrides: GlobalThemeOverrides = {
     textColor1: 'var(--text)',
     textColor2: 'var(--dark)',
   },
+  Tag: {
+    borderRadius: '4px',
+  },
 }
 export default themeOverrides
