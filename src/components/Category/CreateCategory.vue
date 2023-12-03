@@ -30,6 +30,7 @@ function mapCategoryToOptions(item: Category): TreeSelectOption {
 }
 const parents: TreeSelectOption[] = [{ key: 0, label: 'Root' }, ...categoriesOptions]
 const nameInput = ref()
+
 onMounted(() => {
   nameInput.value?.focus()
 })
@@ -49,7 +50,6 @@ const rules: FormRules = {
       message: t('categories.validations.parentRequired'),
     },
   ],
-
 }
 </script>
 

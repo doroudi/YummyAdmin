@@ -56,22 +56,22 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(ProductsIcon),
     children: [
       {
-        label: () => renderLabel(t('menu.products'), 'products'),
+        label: () => renderLabel(t('menu.products'), '/products'),
         key: 'Products',
         icon: renderIcon(ProductsIcon2),
       },
       {
-        label: () => renderLabel(t('menu.categories'), 'categories'),
+        label: () => renderLabel(t('menu.categories'), '/categories'),
         key: 'categories',
         icon: renderIcon(CategoryIcon),
       },
       {
-        label: () => renderLabel(t('menu.brands'), 'brands'),
+        label: () => renderLabel(t('menu.brands'), '/brands'),
         key: 'brands',
         icon: renderIcon(BrandsIcon),
       },
       {
-        label: () => renderLabel(t('menu.colors'), 'colors'),
+        label: () => renderLabel(t('menu.colors'), '/colors'),
         key: 'colors',
         icon: renderIcon(ColorsIcon),
       },
