@@ -1,11 +1,13 @@
 <script setup lang='ts'>
 import type { UploadFileInfo } from 'naive-ui/es/upload'
+import type { ProductCreateModel } from '~/models/Product'
 
 const { t } = useI18n()
 const previewImageUrl = ref('')
 const showModal = ref(false)
 const showModalRef = ref(false)
 const previewImageUrlRef = ref('')
+const productItem = ref<ProductCreateModel>({} as ProductCreateModel)
 function handlePreview(file: UploadFileInfo) {
   const { url } = file
   previewImageUrlRef.value = url as string
@@ -17,7 +19,7 @@ function handlePreview(file: UploadFileInfo) {
   <n-form>
     <n-layout has-sider sider-placement="right">
       <n-layout-content px-2>
-        <n-card size="small" title="Product Information">
+        <n-card size="small" title="Product Information" class="mb-3">
           <n-form-item path="name" :label="t('categories.create.categoryName')">
             <n-input placeholder="Product Name" label="Name" size="large" />
           </n-form-item>
@@ -31,9 +33,9 @@ function handlePreview(file: UploadFileInfo) {
             </n-form-item>
           </n-space>
 
-          <n-form-item path="description">
-            <n-input type="textarea" placeholder="Description" />
-          </n-form-item>
+          <div path="description">
+            <Editor v-model="productItem.description" />
+          </div>
         </n-card>
         <n-card size="small" title="Media">
           <div class="form-control">
@@ -67,7 +69,7 @@ function handlePreview(file: UploadFileInfo) {
             </n-form-item>
             <hr>
             <n-space p-1 justify="space-between">
-              Stock
+              InStock
               <n-switch />
             </n-space>
           </n-space>

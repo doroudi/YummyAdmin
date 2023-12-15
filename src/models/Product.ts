@@ -34,6 +34,6 @@ export enum ProductStatus {
   Draft,
 }
 
-export interface ProductCreateModel {
-
+export interface ProductCreateModel extends Product {
+  description: string
 }
