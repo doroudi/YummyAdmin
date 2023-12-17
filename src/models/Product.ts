@@ -36,4 +36,7 @@ export enum ProductStatus {
 
 export interface ProductCreateModel extends Product {
   description: string
+  categoryId: string | number
+  brandId: string | number
+  tags: Array<string>
 }

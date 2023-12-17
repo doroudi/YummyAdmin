@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Brand, BrandCreateModel } from '~/models/Brand'
-import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
+import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
 import brandService from '~/services/brand.service'
 
 export interface BrandState {
@@ -12,7 +12,7 @@ export const useBrandStore = defineStore('Brand', () => {
   const isSaving = ref(false)
   const { options } = useOptions()
 
-  async function getBrands(options: PagedAndSortedRequest) {
+  async function getBrands(options: PagedAndSortedRequest = defaultOptions) {
     isLoading.value = true
     try {
       const response = await brandService.getList(options)

@@ -1,7 +1,7 @@
 import type { AxiosInstance } from 'axios'
 import HttpClient from './http-client'
 import type { PagedListResult } from '~/models/PagedListResult'
-import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
+import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
 import type { ListResult } from '~/models/ListResult'
 
 export class ApiService {
@@ -22,7 +22,7 @@ export class ApiService {
     return response.data as ListResult<T>
   }
 
-  async getPagedList<T>(url = '', options: PagedAndSortedRequest): Promise<PagedListResult<T>> {
+  async getPagedList<T>(url = '', options: PagedAndSortedRequest = defaultOptions): Promise<PagedListResult<T>> {
     const skipCount = (options.page - 1) * options.itemsPerPage
     const maxResultCount = options.itemsPerPage
     const params = { skipCount, maxResultCount, ...options } as any

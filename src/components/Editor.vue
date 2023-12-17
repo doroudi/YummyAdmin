@@ -16,11 +16,16 @@ watch(() => props.modelValue, () => content.value = props.modelValue)
 
 <style lang="scss">
 .ql-container.ql-snow {
-    border: solid 1px var(--n-scrollbar-color);
-    border-radius: 0 0 5px 5px;
+  border: solid 1px var(--n-scrollbar-color);
+  border-radius: 0 0 5px 5px;
 }
+
 .ql-toolbar.ql-snow {
-    border: solid 1px var(--n-scrollbar-color);
-    border-radius: 5px 5px 0 0;
+  border: solid 1px var(--n-scrollbar-color);
+  border-radius: 5px 5px 0 0;
+}
+
+.ql-editor {
+  min-height: 150px;
 }
 </style>
