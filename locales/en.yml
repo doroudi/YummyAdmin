@@ -108,4 +108,23 @@ colors:
     nameRequired: Name is required
     colorRequired: Color not selected
 
+products:
+  create:
+    title: Create Product
+    productInformation: Product Information
+    name: Product Name
+    barcode: Barcode
+    sku: SKU
+    description: Description
+    media: Media
+    pricing: Pricing
+    price: Price
+    discountedPrice: Discounted Price
+    inStock: InStock
+    category: Category
+    brand: Brand
+    keywords: Keywords
+    newKeyword: New Keyword
+    imageName: Image
+
 not-found: Not found

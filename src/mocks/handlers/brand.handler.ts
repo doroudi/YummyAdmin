@@ -33,7 +33,7 @@ const handlers = [
 function createFakeBrand(): Brand {
   const name = faker.company.name()
   return {
-    id: faker.datatype.number().toString(),
+    id: faker.number.int().toString(),
     name,
     image: '',
     url: toKebabCase(name),

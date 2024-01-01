@@ -22,23 +22,23 @@ const rtlStyles = [
 ]
 // const { t } = useI18n()
 
-useHead({
-  title: 'Vitesse',
-  meta: [
-    { name: 'description', content: 'Description' },
-    {
-      name: 'theme-color',
-      content: () => isDark.value ? '#00aba9' : '#ffffff',
-    },
-  ],
-  link: [
-    {
-      rel: 'icon',
-      type: 'image/svg+xml',
-      href: () => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg',
-    },
-  ],
-})
+// useHead({
+//   title: 'Vitesse',
+//   meta: [
+//     { name: 'description', content: 'Description' },
+//     {
+//       name: 'theme-color',
+//       content: () => isDark.value ? '#00aba9' : '#ffffff',
+//     },
+//   ],
+//   link: [
+//     {
+//       rel: 'icon',
+//       type: 'image/svg+xml',
+//       href: () => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg',
+//     },
+//   ],
+// })
 
 watch(() => layout.activeLanguage, () => {
   const body = document.querySelector('body') as HTMLElement

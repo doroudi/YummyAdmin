@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Category, CategoryCreateModel } from '~/models/Category'
-import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
+import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
 import categoryService from '~/services/category.service'
 
 export const useCategoryStore = defineStore('Category', () => {
@@ -10,7 +10,7 @@ export const useCategoryStore = defineStore('Category', () => {
   const isSaving = ref(false)
   const { options } = useOptions()
 
-  async function getCategories(options: PagedAndSortedRequest) {
+  async function getCategories(options: PagedAndSortedRequest = defaultOptions) {
     isLoading.value = true
     try {
       const response = await categoryService.getList(options)
