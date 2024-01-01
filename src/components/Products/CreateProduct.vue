@@ -54,17 +54,17 @@ function handlePreview(file: UploadFileInfo) {
   <n-form>
     <n-layout has-sider sider-placement="right">
       <n-layout-content px-2>
-        <n-card size="small" title="Product Information" class="mb-3">
-          <n-form-item path="name" :label="t('categories.create.categoryName')">
-            <n-input placeholder="Product Name" label="Name" size="large" />
+        <n-card size="small" :title="t('products.create.productInformation')" class="mb-3">
+          <n-form-item path="name" :label="t('products.create.name')">
+            <n-input :placeholder="t('products.create.name')" label="Name" size="large" />
           </n-form-item>
           <n-space justify="start">
-            <n-form-item path="name" :label="t('categories.create.categoryName')">
-              <n-input placeholder="SKU" label="SKU" size="large" />
+            <n-form-item path="name" :label="t('products.create.sku')">
+              <n-input :placeholder="t('products.create.sku')" :label="t('products.create.sku')" size="large" />
             </n-form-item>
 
-            <n-form-item path="name" :label="t('categories.create.categoryName')">
-              <n-input placeholder="Barcode" label="Barcode" size="large" />
+            <n-form-item path="name" :label="t('products.create.barcode')">
+              <n-input :placeholder="t('products.create.barcode')" :label="t('products.create.barcode')" size="large" />
             </n-form-item>
           </n-space>
 
@@ -76,7 +76,7 @@ function handlePreview(file: UploadFileInfo) {
           <div class="form-control">
             <n-form-item class="mb-5" path="image" :label="t('brands.create.image')">
               <n-upload list-type="image-card" accept="image/png, image/jpeg" :max="20" @preview="handlePreview" />
-              <n-modal v-model:show="showModal" preset="card" style="width: 600px" title="A Cool Picture">
+              <n-modal v-model:show="showModal" preset="card" style="width: 600px" :title="t('products.create.imageName')">
                 <img :src="previewImageUrl" style="width: 100%">
               </n-modal>
             </n-form-item>
@@ -84,17 +84,17 @@ function handlePreview(file: UploadFileInfo) {
         </n-card>
       </n-layout-content>
       <n-layout-sider :width="400">
-        <n-card size="small" title="Pricing" class="mb-2">
+        <n-card size="small" :title="t('products.create.pricing')" class="mb-2">
           <n-space vertical>
-            <n-form-item path="name" :label="t('categories.create.categoryName')">
-              <n-input size="large" placeholder="Price" />
+            <n-form-item path="name" :label="t('products.create.price')">
+              <n-input size="large" :placeholder="t('products.create.price')" />
             </n-form-item>
-            <n-form-item path="name" :label="t('categories.create.categoryName')">
-              <n-input size="large" placeholder="Discounted Price" />
+            <n-form-item path="name" :label="t('products.create.discountedPrice')">
+              <n-input size="large" :placeholder="t('products.create.discountedPrice')" />
             </n-form-item>
             <hr>
             <n-space p-1 justify="space-between">
-              InStock
+              {{ t('products.create.inStock') }}
               <n-switch />
             </n-space>
           </n-space>
@@ -102,16 +102,16 @@ function handlePreview(file: UploadFileInfo) {
 
         <n-card size="small" title="Category">
           <n-space vertical>
-            <n-form-item path="category" :label="t('categories.create.categoryName')">
+            <n-form-item path="category" :label="t('products.create.category')">
               <n-tree-select
                 v-model="productItem.categoryId" key-field="key" :options="categoryOptions"
-                :placeholder="t('categories.create.parent')"
+                :placeholder="t('products.create.category')"
               />
             </n-form-item>
-            <n-form-item path="brand" :label="t('categories.create.categoryName')">
+            <n-form-item path="brand" :label="t('products.create.brand')">
               <n-select v-model="productItem.brandId" :options="brandOptions" />
             </n-form-item>
-            <n-form-item path="keywords" :label="t('categories.create.categoryName')">
+            <n-form-item path="keywords" :label="t('products.create.keywords')">
               <n-dynamic-tags v-model:value="productItem.tags" :max="10">
                 <template #trigger="{ activate, disabled }">
                   <n-button size="small" type="primary" dashed :disabled="disabled" @click="activate()">
@@ -120,7 +120,7 @@ function handlePreview(file: UploadFileInfo) {
                         <PlusIcon />
                       </n-icon>
                     </template>
-                    New Keyword
+                    {{ t('products.create.newKeyword') }}
                   </n-button>
                 </template>
               </n-dynamic-tags>
@@ -132,4 +132,9 @@ function handlePreview(file: UploadFileInfo) {
   </n-form>
 </template>
 
-<style scoped lang='scss'></style>
+<style lang='scss'>
+.n-card > .n-card-header .n-card-header__main
+{
+  font-weight: bold;
+}
+</style>
