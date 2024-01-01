@@ -2,11 +2,11 @@ import { setupLayouts } from 'virtual:generated-layouts'
 import { createRouter, createWebHistory } from 'vue-router'
 import type { AppModule } from './types'
 import App from './App.vue'
+import i18n from './modules/i18n'
 import generatedRoutes from '~pages'
 import '@unocss/reset/tailwind-compat.css'
 import 'uno.css'
 import './styles/main.scss'
-import i18n from './modules/i18n'
 
 const routes = setupLayouts(generatedRoutes)
 

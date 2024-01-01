@@ -1,8 +1,7 @@
-import { LoginViewModel } from "~/models/LoginInfo";
-const apiService = new ApiService('products')
+// import { ApiService } from "~/common/api/api-service";
+// import { LoginViewModel } from "~/models/LoginInfo";
+// const apiService = new ApiService('products')
 
-export class AccountService{
-    function login(loginInfo: LoginViewModel) {
-        
-    }
+export class AccountService {
+
 }
