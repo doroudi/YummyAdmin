@@ -1,12 +1,49 @@
 <script setup lang="ts">
+import type { FormInst, FormRules } from 'naive-ui/es/form/src/interface'
 import { storeToRefs } from 'pinia'
+import type { LoginViewModel } from '~/models/Login'
 
 const { t } = useI18n()
 const accountStore = useAccountStore()
-const { isLoading, loginFailed } = storeToRefs(accountStore)
+const { isLoading } = storeToRefs(accountStore)
+const loginInfo = ref<LoginViewModel>({ username: '', password: '' })
+const loginFailed = ref(false)
+const router = useRouter()
+const formRef = ref<FormInst | null>(null)
 
 async function login() {
-  accountStore.login()
+  formRef.value?.validate(async (errors: any) => {
+    if (!errors) {
+      const loginSucceed = await accountStore.login(loginInfo.value)
+      if (loginSucceed) {
+        useNotifyStore().success('Logged In Successfully 🎉')
+        setTimeout(() => router.push('/'), 500)
+      }
+      else {
+        loginFailed.value = true
+        setTimeout(() => {
+          loginFailed.value = false
+        }, 2000)
+      }
+    }
+  })
+}
+
+const rules: FormRules = {
+  username: [
+    {
+      required: true,
+      trigger: ['blur', 'change'],
+      message: t('login.validations.userNameRequired'),
+    },
+  ],
+  password: [
+    {
+      required: true,
+      trigger: ['blur', 'change'],
+      message: t('login.validations.passwordRequired'),
+    },
+  ],
 }
 </script>
 
@@ -22,22 +59,20 @@ meta:
       <div class="shadow-lg bg-white dark:bg-slate-800 rounded-md w-full" :class="{ failed: loginFailed }">
         <div class="banner" />
         <div class="p-5">
-          <!-- <img src="@/assets/images/login.jpg" alt="Image" height="50" class="mb-3"> -->
           <div class="text-2xl font-medium mb-8">
             {{ t('login.title') }}
           </div>
-          <form @submit.prevent="login()">
-            <div class="mb-5">
-              <span class="p-float-label">
-                <label for="username" class="block font-medium">{{ t('login.username') }}</label>
-                <n-input id="username" />
-              </span>
-            </div>
+          <n-form ref="formRef" :model="loginInfo" :rules="rules" @submit.prevent="login()">
+            <n-form-item class="mb-5" path="username" :label="t('login.username')">
+              <n-input id="name" v-model:value="loginInfo.username" autofocus :placeholder="t('login.username')" />
+            </n-form-item>
+            <n-form-item class="mb-5" path="password" :label="t('login.password')">
+              <n-input
+                id="name" v-model:value="loginInfo.password" type="password" show-password-on="mousedown"
+                :placeholder="t('login.password')"
+              />
+            </n-form-item>
 
-            <div class="mb-8">
-              <label for="password" class="block  font-medium">{{ t('login.password') }}</label>
-              <n-input type="password" show-password-on="mousedown" />
-            </div>
             <div class="flex align-items-center justify-between mb-10">
               <!-- <div class="flex align-items-center">
                 <n-checkbox v-model="checked" aria-labelledby="remember" :binary="true" class="mr-2" />
@@ -54,7 +89,7 @@ meta:
             <n-button attr-type="submit" size="large" :block="true" type="primary" :loading="isLoading">
               {{ t('login.loginButton') }}
             </n-button>
-          </form>
+          </n-form>
           <div class="text-center pt-4 text-sm">
             <span class="font-medium line-height-3">{{ t('login.haveNotAccount') }}</span>
             <RouterLink to="/Account/Register" class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">
@@ -71,10 +106,6 @@ meta:
 </template>
 
 <style lang='scss'>
-// .bg {
-//   background: #f2f2f2; // linear-gradient(15deg, #006EB8 50%, #4795D1 50.1%);
-// }
-
 .banner {
   background-image: url('~/assets/images/login_banner.jpg');
   background-size: cover;
@@ -86,7 +117,7 @@ meta:
 .login-box {
   max-width: 400px;
 
-  &.failed {
+  .failed {
     animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;

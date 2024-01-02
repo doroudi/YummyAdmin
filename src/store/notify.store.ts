@@ -26,7 +26,7 @@ export const useNotifyStore = defineStore('notify', {
         setTimeout(() => {
           const messageIndex = this.messages.findIndex(x => x.id === notification.id)
           this.messages.splice(messageIndex, 1)
-        }, notification.duration ?? 3000) // TODO: move hardcoded value to config
+        }, notification.duration ?? 3000)
       }
     },
     error(body: string, title?: string, permanent = false) {
