@@ -6,6 +6,7 @@ export const useAccountStore = defineStore('account', () => {
   const user = ref<Account | null>(null)
   const isLoading = ref(false)
   const loginFailed = ref(false)
+
   async function login(loginInfo: LoginViewModel): Promise<boolean> {
     isLoading.value = true
     try {
@@ -32,11 +33,16 @@ export const useAccountStore = defineStore('account', () => {
     user.value = null
   }
 
+  function isAuthenticated() {
+    return (user.value?.token && user.value.token !== null) ?? false
+  }
+
   return {
     isLoading,
     loginFailed,
     login,
     logout,
+    isAuthenticated,
   }
 })
 

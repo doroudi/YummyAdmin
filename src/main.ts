@@ -36,6 +36,12 @@ router.beforeEach((to, from, next) => {
     title = `${to.meta.title} - ${title}`
 
   document.title = title
+
+  const isAuthenticated = useAccountStore().isAuthenticated()
+  const isAuthRequired = to.meta.authRequired ?? true
+  if (isAuthRequired && !isAuthenticated)
+    next({ path: '/account/login' })
+
   next()
 })
 enableMocking().then(() => app.mount('#app'))

@@ -51,6 +51,7 @@ const rules: FormRules = {
 meta:
   title: Login
   layout: auth
+  authRequired: false
 </route>
 
 <template>
