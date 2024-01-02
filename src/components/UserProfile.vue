@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import { ChevronCircleDown20Regular as ChevronIcon } from '@vicons/fluent'
 
+const accountStore = useAccountStore()
 const { t } = useI18n()
 const selectedItem = ref('')
 const router = useRouter()
 const items
   = [
     { label: t('userMenu.options'), to: '/options', value: () => { router.push('/options') } },
-    { label: t('userMenu.signOut'), to: '/logout', value: () => { router.push('/account/login') } },
+    {
+      label: t('userMenu.logout'),
+      to: '/logout',
+      value: () => {
+        accountStore.logout()
+        router.push('/account/login')
+      },
+    },
   ]
 
 function doMenuAction(value: any) {

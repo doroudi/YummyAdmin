@@ -4,8 +4,8 @@ import type { LoginResponse, LoginViewModel } from '~/models/Login'
 const apiService = new ApiService('account')
 class AccountService {
   async login(loginInfo: LoginViewModel): Promise<LoginResponse> {
-    const response = await apiService.post<LoginResponse>('login', loginInfo)
-    return response
+    const response = await apiService.post<any>('login', loginInfo)
+    return response.data
   }
 }
 

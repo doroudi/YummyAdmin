@@ -29,7 +29,7 @@ export const useAccountStore = defineStore('account', () => {
   }
 
   function logout() {
-    // useRouter().push()
+    user.value = null
   }
 
   return {
