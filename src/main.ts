@@ -28,15 +28,20 @@ app.use(router)
 Object.values(import.meta.glob<{ install: AppModule }>('./modules/*.ts', { eager: true }))
   .forEach(i => i.install?.(app, router))
 
-// @ts-expect-error "Type instantiation is excessively deep and possibly infinite.ts(2589)"
-const { t } = i18n.global
-let title = t('title')
-
 router.beforeEach((to, from, next) => {
+  // @ts-expect-error "Type instantiation is excessively deep and possibly infinite.ts(2589)"
+  const { t } = i18n.global
+  let title = t('title')
   if (to.meta.title)
     title = `${to.meta.title} - ${title}`
 
   document.title = title
+
+  const isAuthenticated = useAccountStore().isAuthenticated()
+  const isAuthRequired = to.meta.authRequired ?? true
+  if (isAuthRequired && !isAuthenticated)
+    next({ path: '/account/login' })
+
   next()
 })
 enableMocking().then(() => app.mount('#app'))

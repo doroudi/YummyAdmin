@@ -36,13 +36,8 @@ export class ApiService {
   }
 
   async post<T>(url: string, data: any): Promise<T> {
-    try {
-      return this.httpClient.post(`${this.apiBase}/${url}`, data)
-    }
-    catch (error) {
-      console.error(`${error} was occurred`)
-      throw new Error('cannot post')
-    }
+    return this.httpClient.post<T>(`${this.apiBase}/${url}`, data)
+    return response.data
   }
 
   async put<T>(url: string, data: any): Promise<T> {

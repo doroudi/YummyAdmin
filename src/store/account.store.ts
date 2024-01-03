@@ -1,36 +1,48 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { LoginViewModel } from '~/models/LoginInfo'
+import type { Account, LoginViewModel } from '~/models/Login'
+import AccountService from '~/services/account.service'
 
 export const useAccountStore = defineStore('account', () => {
-  const user = ref<LoginViewModel>({ username: '', password: '' })
+  const user = ref<Account | null>(null)
   const isLoading = ref(false)
   const loginFailed = ref(false)
-  function login() {
-    setTimeout(async () => {
-      if (user.value.username === 'admin' && user.value.password === 'admin') {
-        // const response = await authService.login(user.value.username, user.value.password)
-        isLoading.value = false
-        //   toast.add({ severity: 'success', summary: 'Login Succeed', detail: 'Redirecting', life: 3000 })
-        return
+
+  async function login(loginInfo: LoginViewModel): Promise<boolean> {
+    isLoading.value = true
+    try {
+      const response = await AccountService.login(loginInfo)
+      if (response.isSucceed) {
+        user.value = {
+          token: response.token,
+        }
+        return true
       }
 
+      return false
+    }
+    catch (error) {
+      return false
+    }
+    finally {
       isLoading.value = false
-      loginFailed.value = true
-      // toast.add({ severity: 'error', summary: t('login.failedMessage'), detail: 'Error Message', life: 3000 })
-      setTimeout(() => loginFailed.value = false, 2000)
-    }, 1000)
+    }
+    // toast.add({ severity: 'error', summary: t('login.failedMessage'), detail: 'Error Message', life: 3000 })
   }
 
   function logout() {
-    // useRouter().push()
+    user.value = null
+  }
+
+  function isAuthenticated() {
+    return (user.value?.token && user.value.token !== null) ?? false
   }
 
   return {
     isLoading,
     loginFailed,
-    user,
     login,
     logout,
+    isAuthenticated,
   }
 })
 

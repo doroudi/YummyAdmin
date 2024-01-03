@@ -30,7 +30,7 @@ userMenu:
   language: Language
   theme: Theme
   options: Options
-  signOut: SignOut
+  logout: Logout
   dark: Dark
   light: Light
   en: English
@@ -54,6 +54,10 @@ login:
   haveNotAccount: Don't have an account?
   createAccount: Create One!
   failedMessage: Login Failed
+  validations:
+    userNameRequired: Enter username
+    passwordRequired: Password is required
+
 register:
   title: Register
   username: User Name

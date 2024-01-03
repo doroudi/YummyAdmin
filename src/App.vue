@@ -53,8 +53,8 @@ watch(() => layout.activeLanguage, () => {
 
 <template>
   <n-config-provider :theme-overrides="themeOverrides" :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false">
-    <n-notification-provider placement="bottom">
-      <n-message-provider placement="bottom">
+    <n-notification-provider placement="bottom-right">
+      <n-message-provider placement="bottom-right">
         <n-dialog-provider>
           <router-view />
         </n-dialog-provider>
