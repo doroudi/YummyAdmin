@@ -2,8 +2,13 @@
 
 </script>
 
+<route lang="yaml">
+meta:
+  title: Customers
+</route>
+
 <template>
-  <div />
+  <CustomerManagement />
 </template>
 
 <style scoped>

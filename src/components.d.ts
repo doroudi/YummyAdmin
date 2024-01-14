@@ -17,6 +17,7 @@ declare module 'vue' {
     CreateCategory: typeof import('./components/Category/CreateCategory.vue')['default']
     CreateColor: typeof import('./components/Color/CreateColor.vue')['default']
     CreateProduct: typeof import('./components/Products/CreateProduct.vue')['default']
+    CustomerManagement: typeof import('./components/Customers/CustomerManagement.vue')['default']
     DashboardCard: typeof import('./components/DashboardCard.vue')['default']
     DonutChart: typeof import('./components/DonutChart.vue')['default']
     Editor: typeof import('./components/Editor.vue')['default']

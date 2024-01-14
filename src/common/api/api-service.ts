@@ -36,7 +36,7 @@ export class ApiService {
   }
 
   async post<T>(url: string, data: any): Promise<T> {
-    return this.httpClient.post<T>(`${this.apiBase}/${url}`, data)
+    const response = this.httpClient.post<T>(`${this.apiBase}/${url}`, data)
     return response.data
   }
 

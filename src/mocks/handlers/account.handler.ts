@@ -1,5 +1,5 @@
 import { HttpResponse, delay, http } from 'msw'
-import type { LoginResponse, LoginViewModel } from '~/models/Login'
+import type { LoginResponse, LoginViewModel } from '@/models/Login'
 
 const handlers = [
   http.post('/api/account/login', async ({ request }) => {
