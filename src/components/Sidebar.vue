@@ -106,22 +106,22 @@ const menuOptions: MenuOption[] = [
     ],
   },
   {
-    label: () => renderLabel(t('menu.customers'), 'customers'),
+    label: () => renderLabel(t('menu.customers'), '/customers'),
     key: 'customers',
     icon: renderIcon(CustomersIcon),
   },
   {
-    label: () => renderLabel(t('menu.announcement'), 'announcement'),
+    label: () => renderLabel(t('menu.announcement'), '/announcement'),
     key: 'notify',
     icon: renderIcon(NewsIcon),
     children: [
       {
-        label: () => renderLabel(t('menu.news'), 'news'),
+        label: () => renderLabel(t('menu.news'), '/news'),
         key: 'news',
         icon: renderIcon(NewsIcon),
       },
       {
-        label: () => renderLabel(t('menu.notifications'), 'notify'),
+        label: () => renderLabel(t('menu.notifications'), '/notify'),
         key: 'notifications',
         icon: renderIcon(NotifyIcon),
       },
@@ -138,12 +138,12 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(SettingsIcon),
     children: [
       {
-        label: () => renderLabel(t('menu.accountSettings'), 'account'),
+        label: () => renderLabel(t('menu.accountSettings'), '/account'),
         key: 'account-settings',
         icon: renderIcon(AccountSettingsIcon),
       },
       {
-        label: () => renderLabel(t('menu.websiteSettings'), 'website-settings'),
+        label: () => renderLabel(t('menu.websiteSettings'), '/website-settings'),
         key: 'website-settings',
         icon: renderIcon(WebsiteSettingsIcon),
       },

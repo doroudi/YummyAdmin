@@ -9,7 +9,11 @@ import 'uno.css'
 import './styles/main.scss'
 
 const routes = setupLayouts(generatedRoutes)
-
+declare module '@vue/runtime-core' {
+  export interface ComponentCustomProperties {
+    $filters: any
+  }
+}
 async function enableMocking() {
   const isMocking = import.meta.env.VITE_API_MOCKING_ENABLED
   if (!isMocking)
@@ -27,6 +31,11 @@ const app = createApp(App)
 app.use(router)
 Object.values(import.meta.glob<{ install: AppModule }>('./modules/*.ts', { eager: true }))
   .forEach(i => i.install?.(app, router))
+
+// register filters
+app.config.globalProperties.$filters = {}
+Object.values(import.meta.glob<any>('./common/filters/*.filter.ts', { eager: true, import: 'default' }))
+  .forEach(filters => Object.keys(filters).forEach(func => app.config.globalProperties.$filters[func] = filters[func]))
 
 router.beforeEach((to, from, next) => {
   // @ts-expect-error "Type instantiation is excessively deep and possibly infinite.ts(2589)"

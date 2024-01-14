@@ -3,7 +3,7 @@ import type { Account, LoginViewModel } from '~/models/Login'
 import AccountService from '~/services/account.service'
 
 export const useAccountStore = defineStore('account', () => {
-  const user = ref<Account | null>(null)
+  const user = ref<Account | null>()
   const isLoading = ref(false)
   const loginFailed = ref(false)
 
@@ -38,13 +38,14 @@ export const useAccountStore = defineStore('account', () => {
   }
 
   return {
+    user,
     isLoading,
     loginFailed,
     login,
     logout,
     isAuthenticated,
   }
-})
+}, { persist: true })
 
 if (import.meta.hot)
   import.meta.hot.accept(acceptHMRUpdate(useAccountStore, import.meta.hot))
