@@ -79,12 +79,9 @@ const menuOptions: MenuOption[] = [
     ],
   },
   {
-    label: () => [
-      renderLabel(t('menu.orders'), '/orders'),
-      h(NBadge, { processing: true, dot: true, value: 20, class: 'ml-2' }, {}),
-    ],
+    label: () => renderLabel(t('menu.orders'), '/orders'),
     key: 'orders',
-    icon: renderIcon(InvoicesIcon),
+    icon: renderIcon(InvoicesIcon, true),
   },
   {
     label: t('menu.feedbacks'),
@@ -154,7 +151,10 @@ const menuOptions: MenuOption[] = [
   },
 ]
 
-function renderIcon(icon: any) {
+function renderIcon(icon: any, showBadge = false) {
+  if (showBadge)
+    return () => h(NBadge, { processing: true, dot: true, type: 'success', offset: [-2, 2] }, { default: () => h(NIcon, { color: '#000' }, { default: () => h(icon) }) })
+
   return () => h(NIcon, null, { default: () => h(icon) })
 }
 </script>
