@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MenuOption } from 'naive-ui'
+import { type MenuOption, NBadge } from 'naive-ui'
 import {
   PersonSettings20Regular as AccountSettingsIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
@@ -79,7 +79,10 @@ const menuOptions: MenuOption[] = [
     ],
   },
   {
-    label: () => renderLabel(t('menu.orders'), 'orders'),
+    label: () => [
+      renderLabel(t('menu.orders'), '/orders'),
+      h(NBadge, { processing: true, dot: true, value: 20, class: 'ml-2' }, {}),
+    ],
     key: 'orders',
     icon: renderIcon(InvoicesIcon),
   },
@@ -177,6 +180,7 @@ function renderIcon(icon: any) {
   align-items: center;
   padding: 1.5rem 1.1rem 0.5rem 1.1rem;
   transition: all 100ms;
+
   .logo {
     width: 33px;
     margin-right: 0.8rem;

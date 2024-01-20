@@ -2,8 +2,8 @@
 import { type DataTableColumns, NButton, NIcon, NSpace, NTag, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
+  Open24Regular as ArrowIcon,
   Delete24Regular as DeleteIcon,
-  Edit24Regular as EditIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
@@ -16,33 +16,26 @@ const { orders, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
+const { proxy } = getCurrentInstance()
 
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
-    type: 'selection',
+    title: 'Customer',
+    key: 'customer',
+
   },
   {
-    title: 'CUSTOMER',
-    key: 'name',
-    render: row =>
-      h(NSpace, {}, {
-        default: () => [
-          h(NText, {}, { default: () => row.customer.firstName }),
-        ],
-      }),
+    title: 'Date',
+    key: 'createdDate',
+    render: row => h(NText, {}, { default: () => proxy.$filters.friendlyTime(row.createdDate) }),
   },
   {
-    title: 'DATE',
-    key: 'creationDate',
-    render: row => h(NText, {}, { default: () => $filters.friendlyTime(row.creationDate) }),
-  },
-  {
-    title: 'ITEMS COUNT',
+    title: 'Items Count',
     key: 'itemsCount',
   },
   {
-    title: 'PRICE',
+    title: 'Price',
     key: 'category',
     render(row) {
       return h(NText,
@@ -52,7 +45,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
   {
-    title: 'STATUS',
+    title: 'Status',
     key: 'status',
     render: row => h(NTag,
       { type: getStatusColor(row.status) },
@@ -68,11 +61,10 @@ const columns: DataTableColumns<RowData> = [
           NButton,
           {
             size: 'medium',
-            renderIcon: renderIcon(EditIcon),
             quaternary: true,
             circle: true,
-            class: 'mr-2',
-            onClick: () => { },
+            renderIcon: renderIcon(ArrowIcon),
+            onClick: () => {},
           },
         ),
         h(
@@ -127,7 +119,7 @@ function rowKey(row: RowData) {
   return row.id
 }
 function getItems() {
-  store.getProducts(options.value)
+  store.getOrders(options.value)
 }
 
 function handlePageChange(page: number) {
@@ -160,8 +152,8 @@ function handleFiltersChange() {
           </NButton>
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="orders" :loading="isLoading" :pagination="options"
-          selectable :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
+          :columns="columns" :data="orders" :loading="isLoading" :pagination="options"
+          :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
           @update:page="handlePageChange"
         />
       </div>

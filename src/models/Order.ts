@@ -1,5 +1,16 @@
 import type { Address, Customer } from './Customer'
 
+export interface OrderList {
+  id: string
+  customer: string
+  customerId: string
+  address: Address
+  status: OrderStatus
+  createdDate: Date
+  totalPrice: number
+  itemsCount: number
+}
+
 export interface Order {
   id: string
   customer: Customer

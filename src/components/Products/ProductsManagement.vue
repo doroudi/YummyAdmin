@@ -3,7 +3,6 @@ import { type DataTableColumns, NButton, NIcon, NImage, NSpace, NSwitch, NTag, N
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Delete24Regular as DeleteIcon,
-  Edit24Regular as EditIcon,
   Add24Filled as PlusIcon,
   Star20Filled as StarIcon,
 } from '@vicons/fluent'
@@ -76,17 +75,7 @@ const columns: DataTableColumns<RowData> = [
     width: 110,
     render(row) {
       return [
-        h(
-          NButton,
-          {
-            size: 'medium',
-            renderIcon: renderIcon(EditIcon),
-            quaternary: true,
-            circle: true,
-            class: 'mr-2',
-            onClick: () => { },
-          },
-        ),
+
         h(
           NButton,
           {

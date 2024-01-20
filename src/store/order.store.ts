@@ -1,10 +1,10 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { Order } from '~/models/Order'
+import type { Order, OrderList } from '~/models/Order'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import orderService from '~/services/order.service'
 
 export const useOrderStore = defineStore('Order', () => {
-  const orders = ref<Order[]>([])
+  const orders = ref<OrderList[]>([])
   const isLoading = ref(false)
   const isSaving = ref(false)
   const { options } = useOptions()
@@ -21,9 +21,16 @@ export const useOrderStore = defineStore('Order', () => {
     }
   }
 
+  async function getOrderDetail(order: Order) {
+    const response = await orderService.getOrder(order.id)
+  }
+
   return {
+    options,
     orders,
     getOrders,
+    getOrderDetail,
+    isSaving,
   }
 })
 if (import.meta.hot)

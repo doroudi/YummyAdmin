@@ -1,13 +1,13 @@
 import { ApiService } from '~/common/api/api-service'
-import type { Order } from '~/models/Order'
+import type { Order, OrderList } from '~/models/Order'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import type { PagedListResult } from '~/models/PagedListResult'
 
-const apiService = new ApiService('Order')
+const apiService = new ApiService('order')
 class OrderService {
   constructor() { }
-  async getOrderList(options: PagedAndSortedRequest): Promise<PagedListResult<Order>> {
-    const response = await apiService.getPagedList<Order>('', options)
+  async getOrderList(options: PagedAndSortedRequest): Promise<PagedListResult<OrderList>> {
+    const response = await apiService.getPagedList<OrderList>('', options)
     return response
   }
 
