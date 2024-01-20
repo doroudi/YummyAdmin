@@ -3,12 +3,12 @@ import _ from 'lodash'
 import { faker } from '@faker-js/faker'
 import { CreatePagedResponse } from '../handlers.utility'
 import { OrderStatus } from '~/models/Order'
-import type { Order, OrderItem, OrderList } from '~/models/Order'
+import type { OrderItem, OrderList } from '~/models/Order'
 
 const orders = _.times(100, createFakeOrder)
 const handlers = [
   http.get('/api/order', ({ request }) => {
-    const response = CreatePagedResponse<Order>(request, orders)
+    const response = CreatePagedResponse<OrderList>(request, orders)
     return HttpResponse.json(response, { status: 200 })
   }),
 ]
