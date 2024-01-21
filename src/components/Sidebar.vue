@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MenuOption } from 'naive-ui'
+import { type MenuOption, NBadge } from 'naive-ui'
 import {
   PersonSettings20Regular as AccountSettingsIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
@@ -79,9 +79,9 @@ const menuOptions: MenuOption[] = [
     ],
   },
   {
-    label: () => renderLabel(t('menu.orders'), 'orders'),
+    label: () => renderLabel(t('menu.orders'), '/orders'),
     key: 'orders',
-    icon: renderIcon(InvoicesIcon),
+    icon: renderIcon(InvoicesIcon, true),
   },
   {
     label: t('menu.feedbacks'),
@@ -106,22 +106,22 @@ const menuOptions: MenuOption[] = [
     ],
   },
   {
-    label: () => renderLabel(t('menu.customers'), 'customers'),
+    label: () => renderLabel(t('menu.customers'), '/customers'),
     key: 'customers',
     icon: renderIcon(CustomersIcon),
   },
   {
-    label: () => renderLabel(t('menu.announcement'), 'announcement'),
+    label: () => renderLabel(t('menu.announcement'), '/announcement'),
     key: 'notify',
     icon: renderIcon(NewsIcon),
     children: [
       {
-        label: () => renderLabel(t('menu.news'), 'news'),
+        label: () => renderLabel(t('menu.news'), '/news'),
         key: 'news',
         icon: renderIcon(NewsIcon),
       },
       {
-        label: () => renderLabel(t('menu.notifications'), 'notify'),
+        label: () => renderLabel(t('menu.notifications'), '/notify'),
         key: 'notifications',
         icon: renderIcon(NotifyIcon),
       },
@@ -138,12 +138,12 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(SettingsIcon),
     children: [
       {
-        label: () => renderLabel(t('menu.accountSettings'), 'account'),
+        label: () => renderLabel(t('menu.accountSettings'), '/account'),
         key: 'account-settings',
         icon: renderIcon(AccountSettingsIcon),
       },
       {
-        label: () => renderLabel(t('menu.websiteSettings'), 'website-settings'),
+        label: () => renderLabel(t('menu.websiteSettings'), '/website-settings'),
         key: 'website-settings',
         icon: renderIcon(WebsiteSettingsIcon),
       },
@@ -151,7 +151,10 @@ const menuOptions: MenuOption[] = [
   },
 ]
 
-function renderIcon(icon: any) {
+function renderIcon(icon: any, showBadge = false) {
+  if (showBadge)
+    return () => h(NBadge, { processing: true, dot: true, type: 'success', offset: [-2, 2] }, { default: () => h(NIcon, { color: '#000' }, { default: () => h(icon) }) })
+
   return () => h(NIcon, null, { default: () => h(icon) })
 }
 </script>
@@ -177,6 +180,7 @@ function renderIcon(icon: any) {
   align-items: center;
   padding: 1.5rem 1.1rem 0.5rem 1.1rem;
   transition: all 100ms;
+
   .logo {
     width: 33px;
     margin-right: 0.8rem;

@@ -4,13 +4,11 @@
 
 <route lang="yaml">
 meta:
-  title: Customers
+  title: Reviews
 </route>
 
 <template>
-  <CustomerManagement />
+  <ReviewManagement />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

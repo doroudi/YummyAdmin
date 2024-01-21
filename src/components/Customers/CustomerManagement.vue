@@ -1,21 +1,23 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NButton, NIcon, NImage, NSpace, NSwitch, NTag, NText } from 'naive-ui/es/components'
+import { getCurrentInstance } from 'vue'
+import { type DataTableColumns, NButton, NIcon, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Delete24Regular as DeleteIcon,
+  Edit24Regular as EditIcon,
   Add24Filled as PlusIcon,
-  Star20Filled as StarIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
-import { ProductStatus } from '~/models/Product'
 
 const { t } = useI18n()
-const store = useProductStore()
-const { products, isLoading } = storeToRefs(store)
+const store = useCustomerStore()
+const { customers, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
+
+const { proxy } = getCurrentInstance()
 
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
@@ -23,51 +25,47 @@ const columns: DataTableColumns<RowData> = [
     type: 'selection',
   },
   {
-    title: 'PRODUCT',
+    title: 'NAME',
     key: 'name',
     render: row =>
       h(NSpace, {}, {
         default: () => [
-          h(NImage, { src: row.image, width: 35 }, {}),
-          h(NText, {}, { default: () => row.name }),
+          h(NText, {}, { default: () => `${row.firstName} ${row.lastName}` }),
         ],
       }),
   },
   {
-    title: 'Category',
-    key: 'category',
+    title: 'Join Date',
+    key: 'join-date',
     render(row) {
       return h(NText,
         {}, {
-          default: () => row.category.name,
+          default: () => proxy.$filters.friendlyTime(row.joinDate),
         })
     },
   },
   {
-    title: 'Rate',
-    key: 'rate',
+    title: 'Phone',
+    key: 'phone',
     render(row) {
       return [
-        h(NIcon, { color: 'gold' }, { default: renderIcon(StarIcon) }),
-        h(NText, { class: 'mx-2' }, { default: () => row.rate }),
+        h(NText, {}, { default: () => row.mobile }),
       ]
     },
   },
   {
-    title: 'Price',
-    key: 'price',
+    title: 'Email',
+    key: 'email',
+    render(row) {
+      return h(NText,
+        {}, {
+          default: () => row.email,
+        })
+    },
   },
   {
-    title: 'Status',
-    key: 'status',
-    render: row => h(NTag,
-      { type: getStatusColor(row.status) },
-      { default: () => ProductStatus[row.status] }),
-  },
-  {
-    title: 'Stock',
-    key: 'stock',
-    render: row => h(NSwitch, { value: row.stock, size: 'small' }, {}),
+    title: 'Orders Count',
+    key: 'ordersCount',
   },
   {
     title: 'Actions',
@@ -75,7 +73,17 @@ const columns: DataTableColumns<RowData> = [
     width: 110,
     render(row) {
       return [
-
+        h(
+          NButton,
+          {
+            size: 'medium',
+            renderIcon: renderIcon(EditIcon),
+            quaternary: true,
+            circle: true,
+            class: 'mr-2',
+            onClick: () => { },
+          },
+        ),
         h(
           NButton,
           {
@@ -96,17 +104,6 @@ function renderIcon(icon: any) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
 
-function getStatusColor(status: ProductStatus) {
-  switch (status) {
-    case ProductStatus.Draft:
-      return 'info'
-    case ProductStatus.Active:
-      return 'success'
-    case ProductStatus.NotActive:
-      return 'warning'
-  }
-}
-
 function handleDeleteItem(row: RowData) {
   dialog.error({
     title: 'Confirm',
@@ -124,7 +121,7 @@ function rowKey(row: RowData) {
   return row.id
 }
 function getItems() {
-  store.getProducts(options.value)
+  store.getCustomers(options.value)
 }
 
 function handlePageChange(page: number) {
@@ -157,8 +154,8 @@ function handleFiltersChange() {
           </NButton>
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="products" :loading="isLoading" :pagination="options" selectable
-          :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
+          remote :columns="columns" :data="customers" :loading="isLoading" :pagination="options"
+          selectable :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
           @update:page="handlePageChange"
         />
       </div>

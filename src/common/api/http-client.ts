@@ -23,6 +23,15 @@ function httpClient(baseApi: string | null = null): AxiosInstance {
       return Promise.reject(error)
     },
   )
+
+  client.interceptors.response.use((response) => {
+    return response
+  }, (error) => {
+    if (error.response.statusText)
+      useNotifyStore().error(error.response.statusText)
+
+    return Promise.reject(error)
+  })
   return client
 }
 

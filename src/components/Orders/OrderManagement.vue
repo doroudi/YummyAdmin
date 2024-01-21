@@ -1,73 +1,55 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NButton, NIcon, NImage, NSpace, NSwitch, NTag, NText } from 'naive-ui/es/components'
+import { type DataTableColumns, NButton, NIcon, NSpace, NTag, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
+  Open24Regular as ArrowIcon,
   Delete24Regular as DeleteIcon,
   Add24Filled as PlusIcon,
-  Star20Filled as StarIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
-import { ProductStatus } from '~/models/Product'
+import { OrderStatus } from '~/models/Order'
 
 const { t } = useI18n()
-const store = useProductStore()
-const { products, isLoading } = storeToRefs(store)
+const store = useOrderStore()
+const { orders, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
+const { proxy } = getCurrentInstance()
 
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
-    type: 'selection',
+    title: 'Customer',
+    key: 'customer',
+
   },
   {
-    title: 'PRODUCT',
-    key: 'name',
-    render: row =>
-      h(NSpace, {}, {
-        default: () => [
-          h(NImage, { src: row.image, width: 35 }, {}),
-          h(NText, {}, { default: () => row.name }),
-        ],
-      }),
+    title: 'Date',
+    key: 'createdDate',
+    render: row => h(NText, {}, { default: () => proxy.$filters.friendlyTime(row.createdDate) }),
   },
   {
-    title: 'Category',
+    title: 'Items Count',
+    key: 'itemsCount',
+  },
+  {
+    title: 'Price',
     key: 'category',
     render(row) {
       return h(NText,
         {}, {
-          default: () => row.category.name,
+          default: () => row.totalPrice,
         })
     },
-  },
-  {
-    title: 'Rate',
-    key: 'rate',
-    render(row) {
-      return [
-        h(NIcon, { color: 'gold' }, { default: renderIcon(StarIcon) }),
-        h(NText, { class: 'mx-2' }, { default: () => row.rate }),
-      ]
-    },
-  },
-  {
-    title: 'Price',
-    key: 'price',
   },
   {
     title: 'Status',
     key: 'status',
     render: row => h(NTag,
       { type: getStatusColor(row.status) },
-      { default: () => ProductStatus[row.status] }),
-  },
-  {
-    title: 'Stock',
-    key: 'stock',
-    render: row => h(NSwitch, { value: row.stock, size: 'small' }, {}),
+      { default: () => OrderStatus[row.status] }),
   },
   {
     title: 'Actions',
@@ -75,7 +57,16 @@ const columns: DataTableColumns<RowData> = [
     width: 110,
     render(row) {
       return [
-
+        h(
+          NButton,
+          {
+            size: 'medium',
+            quaternary: true,
+            circle: true,
+            renderIcon: renderIcon(ArrowIcon),
+            onClick: () => {},
+          },
+        ),
         h(
           NButton,
           {
@@ -96,14 +87,18 @@ function renderIcon(icon: any) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
 
-function getStatusColor(status: ProductStatus) {
+function getStatusColor(status: OrderStatus) {
   switch (status) {
-    case ProductStatus.Draft:
+    case OrderStatus.Submitted:
       return 'info'
-    case ProductStatus.Active:
+    case OrderStatus.Processing:
       return 'success'
-    case ProductStatus.NotActive:
+    case OrderStatus.ReadyToSend:
       return 'warning'
+    case OrderStatus.Sent:
+      return 'success'
+    case OrderStatus.Delivered:
+      return 'success'
   }
 }
 
@@ -124,7 +119,7 @@ function rowKey(row: RowData) {
   return row.id
 }
 function getItems() {
-  store.getProducts(options.value)
+  store.getOrders(options.value)
 }
 
 function handlePageChange(page: number) {
@@ -147,7 +142,7 @@ function handleFiltersChange() {
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
           <n-input placeholder="Search" />
-          <NButton type="primary" @click="router.push('/Products/Create')">
+          <NButton type="primary" @click="router.push('/Orders/Create')">
             <template #icon>
               <NIcon>
                 <PlusIcon />
@@ -157,7 +152,7 @@ function handleFiltersChange() {
           </NButton>
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="products" :loading="isLoading" :pagination="options" selectable
+          :columns="columns" :data="orders" :loading="isLoading" :pagination="options"
           :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
           @update:page="handlePageChange"
         />

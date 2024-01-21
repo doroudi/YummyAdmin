@@ -10,6 +10,11 @@ const { t } = useI18n()
 // const { options } = useOptions()
 </script>
 
+<route lang="yaml">
+meta:
+  title: Home
+</route>
+
 <template>
   <div class="margin-outside flex pb-3">
     <DashboardCard class="w-1/5" :icon="UserIcon" title="Registers" :progress="10" :value="250" />
