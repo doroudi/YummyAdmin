@@ -14,7 +14,7 @@ export const useOrderStore = defineStore('Order', () => {
     try {
       const response = await orderService.getOrderList(options)
       orders.value = response.items
-      options.pageSize = Math.trunc(response.totalCount / options.itemsPerPage)
+      options.pageCount = Math.ceil(response.totalCount / options.itemsPerPage)
     }
     finally {
       isLoading.value = false
