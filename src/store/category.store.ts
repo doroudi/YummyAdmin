@@ -15,7 +15,7 @@ export const useCategoryStore = defineStore('Category', () => {
     try {
       const response = await categoryService.getList(options)
       categories.value = response.items
-      options.pageSize = Math.trunc(response.totalCount / options.itemsPerPage)
+      options.pageCount = Math.ceil(response.totalCount / options.itemsPerPage)
     }
     finally {
       isLoading.value = false

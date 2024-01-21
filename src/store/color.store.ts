@@ -17,7 +17,7 @@ export const useColorStore = defineStore('Color', () => {
     try {
       const response = await colorService.getList(options)
       colors.value = response.items
-      options.pageSize = Math.trunc(response.totalCount / options.itemsPerPage)
+      options.pageCount = Math.ceil(response.totalCount / options.pageSize)
     }
     finally {
       isLoading.value = false
