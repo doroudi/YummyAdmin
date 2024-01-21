@@ -15,7 +15,7 @@ export const useProductStore = defineStore('Product', () => {
     try {
       const response = await productService.getList(options)
       products.value = response.items
-      options.pageSize = Math.trunc(response.totalCount / options.itemsPerPage)
+      options.pageCount = Math.ceil(response.totalCount / options.itemsPerPage)
     }
     finally {
       isLoading.value = false

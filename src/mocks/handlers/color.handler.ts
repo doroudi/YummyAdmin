@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker'
 import { CreatePagedResponse } from '../handlers.utility'
 import type { Color, ColorCreateModel } from '~/models/Color'
 
-const colors = _.times(7, createFakeColor)
+const colors = _.times(17, createFakeColor)
 const handlers = [
   http.get('/api/Color', ({ request }) => {
     const response = CreatePagedResponse<Color>(request, colors)

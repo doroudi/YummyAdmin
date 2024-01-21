@@ -17,7 +17,7 @@ export const useBrandStore = defineStore('Brand', () => {
     try {
       const response = await brandService.getList(options)
       brands.value = response.items
-      options.pageSize = Math.trunc(response.totalCount / options.itemsPerPage)
+      options.pageCount = Math.ceil(response.totalCount / options.itemsPerPage)
     }
     finally {
       isLoading.value = false
