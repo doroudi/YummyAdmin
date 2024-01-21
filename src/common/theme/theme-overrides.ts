@@ -6,8 +6,6 @@ const themeOverrides: GlobalThemeOverrides = {
     errorColor: '#FF0055',
     warningColor: '#FF8000',
     borderRadius: '5px',
-    textColor1: 'var(--text)',
-    textColor2: 'var(--dark)',
   },
   Tag: {
     borderRadius: '4px',
