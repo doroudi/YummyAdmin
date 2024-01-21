@@ -6,6 +6,7 @@ import { messageRtl } from 'naive-ui/es/message/styles'
 import { tableRtl } from 'naive-ui/es/table/styles'
 import scrollbarRtl from 'naive-ui/es/_internal/scrollbar/styles/rtl'
 import { tagRtl } from 'naive-ui/es/tag/styles'
+import { darkTheme, lightTheme } from 'naive-ui'
 import themeOverrides from '~/common/theme/theme-overrides'
 
 const layout = useLayoutStore()
@@ -52,7 +53,7 @@ watch(() => layout.activeLanguage, () => {
 </script>
 
 <template>
-  <n-config-provider :theme-overrides="themeOverrides" :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false">
+  <n-config-provider :theme="isDark ? darkTheme : lightTheme" :theme-overrides="themeOverrides" :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false">
     <n-notification-provider placement="bottom-right">
       <n-message-provider placement="bottom-right">
         <n-dialog-provider>
