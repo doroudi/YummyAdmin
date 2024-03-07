@@ -1,15 +1,14 @@
 
 # YummyAdmin
 
-Vue3 and NaiveUI Based admin panel based on commercial use cases. 
+Vue3 and NaiveUI Based admin panel based on commercial use cases.
 Supporting RTL, Beautiful design, Ready to use and expandable for any other use cases.
 
-<p align='center'>
+![Preview](/docs/banner.png "Preview")
 
-</p>
-
+> **Note**: 🚧 This Project is under active construction and not 100 percent ready.
+> 
 <br>
-
 <p align='center'>
 <a href="https://yummyadmin.netlify.app/">Live Demo</a>
 </p>
@@ -104,7 +103,7 @@ And, enjoy :)
 Just run and visit http://localhost:7000
 
 ```bash
-pnpm dev
+pnpm dev:mock
 ```
 
 ### Build
