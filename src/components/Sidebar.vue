@@ -89,17 +89,17 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(FeedbackIcon),
     children: [
       {
-        label: () => renderLabel(t('menu.reviews'), 'reviews'),
+        label: () => renderLabel(t('menu.reviews'), '/reviews'),
         key: 'reviews',
         icon: renderIcon(ReviewIcon),
       },
       {
-        label: () => renderLabel(t('menu.messages'), 'messages'),
+        label: () => renderLabel(t('menu.messages'), '/messages'),
         key: 'messages',
         icon: renderIcon(CommentsIcon),
       },
       {
-        label: () => renderLabel(t('menu.support'), 'support'),
+        label: () => renderLabel(t('menu.support'), '/support'),
         key: 'messages',
         icon: renderIcon(SupportIcon),
       },
@@ -111,7 +111,7 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(CustomersIcon),
   },
   {
-    label: () => renderLabel(t('menu.announcement'), '/announcement'),
+    label: () => t('menu.announcement'),
     key: 'notify',
     icon: renderIcon(NewsIcon),
     children: [
