@@ -22,7 +22,7 @@ export const useOrderStore = defineStore('Order', () => {
   }
 
   async function getOrderDetail(order: Order) {
-    const response = await orderService.getOrder(order.id)
+    return await orderService.getOrder(order.id)
   }
 
   return {

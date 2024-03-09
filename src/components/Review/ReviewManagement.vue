@@ -8,7 +8,6 @@ import {
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
-const { t } = useI18n()
 const store = useReviewStore()
 const { reviews, isLoading } = storeToRefs(store)
 const dialog = useDialog()

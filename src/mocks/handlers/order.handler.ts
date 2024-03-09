@@ -3,7 +3,7 @@ import _ from 'lodash'
 import { faker } from '@faker-js/faker'
 import { CreatePagedResponse } from '../handlers.utility'
 import { OrderStatus } from '~/models/Order'
-import type { OrderItem, OrderList } from '~/models/Order'
+import type { OrderList } from '~/models/Order'
 
 const orders = _.times(100, createFakeOrder)
 const handlers = [
@@ -28,12 +28,6 @@ function createFakeOrder(): OrderList {
     customer: `${faker.person.firstName()} ${faker.person.lastName()}`,
     customerId: faker.number.int().toString(),
     totalPrice: faker.number.int({ min: 20000, max: 10000000 }),
-  }
-}
-
-function createFakeOrderItems(): OrderItem {
-  return {
-    id: faker.number.int().toString(),
   }
 }
 export default handlers
