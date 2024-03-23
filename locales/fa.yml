@@ -46,6 +46,7 @@ login:
   username: نام کاربری
   password: رمز عبور
   loginButton: ورود
+  skipLogin: رد کردن
   forgetPassword: فراموشی رمز عبور
   rememberMe: مرا بخاطر بسپار
   welcome: خوش آمدید

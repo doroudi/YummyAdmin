@@ -4,7 +4,7 @@
   "packageManager": "pnpm@8.6.7",
   "scripts": {
     "build": "vite build --mode mocking",
-    "dev": "vite --port 7000 --open --mode development",
+    "dev": "vite --open --port 7000  --mode development",
     "dev:mock": "vite --open --port 7000 --mode mocking",
     "lint": "eslint .",
     "test": "vitest",
