@@ -10,7 +10,7 @@ const loginInfo = ref<LoginViewModel>({ username: '', password: '' })
 const loginFailed = ref(false)
 const router = useRouter()
 const formRef = ref<FormInst | null>(null)
-
+const isMocking = import.meta.env.VITE_API_MOCKING_ENABLED === 'true'
 async function login() {
   formRef.value?.validate(async (errors: any) => {
     if (!errors) {
@@ -27,6 +27,14 @@ async function login() {
       }
     }
   })
+}
+
+async function skipLogin() {
+  if (!isMocking)
+    return
+  loginInfo.value.username = 'admin'
+  loginInfo.value.password = 'admin'
+  await login()
 }
 
 const rules: FormRules = {
@@ -75,10 +83,9 @@ meta:
             </n-form-item>
 
             <div class="flex align-items-center justify-between mb-10">
-              <!-- <div class="flex align-items-center">
-                <n-checkbox v-model="checked" aria-labelledby="remember" :binary="true" class="mr-2" />
-                <span id="remember">{{ t('login.rememberMe') }}</span>
-              </div> -->
+              <n-button v-if="isMocking" text @click="skipLogin">
+                {{ t('login.skipLogin') }}
+              </n-button>
               <RouterLink
                 to="/Account/ForgotPassword"
                 class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
@@ -86,7 +93,6 @@ meta:
                 {{ t('login.forgetPassword') }}
               </RouterLink>
             </div>
-
             <n-button attr-type="submit" size="large" :block="true" type="primary" :loading="isLoading">
               {{ t('login.loginButton') }}
             </n-button>

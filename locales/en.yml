@@ -47,6 +47,7 @@ login:
   username: User Name
   password: Password
   loginButton: Login
+  skipLogin: Skip Login
   forgetPassword: Forget Password
   rememberMe: Remember Me
   welcome: Welcome Back!
