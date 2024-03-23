@@ -99,8 +99,9 @@ meta:
           </div>
         </div>
       </div>
-      <div class="mt-3">
+      <div class="mt-3 flex justify-between items-center">
         <LanguageSelect />
+        <ThemeSwitch class="mr-2" />
       </div>
     </div>
   </div>
