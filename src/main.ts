@@ -50,8 +50,10 @@ router.beforeEach((to, from, next) => {
 
   const isAuthenticated = useAccountStore().isAuthenticated()
   const isAuthRequired = to.meta.authRequired ?? true
-  if (isAuthRequired && !isAuthenticated)
-    next({ path: '/account/login' })
+  if (isAuthRequired && !isAuthenticated) {
+    next({ path: 'account/login' })
+    return
+  }
 
   next()
 })
