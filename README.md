@@ -1,7 +1,11 @@
 
 # YummyAdmin
 
-Vue3 and NaiveUI Based admin panel based on commercial use cases.
+[![CI](https://github.com/doroudi/YummyAdmin/actions/workflows/ci.yml/badge.svg)](https://github.com/doroudi/YummyAdmin/actions/workflows/ci.yml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/24e54305-5d97-447e-adba-ed0a7c18513e/deploy-status)](https://app.netlify.com/sites/yummy-admin/deploys)
+
+
+Vue3 and NaiveUI-based Admin Panel focused on eShop use cases.
 Supporting RTL, Beautiful design, Ready to use and expandable for any other use cases.
 
 ![Preview](/docs/banner.png "Preview")
