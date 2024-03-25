@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-
+import {
+  PanelLeftContract16Regular as CollapseIcon,
+  PanelLeftExpand20Regular as OpenIcon,
+} from '@vicons/fluent'
 const layoutStore = useLayoutStore()
 const { collapsed } = storeToRefs(layoutStore)
 </script>
@@ -8,11 +11,19 @@ const { collapsed } = storeToRefs(layoutStore)
 <template>
   <n-page-header class="p-2 navbar">
     <template #title>
-      <ThemeSwitch />
+      <n-button mx-2 text size="small" circle @click="layoutStore.toggleSidebar">
+        <template #icon>
+          <n-icon size="1.4rem">
+            <OpenIcon v-if="collapsed" />
+            <CollapseIcon v-else />
+          </n-icon>
+        </template>
+      </n-button>
     </template>
     <template #extra>
       <div class="flex items-center">
         <div class="mx-2">
+          <ThemeSwitch class="mr-2" />
           <LanguageSelect />
         </div>
 
