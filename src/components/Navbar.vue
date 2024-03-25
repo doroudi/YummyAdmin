@@ -4,6 +4,7 @@ import {
   PanelLeftContract16Regular as CollapseIcon,
   PanelLeftExpand20Regular as OpenIcon,
 } from '@vicons/fluent'
+
 const layoutStore = useLayoutStore()
 const { collapsed } = storeToRefs(layoutStore)
 </script>
