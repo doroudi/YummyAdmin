@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +15,23 @@
         document.documentElement.classList.toggle('dark', true)
     })()
   </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Q4R8ZVVQH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+
+    gtag('config', 'G-9Q4R8ZVVQH')
+  </script>
 </head>
+
 <body class="font-sans">
   <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
   <noscript>This website requires JavaScript to function properly. Please enable JavaScript to continue.</noscript>
 </body>
+
 </html>
