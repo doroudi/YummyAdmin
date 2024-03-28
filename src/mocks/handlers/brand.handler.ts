@@ -1,10 +1,10 @@
 import { HttpResponse, http } from 'msw'
-import _ from 'lodash'
-import { faker } from '@faker-js/faker'
+import times from 'lodash/times'
+import { faker } from '@faker-js/faker/locale/en'
 import { CreatePagedResponse } from '../handlers.utility'
 import type { Brand, BrandCreateModel } from '~/models/Brand'
 
-const brands = _.times(7, createFakeBrand)
+const brands = times(7, createFakeBrand)
 const handlers = [
   http.get('/api/Brand', ({ request }) => {
     const response = CreatePagedResponse<Brand>(request, brands)

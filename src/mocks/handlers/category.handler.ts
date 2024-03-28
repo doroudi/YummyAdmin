@@ -1,10 +1,10 @@
 import { HttpResponse, http } from 'msw'
-import _ from 'lodash'
-import { faker } from '@faker-js/faker'
+import times from 'lodash/times'
+import { faker } from '@faker-js/faker/locale/en'
 import { CreatePagedResponse } from '../handlers.utility'
 import type { Category, CategoryCreateModel } from '~/models/Category'
 
-const categories = _.times(7, createFakeCategory)
+const categories = times(7, createFakeCategory)
 const handlers = [
   http.get('/api/Category', ({ request }) => {
     const response = CreatePagedResponse<Category>(request, categories)

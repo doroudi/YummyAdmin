@@ -1,11 +1,11 @@
 import { HttpResponse, http } from 'msw'
-import _ from 'lodash'
-import { faker } from '@faker-js/faker'
+import times from 'lodash/times'
+import { faker } from '@faker-js/faker/locale/en'
 import { CreatePagedResponse } from '../handlers.utility'
 import { OrderStatus } from '~/models/Order'
 import type { OrderList } from '~/models/Order'
 
-const orders = _.times(100, createFakeOrder)
+const orders = times(100, createFakeOrder)
 const handlers = [
   http.get('/api/order', ({ request }) => {
     const response = CreatePagedResponse<OrderList>(request, orders)

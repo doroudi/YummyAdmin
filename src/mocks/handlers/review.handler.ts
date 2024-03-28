@@ -1,10 +1,10 @@
 import { HttpResponse, http } from 'msw'
-import { faker } from '@faker-js/faker'
-import _ from 'lodash'
+import { faker } from '@faker-js/faker/locale/en'
+import times from 'lodash/times'
 import { CreatePagedResponse } from '../handlers.utility'
 import type { Review } from '~/models/Review'
 
-const reviews = _.times(65, createFakeReview)
+const reviews = times(65, createFakeReview)
 const handlers = [
   http.get('/api/review/', ({ request }) => {
     const response = CreatePagedResponse<Review>(request, reviews)

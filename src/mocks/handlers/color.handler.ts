@@ -1,10 +1,10 @@
 import { HttpResponse, http } from 'msw'
-import _ from 'lodash'
-import { faker } from '@faker-js/faker'
+import times from 'lodash/times'
+import { faker } from '@faker-js/faker/locale/en'
 import { CreatePagedResponse } from '../handlers.utility'
 import type { Color, ColorCreateModel } from '~/models/Color'
 
-const colors = _.times(17, createFakeColor)
+const colors = times(17, createFakeColor)
 const handlers = [
   http.get('/api/Color', ({ request }) => {
     const response = CreatePagedResponse<Color>(request, colors)
