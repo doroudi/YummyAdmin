@@ -5,6 +5,12 @@
   publish = "dist"
   command = "pnpm build"
 
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+
 [[headers]]
   for = "/manifest.webmanifest"
   [headers.values]
