@@ -8,7 +8,7 @@ const layoutStore = useLayoutStore()
 </script>
 
 <template>
-  <n-button text circle @click="layoutStore.toggleTheme()">
+  <n-button text @click="layoutStore.toggleTheme()">
     <template #icon>
       <NIcon size="1.4rem">
         <SunIcon v-if="isDark" />

@@ -4,6 +4,7 @@ import {
   PanelLeftContract16Regular as CollapseIcon,
   PanelLeftExpand20Regular as OpenIcon,
 } from '@vicons/fluent'
+import GithubButton from 'vue-github-button'
 
 const layoutStore = useLayoutStore()
 const { collapsed } = storeToRefs(layoutStore)
@@ -23,12 +24,19 @@ const { collapsed } = storeToRefs(layoutStore)
     </template>
     <template #extra>
       <div class="flex items-center">
-        <div class="mx-2">
-          <ThemeSwitch class="mr-2" />
-          <LanguageSelect />
-        </div>
+        <ThemeSwitch mx-2 />
 
-        <UserProfile />
+        <!-- Place this tag where you want the button to render. -->
+        <GithubButton
+          href="https://github.com/doroudi/YummyAdmin"
+          class="mx-1 mt-1"
+          data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large"
+          aria-label="Star doroudi/YummyAdmin on GitHub"
+        >
+          GitHub
+        </GithubButton>
+        <LanguageSelect mx-2 />
+        <UserProfile mx-2 />
       </div>
     </template>
   </n-page-header>
@@ -38,31 +46,5 @@ const { collapsed } = storeToRefs(layoutStore)
 .navbar {
   border-bottom: solid 1px #ececec;
   padding-bottom: 0.4rem;
-}
-
-.p-togglebutton.p-button {
-  background-color: transparent;
-  border: none;
-  color: #333;
-  box-shadow: none;
-
-  &.p-highlight {
-    background-color: transparent;
-    border: none;
-
-    .p-button-icon-left,
-    .p-togglebutton.p-button.p-highlight .p-button-icon-right {
-      color: var(--surface-600);
-    }
-
-    &:hover {
-      background-color: transparent;
-
-      .p-button-icon-left,
-      .p-togglebutton.p-button.p-highlight .p-button-icon-right {
-        color: var(--surface-600);
-      }
-    }
-  }
 }
 </style>
