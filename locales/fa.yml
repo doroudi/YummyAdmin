@@ -1,39 +1,16 @@
-title: داشبورد
-direction: rtl
-en: انگلیسی
-fa: فارسی
-menu:
-  dashboard: داشبورد
-  productManagement: مدیریت محصولات
-  products: محصولات
-  categories: دسته بندی ها
-  brands: برند ها
-  colors: رنگ ها
-  orders: سفارشات
-  feedbacks: بازخورد ها
-  reviews: بررسی ها
-  messages: نظرات
-  support: پشتیبانی
-  comments: نظرات
-  announcement: اطلاع رسانی
-  news: اخبار
-  notifications: نوتیفیکشن ها
-  sms: پیامک
-  accountSettings: تنظیمات کاربر
-  websiteSettings: تنظیمات وبسایت
-  blog: بلاگ
-  users: کاربران
-  customers: مشتری ها
-  settings: تنظیمات
-userMenu:
-  language: زبان
-  theme: پوسته
-  options: تنظیمات
-  signOut: خروج
-  dark: تیره
-  light: روشن
-  en: انگلیسی
-  fa: فارسی
+brands:
+  create:
+    brandName: نام برند
+    buttonTitle: ایجاد
+    image: تصویر
+    title: ایجاد
+    url: وبسایت
+  createButton: ذخیره
+  title: برند ها
+  validations:
+    image: تصویر برند الزامی است
+    name: نام برند الزامی است
+    url: وبسایت صحیح نیست
 button:
   about: درباره
   back: بازگشت
@@ -41,33 +18,115 @@ button:
   home: خانه
   toggle_dark: حالت تیره
   toggle_langs: تغییر زبان
-login:
-  title: ورود به سیستم
-  username: نام کاربری
-  password: رمز عبور
-  loginButton: ورود
-  skipLogin: رد کردن
-  forgetPassword: فراموشی رمز عبور
-  rememberMe: مرا بخاطر بسپار
-  welcome: خوش آمدید
-  message: برای دسترسی به کلیه امکانات از این فرم برای ورود استفاده کنید
-  haveNotAccount: حساب کاربری ندارید؟
-  createAccount: یکی بسازید
-  failedMessage: خطا در ورود
-register:
-  title: ثبت نام
-  username: نام کاربری
-  password: رمز عبور
-  button: ثبت نام
-  haveAccount: اکانت دارید؟
-  login: وارد شوید!
-forgot:
-  title: فراموشی رمز عبور
-  username: نام کاربری
-  button: بازیابی
-  haveNotAccount: اکانت ندارید؟
-  register: یکی بسازید
+categories:
+  create:
+    buttonTitle: ذخیره
+    categoryName: نام دسته
+    parent: دسته والد
+    title: ایجاد دسته بندی جدید
+  createButton: ذخیره
+  title: دسته بندی ها
+  validations:
+    nameRequired: نام دسته الزامی است
+    parentRequired: دسته والد الزامی است
+colors:
+  create:
+    buttonTitle: ذخیره
+    color: رنگ
+    name: نام رنگ
+    title: ایجاد رنگ جدید
+  createButton: ذخیره
+  title: نام رنگ
+  validations:
+    colorRequired: رنگ الزامی است
+    nameRequired: نام رنگ الزامی است
 dashboard:
   summary: خلاصه
   transactions: تراکنش ها
+description: توضیحات
+direction: rtl
+en: انگلیسی
+fa: فارسی
+forgot:
+  button: بازیابی
+  haveNotAccount: اکانت ندارید؟
+  register: یکی بسازید
+  title: فراموشی رمز عبور
+  username: نام کاربری
+login:
+  createAccount: یکی بسازید
+  failedMessage: خطا در ورود
+  forgetPassword: فراموشی رمز عبور
+  haveNotAccount: حساب کاربری ندارید؟
+  loginButton: ورود
+  message: برای دسترسی به کلیه امکانات از این فرم برای ورود استفاده کنید
+  password: رمز عبور
+  rememberMe: مرا بخاطر بسپار
+  skipLogin: رد کردن
+  title: ورود به سیستم
+  username: نام کاربری
+  validations:
+    passwordRequired: رمز عبور الزامی است
+    userNameRequired: نام کاربری الزامی است
+  welcome: خوش آمدید
+menu:
+  accountSettings: تنظیمات کاربر
+  announcement: اطلاع رسانی
+  blog: بلاگ
+  brands: برند ها
+  categories: دسته بندی ها
+  colors: رنگ ها
+  comments: نظرات
+  customers: مشتری ها
+  dashboard: داشبورد
+  feedbacks: بازخورد ها
+  messages: نظرات
+  news: اخبار
+  notifications: نوتیفیکشن ها
+  orders: سفارشات
+  productManagement: مدیریت محصولات
+  products: محصولات
+  productsManagement: مدیریت محصولات
+  reviews: بررسی ها
+  settings: تنظیمات
+  sms: پیامک
+  support: پشتیبانی
+  users: کاربران
+  websiteSettings: تنظیمات وبسایت
 not-found: یافت نشد
+products:
+  create:
+    barcode: بارکد
+    brand: برند
+    category: گروه محصو
+    description: توضیحات
+    discountedPrice: قیمت بعد از تخفیف
+    imageName: تصویر محصول
+    inStock: موجود
+    keywords: کلمات کلیدی
+    media: رسانه
+    name: نام محصول
+    newKeyword: کلمه کلیدی جدید
+    price: قیمت
+    pricing: قیمت گذاری
+    productInformation: توضیحات محصول
+    sku: شناسه محصول
+    title: ایجاد محصول
+register:
+  button: ثبت نام
+  haveAccount: اکانت دارید؟
+  login: وارد شوید!
+  password: رمز عبور
+  title: ثبت نام
+  username: نام کاربری
+title: داشبورد
+userMenu:
+  dark: تیره
+  en: انگلیسی
+  fa: فارسی
+  language: زبان
+  light: روشن
+  logout: خروج
+  options: تنظیمات
+  signOut: خروج
+  theme: پوسته
