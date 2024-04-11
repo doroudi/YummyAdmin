@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const { t } = useI18n()
+onMounted(() => {
+  window.analytics.track('Not Found')
+})
 </script>
 
 <template>

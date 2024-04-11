@@ -4,12 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YummyAdmin - Free Vue3 dashboard</title>
+  <title>Yummy Admin - Free Vue dashboard</title>
   <link rel="apple-touch-icon" href="/pwa-192x192.png">
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#00aba9">
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="description" content="Free Vue3 Dashboard - Modern Admin Panel for VueJs build using Naive UI. free to use and open source" />
-  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="description" content="Free Vue3 Dashboard - Free Vuejs 3 admin panel.fairly completed modern and beautiful designed admin panel for most use cases." />
+  <!--  Essential META Tags -->
+  <meta property="og:title" content="Yummy Admin - Free Vue3 Admin Panel">
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://yummy-admin.netlify.app/banner.png">
+  <meta property="og:url" content="https://yummy-admin.netlify.app">
+  <meta name="twitter:card" content="Yummy Admin - Free Vue3 Admin Panel">
+  
+  <!--  Non-Essential, But Recommended -->
+  <meta property="og:description" content="Yummy Admin - Free Vue3 Admin Panel">
+  <meta property="og:site_name" content="Yummy Admin">
+  <meta name="twitter:image:alt" content="Yummy Admin - Free Vue3 Admin Panel">
+    
   <style>
     .preloader {
       display: flex;
@@ -108,6 +119,16 @@
       }
     }
   </style>
+
+  <script src="/~partytown/partytown.js"></script>
+  <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-9Q4R8ZVVQH"></script>
+  <script type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9Q4R8ZVVQH');
+  </script>
   <script>
     (function () {
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -116,18 +137,6 @@
         document.documentElement.classList.toggle('dark', true)
     })()
   </script>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Q4R8ZVVQH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || []
-    function gtag() {
-      dataLayer.push(arguments)
-    }
-    gtag('js', new Date())
-
-    gtag('config', 'G-9Q4R8ZVVQH')
-  </script>
-
 </head>
 
 <body class="font-sans">

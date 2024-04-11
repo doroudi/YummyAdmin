@@ -16,10 +16,12 @@ async function login() {
     if (!errors) {
       const loginSucceed = await accountStore.login(loginInfo.value)
       if (loginSucceed) {
+        window.analytics.track('successful login')
         useNotifyStore().success('Logged In Successfully 🎉')
         setTimeout(() => router.push('/'), 500)
       }
       else {
+        window.analytics.track('failed login')
         loginFailed.value = true
         setTimeout(() => {
           loginFailed.value = false

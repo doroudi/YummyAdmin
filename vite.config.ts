@@ -10,6 +10,7 @@ import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 import Unocss from 'unocss/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import { partytownVite } from '@builder.io/partytown/utils'
 
 export default defineConfig({
   server: {
@@ -88,7 +89,7 @@ export default defineConfig({
       registerType: 'prompt',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'YummyAdmin',
+        name: 'Yummy Admin',
         short_name: 'YummyAdmin',
         theme_color: '#459858',
         icons: [
@@ -106,6 +107,10 @@ export default defineConfig({
       runtimeOnly: true,
       compositionOnly: true,
       include: [path.resolve(__dirname, 'locales/**')],
+    }),
+
+    partytownVite({
+      dest: path.join(__dirname, 'dist', '~partytown'),
     }),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools

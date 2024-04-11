@@ -12,9 +12,11 @@
     "test:unit": "vitest",
     "typecheck": "vue-tsc --noEmit",
     "up": "taze major -I",
-    "sizecheck": "npx vite-bundle-visualizer"
+    "sizecheck": "npx vite-bundle-visualizer",
+    "partytown": "partytown copylib public/~partytown"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.10.1",
     "@unhead/vue": "^1.9.1",
     "@unocss/reset": "^0.53.6",
     "@vueup/vue-quill": "^1.2.0",
