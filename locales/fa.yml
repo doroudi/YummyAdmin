@@ -56,6 +56,7 @@ forgot:
 login:
   createAccount: یکی بسازید
   failedMessage: خطا در ورود
+  successMessage: ورود موفق 🎉
   forgetPassword: فراموشی رمز عبور
   haveNotAccount: حساب کاربری ندارید؟
   loginButton: ورود

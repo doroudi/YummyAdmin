@@ -29,7 +29,6 @@
     "pinia": "^2.1.7",
     "vue": "^3.4.21",
     "vue-demi": "^0.14.7",
-    "vue-github-button": "^3.1.0",
     "vue-i18n": "^9.10.2",
     "vue-router": "^4.3.0",
     "vue3-apexcharts": "^1.5.2"

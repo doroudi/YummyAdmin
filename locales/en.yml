@@ -3,6 +3,8 @@ description: Vue 3 Dashboard
 direction: ltr
 en: English
 fa: Persian
+English: English
+Persian: Persian
 menu:
   dashboard: Dashboard
   productManagement: Products Management
@@ -55,6 +57,7 @@ login:
   haveNotAccount: Don't have an account?
   createAccount: Create One!
   failedMessage: Login Failed
+  successMessage: Logged In Successfully 🎉
   validations:
     userNameRequired: Enter username
     passwordRequired: Password is required
