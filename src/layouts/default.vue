@@ -19,7 +19,7 @@
 
 <style lang="scss">
 .n-layout {
-  // padding: 0.7rem .7rem .7rem 0 !important;
+  padding: 0 4px;
   background-color: transparent !important;
 }
 

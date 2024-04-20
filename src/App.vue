@@ -7,7 +7,6 @@ import { tableRtl } from 'naive-ui/es/table/styles'
 import scrollbarRtl from 'naive-ui/es/_internal/scrollbar/styles/rtl'
 import { tagRtl } from 'naive-ui/es/tag/styles'
 import { darkTheme, lightTheme } from 'naive-ui'
-
 import themeOverrides from '~/common/theme/theme-overrides'
 
 const layout = useLayoutStore()

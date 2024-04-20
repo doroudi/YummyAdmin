@@ -8,7 +8,7 @@ import {
 // import GithubButton from 'vue-github-button'
 
 const layoutStore = useLayoutStore()
-const { collapsed } = storeToRefs(layoutStore)
+const { collapsed, isRtl } = storeToRefs(layoutStore)
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const { collapsed } = storeToRefs(layoutStore)
     <template #title>
       <n-button mx-2 text size="small" circle @click="layoutStore.toggleSidebar">
         <template #icon>
-          <n-icon size="1.4rem">
+          <n-icon size="1.4rem" :class="{ 'rotate-180': isRtl }">
             <OpenIcon v-if="collapsed" />
             <CollapseIcon v-else />
           </n-icon>
