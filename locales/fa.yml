@@ -1,3 +1,16 @@
+title: YummyAdmin
+description: داشبورد رایگان vue3
+English: English
+Persian: Persian
+direction: rtl
+en: انگلیسی
+fa: فارسی
+common:
+  notFound: پیدا نشد
+  404Error: 404 خطای
+  goHome: بازگشت به خانه
+  404Message: متاسفانه صفحه ای که دنبالش بودید پیدا نشد
+  403Error: خطای دسترسی
 brands:
   create:
     brandName: نام برند
@@ -20,7 +33,7 @@ button:
   toggle_langs: تغییر زبان
 categories:
   create:
-    buttonTitle: ذخیره
+    buttonTitle: دسته جدید
     categoryName: نام دسته
     parent: دسته والد
     title: ایجاد دسته بندی جدید
@@ -31,7 +44,7 @@ categories:
     parentRequired: دسته والد الزامی است
 colors:
   create:
-    buttonTitle: ذخیره
+    buttonTitle: رنگ جدید
     color: رنگ
     name: نام رنگ
     title: ایجاد رنگ جدید
@@ -43,10 +56,6 @@ colors:
 dashboard:
   summary: خلاصه
   transactions: تراکنش ها
-description: توضیحات
-direction: rtl
-en: انگلیسی
-fa: فارسی
 forgot:
   button: بازیابی
   haveNotAccount: اکانت ندارید؟
@@ -94,7 +103,6 @@ menu:
   support: پشتیبانی
   users: کاربران
   websiteSettings: تنظیمات وبسایت
-not-found: یافت نشد
 products:
   create:
     barcode: بارکد
@@ -120,7 +128,7 @@ register:
   password: رمز عبور
   title: ثبت نام
   username: نام کاربری
-title: داشبورد
+
 userMenu:
   dark: تیره
   en: انگلیسی
