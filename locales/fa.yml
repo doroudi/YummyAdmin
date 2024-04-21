@@ -103,6 +103,8 @@ menu:
   support: پشتیبانی
   users: کاربران
   websiteSettings: تنظیمات وبسایت
+  pages: صفحات
+  login: ورود
 products:
   create:
     barcode: بارکد

@@ -12,7 +12,7 @@ onMounted(() => {
         4<span class="emoji" />4
       </h1>
       <h2>
-        OOPS! PAGE <span v-if="resource" class="gray">'/{{ resource }}'</span> NOT BE FOUND
+        OOPS! PAGE <span v-if="resource" class="gray">'/{{ resource }}'</span> NOT FOUND
       </h2>
       <p>
         {{ t('common.404Message') }}

@@ -12,6 +12,7 @@ import {
   Cart24Regular as InvoicesIcon,
   News20Regular as NewsIcon,
   ChannelAlert24Regular as NotifyIcon,
+  DocumentLink20Regular as PagesIcon,
   Apps28Filled as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
   StarThreeQuarter20Filled as ReviewIcon,
@@ -129,6 +130,16 @@ const menuOptions: MenuOption[] = [
         label: () => renderLabel(t('menu.sms'), 'sms'),
         key: 'sms',
         icon: renderIcon(SmsIcon),
+      },
+    ],
+  },
+  {
+    label: t('menu.pages'),
+    key: 'Pages',
+    icon: renderIcon(PagesIcon),
+    children: [
+      {
+        label: () => renderLabel(t('menu.login'), '/account/login'),
       },
     ],
   },

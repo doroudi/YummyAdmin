@@ -1,5 +1,5 @@
-title: Vue 3 Dashboard
-description: Vue 3 Dashboard
+title: Yummy Admin
+description: Free Vue 3 Dashboard
 direction: ltr
 en: English
 fa: Persian
@@ -34,6 +34,8 @@ menu:
   users: Users
   customers: Customers
   settings: Settings
+  pages: Pages
+  login: Login
 userMenu:
   language: Language
   theme: Theme

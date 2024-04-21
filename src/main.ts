@@ -48,12 +48,11 @@ router.beforeEach((to, from, next) => {
 
   document.title = title
 
-  const isAuthenticated = useAccountStore().isAuthenticated()
-  const isAuthRequired = to.meta.authRequired ?? true
-  if (isAuthRequired && !isAuthenticated)
-    next({ path: '/account/login' })
+  // const isAuthenticated = useAccountStore().isAuthenticated()
+  // const isAuthRequired = to.meta.authRequired ?? true
+  // if (isAuthRequired && !isAuthenticated)
+  //   next({ path: '/account/login' })
 
   next()
 })
-app.mount('#app')
-enableMocking()
+enableMocking().then(() => app.mount('#app'))
