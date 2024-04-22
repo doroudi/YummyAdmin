@@ -3,17 +3,17 @@
 </script>
 
 <template>
-  <n-layout :native-scrollbar="false" has-sider position="absolute">
+  <n-layout has-sider position="absolute">
     <Sidebar />
 
-    <n-layout-content :native-scrollbar="false">
+    <n-layout :native-scrollbar="false" position="static">
       <div class="main-content flex-1 bg-slate-100 dark:bg-slate-800 dark:text-white my-2 mr-2">
         <Navbar />
         <div class="p-3">
           <RouterView />
         </div>
       </div>
-    </n-layout-content>
+    </n-layout>
   </n-layout>
 </template>
 

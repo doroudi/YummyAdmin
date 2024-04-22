@@ -164,9 +164,9 @@ const menuOptions: MenuOption[] = [
 
 function renderIcon(icon: any, showBadge = false) {
   if (showBadge)
-    return () => h(NBadge, { processing: true, dot: true, type: 'success', offset: [-2, 2] }, { default: () => h(NIcon, { }, { default: () => h(icon) }) })
+    return () => h(NBadge, { processing: true, dot: true, type: 'success', offset: [-2, 2] }, { default: () => h(NIcon, {}, { default: () => h(icon) }) })
 
-  return () => h(NIcon, null, { default: () => h(icon, { }) })
+  return () => h(NIcon, null, { default: () => h(icon, {}) })
 }
 </script>
 
@@ -247,7 +247,11 @@ function renderIcon(icon: any, showBadge = false) {
   }
 }
 
+.n-menu-item {
+  user-select: none;
+}
 .main-menu {
+
   .active {
     .p-button {
       background: #f4f4f5;
