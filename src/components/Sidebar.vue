@@ -52,7 +52,7 @@ const menuOptions: MenuOption[] = [
   //   icon: renderIcon(StatsIcon),
   // },
   {
-    label: t('menu.productManagement'),
+    label: () => t('menu.productManagement'),
     key: 'productManagement',
     icon: renderIcon(ProductsIcon),
     children: [
@@ -85,7 +85,7 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(InvoicesIcon, true),
   },
   {
-    label: t('menu.feedbacks'),
+    label: () => t('menu.feedbacks'),
     key: 'feedbacks',
     icon: renderIcon(FeedbackIcon),
     children: [
@@ -134,7 +134,7 @@ const menuOptions: MenuOption[] = [
     ],
   },
   {
-    label: t('menu.pages'),
+    label: () => t('menu.pages'),
     key: 'Pages',
     icon: renderIcon(PagesIcon),
     children: [
@@ -144,7 +144,7 @@ const menuOptions: MenuOption[] = [
     ],
   },
   {
-    label: t('menu.settings'),
+    label: () => t('menu.settings'),
     key: 'settings',
     icon: renderIcon(SettingsIcon),
     children: [
@@ -178,8 +178,10 @@ function renderIcon(icon: any, showBadge = false) {
     <div class="logo-container">
       <div flex items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
-        <img v-if="!collapsed" src="@/assets/images/text-logo.png" class="text-logo" alt="yummy admin" title="text-logo">
-        <!-- {{ (!collapsed) ? t('title') : '' }} -->
+        <!-- <img v-if="!collapsed" src="@/assets/images/text-logo.png" class="text-logo" alt="yummy admin" title="text-logo"> -->
+        <h1 v-if="!collapsed" class="main-title">
+          {{ t('title') }}
+        </h1>
       </div>
     </div>
     <n-menu :collapsed-width="64" :collapsed-icon-size="22" :options="menuOptions" />
@@ -192,6 +194,16 @@ function renderIcon(icon: any, showBadge = false) {
   align-items: center;
   padding: 1.5rem 1.1rem 0.5rem 1.1rem;
   transition: all 100ms;
+  line-height: 1;
+
+  .main-title {
+    font-family: Westmount, Shabnam;
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    margin-top: -.4rem;
+
+  }
 
   .logo {
     width: 33px;
@@ -254,6 +266,7 @@ function renderIcon(icon: any, showBadge = false) {
 .n-menu-item {
   user-select: none;
 }
+
 .main-menu {
 
   .active {

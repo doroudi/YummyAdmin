@@ -3,6 +3,7 @@ import {
   presetAttributify,
   presetTypography,
   presetUno,
+  presetWebFonts,
   presetWind,
   transformerDirectives,
   transformerVariantGroup,
@@ -22,13 +23,12 @@ export default defineConfig({
     // }),
     presetTypography(),
     presetWind(),
-    // presetWebFonts({
-    //   fonts: {
-    //     sans: 'DM Sans',
-    //     serif: 'DM Serif Display',
-    //     mono: 'DM Mono',
-    //   },
-    // }),
+    presetWebFonts({
+      fonts: {
+        westmount: 'Westmount',
+
+      },
+    }),
   ],
   transformers: [
     transformerDirectives(),
