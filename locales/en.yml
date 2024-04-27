@@ -86,6 +86,11 @@ forgot:
 dashboard:
   summary: Summary
   transactions: Transactions
+  registers: Registers
+  products: Products
+  sells: Sells
+  visits: Visits
+  activeOrders: ActiveOrders
 categories:
   title: Categories
   createButton: Create

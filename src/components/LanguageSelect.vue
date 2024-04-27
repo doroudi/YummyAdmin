@@ -20,7 +20,7 @@ function changeLanguage(lang: string) {
 </script>
 
 <template>
-  <n-popselect v-model="language" :options="languages" @change="changeLanguage">
+  <n-popselect v-model="language" :options="languages" @update-value="changeLanguage">
     <n-button>{{ t(activeLanguage) }}</n-button>
   </n-popselect>
 </template>

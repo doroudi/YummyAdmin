@@ -10,9 +10,16 @@ const messages = Object.fromEntries(
     }),
 )
 
+const storedValue = localStorage.getItem('layout')
+let locale = 'en'
+if (storedValue) {
+  const parsed = JSON.parse(storedValue)
+  if (parsed && Object.prototype.hasOwnProperty.call(parsed, 'activeLanguage'))
+    locale = parsed.activeLanguage
+}
 const i18n = createI18n({
   legacy: false,
-  locale: 'en',
+  locale,
   messages,
 })
 

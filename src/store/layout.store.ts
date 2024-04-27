@@ -29,7 +29,7 @@ export const useLayoutStore = defineStore('layout', () => {
     activeLanguage,
     changeLanguage,
   }
-})
+}, { persist: true })
 
 if (import.meta.hot)
   import.meta.hot.accept(acceptHMRUpdate(useLayoutStore, import.meta.hot))

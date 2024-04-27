@@ -1,4 +1,4 @@
-title: YummyAdmin
+title: پنل مدیریت
 description: داشبورد رایگان vue3
 English: English
 Persian: Persian
@@ -55,7 +55,11 @@ colors:
     nameRequired: نام رنگ الزامی است
 dashboard:
   summary: خلاصه
-  transactions: تراکنش ها
+  registers: ثبت نام ها
+  products: محصولات
+  sells: فروش
+  visits: بازدید ها
+  activeOrders: سفارش های فعال
 forgot:
   button: بازیابی
   haveNotAccount: اکانت ندارید؟

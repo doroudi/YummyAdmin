@@ -17,11 +17,11 @@ meta:
 
 <template>
   <div class="margin-outside flex pb-3">
-    <DashboardCard class="w-1/5" :icon="UserIcon" title="Registers" :progress="10" :value="250" />
-    <DashboardCard class="w-1/5" :icon="BoxIcon" title="Products" :progress="10" :value="3600" />
-    <DashboardCard class="w-1/5" :icon="BasketIcon" title="Sells" :progress="-50" :value="5000" />
-    <DashboardCard class="w-1/5" :icon="StatIcon" title="Visits" :progress="-1" :value="1500" />
-    <DashboardCard class="w-1/5" :icon="StatIcon" title="Visits" :progress="-1" :value="1500" />
+    <DashboardCard class="w-1/5" :icon="UserIcon" :title="t('dashboard.registers')" :progress="10" :value="250" />
+    <DashboardCard class="w-1/5" :icon="BoxIcon" :title="t('dashboard.products')" :progress="10" :value="3600" />
+    <DashboardCard class="w-1/5" :icon="BasketIcon" :title="t('dashboard.sells')" :progress="-50" :value="5000" />
+    <DashboardCard class="w-1/5" :icon="StatIcon" :title="t('dashboard.visits')" :progress="-1" :value="1500" />
+    <DashboardCard class="w-1/5" :icon="StatIcon" :title="t('dashboard.activeOrders')" :progress="-1" :value="1500" />
   </div>
 
   <div>

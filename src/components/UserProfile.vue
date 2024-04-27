@@ -1,25 +1,22 @@
 <script setup lang="ts">
 import { ChevronCircleDown20Regular as ChevronIcon } from '@vicons/fluent'
+import type { SelectMixedOption } from 'naive-ui/es/select/src/interface'
 
-const accountStore = useAccountStore()
 const { t } = useI18n()
 const selectedItem = ref('')
 const router = useRouter()
-const items
+const items: SelectMixedOption[]
   = [
-    { label: t('userMenu.options'), to: '/options', value: () => { router.push('/options') } },
+    { label: t('userMenu.options'), value: '/options' },
     {
       label: t('userMenu.logout'),
-      to: '/logout',
-      value: () => {
-        accountStore.logout()
-        router.push('/account/login')
-      },
+      value: '/account/login',
+
     },
   ]
 
-function doMenuAction(value: any) {
-  value()
+function doMenuAction(value: string) {
+  router.push(value)
 }
 </script>
 
@@ -35,7 +32,7 @@ function doMenuAction(value: any) {
       </h5>
     </div>
 
-    <n-popselect v-model="selectedItem" :options="items" @change="doMenuAction">
+    <n-popselect v-model="selectedItem" :options="items" @update:value="doMenuAction">
       <n-button mx-2 text size="small" circle>
         <template #icon>
           <n-icon size="1.4rem">
