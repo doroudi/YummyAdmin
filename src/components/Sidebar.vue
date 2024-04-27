@@ -178,7 +178,8 @@ function renderIcon(icon: any, showBadge = false) {
     <div class="logo-container">
       <div flex items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
-        {{ (!collapsed) ? t('title') : '' }}
+        <img v-if="!collapsed" src="@/assets/images/text-logo.png" class="text-logo" alt="yummy admin" title="text-logo">
+        <!-- {{ (!collapsed) ? t('title') : '' }} -->
       </div>
     </div>
     <n-menu :collapsed-width="64" :collapsed-icon-size="22" :options="menuOptions" />
@@ -198,6 +199,9 @@ function renderIcon(icon: any, showBadge = false) {
     margin-left: 0.5rem;
   }
 
+  .text-logo {
+    max-width: 175px;
+  }
 }
 
 .collapsed {
