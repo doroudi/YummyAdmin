@@ -1,6 +1,7 @@
 import type { AppModule } from '~/types'
 
-export const install: AppModule = ({ router }) => {
+export const install: AppModule = (app, router) => {
+  console.log(router)
   router.isReady()
     .then(async () => {
       const { registerSW } = await import('virtual:pwa-register')
