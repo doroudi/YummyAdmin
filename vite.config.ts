@@ -92,7 +92,7 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
       includeAssets: ['/favicon/favicon.ico'],
       manifest: {
         name: 'Yummy Admin',
