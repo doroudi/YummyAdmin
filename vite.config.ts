@@ -1,16 +1,18 @@
 import path from 'node:path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import VueDevTools from 'vite-plugin-vue-devtools'
 import Unocss from 'unocss/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import { partytownVite } from '@builder.io/partytown/utils'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
+import VueRouter from 'unplugin-vue-router/vite'
 
 export default defineConfig({
   server: {
@@ -37,9 +39,9 @@ export default defineConfig({
       },
     }),
 
-    // https://github.com/hannoeru/vite-plugin-pages
-    Pages({
-      extensions: ['vue'],
+    VueRouter({
+      extensions: ['.vue'],
+      dts: 'src/typed-router.d.ts',
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -49,6 +51,16 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
+        'vue-router',
+        'vue/macros',
+        'vue-i18n',
+        '@vueuse/head',
+        '@vueuse/core',
+        VueRouterAutoImports,
+        {
+          // add any other imports you were relying on
+          'vue-router/auto': ['useLink'],
+        },
         {
           'naive-ui': [
             'useDialog',
@@ -58,11 +70,6 @@ export default defineConfig({
             'usePopover',
           ],
         },
-        'vue-router',
-        'vue/macros',
-        'vue-i18n',
-        '@vueuse/head',
-        '@vueuse/core',
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: [
@@ -73,7 +80,6 @@ export default defineConfig({
     }),
 
     Components({
-      // allow auto load markdown components under `./src/components/`
       extensions: ['vue'],
       resolvers: [NaiveUiResolver()],
       include: [/\.vue$/, /\.vue\?vue/],
@@ -86,7 +92,7 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-pwa
     VitePWA({
-      registerType: 'prompt',
+      registerType: 'autoUpdate',
       includeAssets: ['/favicon/favicon.ico'],
       manifest: {
         name: 'Yummy Admin',
@@ -106,6 +112,7 @@ export default defineConfig({
     VueI18n({
       runtimeOnly: true,
       compositionOnly: true,
+      fullInstall: true,
       include: [path.resolve(__dirname, 'locales/**')],
     }),
 
@@ -114,7 +121,7 @@ export default defineConfig({
     }),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
-    // VueDevTools(),
+    VueDevTools(),
   ],
 
   // https://github.com/vitest-dev/vitest

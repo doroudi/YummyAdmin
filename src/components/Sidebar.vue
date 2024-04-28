@@ -197,11 +197,10 @@ function renderIcon(icon: any, showBadge = false) {
   line-height: 1;
 
   .main-title {
-    font-family: Westmount, Shabnam;
+    font-family: Quicksand, Shabnam;
     font-size: 1.3rem;
     font-weight: 500;
-
-    margin-top: -.4rem;
+    user-select: none;
 
   }
 

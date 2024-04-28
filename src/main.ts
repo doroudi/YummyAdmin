@@ -1,14 +1,13 @@
 import { setupLayouts } from 'virtual:generated-layouts'
 import { createRouter, createWebHistory } from 'vue-router'
+import { routes } from 'vue-router/auto-routes'
 import type { AppModule } from './types'
 import App from './App.vue'
 import i18n from './modules/i18n'
-import generatedRoutes from '~pages'
 import '@unocss/reset/tailwind-compat.css'
 import 'uno.css'
 import './styles/main.scss'
 
-const routes = setupLayouts(generatedRoutes)
 declare module '@vue/runtime-core' {
   export interface ComponentCustomProperties {
     $filters: any
@@ -27,8 +26,10 @@ async function enableMocking() {
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes: setupLayouts(routes),
 })
+
+// TODO: try to use Vitessg instead of ClientSide vue app
 const app = createApp(App)
 app.use(router)
 Object.values(import.meta.glob<{ install: AppModule }>('./modules/*.ts', { eager: true }))

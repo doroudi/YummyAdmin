@@ -25,7 +25,7 @@ export default defineConfig({
     presetWind(),
     presetWebFonts({
       fonts: {
-        westmount: 'Westmount',
+        Quicksand: 'Quicksand',
 
       },
     }),
