@@ -2,7 +2,7 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 
 export const useLayoutStore = defineStore('layout', () => {
   const collapsed = ref(false)
-  const activeLanguage = ref('English')
+  const activeLanguage = ref('en')
   const isRtl = ref(false)
   const { t, locale } = useI18n()
 
