@@ -51,7 +51,6 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
-        'vue-router',
         'vue/macros',
         'vue-i18n',
         '@vueuse/head',
