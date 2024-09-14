@@ -1,6 +1,7 @@
 import { setupLayouts } from 'virtual:generated-layouts'
+import generatedRoutes from 'virtual:generated-pages'
 import { createRouter, createWebHistory } from 'vue-router'
-import { routes } from 'vue-router/auto-routes'
+// import { routes } from 'vue-router/auto-routes'
 import type { AppModule } from './types'
 import App from './App.vue'
 import i18n from './modules/i18n'
@@ -13,6 +14,7 @@ declare module '@vue/runtime-core' {
     $filters: any
   }
 }
+
 async function enableMocking() {
   const isMocking = import.meta.env.VITE_API_MOCKING_ENABLED
   if (!isMocking)
@@ -24,9 +26,10 @@ async function enableMocking() {
   })
 }
 
+const routes = setupLayouts(generatedRoutes)
 const router = createRouter({
   history: createWebHistory(),
-  routes: setupLayouts(routes),
+  routes
 })
 
 // TODO: try to use Vitessg instead of ClientSide vue app

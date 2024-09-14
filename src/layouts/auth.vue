@@ -14,6 +14,7 @@ watch(() => notificationsStore.messages, (newVal: ToastNotification[], oldVal: T
     closable: !lastMessage.permanent,
   })
 }, { deep: true })
+
 </script>
 
 <template>
