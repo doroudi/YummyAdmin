@@ -12,8 +12,8 @@ import VueMacros from 'unplugin-vue-macros/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import { partytownVite } from '@builder.io/partytown/utils'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
-// import VueRouter from 'unplugin-vue-router/vite'
 import Pages from 'vite-plugin-pages'
+
 export default defineConfig({
   server: {
     port: 7000,
@@ -52,7 +52,7 @@ export default defineConfig({
     Layouts({
       layoutsDirs: 'src/layouts',
       pagesDirs: 'src/pages',
-      defaultLayout: 'default'
+      defaultLayout: 'default',
     }),
 
     // https://github.com/antfu/unplugin-auto-import

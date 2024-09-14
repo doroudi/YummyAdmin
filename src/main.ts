@@ -1,6 +1,7 @@
 import { setupLayouts } from 'virtual:generated-layouts'
 import generatedRoutes from 'virtual:generated-pages'
 import { createRouter, createWebHistory } from 'vue-router'
+
 // import { routes } from 'vue-router/auto-routes'
 import type { AppModule } from './types'
 import App from './App.vue'
@@ -29,7 +30,7 @@ async function enableMocking() {
 const routes = setupLayouts(generatedRoutes)
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 })
 
 // TODO: try to use Vitessg instead of ClientSide vue app
