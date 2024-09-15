@@ -44,7 +44,7 @@ export default defineConfig({
     //   dts: 'src/typed-router.d.ts',
     // }),
     Pages({
-      extensions: ['vue', 'md'],
+      extensions: ['vue'],
       syncIndex: false,
     }),
 
