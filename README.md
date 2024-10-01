@@ -12,7 +12,7 @@ Vue 3 and Naive UI-based Admin Panel. almost complete, with supporting RTL, beau
 
 <br>
 <p align='center'>
-   <a href="https://yummyadmin.netlify.app/">🌏 Live Demo</a>
+   <a href="https://yummy-admin.netlify.app/">🌏 Live Demo</a>
 </p>
 
 <br>
