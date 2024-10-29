@@ -43,14 +43,9 @@ function renderLabel(title: string, path: string) {
 const menuOptions: MenuOption[] = [
   {
     label: () => renderLabel(t('menu.dashboard'), '/'),
-    key: 'dashboard',
+    key: 'index',
     icon: renderIcon(DashboardIcon),
   },
-  // {
-  //   label: 'Statistics',
-  //   key: 'statistics',
-  //   icon: renderIcon(StatsIcon),
-  // },
   {
     label: () => t('menu.productManagement'),
     key: 'productManagement',
@@ -58,7 +53,7 @@ const menuOptions: MenuOption[] = [
     children: [
       {
         label: () => renderLabel(t('menu.products'), '/products'),
-        key: 'Products',
+        key: 'products',
         icon: renderIcon(ProductsIcon2),
       },
       {
@@ -135,7 +130,7 @@ const menuOptions: MenuOption[] = [
   },
   {
     label: () => t('menu.pages'),
-    key: 'Pages',
+    key: 'pages',
     icon: renderIcon(PagesIcon),
     children: [
       {
@@ -162,6 +157,16 @@ const menuOptions: MenuOption[] = [
   },
 ]
 
+
+const route = useRoute()
+const selectedMenuKey = ref('dashboard')
+const menuRef = ref<MenuInst | null>(null)
+onMounted(() => {
+      .value = menuOptions.flatMap(m => m.children || m)
+      .find(m => m.key.toLowerCase() === route.name.toLowerCase()).key
+  menuRef.value?.showOption(selectedMenuKey.value)
+})
+
 function renderIcon(icon: any, showBadge = false) {
   if (showBadge)
     return () => h(NBadge, { processing: true, dot: true, type: 'success', offset: [-2, 2] }, { default: () => h(NIcon, {}, { default: () => h(icon) }) })
@@ -178,13 +183,12 @@ function renderIcon(icon: any, showBadge = false) {
     <div class="logo-container">
       <div flex items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
-        <!-- <img v-if="!collapsed" src="@/assets/images/text-logo.png" class="text-logo" alt="yummy admin" title="text-logo"> -->
         <h1 v-if="!collapsed" class="main-title">
           {{ t('title') }}
         </h1>
       </div>
     </div>
-    <n-menu :collapsed-width="64" :collapsed-icon-size="22" :options="menuOptions" />
+    <n-menu ref="menuRef" v-model:value="selectedMenuKey" :collapsed-width="64" :collapsed-icon-size="22" :options="menuOptions" />
   </n-layout-sider>
 </template>
 
