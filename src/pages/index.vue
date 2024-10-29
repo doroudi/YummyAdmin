@@ -12,6 +12,7 @@ const { t } = useI18n()
 
 <route lang="yaml">
 meta:
+  name: dashboard
   title: Home
 </route>
 
