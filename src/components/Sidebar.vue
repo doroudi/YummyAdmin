@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { type MenuOption, NBadge } from 'naive-ui'
+import { NBadge } from 'naive-ui'
+import type { MenuInst, type MenuOption } from 'naive-ui'
+
 import {
   PersonSettings20Regular as AccountSettingsIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
@@ -157,13 +159,12 @@ const menuOptions: MenuOption[] = [
   },
 ]
 
-
 const route = useRoute()
 const selectedMenuKey = ref('dashboard')
 const menuRef = ref<MenuInst | null>(null)
 onMounted(() => {
-      .value = menuOptions.flatMap(m => m.children || m)
-      .find(m => m.key.toLowerCase() === route.name.toLowerCase()).key
+  const keys = menuOptions.flatMap((m: MenuOption) => m.children.key || m.key)
+  selectedMenuKey.value = keys.find(m => m.key.toLowerCase() === route.name.toLowerCase()).key
   menuRef.value?.showOption(selectedMenuKey.value)
 })
 
@@ -188,7 +189,10 @@ function renderIcon(icon: any, showBadge = false) {
         </h1>
       </div>
     </div>
-    <n-menu ref="menuRef" v-model:value="selectedMenuKey" :collapsed-width="64" :collapsed-icon-size="22" :options="menuOptions" />
+    <n-menu
+      ref="menuRef" v-model:value="selectedMenuKey" :collapsed-width="64" :collapsed-icon-size="22"
+      :options="menuOptions"
+    />
   </n-layout-sider>
 </template>
 
