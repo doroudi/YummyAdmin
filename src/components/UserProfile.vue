@@ -22,24 +22,26 @@ function doMenuAction(value: string) {
 
 <template>
   <div class="flex items-center">
-    <img class="avatar" src="@/assets/images/user.png">
-    <div class="flex flex-col p-2">
+    
+    <!-- <div class="flex flex-col p-2">
       <h3 class="username">
         User Name
       </h3>
       <h5 class="role text-dark dark:text-slate-400">
         User Role
       </h5>
-    </div>
+    </div> -->
 
     <n-popselect v-model="selectedItem" :options="items" @update:value="doMenuAction">
-      <n-button mx-2 text size="small" circle>
+      
+      <img class="avatar" src="@/assets/images/user.png">
+      <!-- <n-button mx-2 text size="small" circle>
         <template #icon>
           <n-icon size="1.4rem">
             <ChevronIcon />
           </n-icon>
         </template>
-      </n-button>
+      </n-button> -->
     </n-popselect>
     <!-- <TieredMenu ref="menu" :model="items" :popup="true" /> -->
   </div>
@@ -52,9 +54,9 @@ function doMenuAction(value: string) {
 }
 
 .avatar {
-  width: 35px;
+  width: 33px;
+  height: 33px;
   border-radius: 50%;
-  height: 35px;
 }
 
 .role {

@@ -5,7 +5,6 @@ import {
   PanelLeftExpand20Regular as OpenIcon,
 } from '@vicons/fluent'
 
-// import GithubButton from 'vue-github-button'
 
 const layoutStore = useLayoutStore()
 const { collapsed, isRtl } = storeToRefs(layoutStore)
@@ -38,9 +37,9 @@ const { collapsed, isRtl } = storeToRefs(layoutStore)
           </n-button>
         </a>
 
-        <ThemeSwitch mx-2 />
-        <LanguageSelect mx-2 />
-        <UserProfile mx-2 />
+        <ThemeSwitch class="mx-4" />
+        <LanguageSelect class="mx-4" />
+        <UserProfile class="mx-4" />
       </div>
     </template>
   </n-page-header>
@@ -50,5 +49,11 @@ const { collapsed, isRtl } = storeToRefs(layoutStore)
 .navbar {
   border-bottom: solid 1px #ececec;
   padding-bottom: 0.4rem;
+}
+
+.dark {
+  .navbar {
+    border-bottom-color: #2f3339;
+  }
 }
 </style>
