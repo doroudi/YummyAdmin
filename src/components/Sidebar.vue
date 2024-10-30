@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { NBadge } from 'naive-ui'
-import type { MenuInst, type MenuOption } from 'naive-ui'
+import type { MenuInst, MenuOption } from 'naive-ui'
 
 import {
   PersonSettings20Regular as AccountSettingsIcon,
@@ -163,9 +163,11 @@ const route = useRoute()
 const selectedMenuKey = ref('dashboard')
 const menuRef = ref<MenuInst | null>(null)
 onMounted(() => {
-  const keys = menuOptions.flatMap((m: MenuOption) => m.children.key || m.key)
-  selectedMenuKey.value = keys.find(m => m.key.toLowerCase() === route.name.toLowerCase()).key
-  menuRef.value?.showOption(selectedMenuKey.value)
+  const keys = menuOptions.flatMap(m => m.children || m) as [{ key: string }]
+  if (keys !== undefined) {
+    selectedMenuKey.value = keys.find(k => k.key.toLowerCase() === route.name.toLowerCase())?.key ?? 'index'
+    menuRef.value?.showOption(selectedMenuKey.value)
+  }
 })
 
 function renderIcon(icon: any, showBadge = false) {
