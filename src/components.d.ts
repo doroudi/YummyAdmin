@@ -23,6 +23,7 @@ declare module 'vue' {
     Editor: typeof import('./components/Editor.vue')['default']
     LanguageSelect: typeof import('./components/LanguageSelect.vue')['default']
     LineChart: typeof import('./components/LineChart.vue')['default']
+    NAvatar: typeof import('naive-ui')['NAvatar']
     Navbar: typeof import('./components/Navbar.vue')['default']
     NBadge: typeof import('naive-ui')['NBadge']
     NButton: typeof import('naive-ui')['NButton']

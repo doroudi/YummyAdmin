@@ -18,11 +18,21 @@ meta:
 
 <template>
   <div class="margin-outside flex pb-3">
-    <DashboardCard class="w-1/5" :icon="UserIcon" :title="t('dashboard.registers')" :progress="10" :value="250" />
-    <DashboardCard class="w-1/5" :icon="BoxIcon" :title="t('dashboard.products')" :progress="10" :value="3600" />
-    <DashboardCard class="w-1/5" :icon="BasketIcon" :title="t('dashboard.sells')" :progress="-50" :value="5000" />
-    <DashboardCard class="w-1/5" :icon="StatIcon" :title="t('dashboard.visits')" :progress="-1" :value="1500" />
-    <DashboardCard class="w-1/5" :icon="StatIcon" :title="t('dashboard.activeOrders')" :progress="-1" :value="1500" />
+    <DashboardCard class="w-1/5" :title="t('dashboard.registers')" :progress="10" :value="250">
+      <NIcon class="icon text-lime-500"><UserIcon /></NIcon>
+    </DashboardCard>
+    <DashboardCard class="w-1/5" :title="t('dashboard.products')" :progress="10" :value="3600">
+      <NIcon class="icon text-red-500"><BoxIcon /></NIcon>
+    </DashboardCard>
+    <DashboardCard class="w-1/5" :title="t('dashboard.sells')" :progress="-50" :value="5000">
+      <NIcon class="icon text-cyan-400"><BasketIcon /></NIcon>
+    </DashboardCard>
+    <DashboardCard class="w-1/5" :title="t('dashboard.visits')" :progress="-1" :value="1500">
+      <NIcon class="icon text-amber-500"><StatIcon /></NIcon>
+      </DashboardCard>
+    <DashboardCard class="w-1/5 " :title="t('dashboard.activeOrders')" :progress="-1" :value="1500">
+      <NIcon class="icon text-amber-400"><StatIcon /></NIcon>
+    </DashboardCard>
   </div>
 
   <div>
