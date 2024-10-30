@@ -6,11 +6,10 @@ import type { LoginViewModel } from '~/models/Login'
 const { t } = useI18n()
 const accountStore = useAccountStore()
 const { isLoading } = storeToRefs(accountStore)
-const loginInfo = ref<LoginViewModel>({ username: '', password: '' })
+const loginInfo = ref<LoginViewModel>({ username: 'admin', password: 'admin' })
 const loginFailed = ref(false)
 const router = useRouter()
 const formRef = ref<FormInst | null>(null)
-const isMocking = import.meta.env.VITE_API_MOCKING_ENABLED === 'true'
 async function login() {
   formRef.value?.validate(async (errors: any) => {
     if (!errors) {
@@ -27,14 +26,6 @@ async function login() {
       }
     }
   })
-}
-
-async function skipLogin() {
-  if (!isMocking)
-    return
-  loginInfo.value.username = 'admin'
-  loginInfo.value.password = 'admin'
-  await login()
 }
 
 const rules: FormRules = {
@@ -72,34 +63,31 @@ meta:
             {{ t('login.title') }}
           </div>
           <n-form ref="formRef" :model="loginInfo" :rules="rules" @submit.prevent="login()">
-            <n-form-item class="mb-5" path="username" :label="t('login.username')">
+            <n-form-item class="mb-1" path="username" :label="t('login.username')">
               <n-input id="name" v-model:value="loginInfo.username" autofocus :placeholder="t('login.username')" />
             </n-form-item>
-            <n-form-item class="mb-5" path="password" :label="t('login.password')">
+            <n-form-item class="mb-1" path="password" :label="t('login.password')">
               <n-input
                 id="name" v-model:value="loginInfo.password" type="password" show-password-on="mousedown"
                 :placeholder="t('login.password')"
               />
             </n-form-item>
 
-            <div class="flex align-items-center justify-between mb-10">
-              <n-button v-if="isMocking" text @click="skipLogin">
-                {{ t('login.skipLogin') }}
-              </n-button>
+            <!-- <div class="flex align-items-center justify-between mb-2">
               <RouterLink
                 to="/Account/ForgotPassword"
                 class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
               >
                 {{ t('login.forgetPassword') }}
               </RouterLink>
-            </div>
+            </div> -->
             <n-button attr-type="submit" size="large" :block="true" type="primary" :loading="isLoading">
               {{ t('login.loginButton') }}
             </n-button>
           </n-form>
           <div class="text-center pt-4 text-sm">
             <span class="font-medium line-height-3">{{ t('login.haveNotAccount') }}</span>
-            <RouterLink to="/Account/Register" class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">
+            <RouterLink to="/Account/Register" class="font-medium no-underline mx-1 text-blue-500 cursor-pointer">
               {{ t('login.createAccount') }}
             </RouterLink>
           </div>
