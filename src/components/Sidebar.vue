@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { NBadge } from 'naive-ui'
 import type { MenuInst, MenuOption } from 'naive-ui'
-
+import { useWindowSize } from '@vueuse/core'
 import {
   PersonSettings20Regular as AccountSettingsIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
@@ -30,6 +30,8 @@ import { NIcon } from 'naive-ui/es/icon'
 const layoutStore = useLayoutStore()
 const { collapsed } = storeToRefs(layoutStore)
 const { t } = useI18n()
+const { width } = useWindowSize()
+
 
 function renderLabel(title: string, path: string) {
   return h(
@@ -42,6 +44,7 @@ function renderLabel(title: string, path: string) {
     { default: () => title },
   )
 }
+
 const menuOptions: MenuOption[] = [
   {
     label: () => renderLabel(t('menu.dashboard'), '/'),
@@ -179,10 +182,8 @@ function renderIcon(icon: any, showBadge = false) {
 </script>
 
 <template>
-  <n-layout-sider
-    :native-scrollbar="false" collapse-mode="width" :collapsed-width="64" :collapsed="collapsed"
-    :class="{ collapsed }"
-  >
+  <n-layout-sider :native-scrollbar="false" collapse-mode="width" :collapsed-width="64"
+    :collapsed="collapsed || width <= 1280" :class="{ collapsed }">
     <div class="logo-container">
       <div flex items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
@@ -191,10 +192,8 @@ function renderIcon(icon: any, showBadge = false) {
         </h1>
       </div>
     </div>
-    <n-menu
-      ref="menuRef" v-model:value="selectedMenuKey" :collapsed-width="64" :collapsed-icon-size="22"
-      :options="menuOptions"
-    />
+    <n-menu ref="menuRef" v-model:value="selectedMenuKey" :collapsed-width="64" :collapsed-icon-size="22"
+      :options="menuOptions" />
   </n-layout-sider>
 </template>
 
