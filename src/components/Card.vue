@@ -30,15 +30,15 @@ const slots = useSlots()
 
     &:before {
         content: "";
-        width: 90%;
-        box-shadow: 0 3px 20px #0000000b;
+        width: 92%;
+        box-shadow: 0 3px 20px #00000010;
         position: absolute;
         z-index: 9;
         left: 0px;
         right: 0px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 0.75rem;
+        margin-top: 0.70rem;
         height: 100%;
         border-radius: 0.375rem;
         --tw-bg-opacity: 1;

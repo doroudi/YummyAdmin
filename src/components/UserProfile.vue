@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ChevronCircleDown20Regular as ChevronIcon } from '@vicons/fluent'
 import type { SelectMixedOption } from 'naive-ui/es/select/src/interface'
 
 const { t } = useI18n()
@@ -22,28 +21,9 @@ function doMenuAction(value: string) {
 
 <template>
   <div class="flex items-center">
-    
-    <!-- <div class="flex flex-col p-2">
-      <h3 class="username">
-        User Name
-      </h3>
-      <h5 class="role text-dark dark:text-slate-400">
-        User Role
-      </h5>
-    </div> -->
-
     <n-popselect v-model="selectedItem" :options="items" @update:value="doMenuAction">
-      
       <img class="avatar" src="@/assets/images/user.png">
-      <!-- <n-button mx-2 text size="small" circle>
-        <template #icon>
-          <n-icon size="1.4rem">
-            <ChevronIcon />
-          </n-icon>
-        </template>
-      </n-button> -->
     </n-popselect>
-    <!-- <TieredMenu ref="menu" :model="items" :popup="true" /> -->
   </div>
 </template>
 

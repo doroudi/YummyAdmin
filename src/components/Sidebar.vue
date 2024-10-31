@@ -30,6 +30,7 @@ import { NIcon } from 'naive-ui/es/icon'
 const layoutStore = useLayoutStore()
 const { collapsed } = storeToRefs(layoutStore)
 const { t } = useI18n()
+const { width } = useWindowSize()
 
 function renderLabel(title: string, path: string) {
   return h(
@@ -180,8 +181,8 @@ function renderIcon(icon: any, showBadge = false) {
 
 <template>
   <n-layout-sider
-    :native-scrollbar="false" collapse-mode="width" :collapsed-width="64" :collapsed="collapsed"
-    :class="{ collapsed }"
+    :native-scrollbar="false" collapse-mode="width" :collapsed-width="64"
+    :collapsed="collapsed || width <= 1280" :class="{ collapsed }"
   >
     <div class="logo-container">
       <div flex items-center>
