@@ -33,9 +33,6 @@ body {
   pointer-events: none;
 }
 
-.main {
-  
-}
 #nprogress .bar {
   background: rgb(13,148,136);
   opacity: 0.75;
@@ -60,36 +57,3 @@ body {
 @import 'error';
 @import 'utils/override';
 @import 'utils/animations';
-
-
-// .fade-enter-active,
-// .fade-leave-active {
-//   transition: opacity 0.5s ease;
-// }
-
-// .fade-enter-from,
-// .fade-leave-to {
-//   opacity: 0;
-// }
-
-// .slide-fade-enter-active {
-//   position: absolute;
-//   inset: 0;
-//   z-index:10;
-//   transition: all 0.3s ease-out;
-//   background: #FFF;
-// }
-
-// .slide-fade-leave-active {
-//   position: absolute;
-//   inset: 0;
-//   z-index: 1;
-//   background: #FFF;
-//   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-// }
-
-// .slide-fade-enter-from,
-// .slide-fade-leave-to {
-//   transform: translateY(20px);
-//   opacity: 0;
-// }

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-
-
 const props = defineProps({
   title: { type: String, required: true },
   value: { type: Number, required: true },
@@ -9,7 +7,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="p-2 dashboard-card" v-bind="props">
+  <div class="p-2 dashboard-card w-1/2 md:w-1/4 lg:w-1/5 " v-bind="props">
     <Card>
       <div class="inner flex flex-col">
         <div class="head flex justify-between items-center">
@@ -24,7 +22,7 @@ const props = defineProps({
 
         <section>
           <h3 class="value">
-            {{ props.value }} 
+            {{ props.value }}
           </h3>
           <h4 class="title">
             {{ props.title }}

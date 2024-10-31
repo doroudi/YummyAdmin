@@ -5,7 +5,6 @@ import {
   PanelLeftExpand20Regular as OpenIcon,
 } from '@vicons/fluent'
 
-
 const layoutStore = useLayoutStore()
 const { collapsed, isRtl } = storeToRefs(layoutStore)
 </script>
