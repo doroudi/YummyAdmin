@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { NBadge } from 'naive-ui'
 import type { MenuInst, MenuOption } from 'naive-ui'
-
+import { useWindowSize } from '@vueuse/core'
 import {
   PersonSettings20Regular as AccountSettingsIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
@@ -43,6 +43,7 @@ function renderLabel(title: string, path: string) {
     { default: () => title },
   )
 }
+
 const menuOptions: MenuOption[] = [
   {
     label: () => renderLabel(t('menu.dashboard'), '/'),
@@ -192,10 +193,8 @@ function renderIcon(icon: any, showBadge = false) {
         </h1>
       </div>
     </div>
-    <n-menu
-      ref="menuRef" v-model:value="selectedMenuKey" :collapsed-width="64" :collapsed-icon-size="22"
-      :options="menuOptions"
-    />
+    <n-menu ref="menuRef" v-model:value="selectedMenuKey" :collapsed-width="64" :collapsed-icon-size="22"
+      :options="menuOptions" />
   </n-layout-sider>
 </template>
 
