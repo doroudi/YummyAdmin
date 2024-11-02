@@ -4,6 +4,42 @@ const props = defineProps({
   value: { type: Number, required: true },
   progress: { type: Number, required: false },
 })
+
+const value = ref(0)
+const element = ref()
+onMounted(() => {
+  const countFrom = 0;
+  const countTo = props.value
+
+  const duration = 2000
+    if (countTo <= 0) return;
+
+    const animate = () => {
+        let startTime: number;
+
+        const step = (currentTime: number) => {
+            if (!startTime) {
+                startTime = currentTime;
+            }
+
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const currentNumber = Math.floor(progress * (countTo - countFrom));
+
+            value.value = `${currentNumber + countFrom}`;
+
+            if (progress < 1) {
+                element.value.animationFrameID = window.requestAnimationFrame(step);
+            } else {
+                window.cancelAnimationFrame(element.value.animationFrameID);
+            }
+        };
+
+        window.requestAnimationFrame(step);
+    };
+
+    animate();
+})
+
 </script>
 
 <template>
@@ -19,10 +55,9 @@ const props = defineProps({
             />
           </span>
         </div>
-
         <section>
-          <h3 class="value">
-            {{ props.value }}
+          <h3 ref="element" class="value">
+            {{ value }}
           </h3>
           <h4 class="title">
             {{ props.title }}
@@ -35,24 +70,24 @@ const props = defineProps({
 
 <style lang="scss">
 .dashboard-card {
-.inner {
+  .inner {
     .icon {
-        font-size: 1.7rem;
-        font-weight: bold;
+      font-size: 1.7rem;
+      font-weight: bold;
     }
 
     .value {
-        font-size: 1.7rem;
-        font-weight: 500;
-        /* font-family: segoe ui; */
-        margin-top: 7px;
+      font-size: 1.7rem;
+      font-weight: 500;
+      /* font-family: segoe ui; */
+      margin-top: 7px;
     }
 
     .title {
-        font-size: 0.9rem;
-        margin-top: -5px;
-        color: #707070;
+      font-size: 0.9rem;
+      margin-top: -5px;
+      color: #707070;
     }
-}
+  }
 }
 </style>
