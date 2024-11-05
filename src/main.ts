@@ -17,10 +17,9 @@ declare module '@vue/runtime-core' {
 }
 
 async function enableMocking() {
-  const isMocking = import.meta.env.VITE_API_MOCKING_ENABLED
-  if (!isMocking)
-    return
-
+  // const isMocking = import.meta.env.VITE_API_MOCKING_ENABLED
+  // if (!isMocking)
+  //   return Promise.resolve()
   const { worker } = await import('~/mocks/browser')
   return worker.start({
     onUnhandledRequest: 'bypass',
