@@ -31,9 +31,9 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler' // or "modern"
-      }
-    }
+        api: 'modern-compiler',
+      },
+    },
   },
 
   plugins: [
@@ -138,12 +138,12 @@ export default defineConfig({
   ],
 
   // https://github.com/vitest-dev/vitest
-  test: {
-    include: ['test/**/*.test.ts'],
-    environment: 'jsdom',
-    deps: {
-      inline: ['@vue', '@vueuse', 'vue-demi'],
-    },
-  },
+  // test: {
+  //   include: ['test/**/*.test.ts'],
+  //   environment: 'jsdom',
+  //   deps: {
+  //     inline: ['@vue', '@vueuse', 'vue-demi'],
+  //   },
+  // },
   define: { 'process.env': {} },
 })
