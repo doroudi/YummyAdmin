@@ -8,43 +8,41 @@ const props = defineProps({
 const value = ref(0)
 const element = ref()
 onMounted(() => {
-  const countFrom = 0;
+  const countFrom = 0
   const countTo = props.value
 
   const duration = 2000
-    if (countTo <= 0) return;
+  if (countTo <= 0)
+    return
 
-    const animate = () => {
-        let startTime: number;
+  const animate = () => {
+    let startTime: number
 
-        const step = (currentTime: number) => {
-            if (!startTime) {
-                startTime = currentTime;
-            }
+    const step = (currentTime: number) => {
+      if (!startTime)
+        startTime = currentTime
 
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            const currentNumber = Math.floor(progress * (countTo - countFrom));
+      const progress = Math.min((currentTime - startTime) / duration, 1)
+      const currentNumber = Math.floor(progress * (countTo - countFrom))
 
-            value.value = `${currentNumber + countFrom}`;
+      value.value = currentNumber + countFrom
 
-            if (progress < 1) {
-                element.value.animationFrameID = window.requestAnimationFrame(step);
-            } else {
-                window.cancelAnimationFrame(element.value.animationFrameID);
-            }
-        };
+      if (progress < 1)
+        element.value.animationFrameID = window.requestAnimationFrame(step)
+      else
+        window.cancelAnimationFrame(element.value.animationFrameID)
+    }
 
-        window.requestAnimationFrame(step);
-    };
+    window.requestAnimationFrame(step)
+  }
 
-    animate();
+  animate()
 })
-
 </script>
 
 <template>
-  <div class="p-2 dashboard-card w-1/2 md:w-1/4 lg:w-1/5 " v-bind="props">
-    <Card>
+  <div class="p-2 dashboard-card w-1/2 md:w-1/4" v-bind="props">
+    <Card no-shadow>
       <div class="inner flex flex-col">
         <div class="head flex justify-between items-center">
           <slot />
@@ -79,7 +77,6 @@ onMounted(() => {
     .value {
       font-size: 1.7rem;
       font-weight: 500;
-      /* font-family: segoe ui; */
       margin-top: 7px;
     }
 

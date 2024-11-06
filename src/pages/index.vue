@@ -37,11 +37,6 @@ meta:
         <StatIcon />
       </NIcon>
     </DashboardCard>
-    <DashboardCard :title="t('dashboard.activeOrders')" :progress="-1" :value="1500">
-      <NIcon class="icon text-amber-400">
-        <StatIcon />
-      </NIcon>
-    </DashboardCard>
   </div>
 
   <div>
