@@ -2,10 +2,14 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 
 export const useLayoutStore = defineStore('layout', () => {
   const collapsed = ref(false)
+  const forceCollapsed = ref(false)
   const activeLanguage = ref('en')
   const isRtl = ref(false)
   const { t, locale } = useI18n()
 
+  watch(() => useWindowSize().width.value, (newValue: number) => {
+    forceCollapsed.value = newValue < 1000
+  })
   function toggleSidebar() {
     collapsed.value = !collapsed.value
   }
@@ -28,6 +32,7 @@ export const useLayoutStore = defineStore('layout', () => {
     isRtl,
     activeLanguage,
     changeLanguage,
+    forceCollapsed,
   }
 }, { persist: true })
 
