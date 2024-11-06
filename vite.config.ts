@@ -10,7 +10,8 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 import Unocss from 'unocss/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
-import { partytownVite } from '@builder.io/partytown/utils'
+
+// import { partytownVite } from '@builder.io/partytown/utils'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import Pages from 'vite-plugin-pages'
 
@@ -129,9 +130,9 @@ export default defineConfig({
       include: [path.resolve(__dirname, 'locales/**')],
     }),
 
-    partytownVite({
-      dest: path.join(__dirname, 'dist', '~partytown'),
-    }),
+    // partytownVite({
+    //   dest: path.join(__dirname, 'dist', '~partytown'),
+    // }),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
     VueDevTools(),

@@ -1,5 +1,4 @@
 <script setup lang='ts'>
-import { getCurrentInstance } from 'vue'
 import { type DataTableColumns, NButton, NIcon, NRate, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
@@ -12,8 +11,6 @@ const store = useReviewStore()
 const { reviews, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
-
-const { proxy } = getCurrentInstance()
 
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
@@ -62,7 +59,7 @@ const columns: DataTableColumns<RowData> = [
     render(row) {
       return h(NText,
         {}, {
-          default: () => proxy.$filters.friendlyTime(row.date),
+          default: () => row.date,
         })
     },
   },

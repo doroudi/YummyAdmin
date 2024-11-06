@@ -11,8 +11,7 @@
     "test:unit": "vitest",
     "typecheck": "vue-tsc --noEmit",
     "up": "taze major -I",
-    "sizecheck": "npx vite-bundle-visualizer",
-    "partytown": "partytown copylib public/~partytown"
+    "sizecheck": "npx vite-bundle-visualizer"
   },
   "dependencies": {
     "@unhead/vue": "^1.11.11",
@@ -33,7 +32,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.8",
-    "@builder.io/partytown": "^0.10.2",
     "@faker-js/faker": "^8.4.1",
     "@intlify/unplugin-vue-i18n": "^0.12.3",
     "@types/nprogress": "^0.2.3",
