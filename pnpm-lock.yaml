@@ -91,8 +91,8 @@ importers:
         specifier: ^2.0.4
         version: 2.0.4(vue@3.5.12(typescript@5.6.3))
       critters:
-        specifier: ^0.0.22
-        version: 0.0.22
+        specifier: ^0.0.24
+        version: 0.0.24
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -173,7 +173,7 @@ importers:
         version: 0.11.0(vite@5.4.10(@types/node@22.9.0)(sass@1.80.6)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
       vite-ssg:
         specifier: ^0.23.8
-        version: 0.23.8(critters@0.0.22)(vite@5.4.10(@types/node@22.9.0)(sass@1.80.6)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
+        version: 0.23.8(critters@0.0.24)(vite@5.4.10(@types/node@22.9.0)(sass@1.80.6)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3))
       vitest:
         specifier: ^0.33.0
         version: 0.33.0(jsdom@24.1.3)(sass@1.80.6)(terser@5.36.0)
@@ -2792,8 +2792,9 @@ packages:
     resolution: {integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==}
     engines: {node: '>= 0.10'}
 
-  critters@0.0.22:
-    resolution: {integrity: sha512-NU7DEcQZM2Dy8XTKFHxtdnIM/drE312j2T4PCVaSUcS0oBeyT/NImpRw/Ap0zOr/1SE7SgPK9tGPg1WK/sVakw==}
+  critters@0.0.24:
+    resolution: {integrity: sha512-Oyqew0FGM0wYUSNqR0L6AteO5MpMoUU0rhKRieXeiKs+PmRTxiJMyaunYB2KF6fQ3dzChXKCpbFOEJx3OQ1v/Q==}
+    deprecated: Ownership of Critters has moved to the Nuxt team, who will be maintaining the project going forward. If you'd like to keep using Critters, please switch to the actively-maintained fork at https://github.com/danielroe/beasties
 
   cross-env@7.0.3:
     resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
@@ -9067,7 +9068,7 @@ snapshots:
       object-assign: 4.1.1
       vary: 1.1.2
 
-  critters@0.0.22:
+  critters@0.0.24:
     dependencies:
       chalk: 4.1.2
       css-select: 5.1.0
@@ -12398,7 +12399,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  vite-ssg@0.23.8(critters@0.0.22)(vite@5.4.10(@types/node@22.9.0)(sass@1.80.6)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3)):
+  vite-ssg@0.23.8(critters@0.0.24)(vite@5.4.10(@types/node@22.9.0)(sass@1.80.6)(terser@5.36.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3)):
     dependencies:
       '@unhead/dom': 1.11.11
       '@unhead/vue': 1.11.11(vue@3.5.12(typescript@5.6.3))
@@ -12412,7 +12413,7 @@ snapshots:
       vue: 3.5.12(typescript@5.6.3)
       yargs: 17.7.2
     optionalDependencies:
-      critters: 0.0.22
+      critters: 0.0.24
       vue-router: 4.4.5(vue@3.5.12(typescript@5.6.3))
     transitivePeerDependencies:
       - bufferutil
