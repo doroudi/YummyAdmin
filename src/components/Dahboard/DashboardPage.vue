@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import {
   Cart16Regular as BasketIcon,
   Box16Regular as BoxIcon,
@@ -8,7 +8,7 @@ import {
 
 const { t } = useI18n()
 
-function random(min: number, max: number): number {
+function random(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 </script>

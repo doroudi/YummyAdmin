@@ -32,7 +32,6 @@ const router = createRouter({
   routes,
 })
 
-// TODO: try to use Vitessg instead of ClientSide vue app
 const app = createApp(App)
 app.use(router)
 Object.values(import.meta.glob<{ install: AppModule }>('./modules/*.ts', { eager: true }))
