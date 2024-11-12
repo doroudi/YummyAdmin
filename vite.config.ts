@@ -52,6 +52,7 @@ export default defineConfig({
     // }),
     Pages({
       extensions: ['vue'],
+      importMode: 'async',
       syncIndex: false,
     }),
 

@@ -36,6 +36,7 @@ menu:
   settings: Settings
   pages: Pages
   login: Login
+  notFound: '404'
 userMenu:
   language: Language
   theme: Theme

@@ -19,6 +19,7 @@ declare module 'vue' {
     CreateProduct: typeof import('./components/Products/CreateProduct.vue')['default']
     CustomerManagement: typeof import('./components/Customers/CustomerManagement.vue')['default']
     DashboardCard: typeof import('./components/DashboardCard.vue')['default']
+    DashboardPage: typeof import('./components/Dahboard/DashboardPage.vue')['default']
     DonutChart: typeof import('./components/DonutChart.vue')['default']
     Editor: typeof import('./components/Editor.vue')['default']
     LanguageSelect: typeof import('./components/LanguageSelect.vue')['default']

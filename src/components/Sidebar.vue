@@ -11,14 +11,11 @@ import {
   Home32Regular as DashboardIcon,
   Emoji24Regular as FeedbackIcon,
   Cart24Regular as InvoicesIcon,
-  News20Regular as NewsIcon,
-  ChannelAlert24Regular as NotifyIcon,
   DocumentLink20Regular as PagesIcon,
   Apps28Filled as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
   StarThreeQuarter20Filled as ReviewIcon,
   Settings28Regular as SettingsIcon,
-  Chat24Regular as SmsIcon,
   PeopleCall20Regular as SupportIcon,
   ContentSettings20Regular as WebsiteSettingsIcon,
 } from '@vicons/fluent'
@@ -82,6 +79,11 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(InvoicesIcon, true),
   },
   {
+    label: () => renderLabel(t('menu.customers'), '/customers'),
+    key: 'customers',
+    icon: renderIcon(CustomersIcon),
+  },
+  {
     label: () => t('menu.feedbacks'),
     key: 'feedbacks',
     icon: renderIcon(FeedbackIcon),
@@ -103,33 +105,29 @@ const menuOptions: MenuOption[] = [
       },
     ],
   },
-  {
-    label: () => renderLabel(t('menu.customers'), '/customers'),
-    key: 'customers',
-    icon: renderIcon(CustomersIcon),
-  },
-  {
-    label: () => t('menu.announcement'),
-    key: 'notify',
-    icon: renderIcon(NewsIcon),
-    children: [
-      {
-        label: () => renderLabel(t('menu.news'), '/news'),
-        key: 'news',
-        icon: renderIcon(NewsIcon),
-      },
-      {
-        label: () => renderLabel(t('menu.notifications'), '/notify'),
-        key: 'notifications',
-        icon: renderIcon(NotifyIcon),
-      },
-      {
-        label: () => renderLabel(t('menu.sms'), 'sms'),
-        key: 'sms',
-        icon: renderIcon(SmsIcon),
-      },
-    ],
-  },
+
+  // {
+  //   label: () => t('menu.announcement'),
+  //   key: 'notify',
+  //   icon: renderIcon(NewsIcon),
+  //   children: [
+  //     {
+  //       label: () => renderLabel(t('menu.news'), '/news'),
+  //       key: 'news',
+  //       icon: renderIcon(NewsIcon),
+  //     },
+  //     {
+  //       label: () => renderLabel(t('menu.notifications'), '/notify'),
+  //       key: 'notifications',
+  //       icon: renderIcon(NotifyIcon),
+  //     },
+  //     {
+  //       label: () => renderLabel(t('menu.sms'), 'sms'),
+  //       key: 'sms',
+  //       icon: renderIcon(SmsIcon),
+  //     },
+  //   ],
+  // },
   {
     label: () => t('menu.pages'),
     key: 'pages',
@@ -137,6 +135,9 @@ const menuOptions: MenuOption[] = [
     children: [
       {
         label: () => renderLabel(t('menu.login'), '/account/login'),
+      },
+      {
+        label: () => renderLabel(t('menu.notFound'), '/404'),
       },
     ],
   },

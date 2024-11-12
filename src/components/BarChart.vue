@@ -22,7 +22,7 @@ const chartOptions = ref({
     },
   },
   xaxis: {
-    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
     labels: {
       style: {
         colors: '#6E6B7B',
@@ -64,17 +64,17 @@ const chartOptions = ref({
 const series = ref([
   {
     name: 'series-1',
-    data: [30, 40, 35, 50, 49, 6, 70, 91, 6, 70, 91, 13],
+    data: [30, 40, 35, 50, 49, 6, 70],
   },
   {
     name: 'series-2',
-    data: [3, 4, 15, 5, 4, 60, 10, 9, 60, 10, 9, 21],
+    data: [3, 4, 15, 5, 4, 60, 10],
   },
 ])
 </script>
 
 <template>
-  <VueApexCharts type="bar" :options="chartOptions" height="400" :series="series" />
+  <VueApexCharts type="bar" :options="chartOptions" height="430" :series="series" />
 </template>
 
 <style lang="scss" scoped>
