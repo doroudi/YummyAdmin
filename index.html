@@ -13,19 +13,20 @@
   <meta name="msapplication-TileColor" content="#00a300">
   <meta name="msapplication-config" content="/favicon/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Free Vue3 Dashboard - Free Vuejs 3 admin panel.fairly completed modern and beautiful designed admin panel for most use cases." />
+  <meta name="description"
+    content="Free Vue3 Dashboard - Free Vuejs 3 admin panel.fairly completed modern and beautiful designed admin panel for most use cases." />
   <!--  Essential META Tags -->
   <meta property="og:title" content="Yummy Admin - Free Vue3 Admin Panel">
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://yummy-admin.netlify.app/banner.png">
   <meta property="og:url" content="https://yummy-admin.netlify.app">
   <meta name="twitter:card" content="Yummy Admin - Free Vue3 Admin Panel">
-  
+
   <!--  Non-Essential, But Recommended -->
   <meta property="og:description" content="Yummy Admin - Free Vue3 Admin Panel">
   <meta property="og:site_name" content="Yummy Admin">
   <meta name="twitter:image:alt" content="Yummy Admin - Free Vue3 Admin Panel">
-    
+
   <style>
     .preloader {
       display: flex;
@@ -36,7 +37,7 @@
       flex-direction: column;
     }
 
-    
+
     .preloader h1 {
       margin-top: 1rem;
       font-weight: bold;
@@ -125,32 +126,34 @@
     }
   </style>
   <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-          'gtm.start':
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []
+      w[l].push({
+        'gtm.start':
           new Date().getTime(),
-    'event': 'gtm.js',
-  }); const f = d.getElementsByTagName(s)[0]
-  const j = d.createElement(s); const dl = l != 'dataLayer' ? `&l=${l}` : ''; j.async = true; j.src
-    = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`; f.parentNode.insertBefore(j, f)
-})(window, document, 'script', 'dataLayer', 'GTM-WBTQRDWN')
-</script>
+        'event': 'gtm.js',
+      })
+      const f = d.getElementsByTagName(s)[0]
+      const j = d.createElement(s)
+      const dl = l !== 'dataLayer' ? `&l=${l}` : ''
+      j.async = true
+      j.src = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`
+      f.parentNode.insertBefore(j, f)
+    })(window, document, 'script', 'dataLayer', 'GTM-WBTQRDWN')
+  </script>
   <!-- End Google Tag Manager -->
   <script>
-    (function () {
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-      const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
-      if (setting === 'dark' || (prefersDark && setting !== 'light'))
-        document.documentElement.classList.toggle('dark', true)
-    })()
+      (function () {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        const setting = localStorage.getItem('vueuse-color-scheme') || 'light'
+        if (setting === 'dark' || (prefersDark && setting !== 'light'))
+          document.documentElement.classList.toggle('dark', true)
+      })()
   </script>
 </head>
 
 <body class="font-sans">
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBTQRDWN" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   <div id="app">
     <div class="preloader">
       <div class="loader"></div>

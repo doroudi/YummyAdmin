@@ -41,7 +41,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-2 dashboard-card w-1/2 md:w-1/4" v-bind="props">
+  <div class="p-2 dashboard-card w-full sm:w-1/2 md:w-1/4" v-bind="props">
     <Card no-shadow>
       <div class="inner flex flex-col">
         <div class="head flex justify-between items-center">

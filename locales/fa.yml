@@ -109,6 +109,7 @@ menu:
   websiteSettings: تنظیمات وبسایت
   pages: صفحات
   login: ورود
+  notFound: '404'
 products:
   create:
     barcode: بارکد
