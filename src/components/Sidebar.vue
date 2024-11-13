@@ -5,12 +5,14 @@ import {
   PersonSettings20Regular as AccountSettingsIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
   Folder32Regular as CategoryIcon,
+  RadioButton20Filled as CollapseIcon,
   Color24Regular as ColorsIcon,
   CommentMultiple32Regular as CommentsIcon,
   People28Regular as CustomersIcon,
   Home32Regular as DashboardIcon,
   Emoji24Regular as FeedbackIcon,
   Cart24Regular as InvoicesIcon,
+  RadioButton20Regular as OpenIcon,
   DocumentLink20Regular as PagesIcon,
   Apps28Filled as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
@@ -26,6 +28,11 @@ import { NIcon } from 'naive-ui/es/icon'
 const layoutStore = useLayoutStore()
 const { collapsed, forceCollapsed } = storeToRefs(layoutStore)
 const { t } = useI18n()
+const isHovered = ref(false)
+
+const effectiveCollapsed = computed(() => {
+  return (collapsed.value || forceCollapsed.value) && !isHovered.value
+})
 
 function renderLabel(title: string, path: string) {
   return h(
@@ -147,7 +154,7 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(SettingsIcon),
     children: [
       {
-        label: () => renderLabel(t('menu.accountSettings'), '/account'),
+        label: () => renderLabel(t('menu.accountSettings'), '/account/profile'),
         key: 'account-settings',
         icon: renderIcon(AccountSettingsIcon),
       },
@@ -181,15 +188,24 @@ function renderIcon(icon: any, showBadge = false) {
 
 <template>
   <n-layout-sider
-    :native-scrollbar="false" collapse-mode="width" :collapsed-width="64"
-    :collapsed="collapsed || forceCollapsed" :class="{ collapsed: collapsed || forceCollapsed }"
+    :native-scrollbar="false" collapse-mode="width" :collapsed-width="64" :collapsed="effectiveCollapsed"
+    :class="{ collapsed: effectiveCollapsed }" @mouseenter="isHovered = true" @mouseleave="isHovered = false"
   >
     <div class="logo-container">
-      <div flex items-center>
+      <div flex w-full justify-between items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
         <h1 class="main-title">
           {{ t('title') }}
         </h1>
+
+        <n-button mx-2 text size="small" circle @click="layoutStore.toggleSidebar">
+          <template #icon>
+            <NIcon size="1.2rem" color="#888">
+              <OpenIcon v-if="collapsed" />
+              <CollapseIcon v-else />
+            </NIcon>
+          </template>
+        </n-button>
       </div>
     </div>
     <n-menu
@@ -203,7 +219,7 @@ function renderIcon(icon: any, showBadge = false) {
 .logo-container {
   display: flex;
   align-items: center;
-  padding: 1.5rem 1.1rem 0.5rem 1.1rem;
+  padding: 1.5rem 0.8rem 0.5rem 1.1rem;
   transition: all 100ms;
   line-height: 1;
 

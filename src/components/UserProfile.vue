@@ -1,29 +1,42 @@
 <script setup lang="ts">
 import type { SelectMixedOption } from 'naive-ui/es/select/src/interface'
+import {
+  DoorArrowRight20Regular as LogoutIcon,
+  Settings20Regular as SettingsIcon,
+} from '@vicons/fluent'
+import { NIcon } from 'naive-ui'
+import { RouterLink } from 'vue-router'
 
 const { t } = useI18n()
-const selectedItem = ref('')
-const router = useRouter()
+
 const items: SelectMixedOption[]
   = [
-    { label: t('userMenu.options'), value: '/options' },
     {
-      label: t('userMenu.logout'),
-      value: '/account/login',
-
+      icon: renderIcon(SettingsIcon),
+      label: renderLabel(t('userMenu.profile'), '/account/profile'),
+      key: 'options',
+    },
+    {
+      icon: renderIcon(LogoutIcon),
+      label: renderLabel(t('userMenu.logout'), '/account/login'),
+      key: 'login',
     },
   ]
 
-function doMenuAction(value: string) {
-  router.push(value)
+function renderIcon(icon: any) {
+  return () => h(NIcon, null, { default: () => h(icon, {}) })
+}
+
+function renderLabel(title: string, path: string) {
+  return () => h(RouterLink, { to: { path } }, { default: () => title })
 }
 </script>
 
 <template>
   <div class="flex items-center">
-    <n-popselect v-model="selectedItem" :options="items" @update:value="doMenuAction">
+    <n-dropdown :options="items">
       <img class="avatar" src="@/assets/images/user.png">
-    </n-popselect>
+    </n-dropdown>
   </div>
 </template>
 
