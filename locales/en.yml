@@ -41,6 +41,7 @@ userMenu:
   language: Language
   theme: Theme
   options: Options
+  profile: Profile
   logout: Logout
   dark: Dark
   light: Light

@@ -1,26 +1,12 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import {
-  PanelLeftContract16Regular as CollapseIcon,
-  PanelLeftExpand20Regular as OpenIcon,
-} from '@vicons/fluent'
 
 const layoutStore = useLayoutStore()
-const { collapsed, forceCollapsed, isRtl } = storeToRefs(layoutStore)
+const { isRtl } = storeToRefs(layoutStore)
 </script>
 
 <template>
   <n-page-header class="p-2 navbar">
-    <template #title>
-      <n-button mx-2 text size="small" circle @click="layoutStore.toggleSidebar">
-        <template #icon>
-          <n-icon size="1.4rem" :class="{ 'rotate-180': isRtl }">
-            <OpenIcon v-if="collapsed || forceCollapsed" />
-            <CollapseIcon v-else />
-          </n-icon>
-        </template>
-      </n-button>
-    </template>
     <template #extra>
       <div class="flex items-center">
         <n-tooltip placement="bottom" trigger="hover">
