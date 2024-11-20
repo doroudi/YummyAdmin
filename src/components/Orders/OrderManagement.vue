@@ -12,7 +12,6 @@ import { OrderStatus } from '~/models/Order'
 
 const { t } = useI18n()
 const store = useOrderStore()
-const { orders, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
@@ -23,7 +22,7 @@ const columns: DataTableColumns<RowData> = [
   {
     title: 'Customer',
     key: 'customer',
-
+    fixed: 'left',
   },
   {
     title: 'Date',
@@ -109,7 +108,7 @@ function handleDeleteItem(row: RowData) {
     positiveText: 'Yes, Delete',
     negativeText: 'Cancel',
     onPositiveClick: () => {
-      store.deleteProduct(row.id)
+      // store.deleteProduct(row.id)
       message.success('Product was deleted!')
     },
   })
@@ -152,8 +151,8 @@ function handleFiltersChange() {
           </NButton>
         </NSpace>
         <n-data-table
-          :columns="columns" :data="orders" :loading="isLoading" :pagination="options"
-          :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
+          :columns="columns" :data="store.orders" :loading="store.isLoading" :pagination="options" :row-key="rowKey"
+          :scroll-x="1000" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
           @update:page="handlePageChange"
         />
       </div>

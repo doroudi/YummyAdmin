@@ -11,7 +11,6 @@ import { useDialog, useMessage } from 'naive-ui'
 
 const { t } = useI18n()
 const store = useBrandStore()
-const { brands, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
 onMounted(getItems)
@@ -19,6 +18,7 @@ const columns: DataTableColumns<RowData> = [
   {
     title: 'Brand',
     key: 'name',
+    fixed: 'left',
   },
   {
     title: 'Slog',
@@ -110,9 +110,8 @@ function createBrand() {
         </NButton>
       </n-space>
       <n-data-table
-        remote :columns="columns" :data="brands" :loading="isLoading" :pagination="options"
-        :row-key="rowKey" @update:filters="handleFiltersChange"
-        @update:page="handlePageChange"
+        remote :columns="columns" :data="store.brands" :loading="store.isLoading" :pagination="options"
+        :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange" @update:page="handlePageChange"
       />
     </n-layout-content>
 

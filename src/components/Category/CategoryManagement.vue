@@ -12,7 +12,6 @@ import { useDialog, useMessage } from 'naive-ui'
 const { t } = useI18n()
 const collapsed = ref(false)
 const store = useCategoryStore()
-const { categories, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
 onMounted(getItems)
@@ -20,6 +19,7 @@ const columns: DataTableColumns<RowData> = [
   {
     title: 'Category',
     key: 'name',
+    fixed: 'left',
   },
   {
     title: 'Products Count',
@@ -117,9 +117,8 @@ function createCategory() {
           </NButton>
         </n-space>
         <n-data-table
-          remote :columns="columns" :data="categories" :loading="isLoading" :pagination="options"
-          selectable
-          :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
+          remote :columns="columns" :data="store.categories" :loading="store.isLoading" :pagination="options" selectable
+          :scroll-x="1000" :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
           @update:page="handlePageChange"
         />
       </div>

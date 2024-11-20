@@ -11,7 +11,6 @@ import { useDialog, useMessage } from 'naive-ui'
 
 const { t } = useI18n()
 const store = useColorStore()
-const { colors, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
 onMounted(getItems)
@@ -20,6 +19,7 @@ const columns: DataTableColumns<RowData> = [
     title: 'Color',
     key: 'color',
     width: 250,
+    fixed: 'left',
     render(row) {
       return h(
         'span',
@@ -121,9 +121,8 @@ function createColor() {
           </NButton>
         </n-space>
         <n-data-table
-          remote :columns="columns" :data="colors" :loading="isLoading" :pagination="options"
-          :row-key="rowKey" @update:filters="handleFiltersChange"
-          @update:page="handlePageChange"
+          remote :columns="columns" :data="store.colors" :loading="store.isLoading" :pagination="options"
+          :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />
       </div>
     </n-layout-content>
