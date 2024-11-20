@@ -8,7 +8,6 @@ import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
 const store = useReviewStore()
-const { reviews, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
 
@@ -22,6 +21,7 @@ const columns: DataTableColumns<RowData> = [
         h(NRate, { color: 'gold', readonly: true, defaultValue: row.rate, allowHalf: true }),
       ]
     },
+    fixed: 'left',
   },
   {
     title: 'COMMENT',
@@ -96,7 +96,7 @@ function handleDeleteItem(row: RowData) {
     positiveText: 'Yes, Delete',
     negativeText: 'Cancel',
     onPositiveClick: () => {
-      store.deleteProduct(row.id)
+      /// store.deleteProduct(row.id)
       message.success('Product was deleted!')
     },
   })
@@ -128,9 +128,9 @@ function handleFiltersChange() {
     <n-layout-content>
       <div class="px-3">
         <n-data-table
-          remote :columns="columns" :data="reviews" :loading="isLoading" :pagination="options"
-          selectable :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
-          @update:page="handlePageChange"
+          remote :columns="columns" :data="store.reviews" :loading="store.isLoading" :pagination="options" selectable
+          :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
+          @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />
       </div>
     </n-layout-content>

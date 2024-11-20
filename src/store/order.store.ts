@@ -31,6 +31,7 @@ export const useOrderStore = defineStore('Order', () => {
     getOrders,
     getOrderDetail,
     isSaving,
+    isLoading,
   }
 })
 if (import.meta.hot)

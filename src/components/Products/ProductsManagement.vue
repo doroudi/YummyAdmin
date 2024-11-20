@@ -12,7 +12,6 @@ import { ProductStatus } from '~/models/Product'
 
 const { t } = useI18n()
 const store = useProductStore()
-const { products, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
@@ -21,6 +20,7 @@ onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
     type: 'selection',
+    fixed: 'left',
   },
   {
     title: 'PRODUCT',
@@ -157,9 +157,9 @@ function handleFiltersChange() {
           </NButton>
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="products" :loading="isLoading" :pagination="options" selectable
-          :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
-          @update:page="handlePageChange"
+          remote :columns="columns" :data="store.products" :loading="store.isLoading" :pagination="options" selectable
+          :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
+          @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />
       </div>
     </n-layout-content>

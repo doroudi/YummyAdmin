@@ -12,7 +12,6 @@ import { useDialog, useMessage } from 'naive-ui'
 
 const { t } = useI18n()
 const store = useCustomerStore()
-const { customers, isLoading } = storeToRefs(store)
 const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
@@ -23,6 +22,7 @@ onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
     type: 'selection',
+    fixed: 'left',
   },
   {
     title: 'NAME',
@@ -111,7 +111,7 @@ function handleDeleteItem(row: RowData) {
     positiveText: 'Yes, Delete',
     negativeText: 'Cancel',
     onPositiveClick: () => {
-      store.deleteProduct(row.id)
+      // store.deleteProduct(row.id)
       message.success('Product was deleted!')
     },
   })
@@ -154,9 +154,9 @@ function handleFiltersChange() {
           </NButton>
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="customers" :loading="isLoading" :pagination="options"
-          selectable :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
-          @update:page="handlePageChange"
+          remote :columns="columns" :data="store.customers" :loading="store.isLoading" :pagination="options"
+          selectable :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
+          @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />
       </div>
     </n-layout-content>
