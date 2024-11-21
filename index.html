@@ -125,31 +125,14 @@
       }
     }
   </style>
-  <!-- Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Q4R8ZVVQH"></script>
   <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || []
-      w[l].push({
-        'gtm.start':
-          new Date().getTime(),
-        'event': 'gtm.js',
-      })
-      const f = d.getElementsByTagName(s)[0]
-      const j = d.createElement(s)
-      const dl = l !== 'dataLayer' ? `&l=${l}` : ''
-      j.async = true
-      j.src = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`
-      f.parentNode.insertBefore(j, f)
-    })(window, document, 'script', 'dataLayer', 'GTM-WBTQRDWN')
-  </script>
-  <!-- End Google Tag Manager -->
-  <script>
-      (function () {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-        const setting = localStorage.getItem('vueuse-color-scheme') || 'light'
-        if (setting === 'dark' || (prefersDark && setting !== 'light'))
-          document.documentElement.classList.toggle('dark', true)
-      })()
+    window.dataLayer = window.dataLayer || []
+function gtag() { dataLayer.push(arguments) }
+    gtag('js', new Date())
+
+gtag('config', 'G-9Q4R8ZVVQH')
   </script>
 </head>
 
