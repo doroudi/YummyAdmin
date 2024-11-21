@@ -9,8 +9,8 @@ import {
     <h2 class="card-title">
       Statics
     </h2>
-    <DashboardCard :icon="UserIcon" title="Registers" :progress="10" :value="250" />
-    <DashboardCard :icon="UserIcon" title="Registers" :progress="10" :value="250" />
+    <DashboardCard class="w-full sm:w-full md:w-full" :icon="UserIcon" title="Registers" :progress="10" :value="250" />
+    <DashboardCard class="w-full sm:w-full md:w-full" :icon="UserIcon" title="Registers" :progress="10" :value="250" />
     <DonutChart />
   </div>
 </template>
