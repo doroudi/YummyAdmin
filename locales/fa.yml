@@ -1,10 +1,12 @@
 title: پنل مدیریت
 description: داشبورد رایگان vue3
-English: English
-Persian: Persian
 direction: rtl
-en: انگلیسی
-fa: فارسی
+en: English
+fa: Persian
+tr: Turkish
+ar: Arabic
+de: German
+ch: Chinese
 common:
   notFound: پیدا نشد
   404Error: 404 خطای

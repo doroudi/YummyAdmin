@@ -101,7 +101,7 @@ function getStatusColor(status: OrderStatus) {
   }
 }
 
-function handleDeleteItem(row: RowData) {
+function handleDeleteItem() {
   dialog.error({
     title: 'Confirm',
     content: 'Are you sure?',

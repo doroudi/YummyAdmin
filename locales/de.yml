@@ -1,0 +1,155 @@
+title: Yummy Admin
+description: Kostenloses Vue 3 Dashboard
+direction: ltr
+en: English
+fa: Persian
+tr: Turkish
+ar: Arabic
+de: German
+ch: Chinese
+English: Englisch
+Persian: Persisch
+common:
+  notFound: Nicht gefunden
+  404Error: 404 Fehler
+  goHome: Zurück zur Startseite
+  404Message: Entschuldigung, aber die gesuchte Seite existiert nicht, wurde entfernt, der Name wurde geändert oder ist vorübergehend nicht verfügbar
+  403Error: Sie haben keine Zugriffsberechtigung
+menu:
+  dashboard: Dashboard
+  productManagement: Produktverwaltung
+  products: Produkte
+  categories: Kategorien
+  brands: Marken
+  colors: Farben
+  orders: Bestellungen
+  feedbacks: Rückmeldungen
+  reviews: Bewertungen
+  messages: Nachrichten
+  support: Support
+  comments: Kommentare
+  announcement: Ankündigung
+  news: Neuigkeiten
+  notifications: Benachrichtigungen
+  sms: SMS
+  accountSettings: Kontoeinstellungen
+  websiteSettings: Websiteeinstellungen
+  blog: Blog
+  users: Benutzer
+  customers: Kunden
+  settings: Einstellungen
+  pages: Seiten
+  login: Anmelden
+  notFound: '404'
+userMenu:
+  language: Sprache
+  theme: Design
+  options: Optionen
+  profile: Profil
+  logout: Abmelden
+  dark: Dunkel
+  light: Hell
+button:
+  about: Über
+  back: Zurück
+  go: LOS
+  home: Startseite
+  toggle_dark: Dunkelmodus umschalten
+  toggle_langs: Sprache ändern
+login:
+  title: Anmelden
+  username: Benutzername
+  password: Passwort
+  loginButton: Anmelden
+  skipLogin: Anmeldung überspringen
+  forgetPassword: Passwort vergessen
+  rememberMe: Angemeldet bleiben
+  welcome: Willkommen zurück!
+  message: Um auf Ihr Konto zuzugreifen, melden Sie sich bitte hier an
+  haveNotAccount: Noch kein Konto?
+  createAccount: Erstellen Sie eins!
+  failedMessage: Anmeldung fehlgeschlagen
+  successMessage: Erfolgreich angemeldet 🎉
+  validations:
+    userNameRequired: Benutzername eingeben
+    passwordRequired: Passwort wird benötigt
+
+register:
+  title: Registrieren
+  username: Benutzername
+  password: Passwort
+  button: Registrieren
+  haveAccount: Haben Sie ein Konto?
+  login: Anmelden!
+forgot:
+  title: Passwort vergessen
+  username: Benutzername
+  button: Wiederherstellen
+  haveNotAccount: Kein Konto?
+  register: Erstellen Sie eins!
+dashboard:
+  summary: Zusammenfassung
+  transactions: Transaktionen
+  registers: Registrierungen
+  products: Produkte
+  sells: Verkäufe
+  visits: Besuche
+  activeOrders: Aktive Bestellungen
+categories:
+  title: Kategorien
+  createButton: Erstellen
+  create:
+    buttonTitle: Erstellen
+    title: Neue Kategorie erstellen
+    categoryName: Name
+    parent: Übergeordnet
+  validations:
+    nameRequired: Name wird benötigt
+    parentRequired: Übergeordnete Kategorie nicht ausgewählt
+
+brands:
+  title: Marken
+  createButton: Erstellen
+  create:
+    buttonTitle: Erstellen
+    title: Neue Marke erstellen
+    image: Bild
+    brandName: Name
+    url: URL
+  validations:
+    name: Name wird benötigt
+    url: URL wird benötigt
+    image: Bild wird benötigt
+
+colors:
+  title: Farben
+  createButton: Erstellen
+  create:
+    buttonTitle: Erstellen
+    title: Neue Farbe erstellen
+    color: Farbe
+    name: Name
+  validations:
+    nameRequired: Name wird benötigt
+    colorRequired: Farbe nicht ausgewählt
+
+products:
+  create:
+    title: Produkt erstellen
+    productInformation: Produktinformationen
+    name: Produktname
+    barcode: Barcode
+    sku: Artikelnummer
+    description: Beschreibung
+    media: Medien
+    pricing: Preisgestaltung
+    price: Preis
+    discountedPrice: Reduzierter Preis
+    inStock: Auf Lager
+    category: Kategorie
+    brand: Marke
+    keywords: Schlüsselwörter
+    newKeyword: Neues Schlüsselwort
+    imageName: Bild
+
+not-found: Nicht gefunden

@@ -1,0 +1,157 @@
+title: 美味管理系统
+description: 免费的Vue 3仪表板
+direction: ltr
+en: English
+fa: Persian
+tr: Turkish
+ar: Arabic
+de: German
+ch: Chinese
+English: 英语
+Persian: 波斯语
+common:
+  notFound: 未找到
+  404Error: 404错误
+  goHome: 返回首页
+  404Message: 抱歉，您要查找的页面不存在、已被删除、名称已更改或暂时不可用
+  403Error: 您没有访问权限
+menu:
+  dashboard: 仪表板
+  productManagement: 产品管理
+  products: 产品
+  categories: 分类
+  brands: 品牌
+  colors: 颜色
+  orders: 订单
+  feedbacks: 反馈
+  reviews: 评论
+  messages: 消息
+  support: 支持
+  comments: 评论
+  announcement: 公告
+  news: 新闻
+  notifications: 通知
+  sms: 短信
+  accountSettings: 账户设置
+  websiteSettings: 网站设置
+  blog: 博客
+  users: 用户
+  customers: 客户
+  settings: 设置
+  pages: 页面
+  login: 登录
+  notFound: '404'
+userMenu:
+  language: 语言
+  theme: 主题
+  options: 选项
+  profile: 个人资料
+  logout: 退出
+  dark: 深色
+  light: 浅色
+  en: 英语
+  fa: 波斯语
+button:
+  about: 关于
+  back: 返回
+  go: 前往
+  home: 首页
+  toggle_dark: 切换深色模式
+  toggle_langs: 切换语言
+login:
+  title: 登录
+  username: 用户名
+  password: 密码
+  loginButton: 登录
+  skipLogin: 跳过登录
+  forgetPassword: 忘记密码
+  rememberMe: 记住我
+  welcome: 欢迎回来！
+  message: 请在此登录以访问您的账户
+  haveNotAccount: 没有账户？
+  createAccount: 创建一个！
+  failedMessage: 登录失败
+  successMessage: 登录成功 🎉
+  validations:
+    userNameRequired: 请输入用户名
+    passwordRequired: 密码必填
+
+register:
+  title: 注册
+  username: 用户名
+  password: 密码
+  button: 注册
+  haveAccount: 已有账户？
+  login: 登录！
+forgot:
+  title: 忘记密码
+  username: 用户名
+  button: 恢复
+  haveNotAccount: 没有账户？
+  register: 创建一个！
+dashboard:
+  summary: 概要
+  transactions: 交易
+  registers: 注册
+  products: 产品
+  sells: 销售
+  visits: 访问
+  activeOrders: 活跃订单
+categories:
+  title: 分类
+  createButton: 创建
+  create:
+    buttonTitle: 创建
+    title: 创建新分类
+    categoryName: 名称
+    parent: 父级
+  validations:
+    nameRequired: 名称必填
+    parentRequired: 未选择父级
+
+brands:
+  title: 品牌
+  createButton: 创建
+  create:
+    buttonTitle: 创建
+    title: 创建新品牌
+    image: 图片
+    brandName: 名称
+    url: 网址
+  validations:
+    name: 名称必填
+    url: 网址必填
+    image: 图片必填
+
+colors:
+  title: 颜色
+  createButton: 创建
+  create:
+    buttonTitle: 创建
+    title: 创建新颜色
+    color: 颜色
+    name: 名称
+  validations:
+    nameRequired: 名称必填
+    colorRequired: 未选择颜色
+
+products:
+  create:
+    title: 创建产品
+    productInformation: 产品信息
+    name: 产品名称
+    barcode: 条形码
+    sku: 库存单位
+    description: 描述
+    media: 媒体
+    pricing: 定价
+    price: 价格
+    discountedPrice: 折扣价
+    inStock: 有库存
+    category: 分类
+    brand: 品牌
+    keywords: 关键词
+    newKeyword: 新关键词
+    imageName: 图片
+
+not-found: 未找到

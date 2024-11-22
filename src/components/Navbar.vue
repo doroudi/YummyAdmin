@@ -1,8 +1,4 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-
-const layoutStore = useLayoutStore()
-const { isRtl } = storeToRefs(layoutStore)
 </script>
 
 <template>

@@ -1,0 +1,155 @@
+title: Yummy Admin
+description: Ücretsiz Vue 3 Gösterge Paneli
+direction: ltr
+en: English
+fa: Persian
+tr: Turkish
+ar: Arabic
+de: German
+ch: Chinese
+common:
+  notFound: Bulunamadı
+  404Error: 404 Hatası
+  goHome: Ana Sayfaya Dön
+  404Message: Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya geçici olarak kullanılamıyor
+  403Error: Erişim izniniz yok
+menu:
+  dashboard: Gösterge Paneli
+  productManagement: Ürün Yönetimi
+  products: Ürünler
+  categories: Kategoriler
+  brands: Markalar
+  colors: Renkler
+  orders: Siparişler
+  feedbacks: Geri Bildirimler
+  reviews: İncelemeler
+  messages: Mesajlar
+  support: Destek
+  comments: Yorumlar
+  announcement: Duyuru
+  news: Haberler
+  notifications: Bildirimler
+  sms: SMS
+  accountSettings: Hesap Ayarları
+  websiteSettings: Website Ayarları
+  blog: Blog
+  users: Kullanıcılar
+  customers: Müşteriler
+  settings: Ayarlar
+  pages: Sayfalar
+  login: Giriş
+  notFound: '404'
+userMenu:
+  language: Dil
+  theme: Tema
+  options: Seçenekler
+  profile: Profil
+  logout: Çıkış
+  dark: Karanlık
+  light: Aydınlık
+  en: İngilizce
+  fa: Farsça
+button:
+  about: Hakkında
+  back: Geri
+  go: GİT
+  home: Ana Sayfa
+  toggle_dark: Karanlık modu değiştir
+  toggle_langs: Dil değiştir
+login:
+  title: Giriş
+  username: Kullanıcı Adı
+  password: Şifre
+  loginButton: Giriş Yap
+  skipLogin: Girişi Atla
+  forgetPassword: Şifremi Unuttum
+  rememberMe: Beni Hatırla
+  welcome: Tekrar Hoşgeldiniz!
+  message: Hesabınıza erişmek için lütfen giriş yapın
+  haveNotAccount: Hesabınız yok mu?
+  createAccount: Hesap Oluştur!
+  failedMessage: Giriş Başarısız
+  successMessage: Başarıyla Giriş Yapıldı 🎉
+  validations:
+    userNameRequired: Kullanıcı adı girin
+    passwordRequired: Şifre gerekli
+
+register:
+  title: Kayıt Ol
+  username: Kullanıcı Adı
+  password: Şifre
+  button: Kayıt Ol
+  haveAccount: Hesabınız var mı?
+  login: Giriş Yap!
+forgot:
+  title: Şifremi Unuttum
+  username: Kullanıcı Adı
+  button: Kurtar
+  haveNotAccount: Hesabınız yok mu?
+  register: Hesap Oluştur!
+dashboard:
+  summary: Özet
+  transactions: İşlemler
+  registers: Kayıtlar
+  products: Ürünler
+  sells: Satışlar
+  visits: Ziyaretler
+  activeOrders: Aktif Siparişler
+categories:
+  title: Kategoriler
+  createButton: Oluştur
+  create:
+    buttonTitle: Oluştur
+    title: Yeni Kategori Oluştur
+    categoryName: İsim
+    parent: Üst Kategori
+  validations:
+    nameRequired: İsim gerekli
+    parentRequired: Üst kategori seçilmedi
+
+brands:
+  title: Markalar
+  createButton: Oluştur
+  create:
+    buttonTitle: Oluştur
+    title: Yeni Marka Oluştur
+    image: Resim
+    brandName: İsim
+    url: URL
+  validations:
+    name: İsim gerekli
+    url: URL gerekli
+    image: Resim gerekli
+
+colors:
+  title: Renkler
+  createButton: Oluştur
+  create:
+    buttonTitle: Oluştur
+    title: Yeni Renk Oluştur
+    color: Renk
+    name: İsim
+  validations:
+    nameRequired: İsim gerekli
+    colorRequired: Renk seçilmedi
+
+products:
+  create:
+    title: Ürün Oluştur
+    productInformation: Ürün Bilgisi
+    name: Ürün Adı
+    barcode: Barkod
+    sku: Stok Kodu
+    description: Açıklama
+    media: Medya
+    pricing: Fiyatlandırma
+    price: Fiyat
+    discountedPrice: İndirimli Fiyat
+    inStock: Stokta
+    category: Kategori
+    brand: Marka
+    keywords: Anahtar Kelimeler
+    newKeyword: Yeni Anahtar Kelime
+    imageName: Resim
+
+not-found: Bulunamadı

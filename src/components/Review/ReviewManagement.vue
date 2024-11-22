@@ -89,7 +89,7 @@ function renderIcon(icon: any) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
 
-function handleDeleteItem(row: RowData) {
+function handleDeleteItem() {
   dialog.error({
     title: 'Confirm',
     content: 'Are you sure?',

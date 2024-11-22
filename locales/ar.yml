@@ -1,0 +1,155 @@
+title: لوحة تحكم يامي
+description: لوحة تحكم Vue 3 مجانية
+direction: rtl
+en: English
+fa: Persian
+tr: Turkish
+ar: Arabic
+de: German
+ch: Chinese
+common:
+  notFound: غير موجود
+  404Error: خطأ 404
+  goHome: العودة إلى الرئيسية
+  404Message: عذراً ولكن الصفحة التي تبحث عنها غير موجودة، تم إزالتها، تم تغيير اسمها أو غير متاحة مؤقتاً
+  403Error: ليس لديك صلاحية الوصول
+menu:
+  dashboard: لوحة التحكم
+  productManagement: إدارة المنتجات
+  products: المنتجات
+  categories: الفئات
+  brands: العلامات التجارية
+  colors: الألوان
+  orders: الطلبات
+  feedbacks: التعليقات
+  reviews: المراجعات
+  messages: الرسائل
+  support: الدعم
+  comments: التعليقات
+  announcement: الإعلانات
+  news: الأخبار
+  notifications: الإشعارات
+  sms: الرسائل القصيرة
+  accountSettings: إعدادات الحساب
+  websiteSettings: إعدادات الموقع
+  blog: المدونة
+  users: المستخدمون
+  customers: العملاء
+  settings: الإعدادات
+  pages: الصفحات
+  login: تسجيل الدخول
+  notFound: '404'
+userMenu:
+  language: اللغة
+  theme: المظهر
+  options: الخيارات
+  profile: الملف الشخصي
+  logout: تسجيل الخروج
+  dark: داكن
+  light: فاتح
+  en: الإنجليزية
+  fa: الفارسية
+button:
+  about: حول
+  back: رجوع
+  go: انتقال
+  home: الرئيسية
+  toggle_dark: تبديل الوضع المظلم
+  toggle_langs: تغيير اللغات
+login:
+  title: تسجيل الدخول
+  username: اسم المستخدم
+  password: كلمة المرور
+  loginButton: تسجيل الدخول
+  skipLogin: تخطي تسجيل الدخول
+  forgetPassword: نسيت كلمة المرور
+  rememberMe: تذكرني
+  welcome: مرحباً بعودتك!
+  message: للوصول إلى حسابك يرجى تسجيل الدخول هنا
+  haveNotAccount: ليس لديك حساب؟
+  createAccount: أنشئ واحداً!
+  failedMessage: فشل تسجيل الدخول
+  successMessage: تم تسجيل الدخول بنجاح 🎉
+  validations:
+    userNameRequired: أدخل اسم المستخدم
+    passwordRequired: كلمة المرور مطلوبة
+
+register:
+  title: التسجيل
+  username: اسم المستخدم
+  password: كلمة المرور
+  button: تسجيل
+  haveAccount: لديك حساب؟
+  login: تسجيل الدخول!
+forgot:
+  title: نسيت كلمة المرور
+  username: اسم المستخدم
+  button: استعادة
+  haveNotAccount: ليس لديك حساب؟
+  register: أنشئ واحداً!
+dashboard:
+  summary: الملخص
+  transactions: المعاملات
+  registers: التسجيلات
+  products: المنتجات
+  sells: المبيعات
+  visits: الزيارات
+  activeOrders: الطلبات النشطة
+categories:
+  title: الفئات
+  createButton: إنشاء
+  create:
+    buttonTitle: إنشاء
+    title: إنشاء فئة جديدة
+    categoryName: الاسم
+    parent: الفئة الأم
+  validations:
+    nameRequired: الاسم مطلوب
+    parentRequired: الفئة الأم غير محددة
+
+brands:
+  title: العلامات التجارية
+  createButton: إنشاء
+  create:
+    buttonTitle: إنشاء
+    title: إنشاء علامة تجارية جديدة
+    image: الصورة
+    brandName: الاسم
+    url: الرابط
+  validations:
+    name: الاسم مطلوب
+    url: الرابط مطلوب
+    image: الصورة مطلوبة
+
+colors:
+  title: الألوان
+  createButton: إنشاء
+  create:
+    buttonTitle: إنشاء
+    title: إنشاء لون جديد
+    color: اللون
+    name: الاسم
+  validations:
+    nameRequired: الاسم مطلوب
+    colorRequired: اللون غير محدد
+
+products:
+  create:
+    title: إنشاء منتج
+    productInformation: معلومات المنتج
+    name: اسم المنتج
+    barcode: الباركود
+    sku: رمز المنتج
+    description: الوصف
+    media: الوسائط
+    pricing: التسعير
+    price: السعر
+    discountedPrice: السعر بعد الخصم
+    inStock: متوفر في المخزون
+    category: الفئة
+    brand: العلامة التجارية
+    keywords: الكلمات المفتاحية
+    newKeyword: كلمة مفتاحية جديدة
+    imageName: الصورة
+
+not-found: غير موجود

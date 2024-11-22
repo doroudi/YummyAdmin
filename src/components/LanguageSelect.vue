@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { Translate16Regular as TranslateIcon } from '@vicons/fluent'
 
 const { t } = useI18n()
 const layoutStore = useLayoutStore()
@@ -20,8 +21,14 @@ function changeLanguage(lang: string) {
 </script>
 
 <template>
-  <n-popselect v-model="language" :options="languages" @update-value="changeLanguage">
-    <n-button>{{ t(activeLanguage) }}</n-button>
+  <n-popselect v-model:value="language" :options="languages" @update-value="changeLanguage">
+    <n-button text secondary @click="layoutStore.toggleTheme()">
+      <template #icon>
+        <NIcon size="1.4rem">
+          <TranslateIcon />
+        </NIcon>
+      </template>
+    </n-button>
   </n-popselect>
 </template>
 
