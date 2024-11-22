@@ -22,7 +22,7 @@ function changeLanguage(lang: string) {
 
 <template>
   <n-popselect v-model:value="language" :options="languages" @update-value="changeLanguage">
-    <n-button text secondary @click="layoutStore.toggleTheme()">
+    <n-button text @click="layoutStore.toggleTheme()">
       <template #icon>
         <NIcon size="1.4rem">
           <TranslateIcon />

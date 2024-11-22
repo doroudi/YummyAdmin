@@ -5,15 +5,15 @@ import {
   PersonSettings20Regular as AccountSettingsIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
   Folder32Regular as CategoryIcon,
-  RadioButton20Filled as CollapseIcon,
+  Pin20Regular as CollapsedIcon,
   Color24Regular as ColorsIcon,
   CommentMultiple32Regular as CommentsIcon,
   People28Regular as CustomersIcon,
   Home32Regular as DashboardIcon,
   Emoji24Regular as FeedbackIcon,
   Cart24Regular as InvoicesIcon,
-  RadioButton20Regular as OpenIcon,
   DocumentLink20Regular as PagesIcon,
+  Pin20Filled as PinnedIcon,
   Apps28Filled as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
   StarThreeQuarter20Filled as ReviewIcon,
@@ -201,8 +201,8 @@ function renderIcon(icon: any, showBadge = false) {
         <n-button mx-2 text size="small" circle @click="layoutStore.toggleSidebar">
           <template #icon>
             <NIcon size="1.2rem" color="#888">
-              <OpenIcon v-if="collapsed" />
-              <CollapseIcon v-else />
+              <CollapsedIcon v-if="collapsed" />
+              <PinnedIcon v-else />
             </NIcon>
           </template>
         </n-button>
