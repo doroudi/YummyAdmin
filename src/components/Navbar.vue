@@ -1,13 +1,30 @@
 <script setup lang="ts">
+import { Home28Regular as HomeIcon } from '@vicons/fluent'
+
+const route = useRoute()
+const { t } = useI18n()
 </script>
 
 <template>
-  <n-page-header class="p-2 navbar">
+  <n-page-header class="px-2 py-3 navbar">
+    <template #title>
+      <n-breadcrumb>
+        <n-breadcrumb-item>
+          <RouterLink to="/">
+            <n-icon :component="HomeIcon" /> {{ t('home') }}
+          </RouterLink>
+        </n-breadcrumb-item>
+        <n-breadcrumb-item v-for="item in route.meta.breadcrumb" :key="item">
+          {{ t(`menu.${item}`) }}
+        </n-breadcrumb-item>
+      </n-breadcrumb>
+    </template>
     <template #extra>
       <div class="flex items-center">
-        <ThemeSwitch class="mx-4" />
-        <LanguageSelect class="mx-4" />
-        <UserProfile class="mx-4" />
+        <ThemeSwitch class="mx-1" />
+        <LanguageSelect class="mx-1" />
+        <Notifications class="mx-1" />
+        <UserProfile class="mx-1" />
       </div>
     </template>
   </n-page-header>

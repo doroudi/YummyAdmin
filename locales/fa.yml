@@ -7,6 +7,7 @@ tr: Turkish
 ar: Arabic
 de: German
 ch: Chinese
+home: خانه
 common:
   notFound: پیدا نشد
   404Error: 404 خطای
@@ -149,3 +150,6 @@ userMenu:
   profile: پروفایل
   signOut: خروج
   theme: پوسته
+
+notifications:
+  empty: هیچ اعلانی وجود ندارد

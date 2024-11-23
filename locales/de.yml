@@ -7,8 +7,7 @@ tr: Turkish
 ar: Arabic
 de: German
 ch: Chinese
-English: Englisch
-Persian: Persisch
+home: Startseite
 common:
   notFound: Nicht gefunden
   404Error: 404 Fehler
@@ -153,3 +152,6 @@ products:
     imageName: Bild
 
 not-found: Nicht gefunden
+
+notifications:
+  empty: Keine Benachrichtigungen

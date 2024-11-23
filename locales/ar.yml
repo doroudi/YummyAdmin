@@ -7,6 +7,7 @@ tr: Turkish
 ar: Arabic
 de: German
 ch: Chinese
+home: الرئيسية
 common:
   notFound: غير موجود
   404Error: خطأ 404
@@ -153,3 +154,6 @@ products:
     imageName: الصورة
 
 not-found: غير موجود
+
+notifications:
+  empty: لا يوجد إشعارات

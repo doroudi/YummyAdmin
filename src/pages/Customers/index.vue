@@ -5,6 +5,8 @@
 <route lang="yaml">
 meta:
   title: Customers
+  breadcrumb:
+    - customers
 </route>
 
 <template>

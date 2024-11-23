@@ -15,7 +15,7 @@ let locale = 'en'
 if (storedValue) {
   const parsed = JSON.parse(storedValue)
   if (parsed && Object.prototype.hasOwnProperty.call(parsed, 'activeLanguage')) {
-    if (['en', 'fa', 'tr'].includes(parsed.activeLanguage))
+    if (['en', 'fa', 'tr', 'ar', 'ch', 'de'].includes(parsed.activeLanguage))
       locale = parsed.activeLanguage
   }
 }
