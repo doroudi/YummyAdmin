@@ -33,7 +33,7 @@ function renderLabel(title: string, path: string) {
 </script>
 
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center" v-bind="$attrs">
     <n-dropdown :options="items">
       <img class="avatar" src="@/assets/images/user.png">
     </n-dropdown>

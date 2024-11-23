@@ -21,15 +21,17 @@ function changeLanguage(lang: string) {
 </script>
 
 <template>
-  <n-popselect v-model:value="language" :options="languages" @update-value="changeLanguage">
-    <n-button text @click="layoutStore.toggleTheme()">
-      <template #icon>
-        <NIcon size="1.4rem">
-          <TranslateIcon />
-        </NIcon>
-      </template>
-    </n-button>
-  </n-popselect>
+  <div v-bind="$attrs">
+    <n-popselect v-model:value="language" trigger="click" :options="languages" @update-value="changeLanguage">
+      <n-button quaternary circle>
+        <template #icon>
+          <NIcon size="1.4rem">
+            <TranslateIcon />
+          </NIcon>
+        </template>
+      </n-button>
+    </n-popselect>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>
