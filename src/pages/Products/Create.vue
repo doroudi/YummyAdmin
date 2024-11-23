@@ -5,6 +5,10 @@
 <route lang="yaml">
 meta:
   title: Create Product
+  breadcrumb:
+    - productsManagement
+    - products
+    - create
 </route>
 
 <template>

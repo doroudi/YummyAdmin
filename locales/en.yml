@@ -9,6 +9,7 @@ de: German
 ch: Chinese
 English: English
 Persian: Persian
+home: Home
 common:
   notFound: Not Found
   404Error: 404 Error
@@ -155,3 +156,6 @@ products:
     imageName: Image
 
 not-found: Not found
+
+notifications:
+  empty: No notifications

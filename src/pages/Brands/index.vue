@@ -5,6 +5,9 @@
 <route lang="yaml">
 meta:
   title: Brands
+  breadcrumb:
+    - productsManagement
+    - brands
 </route>
 
 <template>

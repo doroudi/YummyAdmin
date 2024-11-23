@@ -2,6 +2,8 @@
 meta:
   name: dashboard
   title: Home
+  breadcrumb:
+    - dashboard
 </route>
 
 <template>

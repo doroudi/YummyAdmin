@@ -7,6 +7,7 @@ tr: Turkish
 ar: Arabic
 de: German
 ch: Chinese
+home: 首页
 English: 英语
 Persian: 波斯语
 common:
@@ -155,3 +156,6 @@ products:
     imageName: 图片
 
 not-found: 未找到
+
+notifications:
+  empty: 没有通知

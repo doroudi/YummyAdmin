@@ -5,6 +5,9 @@
 <route lang="yaml">
 meta:
   title: Reviews
+  breadcrumb:
+    - feedbacks
+    - reviews
 </route>
 
 <template>

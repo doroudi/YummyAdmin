@@ -4,24 +4,18 @@ import {
   Alert28Regular as BellIcon,
 } from '@vicons/fluent'
 import { NIcon } from 'naive-ui'
-import { RouterLink } from 'vue-router'
 
 const { t } = useI18n()
 
 const items: SelectMixedOption[]
   = [
     {
-      label: renderLabel(t('userMenu.profile'), '/account/profile'),
-      key: 'options',
-    },
-    {
-      label: renderLabel(t('userMenu.logout'), '/account/login'),
-      key: 'login',
+      label: renderLabel(t('notifications.empty')),
     },
   ]
 
-function renderLabel(title: string, path: string) {
-  return () => h(RouterLink, { to: { path } }, { default: () => title })
+function renderLabel(title: string) {
+  return () => h('span', {}, { default: () => title })
 }
 </script>
 

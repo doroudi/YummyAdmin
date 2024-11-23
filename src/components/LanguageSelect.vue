@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { Translate16Regular as TranslateIcon } from '@vicons/fluent'
+import { NIcon } from 'naive-ui/es/icon'
+import EnglandIcon from './CountryIcons/EnglandIcon.vue'
+import GermanyIcon from './CountryIcons/GermanyIcon.vue'
+import ChineseIcon from './CountryIcons/ChineseIcon.vue'
+import ArabicIcon from './CountryIcons/ArabicIcon.vue'
+import TurkishIcon from './CountryIcons/TurkishIcon.vue'
+
+import PersianIcon from './CountryIcons/PersianIcon.vue'
 
 const { t } = useI18n()
 const layoutStore = useLayoutStore()
@@ -10,13 +18,40 @@ const language = ref(activeLanguage)
 
 const languages = availableLocales.map((x) => {
   return {
-    label: t(x),
+    label: () => renderLabel(t(x), x),
     value: x,
   }
 })
 
 function changeLanguage(lang: string) {
   layoutStore.changeLanguage(lang)
+  window.location.reload()
+}
+
+function renderLabel(label: string, language: string) {
+  return h('div', { class: 'flex items-center gap-2' }, [
+    h(getLanguageIcon(language)),
+    h('span', null, { default: () => label }),
+  ])
+}
+
+function getLanguageIcon(language: string) {
+  switch (language) {
+    case 'en':
+      return EnglandIcon
+    case 'de':
+      return GermanyIcon
+    case 'ar':
+      return ArabicIcon
+    case 'tr':
+      return TurkishIcon
+    case 'fa':
+      return PersianIcon
+    case 'ch':
+      return ChineseIcon
+    default:
+      return EnglandIcon
+  }
 }
 </script>
 
