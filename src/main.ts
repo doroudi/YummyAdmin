@@ -48,4 +48,4 @@ router.beforeEach((to, from, next) => {
 
   next()
 })
-enableMocking().then(() => app.mount('#app'))
+app.mount('#app')
