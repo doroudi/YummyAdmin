@@ -6,7 +6,7 @@
 meta:
   title: Color Management
   breadcrumb:
-    - productsManagement
+    - productManagement
     - colors
 </route>
 

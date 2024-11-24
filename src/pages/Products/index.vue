@@ -6,7 +6,7 @@
 meta:
   title: Products Management
   breadcrumb:
-    - productsManagement
+    - productManagement
     - products
 </route>
 

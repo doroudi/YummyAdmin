@@ -6,7 +6,7 @@
 meta:
   title: Category Management
   breadcrumb:
-    - productsManagement
+    - productManagement
     - categories
 </route>
 

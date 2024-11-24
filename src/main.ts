@@ -16,10 +16,23 @@ declare module '@vue/runtime-core' {
   }
 }
 
-async function enableMocking() {
+async function initializeMocking() {
   const { worker } = await import('~/mocks/browser')
   return worker.start({
     onUnhandledRequest: 'bypass',
+    serviceWorker: {
+      url: '/mockServiceWorker.js',
+      options: {
+        // Add more reliable service worker options
+        scope: '/',
+      },
+    },
+    quiet: true,
+    waitUntilReady: false,
+  }).catch((error) => {
+    console.warn('MSW initialization failed:', error)
+    // Continue app execution even if mocking fails
+    return Promise.resolve()
   })
 }
 
@@ -48,4 +61,15 @@ router.beforeEach((to, from, next) => {
 
   next()
 })
-app.mount('#app')
+
+async function startApp() {
+  try {
+    await initializeMocking()
+  }
+  catch (error) {
+    console.warn('Mock service initialization failed:', error)
+  }
+  app.mount('#app')
+}
+
+startApp()
