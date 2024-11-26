@@ -142,7 +142,7 @@ export default defineConfig({
     // }),
 
     // https://github.com/webfansplz/vite-plugin-vue-devtools
-    VueDevTools(),
+    // VueDevTools(),
   ],
 
   // https://github.com/vitest-dev/vitest
