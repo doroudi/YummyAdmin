@@ -4,15 +4,15 @@ import {
   WeatherSunny48Regular as SunIcon,
 } from '@vicons/fluent'
 
-const layoutStore = useLayoutStore()
+const layout = useLayoutStore()
 </script>
 
 <template>
   <div v-bind="$attrs">
-    <n-button quaternary circle @click="layoutStore.toggleTheme()">
+    <n-button quaternary circle @click="layout.toggleTheme()">
       <template #icon>
         <NIcon size="1.4rem">
-          <SunIcon v-if="isDark" />
+          <SunIcon v-if="layout.isDark" />
           <MoonIcon v-else />
         </NIcon>
       </template>

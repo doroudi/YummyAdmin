@@ -7,15 +7,18 @@ export const useLayoutStore = defineStore('layout', () => {
   const isRtl = ref(false)
   const { t, locale } = useI18n()
 
+  const isDark = ref(false)
+
   watch(() => useWindowSize().width.value, (newValue: number) => {
     forceCollapsed.value = newValue < 1000
   })
+
   function toggleSidebar() {
     collapsed.value = !collapsed.value
   }
 
   function toggleTheme() {
-    toggleDark()
+    isDark.value = !isDark.value
   }
 
   function changeLanguage(lang: string) {
@@ -33,6 +36,7 @@ export const useLayoutStore = defineStore('layout', () => {
     activeLanguage,
     changeLanguage,
     forceCollapsed,
+    isDark,
   }
 }, { persist: true })
 
