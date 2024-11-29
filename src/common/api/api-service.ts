@@ -23,10 +23,11 @@ export class ApiService {
   }
 
   async getPagedList<T>(url = '', options: PagedAndSortedRequest = defaultOptions): Promise<PagedListResult<T>> {
-    const skipCount = (options.page - 1) * options.itemsPerPage
-    const maxResultCount = options.itemsPerPage
-    const params = { skipCount, maxResultCount, ...options } as any
+    const skipCount = (options.page - 1) * options.pageSize
+    const params = { skipCount, ...options } as any
     const response = await this.httpClient.get<PagedListResult<T>>(`${this.apiBase}/${url}`, { params })
+    debugger
+    response.data.pageCount = Math.ceil(response.data.totalCount / options.pageSize)
     return response.data as PagedListResult<T>
   }
 

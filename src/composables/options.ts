@@ -4,7 +4,6 @@ export function useOptions(autoBind = false) {
   const options = ref<PagedAndSortedRequest>({
     page: 1,
     pageCount: 1,
-    itemsPerPage: 10,
     pageSize: 10,
   })
 

@@ -97,7 +97,8 @@ dashboard:
   products: Products
   sells: Sells
   visits: Visits
-  activeOrders: ActiveOrders
+  activeOrders: Active Orders
+  recentOrders: Recent Orders
 categories:
   title: Categories
   createButton: Create

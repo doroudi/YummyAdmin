@@ -68,6 +68,29 @@ function random(min: number, max: number): number {
         </Card>
       </div>
     </div>
+
+    <div class="flex flex-wrap margin-outside">
+      <div class="w-full lg:w-1/2 px-2">
+        <Card no-shadow>
+          <template #title>
+            <h3 class="font-700 mt-1 mb-4">
+              {{ t('dashboard.recentOrders') }}
+            </h3>
+            <RecentOrders />
+          </template>
+        </Card>
+      </div>
+      <div class="w-full lg:w-1/2 px-2">
+        <Card no-shadow>
+          <template #title>
+            <h3 class="font-700 mt-1 mb-4">
+              {{ t('dashboard.recentOrders') }}
+            </h3>
+            <RecentReview />
+          </template>
+        </Card>
+      </div>
+    </div>
   </div>
 </template>
 
