@@ -1,6 +1,9 @@
 <script setup>
 defineProps({
-  noShadow: { type: Boolean, default: false },
+  shadow: { type: Boolean, default: false },
+  bottomBorder: { type: Boolean, default: false },
+  color: { type: String, default: '#FC0' },
+  title: { type: String, required: false },
 })
 const slots = useSlots()
 </script>
@@ -10,10 +13,18 @@ const slots = useSlots()
     <div v-if="slots.header" class="py-3">
       <slot name="header" />
     </div>
-    <div class="card-container my-1" :class="{ 'no-shadow': noShadow }">
-      <div class="card-content bg-white dark:bg-slate-800 rounded-md shadow-lg p-3 relative z-10">
+    <div class="card-container my-1" :class="{ shadow }">
+      <div
+        class="card-content bg-white dark:bg-slate-900 rounded-md shadow-lg drop-shadow-md p-3 relative z-10"
+        :class="{ 'bottom-border': bottomBorder }" :style="{ 'border-color': color }"
+      >
         <div v-if="slots.title">
           <slot name="title" />
+        </div>
+        <div v-else-if="title">
+          <h3 class="title font-bold text-dark-400">
+            {{ title }}
+          </h3>
         </div>
         <div v-if="slots.subtitle">
           <slot name="subtitle" />
@@ -28,7 +39,7 @@ const slots = useSlots()
 .card-container {
     position: relative;
 
-    &:before {
+    &.shadow:before {
         content: "";
         width: 92%;
         box-shadow: 0 3px 20px #00000010;
@@ -45,8 +56,14 @@ const slots = useSlots()
         background-color: rgb(var(--color-slate-50) / var(--tw-bg-opacity));
     }
 
-    &.no-shadow:before {
-        display: none;
+    .bottom-border {
+      border-bottom: solid 3px;
+    }
+
+    .title {
+      font-size:1.1rem;
+      font-weight: 600;
+      margin: .1rem 0.5rem 1.2rem 0.5rem;
     }
 }
 </style>

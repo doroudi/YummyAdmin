@@ -3,6 +3,8 @@ const props = defineProps({
   title: { type: String, required: true },
   value: { type: Number, required: true },
   progress: { type: Number, required: false },
+  bottomBorder: { type: Boolean, required: false },
+  color: { type: String, required: false, default: '#FC0' },
 })
 
 const value = ref(0)
@@ -42,7 +44,7 @@ onMounted(() => {
 
 <template>
   <div class="p-2 dashboard-card w-full sm:w-1/2 md:w-1/4" v-bind="props">
-    <Card no-shadow>
+    <Card no-shadow bottom-border :color="color">
       <div class="inner flex flex-col">
         <div class="head flex justify-between items-center">
           <slot />
