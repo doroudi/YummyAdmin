@@ -96,7 +96,7 @@ dashboard:
   sells: المبيعات
   visits: الزيارات
   activeOrders: الطلبات النشطة
-  recentOrders: الطلبات الأخيرة 
+  recentOrders: الطلبات الأخيرة
   trendingProducts: المنتجات الرائجة
 categories:
   title: الفئات
