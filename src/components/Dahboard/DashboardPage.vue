@@ -40,14 +40,14 @@ function random(min: number, max: number): number {
   <div>
     <div class="flex flex-col lg:flex-row margin-outside pb-3">
       <div class="flex flex-col w-full lg:w-1/3">
-        <Card class="px-2" :title="t('dashboard.summary')">
+        <Card class="p-2" :title="t('dashboard.summary')">
           <LineChart />
         </Card>
-        <Card class="px-2" :title="t('dashboard.summary')">
+        <Card class="p-2" :title="t('dashboard.summary')">
           <DonutChart />
         </Card>
       </div>
-      <div class="w-full lg:w-2/3 px-2">
+      <div class="w-full lg:w-2/3 p-2">
         <Card :title="t('dashboard.summary')">
           <BarChart />
         </Card>

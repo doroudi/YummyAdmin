@@ -2,7 +2,7 @@
 defineProps({
   shadow: { type: Boolean, default: false },
   bottomBorder: { type: Boolean, default: false },
-  color: { type: String, default: '#FC0' },
+  color: { type: String, required: false },
   title: { type: String, required: false },
 })
 const slots = useSlots()
@@ -16,13 +16,13 @@ const slots = useSlots()
     <div class="card-container my-1" :class="{ shadow }">
       <div
         class="card-content bg-white dark:bg-slate-900 rounded-md shadow-lg drop-shadow-md p-3 relative z-10"
-        :class="{ 'bottom-border': bottomBorder }" :style="{ 'border-color': color }"
+        :class="{ 'bottom-border': bottomBorder }" :style="color ? { 'border-color': color } : ''"
       >
         <div v-if="slots.title">
           <slot name="title" />
         </div>
         <div v-else-if="title">
-          <h3 class="title font-bold text-dark-400">
+          <h3 class="title text-dark-400 dark:text-light-800">
             {{ title }}
           </h3>
         </div>
@@ -62,7 +62,7 @@ const slots = useSlots()
 
     .title {
       font-size:1.1rem;
-      font-weight: 600;
+      font-weight: 500;
       margin: .1rem 0.5rem 1.2rem 0.5rem;
     }
 }

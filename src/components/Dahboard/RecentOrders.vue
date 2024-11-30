@@ -12,7 +12,7 @@ const { renderPrice, renderTag } = useRender()
 onMounted(getItems)
 
 function getItems() {
-  store.getRecentOrders(6)
+  store.getRecentOrders(7)
 }
 
 const columns: DataTableColumns<RowData> = [

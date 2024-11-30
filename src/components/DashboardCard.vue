@@ -4,7 +4,7 @@ const props = defineProps({
   value: { type: Number, required: true },
   progress: { type: Number, required: false },
   bottomBorder: { type: Boolean, required: false },
-  color: { type: String, required: false, default: '#FC0' },
+  color: { type: String, required: false },
 })
 
 const value = ref(0)
@@ -59,7 +59,7 @@ onMounted(() => {
           <h3 ref="element" class="value">
             {{ value }}
           </h3>
-          <h4 class="title">
+          <h4 class="title text-gray-800 dark:text-gray-200">
             {{ props.title }}
           </h4>
         </section>
@@ -85,7 +85,6 @@ onMounted(() => {
     .title {
       font-size: 0.9rem;
       margin-top: -5px;
-      color: #707070;
     }
   }
 }
