@@ -64,6 +64,8 @@ dashboard:
   sells: فروش
   visits: بازدید ها
   activeOrders: سفارش های فعال
+  recentOrders: سفارش های اخیر
+  trendingProducts: محصولات پربازدید
 forgot:
   button: بازیابی
   haveNotAccount: اکانت ندارید؟

@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { type DataTableColumns, NTag } from 'naive-ui/es/components'
+import { type DataTableColumns } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { OrderStatus } from '~/models/Order'
 import useRender from '~/composables/render'
 
 const { t } = useI18n()
-
 const store = useOrderStore()
 const { getStatusColor } = useOrders()
+const { renderPrice, renderTag } = useRender()
+
 onMounted(getItems)
-const { renderPrice } = useRender()
 
 function getItems() {
-  store.getRecentOrders()
+  store.getRecentOrders(6)
 }
 
 const columns: DataTableColumns<RowData> = [
@@ -30,9 +30,7 @@ const columns: DataTableColumns<RowData> = [
     key: 'status',
     fixed: 'right',
     width: 80,
-    render: row => h(NTag,
-      { type: getStatusColor(row.status) },
-      { default: () => OrderStatus[row.status] }),
+    render: row => renderTag(row.status, getStatusColor(row.status), OrderStatus),
   },
 ]
 </script>

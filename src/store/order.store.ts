@@ -19,10 +19,10 @@ export const useOrderStore = defineStore('Order', () => {
     }
   }
 
-  async function getRecentOrders(itemsCount = 5) {
+  async function getRecentOrders(pageSize = 5) {
     isLoading.value = true
     try {
-      const response = await orderService.getOrderList({ ...options, pageSize: itemsCount })
+      const response = await orderService.getOrderList({ ...options, pageSize })
       orders.value = response.items
     }
     finally {

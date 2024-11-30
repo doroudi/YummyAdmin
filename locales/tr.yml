@@ -96,6 +96,8 @@ dashboard:
   sells: Satışlar
   visits: Ziyaretler
   activeOrders: Aktif Siparişler
+  recentOrders: Son siparişler
+  trendingProducts: trend olan Ürünler
 categories:
   title: Kategoriler
   createButton: Oluştur

@@ -1,5 +1,4 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import type { Product, ProductCreateModel } from '~/models/Product'
 import productService from '~/services/product.service'
 
@@ -10,7 +9,7 @@ export const useProductStore = defineStore('Product', () => {
   const isSaving = ref(false)
   const { options } = useOptions()
 
-  async function getProducts(options: PagedAndSortedRequest) {
+  async function getProducts() {
     isLoading.value = true
     try {
       const response = await productService.getList(options)
@@ -22,15 +21,22 @@ export const useProductStore = defineStore('Product', () => {
     }
   }
 
-  function getProduct() {
-
+  async function getTrendingProducts(pageSize = 5) {
+    isLoading.value = true
+    try {
+      const response = await productService.getList({ ...options, pageSize })
+      products.value = response.items
+    }
+    finally {
+      isLoading.value = false
+    }
   }
 
   async function createProduct(product: ProductCreateModel) {
     isLoading.value = true
     try {
       await productService.create<ProductCreateModel>(product)
-      getProducts(options.value)
+      getProducts()
     }
     finally {
       isLoading.value = false
@@ -39,7 +45,7 @@ export const useProductStore = defineStore('Product', () => {
 
   async function deleteProduct(id: number) {
     await productService.delete(id)
-    getProducts(options.value)
+    getProducts()
   }
 
   function editProduct() {
@@ -53,10 +59,10 @@ export const useProductStore = defineStore('Product', () => {
     options,
     productItem,
     getProducts,
-    getProduct,
     createProduct,
     deleteProduct,
     editProduct,
+    getTrendingProducts,
   }
 })
 if (import.meta.hot)

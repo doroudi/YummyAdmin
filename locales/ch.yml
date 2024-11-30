@@ -98,6 +98,8 @@ dashboard:
   sells: 销售
   visits: 访问
   activeOrders: 活跃订单
+  recentOrders: 近期订单
+  trendingProducts: 热门产品
 categories:
   title: 分类
   createButton: 创建

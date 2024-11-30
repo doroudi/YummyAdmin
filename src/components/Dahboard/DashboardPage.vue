@@ -84,9 +84,9 @@ function random(min: number, max: number): number {
         <Card no-shadow>
           <template #title>
             <h3 class="font-700 mt-1 mb-4">
-              {{ t('dashboard.recentOrders') }}
+              {{ t('dashboard.trendingProducts') }}
             </h3>
-            <RecentReview />
+            <TrendingProducts />
           </template>
         </Card>
       </div>
