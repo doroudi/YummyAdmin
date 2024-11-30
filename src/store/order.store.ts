@@ -11,10 +11,19 @@ export const useOrderStore = defineStore('Order', () => {
   async function getOrders() {
     isLoading.value = true
     try {
-      const response = await orderService.getOrderList(options.value)
+      const response = await orderService.getOrderList(options)
       orders.value = response.items
-      options.value.itemCount = response.pageCount
-      options.value.pageCount = response.totalCount
+    }
+    finally {
+      isLoading.value = false
+    }
+  }
+
+  async function getRecentOrders(itemsCount = 5) {
+    isLoading.value = true
+    try {
+      const response = await orderService.getOrderList({ ...options, pageSize: itemsCount })
+      orders.value = response.items
     }
     finally {
       isLoading.value = false
@@ -32,6 +41,7 @@ export const useOrderStore = defineStore('Order', () => {
     getOrderDetail,
     isSaving,
     isLoading,
+    getRecentOrders,
   }
 })
 if (import.meta.hot)

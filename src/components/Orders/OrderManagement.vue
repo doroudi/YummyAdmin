@@ -12,6 +12,7 @@ const { renderIcon, renderTag, renderPrice } = useRender()
 const { getStatusColor } = useOrders()
 const store = useOrderStore()
 const { proxy } = getCurrentInstance()
+const { t } = useI18n()
 
 onMounted(getItems)
 
@@ -33,7 +34,7 @@ const columns: DataTableColumns<RowData> = [
   {
     title: 'Price',
     key: 'category',
-    render: row => renderPrice(row.totalPrice),
+    render: row => renderPrice(row.totalPrice, t('currencySign')),
   },
   {
     title: 'Status',
@@ -59,7 +60,7 @@ const columns: DataTableColumns<RowData> = [
       ],
   },
 ]
-const { options } = storeToRefs(store)
+const { options, isLoading } = storeToRefs(store)
 
 function getItems() {
   store.getOrders()
@@ -79,19 +80,12 @@ function handlePageChange(page: number) {
           <n-input placeholder="Search" />
         </NSpace>
         <n-data-table
-          :columns="columns" :data="store.orders"
-          :loading="store.isLoading"
-          :pagination="store.options"
-          :row-key="(row) => row.id"
-          :scroll-x="1000"
-          @update:sorter="getItems"
-          @update:filters="getItems"
+          remote :columns="columns" :data="store.orders" :loading="isLoading" :pagination="options"
+          :row-key="(row) => row.id" :scroll-x="1000" @update:sorter="getItems" @update:filters="getItems"
           @update:page="handlePageChange"
         />
       </div>
     </n-layout-content>
-
-    {{ store.options }}
   </n-layout>
 </template>
 

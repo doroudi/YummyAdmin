@@ -1,9 +1,11 @@
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
+import type { PagedListResult } from '~/models/PagedListResult'
 
 export function useOptions(autoBind = false) {
-  const options = ref<PagedAndSortedRequest>({
+  const options = reactive<PagedAndSortedRequest>({
     page: 1,
     pageCount: 1,
+    itemCount: 10,
     pageSize: 10,
   })
 
@@ -67,10 +69,16 @@ export function useOptions(autoBind = false) {
     return ['page', 'itemsPerPage', 'sortBy', 'sortDesc'].includes(prop)
   }
 
+  function updatePaging(response: PagedListResult<any>) {
+    options.itemCount = response.totalCount
+    options.pageCount = response.pageCount
+  }
+
   return {
     options,
     getFilterQueryString,
     bindOptionsToQueryString,
     writeOptionsQueryString,
+    updatePaging,
   }
 }

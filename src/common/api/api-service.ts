@@ -26,8 +26,9 @@ export class ApiService {
     const skipCount = (options.page - 1) * options.pageSize
     const params = { skipCount, ...options } as any
     const response = await this.httpClient.get<PagedListResult<T>>(`${this.apiBase}/${url}`, { params })
-    debugger
     response.data.pageCount = Math.ceil(response.data.totalCount / options.pageSize)
+    options.itemCount = response.data.totalCount
+    options.pageCount = response.data.pageCount
     return response.data as PagedListResult<T>
   }
 

@@ -10,6 +10,7 @@ ch: Chinese
 English: English
 Persian: Persian
 home: Home
+currencySign: $
 common:
   notFound: Not Found
   404Error: 404 Error

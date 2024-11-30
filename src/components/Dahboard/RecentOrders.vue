@@ -1,76 +1,38 @@
 <script setup lang="ts">
-import { type DataTableColumns, NButton, NTag, NText } from 'naive-ui/es/components'
+import { type DataTableColumns, NTag } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { OrderStatus } from '~/models/Order'
+import useRender from '~/composables/render'
+
+const { t } = useI18n()
 
 const store = useOrderStore()
-const { proxy } = getCurrentInstance()
 const { getStatusColor } = useOrders()
 onMounted(getItems)
+const { renderPrice } = useRender()
 
 function getItems() {
-  store.getOrders()
+  store.getRecentOrders()
 }
+
 const columns: DataTableColumns<RowData> = [
   {
     title: 'Customer',
     key: 'customer',
-    fixed: 'left',
-  },
-  {
-    title: 'Date',
-    key: 'createdDate',
-    render: row => h(NText, {}, { default: () => proxy.$filters.friendlyTime(row.createdDate) }),
-  },
-  {
-    title: 'Items Count',
-    key: 'itemsCount',
   },
   {
     title: 'Price',
-    key: 'category',
-    render(row) {
-      return h(NText,
-        {}, {
-          default: () => row.totalPrice,
-        })
-    },
+    key: 'price',
+    render: row => renderPrice(row.totalPrice, t('currencySign')),
   },
   {
     title: 'Status',
     key: 'status',
+    fixed: 'right',
+    width: 80,
     render: row => h(NTag,
       { type: getStatusColor(row.status) },
       { default: () => OrderStatus[row.status] }),
-  },
-  {
-    title: 'Actions',
-    key: 'actions',
-    width: 110,
-    render(row) {
-      return [
-        h(
-          NButton,
-          {
-            size: 'medium',
-            quaternary: true,
-            circle: true,
-            renderIcon: renderIcon(ArrowIcon),
-            onClick: () => { },
-          },
-        ),
-        h(
-          NButton,
-          {
-            size: 'medium',
-            quaternary: true,
-            circle: true,
-            renderIcon: renderIcon(DeleteIcon),
-            onClick: () => handleDeleteItem(),
-          },
-        ),
-      ]
-    },
   },
 ]
 </script>
@@ -78,9 +40,8 @@ const columns: DataTableColumns<RowData> = [
 <template>
   <div>
     <n-data-table
-      :columns="columns" :data="store.orders" :loading="store.isLoading" :pagination="options"
-      :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
-      @update:page="handlePageChange"
+      :bordered="false" :columns="columns" :data="store.orders" :loading="store.isLoading"
+      :scroll-x="500"
     />
   </div>
 </template>

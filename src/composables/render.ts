@@ -11,10 +11,10 @@ export default function useRender() {
       { default: () => stateEnum[text] })
   }
 
-  function renderPrice(value: number) {
+  function renderPrice(value: number, postfix = '') {
     return h(NText,
       {}, {
-        default: () => value,
+        default: () => value.toLocaleString() + postfix,
       })
   }
 
