@@ -24,10 +24,6 @@ export const useBrandStore = defineStore('Brand', () => {
     }
   }
 
-  function getBrand() {
-
-  }
-
   async function createBrand(brandItem: BrandCreateModel) {
     isLoading.value = true
     try {

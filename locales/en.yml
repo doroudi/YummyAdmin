@@ -10,6 +10,7 @@ ch: Chinese
 English: English
 Persian: Persian
 home: Home
+currencySign: $
 common:
   notFound: Not Found
   404Error: 404 Error
@@ -97,7 +98,9 @@ dashboard:
   products: Products
   sells: Sells
   visits: Visits
-  activeOrders: ActiveOrders
+  activeOrders: Active Orders
+  recentOrders: Recent Orders
+  trendingProducts: Trending Products
 categories:
   title: Categories
   createButton: Create

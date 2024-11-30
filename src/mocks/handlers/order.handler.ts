@@ -23,9 +23,9 @@ function createFakeOrder(): OrderList {
       id: faker.number.int().toString(),
       text: '30, Shams Ave, Ghasrodasht St',
     },
-    itemsCount: faker.number.int({ max: 10 }),
+    itemsCount: faker.number.int({ min: 1, max: 25 }),
     createdDate: faker.date.past(),
-    customer: `${faker.person.firstName()} ${faker.person.lastName()}`,
+    customer: `${faker.person.fullName()}`,
     customerId: faker.number.int().toString(),
     totalPrice: faker.number.int({ min: 20000, max: 10000000 }),
   }

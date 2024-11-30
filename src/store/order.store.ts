@@ -1,6 +1,5 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Order, OrderList } from '~/models/Order'
-import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import orderService from '~/services/order.service'
 
 export const useOrderStore = defineStore('Order', () => {
@@ -9,12 +8,22 @@ export const useOrderStore = defineStore('Order', () => {
   const isSaving = ref(false)
   const { options } = useOptions()
 
-  async function getOrders(options: PagedAndSortedRequest) {
+  async function getOrders() {
     isLoading.value = true
     try {
       const response = await orderService.getOrderList(options)
       orders.value = response.items
-      options.pageCount = Math.ceil(response.totalCount / options.itemsPerPage)
+    }
+    finally {
+      isLoading.value = false
+    }
+  }
+
+  async function getRecentOrders(pageSize = 5) {
+    isLoading.value = true
+    try {
+      const response = await orderService.getOrderList({ ...options, pageSize })
+      orders.value = response.items
     }
     finally {
       isLoading.value = false
@@ -32,6 +41,7 @@ export const useOrderStore = defineStore('Order', () => {
     getOrderDetail,
     isSaving,
     isLoading,
+    getRecentOrders,
   }
 })
 if (import.meta.hot)

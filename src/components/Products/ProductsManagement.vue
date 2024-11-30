@@ -1,20 +1,22 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NButton, NIcon, NImage, NSpace, NSwitch, NTag, NText } from 'naive-ui/es/components'
+import { type DataTableColumns, NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Delete24Regular as DeleteIcon,
   Add24Filled as PlusIcon,
-  Star20Filled as StarIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 import { ProductStatus } from '~/models/Product'
+import useRender from '~/composables/render'
 
 const { t } = useI18n()
 const store = useProductStore()
 const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
+
+const { renderPrice, renderRate, renderTag, renderProductImage } = useRender()
 
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
@@ -23,15 +25,9 @@ const columns: DataTableColumns<RowData> = [
     fixed: 'left',
   },
   {
-    title: 'PRODUCT',
+    title: 'Product',
     key: 'name',
-    render: row =>
-      h(NSpace, {}, {
-        default: () => [
-          h(NImage, { src: row.image, width: 35 }, {}),
-          h(NText, {}, { default: () => row.name }),
-        ],
-      }),
+    render: row => renderProductImage(row.image, row.name),
   },
   {
     title: 'Category',
@@ -46,23 +42,17 @@ const columns: DataTableColumns<RowData> = [
   {
     title: 'Rate',
     key: 'rate',
-    render(row) {
-      return [
-        h(NIcon, { color: 'gold' }, { default: renderIcon(StarIcon) }),
-        h(NText, { class: 'mx-2' }, { default: () => row.rate }),
-      ]
-    },
+    render: row => renderRate(row.rate),
   },
   {
     title: 'Price',
     key: 'price',
+    render: row => renderPrice(row.price, t('currencySign')),
   },
   {
     title: 'Status',
     key: 'status',
-    render: row => h(NTag,
-      { type: getStatusColor(row.status) },
-      { default: () => ProductStatus[row.status] }),
+    render: row => renderTag(row.status, getStatusColor(row.status), ProductStatus),
   },
   {
     title: 'Stock',
@@ -124,7 +114,7 @@ function rowKey(row: RowData) {
   return row.id
 }
 function getItems() {
-  store.getProducts(options.value)
+  store.getProducts()
 }
 
 function handlePageChange(page: number) {

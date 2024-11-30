@@ -92,6 +92,7 @@ declare global {
   const refDefault: typeof import('@vueuse/core')['refDefault']
   const refThrottled: typeof import('@vueuse/core')['refThrottled']
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
+  const render: typeof import('./composables/render')['default']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
@@ -229,6 +230,7 @@ declare global {
   const useOnline: typeof import('@vueuse/core')['useOnline']
   const useOptions: typeof import('./composables/options')['useOptions']
   const useOrderStore: typeof import('./store/order.store')['useOrderStore']
+  const useOrders: typeof import('./composables/orders')['useOrders']
   const usePageLeave: typeof import('@vueuse/core')['usePageLeave']
   const useParallax: typeof import('@vueuse/core')['useParallax']
   const useParentElement: typeof import('@vueuse/core')['useParentElement']
@@ -247,6 +249,7 @@ declare global {
   const useProductStore: typeof import('./store/product.store')['useProductStore']
   const useRafFn: typeof import('@vueuse/core')['useRafFn']
   const useRefHistory: typeof import('@vueuse/core')['useRefHistory']
+  const useRender: typeof import('./composables/render')['default']
   const useResizeObserver: typeof import('@vueuse/core')['useResizeObserver']
   const useReviewStore: typeof import('./store/review.store')['useReviewStore']
   const useRoute: typeof import('vue-router/auto')['useRoute']
@@ -415,6 +418,7 @@ declare module 'vue' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
+    readonly render: UnwrapRef<typeof import('./composables/render')['default']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
@@ -551,6 +555,7 @@ declare module 'vue' {
     readonly useOnline: UnwrapRef<typeof import('@vueuse/core')['useOnline']>
     readonly useOptions: UnwrapRef<typeof import('./composables/options')['useOptions']>
     readonly useOrderStore: UnwrapRef<typeof import('./store/order.store')['useOrderStore']>
+    readonly useOrders: UnwrapRef<typeof import('./composables/orders')['useOrders']>
     readonly usePageLeave: UnwrapRef<typeof import('@vueuse/core')['usePageLeave']>
     readonly useParallax: UnwrapRef<typeof import('@vueuse/core')['useParallax']>
     readonly useParentElement: UnwrapRef<typeof import('@vueuse/core')['useParentElement']>

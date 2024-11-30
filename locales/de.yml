@@ -94,6 +94,8 @@ dashboard:
   sells: Verkäufe
   visits: Besuche
   activeOrders: Aktive Bestellungen
+  recentOrders: Aktuelle Bestellungen
+  trendingProducts: Trendige Produkte
 categories:
   title: Kategorien
   createButton: Erstellen

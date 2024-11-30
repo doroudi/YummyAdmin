@@ -74,7 +74,7 @@ const series = ref([
 </script>
 
 <template>
-  <VueApexCharts type="bar" :options="chartOptions" height="430" :series="series" />
+  <VueApexCharts type="bar" :options="chartOptions" height="460" :series="series" />
 </template>
 
 <style lang="scss" scoped>

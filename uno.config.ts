@@ -25,6 +25,7 @@ export default defineConfig({
     presetWind(),
     presetWebFonts({
       fonts: {
+        Inter: 'Inter',
         Quicksand: 'Quicksand',
       },
     }),
