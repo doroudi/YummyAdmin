@@ -9,7 +9,7 @@
     <n-layout :native-scrollbar="false" position="static">
       <div class="main-content flex-1 bg-slate-100 dark:bg-slate-800 dark:text-white my-2 mr-2">
         <Navbar />
-        <div class="px-0 py-1 md:p-3 md:pb-15 relative">
+        <div class="px-0 py-1 md:p-3 md:pb-15 relative md:container md:mx-auto">
           <router-view v-slot="{ Component, route }">
             <transition name="route" mode="out-in">
               <div :key="route">
