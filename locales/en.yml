@@ -162,3 +162,9 @@ not-found: Not found
 
 notifications:
   empty: No notifications
+
+customize:
+  title: Customize
+  theme: Theme
+  color: Color
+  layout: Layout
