@@ -22,6 +22,8 @@ const rtlStyles = [
   tagRtl,
 ]
 
+const customTheme = ref({ ...themeOverrides })
+
 watch(() => layout.activeLanguage, () => {
   const body = document.querySelector('body') as HTMLElement
   if (layout.isRtl)
@@ -38,11 +40,16 @@ watch(() => layout.isDark, (newValue) => {
   else
     document.documentElement.classList.remove('dark')
 }, { immediate: true })
+
+watch(() => layout.themeColor, (newValue) => {
+  if (customTheme.value.common && newValue !== '')
+    customTheme.value.common.primaryColor = newValue
+}, { immediate: true })
 </script>
 
 <template>
   <n-config-provider
-    :theme="layout.isDark ? darkTheme : lightTheme" :theme-overrides="themeOverrides"
+    :theme="layout.isDark ? darkTheme : lightTheme" :theme-overrides="customTheme"
     :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false"
   >
     <n-notification-provider placement="bottom-right">
