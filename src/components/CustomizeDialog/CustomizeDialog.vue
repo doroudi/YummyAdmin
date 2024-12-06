@@ -7,7 +7,6 @@ import {
 import { storeToRefs } from 'pinia'
 
 const { t } = useI18n()
-const theme = ref('light')
 
 const layout = useLayoutStore()
 const { isRtl } = storeToRefs(layout)
