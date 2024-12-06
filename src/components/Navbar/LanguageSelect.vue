@@ -2,13 +2,13 @@
 import { storeToRefs } from 'pinia'
 import { Translate16Regular as TranslateIcon } from '@vicons/fluent'
 import { NIcon } from 'naive-ui/es/icon'
-import EnglandIcon from './CountryIcons/EnglandIcon.vue'
-import GermanyIcon from './CountryIcons/GermanyIcon.vue'
-import ChineseIcon from './CountryIcons/ChineseIcon.vue'
-import ArabicIcon from './CountryIcons/ArabicIcon.vue'
-import TurkishIcon from './CountryIcons/TurkishIcon.vue'
+import EnglandIcon from '../CountryIcons/EnglandIcon.vue'
+import GermanyIcon from '../CountryIcons/GermanyIcon.vue'
+import ChineseIcon from '../CountryIcons/ChineseIcon.vue'
+import ArabicIcon from '../CountryIcons/ArabicIcon.vue'
+import TurkishIcon from '../CountryIcons/TurkishIcon.vue'
 
-import PersianIcon from './CountryIcons/PersianIcon.vue'
+import PersianIcon from '../CountryIcons/PersianIcon.vue'
 
 const { t } = useI18n()
 const layoutStore = useLayoutStore()

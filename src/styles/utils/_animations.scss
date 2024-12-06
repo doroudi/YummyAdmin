@@ -1,3 +1,23 @@
+.rotate-animated {
+    -webkit-animation: rotate 4s linear infinite;
+    -moz-animation: rotate 4s linear infinite;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .shake-item {
     -webkit-animation: bell-shake 40s ease infinite;
     -moz-animation: bell-shake 40s ease infinite;

@@ -6,7 +6,7 @@ export const useLayoutStore = defineStore('layout', () => {
   const activeLanguage = ref('en')
   const isRtl = ref(false)
   const { t, locale } = useI18n()
-
+  const themeColor = ref('')
   const isDark = ref(false)
 
   watch(() => useWindowSize().width.value, (newValue: number) => {
@@ -28,6 +28,10 @@ export const useLayoutStore = defineStore('layout', () => {
     isRtl.value = (dir !== null && dir === 'rtl')
   }
 
+  function setThemeColor(color: string) {
+    themeColor.value = color
+  }
+
   return {
     collapsed,
     toggleSidebar,
@@ -37,6 +41,8 @@ export const useLayoutStore = defineStore('layout', () => {
     changeLanguage,
     forceCollapsed,
     isDark,
+    setThemeColor,
+    themeColor,
   }
 }, { persist: true })
 

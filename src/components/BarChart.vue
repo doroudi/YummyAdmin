@@ -42,7 +42,7 @@ const chartOptions = ref({
   dataLabels: {
     enabled: false,
   },
-  colors: ['#3db9af', '#37938d', '#276e6b', '#7fcdca'],
+  colors: buildThemeSeries(),
   plotOptions: {
     bar: {
       columnWidth: '17%',
@@ -71,6 +71,10 @@ const series = ref([
     data: [3, 4, 15, 5, 4, 60, 10],
   },
 ])
+
+function buildThemeSeries() {
+  return ['#3db9af', '#37938d', '#276e6b', '#7fcdca']
+}
 </script>
 
 <template>

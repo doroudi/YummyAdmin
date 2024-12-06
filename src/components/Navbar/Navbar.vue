@@ -21,6 +21,7 @@ const { t } = useI18n()
     </template>
     <template #extra>
       <div class="flex items-center">
+        <ThemeCustomize />
         <ThemeSwitch class="mx-1" />
         <LanguageSelect class="mx-1" />
         <Notifications class="mx-1" />
