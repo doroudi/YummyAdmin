@@ -5,7 +5,6 @@ import {
   PersonSettings20Regular as AccountSettingsIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
   Folder32Regular as CategoryIcon,
-  Pin20Regular as CollapsedIcon,
   Color24Regular as ColorsIcon,
   CommentMultiple32Regular as CommentsIcon,
   People28Regular as CustomersIcon,
@@ -13,7 +12,6 @@ import {
   Emoji24Regular as FeedbackIcon,
   Cart24Regular as InvoicesIcon,
   DocumentLink20Regular as PagesIcon,
-  Pin20Filled as PinnedIcon,
   Apps28Filled as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
   StarThreeQuarter20Filled as ReviewIcon,
@@ -112,29 +110,6 @@ const menuOptions: MenuOption[] = [
       },
     ],
   },
-
-  // {
-  //   label: () => t('menu.announcement'),
-  //   key: 'notify',
-  //   icon: renderIcon(NewsIcon),
-  //   children: [
-  //     {
-  //       label: () => renderLabel(t('menu.news'), '/news'),
-  //       key: 'news',
-  //       icon: renderIcon(NewsIcon),
-  //     },
-  //     {
-  //       label: () => renderLabel(t('menu.notifications'), '/notify'),
-  //       key: 'notifications',
-  //       icon: renderIcon(NotifyIcon),
-  //     },
-  //     {
-  //       label: () => renderLabel(t('menu.sms'), 'sms'),
-  //       key: 'sms',
-  //       icon: renderIcon(SmsIcon),
-  //     },
-  //   ],
-  // },
   {
     label: () => t('menu.pages'),
     key: 'pages',
@@ -192,20 +167,11 @@ function renderIcon(icon: any, showBadge = false) {
     :class="{ collapsed: effectiveCollapsed }" @mouseenter="isHovered = true" @mouseleave="isHovered = false"
   >
     <div class="logo-container">
-      <div flex w-full justify-between items-center>
+      <div flex w-full justify-start items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
         <h1 class="main-title">
           {{ t('title') }}
         </h1>
-
-        <n-button mx-2 text size="small" circle @click="layoutStore.toggleSidebar">
-          <template #icon>
-            <NIcon size="1.2rem" color="#888">
-              <CollapsedIcon v-if="collapsed" />
-              <PinnedIcon v-else />
-            </NIcon>
-          </template>
-        </n-button>
       </div>
     </div>
     <n-menu

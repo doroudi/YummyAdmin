@@ -18,31 +18,3 @@ const collapsed = ref(false)
     </n-layout-content>
   </n-layout>
 </template>
-
-<style lang="scss">
-// .n-layout-content {
-//   height: 100vh !important;
-// }
-// .main {
-//   // padding-left: var(--sidebar-width);
-//   padding-right: 1rem;
-//   transition: all 0.3s ease-in;
-
-//   &.sidebar-collapsed {
-//     padding-left: 5rem;
-//     padding-right: 1rem;
-//   }
-// }
-
-// .rtl {
-//   .main {
-//     padding-right: var(--sidebar-width);
-//     padding-left: 1rem;
-
-//     &.sidebar-collapsed {
-//       padding-right: 5rem;
-//       padding-left: 1rem;
-//     }
-//   }
-// }
-</style>

@@ -1,23 +1,29 @@
-<script setup lang="ts">
-import { Home28Regular as HomeIcon } from '@vicons/fluent'
+<script lang="ts" setup>
+import {
+  PanelLeftContract24Regular as CollapseIcon,
+  PanelLeftExpand20Regular as ExpandIcon,
+} from '@vicons/fluent'
 
-const route = useRoute()
-const { t } = useI18n()
+import { storeToRefs } from 'pinia'
+
+const layoutStore = useLayoutStore()
+const { collapsed } = storeToRefs(layoutStore)
 </script>
 
 <template>
   <n-page-header class="px-2 py-3 navbar">
     <template #title>
-      <n-breadcrumb>
-        <n-breadcrumb-item>
-          <RouterLink to="/">
-            <n-icon :component="HomeIcon" /> {{ t('home') }}
-          </RouterLink>
-        </n-breadcrumb-item>
-        <n-breadcrumb-item v-for="item in route.meta.breadcrumb" :key="item">
-          {{ t(`menu.${item}`) }}
-        </n-breadcrumb-item>
-      </n-breadcrumb>
+      <div class="flex items-center">
+        <n-button mx-2 size="small" quaternary circle @click="layoutStore.toggleSidebar">
+          <template #icon>
+            <NIcon size="1.2rem">
+              <ExpandIcon v-if="collapsed" />
+              <CollapseIcon v-else />
+            </NIcon>
+          </template>
+        </n-button>
+        <BreadCrumb />
+      </div>
     </template>
     <template #extra>
       <div class="flex items-center">
