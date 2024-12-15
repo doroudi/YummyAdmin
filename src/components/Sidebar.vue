@@ -166,7 +166,7 @@ function renderIcon(icon: any, showBadge = false) {
     :native-scrollbar="false" collapse-mode="width" :collapsed-width="64" :collapsed="effectiveCollapsed"
     :class="{ collapsed: effectiveCollapsed }" @mouseenter="isHovered = true" @mouseleave="isHovered = false"
   >
-    <div class="logo-container">
+    <div class="logo-container mb-4">
       <div flex w-full justify-start items-center>
         <img src="@/assets/images/logo.png" alt="logo" class="logo">
         <h1 class="main-title">

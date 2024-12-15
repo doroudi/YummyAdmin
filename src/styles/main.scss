@@ -23,7 +23,8 @@ body,
 }
 
 body {
-  background: url('~/assets/images/background.svg') no-repeat fixed;
+  // background: url('~/assets/images/background.svg') no-repeat fixed;
+  background-color: #EEE;
   background-size: cover;
 }
 
@@ -68,7 +69,8 @@ body {
 
 .dark {
   body {
-    background: url('~/assets/images/background.svg') no-repeat #283046;
+    background: #283046;
+    // background: url('~/assets/images/background.svg') no-repeat #283046;
   }
 
   .p-button.p-button-text.p-button-plain {

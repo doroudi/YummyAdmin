@@ -6,6 +6,7 @@ defineProps({
   title: { type: String, required: false },
 })
 const slots = useSlots()
+const layout = useLayoutStore()
 </script>
 
 <template>
@@ -16,7 +17,7 @@ const slots = useSlots()
     <div class="card-container my-1" :class="{ shadow }">
       <div
         class="card-content bg-white dark:bg-slate-900 rounded-md shadow-lg drop-shadow-md p-3 relative z-10"
-        :class="{ 'bottom-border': bottomBorder }" :style="color ? { 'border-color': color } : ''"
+        :class="{ 'bottom-border': bottomBorder }" :style="{ 'border-color': `${layout.themeColor}99` }"
       >
         <div v-if="slots.title">
           <slot name="title" />
