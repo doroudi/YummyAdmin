@@ -42,8 +42,11 @@ watch(() => layout.isDark, (newValue) => {
 }, { immediate: true })
 
 watch(() => layout.themeColor, (newValue) => {
-  if (customTheme.value.common && newValue !== '')
+  if (customTheme.value.common && newValue !== '') {
     customTheme.value.common.primaryColor = newValue
+    customTheme.value.common.actionColor = newValue
+    document.documentElement.style.setProperty('--primary-color', newValue)
+  }
 }, { immediate: true })
 </script>
 

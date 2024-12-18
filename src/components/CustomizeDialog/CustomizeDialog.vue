@@ -21,7 +21,7 @@ function setDark() {
 }
 
 const colors = [
-  '#00ad4c', '#ef4848', '#FC0', '#FF8000', '#22d3ee',
+  '#00ad4c', '#cb2025', '#f8b334', '#FF8000', '#00a096',
 ]
 const selectedColorIndex = ref(0)
 function setColor(index) {

@@ -4,6 +4,7 @@
 
 :root {
     --sidebar-width: 20rem;
+    --primary-color: #00ad4c;
 }
 
 html,
@@ -47,7 +48,7 @@ body {
 }
 
 #nprogress .bar {
-  background: rgb(13,148,136);
+  background: var(--primary-color);
   opacity: 0.75;
   position: fixed;
   z-index: 1031;

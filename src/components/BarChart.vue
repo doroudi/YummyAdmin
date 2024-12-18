@@ -42,7 +42,7 @@ const chartOptions = ref({
   dataLabels: {
     enabled: false,
   },
-  colors: buildThemeSeries(),
+  colors: ['var(--primary-color)', ...buildThemeSeries()],
   plotOptions: {
     bar: {
       columnWidth: '17%',
@@ -73,7 +73,24 @@ const series = ref([
 ])
 
 function buildThemeSeries() {
-  return ['#3db9af', '#37938d', '#276e6b', '#7fcdca']
+  return createThemeColors(useLayoutStore().themeColor, 4)
+}
+
+function createThemeColors(color, count) {
+  const result = []
+  for (let i = 0; i < count; i++)
+    result.push(makeLighter(color))
+
+  return result
+}
+
+function makeLighter(color) {
+  const colorHex = color.replace('#', '')
+  const colorR = Number.parseInt(colorHex.substring(0, 2), 16)
+  const colorG = Number.parseInt(colorHex.substring(2, 4), 16)
+  const colorB = Number.parseInt(colorHex.substring(4, 6), 16)
+  const lighterColor = `rgba(${colorR}, ${colorG}, ${colorB}, .4)`
+  return lighterColor
 }
 </script>
 

@@ -33,11 +33,11 @@ const barChartOptions = ref({
   stroke: {
     width: 3,
   },
-  colors: ['#377d71', '#fc0'],
+  colors: ['var(--primary-color)'],
   markers: {
     size: 3,
-    colors: ['#377d71', '#fc0'],
-    strokeColors: ['#377d71', '#fc0'],
+    colors: ['var(--primary-color)'],
+    strokeColors: ['var(--primary-color)'],
     strokeWidth: 3,
     strokeOpacity: 1,
     strokeDashArray: 0,
