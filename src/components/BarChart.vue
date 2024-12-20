@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import VueApexCharts from 'vue3-apexcharts'
+import useColors from '~/composables/colors'
 
 const chartOptions = ref({
   chart: {
@@ -42,7 +43,7 @@ const chartOptions = ref({
   dataLabels: {
     enabled: false,
   },
-  colors: ['var(--primary-color)', ...buildThemeSeries()],
+  colors: useColors().buildThemeColorSeries(2),
   plotOptions: {
     bar: {
       columnWidth: '17%',
@@ -71,27 +72,6 @@ const series = ref([
     data: [3, 4, 15, 5, 4, 60, 10],
   },
 ])
-
-function buildThemeSeries() {
-  return createThemeColors(useLayoutStore().themeColor, 4)
-}
-
-function createThemeColors(color, count) {
-  const result = []
-  for (let i = 0; i < count; i++)
-    result.push(makeLighter(color))
-
-  return result
-}
-
-function makeLighter(color) {
-  const colorHex = color.replace('#', '')
-  const colorR = Number.parseInt(colorHex.substring(0, 2), 16)
-  const colorG = Number.parseInt(colorHex.substring(2, 4), 16)
-  const colorB = Number.parseInt(colorHex.substring(4, 6), 16)
-  const lighterColor = `rgba(${colorR}, ${colorG}, ${colorB}, .4)`
-  return lighterColor
-}
 </script>
 
 <template>

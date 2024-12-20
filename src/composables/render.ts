@@ -21,7 +21,7 @@ export default function useRender() {
 
   function renderRate(rate: number) {
     return [
-      h(NIcon, { color: 'gold' }, { default: renderIcon(StarIcon) }),
+      h(NIcon, { color: 'gold' }, { default: () => h(StarIcon) }),
       h(NText, { class: 'mx-2' }, { default: () => rate }),
     ]
   }
