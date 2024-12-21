@@ -29,7 +29,7 @@ const columns: DataTableColumns<RowData> = [
     key: 'productsCount',
   },
   {
-    title: 'Actions',
+    title: t('common.actions'),
     key: 'actions',
     width: 110,
     render(row) {
@@ -109,14 +109,14 @@ function createCategory() {
     <n-layout-content>
       <div class="px-3">
         <n-space justify="space-between" class="mb-3">
-          <n-input placeholder="Search" />
+          <n-input :placeholder="t('common.search')" />
           <NButton type="primary" @click="createCategory">
             <template #icon>
               <NIcon>
                 <PlusIcon />
               </NIcon>
             </template>
-            {{ t('categories.createButton') }}
+            {{ t('common.new') }}
           </NButton>
         </n-space>
         <n-data-table

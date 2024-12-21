@@ -14,6 +14,9 @@ common:
   goHome: Zurück zur Startseite
   404Message: Entschuldigung, aber die gesuchte Seite existiert nicht, wurde entfernt, der Name wurde geändert oder ist vorübergehend nicht verfügbar
   403Error: Sie haben keine Zugriffsberechtigung
+  search: Suche
+  new: Neu
+  actions: Aktionen
 menu:
   dashboard: Dashboard
   productManagement: Produktverwaltung

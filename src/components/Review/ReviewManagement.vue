@@ -64,7 +64,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
   {
-    title: 'Actions',
+    title: t('common.actions'),
     key: 'actions',
     width: 110,
     render(row) {

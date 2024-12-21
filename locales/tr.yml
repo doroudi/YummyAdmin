@@ -1,55 +1,27 @@
+
+ar: Arabic
+tr: Turkish
+de: German
+en: English
+fa: Persian
+
 title: Yummy Admin
 description: Ücretsiz Vue 3 Gösterge Paneli
 direction: ltr
-en: English
-fa: Persian
-tr: Turkish
-ar: Arabic
-de: German
-ch: Chinese
-home: Ana Sayfa
-common:
-  notFound: Bulunamadı
-  404Error: 404 Hatası
-  goHome: Ana Sayfaya Dön
-  404Message: Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya geçici olarak kullanılamıyor
-  403Error: Erişim izniniz yok
-menu:
-  dashboard: Gösterge Paneli
-  productManagement: Ürün Yönetimi
-  products: Ürünler
-  categories: Kategoriler
-  brands: Markalar
-  colors: Renkler
-  orders: Siparişler
-  feedbacks: Geri Bildirimler
-  reviews: İncelemeler
-  messages: Mesajlar
-  support: Destek
-  comments: Yorumlar
-  announcement: Duyuru
-  news: Haberler
-  notifications: Bildirimler
-  sms: SMS
-  accountSettings: Hesap Ayarları
-  websiteSettings: Website Ayarları
-  blog: Blog
-  users: Kullanıcılar
-  customers: Müşteriler
-  settings: Ayarlar
-  pages: Sayfalar
-  login: Giriş
-  notFound: '404'
-userMenu:
-  language: Dil
-  theme: Tema
-  options: Seçenekler
-  profile: Profil
-  logout: Çıkış
-  dark: Karanlık
-  light: Aydınlık
-  en: İngilizce
-  fa: Farsça
+
+brands:
+  create:
+    brandName: İsim
+    buttonTitle: Oluştur
+    image: Resim
+    title: Yeni Marka Oluştur
+    url: URL
+  createButton: Oluştur
+  title: Markalar
+  validations:
+    image: Resim gerekli
+    name: İsim gerekli
+    url: URL gerekli
 button:
   about: Hakkında
   back: Geri
@@ -57,108 +29,144 @@ button:
   home: Ana Sayfa
   toggle_dark: Karanlık modu değiştir
   toggle_langs: Dil değiştir
-login:
-  title: Giriş
-  username: Kullanıcı Adı
-  password: Şifre
-  loginButton: Giriş Yap
-  skipLogin: Girişi Atla
-  forgetPassword: Şifremi Unuttum
-  rememberMe: Beni Hatırla
-  welcome: Tekrar Hoşgeldiniz!
-  message: Hesabınıza erişmek için lütfen giriş yapın
-  haveNotAccount: Hesabınız yok mu?
-  createAccount: Hesap Oluştur!
-  failedMessage: Giriş Başarısız
-  successMessage: Başarıyla Giriş Yapıldı 🎉
-  validations:
-    userNameRequired: Kullanıcı adı girin
-    passwordRequired: Şifre gerekli
-
-register:
-  title: Kayıt Ol
-  username: Kullanıcı Adı
-  password: Şifre
-  button: Kayıt Ol
-  haveAccount: Hesabınız var mı?
-  login: Giriş Yap!
-forgot:
-  title: Şifremi Unuttum
-  username: Kullanıcı Adı
-  button: Kurtar
-  haveNotAccount: Hesabınız yok mu?
-  register: Hesap Oluştur!
-dashboard:
-  summary: Özet
-  transactions: İşlemler
-  registers: Kayıtlar
-  products: Ürünler
-  sells: Satışlar
-  visits: Ziyaretler
-  activeOrders: Aktif Siparişler
-  recentOrders: Son siparişler
-  trendingProducts: trend olan Ürünler
 categories:
-  title: Kategoriler
-  createButton: Oluştur
   create:
     buttonTitle: Oluştur
-    title: Yeni Kategori Oluştur
     categoryName: İsim
     parent: Üst Kategori
+    title: Yeni Kategori Oluştur
+  createButton: Oluştur
+  title: Kategoriler
   validations:
     nameRequired: İsim gerekli
     parentRequired: Üst kategori seçilmedi
 
-brands:
-  title: Markalar
-  createButton: Oluştur
-  create:
-    buttonTitle: Oluştur
-    title: Yeni Marka Oluştur
-    image: Resim
-    brandName: İsim
-    url: URL
-  validations:
-    name: İsim gerekli
-    url: URL gerekli
-    image: Resim gerekli
-
 colors:
-  title: Renkler
-  createButton: Oluştur
   create:
     buttonTitle: Oluştur
-    title: Yeni Renk Oluştur
     color: Renk
     name: İsim
+    title: Yeni Renk Oluştur
+  title: Renkler
   validations:
-    nameRequired: İsim gerekli
     colorRequired: Renk seçilmedi
+    nameRequired: İsim gerekli
+common:
+  403Error: Erişim izniniz yok
+  404Error: 404 Hatası
+  404Message: >-
+    Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya
+    geçici olarak kullanılamıyor
+  actions: Eylemler
+  goHome: Ana Sayfaya Dön
+  new: Yeni
+  notFound: Bulunamadı
+  search: Ara
 
-products:
-  create:
-    title: Ürün Oluştur
-    productInformation: Ürün Bilgisi
-    name: Ürün Adı
-    barcode: Barkod
-    sku: Stok Kodu
-    description: Açıklama
-    media: Medya
-    pricing: Fiyatlandırma
-    price: Fiyat
-    discountedPrice: İndirimli Fiyat
-    inStock: Stokta
-    category: Kategori
-    brand: Marka
-    keywords: Anahtar Kelimeler
-    newKeyword: Yeni Anahtar Kelime
-    imageName: Resim
+dashboard:
+  activeOrders: Aktif Siparişler
+  products: Ürünler
+  recentOrders: Son siparişler
+  registers: Kayıtlar
+  sells: Satışlar
+  summary: Özet
+  transactions: İşlemler
+  trendingProducts: trend olan Ürünler
+  visits: Ziyaretler
 
+forgot:
+  button: Kurtar
+  haveNotAccount: Hesabınız yok mu?
+  register: Hesap Oluştur!
+  title: Şifremi Unuttum
+  username: Kullanıcı Adı
+home: Ana Sayfa
+login:
+  createAccount: Hesap Oluştur!
+  failedMessage: Giriş Başarısız
+  forgetPassword: Şifremi Unuttum
+  haveNotAccount: Hesabınız yok mu?
+  loginButton: Giriş Yap
+  message: Hesabınıza erişmek için lütfen giriş yapın
+  password: Şifre
+  rememberMe: Beni Hatırla
+  skipLogin: Girişi Atla
+  successMessage: Başarıyla Giriş Yapıldı 🎉
+  title: Giriş
+  username: Kullanıcı Adı
+  validations:
+    passwordRequired: Şifre gerekli
+    userNameRequired: Kullanıcı adı girin
+  welcome: Tekrar Hoşgeldiniz!
+menu:
+  accountSettings: Hesap Ayarları
+  announcement: Duyuru
+  blog: Blog
+  brands: Markalar
+  categories: Kategoriler
+  colors: Renkler
+  comments: Yorumlar
+  customers: Müşteriler
+  dashboard: Gösterge Paneli
+  feedbacks: Geri Bildirimler
+  login: Giriş
+  messages: Mesajlar
+  news: Haberler
+  notFound: '404'
+  notifications: Bildirimler
+  orders: Siparişler
+  pages: Sayfalar
+  productManagement: Ürün Yönetimi
+  products: Ürünler
+  reviews: İncelemeler
+  settings: Ayarlar
+  sms: SMS
+  support: Destek
+  users: Kullanıcılar
+  websiteSettings: Website Ayarları
 not-found: Bulunamadı
-
 notifications:
   empty: Hiçbir bildirim yok
+products:
+  create:
+    barcode: Barkod
+    brand: Marka
+    category: Kategori
+    description: Açıklama
+    discountedPrice: İndirimli Fiyat
+    imageName: Resim
+    inStock: Stokta
+    keywords: Anahtar Kelimeler
+    media: Medya
+    name: Ürün Adı
+    newKeyword: Yeni Anahtar Kelime
+    price: Fiyat
+    pricing: Fiyatlandırma
+    productInformation: Ürün Bilgisi
+    sku: Stok Kodu
+    title: Ürün Oluştur
+
+register:
+  button: Kayıt Ol
+  haveAccount: Hesabınız var mı?
+  login: Giriş Yap!
+  password: Şifre
+  title: Kayıt Ol
+  username: Kullanıcı Adı
+
+userMenu:
+  dark: Karanlık
+  en: İngilizce
+  fa: Farsça
+  language: Dil
+  light: Aydınlık
+  logout: Çıkış
+  options: Seçenekler
+  profile: Profil
+  theme: Tema
+
+customize:
+  color: Renk
 
 Github:
   button: GitHub

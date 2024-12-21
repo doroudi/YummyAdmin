@@ -15,6 +15,9 @@ common:
   goHome: بازگشت به خانه
   404Message: متاسفانه صفحه ای که دنبالش بودید پیدا نشد
   403Error: خطای دسترسی
+  search: جستجو
+  new: جدید
+  actions: عملیات
 brands:
   create:
     brandName: نام برند
