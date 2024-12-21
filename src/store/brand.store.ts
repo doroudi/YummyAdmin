@@ -51,7 +51,6 @@ export const useBrandStore = defineStore('Brand', () => {
     options,
     brandItem,
     getBrands,
-    getBrand,
     createBrand,
     deleteBrand,
     editBrand,

@@ -30,8 +30,8 @@ const columns: DataTableColumns<RowData> = [
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render(row) {
-      return [
+    render: row =>
+      [
         h(
           NButton,
           {
@@ -53,8 +53,7 @@ const columns: DataTableColumns<RowData> = [
             onClick: () => handleDeleteItem(row),
           },
         ),
-      ]
-    },
+      ],
   },
 ]
 const { options } = storeToRefs(store)
@@ -125,5 +124,4 @@ function createBrand() {
   </n-layout>
 </template>
 
-<style scoped lang='scss'>
-</style>
+<style scoped lang='scss'></style>
