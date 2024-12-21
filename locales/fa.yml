@@ -47,6 +47,7 @@ categories:
     title: ایجاد دسته بندی جدید
   createButton: ذخیره
   title: دسته بندی ها
+  stat: آمار
   validations:
     nameRequired: نام دسته الزامی است
     parentRequired: دسته والد الزامی است

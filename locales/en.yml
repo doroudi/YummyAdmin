@@ -109,6 +109,7 @@ dashboard:
 categories:
   title: Categories
   createButton: Create
+  stat: Statistics
   create:
     buttonTitle: Create
     title: Create New Category

@@ -127,7 +127,7 @@ function createCategory() {
       </div>
     </n-layout-content>
     <n-layout-sider
-      bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed" show-trigger
+      bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed"
       @collapse="collapsed = true" @expand="collapsed = false"
     >
       <CategoryStatics />

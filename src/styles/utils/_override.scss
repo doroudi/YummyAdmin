@@ -52,4 +52,10 @@
   .n-pagination {
     flex-direction: row-reverse !important;
   }
+
+  .n-data-table-expand-trigger {
+    transform: rotate(180deg);
+    margin-left: 8px;
+    margin-right:0!important;
+  }
 }
