@@ -31,7 +31,7 @@
 .rtl {
   .n-menu-item-content__icon {
     margin-left: 8px;
-    margin-right: auto !important;
+    margin-right: 5px!important;
   }
 
   .n-menu .n-submenu .n-menu-item-content {
@@ -58,4 +58,8 @@
     margin-left: 8px;
     margin-right:0!important;
   }
+
+    .n-rate {
+      direction: ltr;
+    }
 }
