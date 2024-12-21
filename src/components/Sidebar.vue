@@ -244,19 +244,18 @@ function renderIcon(icon: any, showBadge = false) {
   .logo {
     margin-left: 0.8rem;
     margin-right: .5rem;
-
   }
 
-  .p-button {
-    .p-button-label {
-      text-align: right;
-    }
+  // .p-button {
+  //   .p-button-label {
+  //     text-align: right;
+  //   }
 
-    .p-button-icon-left {
-      margin-right: 0;
-      margin-left: 0.5rem;
-    }
-  }
+  //   .p-button-icon-left {
+  //     margin-right: 0;
+  //     margin-left: 0.5rem;
+  //   }
+  // }
 }
 
 .n-menu-item {
