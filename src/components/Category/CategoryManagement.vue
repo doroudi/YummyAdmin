@@ -134,7 +134,7 @@ function createCategory() {
     </n-layout-sider>
 
     <n-drawer v-model:show="showAddDialog" :width="502" :placement="dialogPlacement">
-      <n-drawer-content closable title="Create Category">
+      <n-drawer-content class="rtl" closable :title="t('categories.create.title')">
         <CreateCategory @close="showAddDialog = false" />
       </n-drawer-content>
     </n-drawer>

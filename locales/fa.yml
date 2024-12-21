@@ -11,6 +11,7 @@ home: خانه
 currencySign: ريال
 common:
   notFound: پیدا نشد
+  oops: صفحه
   404Error: 404 خطای
   goHome: بازگشت به خانه
   404Message: متاسفانه صفحه ای که دنبالش بودید پیدا نشد
