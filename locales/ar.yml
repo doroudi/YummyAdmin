@@ -159,3 +159,7 @@ not-found: غير موجود
 
 notifications:
   empty: لا يوجد إشعارات
+
+Github:
+  button: GitHub
+  tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub

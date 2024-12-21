@@ -162,3 +162,7 @@ customize:
   theme: پوسته
   color: رنگ
   layout: چیدمان
+
+Github:
+  button: گیت هاب
+  tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید

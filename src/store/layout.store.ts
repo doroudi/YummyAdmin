@@ -6,7 +6,7 @@ export const useLayoutStore = defineStore('layout', () => {
   const activeLanguage = ref('en')
   const isRtl = ref(false)
   const { t, locale } = useI18n()
-  const themeColor = ref('')
+  const themeColor = ref('#00ad4c')
   const isDark = ref(false)
 
   watch(() => useWindowSize().width.value, (newValue: number) => {

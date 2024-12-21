@@ -161,3 +161,7 @@ not-found: 未找到
 
 notifications:
   empty: 没有通知
+
+Github:
+  button: Github
+  tooltip: 请在Github上给这个项目一个⭐️支持

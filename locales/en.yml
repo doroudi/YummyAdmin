@@ -168,3 +168,7 @@ customize:
   theme: Theme
   color: Color
   layout: Layout
+
+Github:
+  button: Github
+  tooltip: Support this project by giving a star ⭐️ on GitHub
