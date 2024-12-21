@@ -9,6 +9,9 @@ import {
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
+const layout = useLayoutStore()
+const { dialogPlacement } = storeToRefs(layout)
+
 const { t } = useI18n()
 const collapsed = ref(false)
 const store = useCategoryStore()
@@ -26,7 +29,7 @@ const columns: DataTableColumns<RowData> = [
     key: 'productsCount',
   },
   {
-    title: 'Actions',
+    title: t('common.actions'),
     key: 'actions',
     width: 110,
     render(row) {
@@ -106,14 +109,14 @@ function createCategory() {
     <n-layout-content>
       <div class="px-3">
         <n-space justify="space-between" class="mb-3">
-          <n-input placeholder="Search" />
+          <n-input :placeholder="t('common.search')" />
           <NButton type="primary" @click="createCategory">
             <template #icon>
               <NIcon>
                 <PlusIcon />
               </NIcon>
             </template>
-            {{ t('categories.createButton') }}
+            {{ t('common.new') }}
           </NButton>
         </n-space>
         <n-data-table
@@ -124,14 +127,14 @@ function createCategory() {
       </div>
     </n-layout-content>
     <n-layout-sider
-      bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed" show-trigger
+      bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed"
       @collapse="collapsed = true" @expand="collapsed = false"
     >
       <CategoryStatics />
     </n-layout-sider>
 
-    <n-drawer v-model:show="showAddDialog" :width="502" placement="right">
-      <n-drawer-content closable title="Create Category">
+    <n-drawer v-model:show="showAddDialog" :width="502" :placement="dialogPlacement">
+      <n-drawer-content class="rtl" closable :title="t('categories.create.title')">
         <CreateCategory @close="showAddDialog = false" />
       </n-drawer-content>
     </n-drawer>

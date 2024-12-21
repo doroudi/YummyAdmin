@@ -14,9 +14,14 @@ currencySign: $
 common:
   notFound: Not Found
   404Error: 404 Error
+  oops: Oops Page
   goHome: Back To Home
   404Message: Sorry but the page you are looking for does not exist, have been removed. name changed or is temporarily unavailable
   403Error: You have not Permission to access
+  search: Search
+  new: New
+  actions: Actions
+  name: Name
 menu:
   dashboard: Dashboard
   productManagement: Products Management
@@ -104,6 +109,7 @@ dashboard:
 categories:
   title: Categories
   createButton: Create
+  stat: Statistics
   create:
     buttonTitle: Create
     title: Create New Category
@@ -168,3 +174,7 @@ customize:
   theme: Theme
   color: Color
   layout: Layout
+
+Github:
+  button: Github
+  tooltip: Support this project by giving a star ⭐️ on GitHub

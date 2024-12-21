@@ -9,6 +9,8 @@ import {
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
+const layout = useLayoutStore()
+const { dialogPlacement } = storeToRefs(layout)
 const { t } = useI18n()
 const store = useBrandStore()
 const dialog = useDialog()
@@ -25,11 +27,11 @@ const columns: DataTableColumns<RowData> = [
     key: 'url',
   },
   {
-    title: 'Actions',
+    title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render(row) {
-      return [
+    render: row =>
+      [
         h(
           NButton,
           {
@@ -51,8 +53,7 @@ const columns: DataTableColumns<RowData> = [
             onClick: () => handleDeleteItem(row),
           },
         ),
-      ]
-    },
+      ],
   },
 ]
 const { options } = storeToRefs(store)
@@ -99,14 +100,14 @@ function createBrand() {
   <n-layout>
     <n-layout-content>
       <n-space justify="space-between" class="mb-3">
-        <n-input placeholder="Search" />
+        <n-input :placeholder="t('common.search')" />
         <NButton type="primary" @click="createBrand">
           <template #icon>
             <NIcon>
               <PlusIcon />
             </NIcon>
           </template>
-          {{ t('categories.createButton') }}
+          {{ t('common.new') }}
         </NButton>
       </n-space>
       <n-data-table
@@ -115,7 +116,7 @@ function createBrand() {
       />
     </n-layout-content>
 
-    <n-drawer v-model:show="showAddDialog" :width="502" placement="right">
+    <n-drawer v-model:show="showAddDialog" :width="502" :placement="dialogPlacement">
       <n-drawer-content closable title="Create Brand">
         <CreateBrand @close="showAddDialog = false" />
       </n-drawer-content>
@@ -123,5 +124,4 @@ function createBrand() {
   </n-layout>
 </template>
 
-<style scoped lang='scss'>
-</style>
+<style scoped lang='scss'></style>

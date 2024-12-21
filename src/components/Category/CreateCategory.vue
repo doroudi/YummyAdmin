@@ -64,14 +64,6 @@ const rules: FormRules = {
       </n-form-item>
     </div>
     <div class="form-control">
-      <n-form-item class="mb-5" path="name" :label="t('categories.create.categoryName')">
-        <n-input
-          id="name" ref="nameInput" v-model:value="categoryItem.name" autofocus
-          :placeholder="t('categories.create.categoryName')"
-        />
-      </n-form-item>
-    </div>
-    <div class="form-control">
       <n-form-item class="mb-5" :label="t('categories.create.parent')">
         <n-tree-select v-model="categoryItem.parentId" key-field="key" :options="parents" :placeholder="t('categories.create.parent')" default-value="Root" />
       </n-form-item>

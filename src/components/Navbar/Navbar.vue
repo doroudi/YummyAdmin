@@ -7,14 +7,14 @@ import {
 import { storeToRefs } from 'pinia'
 
 const layoutStore = useLayoutStore()
-const { collapsed } = storeToRefs(layoutStore)
+const { collapsed, isRtl } = storeToRefs(layoutStore)
 </script>
 
 <template>
   <n-page-header class="px-2 py-3 navbar">
     <template #title>
       <div class="flex items-center">
-        <n-button mx-2 size="small" quaternary circle @click="layoutStore.toggleSidebar">
+        <n-button mx-2 size="small" quaternary circle :class="{ 'rotate-180': isRtl }" @click="layoutStore.toggleSidebar">
           <template #icon>
             <NIcon size="1.2rem">
               <ExpandIcon v-if="collapsed" />
@@ -46,6 +46,13 @@ const { collapsed } = storeToRefs(layoutStore)
 .dark {
   .navbar {
     border-bottom-color: #2f3339;
+  }
+}
+
+.rtl {
+  .n-page-header .n-page-header__title {
+    margin-right: 0;
+    margin-left: 1.5rem;
   }
 }
 </style>

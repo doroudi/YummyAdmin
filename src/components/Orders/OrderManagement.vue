@@ -42,7 +42,7 @@ const columns: DataTableColumns<RowData> = [
     render: row => renderTag(row.status, getStatusColor(row.status), OrderStatus),
   },
   {
-    title: 'Actions',
+    title: t('common.actions'),
     key: 'actions',
     width: 110,
     render: () =>
@@ -77,7 +77,7 @@ function handlePageChange(page: number) {
     <n-layout-content>
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
-          <n-input placeholder="Search" />
+          <n-input :placeholder="t('common.search')" />
         </NSpace>
         <n-data-table
           remote :columns="columns" :data="store.orders" :loading="isLoading" :pagination="options"

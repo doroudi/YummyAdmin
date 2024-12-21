@@ -6,9 +6,10 @@ export const useLayoutStore = defineStore('layout', () => {
   const activeLanguage = ref('en')
   const isRtl = ref(false)
   const { t, locale } = useI18n()
-  const themeColor = ref('')
+  const themeColor = ref('#00ad4c')
   const isDark = ref(false)
 
+  const dialogPlacement = computed(() => isRtl.value ? 'left' : 'right')
   watch(() => useWindowSize().width.value, (newValue: number) => {
     forceCollapsed.value = newValue < 1000
   })
@@ -43,6 +44,7 @@ export const useLayoutStore = defineStore('layout', () => {
     isDark,
     setThemeColor,
     themeColor,
+    dialogPlacement,
   }
 }, { persist: true })
 

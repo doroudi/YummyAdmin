@@ -16,6 +16,9 @@ common:
   goHome: 返回首页
   404Message: 抱歉，您要查找的页面不存在、已被删除、名称已更改或暂时不可用
   403Error: 您没有访问权限
+  search: 搜索
+  new: 新
+  actions: 操作
 menu:
   dashboard: 仪表板
   productManagement: 产品管理
@@ -161,3 +164,7 @@ not-found: 未找到
 
 notifications:
   empty: 没有通知
+
+Github:
+  button: Github
+  tooltip: 请在Github上给这个项目一个⭐️支持

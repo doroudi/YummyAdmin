@@ -7,6 +7,7 @@ import {
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
+const { t } = useI18n()
 const store = useReviewStore()
 const dialog = useDialog()
 const message = useMessage()
@@ -18,7 +19,7 @@ const columns: DataTableColumns<RowData> = [
     key: 'rate',
     render(row) {
       return [
-        h(NRate, { color: 'gold', readonly: true, defaultValue: row.rate, allowHalf: true }),
+        h(NRate, { color: 'gold', readonly: true, defaultValue: row.rate, allowHalf: false }),
       ]
     },
     fixed: 'left',
@@ -64,7 +65,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
   {
-    title: 'Actions',
+    title: t('common.actions'),
     key: 'actions',
     width: 110,
     render(row) {

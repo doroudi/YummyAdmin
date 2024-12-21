@@ -11,10 +11,14 @@ home: خانه
 currencySign: ريال
 common:
   notFound: پیدا نشد
+  oops: صفحه
   404Error: 404 خطای
   goHome: بازگشت به خانه
   404Message: متاسفانه صفحه ای که دنبالش بودید پیدا نشد
   403Error: خطای دسترسی
+  search: جستجو
+  new: جدید
+  actions: عملیات
 brands:
   create:
     brandName: نام برند
@@ -43,6 +47,7 @@ categories:
     title: ایجاد دسته بندی جدید
   createButton: ذخیره
   title: دسته بندی ها
+  stat: آمار
   validations:
     nameRequired: نام دسته الزامی است
     parentRequired: دسته والد الزامی است
@@ -162,3 +167,7 @@ customize:
   theme: پوسته
   color: رنگ
   layout: چیدمان
+
+Github:
+  button: گیت هاب
+  tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید

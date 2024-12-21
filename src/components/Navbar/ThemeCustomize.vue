@@ -2,9 +2,12 @@
 import {
   Settings48Regular as CustomizeIcon,
 } from '@vicons/fluent'
+import { storeToRefs } from 'pinia'
 
 const showCustomizeDialog = ref(false)
 const { t } = useI18n()
+const layout = useLayoutStore()
+const { dialogPlacement } = storeToRefs(layout)
 
 function toggleDialog() {
   showCustomizeDialog.value = !showCustomizeDialog.value
@@ -22,7 +25,7 @@ function toggleDialog() {
     </n-button>
   </div>
 
-  <n-drawer v-model:show="showCustomizeDialog" :width="400" placement="right">
+  <n-drawer v-model:show="showCustomizeDialog" :width="400" :placement="dialogPlacement">
     <n-drawer-content closable :title="t('customize.title')">
       <CustomizeDialog @close="showCustomizeDialog = false" />
     </n-drawer-content>

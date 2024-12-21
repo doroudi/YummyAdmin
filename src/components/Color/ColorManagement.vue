@@ -9,6 +9,9 @@ import {
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
+const layout = useLayoutStore()
+const { dialogPlacement } = storeToRefs(layout)
+
 const { t } = useI18n()
 const store = useColorStore()
 const dialog = useDialog()
@@ -35,7 +38,7 @@ const columns: DataTableColumns<RowData> = [
     key: 'name',
   },
   {
-    title: 'Actions',
+    title: t('common.actions'),
     key: 'actions',
     width: 110,
     render(row) {
@@ -110,14 +113,14 @@ function createColor() {
     <n-layout-content>
       <div>
         <n-space justify="space-between" class="mb-3">
-          <n-input placeholder="Search" />
+          <n-input :placeholder="t('common.search')" />
           <NButton type="primary" @click="createColor">
             <template #icon>
               <NIcon>
                 <PlusIcon />
               </NIcon>
             </template>
-            {{ t('categories.createButton') }}
+            {{ t('common.new') }}
           </NButton>
         </n-space>
         <n-data-table
@@ -127,7 +130,7 @@ function createColor() {
       </div>
     </n-layout-content>
 
-    <n-drawer v-model:show="showAddDialog" :width="502" placement="right">
+    <n-drawer v-model:show="showAddDialog" :width="502" :placement="dialogPlacement">
       <n-drawer-content closable :title="t('colors.create.title')">
         <CreateColor @close="showAddDialog = false" />
       </n-drawer-content>

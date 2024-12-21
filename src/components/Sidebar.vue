@@ -6,17 +6,14 @@ import {
   CheckmarkStarburst16Regular as BrandsIcon,
   Folder32Regular as CategoryIcon,
   Color24Regular as ColorsIcon,
-  CommentMultiple32Regular as CommentsIcon,
   People28Regular as CustomersIcon,
   Home32Regular as DashboardIcon,
-  Emoji24Regular as FeedbackIcon,
   Cart24Regular as InvoicesIcon,
   DocumentLink20Regular as PagesIcon,
   Apps28Filled as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
   StarThreeQuarter20Filled as ReviewIcon,
   Settings28Regular as SettingsIcon,
-  PeopleCall20Regular as SupportIcon,
   ContentSettings20Regular as WebsiteSettingsIcon,
 } from '@vicons/fluent'
 import { RouterLink } from 'vue-router'
@@ -75,7 +72,11 @@ const menuOptions: MenuOption[] = [
         key: 'colors',
         icon: renderIcon(ColorsIcon),
       },
-
+      {
+        label: () => renderLabel(t('menu.reviews'), '/reviews'),
+        key: 'reviews',
+        icon: renderIcon(ReviewIcon),
+      },
     ],
   },
   {
@@ -88,28 +89,7 @@ const menuOptions: MenuOption[] = [
     key: 'customers',
     icon: renderIcon(CustomersIcon),
   },
-  {
-    label: () => t('menu.feedbacks'),
-    key: 'feedbacks',
-    icon: renderIcon(FeedbackIcon),
-    children: [
-      {
-        label: () => renderLabel(t('menu.reviews'), '/reviews'),
-        key: 'reviews',
-        icon: renderIcon(ReviewIcon),
-      },
-      {
-        label: () => renderLabel(t('menu.messages'), '/messages'),
-        key: 'messages',
-        icon: renderIcon(CommentsIcon),
-      },
-      {
-        label: () => renderLabel(t('menu.support'), '/support'),
-        key: 'messages',
-        icon: renderIcon(SupportIcon),
-      },
-    ],
-  },
+
   {
     label: () => t('menu.pages'),
     key: 'pages',
@@ -244,19 +224,18 @@ function renderIcon(icon: any, showBadge = false) {
   .logo {
     margin-left: 0.8rem;
     margin-right: .5rem;
-
   }
 
-  .p-button {
-    .p-button-label {
-      text-align: right;
-    }
+  // .p-button {
+  //   .p-button-label {
+  //     text-align: right;
+  //   }
 
-    .p-button-icon-left {
-      margin-right: 0;
-      margin-left: 0.5rem;
-    }
-  }
+  //   .p-button-icon-left {
+  //     margin-right: 0;
+  //     margin-left: 0.5rem;
+  //   }
+  // }
 }
 
 .n-menu-item {

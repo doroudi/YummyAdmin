@@ -68,7 +68,7 @@ const columns: DataTableColumns<RowData> = [
     key: 'ordersCount',
   },
   {
-    title: 'Actions',
+    title: t('common.actions'),
     key: 'actions',
     width: 110,
     render(row) {
@@ -143,14 +143,14 @@ function handleFiltersChange() {
     <n-layout-content>
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
-          <n-input placeholder="Search" />
+          <n-input :placeholder="t('common.search')" />
           <NButton type="primary" @click="router.push('/Products/Create')">
             <template #icon>
               <NIcon>
                 <PlusIcon />
               </NIcon>
             </template>
-            {{ t('categories.createButton') }}
+            {{ t('common.new') }}
           </NButton>
         </NSpace>
         <n-data-table

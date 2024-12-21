@@ -9,6 +9,7 @@
 
 html,
 body,
+.n-drawer,
 #app {
   height: 100%;
   margin: 0;
@@ -32,6 +33,7 @@ body {
 .rtl {
   html,
   body,
+  .n-drawer,
   #app {
     font-family: Shabnam;
     direction: rtl;
@@ -126,10 +128,13 @@ body {
     padding: .8rem 0;
   }
 
-  .action-button {
-    font-family: montserrat, sans-serif;
-    background: #f99827;
-    color: #FFF !important;
-    font-weight: 500 !important;
+  
+}
+
+.rtl {
+  .error-message {
+    h2, p {
+      font-family: Shabnam;
+    }
   }
 }

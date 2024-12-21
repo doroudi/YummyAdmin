@@ -5,6 +5,7 @@ import {
   WeatherSunny48Regular as SunIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
+import useColors from '~/composables/colors'
 
 const { t } = useI18n()
 
@@ -20,9 +21,7 @@ function setDark() {
     layout.toggleTheme()
 }
 
-const colors = [
-  '#00ad4c', '#cb2025', '#f8b334', '#FF8000', '#00a096',
-]
+const colors = useColors().primaryColors
 const selectedColorIndex = ref(0)
 function setColor(index) {
   selectedColorIndex.value = index
