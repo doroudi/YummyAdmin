@@ -9,6 +9,7 @@ export const useLayoutStore = defineStore('layout', () => {
   const themeColor = ref('#00ad4c')
   const isDark = ref(false)
 
+  const dialogPlacement = computed(() => isRtl.value ? 'left' : 'right')
   watch(() => useWindowSize().width.value, (newValue: number) => {
     forceCollapsed.value = newValue < 1000
   })
@@ -43,6 +44,7 @@ export const useLayoutStore = defineStore('layout', () => {
     isDark,
     setThemeColor,
     themeColor,
+    dialogPlacement,
   }
 }, { persist: true })
 

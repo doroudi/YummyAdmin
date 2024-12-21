@@ -9,6 +9,9 @@ import {
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
+const layout = useLayoutStore()
+const { dialogPlacement } = storeToRefs(layout)
+
 const { t } = useI18n()
 const collapsed = ref(false)
 const store = useCategoryStore()
@@ -130,7 +133,7 @@ function createCategory() {
       <CategoryStatics />
     </n-layout-sider>
 
-    <n-drawer v-model:show="showAddDialog" :width="502" placement="right">
+    <n-drawer v-model:show="showAddDialog" :width="502" :placement="dialogPlacement">
       <n-drawer-content closable title="Create Category">
         <CreateCategory @close="showAddDialog = false" />
       </n-drawer-content>

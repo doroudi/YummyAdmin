@@ -9,6 +9,8 @@ import {
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
+const layout = useLayoutStore()
+const { dialogPlacement } = storeToRefs(layout)
 const { t } = useI18n()
 const store = useBrandStore()
 const dialog = useDialog()
@@ -115,7 +117,7 @@ function createBrand() {
       />
     </n-layout-content>
 
-    <n-drawer v-model:show="showAddDialog" :width="502" placement="right">
+    <n-drawer v-model:show="showAddDialog" :width="502" :placement="dialogPlacement">
       <n-drawer-content closable title="Create Brand">
         <CreateBrand @close="showAddDialog = false" />
       </n-drawer-content>

@@ -9,6 +9,9 @@ import {
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
+const layout = useLayoutStore()
+const { dialogPlacement } = storeToRefs(layout)
+
 const { t } = useI18n()
 const store = useColorStore()
 const dialog = useDialog()
@@ -127,7 +130,7 @@ function createColor() {
       </div>
     </n-layout-content>
 
-    <n-drawer v-model:show="showAddDialog" :width="502" placement="right">
+    <n-drawer v-model:show="showAddDialog" :width="502" :placement="dialogPlacement">
       <n-drawer-content closable :title="t('colors.create.title')">
         <CreateColor @close="showAddDialog = false" />
       </n-drawer-content>
