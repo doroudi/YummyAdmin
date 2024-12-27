@@ -47,7 +47,11 @@ menu:
   settings: Settings
   pages: Pages
   login: Login
-  notFound: '404'
+  register: Register
+  forgetPassword: Forget Password
+  notFound: '404 Error'
+  authentication: Authentication
+  other: Other
 userMenu:
   language: Language
   theme: Theme
@@ -178,3 +182,6 @@ customize:
 Github:
   button: Github
   tooltip: Support this project by giving a star ⭐️ on GitHub
+
+notify:
+  welcome: Welcome to YummyAdmin! Free Admin Panel based on NaiveUI and Vue3, please Support this project by giving a star ⭐️ on GitHub

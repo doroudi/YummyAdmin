@@ -2,15 +2,19 @@
 import type { MenuInst, MenuOption } from 'naive-ui'
 import {
   PersonSettings20Regular as AccountSettingsIcon,
+  DoorArrowRight20Regular as AuthIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
   Folder32Regular as CategoryIcon,
   Color24Regular as ColorsIcon,
   People28Regular as CustomersIcon,
   Home32Regular as DashboardIcon,
+  PersonLightbulb20Regular as ForgetIcon,
   Cart24Regular as InvoicesIcon,
+  PersonLock20Regular as LoginIcon,
   DocumentLink20Regular as PagesIcon,
   Apps28Filled as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
+  PersonAdd20Regular as RegisterIcon,
   StarThreeQuarter20Filled as ReviewIcon,
   Settings28Regular as SettingsIcon,
   ContentSettings20Regular as WebsiteSettingsIcon,
@@ -78,15 +82,25 @@ const menuOptions: MenuOption[] = [
   },
 
   {
-    label: () => t('menu.pages'),
-    key: 'pages',
-    icon: renderIcon(PagesIcon),
+    label: () => t('menu.authentication'),
+    key: 'auth',
+    icon: renderIcon(AuthIcon),
     children: [
       {
         label: () => renderMenuLabel(t('menu.login'), '/account/login'),
+        key: 'login',
+        icon: renderIcon(LoginIcon),
       },
       {
-        label: () => renderMenuLabel(t('menu.notFound'), '/404'),
+        label: () => renderMenuLabel(t('menu.register'), '/account/login'),
+        key: 'register',
+        icon: renderIcon(RegisterIcon),
+      },
+
+      {
+        label: () => renderMenuLabel(t('menu.forgetPassword'), '/account/forgetPassword'),
+        key: 'forget-password',
+        icon: renderIcon(ForgetIcon),
       },
     ],
   },
@@ -104,6 +118,16 @@ const menuOptions: MenuOption[] = [
         label: () => renderMenuLabel(t('menu.websiteSettings'), '/website-settings'),
         key: 'website-settings',
         icon: renderIcon(WebsiteSettingsIcon),
+      },
+    ],
+  },
+  {
+    label: () => t('menu.other'),
+    key: 'other',
+    icon: renderIcon(PagesIcon),
+    children: [
+      {
+        label: () => renderMenuLabel(t('menu.notFound'), '/404'),
       },
     ],
   },

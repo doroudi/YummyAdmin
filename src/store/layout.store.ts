@@ -8,6 +8,7 @@ export const useLayoutStore = defineStore('layout', () => {
   const { t, locale } = useI18n()
   const themeColor = ref('#00ad4c')
   const isDark = ref(false)
+  const isWelcomeShown = ref(false)
 
   const dialogPlacement = computed(() => isRtl.value ? 'left' : 'right')
   watch(() => useWindowSize().width.value, (newValue: number) => {
@@ -33,6 +34,10 @@ export const useLayoutStore = defineStore('layout', () => {
     themeColor.value = color
   }
 
+  function showWelcome() {
+    isWelcomeShown.value = true
+  }
+
   return {
     collapsed,
     toggleSidebar,
@@ -45,6 +50,8 @@ export const useLayoutStore = defineStore('layout', () => {
     setThemeColor,
     themeColor,
     dialogPlacement,
+    isWelcomeShown,
+    showWelcome,
   }
 }, { persist: true })
 
