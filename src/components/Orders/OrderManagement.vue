@@ -5,7 +5,6 @@ import {
   Open24Regular as ArrowIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
-import useRender from '@/composables/render'
 import { OrderStatus } from '~/models/Order'
 
 const { renderIcon, renderTag, renderPrice } = useRender()

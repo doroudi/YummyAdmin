@@ -93,7 +93,6 @@ declare global {
   const refDefault: typeof import('@vueuse/core')['refDefault']
   const refThrottled: typeof import('@vueuse/core')['refThrottled']
   const refWithControl: typeof import('@vueuse/core')['refWithControl']
-  const render: typeof import('./composables/render')['default']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const resolveRef: typeof import('@vueuse/core')['resolveRef']
   const resolveUnref: typeof import('@vueuse/core')['resolveUnref']
@@ -250,7 +249,7 @@ declare global {
   const useProductStore: typeof import('./store/product.store')['useProductStore']
   const useRafFn: typeof import('@vueuse/core')['useRafFn']
   const useRefHistory: typeof import('@vueuse/core')['useRefHistory']
-  const useRender: typeof import('./composables/render')['default']
+  const useRender: typeof import('./composables/render')['useRender']
   const useResizeObserver: typeof import('@vueuse/core')['useResizeObserver']
   const useReviewStore: typeof import('./store/review.store')['useReviewStore']
   const useRoute: typeof import('vue-router/auto')['useRoute']
@@ -420,7 +419,6 @@ declare module 'vue' {
     readonly refDefault: UnwrapRef<typeof import('@vueuse/core')['refDefault']>
     readonly refThrottled: UnwrapRef<typeof import('@vueuse/core')['refThrottled']>
     readonly refWithControl: UnwrapRef<typeof import('@vueuse/core')['refWithControl']>
-    readonly render: UnwrapRef<typeof import('./composables/render')['default']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly resolveRef: UnwrapRef<typeof import('@vueuse/core')['resolveRef']>
     readonly resolveUnref: UnwrapRef<typeof import('@vueuse/core')['resolveUnref']>
@@ -576,6 +574,7 @@ declare module 'vue' {
     readonly useProductStore: UnwrapRef<typeof import('./store/product.store')['useProductStore']>
     readonly useRafFn: UnwrapRef<typeof import('@vueuse/core')['useRafFn']>
     readonly useRefHistory: UnwrapRef<typeof import('@vueuse/core')['useRefHistory']>
+    readonly useRender: UnwrapRef<typeof import('./composables/render')['useRender']>
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
     readonly useReviewStore: UnwrapRef<typeof import('./store/review.store')['useReviewStore']>
     readonly useRoute: UnwrapRef<typeof import('vue-router/auto')['useRoute']>

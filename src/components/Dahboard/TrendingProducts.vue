@@ -2,13 +2,11 @@
 import { type DataTableColumns, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 
-import useRender from '~/composables/render'
-
 const { t } = useI18n()
-
 const store = useProductStore()
-onMounted(getItems)
 const { renderPrice, renderRate, renderProductImage } = useRender()
+
+onMounted(getItems)
 
 function getItems() {
   store.getTrendingProducts()

@@ -8,7 +8,6 @@ import {
 import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 import { ProductStatus } from '~/models/Product'
-import useRender from '~/composables/render'
 
 const { t } = useI18n()
 const store = useProductStore()

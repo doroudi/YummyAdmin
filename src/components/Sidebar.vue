@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { NBadge } from 'naive-ui'
 import type { MenuInst, MenuOption } from 'naive-ui'
 import {
   PersonSettings20Regular as AccountSettingsIcon,
@@ -16,34 +15,22 @@ import {
   Settings28Regular as SettingsIcon,
   ContentSettings20Regular as WebsiteSettingsIcon,
 } from '@vicons/fluent'
-import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import { NIcon } from 'naive-ui/es/icon'
 
 const layoutStore = useLayoutStore()
 const { collapsed, forceCollapsed } = storeToRefs(layoutStore)
 const { t } = useI18n()
+const { renderIcon, renderMenuLabel } = useRender()
+
 const isHovered = ref(false)
 
 const effectiveCollapsed = computed(() => {
   return (collapsed.value || forceCollapsed.value) && !isHovered.value
 })
 
-function renderLabel(title: string, path: string) {
-  return h(
-    RouterLink,
-    {
-      to: {
-        path,
-      },
-    },
-    { default: () => title },
-  )
-}
-
 const menuOptions: MenuOption[] = [
   {
-    label: () => renderLabel(t('menu.dashboard'), '/'),
+    label: () => renderMenuLabel(t('menu.dashboard'), '/'),
     key: 'index',
     icon: renderIcon(DashboardIcon),
   },
@@ -53,39 +40,39 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(ProductsIcon),
     children: [
       {
-        label: () => renderLabel(t('menu.products'), '/products'),
+        label: () => renderMenuLabel(t('menu.products'), '/products'),
         key: 'products',
         icon: renderIcon(ProductsIcon2),
       },
       {
-        label: () => renderLabel(t('menu.categories'), '/categories'),
+        label: () => renderMenuLabel(t('menu.categories'), '/categories'),
         key: 'categories',
         icon: renderIcon(CategoryIcon),
       },
       {
-        label: () => renderLabel(t('menu.brands'), '/brands'),
+        label: () => renderMenuLabel(t('menu.brands'), '/brands'),
         key: 'brands',
         icon: renderIcon(BrandsIcon),
       },
       {
-        label: () => renderLabel(t('menu.colors'), '/colors'),
+        label: () => renderMenuLabel(t('menu.colors'), '/colors'),
         key: 'colors',
         icon: renderIcon(ColorsIcon),
       },
       {
-        label: () => renderLabel(t('menu.reviews'), '/reviews'),
+        label: () => renderMenuLabel(t('menu.reviews'), '/reviews'),
         key: 'reviews',
         icon: renderIcon(ReviewIcon),
       },
     ],
   },
   {
-    label: () => renderLabel(t('menu.orders'), '/orders'),
+    label: () => renderMenuLabel(t('menu.orders'), '/orders'),
     key: 'orders',
     icon: renderIcon(InvoicesIcon, true),
   },
   {
-    label: () => renderLabel(t('menu.customers'), '/customers'),
+    label: () => renderMenuLabel(t('menu.customers'), '/customers'),
     key: 'customers',
     icon: renderIcon(CustomersIcon),
   },
@@ -96,10 +83,10 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(PagesIcon),
     children: [
       {
-        label: () => renderLabel(t('menu.login'), '/account/login'),
+        label: () => renderMenuLabel(t('menu.login'), '/account/login'),
       },
       {
-        label: () => renderLabel(t('menu.notFound'), '/404'),
+        label: () => renderMenuLabel(t('menu.notFound'), '/404'),
       },
     ],
   },
@@ -109,12 +96,12 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(SettingsIcon),
     children: [
       {
-        label: () => renderLabel(t('menu.accountSettings'), '/account/profile'),
+        label: () => renderMenuLabel(t('menu.accountSettings'), '/account/profile'),
         key: 'account-settings',
         icon: renderIcon(AccountSettingsIcon),
       },
       {
-        label: () => renderLabel(t('menu.websiteSettings'), '/website-settings'),
+        label: () => renderMenuLabel(t('menu.websiteSettings'), '/website-settings'),
         key: 'website-settings',
         icon: renderIcon(WebsiteSettingsIcon),
       },
@@ -132,13 +119,6 @@ onMounted(() => {
     menuRef.value?.showOption(selectedMenuKey.value)
   }
 })
-
-function renderIcon(icon: any, showBadge = false) {
-  if (showBadge)
-    return () => h(NBadge, { processing: true, dot: true, type: 'success', offset: [-2, 2] }, { default: () => h(NIcon, {}, { default: () => h(icon) }) })
-
-  return () => h(NIcon, null, { default: () => h(icon, {}) })
-}
 </script>
 
 <template>

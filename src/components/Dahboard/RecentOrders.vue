@@ -2,7 +2,6 @@
 import { type DataTableColumns } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { OrderStatus } from '~/models/Order'
-import useRender from '~/composables/render'
 
 const { t } = useI18n()
 const store = useOrderStore()

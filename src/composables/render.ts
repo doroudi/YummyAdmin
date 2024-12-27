@@ -1,9 +1,13 @@
-import { NIcon, NImage, NSpace, NTag, NText } from 'naive-ui'
+import { NBadge, NIcon, NImage, NSpace, NTag, NText } from 'naive-ui'
 import { Star24Filled as StarIcon } from '@vicons/fluent'
+import { RouterLink } from 'vue-router'
 
-export default function useRender() {
-  function renderIcon(icon: any) {
-    return () => h(NIcon, null, { default: () => h(icon) })
+export function useRender() {
+  function renderIcon(icon: any, showBadge = false) {
+    if (showBadge)
+      return () => h(NBadge, { processing: true, dot: true, type: 'success', offset: [-2, 2] }, { default: () => h(NIcon, {}, { default: () => h(icon) }) })
+
+    return () => h(NIcon, null, { default: () => h(icon, {}) })
   }
 
   function renderTag(text: string, type: 'error' | 'default' | 'success' | 'warning' | 'primary' | 'info', stateEnum: any, round = false, bordered = false) {
@@ -35,11 +39,24 @@ export default function useRender() {
     })
   }
 
+  function renderMenuLabel(title: string, path: string) {
+    return h(
+      RouterLink,
+      {
+        to: {
+          path,
+        },
+      },
+      { default: () => title },
+    )
+  }
+
   return {
     renderIcon,
     renderTag,
     renderPrice,
     renderRate,
     renderProductImage,
+    renderMenuLabel,
   }
 }

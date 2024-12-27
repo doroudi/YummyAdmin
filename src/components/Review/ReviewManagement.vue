@@ -77,7 +77,7 @@ const columns: DataTableColumns<RowData> = [
             quaternary: true,
             circle: true,
             renderIcon: renderIcon(DeleteIcon),
-            onClick: () => handleDeleteItem(row),
+            // onClick: () => handleDeleteItem(row),
           },
         ),
       ]
