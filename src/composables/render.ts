@@ -33,7 +33,16 @@ export function useRender() {
   function renderProductImage(image: string, name: string) {
     return h(NSpace, { align: 'center' }, {
       default: () => [
-        h(NImage, { src: image, width: 38, height: 38, objectFit: 'contain', showToolbar: false, lazy: true, alt: name, style: { 'border-radius': '3px' } }, { }),
+        h(NImage, {
+          src: image,
+          fallbackSrc: 'assets/images/fallback.png',
+          width: 38,
+          height: 38,
+          objectFit: 'contain',
+          showToolbar: false,
+          alt: name,
+          style: { 'border-radius': '3px' },
+        }, { }),
         h(NText, {}, { default: () => name }),
       ],
     })
