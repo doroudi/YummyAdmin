@@ -1,23 +1,25 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Brand, BrandCreateModel } from '~/models/Brand'
 import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
+import type { PagedListResult } from '~/models/PagedListResult'
 import brandService from '~/services/brand.service'
 
 export interface BrandState {
 }
 export const useBrandStore = defineStore('Brand', () => {
-  const brands = ref<Brand[]>([])
+  const brands = ref<PagedListResult<Brand>>({ items: [] })
   const brandItem = ref<Brand>()
   const isLoading = ref(false)
   const isSaving = ref(false)
-  const { options } = useOptions()
 
   async function getBrands(options: PagedAndSortedRequest = defaultOptions) {
     isLoading.value = true
     try {
       const response = await brandService.getList(options)
-      brands.value = response.items
-      options.pageCount = Math.ceil(response.totalCount / options.itemsPerPage)
+      brands.value = response
+    }
+    catch (err) {
+      console.error(err)
     }
     finally {
       isLoading.value = false
@@ -28,7 +30,7 @@ export const useBrandStore = defineStore('Brand', () => {
     isLoading.value = true
     try {
       await brandService.create(brandItem)
-      getBrands(options.value)
+      // getBrands(options.value)
     }
     finally {
       isLoading.value = false
@@ -37,7 +39,7 @@ export const useBrandStore = defineStore('Brand', () => {
 
   async function deleteBrand(id: string) {
     await brandService.delete(id)
-    getBrands(options.value)
+    // getBrands(options.value)
   }
 
   function editBrand() {
@@ -48,7 +50,6 @@ export const useBrandStore = defineStore('Brand', () => {
     isLoading,
     isSaving,
     brands,
-    options,
     brandItem,
     getBrands,
     createBrand,

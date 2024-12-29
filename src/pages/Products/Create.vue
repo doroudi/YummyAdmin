@@ -7,8 +7,7 @@ meta:
   title: Create Product
   breadcrumb:
     - productManagement
-    - products
-    - create
+    - createProduct
 </route>
 
 <template>

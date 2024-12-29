@@ -16,6 +16,8 @@ const { t } = useI18n()
 const store = useColorStore()
 const dialog = useDialog()
 const message = useMessage()
+const { options } = useOptions()
+
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
@@ -68,7 +70,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
 ]
-const { options } = storeToRefs(store)
+
 const showAddDialog = ref(false)
 function renderIcon(icon: any) {
   return () => h(NIcon, null, { default: () => h(icon) })
@@ -124,7 +126,7 @@ function createColor() {
           </NButton>
         </n-space>
         <n-data-table
-          remote :columns="columns" :data="store.colors" :loading="store.isLoading" :pagination="options"
+          remote :columns="columns" :data="store.colors.items" :loading="store.isLoading" :pagination="store.colors"
           :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />
       </div>

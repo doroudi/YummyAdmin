@@ -4,7 +4,6 @@ import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Delete24Regular as DeleteIcon,
 } from '@vicons/fluent'
-import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
 const { t } = useI18n()
@@ -84,7 +83,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
 ]
-const { options } = storeToRefs(store)
+const { options } = useOptions()
 
 function renderIcon(icon: any) {
   return () => h(NIcon, null, { default: () => h(icon) })
@@ -129,7 +128,7 @@ function handleFiltersChange() {
     <n-layout-content>
       <div class="px-3">
         <n-data-table
-          remote :columns="columns" :data="store.reviews" :loading="store.isLoading" :pagination="options" selectable
+          remote :columns="columns" :data="store.reviews.items" :loading="store.isLoading" :pagination="store.reviews" selectable
           :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
           @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />

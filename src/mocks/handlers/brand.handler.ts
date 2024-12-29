@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker/locale/en'
 import { CreatePagedResponse } from '../handlers.utility'
 import type { Brand, BrandCreateModel } from '~/models/Brand'
 
-const brands = times(7, createFakeBrand)
+const brands = times(17, createFakeBrand)
 const handlers = [
   http.get('/api/Brand', ({ request }) => {
     const response = CreatePagedResponse<Brand>(request, brands)

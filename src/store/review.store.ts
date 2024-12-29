@@ -1,5 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
+import type { PagedListResult } from '~/models/PagedListResult'
 import type { Review } from '~/models/Review'
 import reviewService from '~/services/review.service'
 
@@ -7,7 +8,7 @@ export interface ReviewState {
 
 }
 export const useReviewStore = defineStore('Review', () => {
-  const reviews = ref<Review[]>([])
+  const reviews = ref<PagedListResult<Review>>({ items: [] })
 
   const reviewItem = ref<Review>()
   const isLoading = ref(false)
@@ -18,8 +19,7 @@ export const useReviewStore = defineStore('Review', () => {
     isLoading.value = true
     try {
       const response = await reviewService.getReviewList(options)
-      reviews.value = response.items
-      options.pageCount = Math.ceil(response.totalCount / options.itemsPerPage)
+      reviews.value = response
     }
     finally {
       isLoading.value = false

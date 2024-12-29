@@ -18,16 +18,16 @@ function createFakeOrder(): OrderList {
     id: faker.number.int().toString(),
     status: faker.helpers.enumValue(OrderStatus),
     address: {
-      city: { name: 'Tehran', provinceId: faker.number.int().toString(), id: faker.number.int().toString() },
-      province: { name: 'Tehran', id: faker.number.int().toString() },
+      city: { name: faker.location.city(), provinceId: faker.number.int().toString(), id: faker.number.int().toString() },
+      province: { name: faker.location.city(), id: faker.number.int().toString() },
       id: faker.number.int().toString(),
-      text: '30, Shams Ave, Ghasrodasht St',
+      text: faker.location.streetAddress(),
     },
     itemsCount: faker.number.int({ min: 1, max: 25 }),
     createdDate: faker.date.past(),
     customer: `${faker.person.fullName()}`,
     customerId: faker.number.int().toString(),
-    totalPrice: faker.number.int({ min: 20000, max: 10000000 }),
+    totalPrice: faker.number.int({ min: 10, max: 2000 }),
   }
 }
 export default handlers

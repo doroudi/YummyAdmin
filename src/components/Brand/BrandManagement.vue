@@ -15,7 +15,10 @@ const { t } = useI18n()
 const store = useBrandStore()
 const dialog = useDialog()
 const message = useMessage()
+
 onMounted(getItems)
+const { renderIcon } = useRender()
+
 const columns: DataTableColumns<RowData> = [
   {
     title: 'Brand',
@@ -56,11 +59,8 @@ const columns: DataTableColumns<RowData> = [
       ],
   },
 ]
-const { options } = storeToRefs(store)
+const { options } = useOptions()
 const showAddDialog = ref(false)
-function renderIcon(icon: any) {
-  return () => h(NIcon, null, { default: () => h(icon) })
-}
 
 function handleDeleteItem(row: RowData) {
   dialog.error({
@@ -78,6 +78,7 @@ function handleDeleteItem(row: RowData) {
 function rowKey(row: RowData) {
   return row.id
 }
+
 function getItems() {
   store.getBrands(options.value)
 }
@@ -111,7 +112,7 @@ function createBrand() {
         </NButton>
       </n-space>
       <n-data-table
-        remote :columns="columns" :data="store.brands" :loading="store.isLoading" :pagination="options"
+        remote :columns="columns" :data="store.brands.items" :loading="store.isLoading" :pagination="store.brands"
         :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange" @update:page="handlePageChange"
       />
     </n-layout-content>

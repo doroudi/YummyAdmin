@@ -1,24 +1,23 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Customer } from '~/models/Customer'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
+import type { PagedListResult } from '~/models/PagedListResult'
 import customerService from '~/services/customer.service'
 
 export interface CustomerState {
 
 }
 export const useCustomerStore = defineStore('Customer', () => {
-  const customers = ref<Customer[]>([])
+  const customers = ref<PagedListResult<Customer>>({ items: [] })
   const customerItem = ref<Customer>()
   const isLoading = ref(false)
   const isSaving = ref(false)
-  const { options } = useOptions()
 
   async function getCustomers(options: PagedAndSortedRequest) {
     isLoading.value = true
     try {
       const response = await customerService.getList(options)
-      customers.value = response.items
-      options.pageCount = Math.ceil(response.totalCount / options.itemsPerPage)
+      customers.value = response
     }
     finally {
       isLoading.value = false
@@ -31,7 +30,6 @@ export const useCustomerStore = defineStore('Customer', () => {
     customerItem,
     isLoading,
     isSaving,
-    options,
   }
 })
 if (import.meta.hot)

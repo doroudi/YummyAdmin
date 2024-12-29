@@ -1,12 +1,9 @@
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import type { PagedListResult } from '~/models/PagedListResult'
 
-export function useOptions(autoBind = false) {
-  const options = reactive<PagedAndSortedRequest>({
+export function useOptions(autoBind = true) {
+  const options = ref<PagedAndSortedRequest>({
     page: 1,
-    pageCount: 1,
-    itemCount: 10,
-    pageSize: 10,
   })
 
   onMounted(() => {
@@ -24,7 +21,7 @@ export function useOptions(autoBind = false) {
     for (const prop of Object.keys(options.value)) {
       const value = options.value[prop as keyof PagedAndSortedRequest]
       if (Object.prototype.hasOwnProperty.call(options.value, prop) && value !== null && value !== '') {
-        if (isDefaultProperty(prop))
+        if (isDefaultProperty(prop, value))
           continue
         str.push(`${encodeURIComponent(prop)}=${encodeURIComponent(value)}`)
       }
@@ -65,13 +62,12 @@ export function useOptions(autoBind = false) {
       window.history.pushState(null, '', `?${queryString}`)
   }
 
-  function isDefaultProperty(prop: string) {
-    return ['page', 'itemsPerPage', 'sortBy', 'sortDesc'].includes(prop)
+  function isDefaultProperty(prop: string, value: number) {
+    return prop === 'page' && value === 1
   }
 
   function updatePaging(response: PagedListResult<any>) {
-    options.itemCount = response.totalCount
-    options.pageCount = response.pageCount
+    options.value.itemCount = response.totalCount
   }
 
   return {

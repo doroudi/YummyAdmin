@@ -18,7 +18,7 @@ function createFakeProductListItem(): ProductListDto {
     id: faker.number.int().toString(),
     code: faker.number.int({ min: 9999, max: 99999 }).toString(),
     bestPrice: faker.commerce.price(),
-    rate: faker.number.float({ min: 1, max: 5, multipleOf: 0.1 }),
+    rate: faker.number.float({ min: 3, max: 5, multipleOf: 0.1 }),
     price: faker.commerce.price(),
     name: faker.commerce.productName(),
     status: faker.helpers.enumValue(ProductStatus),
@@ -32,7 +32,7 @@ function createFakeCategory(): Category {
   return {
     id: faker.number.int(),
     name: faker.commerce.productAdjective(),
-    productsCount: 0,
+    productsCount: 0, // faker.number.int(),
   }
 }
 export default handlers

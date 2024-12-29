@@ -4,7 +4,6 @@ import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Open24Regular as ArrowIcon,
 } from '@vicons/fluent'
-import { storeToRefs } from 'pinia'
 import { OrderStatus } from '~/models/Order'
 
 const { renderIcon, renderTag, renderPrice } = useRender()
@@ -59,10 +58,10 @@ const columns: DataTableColumns<RowData> = [
       ],
   },
 ]
-const { options, isLoading } = storeToRefs(store)
+const { options } = useOptions()
 
 function getItems() {
-  store.getOrders()
+  store.getOrders(options.value)
 }
 
 function handlePageChange(page: number) {
@@ -79,7 +78,7 @@ function handlePageChange(page: number) {
           <n-input :placeholder="t('common.search')" />
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="store.orders" :loading="isLoading" :pagination="options"
+          remote :columns="columns" :data="store.orders.items" :loading="store.isLoading" :pagination="store.orders"
           :row-key="(row) => row.id" :scroll-x="1000" @update:sorter="getItems" @update:filters="getItems"
           @update:page="handlePageChange"
         />

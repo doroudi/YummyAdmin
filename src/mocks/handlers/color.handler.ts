@@ -30,10 +30,11 @@ const handlers = [
 ]
 
 function createFakeColor(): Color {
+  const color = faker.color.human()
   return {
     id: faker.number.int().toString(),
-    name: faker.color.human(),
-    color: faker.color.rgb(),
+    name: color,
+    color,
   }
 }
 

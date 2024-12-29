@@ -7,7 +7,6 @@ import {
   Edit24Regular as EditIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
-import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 
 const { t } = useI18n()
@@ -15,6 +14,8 @@ const store = useCustomerStore()
 const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
+const { options } = useOptions()
+const { renderIcon } = useRender()
 
 const { proxy } = getCurrentInstance()
 
@@ -91,18 +92,13 @@ const columns: DataTableColumns<RowData> = [
             quaternary: true,
             circle: true,
             renderIcon: renderIcon(DeleteIcon),
-            onClick: () => handleDeleteItem(row),
+            onClick: () => handleDeleteItem(),
           },
         ),
       ]
     },
   },
 ]
-const { options } = storeToRefs(store)
-
-function renderIcon(icon: any) {
-  return () => h(NIcon, null, { default: () => h(icon) })
-}
 
 function handleDeleteItem() {
   dialog.error({
@@ -154,7 +150,7 @@ function handleFiltersChange() {
           </NButton>
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="store.customers" :loading="store.isLoading" :pagination="options"
+          remote :columns="columns" :data="store.customers.items" :loading="store.isLoading" :pagination="store.customers"
           selectable :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
           @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />

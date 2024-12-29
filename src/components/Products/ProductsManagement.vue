@@ -5,7 +5,6 @@ import {
   Delete24Regular as DeleteIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
-import { storeToRefs } from 'pinia'
 import { useDialog, useMessage } from 'naive-ui'
 import { ProductStatus } from '~/models/Product'
 
@@ -14,6 +13,8 @@ const store = useProductStore()
 const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
+const { renderIcon } = useRender()
+const { options } = useOptions()
 
 const { renderPrice, renderRate, renderTag, renderProductImage } = useRender()
 
@@ -64,7 +65,6 @@ const columns: DataTableColumns<RowData> = [
     width: 110,
     render(row) {
       return [
-
         h(
           NButton,
           {
@@ -79,12 +79,6 @@ const columns: DataTableColumns<RowData> = [
     },
   },
 ]
-const { options } = storeToRefs(store)
-
-function renderIcon(icon: any) {
-  return () => h(NIcon, null, { default: () => h(icon) })
-}
-
 function getStatusColor(status: ProductStatus) {
   switch (status) {
     case ProductStatus.Draft:
@@ -113,7 +107,7 @@ function rowKey(row: RowData) {
   return row.id
 }
 function getItems() {
-  store.getProducts()
+  store.getProducts(options.value)
 }
 
 function handlePageChange(page: number) {
@@ -128,6 +122,14 @@ function handleSorterChange() {
 function handleFiltersChange() {
   getItems()
 }
+
+let searchTimerId: any = null
+function searchInListDebounced() {
+  clearTimeout(searchTimerId)
+  searchTimerId = setTimeout(() => {
+    getItems()
+  }, 500) /* 500ms throttle */
+}
 </script>
 
 <template>
@@ -135,7 +137,7 @@ function handleFiltersChange() {
     <n-layout-content>
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
-          <n-input :placeholder="t('common.search')" />
+          <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
           <NButton type="primary" @click="router.push('/Products/Create')">
             <template #icon>
               <NIcon>
@@ -146,7 +148,7 @@ function handleFiltersChange() {
           </NButton>
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="store.products" :loading="store.isLoading" :pagination="options" selectable
+          remote :columns="columns" :data="store.products.items" :loading="store.isLoading" :pagination="options" selectable
           :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
           @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />

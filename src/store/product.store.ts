@@ -1,31 +1,31 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
+import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
+import type { PagedListResult } from '~/models/PagedListResult'
 import type { Product, ProductCreateModel } from '~/models/Product'
 import productService from '~/services/product.service'
 
 export const useProductStore = defineStore('Product', () => {
-  const products = ref<Product[]>([])
+  const products = ref<PagedListResult<Product>>({ items: [] })
   const productItem = ref<Product>()
   const isLoading = ref(false)
   const isSaving = ref(false)
-  const { options } = useOptions()
 
-  async function getProducts() {
+  async function getProducts(options: PagedAndSortedRequest) {
     isLoading.value = true
     try {
       const response = await productService.getList(options)
-      products.value = response.items
-      options.pageCount = Math.ceil(response.totalCount / options.itemsPerPage)
+      products.value = response
     }
     finally {
       isLoading.value = false
     }
   }
 
-  async function getTrendingProducts(pageSize = 5) {
+  async function getTrendingProducts(itemsPerPage = 5) {
     isLoading.value = true
     try {
-      const response = await productService.getList({ ...options, pageSize })
-      products.value = response.items
+      const response = await productService.getList({ page: 1, itemsPerPage })
+      products.value = response
     }
     finally {
       isLoading.value = false
@@ -36,7 +36,7 @@ export const useProductStore = defineStore('Product', () => {
     isLoading.value = true
     try {
       await productService.create<ProductCreateModel>(product)
-      getProducts()
+      // getProducts()
     }
     finally {
       isLoading.value = false
@@ -45,7 +45,6 @@ export const useProductStore = defineStore('Product', () => {
 
   async function deleteProduct(id: number) {
     await productService.delete(id)
-    getProducts()
   }
 
   function editProduct() {
@@ -56,7 +55,7 @@ export const useProductStore = defineStore('Product', () => {
     isLoading,
     isSaving,
     products,
-    options,
+    // options,
     productItem,
     getProducts,
     createProduct,

@@ -59,7 +59,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
 ]
-const { options } = storeToRefs(store)
+const { options } = useOptions()
 const showAddDialog = ref(false)
 
 function renderIcon(icon: any) {
@@ -102,6 +102,15 @@ function handleFiltersChange() {
 function createCategory() {
   showAddDialog.value = true
 }
+
+let searchTimerId: any = null
+function searchInListDebounced(value: string) {
+  options.value.query = value
+  clearTimeout(searchTimerId)
+  searchTimerId = setTimeout(() => {
+    getItems()
+  }, 500) /* 500ms throttle */
+}
 </script>
 
 <template>
@@ -109,7 +118,7 @@ function createCategory() {
     <n-layout-content>
       <div class="px-3">
         <n-space justify="space-between" class="mb-3">
-          <n-input :placeholder="t('common.search')" />
+          <n-input :placeholder="t('common.search')" @input="searchInListDebounced" />
           <NButton type="primary" @click="createCategory">
             <template #icon>
               <NIcon>
@@ -120,9 +129,9 @@ function createCategory() {
           </NButton>
         </n-space>
         <n-data-table
-          remote :columns="columns" :data="store.categories" :loading="store.isLoading" :pagination="options" selectable
-          :scroll-x="1000" :row-key="rowKey" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
-          @update:page="handlePageChange"
+          remote :columns="columns" :data="store.categories.items" :loading="store.isLoading"
+          :pagination="store.categories" selectable :scroll-x="1000" :row-key="rowKey" @update:sorter="handleSorterChange"
+          @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />
       </div>
     </n-layout-content>

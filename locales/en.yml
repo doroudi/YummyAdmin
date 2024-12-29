@@ -52,6 +52,7 @@ menu:
   notFound: '404 Error'
   authentication: Authentication
   other: Other
+  createProduct: Create Product
 userMenu:
   language: Language
   theme: Theme
