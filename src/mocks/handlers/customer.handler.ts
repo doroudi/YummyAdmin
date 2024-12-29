@@ -8,7 +8,7 @@ import type { Customer, CustomerCreateModel } from '~/models/Customer'
 const customers = times(65, createFakeCustomer)
 const handlers = [
   http.get('/api/customer', ({ request }) => {
-    const response = CreatePagedResponse<Customer>(request, customers)
+    const response = CreatePagedResponse<Customer>(request, customers, 'firstName')
     return HttpResponse.json(response, { status: 200 })
   }),
   http.post('/api/customer', async ({ request }) => {

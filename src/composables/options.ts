@@ -4,6 +4,7 @@ import type { PagedListResult } from '~/models/PagedListResult'
 export function useOptions(autoBind = true) {
   const options = ref<PagedAndSortedRequest>({
     page: 1,
+    query: '',
   })
 
   onMounted(() => {

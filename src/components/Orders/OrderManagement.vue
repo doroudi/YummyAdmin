@@ -68,6 +68,15 @@ function handlePageChange(page: number) {
   options.value.page = page
   getItems()
 }
+
+let searchTimerId: any = null
+function searchInListDebounced(value: string) {
+  clearTimeout(searchTimerId)
+  options.value.query = value
+  searchTimerId = setTimeout(() => {
+    getItems()
+  }, 500) /* 500ms throttle */
+}
 </script>
 
 <template>
@@ -75,7 +84,7 @@ function handlePageChange(page: number) {
     <n-layout-content>
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
-          <n-input :placeholder="t('common.search')" />
+          <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
         </NSpace>
         <n-data-table
           remote :columns="columns" :data="store.orders.items" :loading="store.isLoading" :pagination="store.orders"

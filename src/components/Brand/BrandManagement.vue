@@ -95,13 +95,22 @@ function handleFiltersChange() {
 function createBrand() {
   showAddDialog.value = true
 }
+
+let searchTimerId: any = null
+function searchInListDebounced(value: string) {
+  options.value.query = value
+  clearTimeout(searchTimerId)
+  searchTimerId = setTimeout(() => {
+    getItems()
+  }, 500) /* 500ms throttle */
+}
 </script>
 
 <template>
   <n-layout>
     <n-layout-content>
       <n-space justify="space-between" class="mb-3">
-        <n-input :placeholder="t('common.search')" />
+        <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
         <NButton type="primary" @click="createBrand">
           <template #icon>
             <NIcon>

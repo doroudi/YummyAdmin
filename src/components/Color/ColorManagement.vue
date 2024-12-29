@@ -108,6 +108,15 @@ function handleFiltersChange() {
 function createColor() {
   showAddDialog.value = true
 }
+
+let searchTimerId: any = null
+function searchInListDebounced(value: string) {
+  clearTimeout(searchTimerId)
+  options.value.query = value
+  searchTimerId = setTimeout(() => {
+    getItems()
+  }, 500) /* 500ms throttle */
+}
 </script>
 
 <template>
@@ -115,7 +124,7 @@ function createColor() {
     <n-layout-content>
       <div>
         <n-space justify="space-between" class="mb-3">
-          <n-input :placeholder="t('common.search')" />
+          <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
           <NButton type="primary" @click="createColor">
             <template #icon>
               <NIcon>

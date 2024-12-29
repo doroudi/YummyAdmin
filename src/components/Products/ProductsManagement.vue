@@ -124,8 +124,9 @@ function handleFiltersChange() {
 }
 
 let searchTimerId: any = null
-function searchInListDebounced() {
+function searchInListDebounced(value: string) {
   clearTimeout(searchTimerId)
+  options.value.query = value
   searchTimerId = setTimeout(() => {
     getItems()
   }, 500) /* 500ms throttle */

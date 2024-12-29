@@ -132,6 +132,15 @@ function handleSorterChange() {
 function handleFiltersChange() {
   getItems()
 }
+
+let searchTimerId: any = null
+function searchInListDebounced(value: string) {
+  options.value.query = value
+  clearTimeout(searchTimerId)
+  searchTimerId = setTimeout(() => {
+    getItems()
+  }, 500) /* 500ms throttle */
+}
 </script>
 
 <template>
@@ -139,7 +148,7 @@ function handleFiltersChange() {
     <n-layout-content>
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
-          <n-input :placeholder="t('common.search')" />
+          <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
           <NButton type="primary" @click="router.push('/Products/Create')">
             <template #icon>
               <NIcon>

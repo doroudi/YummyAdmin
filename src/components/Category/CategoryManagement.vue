@@ -118,7 +118,7 @@ function searchInListDebounced(value: string) {
     <n-layout-content>
       <div class="px-3">
         <n-space justify="space-between" class="mb-3">
-          <n-input :placeholder="t('common.search')" @input="searchInListDebounced" />
+          <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
           <NButton type="primary" @click="createCategory">
             <template #icon>
               <NIcon>

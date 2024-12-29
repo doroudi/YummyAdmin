@@ -8,7 +8,7 @@ import type { OrderList } from '~/models/Order'
 const orders = times(100, createFakeOrder)
 const handlers = [
   http.get('/api/order', ({ request }) => {
-    const response = CreatePagedResponse<OrderList>(request, orders)
+    const response = CreatePagedResponse<OrderList>(request, orders, 'customer')
     return HttpResponse.json(response, { status: 200 })
   }),
 ]
