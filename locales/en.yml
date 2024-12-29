@@ -49,7 +49,7 @@ menu:
   login: Login
   register: Register
   forgetPassword: Forget Password
-  notFound: '404 Error'
+  notFound: 404 Error
   authentication: Authentication
   other: Other
   createProduct: Create Product
