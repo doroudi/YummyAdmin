@@ -10,6 +10,7 @@ import { dialogRtl } from 'naive-ui/es/dialog/styles'
 import { drawerRtl } from 'naive-ui/es/drawer/styles'
 import { darkTheme, lightTheme } from 'naive-ui'
 
+import useColors from './composables/colors'
 import themeOverrides from '~/common/theme/theme-overrides'
 
 const layout = useLayoutStore()
@@ -28,6 +29,7 @@ const rtlStyles = [
 ]
 
 const customTheme = ref({ ...themeOverrides })
+const { makeDarker, makeLighter } = useColors()
 
 watch(() => layout.activeLanguage, () => {
   const body = document.querySelector('body') as HTMLElement
@@ -50,6 +52,9 @@ watch(() => layout.themeColor, (newValue) => {
   if (customTheme.value.common && newValue !== '') {
     customTheme.value.common.primaryColor = newValue
     document.documentElement.style.setProperty('--primary-color', newValue)
+    document.documentElement.style.setProperty('--primary-color-shade1', makeLighter(newValue, 0.8))
+    document.documentElement.style.setProperty('--primary-color-shade2', makeLighter(newValue, 0.6))
+    document.documentElement.style.setProperty('--primary-color-shade3', makeLighter(newValue, 0.4))
   }
 }, { immediate: true })
 </script>

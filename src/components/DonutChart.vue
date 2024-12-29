@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import VueApexCharts from 'vue3-apexcharts'
 import { ref } from 'vue'
-import useColors from '~/composables/colors'
 
 const donutChartOptions = ref({
   chart: {
@@ -34,7 +33,7 @@ const donutChartOptions = ref({
     curve: 'smooth',
     lineCap: 'round',
   },
-  colors: useColors().buildThemeColorSeries(4),
+  colors: ['var(--primary-color)', 'var(--primary-color-shade1)', 'var(--primary-color-shade2)', 'var(--primary-color-shade3)'],
   grid: {
     padding: {
       right: -20,

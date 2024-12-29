@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import VueApexCharts from 'vue3-apexcharts'
-import useColors from '~/composables/colors'
 
 const chartOptions = ref({
   chart: {
@@ -43,7 +42,7 @@ const chartOptions = ref({
   dataLabels: {
     enabled: false,
   },
-  colors: useColors().buildThemeColorSeries(2),
+  colors: ['var(--primary-color)', 'var(--primary-color-shade1)'],
   plotOptions: {
     bar: {
       columnWidth: '17%',
@@ -56,7 +55,6 @@ const chartOptions = ref({
       style: {
         colors: '#6E6B7B',
         fontSize: '0.86rem',
-
       },
     },
   },
