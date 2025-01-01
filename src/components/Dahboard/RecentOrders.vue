@@ -20,12 +20,12 @@ const columns: DataTableColumns<RowData> = [
     key: 'customer',
   },
   {
-    title: 'Price',
+    title: t('common.price'),
     key: 'price',
     render: row => renderPrice(row.totalPrice, t('currencySign')),
   },
   {
-    title: 'Status',
+    title: t('common.status'),
     key: 'status',
     fixed: 'right',
     width: 80,

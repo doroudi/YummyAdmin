@@ -29,7 +29,7 @@ const rtlStyles = [
 ]
 
 const customTheme = ref({ ...themeOverrides })
-const { makeDarker, makeLighter } = useColors()
+const { makeLighter } = useColors()
 
 watch(() => layout.activeLanguage, () => {
   const body = document.querySelector('body') as HTMLElement

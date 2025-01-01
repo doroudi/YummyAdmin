@@ -45,12 +45,12 @@ const columns: DataTableColumns<RowData> = [
     render: row => renderRate(row.rate),
   },
   {
-    title: 'Price',
+    title: t('common.price'),
     key: 'price',
     render: row => renderPrice(row.price, t('currencySign')),
   },
   {
-    title: 'Status',
+    title: t('common.status'),
     key: 'status',
     render: row => renderTag(row.status, getStatusColor(row.status), ProductStatus),
   },

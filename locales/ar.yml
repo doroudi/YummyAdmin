@@ -8,6 +8,7 @@ ar: Arabic
 de: German
 ch: Chinese
 home: الرئيسية
+currencySign: درهم
 common:
   notFound: غير موجود
   404Error: خطأ 404
@@ -17,6 +18,9 @@ common:
   search: بحث
   new: جدید
   actions: الإجراءات
+  date: تاریخ
+  price: سعر
+  status: حالة
 menu:
   dashboard: لوحة التحكم
   productManagement: إدارة المنتجات
@@ -43,6 +47,11 @@ menu:
   pages: الصفحات
   login: تسجيل الدخول
   notFound: '404'
+  authentication: المصادقة
+  other: آخر
+  createProduct: إنشاء المنتج
+  register: تسجيل الدخول
+  forgetPassword: نسيت كلمة المرور
 userMenu:
   language: اللغة
   theme: المظهر
@@ -166,3 +175,6 @@ notifications:
 Github:
   button: GitHub
   tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
+
+notify:
+  welcome: مرحبًا بك في  لوحة تحكم يامي! لوحة إدارة مجانية تعتمد على Naive UI وVue 3، يرجى دعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub

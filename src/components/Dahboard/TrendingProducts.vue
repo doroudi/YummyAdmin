@@ -34,7 +34,7 @@ const columns: DataTableColumns<RowData> = [
     render: row => renderRate(row.rate),
   },
   {
-    title: 'Price',
+    title: t('common.price'),
     key: 'price',
     render: row => renderPrice(row.price, t('currencySign')),
   },

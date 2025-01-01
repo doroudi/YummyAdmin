@@ -1,13 +1,27 @@
+title: Yummy Admin
+description: Ücretsiz Vue 3 Gösterge Paneli
+direction: ltr
 ar: Arabic
 tr: Turkish
 de: German
 en: English
 fa: Persian
-
-title: Yummy Admin
-description: Ücretsiz Vue 3 Gösterge Paneli
-direction: ltr
-
+currencySign: ₺
+home: Ana Sayfa
+common:
+  403Error: Erişim izniniz yok
+  404Error: 404 Hatası
+  404Message: >-
+    Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya
+    geçici olarak kullanılamıyor
+  actions: Eylemler
+  goHome: Ana Sayfaya Dön
+  new: Yeni
+  notFound: Bulunamadı
+  search: Ara
+  date: Tarih
+  price: Fiyat
+  status: Durum
 brands:
   create:
     brandName: İsim
@@ -50,18 +64,6 @@ colors:
   validations:
     colorRequired: Renk seçilmedi
     nameRequired: İsim gerekli
-common:
-  403Error: Erişim izniniz yok
-  404Error: 404 Hatası
-  404Message: >-
-    Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya
-    geçici olarak kullanılamıyor
-  actions: Eylemler
-  goHome: Ana Sayfaya Dön
-  new: Yeni
-  notFound: Bulunamadı
-  search: Ara
-
 dashboard:
   activeOrders: Aktif Siparişler
   products: Ürünler
@@ -79,7 +81,7 @@ forgot:
   register: Hesap Oluştur!
   title: Şifremi Unuttum
   username: Kullanıcı Adı
-home: Ana Sayfa
+
 login:
   createAccount: Hesap Oluştur!
   failedMessage: Giriş Başarısız
@@ -123,6 +125,11 @@ menu:
   support: Destek
   users: Kullanıcılar
   websiteSettings: Website Ayarları
+  authentication: kimlik doğrulama
+  other: Diğer
+  createProduct: Ürün Oluştur
+  register: Kayıt Ol
+  forgetPassword: Şifremi Unuttum
 not-found: Bulunamadı
 notifications:
   empty: Hiçbir bildirim yok
@@ -170,3 +177,6 @@ customize:
 Github:
   button: GitHub
   tooltip: Bu projeye ⭐️ Github'da destek verin
+
+notify:
+  welcome: Yummy Admin'e hoş geldiniz! Naive UI ve Vue 3 tabanlı Ücretsiz Admin Paneli, lütfen GitHub'da bir yıldız ⭐️ vererek bu projeyi destekleyin

@@ -8,8 +8,7 @@ ar: Arabic
 de: German
 ch: Chinese
 home: 首页
-English: 英语
-Persian: 波斯语
+currencySign: ¥
 common:
   notFound: 未找到
   404Error: 404错误
@@ -19,6 +18,9 @@ common:
   search: 搜索
   new: 新
   actions: 操作
+  date: 日期
+  price: 价格
+  status: 状态
 menu:
   dashboard: 仪表板
   productManagement: 产品管理
@@ -45,6 +47,11 @@ menu:
   pages: 页面
   login: 登录
   notFound: '404'
+  authentication: 验证
+  other: 其他
+  createProduct: 创建产品
+  register: 注册
+  forgetPassword: 忘记密码
 userMenu:
   language: 语言
   theme: 主题
@@ -168,3 +175,6 @@ notifications:
 Github:
   button: Github
   tooltip: 请在Github上给这个项目一个⭐️支持
+
+notify:
+  welcome: 欢迎使用 Yummy Admin！基于 Naive UI 和 Vue 3 的免费管理面板，请在 GitHub 上点赞⭐️来支持此项目

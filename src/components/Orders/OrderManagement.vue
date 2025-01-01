@@ -21,7 +21,7 @@ const columns: DataTableColumns<RowData> = [
     fixed: 'left',
   },
   {
-    title: 'Date',
+    title: t('common.date'),
     key: 'createdDate',
     render: row => h(NText, {}, { default: () => proxy.$filters.friendlyTime(row.createdDate) }),
   },
@@ -30,12 +30,12 @@ const columns: DataTableColumns<RowData> = [
     key: 'itemsCount',
   },
   {
-    title: 'Price',
+    title: t('common.price'),
     key: 'category',
     render: row => renderPrice(row.totalPrice, t('currencySign')),
   },
   {
-    title: 'Status',
+    title: t('common.status'),
     key: 'status',
     render: row => renderTag(row.status, getStatusColor(row.status), OrderStatus),
   },

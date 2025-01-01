@@ -7,8 +7,6 @@ tr: Turkish
 ar: Arabic
 de: German
 ch: Chinese
-English: English
-Persian: Persian
 home: Home
 currencySign: $
 common:
@@ -22,6 +20,9 @@ common:
   new: New
   actions: Actions
   name: Name
+  date: Date
+  price: Price
+  status: Status
 menu:
   dashboard: Dashboard
   productManagement: Products Management
@@ -185,4 +186,4 @@ Github:
   tooltip: Support this project by giving a star ⭐️ on GitHub
 
 notify:
-  welcome: Welcome to YummyAdmin! Free Admin Panel based on NaiveUI and Vue3, please Support this project by giving a star ⭐️ on GitHub
+  welcome: Welcome to Yummy Admin! Free Admin Panel based on NaiveUI and Vue3, please Support this project by giving a star ⭐️ on GitHub

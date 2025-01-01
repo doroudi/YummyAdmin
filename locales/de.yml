@@ -8,6 +8,7 @@ ar: Arabic
 de: German
 ch: Chinese
 home: Startseite
+currencySign: €
 common:
   notFound: Nicht gefunden
   404Error: 404 Fehler
@@ -17,6 +18,9 @@ common:
   search: Suche
   new: Neu
   actions: Aktionen
+  date: Datum
+  price: Price
+  status: Status
 menu:
   dashboard: Dashboard
   productManagement: Produktverwaltung
@@ -43,6 +47,11 @@ menu:
   pages: Seiten
   login: Anmelden
   notFound: '404'
+  authentication: Authentifizierung
+  other: Andere
+  createProduct: Produkt erstellen
+  register: Registrieren
+  forgetPassword: Passwort vergessen
 userMenu:
   language: Sprache
   theme: Design
@@ -164,3 +173,6 @@ notifications:
 Github:
   button: Github
   tooltip: Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github geben
+
+notify:
+  welcome: Willkommen bei Yummy Admin! Kostenloses Admin-Panel basierend auf Naive UI und Vue 3. Bitte unterstützen Sie dieses Projekt, indem Sie auf GitHub einen Stern ⭐️ vergeben.

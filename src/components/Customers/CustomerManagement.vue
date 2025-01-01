@@ -72,7 +72,7 @@ const columns: DataTableColumns<RowData> = [
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render(row) {
+    render() {
       return [
         h(
           NButton,

@@ -4,12 +4,9 @@ import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Delete24Regular as DeleteIcon,
 } from '@vicons/fluent'
-import { useDialog, useMessage } from 'naive-ui'
 
 const { t } = useI18n()
 const store = useReviewStore()
-const dialog = useDialog()
-const message = useMessage()
 
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
@@ -54,7 +51,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
   {
-    title: 'DATE',
+    title: t('common.date'),
     key: 'date',
     render(row) {
       return h(NText,
@@ -67,7 +64,7 @@ const columns: DataTableColumns<RowData> = [
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render(row) {
+    render() {
       return [
         h(
           NButton,
@@ -89,18 +86,18 @@ function renderIcon(icon: any) {
   return () => h(NIcon, null, { default: () => h(icon) })
 }
 
-function handleDeleteItem() {
-  dialog.error({
-    title: 'Confirm',
-    content: 'Are you sure?',
-    positiveText: 'Yes, Delete',
-    negativeText: 'Cancel',
-    onPositiveClick: () => {
-      /// store.deleteProduct(row.id)
-      message.success('Product was deleted!')
-    },
-  })
-}
+// function handleDeleteItem() {
+//   dialog.error({
+//     title: 'Confirm',
+//     content: 'Are you sure?',
+//     positiveText: 'Yes, Delete',
+//     negativeText: 'Cancel',
+//     onPositiveClick: () => {
+//       /// store.deleteProduct(row.id)
+//       message.success('Product was deleted!')
+//     },
+//   })
+// }
 
 function rowKey(row: RowData) {
   return row.id

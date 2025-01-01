@@ -19,6 +19,9 @@ common:
   search: جستجو
   new: جدید
   actions: عملیات
+  date: تاریخ
+  price: قیمت
+  status: وضعیت
 brands:
   create:
     brandName: نام برند
@@ -121,6 +124,11 @@ menu:
   pages: صفحات
   login: ورود
   notFound: '404'
+  authentication: احراز هویت
+  other: سایر
+  createProduct: ایجاد محصول
+  register: ثبت نام
+  forgetPassword: فراموشی رمز
 products:
   create:
     barcode: بارکد
@@ -171,3 +179,6 @@ customize:
 Github:
   button: گیت هاب
   tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
+
+notify:
+  welcome: به پنل ادمین یامی خوش آمدید، لطفا این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
