@@ -172,7 +172,11 @@ userMenu:
   theme: Tema
 
 customize:
-  color: Renk
+  title: Özelleştir
+  theme: Tema
+  color:  Renk
+  layout: Düzen
+  language: Dil
 
 Github:
   button: GitHub

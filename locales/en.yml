@@ -180,6 +180,7 @@ customize:
   theme: Theme
   color: Color
   layout: Layout
+  language: Language
 
 Github:
   button: Github
