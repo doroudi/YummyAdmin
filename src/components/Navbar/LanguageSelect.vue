@@ -10,6 +10,7 @@ import TurkishIcon from '../CountryIcons/TurkishIcon.vue'
 
 import PersianIcon from '../CountryIcons/PersianIcon.vue'
 
+defineProps<{ showTitle: string }>()
 const { t } = useI18n()
 const layoutStore = useLayoutStore()
 const { activeLanguage } = storeToRefs(layoutStore)
@@ -58,12 +59,13 @@ function getLanguageIcon(language: string) {
 <template>
   <div v-bind="$attrs">
     <n-popselect v-model:value="language" trigger="click" :options="languages" @update-value="changeLanguage">
-      <n-button quaternary circle>
+      <n-button quaternary :circle="!showTitle">
         <template #icon>
           <NIcon size="1.4rem">
             <TranslateIcon />
           </NIcon>
         </template>
+        <span v-if="showTitle">{{ t(activeLanguage) }}</span>
       </n-button>
     </n-popselect>
   </div>

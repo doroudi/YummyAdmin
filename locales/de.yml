@@ -169,6 +169,12 @@ not-found: Nicht gefunden
 
 notifications:
   empty: Keine Benachrichtigungen
+customize:
+  title: Anpassen
+  theme: Design
+  color: Farbe
+  layout: Layout
+  language: Sprache
 
 Github:
   button: Github

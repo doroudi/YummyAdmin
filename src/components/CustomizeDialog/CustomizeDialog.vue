@@ -84,6 +84,16 @@ onMounted(() => {
       RTL Layout
     </div>
   </div>
+
+  <div class="section">
+    <NTag type="primary" :bordered="false" size="small" class="mb-3 font-bold">
+      {{ t('customize.language') }}
+    </NTag>
+
+    <div>
+      <LanguageSelect :show-title="true" />
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>

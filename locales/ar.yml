@@ -169,6 +169,13 @@ products:
 
 not-found: غير موجود
 
+customize:
+  title: تخصيص
+  theme: المظهر
+  color: اللون
+  layout: التخطيط
+  language: اللغة
+
 notifications:
   empty: لا يوجد إشعارات
 
