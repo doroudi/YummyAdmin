@@ -169,10 +169,10 @@ products:
 
 not-found: 未找到
 
-customize: 
+customize:
   title: 定制
   theme: 主题
-  color:  颜色
+  color: 颜色
   layout: 布局
   language: 语言
 
