@@ -73,14 +73,14 @@ meta:
               />
             </n-form-item>
 
-            <!-- <div class="flex align-items-center justify-between mb-2">
+            <div class="flex align-items-center justify-between mb-2">
               <RouterLink
                 to="/Account/ForgotPassword"
                 class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
               >
                 {{ t('login.forgetPassword') }}
               </RouterLink>
-            </div> -->
+            </div>
             <n-button attr-type="submit" size="large" :block="true" type="primary" :loading="isLoading">
               {{ t('login.loginButton') }}
             </n-button>

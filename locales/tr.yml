@@ -81,6 +81,12 @@ forgot:
   register: Hesap Oluştur!
   title: Şifremi Unuttum
   username: Kullanıcı Adı
+  email: Email
+  resetPassword: Şifreyi Sıfırla
+  login: Giriş
+  rememberInfo: Şifreyi Hatırladınız mı?
+  sendEmailSuccess: Email Başarıyla Gönderildi, Lütfen E-postanızı Kontrol Edin
+  emailValidation: Email geçerli değil
 
 login:
   createAccount: Hesap Oluştur!

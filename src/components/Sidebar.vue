@@ -98,7 +98,7 @@ const menuOptions: MenuOption[] = [
       },
 
       {
-        label: () => renderMenuLabel(t('menu.forgetPassword'), '/account/forgetPassword'),
+        label: () => renderMenuLabel(t('menu.forgetPassword'), '/account/ForgotPassword'),
         key: 'forget-password',
         icon: renderIcon(ForgetIcon),
       },
