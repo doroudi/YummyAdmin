@@ -100,6 +100,12 @@ forgot:
   button: استعادة
   haveNotAccount: ليس لديك حساب؟
   register: أنشئ واحداً!
+  email: البريد الإلكتروني
+  resetPassword: إعادة تعيين كلمة المرور
+  login: تسجيل الدخول
+  rememberInfo: هل تذكرت كلمة المرور؟
+  sendEmailSuccess: تم إرسال البريد الإلكتروني بنجاح، يرجى التحقق من بريدك الإلكتروني
+  emailValidation: البريد الإلكتروني غير صالح
 dashboard:
   summary: الملخص
   transactions: المعاملات

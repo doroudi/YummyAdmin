@@ -98,6 +98,13 @@ forgot:
   button: Wiederherstellen
   haveNotAccount: Kein Konto?
   register: Erstellen Sie eins!
+  email: E-Mail
+  resetPassword: Passwort zurücksetzen
+  login: Anmelden
+  rememberInfo: Passwort merken?
+  sendEmailSuccess: E-Mail erfolgreich gesendet, bitte überprüfen Sie Ihre E-Mail
+  emailValidation: Ungültige E-Mail
+
 dashboard:
   summary: Zusammenfassung
   transactions: Transaktionen

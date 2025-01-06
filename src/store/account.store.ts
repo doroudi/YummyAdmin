@@ -33,6 +33,10 @@ export const useAccountStore = defineStore('account', () => {
     user.value = null
   }
 
+  function resetPassword(forgetInfo: any) {
+    return Promise.resolve(true)
+  }
+
   function isAuthenticated() {
     return (user.value?.token && user.value.token !== null) ?? false
   }
@@ -44,6 +48,7 @@ export const useAccountStore = defineStore('account', () => {
     login,
     logout,
     isAuthenticated,
+    resetPassword,
   }
 }, { persist: true })
 

@@ -10,7 +10,7 @@ import TurkishIcon from '../CountryIcons/TurkishIcon.vue'
 
 import PersianIcon from '../CountryIcons/PersianIcon.vue'
 
-defineProps<{ showTitle: string }>()
+defineProps<{ showTitle?: boolean }>()
 const { t } = useI18n()
 const layoutStore = useLayoutStore()
 const { activeLanguage } = storeToRefs(layoutStore)

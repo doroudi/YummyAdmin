@@ -80,6 +80,12 @@ forgot:
   register: یکی بسازید
   title: فراموشی رمز عبور
   username: نام کاربری
+  email: ایمیل
+  resetPassword: بازنشانی رمز عبور
+  login: ورود
+  rememberInfo: رمز عبور را به خاطر دارید؟
+  sendEmailSuccess: ایمیل با موفقیت ارسال شد، لطفا ایمیل خود را بررسی کنید
+  emailValidation: ایمیل معتبر نیست
 login:
   createAccount: یکی بسازید
   failedMessage: خطا در ورود

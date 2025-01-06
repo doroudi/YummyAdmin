@@ -30,7 +30,7 @@ function createFakeProductListItem(): ProductListDto {
 
 function createFakeCategory(): Category {
   return {
-    id: faker.number.int(),
+    id: faker.number.int({ min: 100, max: 20000 }),
     name: faker.commerce.productAdjective(),
     productsCount: 0, // faker.number.int(),
   }

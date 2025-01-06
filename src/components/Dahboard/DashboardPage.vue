@@ -15,13 +15,12 @@ function random(min: number, max: number): number {
 }
 
 onMounted(() => {
-  // notify.notify('Hello', 'warning')
-  // if (!layout.isWelcomeShown) {
-  setTimeout(() => {
-    notify.notify({ body: t('notify.welcome'), type: 'success', duration: 10000 })
-    layout.showWelcome()
-  }, 2000)
-  // }
+  if (!layout.isWelcomeShown) {
+    setTimeout(() => {
+      notify.notify({ body: t('notify.welcome'), type: 'success', duration: 10000 })
+      layout.showWelcome()
+    }, 2000)
+  }
 })
 </script>
 
@@ -81,6 +80,4 @@ onMounted(() => {
   </div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

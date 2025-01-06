@@ -102,6 +102,12 @@ forgot:
   button: Recover
   haveNotAccount: Haven't Account?
   register: Create One!
+  email: Email
+  resetPassword: Reset Password
+  login: Login
+  rememberInfo: Remembered Password?
+  sendEmailSuccess: Email Sent Successfully, Please Check Your Email
+  emailValidation: Email is not valid
 dashboard:
   summary: Summary
   transactions: Transactions
