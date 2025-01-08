@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import type { FormInst, FormRules } from 'naive-ui/es/form/src/interface'
 import { storeToRefs } from 'pinia'
+import GoogleIcon from '~/components/CustomIcons/GoogleIcon.vue'
+import MicrosoftIcon from '~/components/CustomIcons/MicrosoftIcon.vue'
+import AppleIcon from '~/components/CustomIcons/AppleIcon.vue'
+
 import type { LoginViewModel } from '~/models/Login'
 
 const { t } = useI18n()
 const accountStore = useAccountStore()
 const { isLoading } = storeToRefs(accountStore)
-const loginInfo = ref<LoginViewModel>({ username: 'admin', password: 'admin' })
+const loginInfo = ref<LoginViewModel>({ username: 'Yummy', password: 'Admin!' })
 const loginFailed = ref(false)
 const router = useRouter()
 const formRef = ref<FormInst | null>(null)
@@ -57,11 +61,11 @@ meta:
   <div class="bg flex justify-center items-center h-screen">
     <div class="login-box w-full px-3 md:px-0">
       <div class="md:shadow-lg bg-white dark:bg-slate-800 rounded-md w-full" :class="{ failed: loginFailed }">
-        <div class="hidden md:block banner" />
         <div class="p-5">
           <div class="text-2xl font-medium mb-8">
             {{ t('login.title') }}
           </div>
+
           <n-form ref="formRef" :model="loginInfo" :rules="rules" @submit.prevent="login()">
             <n-form-item class="mb-1" path="username" :label="t('login.username')">
               <n-input id="name" v-model:value="loginInfo.username" autofocus :placeholder="t('login.username')" />
@@ -76,7 +80,7 @@ meta:
             <div class="flex align-items-center justify-between mb-2">
               <RouterLink
                 to="/Account/ForgotPassword"
-                class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer"
+                class="no-underline ml-2 text-blue-500 text-right cursor-pointer"
               >
                 {{ t('login.forgetPassword') }}
               </RouterLink>
@@ -86,10 +90,41 @@ meta:
             </n-button>
           </n-form>
           <div class="text-center pt-4 text-sm">
-            <span class="font-medium line-height-3">{{ t('login.haveNotAccount') }}</span>
-            <RouterLink to="/Account/Register" class="font-medium no-underline mx-1 text-blue-500 cursor-pointer">
+            <span class="line-height-3">{{ t('login.haveNotAccount') }}</span>
+            <RouterLink to="/Account/Register" class="no-underline mx-1 text-blue-500 cursor-pointer">
               {{ t('login.createAccount') }}
             </RouterLink>
+          </div>
+
+          <div class="social-login pt-3">
+            <div class="separator">
+              <span class="title bg-white dark:bg-slate-800">Or</span>
+            </div>
+            <div class="flex items-center justify-center">
+              <n-button quaternary circle mx-2>
+                <template #icon>
+                  <NIcon size="1.4rem">
+                    <GoogleIcon />
+                  </NIcon>
+                </template>
+              </n-button>
+
+              <n-button quaternary circle mx-2>
+                <template #icon>
+                  <NIcon size="1.4rem">
+                    <MicrosoftIcon />
+                  </NIcon>
+                </template>
+              </n-button>
+
+              <n-button quaternary circle mx-2>
+                <template #icon>
+                  <NIcon size="1.4rem">
+                    <AppleIcon />
+                  </NIcon>
+                </template>
+              </n-button>
+            </div>
           </div>
         </div>
       </div>
@@ -156,6 +191,19 @@ select:-webkit-autofill:focus {
   40%,
   60% {
     transform: translate3d(4px, 0, 0);
+  }
+}
+
+.separator {
+  border-bottom: solid 1px #ececec;
+  margin: 1rem 0;
+  .title {
+    margin-top: -10px;
+    color: var(--border);
+    font-size: 0.8rem;
+    position: absolute;
+    left: calc(50% - 10px);
+    padding: 0 0.3rem;
   }
 }
 </style>
