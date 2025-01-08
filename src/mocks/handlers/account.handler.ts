@@ -4,7 +4,7 @@ import type { LoginResponse, LoginViewModel } from '~/models/Login'
 const handlers = [
   http.post('*/api/account/login', async ({ request }) => {
     const user = (await request.json()) as LoginViewModel
-    if (user.username === 'admin' && user.password === 'admin') {
+    if (user.username === 'Yummy' && user.password === 'Admin!') {
       const response: LoginResponse = { token: 'JWT_Fake_Token', isSucceed: true }
       await delay(1000)
       return HttpResponse.json(response, { status: 200 })
