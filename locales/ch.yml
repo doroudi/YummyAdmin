@@ -129,6 +129,8 @@ categories:
     parentRequired: 未选择父级
 
 brands:
+  name: 名称
+  shortName: 简称
   title: 品牌
   createButton: 创建
   create:
@@ -143,6 +145,8 @@ brands:
     image: 图片必填
 
 colors:
+  color: 颜色
+  name: 名称
   title: 颜色
   createButton: 创建
   create:
@@ -155,6 +159,10 @@ colors:
     colorRequired: 未选择颜色
 
 products:
+  name: 名称
+  category: 分类
+  rate: 评分
+  stoke: 库存
   create:
     title: 创建产品
     productInformation: 产品信息
@@ -172,6 +180,30 @@ products:
     keywords: 关键词
     newKeyword: 新关键词
     imageName: 图片
+
+category:
+  name: 分类
+  productsCount: 产品数量
+
+customers:
+  title: 客户
+  customerName: 客户名称 
+  joinDate: 加入日期
+  phone: 电话
+  email: 电子邮件
+  ordersCount: 订单数量
+
+orders:
+  customer: 客户名称 
+  itemsCount: 项目数量
+
+reviews:
+  rate: 评分
+  comment: 评论
+  product: 产品
+  customer: 客户
+  date: 日期
+
 
 not-found: 未找到
 

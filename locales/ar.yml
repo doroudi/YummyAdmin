@@ -129,6 +129,8 @@ categories:
     parentRequired: الفئة الأم غير محددة
 
 brands:
+  name: الاسم
+  shortName: الاسم المختصر
   title: العلامات التجارية
   createButton: إنشاء
   create:
@@ -155,6 +157,10 @@ colors:
     colorRequired: اللون غير محدد
 
 products:
+  name: الاسم
+  category: الفئة
+  rate: التقييم
+  stoke: المخزون
   create:
     title: إنشاء منتج
     productInformation: معلومات المنتج
@@ -172,6 +178,29 @@ products:
     keywords: الكلمات المفتاحية
     newKeyword: كلمة مفتاحية جديدة
     imageName: الصورة
+
+category:
+  name: الفئة
+  productsCount: عدد المنتجات
+
+orders:
+  customer:  اسم العميل
+  itemsCount: عدد العناصر
+
+reviews:
+  rate: التقييم
+  comment: التعليق
+  product: المنتج
+  customer: العميل
+  date: التاريخ
+
+customers:
+  title: العملاء
+  customerName: اسم العميل
+  joinDate: تاريخ الانضمام
+  phone: الهاتف
+  email: البريد الإلكتروني
+  ordersCount: عدد الطلبات
 
 not-found: غير موجود
 

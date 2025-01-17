@@ -52,7 +52,7 @@ const rules: FormRules = {
 
 <route lang="yaml">
 meta:
-  title: Login
+  title: login
   layout: auth
   authRequired: false
 </route>

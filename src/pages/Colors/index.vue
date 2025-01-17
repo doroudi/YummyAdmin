@@ -4,7 +4,7 @@
 
 <route lang="yaml">
 meta:
-  title: Color Management
+  title: colors
   breadcrumb:
     - productManagement
     - colors

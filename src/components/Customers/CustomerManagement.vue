@@ -26,7 +26,7 @@ const columns: DataTableColumns<RowData> = [
     fixed: 'left',
   },
   {
-    title: 'NAME',
+    title: t('customers.customerName'),
     key: 'name',
     render: row =>
       h(NSpace, {}, {
@@ -36,7 +36,7 @@ const columns: DataTableColumns<RowData> = [
       }),
   },
   {
-    title: 'Join Date',
+    title: t('customers.joinDate'),
     key: 'join-date',
     render(row) {
       return h(NText,
@@ -46,7 +46,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
   {
-    title: 'Phone',
+    title: t('customers.phone'),
     key: 'phone',
     render(row) {
       return [
@@ -55,7 +55,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
   {
-    title: 'Email',
+    title: t('customers.email'),
     key: 'email',
     render(row) {
       return h(NText,
@@ -65,7 +65,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
   {
-    title: 'Orders Count',
+    title: t('customers.ordersCount'),
     key: 'ordersCount',
   },
   {

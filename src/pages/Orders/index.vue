@@ -4,7 +4,7 @@
 
 <route lang="yaml">
 meta:
-  title: Orders
+  title: orders
   breadcrumb:
     - orders
 </route>

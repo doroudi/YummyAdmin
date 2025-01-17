@@ -4,7 +4,7 @@
 
 <route lang="yaml">
 meta:
-  title: Customers
+  title: customers
   breadcrumb:
     - customers
 </route>

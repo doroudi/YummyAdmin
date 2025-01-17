@@ -1,65 +1,30 @@
 title: Yummy Admin
 description: Kostenloses Vue 3 Dashboard
 direction: ltr
-en: English
-fa: Persian
 tr: Turkish
 ar: Arabic
-de: German
 ch: Chinese
-home: Startseite
+de: German
+en: English
+fa: Persian
 currencySign: €
-common:
-  notFound: Nicht gefunden
-  404Error: 404 Fehler
-  goHome: Zurück zur Startseite
-  404Message: Entschuldigung, aber die gesuchte Seite existiert nicht, wurde entfernt, der Name wurde geändert oder ist vorübergehend nicht verfügbar
-  403Error: Sie haben keine Zugriffsberechtigung
-  search: Suche
-  new: Neu
-  actions: Aktionen
-  date: Datum
-  price: Price
-  status: Status
-menu:
-  dashboard: Dashboard
-  productManagement: Produktverwaltung
-  products: Produkte
-  categories: Kategorien
-  brands: Marken
-  colors: Farben
-  orders: Bestellungen
-  feedbacks: Rückmeldungen
-  reviews: Bewertungen
-  messages: Nachrichten
-  support: Support
-  comments: Kommentare
-  announcement: Ankündigung
-  news: Neuigkeiten
-  notifications: Benachrichtigungen
-  sms: SMS
-  accountSettings: Kontoeinstellungen
-  websiteSettings: Websiteeinstellungen
-  blog: Blog
-  users: Benutzer
-  customers: Kunden
-  settings: Einstellungen
-  pages: Seiten
-  login: Anmelden
-  notFound: '404'
-  authentication: Authentifizierung
-  other: Andere
-  createProduct: Produkt erstellen
-  register: Registrieren
-  forgetPassword: Passwort vergessen
-userMenu:
-  language: Sprache
-  theme: Design
-  options: Optionen
-  profile: Profil
-  logout: Abmelden
-  dark: Dunkel
-  light: Hell
+home: Startseite
+
+brands:
+  brand: Marke
+  shortName: Kurzname
+  create:
+    brandName: Name
+    buttonTitle: Erstellen
+    image: Bild
+    title: Neue Marke erstellen
+    url: URL
+  createButton: Erstellen
+  title: Marken
+  validations:
+    image: Bild wird benötigt
+    name: Name wird benötigt
+    url: URL wird benötigt
 button:
   about: Über
   back: Zurück
@@ -67,125 +32,197 @@ button:
   home: Startseite
   toggle_dark: Dunkelmodus umschalten
   toggle_langs: Sprache ändern
-login:
-  title: Anmelden
-  username: Benutzername
-  password: Passwort
-  loginButton: Anmelden
-  skipLogin: Anmeldung überspringen
-  forgetPassword: Passwort vergessen
-  rememberMe: Angemeldet bleiben
-  welcome: Willkommen zurück!
-  message: Um auf Ihr Konto zuzugreifen, melden Sie sich bitte hier an
-  haveNotAccount: Noch kein Konto?
-  createAccount: Erstellen Sie eins!
-  failedMessage: Anmeldung fehlgeschlagen
-  successMessage: Erfolgreich angemeldet 🎉
-  validations:
-    userNameRequired: Benutzername eingeben
-    passwordRequired: Passwort wird benötigt
-
-register:
-  title: Registrieren
-  username: Benutzername
-  password: Passwort
-  button: Registrieren
-  haveAccount: Haben Sie ein Konto?
-  login: Anmelden!
-forgot:
-  title: Passwort vergessen
-  username: Benutzername
-  button: Wiederherstellen
-  haveNotAccount: Kein Konto?
-  register: Erstellen Sie eins!
-  email: E-Mail
-  resetPassword: Passwort zurücksetzen
-  login: Anmelden
-  rememberInfo: Passwort merken?
-  sendEmailSuccess: E-Mail erfolgreich gesendet, bitte überprüfen Sie Ihre E-Mail
-  emailValidation: Ungültige E-Mail
-
-dashboard:
-  summary: Zusammenfassung
-  transactions: Transaktionen
-  registers: Registrierungen
-  products: Produkte
-  sells: Verkäufe
-  visits: Besuche
-  activeOrders: Aktive Bestellungen
-  recentOrders: Aktuelle Bestellungen
-  trendingProducts: Trendige Produkte
 categories:
-  title: Kategorien
-  createButton: Erstellen
   create:
     buttonTitle: Erstellen
-    title: Neue Kategorie erstellen
     categoryName: Name
     parent: Übergeordnet
+    title: Neue Kategorie erstellen
+  createButton: Erstellen
+  stat: Statistiken
+  title: Kategorien
   validations:
     nameRequired: Name wird benötigt
     parentRequired: Übergeordnete Kategorie nicht ausgewählt
-
-brands:
-  title: Marken
-  createButton: Erstellen
-  create:
-    buttonTitle: Erstellen
-    title: Neue Marke erstellen
-    image: Bild
-    brandName: Name
-    url: URL
-  validations:
-    name: Name wird benötigt
-    url: URL wird benötigt
-    image: Bild wird benötigt
-
 colors:
-  title: Farben
-  createButton: Erstellen
+  color: Farbe
+  name: Name
   create:
     buttonTitle: Erstellen
-    title: Neue Farbe erstellen
     color: Farbe
     name: Name
+    title: Neue Farbe erstellen
+  createButton: Erstellen
+  title: Farben
   validations:
-    nameRequired: Name wird benötigt
     colorRequired: Farbe nicht ausgewählt
+    nameRequired: Name wird benötigt
+common:
+  403Error: Sie haben keine Zugriffsberechtigung
+  404Error: 404 Fehler
+  404Message: >-
+    Entschuldigung, aber die gesuchte Seite existiert nicht, wurde entfernt, der
+    Name wurde geändert oder ist vorübergehend nicht verfügbar
+  actions: Aktionen
+  date: Datum
+  goHome: Zurück zur Startseite
+  new: Neu
+  notFound: Nicht gefunden
+  price: Price
+  search: Suche
+  status: Status
+customize:
+  color: Farbe
+  language: Sprache
+  layout: Layout
+  theme: Design
+  title: Anpassen
+dashboard:
+  activeOrders: Aktive Bestellungen
+  products: Produkte
+  recentOrders: Aktuelle Bestellungen
+  registers: Registrierungen
+  sells: Verkäufe
+  summary: Zusammenfassung
+  transactions: Transaktionen
+  trendingProducts: Trendige Produkte
+  visits: Besuche
 
-products:
-  create:
-    title: Produkt erstellen
-    productInformation: Produktinformationen
-    name: Produktname
-    barcode: Barcode
-    sku: Artikelnummer
-    description: Beschreibung
-    media: Medien
-    pricing: Preisgestaltung
-    price: Preis
-    discountedPrice: Reduzierter Preis
-    inStock: Auf Lager
-    category: Kategorie
-    brand: Marke
-    keywords: Schlüsselwörter
-    newKeyword: Neues Schlüsselwort
-    imageName: Bild
-
+forgot:
+  button: Wiederherstellen
+  email: E-Mail
+  emailValidation: Ungültige E-Mail
+  haveNotAccount: Kein Konto?
+  login: Anmelden
+  register: Erstellen Sie eins!
+  rememberInfo: Passwort merken?
+  resetPassword: Passwort zurücksetzen
+  sendEmailSuccess: E-Mail erfolgreich gesendet, bitte überprüfen Sie Ihre E-Mail
+  title: Passwort vergessen
+  username: Benutzername
+login:
+  createAccount: Erstellen Sie eins!
+  failedMessage: Anmeldung fehlgeschlagen
+  forgetPassword: Passwort vergessen
+  haveNotAccount: Noch kein Konto?
+  loginButton: Anmelden
+  message: Um auf Ihr Konto zuzugreifen, melden Sie sich bitte hier an
+  password: Passwort
+  rememberMe: Angemeldet bleiben
+  skipLogin: Anmeldung überspringen
+  successMessage: Erfolgreich angemeldet 🎉
+  title: Anmelden
+  username: Benutzername
+  validations:
+    passwordRequired: Passwort wird benötigt
+    userNameRequired: Benutzername eingeben
+  welcome: Willkommen zurück!
+menu:
+  accountSettings: Kontoeinstellungen
+  announcement: Ankündigung
+  authentication: Authentifizierung
+  blog: Blog
+  brands: Marken
+  categories: Kategorien
+  colors: Farben
+  comments: Kommentare
+  createProduct: Produkt erstellen
+  customers: Kunden
+  dashboard: Dashboard
+  feedbacks: Rückmeldungen
+  forgetPassword: Passwort vergessen
+  login: Anmelden
+  messages: Nachrichten
+  news: Neuigkeiten
+  notFound: '404'
+  notifications: Benachrichtigungen
+  orders: Bestellungen
+  other: Andere
+  pages: Seiten
+  productManagement: Produktverwaltung
+  products: Produkte
+  register: Registrieren
+  reviews: Bewertungen
+  settings: Einstellungen
+  sms: SMS
+  support: Support
+  users: Benutzer
+  websiteSettings: Websiteeinstellungen
 not-found: Nicht gefunden
-
 notifications:
   empty: Keine Benachrichtigungen
-customize:
-  title: Anpassen
-  theme: Design
-  color: Farbe
-  layout: Layout
+
+products:
+  name: Produktname
+  category: Kategorie
+  rate: Bewertung
+  stoke: Auf Lager
+  create:
+    barcode: Barcode
+    brand: Marke
+    category: Kategorie
+    description: Beschreibung
+    discountedPrice: Reduzierter Preis
+    imageName: Bild
+    inStock: Auf Lager
+    keywords: Schlüsselwörter
+    media: Medien
+    name: Produktname
+    newKeyword: Neues Schlüsselwort
+    price: Preis
+    pricing: Preisgestaltung
+    productInformation: Produktinformationen
+    sku: Artikelnummer
+    title: Produkt erstellen
+
+category:
+  name: Kategorie
+  productsCount: Produkte Anzahl
+
+customers:
+  title: Kunden
+  customerName: Kundenname
+  joinDate: Beitrittsdatum
+  phone: Telefon
+  email: E-Mail
+  ordersCount: Bestellanzahl
+
+orders:
+  customer: Kundenname
+  itemsCount: Anzahl der Elemente
+
+reviews:
+  rate: Bewertung
+  comment: Kommentar
+  product: Produkt
+  customer: Kunde
+  date: Datum
+
+register:
+  button: Registrieren
+  haveAccount: Haben Sie ein Konto?
+  login: Anmelden!
+  password: Passwort
+  title: Registrieren
+  username: Benutzername
+
+userMenu:
+  dark: Dunkel
   language: Sprache
+  light: Hell
+  logout: Abmelden
+  options: Optionen
+  profile: Profil
+  theme: Design
 
 Github:
   button: Github
-  tooltip: Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github geben
+  tooltip: >-
+    Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
+    geben
 
 notify:
-  welcome: Willkommen bei Yummy Admin! Kostenloses Admin-Panel basierend auf Naive UI und Vue 3. Bitte unterstützen Sie dieses Projekt, indem Sie auf GitHub einen Stern ⭐️ vergeben.
+  welcome: >-
+    Willkommen bei Yummy Admin! Kostenloses Admin-Panel basierend auf Naive UI
+    und Vue 3. Bitte unterstützen Sie dieses Projekt, indem Sie auf GitHub einen
+    Stern ⭐️ vergeben.

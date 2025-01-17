@@ -4,7 +4,7 @@
 
 <route lang="yaml">
 meta:
-  title: Reviews
+  title: reviews
   breadcrumb:
     - feedbacks
     - reviews

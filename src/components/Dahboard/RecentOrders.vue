@@ -16,7 +16,7 @@ function getItems() {
 
 const columns: DataTableColumns<RowData> = [
   {
-    title: 'Customer',
+    title: t('customers.customerName'),
     key: 'customer',
   },
   {

@@ -35,7 +35,7 @@ const rules: FormRules = {
 
 <route lang="yaml">
 meta:
-  title: Forgot Password
+  title: forgetPassword
   layout: auth
   authRequired: false
 </route>

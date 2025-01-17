@@ -21,12 +21,12 @@ const { renderIcon } = useRender()
 
 const columns: DataTableColumns<RowData> = [
   {
-    title: 'Brand',
+    title: t('brands.name'),
     key: 'name',
     fixed: 'left',
   },
   {
-    title: 'Slog',
+    title: t('brands.shortName'),
     key: 'url',
   },
   {
