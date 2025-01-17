@@ -187,14 +187,14 @@ category:
 
 customers:
   title: 客户
-  customerName: 客户名称 
+  customerName: 客户名称
   joinDate: 加入日期
   phone: 电话
   email: 电子邮件
   ordersCount: 订单数量
 
 orders:
-  customer: 客户名称 
+  customer: 客户名称
   itemsCount: 项目数量
 
 reviews:
@@ -203,7 +203,6 @@ reviews:
   product: 产品
   customer: 客户
   date: 日期
-
 
 not-found: 未找到
 
