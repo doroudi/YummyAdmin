@@ -20,12 +20,12 @@ const message = useMessage()
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
-    title: 'Category',
+    title: t('category.name'),
     key: 'name',
     fixed: 'left',
   },
   {
-    title: 'Products Count',
+    title: t('category.productsCount'),
     key: 'productsCount',
   },
   {

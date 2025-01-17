@@ -16,7 +16,7 @@ onMounted(getItems)
 
 const columns: DataTableColumns<RowData> = [
   {
-    title: 'Customer',
+    title: t('orders.customer'),
     key: 'customer',
     fixed: 'left',
   },
@@ -26,7 +26,7 @@ const columns: DataTableColumns<RowData> = [
     render: row => h(NText, {}, { default: () => proxy.$filters.friendlyTime(row.createdDate) }),
   },
   {
-    title: 'Items Count',
+    title: t('orders.itemsCount'),
     key: 'itemsCount',
   },
   {

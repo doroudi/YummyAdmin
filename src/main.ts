@@ -1,9 +1,9 @@
 import { setupLayouts } from 'virtual:generated-layouts'
 import generatedRoutes from 'virtual:generated-pages'
 import { createRouter, createWebHistory } from 'vue-router'
-
 import type { AppModule } from './types'
 import App from './App.vue'
+import i18n from '~/modules/i18n'
 
 import '@unocss/reset/tailwind-compat.css'
 import 'uno.css'
@@ -53,9 +53,10 @@ Object.values(import.meta.glob<any>('./common/filters/*.filter.ts', { eager: tru
   .forEach(filters => Object.keys(filters).forEach(func => app.config.globalProperties.$filters[func] = filters[func]))
 
 router.beforeEach((to, from, next) => {
-  let title = 'Yummy Admin'
+  const { t } = i18n.global
+  let title = t('title')
   if (to.meta.title)
-    title = `${to.meta.title} - ${title}`
+    title = `${t(`menu.${to.meta.title}`)} - ${title}`
 
   document.title = title
 

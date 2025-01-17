@@ -21,7 +21,7 @@ const { options } = useOptions()
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
   {
-    title: 'Color',
+    title: t('colors.color'),
     key: 'color',
     width: 250,
     fixed: 'left',
@@ -36,7 +36,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
   {
-    title: 'Name',
+    title: t('colors.name'),
     key: 'name',
   },
   {

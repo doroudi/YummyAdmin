@@ -1,4 +1,4 @@
-title: پنل مدیریت
+title: پنل مدیریت Yummy
 description: داشبورد رایگان vue3
 direction: rtl
 en: English
@@ -8,7 +8,7 @@ ar: Arabic
 de: German
 ch: Chinese
 home: خانه
-currencySign: ريال
+currencySign: تومان
 common:
   notFound: پیدا نشد
   oops: صفحه
@@ -23,6 +23,8 @@ common:
   price: قیمت
   status: وضعیت
 brands:
+  name: نام برند
+  shortName: اسم کوتاه
   create:
     brandName: نام برند
     buttonTitle: ایجاد
@@ -55,6 +57,8 @@ categories:
     nameRequired: نام دسته الزامی است
     parentRequired: دسته والد الزامی است
 colors:
+  color: رنگ
+  name: نام
   create:
     buttonTitle: رنگ جدید
     color: رنگ
@@ -65,6 +69,7 @@ colors:
   validations:
     colorRequired: رنگ الزامی است
     nameRequired: نام رنگ الزامی است
+
 dashboard:
   summary: خلاصه
   registers: ثبت نام ها
@@ -74,6 +79,7 @@ dashboard:
   activeOrders: سفارش های فعال
   recentOrders: سفارش های اخیر
   trendingProducts: محصولات پربازدید
+
 forgot:
   button: بازیابی
   haveNotAccount: اکانت ندارید؟
@@ -86,6 +92,7 @@ forgot:
   rememberInfo: رمز عبور را به خاطر دارید؟
   sendEmailSuccess: ایمیل با موفقیت ارسال شد، لطفا ایمیل خود را بررسی کنید
   emailValidation: ایمیل معتبر نیست
+
 login:
   createAccount: یکی بسازید
   failedMessage: خطا در ورود
@@ -103,6 +110,7 @@ login:
     passwordRequired: رمز عبور الزامی است
     userNameRequired: نام کاربری الزامی است
   welcome: خوش آمدید
+
 menu:
   accountSettings: تنظیمات کاربر
   announcement: اطلاع رسانی
@@ -135,7 +143,12 @@ menu:
   createProduct: ایجاد محصول
   register: ثبت نام
   forgetPassword: فراموشی رمز
+
 products:
+  name: نام محصول
+  category: دسته بندی
+  rate: امتیاز
+  stoke: موجود
   create:
     barcode: بارکد
     brand: برند
@@ -153,6 +166,30 @@ products:
     productInformation: توضیحات محصول
     sku: شناسه محصول
     title: ایجاد محصول
+
+category:
+  name: دسته بندی
+  productsCount: تعداد محصولات
+
+orders:
+  customer: نام مشتری
+  itemsCount: تعداد محصولات
+
+reviews:
+  rate: امتیاز
+  comment: نظر
+  product: محصول
+  customer: مشتری
+  date: تاریخ
+
+customers:
+  title: مشتریان
+  customerName: نام مشتری
+  joinDate: تاریخ عضویت
+  phone: موبایل
+  email: ایمیل
+  ordersCount: تعداد سفارش ها
+
 register:
   button: ثبت نام
   haveAccount: اکانت دارید؟

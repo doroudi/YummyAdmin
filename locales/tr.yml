@@ -23,6 +23,8 @@ common:
   price: Fiyat
   status: Durum
 brands:
+  name: Marka Adı
+  shortName: Kisaltma
   create:
     brandName: İsim
     buttonTitle: Oluştur
@@ -55,6 +57,8 @@ categories:
     parentRequired: Üst kategori seçilmedi
 
 colors:
+  color: Renk
+  name: İsim
   create:
     buttonTitle: Oluştur
     color: Renk
@@ -64,6 +68,7 @@ colors:
   validations:
     colorRequired: Renk seçilmedi
     nameRequired: İsim gerekli
+
 dashboard:
   activeOrders: Aktif Siparişler
   products: Ürünler
@@ -105,6 +110,7 @@ login:
     passwordRequired: Şifre gerekli
     userNameRequired: Kullanıcı adı girin
   welcome: Tekrar Hoşgeldiniz!
+
 menu:
   accountSettings: Hesap Ayarları
   announcement: Duyuru
@@ -139,7 +145,12 @@ menu:
 not-found: Bulunamadı
 notifications:
   empty: Hiçbir bildirim yok
+
 products:
+  name: Ürün Adı
+  category: Kategori
+  rate: Oran
+  stock: Stok
   create:
     barcode: Barkod
     brand: Marka
@@ -157,6 +168,29 @@ products:
     productInformation: Ürün Bilgisi
     sku: Stok Kodu
     title: Ürün Oluştur
+
+category:
+  name: Kategori
+  productsCount: Produkte Anzahl
+
+orders:
+  customer: Müşteri Adı
+  itemsCount: Öğe sayısı
+
+reviews:
+  rate: Oran
+  comment: Yorum
+  product: Ürün
+  customer: Müşteri
+  date: Tarih
+
+customers:
+  title: Müşteriler
+  customerName: Müşteri Adı
+  joinDate: Katılma Tarihi
+  phone: Telefon
+  email: Email
+  ordersCount: Sipariş Sayısı
 
 register:
   button: Kayıt Ol

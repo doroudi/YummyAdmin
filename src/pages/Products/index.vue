@@ -4,7 +4,7 @@
 
 <route lang="yaml">
 meta:
-  title: Products Management
+  title: products
   breadcrumb:
     - productManagement
     - products

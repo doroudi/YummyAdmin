@@ -4,7 +4,7 @@
 
 <route lang="yaml">
 meta:
-  title: Category Management
+  title: categories
   breadcrumb:
     - productManagement
     - categories

@@ -25,12 +25,12 @@ const columns: DataTableColumns<RowData> = [
     fixed: 'left',
   },
   {
-    title: 'Product',
+    title: t('products.name'),
     key: 'name',
     render: row => renderProductImage(row.image, row.name),
   },
   {
-    title: 'Category',
+    title: t('products.category'),
     key: 'category',
     render(row) {
       return h(NText,
@@ -40,7 +40,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
   {
-    title: 'Rate',
+    title: t('products.rate'),
     key: 'rate',
     render: row => renderRate(row.rate),
   },
@@ -55,7 +55,7 @@ const columns: DataTableColumns<RowData> = [
     render: row => renderTag(row.status, getStatusColor(row.status), ProductStatus),
   },
   {
-    title: 'Stock',
+    title: t('products.stoke'),
     key: 'stock',
     render: row => h(NSwitch, { value: row.stock, size: 'small' }, {}),
   },

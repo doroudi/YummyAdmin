@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NButton, NIcon, NRate, NSpace, NText } from 'naive-ui/es/components'
+import { type DataTableColumns, NButton, NRate, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Delete24Regular as DeleteIcon,
@@ -7,11 +7,14 @@ import {
 
 const { t } = useI18n()
 const store = useReviewStore()
+const { renderIcon, renderDate } = useRender()
+const { options } = useOptions()
 
 onMounted(getItems)
+
 const columns: DataTableColumns<RowData> = [
   {
-    title: 'RATE',
+    title: t('reviews.rate'),
     key: 'rate',
     render(row) {
       return [
@@ -21,7 +24,7 @@ const columns: DataTableColumns<RowData> = [
     fixed: 'left',
   },
   {
-    title: 'COMMENT',
+    title: t('reviews.comment'),
     key: 'comment',
     render(row) {
       return h(NText,
@@ -31,7 +34,7 @@ const columns: DataTableColumns<RowData> = [
     },
   },
   {
-    title: 'PRODUCT',
+    title: t('reviews.product'),
     key: 'name',
     render: row =>
       h(NSpace, {}, {
@@ -42,7 +45,7 @@ const columns: DataTableColumns<RowData> = [
   },
 
   {
-    title: 'CUSTOMER',
+    title: t('reviews.customer'),
     key: 'phone',
     render(row) {
       return [
@@ -53,12 +56,7 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('common.date'),
     key: 'date',
-    render(row) {
-      return h(NText,
-        {}, {
-          default: () => row.date,
-        })
-    },
+    render: row => renderDate(row.date),
   },
   {
     title: t('common.actions'),
@@ -80,24 +78,6 @@ const columns: DataTableColumns<RowData> = [
     },
   },
 ]
-const { options } = useOptions()
-
-function renderIcon(icon: any) {
-  return () => h(NIcon, null, { default: () => h(icon) })
-}
-
-// function handleDeleteItem() {
-//   dialog.error({
-//     title: 'Confirm',
-//     content: 'Are you sure?',
-//     positiveText: 'Yes, Delete',
-//     negativeText: 'Cancel',
-//     onPositiveClick: () => {
-//       /// store.deleteProduct(row.id)
-//       message.success('Product was deleted!')
-//     },
-//   })
-// }
 
 function rowKey(row: RowData) {
   return row.id

@@ -19,7 +19,7 @@ export function useRender() {
   function renderPrice(value: number, postfix = '') {
     return h(NText,
       {}, {
-        default: () => value.toLocaleString() + postfix,
+        default: () => `${value.toLocaleString()} ${postfix}`,
       })
   }
 
@@ -60,6 +60,10 @@ export function useRender() {
     )
   }
 
+  function renderDate(date: string) {
+    return h(NText, {}, { default: () => new Date(date).toLocaleDateString() })
+  }
+
   return {
     renderIcon,
     renderTag,
@@ -67,5 +71,6 @@ export function useRender() {
     renderRate,
     renderProductImage,
     renderMenuLabel,
+    renderDate,
   }
 }

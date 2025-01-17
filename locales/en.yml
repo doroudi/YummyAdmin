@@ -96,6 +96,7 @@ register:
   button: Register
   haveAccount: Have Account?
   login: Login!
+
 forgot:
   title: Forgot Password
   username: User Name
@@ -108,6 +109,7 @@ forgot:
   rememberInfo: Remembered Password?
   sendEmailSuccess: Email Sent Successfully, Please Check Your Email
   emailValidation: Email is not valid
+
 dashboard:
   summary: Summary
   transactions: Transactions
@@ -118,6 +120,7 @@ dashboard:
   activeOrders: Active Orders
   recentOrders: Recent Orders
   trendingProducts: Trending Products
+
 categories:
   title: Categories
   createButton: Create
@@ -133,6 +136,8 @@ categories:
 
 brands:
   title: Brands
+  name: Brand
+  shortName: Short Name
   createButton: Create
   create:
     buttonTitle: Create
@@ -147,6 +152,8 @@ brands:
 
 colors:
   title: Colors
+  color: Color
+  name: Name
   createButton: Create
   create:
     buttonTitle: Create
@@ -157,7 +164,22 @@ colors:
     nameRequired: Name is required
     colorRequired: Color not selected
 
+orders:
+  customer: Customer
+  itemsCount: Items Count
+
+reviews:
+  rate: Rate
+  comment: Comment
+  product: Product
+  customer: Customer
+  date: Date
+
 products:
+  name: Product Name
+  category: Category
+  rate: Rate
+  stoke: Stoke
   create:
     title: Create Product
     productInformation: Product Information
@@ -175,6 +197,18 @@ products:
     keywords: Keywords
     newKeyword: New Keyword
     imageName: Image
+
+customers:
+  title: Customers
+  customerName: Customer Name
+  joinDate: Join Date
+  phone: Phone
+  email: Email
+  ordersCount: Orders Count
+
+category:
+  name: Category
+  productsCount: Products Count
 
 not-found: Not found
 
