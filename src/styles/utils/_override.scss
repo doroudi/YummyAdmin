@@ -31,7 +31,7 @@
 .rtl {
   .n-menu-item-content__icon {
     margin-left: 8px;
-    margin-right: 5px!important;
+    margin-right: 5px !important;
   }
 
   .n-menu .n-submenu .n-menu-item-content {
@@ -56,12 +56,12 @@
   .n-data-table-expand-trigger {
     transform: rotate(180deg);
     margin-left: 8px;
-    margin-right:0!important;
+    margin-right: 0 !important;
   }
 
-    .n-rate {
-      direction: ltr;
-    }
+  .n-rate {
+    direction: ltr;
+  }
 }
 
 
@@ -77,4 +77,23 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: #000;
   -webkit-box-shadow: 0 0 0 1000px #eff0f1 inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+// ApexCharts
+.dark {
+  .apexcharts-text {
+    fill: #fff;
+  }
+
+  .apexcharts-tooltip,
+  .apexcharts-tooltip-title {
+    background-color: #333 !important;
+    color: #fff !important;
+    border: 1px solid #555 !important;
+  }
+
+  .apexcharts-legend-text {
+    color: #fff !important;
+    border: 1px solid #555 !important;
+  }
 }

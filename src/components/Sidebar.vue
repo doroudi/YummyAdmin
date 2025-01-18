@@ -128,6 +128,7 @@ const menuOptions: MenuOption[] = [
     children: [
       {
         label: () => renderMenuLabel(t('menu.notFound'), '/404'),
+        key: 'not-found',
       },
     ],
   },
