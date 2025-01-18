@@ -11,7 +11,7 @@ import { drawerRtl } from 'naive-ui/es/drawer/styles'
 import { darkTheme, lightTheme } from 'naive-ui'
 
 import useColors from './composables/colors'
-import themeOverrides from '~/common/theme/theme-overrides'
+import themeOverrides, { darkThemeOverrides } from '~/common/theme/theme-overrides'
 
 const layout = useLayoutStore()
 
@@ -29,6 +29,7 @@ const rtlStyles = [
 ]
 
 const customTheme = ref({ ...themeOverrides })
+const customDarkTheme = ref({ ...themeOverrides, ...darkThemeOverrides })
 const { makeLighter } = useColors()
 
 watch(() => layout.activeLanguage, () => {
@@ -61,7 +62,7 @@ watch(() => layout.themeColor, (newValue) => {
 
 <template>
   <n-config-provider
-    :theme="layout.isDark ? darkTheme : lightTheme" :theme-overrides="customTheme"
+    :theme="layout.isDark ? darkTheme : lightTheme" :theme-overrides="layout.isDark ? customDarkTheme : customTheme"
     :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false"
   >
     <n-notification-provider placement="bottom-right">

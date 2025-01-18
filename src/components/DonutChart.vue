@@ -29,7 +29,7 @@ const donutChartOptions = ref({
   labels: ['Tech', 'Cloth', 'HH', 'Food'],
   stroke: {
     width: 0,
-    show: true,
+    show: false,
     curve: 'smooth',
     lineCap: 'round',
   },
@@ -47,7 +47,6 @@ const donutChartOptions = ref({
       startAngle: -20,
       donut: {
         borderRadius: 10,
-
         labels: {
           show: true,
           name: {
@@ -62,9 +61,9 @@ const donutChartOptions = ref({
           total: {
             show: true,
             offsetY: 15,
-            label: 'App',
+            label: 'Sells',
             formatter() {
-              return '53%'
+              return '100%'
             },
           },
         },
