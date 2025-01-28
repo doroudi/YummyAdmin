@@ -1,8 +1,26 @@
-import { NBadge, NIcon, NImage, NSpace, NTag, NText } from 'naive-ui'
-import { Star24Filled as StarIcon } from '@vicons/fluent'
+import { NBadge, NButton, NIcon, NImage, NPopconfirm, NSpace, NTag, NText } from 'naive-ui'
 import { RouterLink } from 'vue-router'
 
+import {
+  Delete20Regular as DeleteIcon,
+  Warning20Filled as FailedIcon,
+  Star24Filled as StarIcon,
+  CheckmarkCircle20Filled as SuccessIcon,
+} from '@vicons/fluent'
+
 export function useRender() {
+  function renderLabel(title: string, path: string) {
+    return h(
+      RouterLink,
+      {
+        to: {
+          path,
+        },
+      },
+      { default: () => title },
+    )
+  }
+
   function renderIcon(icon: any, showBadge = false) {
     if (showBadge)
       return () => h(NBadge, { processing: true, dot: true, type: 'success', offset: [-2, 2] }, { default: () => h(NIcon, {}, { default: () => h(icon) }) })
@@ -19,7 +37,7 @@ export function useRender() {
   function renderPrice(value: number, postfix = '') {
     return h(NText,
       {}, {
-        default: () => `${value.toLocaleString()} ${postfix}`,
+        default: () => value.toLocaleString() + postfix,
       })
   }
 
@@ -48,20 +66,52 @@ export function useRender() {
     })
   }
 
-  function renderMenuLabel(title: string, path: string) {
-    return h(
-      RouterLink,
-      {
-        to: {
-          path,
-        },
-      },
-      { default: () => title },
-    )
+  function renderConfirmStatus(status: boolean, label: string) {
+    const icon = status ? SuccessIcon : FailedIcon
+    const iconColor = status ? 'green' : 'orange'
+    return h(NSpace, { align: 'center' }, {
+      default: () => [
+        h(NIcon, { color: iconColor, size: 'large' }, { default: () => h(icon, {}) }),
+        h(NText, {}, { default: () => label }),
+      ],
+    })
+  }
+
+  function renderText(text: string) {
+    return h(NText, {}, { default: () => text })
   }
 
   function renderDate(date: string) {
-    return h(NText, {}, { default: () => new Date(date).toLocaleDateString() })
+    return h(NText, {}, { default: () => `${new Date(date).toLocaleDateString()}` })
+  }
+
+  function renderActionButton(icon: any, onClickAction: any) {
+    return h(
+      NButton,
+      {
+        size: 'medium',
+        quaternary: true,
+        circle: true,
+        renderIcon: renderIcon(icon),
+        onClick: onClickAction,
+      },
+    )
+  }
+
+  function renderDeleteActionButton(confirmMessage: string, confirmAction: any) {
+    return h(
+      NPopconfirm, {
+        onPositiveClick: confirmAction,
+      },
+      {
+        trigger: () => renderActionButton(DeleteIcon, () => null),
+        default: () => confirmMessage,
+      },
+    )
+  }
+
+  function renderActionLabel(text: string, onClickAction: any) {
+    return h(NText, { onClick: onClickAction }, { default: () => text })
   }
 
   return {
@@ -70,7 +120,12 @@ export function useRender() {
     renderPrice,
     renderRate,
     renderProductImage,
-    renderMenuLabel,
+    renderLabel,
+    renderText,
     renderDate,
+    renderActionButton,
+    renderConfirmStatus,
+    renderActionLabel,
+    renderDeleteActionButton,
   }
 }

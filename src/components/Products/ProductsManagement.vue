@@ -2,7 +2,6 @@
 import { type DataTableColumns, NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
-  Delete24Regular as DeleteIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
 import { useDialog, useMessage } from 'naive-ui'
@@ -13,7 +12,7 @@ const store = useProductStore()
 const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
-const { renderIcon } = useRender()
+const { renderDeleteActionButton } = useRender()
 const { options } = useOptions()
 
 const { renderPrice, renderRate, renderTag, renderProductImage } = useRender()
@@ -63,20 +62,10 @@ const columns: DataTableColumns<RowData> = [
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render(row) {
-      return [
-        h(
-          NButton,
-          {
-            size: 'medium',
-            quaternary: true,
-            circle: true,
-            renderIcon: renderIcon(DeleteIcon),
-            onClick: () => handleDeleteItem(row),
-          },
-        ),
-      ]
-    },
+    render: row =>
+      [
+        renderDeleteActionButton(t('common.deleteConfirm'), () => handleDeleteItem(row)),
+      ],
   },
 ]
 function getStatusColor(status: ProductStatus) {
@@ -90,17 +79,9 @@ function getStatusColor(status: ProductStatus) {
   }
 }
 
-function handleDeleteItem(row: RowData) {
-  dialog.error({
-    title: 'Confirm',
-    content: 'Are you sure?',
-    positiveText: 'Yes, Delete',
-    negativeText: 'Cancel',
-    onPositiveClick: () => {
-      store.deleteProduct(row.id)
-      message.success('Product was deleted!')
-    },
-  })
+async function handleDeleteItem(row: RowData) {
+  await store.deleteProduct(row.id)
+  message.success('Product was deleted!')
 }
 
 function rowKey(row: RowData) {

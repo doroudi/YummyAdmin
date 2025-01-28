@@ -24,7 +24,7 @@ import { storeToRefs } from 'pinia'
 const layoutStore = useLayoutStore()
 const { collapsed, forceCollapsed } = storeToRefs(layoutStore)
 const { t } = useI18n()
-const { renderIcon, renderMenuLabel } = useRender()
+const { renderIcon, renderLabel } = useRender()
 
 const isHovered = ref(false)
 
@@ -34,7 +34,7 @@ const effectiveCollapsed = computed(() => {
 
 const menuOptions: MenuOption[] = [
   {
-    label: () => renderMenuLabel(t('menu.dashboard'), '/'),
+    label: () => renderLabel(t('menu.dashboard'), '/'),
     key: 'index',
     icon: renderIcon(DashboardIcon),
   },
@@ -44,39 +44,39 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(ProductsIcon),
     children: [
       {
-        label: () => renderMenuLabel(t('menu.products'), '/products'),
+        label: () => renderLabel(t('menu.products'), '/products'),
         key: 'products',
         icon: renderIcon(ProductsIcon2),
       },
       {
-        label: () => renderMenuLabel(t('menu.categories'), '/categories'),
+        label: () => renderLabel(t('menu.categories'), '/categories'),
         key: 'categories',
         icon: renderIcon(CategoryIcon),
       },
       {
-        label: () => renderMenuLabel(t('menu.brands'), '/brands'),
+        label: () => renderLabel(t('menu.brands'), '/brands'),
         key: 'brands',
         icon: renderIcon(BrandsIcon),
       },
       {
-        label: () => renderMenuLabel(t('menu.colors'), '/colors'),
+        label: () => renderLabel(t('menu.colors'), '/colors'),
         key: 'colors',
         icon: renderIcon(ColorsIcon),
       },
       {
-        label: () => renderMenuLabel(t('menu.reviews'), '/reviews'),
+        label: () => renderLabel(t('menu.reviews'), '/reviews'),
         key: 'reviews',
         icon: renderIcon(ReviewIcon),
       },
     ],
   },
   {
-    label: () => renderMenuLabel(t('menu.orders'), '/orders'),
+    label: () => renderLabel(t('menu.orders'), '/orders'),
     key: 'orders',
     icon: renderIcon(InvoicesIcon, true),
   },
   {
-    label: () => renderMenuLabel(t('menu.customers'), '/customers'),
+    label: () => renderLabel(t('menu.customers'), '/customers'),
     key: 'customers',
     icon: renderIcon(CustomersIcon),
   },
@@ -87,18 +87,18 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(AuthIcon),
     children: [
       {
-        label: () => renderMenuLabel(t('menu.login'), '/account/login'),
+        label: () => renderLabel(t('menu.login'), '/account/login'),
         key: 'login',
         icon: renderIcon(LoginIcon),
       },
       {
-        label: () => renderMenuLabel(t('menu.register'), '/account/login'),
+        label: () => renderLabel(t('menu.register'), '/account/login'),
         key: 'register',
         icon: renderIcon(RegisterIcon),
       },
 
       {
-        label: () => renderMenuLabel(t('menu.forgetPassword'), '/account/ForgotPassword'),
+        label: () => renderLabel(t('menu.forgetPassword'), '/account/ForgotPassword'),
         key: 'forget-password',
         icon: renderIcon(ForgetIcon),
       },
@@ -110,12 +110,12 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(SettingsIcon),
     children: [
       {
-        label: () => renderMenuLabel(t('menu.accountSettings'), '/account/profile'),
+        label: () => renderLabel(t('menu.accountSettings'), '/account/profile'),
         key: 'account-settings',
         icon: renderIcon(AccountSettingsIcon),
       },
       {
-        label: () => renderMenuLabel(t('menu.websiteSettings'), '/website-settings'),
+        label: () => renderLabel(t('menu.websiteSettings'), '/website-settings'),
         key: 'website-settings',
         icon: renderIcon(WebsiteSettingsIcon),
       },
@@ -127,7 +127,7 @@ const menuOptions: MenuOption[] = [
     icon: renderIcon(PagesIcon),
     children: [
       {
-        label: () => renderMenuLabel(t('menu.notFound'), '/404'),
+        label: () => renderLabel(t('menu.notFound'), '/404'),
         key: 'not-found',
       },
     ],

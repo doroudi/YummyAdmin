@@ -2,22 +2,22 @@
 import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
-  Delete24Regular as DeleteIcon,
   Edit32Regular as EditIcon,
   Add20Regular as PlusIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
-import { useDialog, useMessage } from 'naive-ui'
+import { useMessage } from 'naive-ui'
 
+const { renderDeleteActionButton, renderActionButton } = useRender()
 const layout = useLayoutStore()
 const { dialogPlacement } = storeToRefs(layout)
-
 const { t } = useI18n()
 const collapsed = ref(false)
 const store = useCategoryStore()
-const dialog = useDialog()
 const message = useMessage()
+
 onMounted(getItems)
+
 const columns: DataTableColumns<RowData> = [
   {
     title: t('category.name'),
@@ -32,51 +32,19 @@ const columns: DataTableColumns<RowData> = [
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render(row) {
-      return [
-        h(
-          NButton,
-          {
-            size: 'medium',
-            renderIcon: renderIcon(EditIcon),
-            quaternary: true,
-            circle: true,
-            class: 'mr-2',
-            onClick: () => {},
-          },
-        ),
-        h(
-          NButton,
-          {
-            size: 'medium',
-            quaternary: true,
-            circle: true,
-            renderIcon: renderIcon(DeleteIcon),
-            onClick: () => handleDeleteItem(row),
-          },
-        ),
-      ]
-    },
+    render: row =>
+      [
+        renderActionButton(EditIcon, () => { }),
+        renderDeleteActionButton(t('common.deleteConfirm'), () => handleDeleteItem(row)),
+      ],
   },
 ]
 const { options } = useOptions()
 const showAddDialog = ref(false)
 
-function renderIcon(icon: any) {
-  return () => h(NIcon, null, { default: () => h(icon) })
-}
-
 function handleDeleteItem(row: RowData) {
-  dialog.error({
-    title: 'Confirm',
-    content: 'Are you sure?',
-    positiveText: 'Yes, Delete',
-    negativeText: 'Cancel',
-    onPositiveClick: () => {
-      store.deleteCategory(row.id)
-      message.success('Category was deleted!')
-    },
-  })
+  store.deleteCategory(row.id)
+  message.success('Category was deleted!')
 }
 
 function rowKey(row: RowData) {

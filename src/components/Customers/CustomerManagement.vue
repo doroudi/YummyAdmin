@@ -3,19 +3,17 @@ import { getCurrentInstance } from 'vue'
 import { type DataTableColumns, NButton, NIcon, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
-  Delete24Regular as DeleteIcon,
   Edit24Regular as EditIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
-import { useDialog, useMessage } from 'naive-ui'
+import { useMessage } from 'naive-ui'
 
 const { t } = useI18n()
 const store = useCustomerStore()
-const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
 const { options } = useOptions()
-const { renderIcon } = useRender()
+const { renderActionButton, renderDeleteActionButton } = useRender()
 
 const { proxy } = getCurrentInstance()
 
@@ -72,45 +70,16 @@ const columns: DataTableColumns<RowData> = [
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render() {
-      return [
-        h(
-          NButton,
-          {
-            size: 'medium',
-            renderIcon: renderIcon(EditIcon),
-            quaternary: true,
-            circle: true,
-            class: 'mr-2',
-            onClick: () => { },
-          },
-        ),
-        h(
-          NButton,
-          {
-            size: 'medium',
-            quaternary: true,
-            circle: true,
-            renderIcon: renderIcon(DeleteIcon),
-            onClick: () => handleDeleteItem(),
-          },
-        ),
-      ]
-    },
+    render: () =>
+      [
+        renderActionButton(EditIcon, () => { }),
+        renderDeleteActionButton(t('common.deleteConfirm'), () => handleDeleteItem()),
+      ],
   },
 ]
 
 function handleDeleteItem() {
-  dialog.error({
-    title: 'Confirm',
-    content: 'Are you sure?',
-    positiveText: 'Yes, Delete',
-    negativeText: 'Cancel',
-    onPositiveClick: () => {
-      // store.deleteProduct(row.id)
-      message.success('Product was deleted!')
-    },
-  })
+  message.warning('Api not implemented yet :|')
 }
 
 function rowKey(row: RowData) {

@@ -1,30 +1,8 @@
-title: Yummy Admin
-description: Ücretsiz Vue 3 Gösterge Paneli
-direction: ltr
+Github:
+  button: GitHub
+  tooltip: Bu projeye ⭐️ Github'da destek verin
 ar: Arabic
-tr: Turkish
-de: German
-en: English
-fa: Persian
-currencySign: ₺
-home: Ana Sayfa
-common:
-  403Error: Erişim izniniz yok
-  404Error: 404 Hatası
-  404Message: >-
-    Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya
-    geçici olarak kullanılamıyor
-  actions: Eylemler
-  goHome: Ana Sayfaya Dön
-  new: Yeni
-  notFound: Bulunamadı
-  search: Ara
-  date: Tarih
-  price: Fiyat
-  status: Durum
 brands:
-  name: Marka Adı
-  shortName: Kisaltma
   create:
     brandName: İsim
     buttonTitle: Oluştur
@@ -32,6 +10,8 @@ brands:
     title: Yeni Marka Oluştur
     url: URL
   createButton: Oluştur
+  name: Marka Adı
+  shortName: Kisaltma
   title: Markalar
   validations:
     image: Resim gerekli
@@ -55,20 +35,50 @@ categories:
   validations:
     nameRequired: İsim gerekli
     parentRequired: Üst kategori seçilmedi
-
+category:
+  name: Kategori
+  productsCount: Produkte Anzahl
 colors:
   color: Renk
-  name: İsim
   create:
     buttonTitle: Oluştur
     color: Renk
     name: İsim
     title: Yeni Renk Oluştur
+  name: İsim
   title: Renkler
   validations:
     colorRequired: Renk seçilmedi
     nameRequired: İsim gerekli
-
+common:
+  403Error: Erişim izniniz yok
+  404Error: 404 Hatası
+  404Message: >-
+    Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya
+    geçici olarak kullanılamıyor
+  actions: Eylemler
+  date: Tarih
+  deleteConfirm: Bu öğeyi sileceğinizden emin misiniz?
+  goHome: Ana Sayfaya Dön
+  new: Yeni
+  notFound: Bulunamadı
+  price: Fiyat
+  search: Ara
+  status: Durum
+currencySign: ₺
+customers:
+  customerName: Müşteri Adı
+  email: Email
+  joinDate: Katılma Tarihi
+  ordersCount: Sipariş Sayısı
+  phone: Telefon
+  title: Müşteriler
+customize:
+  color: Renk
+  language: Dil
+  layout: Düzen
+  theme: Tema
+  title: Özelleştir
 dashboard:
   activeOrders: Aktif Siparişler
   products: Ürünler
@@ -79,20 +89,24 @@ dashboard:
   transactions: İşlemler
   trendingProducts: trend olan Ürünler
   visits: Ziyaretler
-
+de: German
+description: Ücretsiz Vue 3 Gösterge Paneli
+direction: ltr
+en: English
+fa: Persian
 forgot:
   button: Kurtar
+  email: Email
+  emailValidation: Email geçerli değil
   haveNotAccount: Hesabınız yok mu?
+  login: Giriş
   register: Hesap Oluştur!
+  rememberInfo: Şifreyi Hatırladınız mı?
+  resetPassword: Şifreyi Sıfırla
+  sendEmailSuccess: Email Başarıyla Gönderildi, Lütfen E-postanızı Kontrol Edin
   title: Şifremi Unuttum
   username: Kullanıcı Adı
-  email: Email
-  resetPassword: Şifreyi Sıfırla
-  login: Giriş
-  rememberInfo: Şifreyi Hatırladınız mı?
-  sendEmailSuccess: Email Başarıyla Gönderildi, Lütfen E-postanızı Kontrol Edin
-  emailValidation: Email geçerli değil
-
+home: Ana Sayfa
 login:
   createAccount: Hesap Oluştur!
   failedMessage: Giriş Başarısız
@@ -110,47 +124,49 @@ login:
     passwordRequired: Şifre gerekli
     userNameRequired: Kullanıcı adı girin
   welcome: Tekrar Hoşgeldiniz!
-
 menu:
   accountSettings: Hesap Ayarları
   announcement: Duyuru
+  authentication: kimlik doğrulama
   blog: Blog
   brands: Markalar
   categories: Kategoriler
   colors: Renkler
   comments: Yorumlar
+  createProduct: Ürün Oluştur
   customers: Müşteriler
   dashboard: Gösterge Paneli
   feedbacks: Geri Bildirimler
+  forgetPassword: Şifremi Unuttum
   login: Giriş
   messages: Mesajlar
   news: Haberler
   notFound: '404'
   notifications: Bildirimler
   orders: Siparişler
+  other: Diğer
   pages: Sayfalar
   productManagement: Ürün Yönetimi
   products: Ürünler
+  register: Kayıt Ol
   reviews: İncelemeler
   settings: Ayarlar
   sms: SMS
   support: Destek
   users: Kullanıcılar
   websiteSettings: Website Ayarları
-  authentication: kimlik doğrulama
-  other: Diğer
-  createProduct: Ürün Oluştur
-  register: Kayıt Ol
-  forgetPassword: Şifremi Unuttum
 not-found: Bulunamadı
 notifications:
   empty: Hiçbir bildirim yok
-
+notify:
+  welcome: >-
+    Yummy Admin'e hoş geldiniz! Naive UI ve Vue 3 tabanlı Ücretsiz Admin Paneli,
+    lütfen GitHub'da bir yıldız ⭐️ vererek bu projeyi destekleyin
+orders:
+  customer: Müşteri Adı
+  itemsCount: Öğe sayısı
 products:
-  name: Ürün Adı
   category: Kategori
-  rate: Oran
-  stock: Stok
   create:
     barcode: Barkod
     brand: Marka
@@ -168,30 +184,9 @@ products:
     productInformation: Ürün Bilgisi
     sku: Stok Kodu
     title: Ürün Oluştur
-
-category:
-  name: Kategori
-  productsCount: Produkte Anzahl
-
-orders:
-  customer: Müşteri Adı
-  itemsCount: Öğe sayısı
-
-reviews:
+  name: Ürün Adı
   rate: Oran
-  comment: Yorum
-  product: Ürün
-  customer: Müşteri
-  date: Tarih
-
-customers:
-  title: Müşteriler
-  customerName: Müşteri Adı
-  joinDate: Katılma Tarihi
-  phone: Telefon
-  email: Email
-  ordersCount: Sipariş Sayısı
-
+  stock: Stok
 register:
   button: Kayıt Ol
   haveAccount: Hesabınız var mı?
@@ -199,7 +194,14 @@ register:
   password: Şifre
   title: Kayıt Ol
   username: Kullanıcı Adı
-
+reviews:
+  comment: Yorum
+  customer: Müşteri
+  date: Tarih
+  product: Ürün
+  rate: Oran
+title: Yummy Admin
+tr: Turkish
 userMenu:
   dark: Karanlık
   en: İngilizce
@@ -210,17 +212,3 @@ userMenu:
   options: Seçenekler
   profile: Profil
   theme: Tema
-
-customize:
-  title: Özelleştir
-  theme: Tema
-  color: Renk
-  layout: Düzen
-  language: Dil
-
-Github:
-  button: GitHub
-  tooltip: Bu projeye ⭐️ Github'da destek verin
-
-notify:
-  welcome: Yummy Admin'e hoş geldiniz! Naive UI ve Vue 3 tabanlı Ücretsiz Admin Paneli, lütfen GitHub'da bir yıldız ⭐️ vererek bu projeyi destekleyin

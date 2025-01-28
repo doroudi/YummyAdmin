@@ -1,30 +1,8 @@
-title: پنل مدیریت Yummy
-description: داشبورد رایگان vue3
-direction: rtl
-en: English
-fa: Persian
-tr: Turkish
+Github:
+  button: گیت هاب
+  tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
 ar: Arabic
-de: German
-ch: Chinese
-home: خانه
-currencySign: تومان
-common:
-  notFound: پیدا نشد
-  oops: صفحه
-  404Error: 404 خطای
-  goHome: بازگشت به خانه
-  404Message: متاسفانه صفحه ای که دنبالش بودید پیدا نشد
-  403Error: خطای دسترسی
-  search: جستجو
-  new: جدید
-  actions: عملیات
-  date: تاریخ
-  price: قیمت
-  status: وضعیت
 brands:
-  name: نام برند
-  shortName: اسم کوتاه
   create:
     brandName: نام برند
     buttonTitle: ایجاد
@@ -32,6 +10,8 @@ brands:
     title: ایجاد
     url: وبسایت
   createButton: ذخیره
+  name: نام برند
+  shortName: اسم کوتاه
   title: برند ها
   validations:
     image: تصویر برند الزامی است
@@ -51,52 +31,86 @@ categories:
     parent: دسته والد
     title: ایجاد دسته بندی جدید
   createButton: ذخیره
-  title: دسته بندی ها
   stat: آمار
+  title: دسته بندی ها
   validations:
     nameRequired: نام دسته الزامی است
     parentRequired: دسته والد الزامی است
+category:
+  name: دسته بندی
+  productsCount: تعداد محصولات
+ch: Chinese
 colors:
   color: رنگ
-  name: نام
   create:
     buttonTitle: رنگ جدید
     color: رنگ
     name: نام رنگ
     title: ایجاد رنگ جدید
   createButton: ذخیره
+  name: نام
   title: نام رنگ
   validations:
     colorRequired: رنگ الزامی است
     nameRequired: نام رنگ الزامی است
-
+common:
+  403Error: خطای دسترسی
+  404Error: 404 خطای
+  404Message: متاسفانه صفحه ای که دنبالش بودید پیدا نشد
+  actions: عملیات
+  date: تاریخ
+  deleteConfirm: آیا از حذف این مورد مطمئن هستید؟
+  goHome: بازگشت به خانه
+  new: جدید
+  notFound: پیدا نشد
+  oops: صفحه
+  price: قیمت
+  search: جستجو
+  status: وضعیت
+currencySign: تومان
+customers:
+  customerName: نام مشتری
+  email: ایمیل
+  joinDate: تاریخ عضویت
+  ordersCount: تعداد سفارش ها
+  phone: موبایل
+  title: مشتریان
+customize:
+  color: رنگ
+  language: زبان
+  layout: چیدمان
+  theme: پوسته
+  title: سفارشی سازی
 dashboard:
-  summary: خلاصه
-  registers: ثبت نام ها
-  products: محصولات
-  sells: فروش
-  visits: بازدید ها
   activeOrders: سفارش های فعال
+  products: محصولات
   recentOrders: سفارش های اخیر
+  registers: ثبت نام ها
+  sells: فروش
+  summary: خلاصه
   trendingProducts: محصولات پربازدید
-
+  visits: بازدید ها
+de: German
+description: داشبورد رایگان vue3
+direction: rtl
+en: English
+fa: Persian
 forgot:
   button: بازیابی
+  email: ایمیل
+  emailValidation: ایمیل معتبر نیست
   haveNotAccount: اکانت ندارید؟
+  login: ورود
   register: یکی بسازید
+  rememberInfo: رمز عبور را به خاطر دارید؟
+  resetPassword: بازنشانی رمز عبور
+  sendEmailSuccess: ایمیل با موفقیت ارسال شد، لطفا ایمیل خود را بررسی کنید
   title: فراموشی رمز عبور
   username: نام کاربری
-  email: ایمیل
-  resetPassword: بازنشانی رمز عبور
-  login: ورود
-  rememberInfo: رمز عبور را به خاطر دارید؟
-  sendEmailSuccess: ایمیل با موفقیت ارسال شد، لطفا ایمیل خود را بررسی کنید
-  emailValidation: ایمیل معتبر نیست
-
+home: خانه
 login:
   createAccount: یکی بسازید
   failedMessage: خطا در ورود
-  successMessage: ورود موفق 🎉
   forgetPassword: فراموشی رمز عبور
   haveNotAccount: حساب کاربری ندارید؟
   loginButton: ورود
@@ -104,51 +118,56 @@ login:
   password: رمز عبور
   rememberMe: مرا بخاطر بسپار
   skipLogin: رد کردن
+  successMessage: ورود موفق 🎉
   title: ورود به سیستم
   username: نام کاربری
   validations:
     passwordRequired: رمز عبور الزامی است
     userNameRequired: نام کاربری الزامی است
   welcome: خوش آمدید
-
 menu:
   accountSettings: تنظیمات کاربر
   announcement: اطلاع رسانی
+  authentication: احراز هویت
   blog: بلاگ
   brands: برند ها
   categories: دسته بندی ها
   colors: رنگ ها
   comments: نظرات
+  createProduct: ایجاد محصول
   customers: مشتری ها
   dashboard: داشبورد
   feedbacks: بازخورد ها
+  forgetPassword: فراموشی رمز
+  login: ورود
   messages: نظرات
   news: اخبار
+  notFound: '404'
   notifications: نوتیفیکشن ها
   orders: سفارشات
+  other: سایر
+  pages: صفحات
   productManagement: مدیریت محصولات
   products: محصولات
   productsManagement: مدیریت محصولات
+  register: ثبت نام
   reviews: بررسی ها
   settings: تنظیمات
   sms: پیامک
   support: پشتیبانی
   users: کاربران
   websiteSettings: تنظیمات وبسایت
-  pages: صفحات
-  login: ورود
-  notFound: '404'
-  authentication: احراز هویت
-  other: سایر
-  createProduct: ایجاد محصول
-  register: ثبت نام
-  forgetPassword: فراموشی رمز
-
+notifications:
+  empty: هیچ اعلانی وجود ندارد
+notify:
+  welcome: >-
+    به پنل ادمین یامی خوش آمدید، لطفا این پروژه را با دادن یک ستاره ⭐️ در گیت
+    هاب پشتیبانی کنید
+orders:
+  customer: نام مشتری
+  itemsCount: تعداد محصولات
 products:
-  name: نام محصول
   category: دسته بندی
-  rate: امتیاز
-  stoke: موجود
   create:
     barcode: بارکد
     brand: برند
@@ -166,30 +185,9 @@ products:
     productInformation: توضیحات محصول
     sku: شناسه محصول
     title: ایجاد محصول
-
-category:
-  name: دسته بندی
-  productsCount: تعداد محصولات
-
-orders:
-  customer: نام مشتری
-  itemsCount: تعداد محصولات
-
-reviews:
+  name: نام محصول
   rate: امتیاز
-  comment: نظر
-  product: محصول
-  customer: مشتری
-  date: تاریخ
-
-customers:
-  title: مشتریان
-  customerName: نام مشتری
-  joinDate: تاریخ عضویت
-  phone: موبایل
-  email: ایمیل
-  ordersCount: تعداد سفارش ها
-
+  stoke: موجود
 register:
   button: ثبت نام
   haveAccount: اکانت دارید؟
@@ -197,7 +195,14 @@ register:
   password: رمز عبور
   title: ثبت نام
   username: نام کاربری
-
+reviews:
+  comment: نظر
+  customer: مشتری
+  date: تاریخ
+  product: محصول
+  rate: امتیاز
+title: پنل مدیریت Yummy
+tr: Turkish
 userMenu:
   dark: تیره
   en: انگلیسی
@@ -209,20 +214,3 @@ userMenu:
   profile: پروفایل
   signOut: خروج
   theme: پوسته
-
-notifications:
-  empty: هیچ اعلانی وجود ندارد
-
-customize:
-  title: سفارشی سازی
-  theme: پوسته
-  color: رنگ
-  layout: چیدمان
-  language: زبان
-
-Github:
-  button: گیت هاب
-  tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
-
-notify:
-  welcome: به پنل ادمین یامی خوش آمدید، لطفا این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید

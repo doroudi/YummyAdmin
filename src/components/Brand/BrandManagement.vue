@@ -2,22 +2,20 @@
 import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
-  Delete24Regular as DeleteIcon,
   Edit32Regular as EditIcon,
   Add20Regular as PlusIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
-import { useDialog, useMessage } from 'naive-ui'
+import { useMessage } from 'naive-ui'
 
 const layout = useLayoutStore()
 const { dialogPlacement } = storeToRefs(layout)
 const { t } = useI18n()
 const store = useBrandStore()
-const dialog = useDialog()
 const message = useMessage()
 
 onMounted(getItems)
-const { renderIcon } = useRender()
+const { renderActionButton, renderDeleteActionButton } = useRender()
 
 const columns: DataTableColumns<RowData> = [
   {
@@ -35,27 +33,8 @@ const columns: DataTableColumns<RowData> = [
     width: 110,
     render: row =>
       [
-        h(
-          NButton,
-          {
-            size: 'medium',
-            renderIcon: renderIcon(EditIcon),
-            quaternary: true,
-            circle: true,
-            class: 'mr-2',
-            onClick: () => { },
-          },
-        ),
-        h(
-          NButton,
-          {
-            size: 'medium',
-            quaternary: true,
-            circle: true,
-            renderIcon: renderIcon(DeleteIcon),
-            onClick: () => handleDeleteItem(row),
-          },
-        ),
+        renderActionButton(EditIcon, () => {}),
+        renderDeleteActionButton(t('common.deleteConfirm'), () => handleDeleteItem(row)),
       ],
   },
 ]
@@ -63,16 +42,8 @@ const { options } = useOptions()
 const showAddDialog = ref(false)
 
 function handleDeleteItem(row: RowData) {
-  dialog.error({
-    title: 'Confirm',
-    content: 'Are you sure?',
-    positiveText: 'Yes, Delete',
-    negativeText: 'Cancel',
-    onPositiveClick: () => {
-      store.deleteBrand(row.id)
-      message.success('Brand was deleted!')
-    },
-  })
+  store.deleteBrand(row.id)
+  message.success('Brand was deleted!')
 }
 
 function rowKey(row: RowData) {

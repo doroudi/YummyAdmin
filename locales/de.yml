@@ -1,18 +1,11 @@
-title: Yummy Admin
-description: Kostenloses Vue 3 Dashboard
-direction: ltr
-tr: Turkish
+Github:
+  button: Github
+  tooltip: >-
+    Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
+    geben
 ar: Arabic
-ch: Chinese
-de: German
-en: English
-fa: Persian
-currencySign: €
-home: Startseite
-
 brands:
   brand: Marke
-  shortName: Kurzname
   create:
     brandName: Name
     buttonTitle: Erstellen
@@ -20,6 +13,7 @@ brands:
     title: Neue Marke erstellen
     url: URL
   createButton: Erstellen
+  shortName: Kurzname
   title: Marken
   validations:
     image: Bild wird benötigt
@@ -44,15 +38,19 @@ categories:
   validations:
     nameRequired: Name wird benötigt
     parentRequired: Übergeordnete Kategorie nicht ausgewählt
+category:
+  name: Kategorie
+  productsCount: Produkte Anzahl
+ch: Chinese
 colors:
   color: Farbe
-  name: Name
   create:
     buttonTitle: Erstellen
     color: Farbe
     name: Name
     title: Neue Farbe erstellen
   createButton: Erstellen
+  name: Name
   title: Farben
   validations:
     colorRequired: Farbe nicht ausgewählt
@@ -65,12 +63,21 @@ common:
     Name wurde geändert oder ist vorübergehend nicht verfügbar
   actions: Aktionen
   date: Datum
+  deleteConfirm: Sind Sie sicher, diesen Artikel zu löschen?
   goHome: Zurück zur Startseite
   new: Neu
   notFound: Nicht gefunden
   price: Price
   search: Suche
   status: Status
+currencySign: €
+customers:
+  customerName: Kundenname
+  email: E-Mail
+  joinDate: Beitrittsdatum
+  ordersCount: Bestellanzahl
+  phone: Telefon
+  title: Kunden
 customize:
   color: Farbe
   language: Sprache
@@ -87,7 +94,11 @@ dashboard:
   transactions: Transaktionen
   trendingProducts: Trendige Produkte
   visits: Besuche
-
+de: German
+description: Kostenloses Vue 3 Dashboard
+direction: ltr
+en: English
+fa: Persian
 forgot:
   button: Wiederherstellen
   email: E-Mail
@@ -100,6 +111,7 @@ forgot:
   sendEmailSuccess: E-Mail erfolgreich gesendet, bitte überprüfen Sie Ihre E-Mail
   title: Passwort vergessen
   username: Benutzername
+home: Startseite
 login:
   createAccount: Erstellen Sie eins!
   failedMessage: Anmeldung fehlgeschlagen
@@ -151,12 +163,16 @@ menu:
 not-found: Nicht gefunden
 notifications:
   empty: Keine Benachrichtigungen
-
+notify:
+  welcome: >-
+    Willkommen bei Yummy Admin! Kostenloses Admin-Panel basierend auf Naive UI
+    und Vue 3. Bitte unterstützen Sie dieses Projekt, indem Sie auf GitHub einen
+    Stern ⭐️ vergeben.
+orders:
+  customer: Kundenname
+  itemsCount: Anzahl der Elemente
 products:
-  name: Produktname
   category: Kategorie
-  rate: Bewertung
-  stoke: Auf Lager
   create:
     barcode: Barcode
     brand: Marke
@@ -174,30 +190,9 @@ products:
     productInformation: Produktinformationen
     sku: Artikelnummer
     title: Produkt erstellen
-
-category:
-  name: Kategorie
-  productsCount: Produkte Anzahl
-
-customers:
-  title: Kunden
-  customerName: Kundenname
-  joinDate: Beitrittsdatum
-  phone: Telefon
-  email: E-Mail
-  ordersCount: Bestellanzahl
-
-orders:
-  customer: Kundenname
-  itemsCount: Anzahl der Elemente
-
-reviews:
+  name: Produktname
   rate: Bewertung
-  comment: Kommentar
-  product: Produkt
-  customer: Kunde
-  date: Datum
-
+  stoke: Auf Lager
 register:
   button: Registrieren
   haveAccount: Haben Sie ein Konto?
@@ -205,7 +200,14 @@ register:
   password: Passwort
   title: Registrieren
   username: Benutzername
-
+reviews:
+  comment: Kommentar
+  customer: Kunde
+  date: Datum
+  product: Produkt
+  rate: Bewertung
+title: Yummy Admin
+tr: Turkish
 userMenu:
   dark: Dunkel
   language: Sprache
@@ -214,15 +216,3 @@ userMenu:
   options: Optionen
   profile: Profil
   theme: Design
-
-Github:
-  button: Github
-  tooltip: >-
-    Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
-    geben
-
-notify:
-  welcome: >-
-    Willkommen bei Yummy Admin! Kostenloses Admin-Panel basierend auf Naive UI
-    und Vue 3. Bitte unterstützen Sie dieses Projekt, indem Sie auf GitHub einen
-    Stern ⭐️ vergeben.
