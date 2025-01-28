@@ -1,13 +1,10 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NButton, NRate, NSpace, NText } from 'naive-ui/es/components'
+import { type DataTableColumns, NRate, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
-import {
-  Delete24Regular as DeleteIcon,
-} from '@vicons/fluent'
 
 const { t } = useI18n()
 const store = useReviewStore()
-const { renderIcon, renderDate } = useRender()
+const { renderDeleteActionButton, renderDate } = useRender()
 const { options } = useOptions()
 
 onMounted(getItems)
@@ -64,16 +61,7 @@ const columns: DataTableColumns<RowData> = [
     width: 110,
     render() {
       return [
-        h(
-          NButton,
-          {
-            size: 'medium',
-            quaternary: true,
-            circle: true,
-            renderIcon: renderIcon(DeleteIcon),
-            // onClick: () => handleDeleteItem(row),
-          },
-        ),
+        renderDeleteActionButton(t('common.deleteConfirm'), () => {}),
       ]
     },
   },

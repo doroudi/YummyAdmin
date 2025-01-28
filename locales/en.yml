@@ -1,69 +1,22 @@
-title: Yummy Admin
-description: Free Vue 3 Dashboard
-direction: ltr
-en: English
-fa: Persian
-tr: Turkish
+Github:
+  button: Github
+  tooltip: Support this project by giving a star ⭐️ on GitHub
 ar: Arabic
-de: German
-ch: Chinese
-home: Home
-currencySign: $
-common:
-  notFound: Not Found
-  404Error: 404 Error
-  oops: Oops Page
-  goHome: Back To Home
-  404Message: Sorry but the page you are looking for does not exist, have been removed. name changed or is temporarily unavailable
-  403Error: You have not Permission to access
-  search: Search
-  new: New
-  actions: Actions
-  name: Name
-  date: Date
-  price: Price
-  status: Status
-menu:
-  dashboard: Dashboard
-  productManagement: Products Management
-  products: Products
-  categories: Categories
-  brands: Brands
-  colors: Colors
-  orders: Orders
-  feedbacks: Feedbacks
-  reviews: Reviews
-  messages: Messages
-  support: Support
-  comments: Comments
-  announcement: Announcement
-  news: News
-  notifications: Notifications
-  sms: Sms
-  accountSettings: Account Settings
-  websiteSettings: Website Settings
-  blog: Blog
-  users: Users
-  customers: Customers
-  settings: Settings
-  pages: Pages
-  login: Login
-  register: Register
-  forgetPassword: Forget Password
-  notFound: 404 Error
-  authentication: Authentication
-  other: Other
-  createProduct: Create Product
-userMenu:
-  language: Language
-  theme: Theme
-  options: Options
-  profile: Profile
-  logout: Logout
-  dark: Dark
-  light: Light
-  en: English
-  fa: Persian
+brands:
+  create:
+    brandName: Name
+    buttonTitle: Create
+    image: Image
+    title: Create New Brand
+    url: Url
+  createButton: Create
+  name: Brand
+  shortName: Short Name
+  title: Brands
+  validations:
+    image: Image is required
+    name: Name is required
+    url: Url is required
 button:
   about: About
   back: Back
@@ -71,160 +24,196 @@ button:
   home: Home
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
-login:
-  title: Login
-  username: User Name
-  password: Password
-  loginButton: Login
-  skipLogin: Skip Login
-  forgetPassword: Forget Password
-  rememberMe: Remember Me
-  welcome: Welcome Back!
-  message: To access to your account please login here
-  haveNotAccount: Don't have an account?
-  createAccount: Create One!
-  failedMessage: Login Failed
-  successMessage: Logged In Successfully 🎉
-  validations:
-    userNameRequired: Enter username
-    passwordRequired: Password is required
-
-register:
-  title: Register
-  username: User Name
-  password: Password
-  button: Register
-  haveAccount: Have Account?
-  login: Login!
-
-forgot:
-  title: Forgot Password
-  username: User Name
-  button: Recover
-  haveNotAccount: Haven't Account?
-  register: Create One!
-  email: Email
-  resetPassword: Reset Password
-  login: Login
-  rememberInfo: Remembered Password?
-  sendEmailSuccess: Email Sent Successfully, Please Check Your Email
-  emailValidation: Email is not valid
-
-dashboard:
-  summary: Summary
-  transactions: Transactions
-  registers: Registers
-  products: Products
-  sells: Sells
-  visits: Visits
-  activeOrders: Active Orders
-  recentOrders: Recent Orders
-  trendingProducts: Trending Products
-
 categories:
-  title: Categories
-  createButton: Create
-  stat: Statistics
   create:
     buttonTitle: Create
-    title: Create New Category
     categoryName: Name
     parent: Parent
+    title: Create New Category
+  createButton: Create
+  stat: Statistics
+  title: Categories
   validations:
     nameRequired: Name is required
     parentRequired: Parent Not Selected
-
-brands:
-  title: Brands
-  name: Brand
-  shortName: Short Name
-  createButton: Create
-  create:
-    buttonTitle: Create
-    title: Create New Brand
-    image: Image
-    brandName: Name
-    url: Url
-  validations:
-    name: Name is required
-    url: Url is required
-    image: Image is required
-
-colors:
-  title: Colors
-  color: Color
-  name: Name
-  createButton: Create
-  create:
-    buttonTitle: Create
-    title: Create New Color
-    color: Color
-    name: Name
-  validations:
-    nameRequired: Name is required
-    colorRequired: Color not selected
-
-orders:
-  customer: Customer
-  itemsCount: Items Count
-
-reviews:
-  rate: Rate
-  comment: Comment
-  product: Product
-  customer: Customer
-  date: Date
-
-products:
-  name: Product Name
-  category: Category
-  rate: Rate
-  stoke: Stoke
-  create:
-    title: Create Product
-    productInformation: Product Information
-    name: Product Name
-    barcode: Barcode
-    sku: SKU
-    description: Description
-    media: Media
-    pricing: Pricing
-    price: Price
-    discountedPrice: Discounted Price
-    inStock: InStock
-    category: Category
-    brand: Brand
-    keywords: Keywords
-    newKeyword: New Keyword
-    imageName: Image
-
-customers:
-  title: Customers
-  customerName: Customer Name
-  joinDate: Join Date
-  phone: Phone
-  email: Email
-  ordersCount: Orders Count
-
 category:
   name: Category
   productsCount: Products Count
-
+ch: Chinese
+colors:
+  color: Color
+  create:
+    buttonTitle: Create
+    color: Color
+    name: Name
+    title: Create New Color
+  createButton: Create
+  name: Name
+  title: Colors
+  validations:
+    colorRequired: Color not selected
+    nameRequired: Name is required
+common:
+  403Error: You have not Permission to access
+  404Error: 404 Error
+  404Message: >-
+    Sorry but the page you are looking for does not exist, have been removed.
+    name changed or is temporarily unavailable
+  actions: Actions
+  date: Date
+  deleteConfirm: Are you sure to delete this item?
+  goHome: Back To Home
+  name: Name
+  new: New
+  notFound: Not Found
+  oops: Oops Page
+  price: Price
+  search: Search
+  status: Status
+currencySign: $
+customers:
+  customerName: Customer Name
+  email: Email
+  joinDate: Join Date
+  ordersCount: Orders Count
+  phone: Phone
+  title: Customers
+customize:
+  color: Color
+  language: Language
+  layout: Layout
+  theme: Theme
+  title: Customize
+dashboard:
+  activeOrders: Active Orders
+  products: Products
+  recentOrders: Recent Orders
+  registers: Registers
+  sells: Sells
+  summary: Summary
+  transactions: Transactions
+  trendingProducts: Trending Products
+  visits: Visits
+de: German
+description: Free Vue 3 Dashboard
+direction: ltr
+en: English
+fa: Persian
+forgot:
+  button: Recover
+  email: Email
+  emailValidation: Email is not valid
+  haveNotAccount: Haven't Account?
+  login: Login
+  register: Create One!
+  rememberInfo: Remembered Password?
+  resetPassword: Reset Password
+  sendEmailSuccess: Email Sent Successfully, Please Check Your Email
+  title: Forgot Password
+  username: User Name
+home: Home
+login:
+  createAccount: Create One!
+  failedMessage: Login Failed
+  forgetPassword: Forget Password
+  haveNotAccount: Don't have an account?
+  loginButton: Login
+  message: To access to your account please login here
+  password: Password
+  rememberMe: Remember Me
+  skipLogin: Skip Login
+  successMessage: Logged In Successfully 🎉
+  title: Login
+  username: User Name
+  validations:
+    passwordRequired: Password is required
+    userNameRequired: Enter username
+  welcome: Welcome Back!
+menu:
+  accountSettings: Account Settings
+  announcement: Announcement
+  authentication: Authentication
+  blog: Blog
+  brands: Brands
+  categories: Categories
+  colors: Colors
+  comments: Comments
+  createProduct: Create Product
+  customers: Customers
+  dashboard: Dashboard
+  feedbacks: Feedbacks
+  forgetPassword: Forget Password
+  login: Login
+  messages: Messages
+  news: News
+  notFound: 404 Error
+  notifications: Notifications
+  orders: Orders
+  other: Other
+  pages: Pages
+  productManagement: Products Management
+  products: Products
+  register: Register
+  reviews: Reviews
+  settings: Settings
+  sms: Sms
+  support: Support
+  users: Users
+  websiteSettings: Website Settings
 not-found: Not found
-
 notifications:
   empty: No notifications
-
-customize:
-  title: Customize
-  theme: Theme
-  color: Color
-  layout: Layout
-  language: Language
-
-Github:
-  button: Github
-  tooltip: Support this project by giving a star ⭐️ on GitHub
-
 notify:
-  welcome: Welcome to Yummy Admin! Free Admin Panel based on NaiveUI and Vue3, please Support this project by giving a star ⭐️ on GitHub
+  welcome: >-
+    Welcome to Yummy Admin! Free Admin Panel based on NaiveUI and Vue3, please
+    Support this project by giving a star ⭐️ on GitHub
+orders:
+  customer: Customer
+  itemsCount: Items Count
+products:
+  category: Category
+  create:
+    barcode: Barcode
+    brand: Brand
+    category: Category
+    description: Description
+    discountedPrice: Discounted Price
+    imageName: Image
+    inStock: InStock
+    keywords: Keywords
+    media: Media
+    name: Product Name
+    newKeyword: New Keyword
+    price: Price
+    pricing: Pricing
+    productInformation: Product Information
+    sku: SKU
+    title: Create Product
+  name: Product Name
+  rate: Rate
+  stoke: Stoke
+register:
+  button: Register
+  haveAccount: Have Account?
+  login: Login!
+  password: Password
+  title: Register
+  username: User Name
+reviews:
+  comment: Comment
+  customer: Customer
+  date: Date
+  product: Product
+  rate: Rate
+title: Yummy Admin
+tr: Turkish
+userMenu:
+  dark: Dark
+  en: English
+  fa: Persian
+  language: Language
+  light: Light
+  logout: Logout
+  options: Options
+  profile: Profile
+  theme: Theme

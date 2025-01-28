@@ -1,12 +1,12 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NButton, NSpace, NText } from 'naive-ui/es/components'
+import { type DataTableColumns, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Open24Regular as ArrowIcon,
 } from '@vicons/fluent'
 import { OrderStatus } from '~/models/Order'
 
-const { renderIcon, renderTag, renderPrice } = useRender()
+const { renderActionButton, renderTag, renderPrice } = useRender()
 const { getStatusColor } = useOrders()
 const store = useOrderStore()
 const { proxy } = getCurrentInstance()
@@ -45,16 +45,7 @@ const columns: DataTableColumns<RowData> = [
     width: 110,
     render: () =>
       [
-        h(
-          NButton,
-          {
-            size: 'medium',
-            quaternary: true,
-            circle: true,
-            renderIcon: renderIcon(ArrowIcon),
-            onClick: () => {},
-          },
-        ),
+        renderActionButton(ArrowIcon, () => {}),
       ],
   },
 ]

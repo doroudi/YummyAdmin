@@ -1,67 +1,22 @@
-title: 美味管理系统
-description: 免费的Vue 3仪表板
-direction: ltr
-en: English
-fa: Persian
-tr: Turkish
+Github:
+  button: Github
+  tooltip: 请在Github上给这个项目一个⭐️支持
 ar: Arabic
-de: German
-ch: Chinese
-home: 首页
-currencySign: ¥
-common:
-  notFound: 未找到
-  404Error: 404错误
-  goHome: 返回首页
-  404Message: 抱歉，您要查找的页面不存在、已被删除、名称已更改或暂时不可用
-  403Error: 您没有访问权限
-  search: 搜索
-  new: 新
-  actions: 操作
-  date: 日期
-  price: 价格
-  status: 状态
-menu:
-  dashboard: 仪表板
-  productManagement: 产品管理
-  products: 产品
-  categories: 分类
-  brands: 品牌
-  colors: 颜色
-  orders: 订单
-  feedbacks: 反馈
-  reviews: 评论
-  messages: 消息
-  support: 支持
-  comments: 评论
-  announcement: 公告
-  news: 新闻
-  notifications: 通知
-  sms: 短信
-  accountSettings: 账户设置
-  websiteSettings: 网站设置
-  blog: 博客
-  users: 用户
-  customers: 客户
-  settings: 设置
-  pages: 页面
-  login: 登录
-  notFound: '404'
-  authentication: 验证
-  other: 其他
-  createProduct: 创建产品
-  register: 注册
-  forgetPassword: 忘记密码
-userMenu:
-  language: 语言
-  theme: 主题
-  options: 选项
-  profile: 个人资料
-  logout: 退出
-  dark: 深色
-  light: 浅色
-  en: 英语
-  fa: 波斯语
+brands:
+  create:
+    brandName: 名称
+    buttonTitle: 创建
+    image: 图片
+    title: 创建新品牌
+    url: 网址
+  createButton: 创建
+  name: 名称
+  shortName: 简称
+  title: 品牌
+  validations:
+    image: 图片必填
+    name: 名称必填
+    url: 网址必填
 button:
   about: 关于
   back: 返回
@@ -69,156 +24,189 @@ button:
   home: 首页
   toggle_dark: 切换深色模式
   toggle_langs: 切换语言
-login:
-  title: 登录
-  username: 用户名
-  password: 密码
-  loginButton: 登录
-  skipLogin: 跳过登录
-  forgetPassword: 忘记密码
-  rememberMe: 记住我
-  welcome: 欢迎回来！
-  message: 请在此登录以访问您的账户
-  haveNotAccount: 没有账户？
-  createAccount: 创建一个！
-  failedMessage: 登录失败
-  successMessage: 登录成功 🎉
-  validations:
-    userNameRequired: 请输入用户名
-    passwordRequired: 密码必填
-
-register:
-  title: 注册
-  username: 用户名
-  password: 密码
-  button: 注册
-  haveAccount: 已有账户？
-  login: 登录！
-forgot:
-  title: 忘记密码
-  username: 用户名
-  button: 恢复
-  haveNotAccount: 没有账户？
-  register: 创建一个！
-  email: 电子邮件
-  resetPassword: 重置密码
-  login: 登录
-  rememberInfo: 记住密码？
-  sendEmailSuccess: 电子邮件发送成功，请检查您的电子邮件
-  emailValidation: 电子邮件无效
-dashboard:
-  summary: 概要
-  transactions: 交易
-  registers: 注册
-  products: 产品
-  sells: 销售
-  visits: 访问
-  activeOrders: 活跃订单
-  recentOrders: 近期订单
-  trendingProducts: 热门产品
 categories:
-  title: 分类
-  createButton: 创建
   create:
     buttonTitle: 创建
-    title: 创建新分类
     categoryName: 名称
     parent: 父级
+    title: 创建新分类
+  createButton: 创建
+  title: 分类
   validations:
     nameRequired: 名称必填
     parentRequired: 未选择父级
-
-brands:
-  name: 名称
-  shortName: 简称
-  title: 品牌
-  createButton: 创建
-  create:
-    buttonTitle: 创建
-    title: 创建新品牌
-    image: 图片
-    brandName: 名称
-    url: 网址
-  validations:
-    name: 名称必填
-    url: 网址必填
-    image: 图片必填
-
-colors:
-  color: 颜色
-  name: 名称
-  title: 颜色
-  createButton: 创建
-  create:
-    buttonTitle: 创建
-    title: 创建新颜色
-    color: 颜色
-    name: 名称
-  validations:
-    nameRequired: 名称必填
-    colorRequired: 未选择颜色
-
-products:
-  name: 名称
-  category: 分类
-  rate: 评分
-  stoke: 库存
-  create:
-    title: 创建产品
-    productInformation: 产品信息
-    name: 产品名称
-    barcode: 条形码
-    sku: 库存单位
-    description: 描述
-    media: 媒体
-    pricing: 定价
-    price: 价格
-    discountedPrice: 折扣价
-    inStock: 有库存
-    category: 分类
-    brand: 品牌
-    keywords: 关键词
-    newKeyword: 新关键词
-    imageName: 图片
-
 category:
   name: 分类
   productsCount: 产品数量
-
+ch: Chinese
+colors:
+  color: 颜色
+  create:
+    buttonTitle: 创建
+    color: 颜色
+    name: 名称
+    title: 创建新颜色
+  createButton: 创建
+  name: 名称
+  title: 颜色
+  validations:
+    colorRequired: 未选择颜色
+    nameRequired: 名称必填
+common:
+  403Error: 您没有访问权限
+  404Error: 404错误
+  404Message: 抱歉，您要查找的页面不存在、已被删除、名称已更改或暂时不可用
+  actions: 操作
+  date: 日期
+  deleteConfirm: Siguru na un delete este?
+  goHome: 返回首页
+  new: 新
+  notFound: 未找到
+  price: 价格
+  search: 搜索
+  status: 状态
+currencySign: ¥
 customers:
-  title: 客户
   customerName: 客户名称
-  joinDate: 加入日期
-  phone: 电话
   email: 电子邮件
+  joinDate: 加入日期
   ordersCount: 订单数量
-
+  phone: 电话
+  title: 客户
+customize:
+  color: 颜色
+  language: 语言
+  layout: 布局
+  theme: 主题
+  title: 定制
+dashboard:
+  activeOrders: 活跃订单
+  products: 产品
+  recentOrders: 近期订单
+  registers: 注册
+  sells: 销售
+  summary: 概要
+  transactions: 交易
+  trendingProducts: 热门产品
+  visits: 访问
+de: German
+description: 免费的Vue 3仪表板
+direction: ltr
+en: English
+fa: Persian
+forgot:
+  button: 恢复
+  email: 电子邮件
+  emailValidation: 电子邮件无效
+  haveNotAccount: 没有账户？
+  login: 登录
+  register: 创建一个！
+  rememberInfo: 记住密码？
+  resetPassword: 重置密码
+  sendEmailSuccess: 电子邮件发送成功，请检查您的电子邮件
+  title: 忘记密码
+  username: 用户名
+home: 首页
+login:
+  createAccount: 创建一个！
+  failedMessage: 登录失败
+  forgetPassword: 忘记密码
+  haveNotAccount: 没有账户？
+  loginButton: 登录
+  message: 请在此登录以访问您的账户
+  password: 密码
+  rememberMe: 记住我
+  skipLogin: 跳过登录
+  successMessage: 登录成功 🎉
+  title: 登录
+  username: 用户名
+  validations:
+    passwordRequired: 密码必填
+    userNameRequired: 请输入用户名
+  welcome: 欢迎回来！
+menu:
+  accountSettings: 账户设置
+  announcement: 公告
+  authentication: 验证
+  blog: 博客
+  brands: 品牌
+  categories: 分类
+  colors: 颜色
+  comments: 评论
+  createProduct: 创建产品
+  customers: 客户
+  dashboard: 仪表板
+  feedbacks: 反馈
+  forgetPassword: 忘记密码
+  login: 登录
+  messages: 消息
+  news: 新闻
+  notFound: '404'
+  notifications: 通知
+  orders: 订单
+  other: 其他
+  pages: 页面
+  productManagement: 产品管理
+  products: 产品
+  register: 注册
+  reviews: 评论
+  settings: 设置
+  sms: 短信
+  support: 支持
+  users: 用户
+  websiteSettings: 网站设置
+not-found: 未找到
+notifications:
+  empty: 没有通知
+notify:
+  welcome: 欢迎使用 Yummy Admin！基于 Naive UI 和 Vue 3 的免费管理面板，请在 GitHub 上点赞⭐️来支持此项目
 orders:
   customer: 客户名称
   itemsCount: 项目数量
-
-reviews:
+products:
+  category: 分类
+  create:
+    barcode: 条形码
+    brand: 品牌
+    category: 分类
+    description: 描述
+    discountedPrice: 折扣价
+    imageName: 图片
+    inStock: 有库存
+    keywords: 关键词
+    media: 媒体
+    name: 产品名称
+    newKeyword: 新关键词
+    price: 价格
+    pricing: 定价
+    productInformation: 产品信息
+    sku: 库存单位
+    title: 创建产品
+  name: 名称
   rate: 评分
+  stoke: 库存
+register:
+  button: 注册
+  haveAccount: 已有账户？
+  login: 登录！
+  password: 密码
+  title: 注册
+  username: 用户名
+reviews:
   comment: 评论
-  product: 产品
   customer: 客户
   date: 日期
-
-not-found: 未找到
-
-customize:
-  title: 定制
-  theme: 主题
-  color: 颜色
-  layout: 布局
+  product: 产品
+  rate: 评分
+title: 美味管理系统
+tr: Turkish
+userMenu:
+  dark: 深色
+  en: 英语
+  fa: 波斯语
   language: 语言
-
-notifications:
-  empty: 没有通知
-
-Github:
-  button: Github
-  tooltip: 请在Github上给这个项目一个⭐️支持
-
-notify:
-  welcome: 欢迎使用 Yummy Admin！基于 Naive UI 和 Vue 3 的免费管理面板，请在 GitHub 上点赞⭐️来支持此项目
+  light: 浅色
+  logout: 退出
+  options: 选项
+  profile: 个人资料
+  theme: 主题

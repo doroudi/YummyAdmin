@@ -2,21 +2,21 @@
 import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
-  Delete24Regular as DeleteIcon,
   Edit32Regular as EditIcon,
   Add20Regular as PlusIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
-import { useDialog, useMessage } from 'naive-ui'
+import { useMessage } from 'naive-ui'
 
 const layout = useLayoutStore()
 const { dialogPlacement } = storeToRefs(layout)
+const showAddDialog = ref(false)
 
 const { t } = useI18n()
 const store = useColorStore()
-const dialog = useDialog()
 const message = useMessage()
 const { options } = useOptions()
+const { renderDeleteActionButton, renderActionButton } = useRender()
 
 onMounted(getItems)
 const columns: DataTableColumns<RowData> = [
@@ -43,50 +43,17 @@ const columns: DataTableColumns<RowData> = [
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render(row) {
-      return [
-        h(
-          NButton,
-          {
-            size: 'medium',
-            renderIcon: renderIcon(EditIcon),
-            quaternary: true,
-            circle: true,
-            class: 'mr-2',
-            onClick: () => { },
-          },
-        ),
-        h(
-          NButton,
-          {
-            size: 'medium',
-            quaternary: true,
-            circle: true,
-            renderIcon: renderIcon(DeleteIcon),
-            onClick: () => handleDeleteItem(row),
-          },
-        ),
-      ]
-    },
+    render: row =>
+      [
+        renderActionButton(EditIcon, () => { }),
+        renderDeleteActionButton(t('common.deleteConfirm'), () => handleDeleteItem(row)),
+      ],
   },
 ]
 
-const showAddDialog = ref(false)
-function renderIcon(icon: any) {
-  return () => h(NIcon, null, { default: () => h(icon) })
-}
-
 function handleDeleteItem(row: RowData) {
-  dialog.error({
-    title: 'Confirm',
-    content: 'Are you sure?',
-    positiveText: 'Yes, Delete',
-    negativeText: 'Cancel',
-    onPositiveClick: () => {
-      store.deleteColor(row.id)
-      message.success('Brand was deleted!')
-    },
-  })
+  store.deleteColor(row.id)
+  message.success('Color was deleted successfully!')
 }
 
 function rowKey(row: RowData) {
