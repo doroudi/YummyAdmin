@@ -5,6 +5,7 @@ import {
   DoorArrowRight20Regular as AuthIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
   Folder32Regular as CategoryIcon,
+  Dismiss20Filled as CloseIcon,
   Color24Regular as ColorsIcon,
   People28Regular as CustomersIcon,
   Home32Regular as DashboardIcon,
@@ -22,14 +23,15 @@ import {
 import { storeToRefs } from 'pinia'
 
 const layoutStore = useLayoutStore()
-const { collapsed, forceCollapsed } = storeToRefs(layoutStore)
+const { collapsed, forceCollapsed, mobileMode, mobileMenuClosed } = storeToRefs(layoutStore)
 const { t } = useI18n()
 const { renderIcon, renderLabel } = useRender()
 
-const isHovered = ref(false)
-
 const effectiveCollapsed = computed(() => {
-  return (collapsed.value || forceCollapsed.value) && !isHovered.value
+  if (mobileMode.value)
+    return mobileMenuClosed.value
+
+  return (collapsed.value || forceCollapsed.value)
 })
 
 const menuOptions: MenuOption[] = [
@@ -137,31 +139,51 @@ const menuOptions: MenuOption[] = [
 const route = useRoute()
 const selectedMenuKey = ref('dashboard')
 const menuRef = ref<MenuInst | null>(null)
+
 onMounted(() => {
+  activateCurrentRoute()
+})
+
+function activateCurrentRoute() {
   const keys = menuOptions.flatMap(m => m.children || m) as [{ key: string }]
   if (keys !== undefined) {
     selectedMenuKey.value = keys.find(k => k.key.toLowerCase() === route.name.toLowerCase())?.key ?? 'index'
     menuRef.value?.showOption(selectedMenuKey.value)
   }
+}
+
+const router = useRouter()
+router.beforeEach(() => {
+  layoutStore.closeSidebar()
 })
 </script>
 
 <template>
   <n-layout-sider
-    :native-scrollbar="false" collapse-mode="width" :collapsed-width="64" :collapsed="effectiveCollapsed"
-    :class="{ collapsed: effectiveCollapsed }" @mouseenter="isHovered = true" @mouseleave="isHovered = false"
+    :native-scrollbar="false" collapse-mode="width" :collapsed-width="mobileMode ? 0 : 64"
+    :collapsed="effectiveCollapsed" :class="{ 'collapsed': effectiveCollapsed, 'mobile-mode': mobileMode }"
   >
     <div class="logo-container mb-4">
-      <div flex w-full justify-start items-center>
-        <img src="@/assets/images/logo.png" alt="logo" class="logo">
-        <h1 class="main-title">
-          {{ t('title') }}
-        </h1>
+      <div flex w-full justify-between items-center>
+        <div flex w-full justify-start items-center>
+          <img src="@/assets/images/logo.png" alt="logo" class="logo">
+          <h1 class="main-title">
+            {{ t('title') }}
+          </h1>
+        </div>
+
+        <n-button v-if="mobileMode" mx-2 size="small" tertiary circle @click="layoutStore.closeSidebar">
+          <template #icon>
+            <NIcon size="1.2rem">
+              <CloseIcon />
+            </NIcon>
+          </template>
+        </n-button>
       </div>
     </div>
     <n-menu
-      ref="menuRef" v-model:value="selectedMenuKey" :collapsed-width="64" :collapsed-icon-size="22"
-      :options="menuOptions"
+      ref="menuRef" v-model:value="selectedMenuKey" :collapsed-width="mobileMode ? 0 : 64"
+      :collapsed-icon-size="mobileMode ? 30 : 20" :options="menuOptions"
     />
   </n-layout-sider>
 </template>
@@ -192,14 +214,22 @@ onMounted(() => {
     max-width: 175px;
   }
 }
+.mobile-mode {
+  max-width: 100% !important;
+  width: 100% !important;
+}
 
+.mobile-mode.collapsed {
+  max-width: 0 !important;
+}
 .collapsed {
+
   .logo-container {
     padding: 1.5rem 0.5rem 0.5rem .5rem;
   }
 
   .main-title {
-    display:none;
+    display: none;
   }
 }
 
@@ -212,8 +242,6 @@ onMounted(() => {
 }
 
 .collapsed {
-  max-width: 100px;
-
   .p-button-label {
     display: none;
   }
@@ -230,17 +258,6 @@ onMounted(() => {
     margin-left: 0.8rem;
     margin-right: .5rem;
   }
-
-  // .p-button {
-  //   .p-button-label {
-  //     text-align: right;
-  //   }
-
-  //   .p-button-icon-left {
-  //     margin-right: 0;
-  //     margin-left: 0.5rem;
-  //   }
-  // }
 }
 
 .n-menu-item {
@@ -248,7 +265,6 @@ onMounted(() => {
 }
 
 .main-menu {
-
   .active {
     .p-button {
       background: #f4f4f5;
@@ -265,7 +281,7 @@ onMounted(() => {
   }
 
   .separator {
-    border-bottom: solid 1px rgb(224, 224, 224);
+    border-bottom: solid 1px #f4f4f5;
     margin-bottom: .5rem;
   }
 }

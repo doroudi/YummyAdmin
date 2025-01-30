@@ -12,7 +12,7 @@ const { renderDeleteActionButton, renderActionButton } = useRender()
 const layout = useLayoutStore()
 const { dialogPlacement } = storeToRefs(layout)
 const { t } = useI18n()
-const collapsed = ref(false)
+const collapsed = ref(useWindowSize().width.value < 600)
 const store = useCategoryStore()
 const message = useMessage()
 

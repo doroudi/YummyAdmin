@@ -2,26 +2,35 @@
 import {
   PanelLeftContract24Regular as CollapseIcon,
   PanelLeftExpand20Regular as ExpandIcon,
+  Navigation20Regular as MenuIcon,
 } from '@vicons/fluent'
 
 import { storeToRefs } from 'pinia'
 
 const layoutStore = useLayoutStore()
-const { collapsed, isRtl } = storeToRefs(layoutStore)
+const { collapsed, isRtl, mobileMode } = storeToRefs(layoutStore)
 </script>
 
 <template>
   <n-page-header class="px-2 py-3 navbar">
     <template #title>
       <div class="flex items-center">
-        <n-button mx-2 size="small" quaternary circle :class="{ 'rotate-180': isRtl }" @click="layoutStore.toggleSidebar">
-          <template #icon>
-            <NIcon size="1.2rem">
-              <ExpandIcon v-if="collapsed" />
-              <CollapseIcon v-else />
-            </NIcon>
-          </template>
-        </n-button>
+        <div flex w-full justify-start items-center>
+          <img v-if="mobileMode" width="35" src="@/assets/images/logo.png" alt="logo" class="logo">
+
+          <n-button
+            mx-2 size="small" quaternary circle :class="{ 'rotate-180': isRtl }"
+            @click="layoutStore.toggleSidebar"
+          >
+            <template #icon>
+              <NIcon size="1.2rem">
+                <MenuIcon v-if="mobileMode" />
+                <ExpandIcon v-else-if="collapsed" />
+                <CollapseIcon v-else />
+              </NIcon>
+            </template>
+          </n-button>
+        </div>
         <BreadCrumb />
       </div>
     </template>

@@ -1,0 +1,53 @@
+.error-message {
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    line-height: 1.4;
+
+    h1 {
+        font-family: montserrat, sans-serif;
+        font-size: 146px;
+        font-weight: 700;
+        margin: 0;
+
+        span.emoji {
+            display: inline-block;
+            width: 120px;
+            height: 120px;
+            background-image: url(@/assets/images/emoji.webp);
+            background-size: cover;
+            -webkit-transform: scale(1.4);
+            -ms-transform: scale(1.4);
+            transform: scale(1.4);
+        }
+    }
+
+    h2 {
+        font-family: montserrat, sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0;
+        text-transform: uppercase;
+
+        span {
+            color: #726f5e;
+        }
+    }
+
+    p {
+        font-family: montserrat, sans-serif;
+        color: #787878;
+        font-weight: 300;
+        padding: .8rem 0;
+    }
+}
+
+.rtl {
+    .error-message {
+
+        h2,
+        p {
+            font-family: Shabnam;
+        }
+    }
+}
