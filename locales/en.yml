@@ -217,3 +217,15 @@ userMenu:
   options: Options
   profile: Profile
   theme: Theme
+
+enums:
+  OrderStatus:
+    Submitted: Submitted
+    Processing: Processing
+    ReadyToSend: ReadyToSend
+    Sent: Sent
+    Delivered: Delivered
+  ProductStatus:
+    NotActive: NotActive
+    Active: Active
+    Draft: Draft

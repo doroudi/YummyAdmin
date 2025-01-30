@@ -212,3 +212,14 @@ userMenu:
   options: الخيارات
   profile: الملف الشخصي
   theme: المظهر
+enums:
+  OrderStatus:
+    Submitted: تم الإرسال
+    Processing: تحت المعالجة
+    ReadyToSend: جاهز للإرسال  
+    Sent: تم الإرسال
+    Delivered: تم التوصيل
+  ProductStatus:
+    NotActive: غير نشط
+    Active: نشط
+    Draft: مسودة

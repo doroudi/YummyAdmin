@@ -212,3 +212,14 @@ userMenu:
   options: Seçenekler
   profile: Profil
   theme: Tema
+enums:
+  OrderStatus:
+    Submitted: Gönderildi
+    Processing: İşleniyor
+    ReadyToSend: Gönderime Hazır
+    Sent: Gönderildi
+    Delivered: Teslim Edildi
+  ProductStatus:
+    NotActive: Aktif Değil
+    Active: Aktif
+    Draft: Taslak

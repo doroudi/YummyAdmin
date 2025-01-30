@@ -214,3 +214,15 @@ userMenu:
   profile: پروفایل
   signOut: خروج
   theme: پوسته
+
+enums:
+  OrderStatus:
+    Submitted: ثبت شده
+    Processing: درحال پردازش
+    ReadyToSend:  آماده ارسال
+    Sent: ارسال شده
+    Delivered: تحویل شده
+  ProductStatus:
+    NotActive: غیر فعال
+    Active: فعال
+    Draft:  پیش نویس

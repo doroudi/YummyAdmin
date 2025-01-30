@@ -29,7 +29,7 @@ const columns: DataTableColumns<RowData> = [
     key: 'status',
     fixed: 'right',
     width: 80,
-    render: row => renderTag(row.status, getStatusColor(row.status), OrderStatus),
+    render: row => renderTag(row.status, getStatusColor(row.status), OrderStatus, 'OrderStatus'),
   },
 ]
 </script>

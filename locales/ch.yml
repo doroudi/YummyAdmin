@@ -210,3 +210,15 @@ userMenu:
   options: 选项
   profile: 个人资料
   theme: 主题
+  
+enums:
+  OrderStatus:
+    Submitted: 已提交
+    Processing: 处理中
+    ReadyToSend: 准备发货 
+    Sent: 已发货
+    Delivered: 已送达
+  ProductStatus:
+    NotActive: 未激活
+    Active: 激活
+    Draft: 草稿 

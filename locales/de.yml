@@ -216,3 +216,14 @@ userMenu:
   options: Optionen
   profile: Profil
   theme: Design
+enums:
+  OrderStatus:
+    Submitted: Eingereicht
+    Processing: Verarbeitung
+    ReadyToSend: Versandbereit
+    Sent: Gesendet
+    Delivered: Geliefert
+  ProductStatus:
+    NotActive: Nicht aktiv
+    Active: Aktiv
+    Draft: Entwurf

@@ -1,12 +1,14 @@
 import { NBadge, NButton, NIcon, NImage, NPopconfirm, NSpace, NTag, NText } from 'naive-ui'
 import { RouterLink } from 'vue-router'
-
 import {
   Delete20Regular as DeleteIcon,
   Warning20Filled as FailedIcon,
   Star24Filled as StarIcon,
   CheckmarkCircle20Filled as SuccessIcon,
 } from '@vicons/fluent'
+import i18n from '~/modules/i18n'
+
+const { t } = i18n.global
 
 export function useRender() {
   function renderLabel(title: string, path: string) {
@@ -28,10 +30,10 @@ export function useRender() {
     return () => h(NIcon, null, { default: () => h(icon, {}) })
   }
 
-  function renderTag(text: string, type: 'error' | 'default' | 'success' | 'warning' | 'primary' | 'info', stateEnum: any, round = false, bordered = false) {
+  function renderTag(text: string, type: 'error' | 'default' | 'success' | 'warning' | 'primary' | 'info', stateEnum: any, typename: string, round = false, bordered = false) {
     return h(NTag,
       { type, bordered, round },
-      { default: () => stateEnum[text] })
+      { default: () => t(`enums.${typename}.${stateEnum[text]}`) })
   }
 
   function renderPrice(value: number, postfix = '') {

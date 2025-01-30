@@ -37,7 +37,7 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('common.status'),
     key: 'status',
-    render: row => renderTag(row.status, getStatusColor(row.status), OrderStatus),
+    render: row => renderTag(row.status, getStatusColor(row.status), OrderStatus, 'OrderStatus'),
   },
   {
     title: t('common.actions'),
