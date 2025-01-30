@@ -3,8 +3,14 @@
 @use 'utils/animations';
 
 :root {
-    --sidebar-width: 20rem;
     --primary-color: #00ad4c;
+    --background: #EEE;
+    --main-content: #FFF;
+}
+
+.dark {
+  --background: #283046;
+  --main-content: #222;
 }
 
 html,
@@ -25,8 +31,7 @@ body,
 }
 
 body {
-  // background: url('~/assets/images/background.svg') no-repeat fixed;
-  background-color: #EEE;
+  background-color: var(--background);
   background-size: cover;
 }
 
@@ -45,23 +50,9 @@ body {
 }
 
 
-#nprogress {
-  pointer-events: none;
-}
-
-#nprogress .bar {
-  background: var(--primary-color);
-  opacity: 0.75;
-  position: fixed;
-  z-index: 1031;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-}
 
 .main-content { 
-  background: #fff;
+  background: var(--main-content);
   border-radius: 10px;
   min-height: calc(100vh - 1.6rem);
 }
@@ -71,11 +62,6 @@ body {
 }
 
 .dark {
-  body {
-    background: #283046;
-    // background: url('~/assets/images/background.svg') no-repeat #283046;
-  }
-
   .p-button.p-button-text.p-button-plain {
     color: #e4e4e4;
   }
@@ -85,56 +71,6 @@ body {
   }
 }
 
-.error-message {
-  max-width: 520px;
-  width: 100%;
-  text-align: center;
-  line-height: 1.4;
 
-  h1 {
-    font-family: montserrat, sans-serif;
-    font-size: 146px;
-    font-weight: 700;
-    margin: 0;
-
-    span.emoji {
-      display: inline-block;
-      width: 120px;
-      height: 120px;
-      background-image: url(@/assets/images/emoji.webp);
-      background-size: cover;
-      -webkit-transform: scale(1.4);
-      -ms-transform: scale(1.4);
-      transform: scale(1.4);
-    }
-  }
-
-  h2 {
-    font-family: montserrat, sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    margin: 0;
-    text-transform: uppercase;
-
-    span {
-      color: #726f5e;
-    }
-  }
-
-  p {
-    font-family: montserrat, sans-serif;
-    color: #787878;
-    font-weight: 300;
-    padding: .8rem 0;
-  }
-
-  
-}
-
-.rtl {
-  .error-message {
-    h2, p {
-      font-family: Shabnam;
-    }
-  }
-}
+@import url('./utils/_error.scss');
+@import url('./utils/_progress.scss');

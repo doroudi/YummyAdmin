@@ -5,7 +5,6 @@ import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
-import VueDevTools from 'vite-plugin-vue-devtools'
 import Unocss from 'unocss/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
@@ -43,10 +42,6 @@ export default defineConfig({
       },
     }),
 
-    // VueRouter({
-    //   extensions: ['.vue'],
-    //   dts: 'src/typed-router.d.ts',
-    // }),
     Pages({
       extensions: ['vue'],
       importMode: 'async',
@@ -102,33 +97,6 @@ export default defineConfig({
     // see uno.config.ts for config
     Unocss(),
 
-    // https://github.com/antfu/vite-plugin-pwa
-    // VitePWA({
-    //   workbox: {
-    //     // cleanupOutdatedCaches: true,
-    //     // skipWaiting: true,
-    //     // clientsClaim: true,
-    //   },
-    //   registerType: 'prompt',
-    //   includeAssets: ['/favicon/favicon.ico'],
-    //   devOptions: {
-    //     enabled: true,
-    //     /* other options */
-    //   },
-    //   manifest: {
-    //     name: 'Yummy Admin',
-    //     short_name: 'YummyAdmin',
-    //     theme_color: '#459858',
-    //     icons: [
-    //       {
-    //         src: '/pwa-192x192.png',
-    //         sizes: '192x192',
-    //         type: 'image/png',
-    //       },
-    //     ],
-    //   },
-    // }),
-
     // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
     VueI18n({
       runtimeOnly: true,
@@ -137,21 +105,9 @@ export default defineConfig({
       include: [path.resolve(__dirname, 'locales/**')],
     }),
 
-    // partytownVite({
-    //   dest: path.join(__dirname, 'dist', '~partytown'),
-    // }),
-
     // https://github.com/webfansplz/vite-plugin-vue-devtools
-    VueDevTools(),
+    // VueDevTools(),
   ],
 
-  // https://github.com/vitest-dev/vitest
-  // test: {
-  //   include: ['test/**/*.test.ts'],
-  //   environment: 'jsdom',
-  //   deps: {
-  //     inline: ['@vue', '@vueuse', 'vue-demi'],
-  //   },
-  // },
   define: { 'process.env': {} },
 })

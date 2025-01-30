@@ -52,14 +52,13 @@ app.config.globalProperties.$filters = {}
 Object.values(import.meta.glob<any>('./common/filters/*.filter.ts', { eager: true, import: 'default' }))
   .forEach(filters => Object.keys(filters).forEach(func => app.config.globalProperties.$filters[func] = filters[func]))
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
   const { t } = i18n.global
   let title = t('title')
   if (to.meta.title)
     title = `${t(`menu.${to.meta.title}`)} - ${title}`
 
   document.title = title
-
   next()
 })
 

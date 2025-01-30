@@ -1,22 +1,33 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 
 export const useLayoutStore = defineStore('layout', () => {
+  const { t, locale } = useI18n()
   const collapsed = ref(false)
   const forceCollapsed = ref(false)
+  const mobileMenuClosed = ref(true)
+  const mobileMode = ref(false)
   const activeLanguage = ref('en')
   const isRtl = ref(false)
-  const { t, locale } = useI18n()
   const themeColor = ref('#00ad4c')
   const isDark = ref(false)
   const isWelcomeShown = ref(false)
 
   const dialogPlacement = computed(() => isRtl.value ? 'left' : 'right')
+
   watch(() => useWindowSize().width.value, (newValue: number) => {
-    forceCollapsed.value = newValue < 1000
-  })
+    forceCollapsed.value = newValue <= 1024
+    mobileMode.value = newValue < 600
+  }, { immediate: true })
 
   function toggleSidebar() {
-    collapsed.value = !collapsed.value
+    if (mobileMode.value)
+      mobileMenuClosed.value = false
+    else
+      collapsed.value = !collapsed.value
+  }
+
+  function closeSidebar() {
+    mobileMenuClosed.value = true
   }
 
   function toggleTheme() {
@@ -38,20 +49,28 @@ export const useLayoutStore = defineStore('layout', () => {
     isWelcomeShown.value = true
   }
 
+  function $reset() {
+    mobileMode.value = false
+  }
+
   return {
     collapsed,
+    forceCollapsed,
+    mobileMode,
     toggleSidebar,
     toggleTheme,
     isRtl,
     activeLanguage,
     changeLanguage,
-    forceCollapsed,
     isDark,
     setThemeColor,
     themeColor,
     dialogPlacement,
     isWelcomeShown,
     showWelcome,
+    closeSidebar,
+    $reset,
+    mobileMenuClosed,
   }
 }, { persist: true })
 
