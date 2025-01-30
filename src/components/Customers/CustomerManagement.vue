@@ -1,8 +1,9 @@
 <script setup lang='ts'>
 import { getCurrentInstance } from 'vue'
-import { type DataTableColumns, NButton, NIcon, NSpace, NText } from 'naive-ui/es/components'
+import { type DataTableColumns, type DataTableRowKey, NButton, NIcon, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
+  Delete20Regular as DeleteIcon,
   Edit24Regular as EditIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
@@ -110,6 +111,11 @@ function searchInListDebounced(value: string) {
     getItems()
   }, 500) /* 500ms throttle */
 }
+
+const checkedRows = ref<DataTableRowKey[]>([])
+function handleCheck(checkedRowKeys: DataTableRowKey[]) {
+  checkedRows.value = checkedRowKeys
+}
 </script>
 
 <template>
@@ -118,19 +124,34 @@ function searchInListDebounced(value: string) {
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
           <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
-          <NButton type="primary" @click="router.push('/Products/Create')">
-            <template #icon>
-              <NIcon>
-                <PlusIcon />
-              </NIcon>
-            </template>
-            {{ t('common.new') }}
-          </NButton>
+          <div>
+            <n-tooltip v-if="checkedRows.length" trigger="hover">
+              <template #trigger>
+                <NButton mx-2 quaternary circle>
+                  <template #icon>
+                    <NIcon>
+                      <DeleteIcon />
+                    </NIcon>
+                  </template>
+                </NButton>
+              </template>
+              <span>{{ t('common.delete') }}</span>
+            </n-tooltip>
+            <NButton type="primary" @click="router.push('/Products/Create')">
+              <template #icon>
+                <NIcon>
+                  <PlusIcon />
+                </NIcon>
+              </template>
+              {{ t('common.new') }}
+            </NButton>
+          </div>
         </NSpace>
         <n-data-table
           remote :columns="columns" :data="store.customers.items" :loading="store.isLoading" :pagination="store.customers"
           selectable :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
           @update:filters="handleFiltersChange" @update:page="handlePageChange"
+          @update:checked-row-keys="handleCheck"
         />
       </div>
     </n-layout-content>

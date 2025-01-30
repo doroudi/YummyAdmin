@@ -58,6 +58,7 @@ common:
     غير متاحة مؤقتاً
   actions: الإجراءات
   date: تاریخ
+  delete: يمسح
   deleteConfirm: هل أنت متأكد من حذف هذا العنصر؟
   goHome: العودة إلى الرئيسية
   new: جدید
@@ -93,6 +94,17 @@ de: German
 description: لوحة تحكم Vue 3 مجانية
 direction: rtl
 en: English
+enums:
+  OrderStatus:
+    Delivered: تم التوصيل
+    Processing: تحت المعالجة
+    ReadyToSend: جاهز للإرسال
+    Sent: تم الإرسال
+    Submitted: تم الإرسال
+  ProductStatus:
+    Active: نشط
+    Draft: مسودة
+    NotActive: غير نشط
 fa: Persian
 forgot:
   button: استعادة
@@ -212,14 +224,3 @@ userMenu:
   options: الخيارات
   profile: الملف الشخصي
   theme: المظهر
-enums:
-  OrderStatus:
-    Submitted: تم الإرسال
-    Processing: تحت المعالجة
-    ReadyToSend: جاهز للإرسال  
-    Sent: تم الإرسال
-    Delivered: تم التوصيل
-  ProductStatus:
-    NotActive: غير نشط
-    Active: نشط
-    Draft: مسودة

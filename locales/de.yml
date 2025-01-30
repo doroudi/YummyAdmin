@@ -63,6 +63,7 @@ common:
     Name wurde geändert oder ist vorübergehend nicht verfügbar
   actions: Aktionen
   date: Datum
+  delete: Löschen
   deleteConfirm: Sind Sie sicher, diesen Artikel zu löschen?
   goHome: Zurück zur Startseite
   new: Neu
@@ -98,6 +99,17 @@ de: German
 description: Kostenloses Vue 3 Dashboard
 direction: ltr
 en: English
+enums:
+  OrderStatus:
+    Delivered: Geliefert
+    Processing: Verarbeitung
+    ReadyToSend: Versandbereit
+    Sent: Gesendet
+    Submitted: Eingereicht
+  ProductStatus:
+    Active: Aktiv
+    Draft: Entwurf
+    NotActive: Nicht aktiv
 fa: Persian
 forgot:
   button: Wiederherstellen
@@ -216,14 +228,3 @@ userMenu:
   options: Optionen
   profile: Profil
   theme: Design
-enums:
-  OrderStatus:
-    Submitted: Eingereicht
-    Processing: Verarbeitung
-    ReadyToSend: Versandbereit
-    Sent: Gesendet
-    Delivered: Geliefert
-  ProductStatus:
-    NotActive: Nicht aktiv
-    Active: Aktiv
-    Draft: Entwurf

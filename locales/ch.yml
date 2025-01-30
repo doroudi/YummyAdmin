@@ -58,6 +58,7 @@ common:
   404Message: 抱歉，您要查找的页面不存在、已被删除、名称已更改或暂时不可用
   actions: 操作
   date: 日期
+  delete: Funas
   deleteConfirm: Siguru na un delete este?
   goHome: 返回首页
   new: 新
@@ -93,6 +94,17 @@ de: German
 description: 免费的Vue 3仪表板
 direction: ltr
 en: English
+enums:
+  OrderStatus:
+    Delivered: 已送达
+    Processing: 处理中
+    ReadyToSend: 准备发货
+    Sent: 已发货
+    Submitted: 已提交
+  ProductStatus:
+    Active: 激活
+    Draft: 草稿
+    NotActive: 未激活
 fa: Persian
 forgot:
   button: 恢复
@@ -210,15 +222,3 @@ userMenu:
   options: 选项
   profile: 个人资料
   theme: 主题
-  
-enums:
-  OrderStatus:
-    Submitted: 已提交
-    Processing: 处理中
-    ReadyToSend: 准备发货 
-    Sent: 已发货
-    Delivered: 已送达
-  ProductStatus:
-    NotActive: 未激活
-    Active: 激活
-    Draft: 草稿 

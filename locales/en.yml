@@ -62,6 +62,7 @@ common:
   actions: Actions
   date: Date
   deleteConfirm: Are you sure to delete this item?
+  delete: Delete
   goHome: Back To Home
   name: Name
   new: New

@@ -58,6 +58,7 @@ common:
     geçici olarak kullanılamıyor
   actions: Eylemler
   date: Tarih
+  delete: Silmek
   deleteConfirm: Bu öğeyi sileceğinizden emin misiniz?
   goHome: Ana Sayfaya Dön
   new: Yeni
@@ -93,6 +94,17 @@ de: German
 description: Ücretsiz Vue 3 Gösterge Paneli
 direction: ltr
 en: English
+enums:
+  OrderStatus:
+    Delivered: Teslim Edildi
+    Processing: İşleniyor
+    ReadyToSend: Gönderime Hazır
+    Sent: Gönderildi
+    Submitted: Gönderildi
+  ProductStatus:
+    Active: Aktif
+    Draft: Taslak
+    NotActive: Aktif Değil
 fa: Persian
 forgot:
   button: Kurtar
@@ -212,14 +224,3 @@ userMenu:
   options: Seçenekler
   profile: Profil
   theme: Tema
-enums:
-  OrderStatus:
-    Submitted: Gönderildi
-    Processing: İşleniyor
-    ReadyToSend: Gönderime Hazır
-    Sent: Gönderildi
-    Delivered: Teslim Edildi
-  ProductStatus:
-    NotActive: Aktif Değil
-    Active: Aktif
-    Draft: Taslak

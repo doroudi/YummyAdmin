@@ -1,15 +1,17 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
+import { NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
+import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
+
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
+  Delete20Regular as DeleteIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
-import { useDialog, useMessage } from 'naive-ui'
+import { useMessage } from 'naive-ui'
 import { ProductStatus } from '~/models/Product'
 
 const { t } = useI18n()
 const store = useProductStore()
-const dialog = useDialog()
 const message = useMessage()
 const router = useRouter()
 const { renderDeleteActionButton } = useRender()
@@ -18,6 +20,7 @@ const { options } = useOptions()
 const { renderPrice, renderRate, renderTag, renderProductImage } = useRender()
 
 onMounted(getItems)
+
 const columns: DataTableColumns<RowData> = [
   {
     type: 'selection',
@@ -112,6 +115,11 @@ function searchInListDebounced(value: string) {
     getItems()
   }, 500) /* 500ms throttle */
 }
+
+const checkedRows = ref<DataTableRowKey[]>([])
+function handleCheck(checkedRowKeys: DataTableRowKey[]) {
+  checkedRows.value = checkedRowKeys
+}
 </script>
 
 <template>
@@ -120,19 +128,34 @@ function searchInListDebounced(value: string) {
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
           <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
-          <NButton type="primary" @click="router.push('/Products/Create')">
-            <template #icon>
-              <NIcon>
-                <PlusIcon />
-              </NIcon>
-            </template>
-            {{ t('common.new') }}
-          </NButton>
+          <div>
+            <n-tooltip v-if="checkedRows.length" trigger="hover">
+              <template #trigger>
+                <NButton mx-2 quaternary circle>
+                  <template #icon>
+                    <NIcon>
+                      <DeleteIcon />
+                    </NIcon>
+                  </template>
+                </NButton>
+              </template>
+              <span>{{ t('common.delete') }}</span>
+            </n-tooltip>
+            <NButton type="primary" @click="router.push('/Products/Create')">
+              <template #icon>
+                <NIcon>
+                  <PlusIcon />
+                </NIcon>
+              </template>
+              {{ t('common.new') }}
+            </NButton>
+          </div>
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="store.products.items" :loading="store.isLoading" :pagination="options" selectable
-          :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
-          @update:filters="handleFiltersChange" @update:page="handlePageChange"
+          remote :columns="columns" :data="store.products.items" :loading="store.isLoading"
+          :pagination="options" selectable :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
+          @update:filters="handleFiltersChange" @update:checked-row-keys="handleCheck"
+          @update:page="handlePageChange"
         />
       </div>
     </n-layout-content>

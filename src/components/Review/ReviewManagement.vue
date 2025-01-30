@@ -1,6 +1,10 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NRate, NSpace, NText } from 'naive-ui/es/components'
+import { NRate, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
+import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
+import {
+  Delete20Regular as DeleteIcon,
+} from '@vicons/fluent'
 
 const { t } = useI18n()
 const store = useReviewStore()
@@ -10,6 +14,10 @@ const { options } = useOptions()
 onMounted(getItems)
 
 const columns: DataTableColumns<RowData> = [
+  {
+    type: 'selection',
+    fixed: 'left',
+  },
   {
     title: t('reviews.rate'),
     key: 'rate',
@@ -61,7 +69,7 @@ const columns: DataTableColumns<RowData> = [
     width: 110,
     render() {
       return [
-        renderDeleteActionButton(t('common.deleteConfirm'), () => {}),
+        renderDeleteActionButton(t('common.deleteConfirm'), () => { }),
       ]
     },
   },
@@ -86,16 +94,36 @@ function handleSorterChange() {
 function handleFiltersChange() {
   getItems()
 }
+
+const checkedRows = ref<DataTableRowKey[]>([])
+function handleCheck(checkedRowKeys: DataTableRowKey[]) {
+  checkedRows.value = checkedRowKeys
+}
 </script>
 
 <template>
   <n-layout>
     <n-layout-content>
       <div class="px-3">
+        <NSpace justify="end" class="mb-3">
+          <n-tooltip v-if="checkedRows.length" trigger="hover">
+            <template #trigger>
+              <NButton mx-2 quaternary circle>
+                <template #icon>
+                  <NIcon>
+                    <DeleteIcon />
+                  </NIcon>
+                </template>
+              </NButton>
+            </template>
+            <span>{{ t('common.delete') }}</span>
+          </n-tooltip>
+        </NSpace>
         <n-data-table
-          remote :columns="columns" :data="store.reviews.items" :loading="store.isLoading" :pagination="store.reviews" selectable
-          :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
+          remote :columns="columns" :data="store.reviews.items" :loading="store.isLoading"
+          :pagination="store.reviews" selectable :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
           @update:filters="handleFiltersChange" @update:page="handlePageChange"
+          @update:checked-row-keys="handleCheck"
         />
       </div>
     </n-layout-content>

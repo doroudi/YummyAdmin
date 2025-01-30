@@ -98,7 +98,7 @@ function searchInListDebounced(value: string) {
         </n-space>
         <n-data-table
           remote :columns="columns" :data="store.categories.items" :loading="store.isLoading"
-          :pagination="store.categories" selectable :scroll-x="1000" :row-key="rowKey" @update:sorter="handleSorterChange"
+          :pagination="store.categories" :scroll-x="1000" :row-key="rowKey" @update:sorter="handleSorterChange"
           @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />
       </div>

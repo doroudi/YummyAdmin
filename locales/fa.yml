@@ -59,6 +59,7 @@ common:
   404Message: متاسفانه صفحه ای که دنبالش بودید پیدا نشد
   actions: عملیات
   date: تاریخ
+  delete: حذف کردن
   deleteConfirm: آیا از حذف این مورد مطمئن هستید؟
   goHome: بازگشت به خانه
   new: جدید
@@ -94,6 +95,17 @@ de: German
 description: داشبورد رایگان vue3
 direction: rtl
 en: English
+enums:
+  OrderStatus:
+    Delivered: تحویل شده
+    Processing: درحال پردازش
+    ReadyToSend: آماده ارسال
+    Sent: ارسال شده
+    Submitted: ثبت شده
+  ProductStatus:
+    Active: فعال
+    Draft: پیش نویس
+    NotActive: غیر فعال
 fa: Persian
 forgot:
   button: بازیابی
@@ -214,15 +226,3 @@ userMenu:
   profile: پروفایل
   signOut: خروج
   theme: پوسته
-
-enums:
-  OrderStatus:
-    Submitted: ثبت شده
-    Processing: درحال پردازش
-    ReadyToSend:  آماده ارسال
-    Sent: ارسال شده
-    Delivered: تحویل شده
-  ProductStatus:
-    NotActive: غیر فعال
-    Active: فعال
-    Draft:  پیش نویس
