@@ -5,7 +5,7 @@ import GoogleIcon from '~/components/CustomIcons/GoogleIcon.vue'
 import MicrosoftIcon from '~/components/CustomIcons/MicrosoftIcon.vue'
 import AppleIcon from '~/components/CustomIcons/AppleIcon.vue'
 
-import type { LoginViewModel } from '~/models/Login'
+import type { LoginViewModel } from '~/models/Account'
 
 const { t } = useI18n()
 const accountStore = useAccountStore()

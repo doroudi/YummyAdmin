@@ -200,6 +200,7 @@ register:
   password: Password
   title: Register
   username: User Name
+  successMessage: Registered Successfully 🎉
 reviews:
   comment: Comment
   customer: Customer

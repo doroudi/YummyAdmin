@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { Account, LoginViewModel } from '~/models/Login'
+import type { Account, LoginViewModel } from '~/models/Account'
 import AccountService from '~/services/account.service'
 
 export const useAccountStore = defineStore('account', () => {
@@ -26,11 +26,31 @@ export const useAccountStore = defineStore('account', () => {
     finally {
       isLoading.value = false
     }
-    // toast.add({ severity: 'error', summary: t('login.failedMessage'), detail: 'Error Message', life: 3000 })
   }
 
   function logout() {
     user.value = null
+  }
+
+  async function register(registerInfo: any) {
+    isLoading.value = true
+    try {
+      const response = await AccountService.register(registerInfo)
+      if (response.isSucceed) {
+        user.value = {
+          token: response.token,
+        }
+        return true
+      }
+
+      return false
+    }
+    catch (error) {
+      return false
+    }
+    finally {
+      isLoading.value = false
+    }
   }
 
   function resetPassword(forgetInfo: any) {
@@ -49,6 +69,7 @@ export const useAccountStore = defineStore('account', () => {
     logout,
     isAuthenticated,
     resetPassword,
+    register,
   }
 }, { persist: true })
 
