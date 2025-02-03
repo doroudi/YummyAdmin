@@ -202,6 +202,7 @@ register:
   haveAccount: 已有账户？
   login: 登录！
   password: 密码
+  successMessage: I manma'gås-ta ni' manma'gås-ta manma'gås-ta.
   title: 注册
   username: 用户名
 reviews:

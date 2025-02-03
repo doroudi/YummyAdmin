@@ -205,6 +205,7 @@ register:
   haveAccount: اکانت دارید؟
   login: وارد شوید!
   password: رمز عبور
+  successMessage: با موفقیت ثبت شده
   title: ثبت نام
   username: نام کاربری
 reviews:

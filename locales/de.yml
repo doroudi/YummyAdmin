@@ -210,6 +210,7 @@ register:
   haveAccount: Haben Sie ein Konto?
   login: Anmelden!
   password: Passwort
+  successMessage: Erfolgreich registriert 🎉
   title: Registrieren
   username: Benutzername
 reviews:

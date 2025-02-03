@@ -204,6 +204,7 @@ register:
   haveAccount: لديك حساب؟
   login: تسجيل الدخول!
   password: كلمة المرور
+  successMessage: مسجل بنجاح 🎉
   title: التسجيل
   username: اسم المستخدم
 reviews:

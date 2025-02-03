@@ -204,6 +204,7 @@ register:
   haveAccount: Hesabınız var mı?
   login: Giriş Yap!
   password: Şifre
+  successMessage: Başarıyla kayıtlı 🎉
   title: Kayıt Ol
   username: Kullanıcı Adı
 reviews:

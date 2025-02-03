@@ -94,7 +94,7 @@ const menuOptions: MenuOption[] = [
         icon: renderIcon(LoginIcon),
       },
       {
-        label: () => renderLabel(t('menu.register'), '/account/login'),
+        label: () => renderLabel(t('menu.register'), '/account/register'),
         key: 'register',
         icon: renderIcon(RegisterIcon),
       },
