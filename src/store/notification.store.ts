@@ -6,14 +6,19 @@ export const useNotificationStore = defineStore('Notification', () => {
   const notifications = ref<Notification[]>([])
   const isLoading = ref(false)
   async function getNotifications() {
-    const response = await NotificationService.getNotificationsList('1')
+    const response = await NotificationService.getNotificationsList()
     notifications.value = response.items
+  }
+
+  function clearAll() {
+    notifications.value = []
   }
 
   return {
     notifications,
     isLoading,
     getNotifications,
+    clearAll,
   }
 })
 

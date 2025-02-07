@@ -174,7 +174,9 @@ menu:
   websiteSettings: Websiteeinstellungen
 not-found: Nicht gefunden
 notifications:
+  clear: Alle klar
   empty: Keine Benachrichtigungen
+  title: Benachrichtigungen
 notify:
   welcome: >-
     Willkommen bei Yummy Admin! Kostenloses Admin-Panel basierend auf Naive UI

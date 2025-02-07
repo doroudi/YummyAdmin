@@ -3,7 +3,7 @@ import type { GlobalThemeOverrides } from 'naive-ui'
 const themeOverrides: GlobalThemeOverrides = {
   common: {
     primaryColor: '#00ad4c',
-    hoverColor: 'var(--primary-color-shade1)',
+    // hoverColor: 'var(--primary-color-shade1)',
     errorColor: '#FF0055',
     warningColor: '#FF8000',
     borderRadius: '5px',

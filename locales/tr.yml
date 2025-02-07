@@ -169,7 +169,9 @@ menu:
   websiteSettings: Website Ayarları
 not-found: Bulunamadı
 notifications:
+  clear: Hepsini temizlemek
   empty: Hiçbir bildirim yok
+  title: Bildirimler
 notify:
   welcome: >-
     Yummy Admin'e hoş geldiniz! Naive UI ve Vue 3 tabanlı Ücretsiz Admin Paneli,

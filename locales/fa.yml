@@ -170,7 +170,9 @@ menu:
   users: کاربران
   websiteSettings: تنظیمات وبسایت
 notifications:
+  clear: همه را پاک کنید
   empty: هیچ اعلانی وجود ندارد
+  title: اعلان ها
 notify:
   welcome: >-
     به پنل ادمین یامی خوش آمدید، لطفا این پروژه را با دادن یک ستاره ⭐️ در گیت

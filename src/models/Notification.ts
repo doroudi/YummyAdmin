@@ -7,8 +7,9 @@ export interface Notification {
 }
 
 export enum NotificationType {
-  Info,
-  Message,
-  Order,
-  Alert,
+  info,
+  alert,
+  security,
+  order,
+  customer,
 }
