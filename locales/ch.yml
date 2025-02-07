@@ -169,7 +169,9 @@ menu:
   websiteSettings: 网站设置
 not-found: 未找到
 notifications:
+  clear: Klaru
   empty: 没有通知
+  title: Norasion
 notify:
   welcome: 欢迎使用 Yummy Admin！基于 Naive UI 和 Vue 3 的免费管理面板，请在 GitHub 上点赞⭐️来支持此项目
 orders:

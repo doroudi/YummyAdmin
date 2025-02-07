@@ -169,7 +169,9 @@ menu:
   websiteSettings: إعدادات الموقع
 not-found: غير موجود
 notifications:
+  clear: مسح كل شيء
   empty: لا يوجد إشعارات
+  title: إشعارات
 notify:
   welcome: >-
     مرحبًا بك في  لوحة تحكم يامي! لوحة إدارة مجانية تعتمد على Naive UI وVue 3،

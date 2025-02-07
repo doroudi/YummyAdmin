@@ -1,4 +1,5 @@
 import type { PagedListResult } from '~/models/PagedListResult'
+import type { ListResult } from '~/models/ListResult'
 
 export function CreatePagedResponse<T>(req: any, items: T[], searchKey = 'name'): PagedListResult<T> {
   const url = new URL(req.url)
@@ -15,5 +16,16 @@ export function CreatePagedResponse<T>(req: any, items: T[], searchKey = 'name')
     totalCount: filteredItems.length,
     pageCount: Math.ceil(filteredItems.length / count),
     items: filteredItems.slice(skip, skip + count),
+  }
+}
+
+export function CreateListResponse<T>(req: any, items: T[], searchKey = 'name'): ListResult<T> {
+  const url = new URL(req.url)
+  const query = url.searchParams.get('query')
+  let filteredItems = items
+  if (query)
+    filteredItems = items.filter(x => x[searchKey].toLowerCase().includes(query.toLowerCase()))
+  return {
+    items: filteredItems,
   }
 }

@@ -61,8 +61,8 @@ common:
     name changed or is temporarily unavailable
   actions: Actions
   date: Date
-  deleteConfirm: Are you sure to delete this item?
   delete: Delete
+  deleteConfirm: Are you sure to delete this item?
   goHome: Back To Home
   name: Name
   new: New
@@ -99,6 +99,17 @@ de: German
 description: Free Vue 3 Dashboard
 direction: ltr
 en: English
+enums:
+  OrderStatus:
+    Delivered: Delivered
+    Processing: Processing
+    ReadyToSend: ReadyToSend
+    Sent: Sent
+    Submitted: Submitted
+  ProductStatus:
+    Active: Active
+    Draft: Draft
+    NotActive: NotActive
 fa: Persian
 forgot:
   button: Recover
@@ -163,7 +174,9 @@ menu:
   websiteSettings: Website Settings
 not-found: Not found
 notifications:
+  clear: Clear All
   empty: No notifications
+  title: Notifications
 notify:
   welcome: >-
     Welcome to Yummy Admin! Free Admin Panel based on NaiveUI and Vue3, please
@@ -198,9 +211,9 @@ register:
   haveAccount: Have Account?
   login: Login!
   password: Password
+  successMessage: Registered Successfully 🎉
   title: Register
   username: User Name
-  successMessage: Registered Successfully 🎉
 reviews:
   comment: Comment
   customer: Customer
@@ -219,15 +232,3 @@ userMenu:
   options: Options
   profile: Profile
   theme: Theme
-
-enums:
-  OrderStatus:
-    Submitted: Submitted
-    Processing: Processing
-    ReadyToSend: ReadyToSend
-    Sent: Sent
-    Delivered: Delivered
-  ProductStatus:
-    NotActive: NotActive
-    Active: Active
-    Draft: Draft
