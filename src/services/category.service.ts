@@ -7,5 +7,9 @@ class CategoryService extends GenericService<Category, number> {
   constructor() {
     super(apiService)
   }
+
+  getAll() {
+    return apiService.getList<Category[]>
+  }
 }
 export default new CategoryService()
