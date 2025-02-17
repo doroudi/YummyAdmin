@@ -8,9 +8,14 @@ class GenericService<T, TKey> {
     this.apiService = service
   }
 
-  async getList(options: PagedAndSortedRequest): Promise<PagedListResult<T>> {
+  async getPagedList(options: PagedAndSortedRequest): Promise<PagedListResult<T>> {
     const response = await this.apiService.getPagedList<T>('', options)
     return response
+  }
+
+  async getList(): Promise<T[]> {
+    const response = await this.apiService.getList<T>('', {})
+    return response.items
   }
 
   async getSingle(id: TKey): Promise<T> {

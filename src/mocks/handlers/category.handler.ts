@@ -10,6 +10,7 @@ const handlers = [
     const response = CreatePagedResponse<Category>(request, categories)
     return HttpResponse.json(response, { status: 200 })
   }),
+
   http.post('/api/Category', async ({ request }) => {
     const newItem = (await request.json()) as CategoryCreateModel
     const category: Category = {
@@ -18,16 +19,16 @@ const handlers = [
       productsCount: 0,
       children: [],
     }
-    categories.push(category)
+    categories.unshift(category)
     return HttpResponse.json(category, { status: 201 })
   }),
+
   http.delete('/api/Category/:id', ({ params }) => {
     const { id } = params ?? '1'
     const itemIndex = categories.findIndex(x => x.id === Number.parseInt(id?.toString() ?? '1'))
     categories.splice(itemIndex, 1)
     return HttpResponse.json(true, { status: 200 })
   }),
-
 ]
 
 function createFakeCategory(): Category {

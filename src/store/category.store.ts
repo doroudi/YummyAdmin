@@ -13,7 +13,7 @@ export const useCategoryStore = defineStore('Category', () => {
   async function getCategories(options: PagedAndSortedRequest = defaultOptions) {
     isLoading.value = true
     try {
-      const response = await categoryService.getList(options)
+      const response = await categoryService.getPagedList(options)
       categories.value = response
     }
     finally {
@@ -29,7 +29,7 @@ export const useCategoryStore = defineStore('Category', () => {
     isLoading.value = true
     try {
       await categoryService.create<CategoryCreateModel>(categoryItem)
-      // getCategories(options.value)
+      getCategories()
     }
     finally {
       isLoading.value = false
@@ -38,7 +38,7 @@ export const useCategoryStore = defineStore('Category', () => {
 
   async function deleteCategory(id: number) {
     await categoryService.delete(id)
-    // getCategories(options.value)
+    getCategories()
   }
 
   function editCategory() {

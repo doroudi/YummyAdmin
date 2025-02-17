@@ -15,7 +15,7 @@ export const useBrandStore = defineStore('Brand', () => {
   async function getBrands(options: PagedAndSortedRequest = defaultOptions) {
     isLoading.value = true
     try {
-      const response = await brandService.getList(options)
+      const response = await brandService.getPagedList(options)
       brands.value = response
     }
     catch (err) {

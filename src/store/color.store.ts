@@ -15,7 +15,7 @@ export const useColorStore = defineStore('Color', () => {
   async function getColors(options: PagedAndSortedRequest) {
     isLoading.value = true
     try {
-      const response = await colorService.getList(options)
+      const response = await colorService.getPagedList(options)
       colors.value = response
     }
     finally {
