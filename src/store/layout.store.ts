@@ -11,6 +11,7 @@ export const useLayoutStore = defineStore('layout', () => {
   const themeColor = ref('#00ad4c')
   const isDark = ref(false)
   const isWelcomeShown = ref(false)
+  const isFluid = ref(false)
 
   const dialogPlacement = computed(() => isRtl.value ? 'left' : 'right')
 
@@ -71,6 +72,7 @@ export const useLayoutStore = defineStore('layout', () => {
     closeSidebar,
     $reset,
     mobileMenuClosed,
+    isFluid,
   }
 }, { persist: true })
 

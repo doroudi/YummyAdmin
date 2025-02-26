@@ -1,6 +1,7 @@
 <script setup>
 import {
   Checkmark48Filled as CheckIcon,
+
   WeatherMoon48Regular as MoonIcon,
   WeatherSunny48Regular as SunIcon,
 } from '@vicons/fluent'
@@ -10,7 +11,7 @@ import useColors from '~/composables/colors'
 const { t } = useI18n()
 
 const layout = useLayoutStore()
-const { isRtl } = storeToRefs(layout)
+const { isRtl, isFluid } = storeToRefs(layout)
 function setLight() {
   if (layout.isDark)
     layout.toggleTheme()
@@ -39,7 +40,7 @@ onMounted(() => {
       {{ t('customize.theme') }}
     </NTag>
 
-    <n-space justify="center" size="large">
+    <n-space justify="start" size="large">
       <NButton ghost class="p-7" :type="layout.isDark === false ? 'primary' : 'default'" size="large" @click="setLight">
         <template #icon>
           <NIcon>
@@ -62,7 +63,7 @@ onMounted(() => {
       {{ t('customize.color') }}
     </NTag>
 
-    <div>
+    <div py-3>
       <NButton
         v-for="(color, index) of colors" :key="index" :color="color" size="medium" circle icon="CheckIcon"
         class="mx-1" @click="setColor(index)"
@@ -79,26 +80,30 @@ onMounted(() => {
       {{ t('customize.layout') }}
     </NTag>
 
-    <div>
+    <div py-3>
+      <n-switch v-model:value="isFluid" />
+      Fluid Layout
+    </div>
+    <div py-3>
       <n-switch v-model:value="isRtl" />
       RTL Layout
     </div>
-  </div>
 
-  <div class="section">
-    <NTag type="primary" :bordered="false" size="small" class="mb-3 font-bold">
-      {{ t('customize.language') }}
-    </NTag>
+    <div class="section">
+      <NTag type="primary" :bordered="false" size="small" class="mb-3 font-bold">
+        {{ t('customize.language') }}
+      </NTag>
 
-    <div>
-      <LanguageSelect :show-title="true" />
+      <div>
+        <LanguageSelect :show-title="true" />
+      </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .section {
-    margin-bottom: 1rem;
+    margin-bottom: .8rem;
     padding: 1rem 0;
     .section-title {
         font-weight: 500;
