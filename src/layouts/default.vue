@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import type { ToastNotification } from '~/store/notify.store'
 
+const layoutStore = useLayoutStore()
+
+const { isFluid } = storeToRefs(layoutStore)
 const notification = useNotification()
 const notificationsStore = useNotifyStore()
 watch(() => notificationsStore.messages, (newVal: ToastNotification[], oldVal: ToastNotification[]) => {
@@ -23,7 +27,7 @@ watch(() => notificationsStore.messages, (newVal: ToastNotification[], oldVal: T
     <n-layout :native-scrollbar="false" position="static">
       <div class="main-content flex-1 bg-slate-100 dark:bg-slate-800 dark:text-white my-2 mr-2">
         <Navbar />
-        <div class="px-0 py-1 md:p-3 md:pb-15 relative md:container md:mx-auto">
+        <div class="px-0 py-1 md:p-3 md:pb-15 relative md:mx-auto" :class="{ 'md-container': !isFluid }">
           <router-view v-slot="{ Component, route }">
             <transition name="route" mode="out-in">
               <div :key="route">
@@ -41,9 +45,5 @@ watch(() => notificationsStore.messages, (newVal: ToastNotification[], oldVal: T
 .n-layout {
   padding: 0 4px;
   background-color: transparent !important;
-}
-
-.n-layout-content {
-  // height: 100vh !important;
 }
 </style>
