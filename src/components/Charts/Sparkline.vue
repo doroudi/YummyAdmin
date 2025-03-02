@@ -12,7 +12,6 @@ const chartOptions = {
     sparkline: {
       enabled: true,
     },
-    group: 'sparks',
     toolbar: {
       show: false,
     },
@@ -41,10 +40,10 @@ const chartOptions = {
 
   grid: {
     padding: {
-      top: 5,
+      top: 10,
       bottom: 5,
-      left: 80,
-      right: 20,
+      left: 10,
+      right: 0,
     },
   },
   tooltip: {
@@ -59,7 +58,7 @@ const series = [{ data: props.data }]
 </script>
 
 <template>
-  <VueApexCharts type="line" height="50" :options="chartOptions" :series="series" />
+  <VueApexCharts type="line" width="200" height="50" :options="chartOptions" :series="series" />
 </template>
 
 <style lang="scss" scoped></style>

@@ -55,7 +55,7 @@ function doAnimate() {
     <Card no-shadow>
       <div class="inner flex flex-col">
         <div class="head flex justify-between items-center">
-          <NIcon class="icon text-primary" :component="props.icon" />
+          <NIcon class="icon text-primary opacity-80" :component="props.icon" />
           <span>
             <n-badge
               :value="`${props.data.progress}%`"
@@ -64,12 +64,12 @@ function doAnimate() {
           </span>
         </div>
         <section>
-          <div class="flex flex-column">
-            <div>
+          <div class="flex flex-column items-center justify-between">
+            <div w-10>
               <h3 ref="element" class="text-gray-700 dark:text-gray-200 value">
                 {{ value }}
               </h3>
-              <h4 class="title text-gray-800 dark:text-gray-200">
+              <h4 class="title text-gray-600 dark:text-gray-200">
                 {{ props.title }}
               </h4>
             </div>
