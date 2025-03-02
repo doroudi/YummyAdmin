@@ -160,6 +160,7 @@ declare global {
   const useCustomerStore: typeof import('./store/customer.store')['useCustomerStore']
   const useCycleList: typeof import('@vueuse/core')['useCycleList']
   const useDark: typeof import('@vueuse/core')['useDark']
+  const useDashboardStore: typeof import('./store/dashboard.store')['useDashboardStore']
   const useDateFormat: typeof import('@vueuse/core')['useDateFormat']
   const useDebounce: typeof import('@vueuse/core')['useDebounce']
   const useDebounceFn: typeof import('@vueuse/core')['useDebounceFn']
@@ -486,6 +487,7 @@ declare module 'vue' {
     readonly useCustomerStore: UnwrapRef<typeof import('./store/customer.store')['useCustomerStore']>
     readonly useCycleList: UnwrapRef<typeof import('@vueuse/core')['useCycleList']>
     readonly useDark: UnwrapRef<typeof import('@vueuse/core')['useDark']>
+    readonly useDashboardStore: UnwrapRef<typeof import('./store/dashboard.store')['useDashboardStore']>
     readonly useDateFormat: UnwrapRef<typeof import('@vueuse/core')['useDateFormat']>
     readonly useDebounce: UnwrapRef<typeof import('@vueuse/core')['useDebounce']>
     readonly useDebounceFn: UnwrapRef<typeof import('@vueuse/core')['useDebounceFn']>
