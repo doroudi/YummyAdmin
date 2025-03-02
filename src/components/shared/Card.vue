@@ -2,7 +2,6 @@
 defineProps({
   shadow: { type: Boolean, default: false },
   bottomBorder: { type: Boolean, default: false },
-  color: { type: String, required: false },
   title: { type: String, required: false },
 })
 const slots = useSlots()
