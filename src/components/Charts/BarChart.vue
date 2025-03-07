@@ -58,6 +58,21 @@ const chartOptions = ref({
       },
     },
   },
+  responsive: [{
+    breakpoint: 992,
+    options: {
+      plotOptions: {
+        bar: {
+          columnWidth: '29%',
+          borderRadius: 3,
+        },
+        distributed: true,
+      },
+      chart: {
+        height: 250,
+      },
+    },
+  }],
 })
 
 const series = ref([

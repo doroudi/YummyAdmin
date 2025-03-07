@@ -74,7 +74,7 @@ const donutChartOptions = ref({
     breakpoint: 1325,
     options: {
       chart: {
-        height: 100,
+        height: 150,
       },
     },
   }, {
@@ -88,14 +88,14 @@ const donutChartOptions = ref({
     breakpoint: 1045,
     options: {
       chart: {
-        height: 100,
+        height: 200,
       },
     },
   }, {
     breakpoint: 992,
     options: {
       chart: {
-        height: 120,
+        height: 250,
       },
     },
   }],
