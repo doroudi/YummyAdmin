@@ -6,18 +6,19 @@ import { OrderStatus } from '~/models/Order'
 const { t } = useI18n()
 const store = useOrderStore()
 const { getStatusColor } = useOrders()
-const { renderPrice, renderTag } = useRender()
+const { renderPrice, renderTag, renderUserAvatar } = useRender()
 
 onMounted(getItems)
 
 function getItems() {
-  store.getRecentOrders(7)
+  store.getRecentOrders(6)
 }
 
 const columns: DataTableColumns<RowData> = [
   {
     title: t('customers.customerName'),
     key: 'customer',
+    render: row => renderUserAvatar(row.customer.avatar, row.customer.name)
   },
   {
     title: t('common.price'),
