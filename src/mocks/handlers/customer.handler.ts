@@ -45,6 +45,7 @@ function createFakeCustomer(): Customer {
     joinDate: faker.date.past(),
     birthDate: faker.date.birthdate(),
     email: faker.internet.email(),
+    avatar: faker.image.avatarGitHub(),
     ordersCount: faker.number.int({ max: 50 }),
   }
 }

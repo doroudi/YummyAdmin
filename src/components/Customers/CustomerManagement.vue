@@ -14,7 +14,7 @@ const store = useCustomerStore()
 const message = useMessage()
 const router = useRouter()
 const { options } = useOptions()
-const { renderActionButton, renderDeleteActionButton } = useRender()
+const { renderActionButton, renderDeleteActionButton, renderUserAvatar } = useRender()
 
 const { proxy } = getCurrentInstance()
 
@@ -24,15 +24,11 @@ const columns: DataTableColumns<RowData> = [
     type: 'selection',
     fixed: 'left',
   },
+
   {
     title: t('customers.customerName'),
     key: 'name',
-    render: row =>
-      h(NSpace, {}, {
-        default: () => [
-          h(NText, {}, { default: () => `${row.firstName} ${row.lastName}` }),
-        ],
-      }),
+    render: row => renderUserAvatar(row.avatar, `${row.firstName} ${row.lastName}`),
   },
   {
     title: t('customers.joinDate'),
@@ -59,7 +55,7 @@ const columns: DataTableColumns<RowData> = [
     render(row) {
       return h(NText,
         {}, {
-          default: () => row.email,
+          default: () => row.email.toLowerCase(),
         })
     },
   },

@@ -2,7 +2,7 @@ import type { Address, Customer } from './Customer'
 
 export interface OrderList {
   id: string
-  customer: string
+  customer: OrderCustomer
   customerId: string
   address: Address
   status: OrderStatus
@@ -31,4 +31,10 @@ export enum OrderStatus {
   ReadyToSend,
   Sent,
   Delivered,
+}
+
+export interface OrderCustomer {
+  name: string
+  id: string
+  avatar: string
 }

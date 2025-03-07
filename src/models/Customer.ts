@@ -8,6 +8,7 @@ export interface Customer {
   joinDate: Date
   birthDate: Date
   ordersCount?: number
+  avatar?: string
 }
 
 export interface Address {

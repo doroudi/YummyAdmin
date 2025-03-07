@@ -70,6 +70,7 @@ declare module 'vue' {
     NText: typeof import('naive-ui')['NText']
     NThing: typeof import('naive-ui')['NThing']
     NTooltip: typeof import('naive-ui')['NTooltip']
+    NTreeSelect: typeof import('naive-ui')['NTreeSelect']
     OrderManagement: typeof import('./components/Orders/OrderManagement.vue')['default']
     PersianIcon: typeof import('./components/CustomIcons/PersianIcon.vue')['default']
     ProductsManagement: typeof import('./components/Products/ProductsManagement.vue')['default']

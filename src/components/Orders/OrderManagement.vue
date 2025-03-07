@@ -2,11 +2,12 @@
 import { type DataTableColumns, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
-  Open24Regular as ArrowIcon,
+  MoreHorizontal28Regular as MoreIcon,
+  Delete24Regular as DeleteIcon,
 } from '@vicons/fluent'
 import { OrderStatus } from '~/models/Order'
 
-const { renderActionButton, renderTag, renderPrice } = useRender()
+const { renderActionButton, renderTag, renderPrice, renderUserAvatar } = useRender()
 const { getStatusColor } = useOrders()
 const store = useOrderStore()
 const { proxy } = getCurrentInstance()
@@ -19,6 +20,7 @@ const columns: DataTableColumns<RowData> = [
     title: t('orders.customer'),
     key: 'customer',
     fixed: 'left',
+    render: row => renderUserAvatar(row.customer.avatar, row.customer.name),
   },
   {
     title: t('common.date'),
@@ -45,7 +47,8 @@ const columns: DataTableColumns<RowData> = [
     width: 110,
     render: () =>
       [
-        renderActionButton(ArrowIcon, () => {}),
+        renderActionButton(MoreIcon, () => {}),
+        renderActionButton(DeleteIcon, () => {}),
       ],
   },
 ]

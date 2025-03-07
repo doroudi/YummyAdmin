@@ -32,7 +32,7 @@ export function useRender() {
 
   function renderTag(text: string, type: 'error' | 'default' | 'success' | 'warning' | 'primary' | 'info', stateEnum: any, typename: string, round = false, bordered = false) {
     return h(NTag,
-      { type, bordered, round },
+      { type, bordered, round, size: 'small' },
       { default: () => t(`enums.${typename}.${stateEnum[text]}`) })
   }
 
@@ -64,6 +64,23 @@ export function useRender() {
           style: { 'border-radius': '3px' },
         }, { }),
         h(NText, {}, { default: () => name }),
+      ],
+    })
+  }
+
+  function renderUserAvatar(image: string, username: string) {
+    return h(NSpace, { align: 'center' }, {
+      default: () => [
+        h(NImage, {
+          src: image,
+          fallbackSrc: 'assets/images/fallback.png',
+          width: 38,
+          height: 38,
+          objectFit: 'contain',
+          showToolbar: false,
+          style: { 'border-radius': '50%' },
+        }, { }),
+        h(NText, {}, { default: () => username }),
       ],
     })
   }
@@ -122,6 +139,7 @@ export function useRender() {
     renderPrice,
     renderRate,
     renderProductImage,
+    renderUserAvatar,
     renderLabel,
     renderText,
     renderDate,
