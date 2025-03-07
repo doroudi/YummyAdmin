@@ -42,13 +42,6 @@ const barChartOptions = ref({
     strokeOpacity: 1,
     strokeDashArray: 0,
     fillOpacity: 1,
-    // discrete: [{
-    //   seriesIndex: 0,
-    //   dataPointIndex: 5,
-    //   fillColor: '#15302b',
-    //   strokeColor: ['#15302b', '#eee'],
-    //   size: 6,
-    // }],
     shape: 'circle',
     radius: 2,
     hover: {
@@ -82,7 +75,7 @@ const barChartOptions = ref({
 const series = ref([
   {
     name: 'series-1',
-    data: [30, 40, 35, 50, 49, 6, 70, 91],
+    data: [30, 12, 35, 25, 49, 51, 39, 55],
   },
 ])
 </script>
