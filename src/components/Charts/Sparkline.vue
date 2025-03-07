@@ -8,11 +8,10 @@ const props = defineProps<Props>()
 
 const chartOptions = {
   chart: {
-    type: 'line',
+    type: 'area',
     sparkline: {
       enabled: true,
     },
-    group: 'sparks',
     toolbar: {
       show: false,
     },
@@ -25,26 +24,25 @@ const chartOptions = {
     width: 2,
     curve: 'smooth',
   },
+
   fill: {
     type: 'gradient',
     gradient: {
-      shade: 'dark',
-      gradientToColors: ['var(--primary-color-shade2)'],
-      shadeIntensity: 1,
-      type: 'horizontal',
-      opacityFrom: 1,
-      opacityTo: 1,
-      stops: [0, 100, 100, 100],
+      shade: 'light',
+      gradientToColors: ['var(--main-content)', 'var(--primary-color)'],
+      type: 'vertical',
+      shadeIntensity: 0,
+      opacityFrom: 0.6,
+      opacityTo: 0.1,
     },
   },
   colors: ['var(--primary-color)'],
-
   grid: {
     padding: {
-      top: 5,
+      top: 10,
       bottom: 5,
-      left: 80,
-      right: 20,
+      left: 10,
+      right: 0,
     },
   },
   tooltip: {
@@ -59,7 +57,7 @@ const series = [{ data: props.data }]
 </script>
 
 <template>
-  <VueApexCharts type="line" height="50" :options="chartOptions" :series="series" />
+  <VueApexCharts type="area" width="200" height="50" :options="chartOptions" :series="series" />
 </template>
 
 <style lang="scss" scoped></style>
