@@ -1,13 +1,13 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Color, ColorCreateModel } from '~/models/Color'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
-import type { PagedListResult } from '~/models/PagedListResult'
+import type { PaginatedList } from '~/models/PagedListResult'
 import colorService from '~/services/color.service'
 
 export interface ColorState {
 }
 export const useColorStore = defineStore('Color', () => {
-  const colors = ref<PagedListResult<Color>>([])
+  const colors = ref<PaginatedList<Color>>([])
   const colorItem = ref<Color>()
   const isLoading = ref(false)
   const isSaving = ref(false)

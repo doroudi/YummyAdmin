@@ -1,6 +1,7 @@
 import type { AxiosInstance } from 'axios'
 import HttpClient from './http-client'
-import type { PagedListResult } from '~/models/PagedListResult'
+import type { PaginatedList } from '~/models/PaginatedList'
+
 import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
 import type { ListResult } from '~/models/ListResult'
 
@@ -22,9 +23,9 @@ export class ApiService {
     return response.data as ListResult<T>
   }
 
-  async getPagedList<T>(url = '', options: PagedAndSortedRequest = defaultOptions): Promise<PagedListResult<T>> {
-    const response = await this.httpClient.get<PagedListResult<T>>(`${this.apiBase}/${url}`, { params: options })
-    return response.data as PagedListResult<T>
+  async getPagedList<T>(url = '', options: PagedAndSortedRequest = defaultOptions): Promise<PaginatedList<T>> {
+    const response = await this.httpClient.get<PaginatedList<T>>(`${this.apiBase}/${url}`, { params: options })
+    return response.data as PaginatedList<T>
   }
 
   async query<T>(url: string, params?: any): Promise<T> {
@@ -52,7 +53,7 @@ export class ApiService {
       return this.httpClient.delete(`${this.apiBase}/${url}`)
     }
     catch (error) {
-      throw new Error(`${error} was occured`)
+      throw new Error(`${error} was occurred`)
     }
   }
 

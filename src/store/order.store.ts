@@ -1,11 +1,11 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Order, OrderList } from '~/models/Order'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
-import type { PagedListResult } from '~/models/PagedListResult'
+import type { PaginatedList } from '~/models/PagedListResult'
 import orderService from '~/services/order.service'
 
 export const useOrderStore = defineStore('Order', () => {
-  const orders = ref<PagedListResult<OrderList>>({ items: [] })
+  const orders = ref<PaginatedList<OrderList>>({ items: [] })
   const isLoading = ref(false)
   const isSaving = ref(false)
 

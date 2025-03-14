@@ -1,11 +1,11 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
-import type { PagedListResult } from '~/models/PagedListResult'
 import type { Product, ProductCreateModel } from '~/models/Product'
 import productService from '~/services/product.service'
 
 export const useProductStore = defineStore('Product', () => {
-  const products = ref<PagedListResult<Product>>({ items: [] })
+  const products = ref<Product[]>([])
+  const trendingProducts = ref<Product[]>([])
   const productItem = ref<Product>()
   const isLoading = ref(false)
   const isSaving = ref(false)
@@ -14,7 +14,8 @@ export const useProductStore = defineStore('Product', () => {
     isLoading.value = true
     try {
       const response = await productService.getPagedList(options)
-      products.value = response
+      products.value = response.items
+      options.pageCount = Math.ceil(response.totalCount! / options.itemsPerPage!)
     }
     finally {
       isLoading.value = false
@@ -25,7 +26,7 @@ export const useProductStore = defineStore('Product', () => {
     isLoading.value = true
     try {
       const response = await productService.getPagedList({ page: 1, itemsPerPage })
-      products.value = response
+      trendingProducts.value = response.items
     }
     finally {
       isLoading.value = false
@@ -55,7 +56,7 @@ export const useProductStore = defineStore('Product', () => {
     isLoading,
     isSaving,
     products,
-    // options,
+    trendingProducts,
     productItem,
     getProducts,
     createProduct,

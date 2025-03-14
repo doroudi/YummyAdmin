@@ -2,8 +2,8 @@
 import { type DataTableColumns, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
-  MoreHorizontal28Regular as MoreIcon,
   Delete24Regular as DeleteIcon,
+  MoreHorizontal28Regular as MoreIcon,
 } from '@vicons/fluent'
 import { OrderStatus } from '~/models/Order'
 

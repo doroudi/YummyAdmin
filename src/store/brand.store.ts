@@ -1,13 +1,13 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Brand, BrandCreateModel } from '~/models/Brand'
 import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
-import type { PagedListResult } from '~/models/PagedListResult'
+import type { PaginatedList } from '~/models/PagedListResult'
 import brandService from '~/services/brand.service'
 
 export interface BrandState {
 }
 export const useBrandStore = defineStore('Brand', () => {
-  const brands = ref<PagedListResult<Brand>>({ items: [] })
+  const brands = ref<PaginatedList<Brand>>({ items: [] })
   const brandItem = ref<Brand>()
   const isLoading = ref(false)
   const isSaving = ref(false)

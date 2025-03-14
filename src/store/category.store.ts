@@ -1,11 +1,11 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Category, CategoryCreateModel } from '~/models/Category'
 import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
-import type { PagedListResult } from '~/models/PagedListResult'
+import type { PaginatedList } from '~/models/PagedListResult'
 import categoryService from '~/services/category.service'
 
 export const useCategoryStore = defineStore('Category', () => {
-  const categories = ref<PagedListResult<Category>>({ items: [] })
+  const categories = ref<PaginatedList<Category>>({ items: [] })
   const categoryItem = ref<Category>()
   const isLoading = ref(false)
   const isSaving = ref(false)

@@ -45,7 +45,7 @@ const columns: DataTableColumns<RowData> = [
   <div>
     <n-data-table
       remote
-      :bordered="false" :columns="columns" :data="store.products.items" :loading="store.isLoading"
+      :bordered="false" :columns="columns" :data="store.trendingProducts" :loading="store.isLoading"
       :scroll-x="500"
     />
   </div>

@@ -18,7 +18,7 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('customers.customerName'),
     key: 'customer',
-    render: row => renderUserAvatar(row.customer.avatar, row.customer.name)
+    render: row => renderUserAvatar(row.customer.avatar, row.customer.name),
   },
   {
     title: t('common.price'),

@@ -1,6 +1,6 @@
 import type { ApiService } from '~/common/api/api-service'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
-import type { PagedListResult } from '~/models/PagedListResult'
+import type { PaginatedList } from '~/models/PagedListResult'
 
 class GenericService<T, TKey> {
   private apiService: ApiService
@@ -8,7 +8,7 @@ class GenericService<T, TKey> {
     this.apiService = service
   }
 
-  async getPagedList(options: PagedAndSortedRequest): Promise<PagedListResult<T>> {
+  async getPagedList(options: PagedAndSortedRequest): Promise<PaginatedList<T>> {
     const response = await this.apiService.getPagedList<T>('', options)
     return response
   }

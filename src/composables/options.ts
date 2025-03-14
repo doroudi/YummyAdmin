@@ -1,10 +1,9 @@
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
-import type { PagedListResult } from '~/models/PagedListResult'
 
 export function useOptions(autoBind = true) {
   const options = ref<PagedAndSortedRequest>({
     page: 1,
-    query: '',
+    itemsPerPage: 10,
   })
 
   onMounted(() => {
@@ -64,11 +63,14 @@ export function useOptions(autoBind = true) {
   }
 
   function isDefaultProperty(prop: string, value: number) {
-    return prop === 'page' && value === 1
-  }
+    // return prop === 'page' && value === 1
+    if (['itemsPerPage', 'sortBy', 'sortDesc', 'pageCount'].includes(prop))
+      return true
 
-  function updatePaging(response: PagedListResult<any>) {
-    options.value.itemCount = response.totalCount
+    if (prop === 'page' && value === 1)
+      return true
+
+    return false
   }
 
   return {
@@ -76,6 +78,5 @@ export function useOptions(autoBind = true) {
     getFilterQueryString,
     bindOptionsToQueryString,
     writeOptionsQueryString,
-    updatePaging,
   }
 }

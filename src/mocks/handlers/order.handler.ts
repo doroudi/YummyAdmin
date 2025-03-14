@@ -27,7 +27,7 @@ function createFakeOrder(): OrderList {
     createdDate: faker.date.recent(),
     customer: {
       id: faker.number.int().toString(),
-      avatar: faker.image.avatarGitHub(),
+      avatar: `https://avatar.iran.liara.run/public/${faker.number.int({ min: 1, max: 100 })}`,
       name: faker.person.fullName(),
     },
     totalPrice: faker.number.int({ min: 10, max: 2000 }),
