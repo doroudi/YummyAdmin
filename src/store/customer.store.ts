@@ -1,14 +1,14 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Customer } from '~/models/Customer'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
-import type { PagedListResult } from '~/models/PagedListResult'
+import type { PaginatedList } from '~/models/PagedListResult'
 import customerService from '~/services/customer.service'
 
 export interface CustomerState {
 
 }
 export const useCustomerStore = defineStore('Customer', () => {
-  const customers = ref<PagedListResult<Customer>>({ items: [] })
+  const customers = ref<PaginatedList<Customer>>({ items: [] })
   const customerItem = ref<Customer>()
   const isLoading = ref(false)
   const isSaving = ref(false)

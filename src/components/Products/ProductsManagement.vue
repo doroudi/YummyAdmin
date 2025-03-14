@@ -152,7 +152,7 @@ function handleCheck(checkedRowKeys: DataTableRowKey[]) {
           </div>
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="store.products.items" :loading="store.isLoading"
+          remote :columns="columns" :data="store.products" :loading="store.isLoading"
           :pagination="options" selectable :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
           @update:filters="handleFiltersChange" @update:checked-row-keys="handleCheck"
           @update:page="handlePageChange"

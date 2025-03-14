@@ -1,6 +1,8 @@
-import type { ListResult } from './ListResult'
-
-export interface PagedListResult<T> extends ListResult<T> {
+export interface PaginatedList<T> {
+  items: T[]
+  pageNumber?: number
+  totalPages?: number
   totalCount?: number
-  pageCount?: number
+  hasPreviousPage?: boolean
+  hasNextPage?: boolean
 }

@@ -3,7 +3,6 @@ import type { Address, Customer } from './Customer'
 export interface OrderList {
   id: string
   customer: OrderCustomer
-  customerId: string
   address: Address
   status: OrderStatus
   createdDate: Date
