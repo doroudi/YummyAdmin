@@ -37,7 +37,6 @@ export const useProductStore = defineStore('Product', () => {
     isLoading.value = true
     try {
       await productService.create<ProductCreateModel>(product)
-      // getProducts()
     }
     finally {
       isLoading.value = false

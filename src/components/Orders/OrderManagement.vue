@@ -78,12 +78,15 @@ function searchInListDebounced(value: string) {
     <n-layout-content>
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
-          <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
+          <n-input
+            v-model="options.query" :value="options.query" :placeholder="t('common.search')"
+            @input="searchInListDebounced"
+          />
         </NSpace>
         <n-data-table
-          remote :columns="columns" :data="store.orders.items" :loading="store.isLoading" :pagination="store.orders"
-          :row-key="(row) => row.id" :scroll-x="1000" @update:sorter="getItems" @update:filters="getItems"
-          @update:page="handlePageChange"
+          remote :columns="columns" :data="store.orders.items" :loading="store.isLoading"
+          :pagination="store.orders" :row-key="(row) => row.id" :scroll-x="1000" @update:sorter="getItems"
+          @update:filters="getItems" @update:page="handlePageChange"
         />
       </div>
     </n-layout-content>

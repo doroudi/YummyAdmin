@@ -25,6 +25,8 @@ export const useLayoutStore = defineStore('layout', () => {
       mobileMenuClosed.value = false
     else
       collapsed.value = !collapsed.value
+
+    window.umami?.track('SwitchTheme', isDark ? 'Dark' : 'Light')
   }
 
   function closeSidebar() {
@@ -33,6 +35,7 @@ export const useLayoutStore = defineStore('layout', () => {
 
   function toggleTheme() {
     isDark.value = !isDark.value
+    window.umami?.track('SwitchTheme', isDark ? 'Dark' : 'Light')
   }
 
   function changeLanguage(lang: string) {
@@ -40,10 +43,12 @@ export const useLayoutStore = defineStore('layout', () => {
     locale.value = lang
     const dir = t('direction')
     isRtl.value = (dir !== null && dir === 'rtl')
+    window.umami?.track('LanguageChange', lang)
   }
 
   function setThemeColor(color: string) {
     themeColor.value = color
+    window.umami?.track('ChangeTheme', color)
   }
 
   function showWelcome() {

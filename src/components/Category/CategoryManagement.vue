@@ -86,7 +86,7 @@ function searchInListDebounced(value: string) {
     <n-layout-content>
       <div class="px-3">
         <n-space justify="space-between" class="mb-3">
-          <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
+          <n-input v-model="options.query" :value="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
           <NButton type="primary" @click="createCategory">
             <template #icon>
               <NIcon>
@@ -97,8 +97,8 @@ function searchInListDebounced(value: string) {
           </NButton>
         </n-space>
         <n-data-table
-          remote :columns="columns" :data="store.categories.items" :loading="store.isLoading"
-          :pagination="store.categories" :scroll-x="1000" :row-key="rowKey" @update:sorter="handleSorterChange"
+          remote :columns="columns" :data="store.categories" :loading="store.isLoading"
+          :pagination="options" :scroll-x="1000" :row-key="rowKey" @update:sorter="handleSorterChange"
           @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />
       </div>
@@ -110,7 +110,7 @@ function searchInListDebounced(value: string) {
       <CategoryStatics />
     </n-layout-sider>
 
-    <n-drawer v-model:show="showAddDialog" :width="502" :placement="dialogPlacement">
+    <n-drawer v-model:show="showAddDialog" :width="380" :placement="dialogPlacement">
       <n-drawer-content class="rtl" closable :title="t('categories.create.title')">
         <CreateCategory @close="showAddDialog = false" />
       </n-drawer-content>

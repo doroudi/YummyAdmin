@@ -1,35 +1,26 @@
 <script setup lang="ts">
-import type { SelectMixedOption } from 'naive-ui/es/select/src/interface'
 import {
   DoorArrowRight20Regular as LogoutIcon,
   Settings20Regular as SettingsIcon,
 } from '@vicons/fluent'
-import { NIcon } from 'naive-ui'
-import { RouterLink } from 'vue-router'
+
+const { renderLabel, renderIcon } = useRender()
 
 const { t } = useI18n()
 
-const items: SelectMixedOption[]
+const items: any[]
   = [
     {
       icon: renderIcon(SettingsIcon),
-      label: renderLabel(t('userMenu.profile'), '/account/profile'),
+      label: () => renderLabel(t('userMenu.profile'), '/account/profile'),
       key: 'options',
     },
     {
       icon: renderIcon(LogoutIcon),
-      label: renderLabel(t('userMenu.logout'), '/account/login'),
+      label: () => renderLabel(t('userMenu.logout'), '/account/login'),
       key: 'login',
     },
   ]
-
-function renderIcon(icon: any) {
-  return () => h(NIcon, null, { default: () => h(icon, {}) })
-}
-
-function renderLabel(title: string, path: string) {
-  return () => h(RouterLink, { to: { path } }, { default: () => title })
-}
 </script>
 
 <template>

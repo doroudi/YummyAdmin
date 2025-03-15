@@ -35,7 +35,7 @@ export function useOptions(autoBind = true) {
     for (const prop in queryString) {
       if (Object.prototype.hasOwnProperty.call(queryString, prop)) {
         const value = queryString[prop] as any
-        if (Number.isNaN(value)) {
+        if (!isNumber(value)) {
           if (value === 'true' || value === 'false') {
             options.value[prop as keyof PagedAndSortedRequest] = value === 'true'
             continue
@@ -47,6 +47,11 @@ export function useOptions(autoBind = true) {
         }
       }
     }
+  }
+
+  function isNumber(value: string | number): boolean {
+    // eslint-disable-next-line unicorn/prefer-number-properties
+    return typeof value === 'number' && !isNaN(value)
   }
 
   function writeOptionsQueryString() {
@@ -63,7 +68,6 @@ export function useOptions(autoBind = true) {
   }
 
   function isDefaultProperty(prop: string, value: number) {
-    // return prop === 'page' && value === 1
     if (['itemsPerPage', 'sortBy', 'sortDesc', 'pageCount'].includes(prop))
       return true
 

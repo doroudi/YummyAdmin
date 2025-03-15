@@ -83,7 +83,7 @@ function handlePreview(file: UploadFileInfo) {
           </div>
         </n-card>
       </n-layout-content>
-      <n-layout-sider :width="400">
+      <n-layout-sider :width="380">
         <n-card size="small" :title="t('products.create.pricing')" class="mb-2">
           <n-space vertical>
             <n-form-item path="name" :label="t('products.create.price')">

@@ -81,7 +81,10 @@ function searchInListDebounced(value: string) {
   <n-layout>
     <n-layout-content>
       <n-space justify="space-between" class="mb-3">
-        <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
+        <n-input
+          v-model="options.query" :value="options.query" :placeholder="t('common.search')"
+          @input="searchInListDebounced"
+        />
         <NButton type="primary" @click="createBrand">
           <template #icon>
             <NIcon>
@@ -92,12 +95,13 @@ function searchInListDebounced(value: string) {
         </NButton>
       </n-space>
       <n-data-table
-        remote :columns="columns" :data="store.brands.items" :loading="store.isLoading" :pagination="store.brands"
-        :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange" @update:page="handlePageChange"
+        remote :columns="columns" :data="store.brands" :loading="store.isLoading"
+        :pagination="options" :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange"
+        @update:page="handlePageChange"
       />
     </n-layout-content>
 
-    <n-drawer v-model:show="showAddDialog" :width="502" :placement="dialogPlacement">
+    <n-drawer v-model:show="showAddDialog" :width="380" :placement="dialogPlacement">
       <n-drawer-content closable title="Create Brand">
         <CreateBrand @close="showAddDialog = false" />
       </n-drawer-content>

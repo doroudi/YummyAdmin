@@ -91,7 +91,7 @@ function searchInListDebounced(value: string) {
     <n-layout-content>
       <div>
         <n-space justify="space-between" class="mb-3">
-          <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
+          <n-input v-model="options.query" :value="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
           <NButton type="primary" @click="createColor">
             <template #icon>
               <NIcon>
@@ -108,7 +108,7 @@ function searchInListDebounced(value: string) {
       </div>
     </n-layout-content>
 
-    <n-drawer v-model:show="showAddDialog" :width="502" :placement="dialogPlacement">
+    <n-drawer v-model:show="showAddDialog" :width="380" :placement="dialogPlacement">
       <n-drawer-content closable :title="t('colors.create.title')">
         <CreateColor @close="showAddDialog = false" />
       </n-drawer-content>

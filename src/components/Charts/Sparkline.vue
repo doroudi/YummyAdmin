@@ -32,7 +32,7 @@ const chartOptions = {
       gradientToColors: ['var(--main-content)', 'var(--primary-color)'],
       type: 'vertical',
       shadeIntensity: 0,
-      opacityFrom: 0.6,
+      opacityFrom: 0.3,
       opacityTo: 0.1,
     },
   },
