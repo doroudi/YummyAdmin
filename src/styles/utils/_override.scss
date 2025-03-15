@@ -100,3 +100,12 @@ select:-webkit-autofill:focus {
     border: 1px solid #555 !important;
   }
 }
+
+
+.n-drawer.n-drawer--right-placement {
+  top: 5px;
+  bottom: 5px;
+  right: 5px;
+  height: calc(100% - 10px);
+  border-radius: var(--n-border-radius);
+}

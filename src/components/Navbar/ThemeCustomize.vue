@@ -25,7 +25,7 @@ function toggleDialog() {
     </n-button>
   </div>
 
-  <n-drawer v-model:show="showCustomizeDialog" :width="400" :placement="dialogPlacement">
+  <n-drawer v-model:show="showCustomizeDialog" :width="380" :placement="dialogPlacement">
     <n-drawer-content closable :title="t('customize.title')">
       <CustomizeDialog @close="showCustomizeDialog = false" />
     </n-drawer-content>

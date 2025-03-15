@@ -127,7 +127,7 @@ function handleCheck(checkedRowKeys: DataTableRowKey[]) {
     <n-layout-content>
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
-          <n-input v-model="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
+          <n-input v-model="options.query" :value="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
           <div>
             <n-tooltip v-if="checkedRows.length" trigger="hover">
               <template #trigger>

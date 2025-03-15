@@ -57,15 +57,15 @@ const { t } = useI18n()
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(var(--primary-color), 0.5);
+        box-shadow: 0 0 0 0 rgb(from var(--primary-color) r g b / .5);
     }
 
     70% {
-        box-shadow: 0 0 0 14px rgba(var(--primary-color), 0);
+        box-shadow: 0 0 0 14px rgb(from var(--primary-color) r g b / 0);
     }
 
     100% {
-        box-shadow: 0 0 0 0 rgba(var(--primary-color), 0);
+        box-shadow: 0 0 0 0 rgb(from var(--primary-color) r g b / 0);
     }
 }
 </style>

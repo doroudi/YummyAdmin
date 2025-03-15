@@ -1,11 +1,10 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Category, CategoryCreateModel } from '~/models/Category'
 import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
-import type { PaginatedList } from '~/models/PagedListResult'
 import categoryService from '~/services/category.service'
 
 export const useCategoryStore = defineStore('Category', () => {
-  const categories = ref<PaginatedList<Category>>({ items: [] })
+  const categories = ref<Category[]>([])
   const categoryItem = ref<Category>()
   const isLoading = ref(false)
   const isSaving = ref(false)
@@ -14,15 +13,12 @@ export const useCategoryStore = defineStore('Category', () => {
     isLoading.value = true
     try {
       const response = await categoryService.getPagedList(options)
-      categories.value = response
+      categories.value = response.items
+      options.pageCount = Math.ceil(response.totalCount! / options.itemsPerPage!)
     }
     finally {
       isLoading.value = false
     }
-  }
-
-  function getCategory() {
-
   }
 
   async function createCategory(categoryItem: CategoryCreateModel) {
@@ -41,20 +37,14 @@ export const useCategoryStore = defineStore('Category', () => {
     getCategories()
   }
 
-  function editCategory() {
-
-  }
-
   return {
     isLoading,
     isSaving,
     categories,
     categoryItem,
     getCategories,
-    getCategory,
     createCategory,
     deleteCategory,
-    editCategory,
   }
 })
 if (import.meta.hot)
