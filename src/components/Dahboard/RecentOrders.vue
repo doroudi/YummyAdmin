@@ -38,7 +38,7 @@ const columns: DataTableColumns<RowData> = [
 <template>
   <div>
     <n-data-table
-      :bordered="false" :columns="columns" :data="store.orders.items" :loading="store.isLoading"
+      :bordered="false" :columns="columns" :data="store.orders" :loading="store.isLoading"
       :scroll-x="500"
     />
   </div>

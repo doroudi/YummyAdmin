@@ -1,13 +1,12 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Color, ColorCreateModel } from '~/models/Color'
-import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
-import type { PaginatedList } from '~/models/PagedListResult'
+import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
 import colorService from '~/services/color.service'
 
 export interface ColorState {
 }
 export const useColorStore = defineStore('Color', () => {
-  const colors = ref<PaginatedList<Color>>([])
+  const colors = ref<Color[]>([])
   const colorItem = ref<Color>()
   const isLoading = ref(false)
   const isSaving = ref(false)
@@ -16,7 +15,8 @@ export const useColorStore = defineStore('Color', () => {
     isLoading.value = true
     try {
       const response = await colorService.getPagedList(options)
-      colors.value = response
+      colors.value = response.items
+      options.pageCount = Math.ceil(response.totalCount! / options.itemsPerPage!)
     }
     finally {
       isLoading.value = false
@@ -31,7 +31,7 @@ export const useColorStore = defineStore('Color', () => {
     isLoading.value = true
     try {
       await colorService.create(colorItem)
-      // getColors(options.value)
+      getColors(defaultOptions)
     }
     finally {
       isLoading.value = false
@@ -40,7 +40,7 @@ export const useColorStore = defineStore('Color', () => {
 
   async function deleteColor(id: string) {
     await colorService.delete(id)
-    // getColors(options.value)
+    getColors(defaultOptions)
   }
 
   function editColor() {

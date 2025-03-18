@@ -1,17 +1,19 @@
 <script setup lang='ts'>
 import type { FormInst, FormRules } from 'naive-ui/es/form'
 import { storeToRefs } from 'pinia'
+import type { ColorCreateModel } from '~/models/Color'
 
 const emits = defineEmits(['close'])
 const colorStore = useColorStore()
 const { isLoading } = storeToRefs(colorStore)
-const colorItem = ref<ColorCreateModel>({ name: '', color: '#000000' })
+const colorItem = ref<ColorCreateModel>({ name: '', color: '#F0A020' })
 const { t } = useI18n()
 const formRef = ref<FormInst | null>(null)
 async function create() {
   formRef.value?.validate(async (errors: any) => {
     if (!errors) {
       await colorStore.createColor(colorItem.value)
+      useNotifyStore().success('Color created successfully')
       emits('close')
     }
   })
@@ -30,13 +32,6 @@ const rules: FormRules = {
       message: t('colors.validations.nameRequired'),
     },
   ],
-  // color: [
-  //   {
-  //     required: true,
-  //     trigger: ['blur', 'change'],
-  //     message: t('colors.validations.colorRequired'),
-  //   },
-  // ],
 }
 </script>
 

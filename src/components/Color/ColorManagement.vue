@@ -102,7 +102,7 @@ function searchInListDebounced(value: string) {
           </NButton>
         </n-space>
         <n-data-table
-          remote :columns="columns" :data="store.colors.items" :loading="store.isLoading" :pagination="store.colors"
+          remote :columns="columns" :data="store.colors" :loading="store.isLoading" :pagination="options"
           :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange" @update:page="handlePageChange"
         />
       </div>

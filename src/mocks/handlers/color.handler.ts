@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker/locale/en'
 import { CreatePagedResponse } from '../handlers.utility'
 import type { Color, ColorCreateModel } from '~/models/Color'
 
-const colors = times(7, createFakeColor)
+const colors = times(15, createFakeColor)
 const handlers = [
   http.get('/api/Color', ({ request }) => {
     const response = CreatePagedResponse<Color>(request, colors)
@@ -17,7 +17,7 @@ const handlers = [
       name: newItem.name,
       color: newItem.color,
     }
-    colors.push(color)
+    colors.unshift(color)
     return HttpResponse.json(color, { status: 201 })
   }),
   http.delete('/api/Color/:id', ({ params }) => {
@@ -30,7 +30,11 @@ const handlers = [
 ]
 
 function createFakeColor(): Color {
-  const color = faker.color.human()
+  const colors = ['Red', 'Green', 'Blue', 'Orange', 'Lime', 'Cyan', 'Purple', 'Gold', 'Grey', 'Black', 'White', 'Pink',
+    'AliceBlue', 'Lavender', 'Yellow', 'Bisque', 'Azure', 'Coral', 'Brown', 'Crimson', 'DarkGoldenRod', 'DarkGreen', 'DarkGrey', 'DarkKhaki',
+    'DarkSlateBlue', 'DarkSeaGreen', 'DodgerBlue', 'ForestGreen', 'FireBrick', 'FloralWhite', 'Gainsboro', 'GreenYellow', 'HotPink', 'LightCoral',
+    'Fuchsia', 'indigo', 'tan', 'turquoise', 'teal', 'silver']
+  const color = faker.helpers.arrayElement(colors)
   return {
     id: faker.number.int().toString(),
     name: color,
