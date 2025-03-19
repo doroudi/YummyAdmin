@@ -232,3 +232,22 @@ userMenu:
   options: Options
   profile: Profile
   theme: Theme
+profile:
+  title: Profile
+  firstName: First Name
+  lastName: Last Name
+  username: UserName
+  email: Email
+  location: Location
+  phone: Phone
+  save: Save
+  oldPassword: Old Password
+  newPassword: New Password
+  confirmPassword: Confirm Password
+  changePassword: Change Password
+  sms: Sms
+  notificationType: Notification Type
+  push: Push
+  personalInfo: Personal Info
+  notifications: Notifications
+  security: Security

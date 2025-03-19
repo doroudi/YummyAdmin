@@ -201,6 +201,23 @@ products:
   name: Ürün Adı
   rate: Oran
   stock: Stok
+profile:
+  changePassword: Şifre değiştir
+  confirmPassword: Şifreyi onaylayın
+  email: E -posta
+  firstName: İlk adı
+  lastName: Soy isim
+  location: Konum
+  newPassword: Yeni Şifre
+  notificationType: Bildirim Türü
+  notifications: Bildirimler
+  oldPassword: eski Şifre
+  personalInfo: Kişisel Bilgi
+  phone: Telefon
+  push: İtmek
+  save: Kaydetmek
+  security: Güvenlik
+  sms: SMS
 register:
   button: Kayıt Ol
   haveAccount: Hesabınız var mı?

@@ -58,8 +58,8 @@ common:
   404Message: 抱歉，您要查找的页面不存在、已被删除、名称已更改或暂时不可用
   actions: 操作
   date: 日期
-  delete: Funas
-  deleteConfirm: Siguru na un delete este?
+  delete: 删除
+  deleteConfirm: 确认删除？
   goHome: 返回首页
   new: 新
   notFound: 未找到
@@ -169,9 +169,9 @@ menu:
   websiteSettings: 网站设置
 not-found: 未找到
 notifications:
-  clear: Klaru
+  clear: 清除所有
   empty: 没有通知
-  title: Norasion
+  title: 通知
 notify:
   welcome: 欢迎使用 Yummy Admin！基于 Naive UI 和 Vue 3 的免费管理面板，请在 GitHub 上点赞⭐️来支持此项目
 orders:
@@ -199,12 +199,29 @@ products:
   name: 名称
   rate: 评分
   stoke: 库存
+profile:
+  changePassword: 更改密码
+  confirmPassword: 确认密码
+  email: 电子邮件
+  firstName: 名
+  lastName: 姓
+  location: 位置
+  newPassword: 新密码
+  notificationType: 通知类型
+  notifications: 通知
+  oldPassword: 旧密码
+  personalInfo: 个人信息
+  phone: 电话
+  push: 推送通知
+  save: 保存
+  security: 安全
+  sms: 短信
 register:
   button: 注册
   haveAccount: 已有账户？
   login: 登录！
   password: 密码
-  successMessage: I manma'gås-ta ni' manma'gås-ta manma'gås-ta.
+  successMessage: 注册成功 🎉
   title: 注册
   username: 用户名
 reviews:
