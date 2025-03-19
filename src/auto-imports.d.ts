@@ -249,6 +249,7 @@ declare global {
   const usePreferredReducedMotion: typeof import('@vueuse/core')['usePreferredReducedMotion']
   const usePrevious: typeof import('@vueuse/core')['usePrevious']
   const useProductStore: typeof import('./store/product.store')['useProductStore']
+  const useProfileStore: typeof import('./store/profile.store')['useProfileStore']
   const useRafFn: typeof import('@vueuse/core')['useRafFn']
   const useRefHistory: typeof import('@vueuse/core')['useRefHistory']
   const useRender: typeof import('./composables/render')['useRender']
@@ -576,6 +577,7 @@ declare module 'vue' {
     readonly usePreferredReducedMotion: UnwrapRef<typeof import('@vueuse/core')['usePreferredReducedMotion']>
     readonly usePrevious: UnwrapRef<typeof import('@vueuse/core')['usePrevious']>
     readonly useProductStore: UnwrapRef<typeof import('./store/product.store')['useProductStore']>
+    readonly useProfileStore: UnwrapRef<typeof import('./store/profile.store')['useProfileStore']>
     readonly useRafFn: UnwrapRef<typeof import('@vueuse/core')['useRafFn']>
     readonly useRefHistory: UnwrapRef<typeof import('@vueuse/core')['useRefHistory']>
     readonly useRender: UnwrapRef<typeof import('./composables/render')['useRender']>

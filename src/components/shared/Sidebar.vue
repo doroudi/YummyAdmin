@@ -18,7 +18,6 @@ import {
   PersonAdd20Regular as RegisterIcon,
   StarThreeQuarter20Filled as ReviewIcon,
   Settings28Regular as SettingsIcon,
-  ContentSettings20Regular as WebsiteSettingsIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 
@@ -116,11 +115,7 @@ const menuOptions: MenuOption[] = [
         key: 'account-settings',
         icon: renderIcon(AccountSettingsIcon),
       },
-      {
-        label: () => renderLabel(t('menu.websiteSettings'), '/website-settings'),
-        key: 'website-settings',
-        icon: renderIcon(WebsiteSettingsIcon),
-      },
+
     ],
   },
   {

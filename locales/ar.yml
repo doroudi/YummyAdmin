@@ -201,6 +201,23 @@ products:
   name: الاسم
   rate: التقييم
   stoke: المخزون
+profile:
+  changePassword: تغيير كلمة المرور
+  confirmPassword: تأكيد كلمة المرور
+  email: بريد إلكتروني
+  firstName: الاسم الأول
+  lastName: اسم العائلة
+  location: موقع
+  newPassword: كلمة المرور الجديدة
+  notificationType: نوع الإخطار
+  notifications: إشعارات
+  oldPassword: كلمة المرور القديمة
+  personalInfo: معلومات شخصية
+  phone: هاتف
+  push: يدفع
+  save: يحفظ
+  security: حماية
+  sms: رسالة قصيرة
 register:
   button: تسجيل
   haveAccount: لديك حساب؟

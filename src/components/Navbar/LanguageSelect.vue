@@ -26,7 +26,8 @@ const languages = availableLocales.map((x) => {
 
 function changeLanguage(lang: string) {
   layoutStore.changeLanguage(lang)
-  window.location.reload()
+  layoutStore.resetWelcomeState()
+  setTimeout(() => window.location.reload(), 1500)
 }
 
 function renderLabel(label: string, language: string) {

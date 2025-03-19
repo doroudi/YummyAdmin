@@ -202,12 +202,29 @@ products:
   name: نام محصول
   rate: امتیاز
   stoke: موجود
+profile:
+  changePassword: تغییر رمز عبور
+  confirmPassword: تأیید رمز عبور
+  email: ایمیل
+  firstName: نام
+  lastName: نام خانوادگی
+  location: محل
+  newPassword: رمزعبور جدید
+  notificationType: نوع اعلان
+  notifications: اعلان ها
+  oldPassword: رمز عبور جاری
+  personalInfo: اطلاعات شخصی
+  phone: تلفن
+  push: پوش نوتیفیکیشن
+  save: ذخیره
+  security: امنیت
+  sms: پیامک
 register:
   button: ثبت نام
   haveAccount: اکانت دارید؟
   login: وارد شوید!
   password: رمز عبور
-  successMessage: با موفقیت ثبت شده
+  successMessage: با موفقیت ثبت نام شدید 🎉
   title: ثبت نام
   username: نام کاربری
 reviews:

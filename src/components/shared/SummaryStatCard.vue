@@ -65,7 +65,7 @@ function doAnimate() {
         </div>
         <section>
           <div class="flex flex-column items-center justify-between">
-            <div w-10>
+            <div w-20>
               <h3 ref="element" class="text-gray-700 dark:text-gray-200 value">
                 {{ value }}
               </h3>

@@ -207,6 +207,23 @@ products:
   name: Produktname
   rate: Bewertung
   stoke: Auf Lager
+profile:
+  changePassword: Kennwort ändern
+  confirmPassword: Passwort bestätigen
+  email: E-Mail
+  firstName: Vorname
+  lastName: Nachname
+  location: Standort
+  newPassword: Neues Passwort
+  notificationType: Benachrichtigungstyp
+  notifications: Benachrichtigungen
+  oldPassword: Altes Passwort
+  personalInfo: Persönliche Informationen
+  phone: Telefon
+  push: Drücken
+  save: Speichern
+  security: Sicherheit
+  sms: SMS
 register:
   button: Registrieren
   haveAccount: Haben Sie ein Konto?

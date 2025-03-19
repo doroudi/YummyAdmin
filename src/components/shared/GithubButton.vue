@@ -6,7 +6,7 @@ const { t } = useI18n()
   <div class="github-button">
     <n-tooltip placement="top" trigger="hover">
       <template #trigger>
-        <a href="https://github.com/doroudi/yummyadmin" block target="_blank">
+        <a data-umami-event="Githu Button" href="https://github.com/doroudi/yummyadmin" block target="_blank">
           <n-button strong round type="primary" class="pulse-animated" flex space-between py-5 px-3>
             <NIcon size="1.6rem">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32">

@@ -3,11 +3,13 @@ import {
   DoorArrowRight20Regular as LogoutIcon,
   Settings20Regular as SettingsIcon,
 } from '@vicons/fluent'
+import { storeToRefs } from 'pinia'
 
 const { renderLabel, renderIcon } = useRender()
-
+const profileStore = useProfileStore()
+const { userProfile } = storeToRefs(profileStore)
 const { t } = useI18n()
-
+onMounted(() => profileStore.loadUserProfile())
 const items: any[]
   = [
     {
@@ -26,7 +28,7 @@ const items: any[]
 <template>
   <div class="flex items-center" v-bind="$attrs">
     <n-dropdown :options="items">
-      <img class="avatar" src="@/assets/images/user.png">
+      <img class="avatar" :src="userProfile.avatar" alt="avatar">
     </n-dropdown>
   </div>
 </template>
