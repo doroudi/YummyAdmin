@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Profile, ProfileSettings } from '~/models/Profile'
-import ProfileService from '~/services/Profile.service'
+import ProfileService from '~/services/profile.service'
 
 export const useProfileStore = defineStore('Profile', () => {
   const userProfile = ref<Profile>({} as Profile)
