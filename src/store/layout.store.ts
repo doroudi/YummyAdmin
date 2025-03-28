@@ -84,7 +84,11 @@ export const useLayoutStore = defineStore('layout', () => {
     mobileMenuClosed,
     isFluid,
   }
-}, { persist: true })
+}, {
+  persist: {
+    omit: ['mobileMode', 'forceCollapsed'],
+  },
+})
 
 if (import.meta.hot)
   import.meta.hot.accept(acceptHMRUpdate(useLayoutStore, import.meta.hot))

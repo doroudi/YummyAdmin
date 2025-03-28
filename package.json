@@ -50,7 +50,7 @@
     "lodash": "^4.17.21",
     "msw": "^2.7.3",
     "naive-ui": "^2.41.0",
-    "pinia-plugin-persistedstate": "^2.4.0",
+    "pinia-plugin-persistedstate": "^4.2.0",
     "pnpm": "^9.15.7",
     "rollup": "^4.34.9",
     "sass": "^1.85.1",

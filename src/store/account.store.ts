@@ -71,7 +71,11 @@ export const useAccountStore = defineStore('account', () => {
     resetPassword,
     register,
   }
-}, { persist: true })
+}, {
+  persist: {
+    omit: ['isLoading', 'loginFailed'],
+  },
+})
 
 if (import.meta.hot)
   import.meta.hot.accept(acceptHMRUpdate(useAccountStore, import.meta.hot))
