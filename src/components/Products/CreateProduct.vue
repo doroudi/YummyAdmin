@@ -19,8 +19,8 @@ const categoryStore = useCategoryStore()
 const brandStore = useBrandStore()
 const { categories } = storeToRefs(categoryStore)
 const { brands } = storeToRefs(brandStore)
-const categoryOptions = ref([])
-const brandOptions = ref([])
+const categoryOptions = ref<any[]>([])
+const brandOptions = ref<any[]>([])
 onMounted(async () => {
   await categoryStore.getCategories()
   await brandStore.getBrands()
@@ -52,8 +52,8 @@ function handlePreview(file: UploadFileInfo) {
 
 <template>
   <n-form>
-    <n-layout has-sider sider-placement="right">
-      <n-layout-content px-2>
+    <n-flex>
+      <div class="w-full lg:w-3/4">
         <n-card size="small" :title="t('products.create.productInformation')" class="mb-3">
           <n-form-item path="name" :label="t('products.create.name')">
             <n-input :placeholder="t('products.create.name')" label="Name" size="large" />
@@ -76,14 +76,18 @@ function handlePreview(file: UploadFileInfo) {
           <div class="form-control">
             <n-form-item class="mb-5" path="image" :label="t('brands.create.image')">
               <n-upload list-type="image-card" accept="image/png, image/jpeg" :max="20" @preview="handlePreview" />
-              <n-modal v-model:show="showModal" preset="card" style="width: 600px" :title="t('products.create.imageName')">
+              <n-modal
+                v-model:show="showModal" preset="card" style="width: 600px"
+                :title="t('products.create.imageName')"
+              >
                 <img :src="previewImageUrl" style="width: 100%">
               </n-modal>
             </n-form-item>
           </div>
         </n-card>
-      </n-layout-content>
-      <n-layout-sider :width="380">
+      </div>
+
+      <div class="w-full lg:flex-1">
         <n-card size="small" :title="t('products.create.pricing')" class="mb-2">
           <n-space vertical>
             <n-form-item path="name" :label="t('products.create.price')">
@@ -127,14 +131,13 @@ function handlePreview(file: UploadFileInfo) {
             </n-form-item>
           </n-space>
         </n-card>
-      </n-layout-sider>
-    </n-layout>
+      </div>
+    </n-flex>
   </n-form>
 </template>
 
 <style lang='scss'>
-.n-card > .n-card-header .n-card-header__main
-{
+.n-card>.n-card-header .n-card-header__main {
   font-weight: bold;
 }
 </style>
