@@ -16,7 +16,7 @@ declare global {
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
   const colorMode: typeof import('./composables/dark')['colorMode']
-  const colors: typeof import('./composables/colors')['default']
+  const colors: typeof import('./composables/useColors')['default']
   const computed: typeof import('vue')['computed']
   const computedAsync: typeof import('@vueuse/core')['computedAsync']
   const computedEager: typeof import('@vueuse/core')['computedEager']
@@ -151,6 +151,7 @@ declare global {
   const useCloned: typeof import('@vueuse/core')['useCloned']
   const useColorMode: typeof import('@vueuse/core')['useColorMode']
   const useColorStore: typeof import('./store/color.store')['useColorStore']
+  const useColors: typeof import('./composables/useColors')['default']
   const useConfirmDialog: typeof import('@vueuse/core')['useConfirmDialog']
   const useCounter: typeof import('@vueuse/core')['useCounter']
   const useCssModule: typeof import('vue')['useCssModule']
@@ -230,9 +231,9 @@ declare global {
   const useObjectUrl: typeof import('@vueuse/core')['useObjectUrl']
   const useOffsetPagination: typeof import('@vueuse/core')['useOffsetPagination']
   const useOnline: typeof import('@vueuse/core')['useOnline']
-  const useOptions: typeof import('./composables/options')['useOptions']
+  const useOptions: typeof import('./composables/useOptions')['useOptions']
   const useOrderStore: typeof import('./store/order.store')['useOrderStore']
-  const useOrders: typeof import('./composables/orders')['useOrders']
+  const useOrders: typeof import('./composables/useOrders')['useOrders']
   const usePageLeave: typeof import('@vueuse/core')['usePageLeave']
   const useParallax: typeof import('@vueuse/core')['useParallax']
   const useParentElement: typeof import('@vueuse/core')['useParentElement']
@@ -252,7 +253,7 @@ declare global {
   const useProfileStore: typeof import('./store/profile.store')['useProfileStore']
   const useRafFn: typeof import('@vueuse/core')['useRafFn']
   const useRefHistory: typeof import('@vueuse/core')['useRefHistory']
-  const useRender: typeof import('./composables/render')['useRender']
+  const useRender: typeof import('./composables/useRender')['useRender']
   const useResizeObserver: typeof import('@vueuse/core')['useResizeObserver']
   const useReviewStore: typeof import('./store/review.store')['useReviewStore']
   const useRoute: typeof import('vue-router/auto')['useRoute']
@@ -346,7 +347,6 @@ declare module 'vue' {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
-    readonly colors: UnwrapRef<typeof import('./composables/colors')['default']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly computedAsync: UnwrapRef<typeof import('@vueuse/core')['computedAsync']>
     readonly computedEager: UnwrapRef<typeof import('@vueuse/core')['computedEager']>
@@ -479,6 +479,7 @@ declare module 'vue' {
     readonly useCloned: UnwrapRef<typeof import('@vueuse/core')['useCloned']>
     readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useColorStore: UnwrapRef<typeof import('./store/color.store')['useColorStore']>
+    readonly useColors: UnwrapRef<typeof import('./composables/useColors')['default']>
     readonly useConfirmDialog: UnwrapRef<typeof import('@vueuse/core')['useConfirmDialog']>
     readonly useCounter: UnwrapRef<typeof import('@vueuse/core')['useCounter']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
@@ -558,9 +559,9 @@ declare module 'vue' {
     readonly useObjectUrl: UnwrapRef<typeof import('@vueuse/core')['useObjectUrl']>
     readonly useOffsetPagination: UnwrapRef<typeof import('@vueuse/core')['useOffsetPagination']>
     readonly useOnline: UnwrapRef<typeof import('@vueuse/core')['useOnline']>
-    readonly useOptions: UnwrapRef<typeof import('./composables/options')['useOptions']>
+    readonly useOptions: UnwrapRef<typeof import('./composables/useOptions')['useOptions']>
     readonly useOrderStore: UnwrapRef<typeof import('./store/order.store')['useOrderStore']>
-    readonly useOrders: UnwrapRef<typeof import('./composables/orders')['useOrders']>
+    readonly useOrders: UnwrapRef<typeof import('./composables/useOrders')['useOrders']>
     readonly usePageLeave: UnwrapRef<typeof import('@vueuse/core')['usePageLeave']>
     readonly useParallax: UnwrapRef<typeof import('@vueuse/core')['useParallax']>
     readonly useParentElement: UnwrapRef<typeof import('@vueuse/core')['useParentElement']>
@@ -580,7 +581,7 @@ declare module 'vue' {
     readonly useProfileStore: UnwrapRef<typeof import('./store/profile.store')['useProfileStore']>
     readonly useRafFn: UnwrapRef<typeof import('@vueuse/core')['useRafFn']>
     readonly useRefHistory: UnwrapRef<typeof import('@vueuse/core')['useRefHistory']>
-    readonly useRender: UnwrapRef<typeof import('./composables/render')['useRender']>
+    readonly useRender: UnwrapRef<typeof import('./composables/useRender')['useRender']>
     readonly useResizeObserver: UnwrapRef<typeof import('@vueuse/core')['useResizeObserver']>
     readonly useReviewStore: UnwrapRef<typeof import('./store/review.store')['useReviewStore']>
     readonly useRoute: UnwrapRef<typeof import('vue-router/auto')['useRoute']>

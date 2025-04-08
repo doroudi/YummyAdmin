@@ -1,12 +1,11 @@
 <script setup>
 import {
   Checkmark48Filled as CheckIcon,
-
   WeatherMoon48Regular as MoonIcon,
   WeatherSunny48Regular as SunIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
-import useColors from '~/composables/colors'
+import useColors from '~/composables/useColors'
 
 const { t } = useI18n()
 

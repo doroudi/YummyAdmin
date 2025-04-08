@@ -229,7 +229,7 @@ router.beforeEach(() => {
 }
 
 .n-menu .n-menu-item-content:not(.n-menu-item-content--disabled):hover::before {
-  background-color: rgb(243 243 245 / 51%);
+  background-color: rgba(189, 189, 189, 0.15);
 }
 
 .n-layout-sider {
@@ -262,7 +262,6 @@ router.beforeEach(() => {
 .main-menu {
   .active {
     .p-button {
-      background: #f4f4f5;
 
       .p-button-label,
       .p-button-icon {

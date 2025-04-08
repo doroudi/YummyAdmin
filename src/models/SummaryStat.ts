@@ -1,8 +1,8 @@
 export interface DashboardSummaryStatDto {
-  registers: SummaryStatDto | null
-  products: SummaryStatDto | null
-  sells: SummaryStatDto | null
-  visits: SummaryStatDto | null
+  registers: SummaryStatDto
+  products: SummaryStatDto
+  sells: SummaryStatDto
+  visits: SummaryStatDto
 }
 
 export interface SummaryStatDto {
