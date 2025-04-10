@@ -55,8 +55,10 @@ body {
 
 .main-content { 
   background: var(--main-content);
+  height: calc(100vh - 1.3rem);
   border-radius: 10px;
-  min-height: calc(100vh - 1.6rem);
+  padding-bottom: 0.2rem;
+  overflow-y: hidden;
 }
 
 .page-title {

@@ -1,13 +1,3 @@
-<route lang="yaml">
-meta:
-  name: dashboard
-  title: dashboard
-  breadcrumb:
-    - dashboard
-</route>
-
-<template>
-  <DashboardPage />
-</template>
-
-<style scoped></style>
+<script lang="ts" setup>
+useRouter().replace('/dashboard/ecommerce')
+</script>

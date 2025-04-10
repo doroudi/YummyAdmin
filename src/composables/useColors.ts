@@ -21,7 +21,9 @@ export default function useColors() {
     const r = Math.floor(Number.parseInt(color.slice(1, 3), 16) / ratio)
     const g = Math.floor(Number.parseInt(color.slice(3, 5), 16) / ratio)
     const b = Math.floor(Number.parseInt(color.slice(5, 7), 16) / ratio)
-    return `#${toHex(r)}${toHex(g)}${toHex(b)}`
+    const result = `#${toHex(r)}${toHex(g)}${toHex(b)}`
+
+    return result
   }
 
   function toHex(num: number) {

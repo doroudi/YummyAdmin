@@ -1,11 +1,12 @@
-<script setup>
+<script setup lang="ts">
+import { storeToRefs } from 'pinia'
+
 defineProps({
-  shadow: { type: Boolean, default: false },
-  bottomBorder: { type: Boolean, default: false },
   title: { type: String, required: false },
 })
 const slots = useSlots()
 const layout = useLayoutStore()
+const { flatDesign } = storeToRefs(layout)
 </script>
 
 <template>
@@ -13,10 +14,10 @@ const layout = useLayoutStore()
     <div v-if="slots.header" class="py-3">
       <slot name="header" />
     </div>
-    <div class="card-container my-1" :class="{ shadow }">
+    <div class="card-container my-1">
       <div
-        class="card-content bg-white dark:bg-slate-900 rounded-md shadow-lg drop-shadow-md p-3 relative z-10"
-        :class="{ 'bottom-border': bottomBorder }" :style="{ 'border-color': `${layout.themeColor}99` }"
+        class="card-content bg-white dark:bg-slate-900 rounded-md border-solid border-cool-gray-200 dark:border-slate-8 p-3 relative z-10"
+        :class="{ 'shadow-lg': !flatDesign, 'drop-shadow-md': !flatDesign, 'border-1': flatDesign }"
       >
         <div v-if="slots.title">
           <slot name="title" />
@@ -38,27 +39,6 @@ const layout = useLayoutStore()
 <style lang="scss" scoped>
 .card-container {
     position: relative;
-
-    &.shadow:before {
-        content: "";
-        width: 92%;
-        box-shadow: 0 3px 20px #00000010;
-        position: absolute;
-        z-index: 9;
-        left: 0px;
-        right: 0px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 0.70rem;
-        height: 100%;
-        border-radius: 0.375rem;
-        --tw-bg-opacity: 1;
-        background-color: rgb(var(--color-slate-50) / var(--tw-bg-opacity));
-    }
-
-    .bottom-border {
-      border-bottom: solid 3px;
-    }
 
     .title {
       font-size:1.1rem;

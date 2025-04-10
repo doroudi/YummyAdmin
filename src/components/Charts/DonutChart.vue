@@ -1,7 +1,26 @@
 <script setup lang="ts">
 import VueApexCharts from 'vue3-apexcharts'
-import { ref } from 'vue'
 
+interface Props {
+  data: any[]
+  colorScheme?: string
+}
+const props = defineProps<Props>()
+
+const { makeLighter } = useColors()
+
+const labels = computed(() => props.data.map((item: any) => item.name))
+const values = computed(() => props.data.map((item: any) => item.value))
+const colors = computed(() => {
+  if (!props.colorScheme)
+    return ['var(--primary-color)', 'var(--primary-color-shade1)', 'var(--primary-color-shade2)', 'var(--primary-color-shade3)']
+
+  const result = []
+  for (let i = 0; i < props.data.length; i++)
+    result.push(makeLighter(props.colorScheme, 1 - (i * 0.25)))
+
+  return result
+})
 const donutChartOptions = ref({
   chart: {
     type: 'donut',
@@ -13,27 +32,27 @@ const donutChartOptions = ref({
     enabled: false,
   },
   legend: {
-    show: false,
+    show: true,
     position: 'right',
     offsetX: -30,
-    offsetY: 20,
+    offsetY: 60,
     formatter: (value: any, opts: any): any => {
       return `${value} - ${opts.w.globals.series[opts.seriesIndex]}`
     },
     markers: {
       onClick: undefined,
       offsetX: 0,
-      offsetY: 25,
+      offsetY: 0,
     },
   },
-  labels: ['Tech', 'Cloth', 'HH', 'Food'],
+  labels,
   stroke: {
     width: 0,
     show: false,
     curve: 'smooth',
     lineCap: 'round',
   },
-  colors: ['var(--primary-color)', 'var(--primary-color-shade1)', 'var(--primary-color-shade2)', 'var(--primary-color-shade3)'],
+  colors,
   grid: {
     padding: {
       right: -20,
@@ -101,14 +120,10 @@ const donutChartOptions = ref({
   }],
 },
 )
-
-const donutSeries = ref(
-  [30, 40, 20, 10],
-)
 </script>
 
 <template>
-  <VueApexCharts :series="donutSeries" height="180" :options="donutChartOptions" />
+  <VueApexCharts :series="values" height="180" :options="donutChartOptions" />
 </template>
 
 <style lang="scss" scoped>

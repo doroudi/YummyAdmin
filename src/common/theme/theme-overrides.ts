@@ -7,6 +7,7 @@ const themeOverrides: GlobalThemeOverrides = {
     warningColor: '#FF8000',
     borderRadius: '5px',
     borderRadiusSmall: '3px',
+    borderColor: '#e4e7ec',
   },
   Card: {
     borderRadius: '7px',
@@ -24,6 +25,7 @@ export const darkThemeOverrides: GlobalThemeOverrides = {
     borderRadius: '5px',
     borderRadiusSmall: '3px',
     cardColor: '#0f172a',
+    borderColor: '#1c2334',
   },
   Card: {
     borderRadius: '7px',
