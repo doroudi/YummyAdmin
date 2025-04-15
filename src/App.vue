@@ -49,52 +49,60 @@ watch(() => layout.isDark, (newValue) => {
 }, { immediate: true })
 
 watch(() => layout.themeColor, (newValue) => {
-  if (customTheme.value.common && customDarkTheme.value.common && newValue !== '') {
-    const shade1 = makeLighter(newValue, 0.8)
-    const shade2 = makeLighter(newValue, 0.6)
-    const shade3 = makeLighter(newValue, 0.4)
-    document.documentElement.style.setProperty('--primary-color', newValue)
-    document.documentElement.style.setProperty('--primary-color-shade1', shade1)
-    document.documentElement.style.setProperty('--primary-color-shade2', shade2)
-    document.documentElement.style.setProperty('--primary-color-shade3', shade3)
-
-    customTheme.value.common.primaryColor = newValue
-    customTheme.value.common.primaryColorHover = shade1
-    customTheme.value.common.primaryColorPressed = shade2
-    customTheme.value.common.primaryColorSuppl = shade3
-
-    customDarkTheme.value.common.primaryColor = newValue
-    customDarkTheme.value.common.primaryColorHover = shade1
-    customDarkTheme.value.common.primaryColorPressed = shade2
-    customDarkTheme.value.common.primaryColorSuppl = shade3
-
-    customTheme.value.Button = {
-      color: newValue,
-      colorHover: shade1,
-      colorPressed: shade2,
-      colorFocus: shade3,
-    }
-    customDarkTheme.value.common.primaryColor = newValue
-    customDarkTheme.value.Button = {
-      color: newValue,
-      colorHover: shade1,
-      colorPressed: shade2,
-      colorFocus: shade3,
-    }
-  }
+  setThemeColor(newValue)
 }, { immediate: true })
+
+function setThemeColor(newValue: string) {
+  if (newValue === '')
+    return
+
+  const shade1 = makeLighter(newValue, 0.8)
+  const shade2 = makeLighter(newValue, 0.6)
+  const shade3 = makeLighter(newValue, 0.4)
+  document.documentElement.style.setProperty('--primary-color', newValue)
+  document.documentElement.style.setProperty('--primary-color-shade1', shade1)
+  document.documentElement.style.setProperty('--primary-color-shade2', shade2)
+  document.documentElement.style.setProperty('--primary-color-shade3', shade3)
+  if (!customTheme.value.common || !customDarkTheme.value.common)
+    return
+
+  customTheme.value.common.primaryColor = newValue
+  customTheme.value.common.primaryColorHover = shade1
+  customTheme.value.common.primaryColorPressed = shade2
+  customTheme.value.common.primaryColorSuppl = shade3
+
+  customDarkTheme.value.common.primaryColor = newValue
+  customDarkTheme.value.common.primaryColorHover = shade1
+  customDarkTheme.value.common.primaryColorPressed = shade2
+  customDarkTheme.value.common.primaryColorSuppl = shade3
+
+  customTheme.value.Button = {
+    color: newValue,
+    colorHover: shade1,
+    colorPressed: shade2,
+    colorFocus: shade3,
+  }
+  customDarkTheme.value.common.primaryColor = newValue
+  customDarkTheme.value.Button = {
+    color: newValue,
+    colorHover: shade1,
+    colorPressed: shade2,
+    colorFocus: shade3,
+  }
+}
 </script>
 
 <template>
   <n-config-provider
+    inline-theme-disabled
     :theme="layout.isDark ? darkTheme : lightTheme"
-    :theme-overrides="layout.isDark ? customDarkTheme : customTheme" inline-theme-disabled
-    :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false"
+    :theme-overrides="layout.isDark ? customDarkTheme : customTheme" :rtl="layout.isRtl ? rtlStyles : []"
+    :preflight-style-disabled="false"
   >
     <n-notification-provider placement="bottom-right">
       <n-message-provider placement="bottom-right">
         <n-dialog-provider>
-          <router-view />
+          <RouterView />
           <GithubButton />
         </n-dialog-provider>
       </n-message-provider>

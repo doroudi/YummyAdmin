@@ -10,7 +10,7 @@ import useColors from '~/composables/useColors'
 const { t } = useI18n()
 
 const layout = useLayoutStore()
-const { isRtl, isFluid } = storeToRefs(layout)
+const { isRtl, isFluid, flatDesign } = storeToRefs(layout)
 function setLight() {
   if (layout.isDark)
     layout.toggleTheme()
@@ -40,10 +40,7 @@ onMounted(() => {
     </NTag>
 
     <n-space justify="start" size="large">
-      <NButton
-        ghost class="p-7" :type="layout.isDark === false ? 'primary' : 'default'"
-        size="large" @click="setLight"
-      >
+      <NButton ghost class="p-7" :type="layout.isDark === false ? 'primary' : 'default'" size="large" @click="setLight">
         <template #icon>
           <NIcon>
             <SunIcon />
@@ -51,10 +48,7 @@ onMounted(() => {
         </template>
       </NButton>
 
-      <NButton
-        ghost class="w-full p-7" :type="layout.isDark ? 'primary' : 'default'"
-        size="large" @click="setDark"
-      >
+      <NButton ghost class="w-full p-7" :type="layout.isDark ? 'primary' : 'default'" size="large" @click="setDark">
         <template #icon>
           <NIcon>
             <MoonIcon />
@@ -70,8 +64,8 @@ onMounted(() => {
 
     <div py-3>
       <NButton
-        v-for="(color, index) of colors" :key="index" :color="color"
-        size="medium" circle icon="CheckIcon" class="mx-1" @click="setColor(index)"
+        v-for="(color, index) of colors" :key="index" :color="color" size="medium" circle icon="CheckIcon"
+        class="mx-1" @click="setColor(index)"
       >
         <template #icon>
           <CheckIcon v-if="selectedColorIndex === index" />
@@ -86,12 +80,16 @@ onMounted(() => {
     </NTag>
 
     <div py-3>
-      <n-switch v-model:value="isFluid" data-umami-event="FluidLayout" />
+      <n-switch v-model:value="isFluid" />
       Fluid Layout
     </div>
     <div py-3>
-      <n-switch v-model:value="isRtl" data-umami-event="RtlLayout" />
+      <n-switch v-model:value="isRtl" />
       RTL Layout
+    </div>
+    <div py-3>
+      <n-switch v-model:value="flatDesign" />
+      Flat Design
     </div>
 
     <div class="section">

@@ -7,6 +7,7 @@ const layoutStore = useLayoutStore()
 const { isFluid } = storeToRefs(layoutStore)
 const notification = useNotification()
 const notificationsStore = useNotifyStore()
+
 watch(() => notificationsStore.messages, (newVal: ToastNotification[], oldVal: ToastNotification[]) => {
   if (newVal.length < oldVal.length)
     return
@@ -27,14 +28,21 @@ watch(() => notificationsStore.messages, (newVal: ToastNotification[], oldVal: T
     <n-layout :native-scrollbar="false" position="static">
       <div class="main-content flex-1 bg-slate-100 dark:bg-slate-800 dark:text-white my-2">
         <Navbar />
-        <div class="px-2 py-2 md:p-3 md:pb-15 relative md:mx-auto" :class="{ 'md-container': !isFluid }">
-          <router-view v-slot="{ Component, route }">
-            <transition name="route" mode="out-in">
-              <div :key="route">
-                <component :is="Component" />
-              </div>
-            </transition>
-          </router-view>
+        <div class="relative h-full">
+          <NScrollbar>
+            <div
+              class="h-full px-2 py-2 md:p-3 md:pb-15 overflow-auto md:mx-auto"
+              :class="{ 'md-container': !isFluid }"
+            >
+              <router-view v-slot="{ Component, route }">
+                <transition name="route" mode="out-in">
+                  <div :key="route.name">
+                    <component :is="Component" />
+                  </div>
+                </transition>
+              </router-view>
+            </div>
+          </NScrollbar>
         </div>
       </div>
     </n-layout>

@@ -4,16 +4,18 @@ import {
   PersonSettings20Regular as AccountSettingsIcon,
   DoorArrowRight20Regular as AuthIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
-  Folder32Regular as CategoryIcon,
-  Dismiss20Filled as CloseIcon,
+  Folder24Regular as CategoryIcon,
+  Dismiss24Filled as CloseIcon,
   Color24Regular as ColorsIcon,
-  People28Regular as CustomersIcon,
-  Home32Regular as DashboardIcon,
+  People24Regular as CustomersIcon,
+  Board24Regular as DashboardIcon,
+  ChartMultiple20Regular as DashboardIcon1,
+  ArrowTrendingLines24Regular as DashboardIcon2,
   PersonLightbulb20Regular as ForgetIcon,
   Cart24Regular as InvoicesIcon,
   PersonLock20Regular as LoginIcon,
   DocumentLink20Regular as PagesIcon,
-  Apps28Filled as ProductsIcon,
+  BoxCheckmark24Regular as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
   PersonAdd20Regular as RegisterIcon,
   StarThreeQuarter20Filled as ReviewIcon,
@@ -35,9 +37,21 @@ const effectiveCollapsed = computed(() => {
 
 const menuOptions: MenuOption[] = [
   {
-    label: () => renderLabel(t('menu.dashboard'), '/'),
+    label: () => t('menu.dashboard'),
     key: 'index',
     icon: renderIcon(DashboardIcon),
+    children: [
+      {
+        label: () => renderLabel(t('menu.eCommerce'), '/'),
+        key: 'dashboard-ecommerce',
+        icon: renderIcon(DashboardIcon1),
+      },
+      {
+        label: () => renderLabel(t('menu.analytics'), '/Dashboard/Analytics'),
+        key: 'dashboard-analytics',
+        icon: renderIcon(DashboardIcon2),
+      },
+    ],
   },
   {
     label: () => t('menu.productManagement'),
@@ -142,7 +156,7 @@ onMounted(() => {
 function activateCurrentRoute() {
   const keys = menuOptions.flatMap(m => m.children || m) as [{ key: string }]
   if (keys !== undefined) {
-    selectedMenuKey.value = keys.find(k => k.key.toLowerCase() === route.name.toLowerCase())?.key ?? 'index'
+    selectedMenuKey.value = keys.find(k => k.key.toLowerCase() === route.name.toLowerCase())?.key ?? 'dashboard-ecommerce'
     menuRef.value?.showOption(selectedMenuKey.value)
   }
 }
