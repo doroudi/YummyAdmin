@@ -1,29 +1,32 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 
-defineProps({
-  title: { type: String, required: false },
-})
+interface Props {
+  title?: string
+  titleSize?: 'small' | 'normal' | 'large'
+  stretchHeight?: boolean
+}
+withDefaults(defineProps<Props>(), { titleSize: 'normal', stretch: false })
 const slots = useSlots()
 const layout = useLayoutStore()
 const { flatDesign } = storeToRefs(layout)
 </script>
 
 <template>
-  <div>
+  <div :class="{ 'h-full': stretchHeight }">
     <div v-if="slots.header" class="py-3">
       <slot name="header" />
     </div>
-    <div class="card-container my-1">
+    <div class="card-container" :class="{ 'h-full': stretchHeight }">
       <div
-        class="card-content bg-white dark:bg-slate-900 rounded-md border-solid border-cool-gray-200 dark:border-slate-8 p-3 relative z-10"
-        :class="{ 'shadow-lg': !flatDesign, 'drop-shadow-md': !flatDesign, 'border-1': flatDesign }"
+        class="card-content bg-white dark:bg-slate-900 rounded-md border-solid border-cool-gray-200 dark:border-slate-8 p-4 relative z-10"
+        :class="{ 'shadow-lg': !flatDesign, 'drop-shadow-md': !flatDesign, 'border-1': flatDesign, 'h-full': stretchHeight }"
       >
         <div v-if="slots.title">
           <slot name="title" />
         </div>
         <div v-else-if="title">
-          <h3 class="title text-dark-400 dark:text-light-800">
+          <h3 class="title pb-2 text-dark-400 dark:text-light-800" :class="`title-${titleSize}`">
             {{ title }}
           </h3>
         </div>
@@ -38,12 +41,21 @@ const { flatDesign } = storeToRefs(layout)
 
 <style lang="scss" scoped>
 .card-container {
-    position: relative;
+  position: relative;
 
-    .title {
-      font-size:1.1rem;
-      font-weight: 500;
-      margin: .1rem 0.5rem 1.2rem 0.5rem;
-    }
+  .title {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .title-small {
+    font-size: .9rem;
+    padding-bottom: .2rem;
+  }
+
+  .title-large {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
 }
 </style>

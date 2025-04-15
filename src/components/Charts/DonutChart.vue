@@ -4,8 +4,10 @@ import VueApexCharts from 'vue3-apexcharts'
 interface Props {
   data: any[]
   colorScheme?: string
+  showLegend?: boolean
+  legendPosition?: 'bottom' | 'right' | 'left'
 }
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), { showLegend: true, legendPosition: 'bottom' })
 
 const { makeLighter } = useColors()
 
@@ -32,10 +34,8 @@ const donutChartOptions = ref({
     enabled: false,
   },
   legend: {
-    show: true,
-    position: 'right',
-    offsetX: -30,
-    offsetY: 60,
+    show: props.showLegend,
+    position: props.legendPosition,
     formatter: (value: any, opts: any): any => {
       return `${value} - ${opts.w.globals.series[opts.seriesIndex]}`
     },
@@ -74,15 +74,15 @@ const donutChartOptions = ref({
           value: {
             offsetY: -15,
             formatter(t: string): any {
-              return ''.concat(Number.parseInt(t).toString(), '%')
+              return Number.parseInt(t).toString()
             },
           },
           total: {
             show: true,
             offsetY: 15,
-            label: 'Sells',
+            label: 'Total',
             formatter() {
-              return '100%'
+              return props.data.reduce((acc: number, item: any) => acc + item.value, 0)
             },
           },
         },
@@ -123,7 +123,7 @@ const donutChartOptions = ref({
 </script>
 
 <template>
-  <VueApexCharts :series="values" height="180" :options="donutChartOptions" />
+  <VueApexCharts :series="values" height="220" :options="donutChartOptions" />
 </template>
 
 <style lang="scss" scoped>

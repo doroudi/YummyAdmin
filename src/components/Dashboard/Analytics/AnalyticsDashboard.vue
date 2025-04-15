@@ -17,18 +17,22 @@ const { summaryStat, isLoading } = storeToRefs(store)
   <div>
     <div class="margin-outside flex flex-wrap pb-3">
       <SummaryStatCard
+        class="w-full sm:w-1/2 md:w-1/4"
         :loading="isLoading" :data="summaryStat.registers" :title="t('dashboard.registers')"
         :icon="UserIcon"
       />
       <SummaryStatCard
+        class="w-full sm:w-1/2 md:w-1/4"
         :loading="isLoading" :data="summaryStat.products" :title="t('dashboard.products')"
         :icon="BoxIcon"
       />
       <SummaryStatCard
+        class="w-full sm:w-1/2 md:w-1/4"
         :loading="isLoading" :data="summaryStat.sells" :title="t('dashboard.sells')"
         :icon="BasketIcon"
       />
       <SummaryStatCard
+        class="w-full sm:w-1/2 md:w-1/4"
         :loading="isLoading" :data="summaryStat.visits" :title="t('dashboard.visits')"
         :icon="StatIcon"
       />

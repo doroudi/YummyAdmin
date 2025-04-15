@@ -4,12 +4,19 @@ const registersSource = ref<any[]>([
   { name: 'Windows', value: 500 },
   { name: 'iOS', value: 820 },
 ])
+const total = computed(() => registersSource.value.reduce((a, b) => a + b.value, 0))
 const { t } = useI18n()
 </script>
 
 <template>
-  <Card class="p-2" :title="t('dashboard.summary')">
-    <DonutChart :data="registersSource" color-scheme="#4FC3F7" />
+  <Card stretch-height class="p-2" title-small :title="t('dashboard.summary')">
+    <h3 class="text-3xl font-bold">
+      {{ total }}
+    </h3>
+    <p class="text-xsm text-coolgray font-light pb-2">
+      Total Registered users
+    </p>
+    <DonutChart :data="registersSource" color-scheme="#4FC3F7" legend-position="bottom" />
   </Card>
 </template>
 
