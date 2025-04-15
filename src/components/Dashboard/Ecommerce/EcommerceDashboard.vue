@@ -10,8 +10,6 @@ import {
 const { t } = useI18n()
 const notify = useNotifyStore()
 const store = useDashboardStore()
-const profileStore = useProfileStore()
-const { userProfile } = storeToRefs(profileStore)
 const { isLoading, summaryStat } = storeToRefs(store)
 const layout = useLayoutStore()
 

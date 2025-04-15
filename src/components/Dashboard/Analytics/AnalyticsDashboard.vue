@@ -8,7 +8,6 @@ import {
 } from '@vicons/fluent'
 
 const { t } = useI18n()
-const notify = useNotifyStore()
 const store = useDashboardStore()
 const { summaryStat, isLoading } = storeToRefs(store)
 </script>

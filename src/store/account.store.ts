@@ -54,7 +54,7 @@ export const useAccountStore = defineStore('account', () => {
   }
 
   function resetPassword(forgetInfo: any) {
-    return Promise.resolve(true)
+    return Promise.resolve(forgetInfo)
   }
 
   function isAuthenticated() {

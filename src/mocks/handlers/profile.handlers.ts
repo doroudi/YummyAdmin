@@ -3,7 +3,7 @@ import { HttpResponse, http } from 'msw'
 import type { Profile, ProfileSettings } from '~/models/Profile'
 
 const handlers = [
-  http.get('/api/profile/user-profile', ({ request }) => {
+  http.get('/api/profile/user-profile', () => {
     const response = createFakeProfile()
     return HttpResponse.json(response, { status: 200 })
   }),

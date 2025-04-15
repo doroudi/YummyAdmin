@@ -4,7 +4,7 @@ import times from 'lodash/times'
 import type { DashboardSummaryStatDto, SummaryStatDto } from '~/models/SummaryStat'
 
 const handlers = [
-  http.get('/api/report/summary', ({ request }) => {
+  http.get('/api/report/summary', () => {
     const response = createFakeSummaryData()
     return HttpResponse.json(response, { status: 200 })
   }),

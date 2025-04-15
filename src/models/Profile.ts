@@ -30,7 +30,6 @@ export interface ProfileSettings {
 
 export interface NotificationSetting {
   type: string
-  enabled: boolean
   email: boolean
   push: boolean
   sms: boolean
