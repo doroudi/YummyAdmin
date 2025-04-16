@@ -11,7 +11,8 @@
     "test:unit": "vitest",
     "typecheck": "vue-tsc --noEmit",
     "up": "taze major -I",
-    "sizecheck": "npx vite-bundle-visualizer"
+    "sizecheck": "npx vite-bundle-visualizer",
+    "prepare": "husky"
   },
   "dependencies": {
     "@unhead/vue": "^1.11.20",
@@ -49,6 +50,7 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.57.1",
     "https-localhost": "^4.7.1",
+    "husky": "^9.1.7",
     "lint-staged": "^13.3.0",
     "lodash": "^4.17.21",
     "msw": "^2.7.3",
