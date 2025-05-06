@@ -64,13 +64,10 @@ const period = ref('day')
           </p>
         </div>
 
-        <div class="flex justify-center">
-          <n-radio-group v-model:value="period" size="small" name="radiobuttongroup1">
-            <n-radio-button value="day" label="Day" />
-            <n-radio-button value="week" label="Week" />
-            <n-radio-button value="month" label="Month" />
-          </n-radio-group>
-        </div>
+        <SwitchSelect
+          v-model:value="period"
+          :ranges="[{ label: 'Day', value: 'day' }, { label: 'Week', value: 'week' }, { label: 'Month', value: 'month' }]"
+        />
         <div class="-mx-4">
           <VueApexCharts type="area" width="100%" height="150" :options="chartOptions" :series="series" />
         </div>
@@ -79,4 +76,6 @@ const period = ref('day')
   </div>
 </template>
 
-<style scoped></style>
+<style lang="scss">
+
+</style>

@@ -1,7 +1,19 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import VueApexCharts from 'vue3-apexcharts'
+import type { ChartData } from '../../models/ChartData'
 
+interface Props {
+  data: ChartData
+  colors: string[]
+  height: number
+}
+
+const props = withDefaults(defineProps<Props>(),
+  {
+    colors: () => ['var(--primary-color)', 'var(--primary-color-shade1)', 'var(--primary-color-shade2)'],
+    height: 480,
+  })
 const chartOptions = ref({
   chart: {
     stacked: true,
@@ -22,7 +34,7 @@ const chartOptions = ref({
     },
   },
   xaxis: {
-    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    categories: props.data.labels,
     labels: {
       style: {
         colors: '#6E6B7B',
@@ -42,7 +54,7 @@ const chartOptions = ref({
   dataLabels: {
     enabled: false,
   },
-  colors: ['var(--primary-color)', 'var(--primary-color-shade1)'],
+  colors: props.colors,
   plotOptions: {
     bar: {
       columnWidth: '17%',
@@ -74,21 +86,10 @@ const chartOptions = ref({
     },
   }],
 })
-
-const series = ref([
-  {
-    name: 'series-1',
-    data: [30, 40, 35, 50, 49, 6, 70],
-  },
-  {
-    name: 'series-2',
-    data: [3, 4, 15, 5, 4, 60, 10],
-  },
-])
 </script>
 
 <template>
-  <VueApexCharts type="bar" :options="chartOptions" height="460" :series="series" />
+  <VueApexCharts type="bar" :options="chartOptions" :height="height" :series="data.series" />
 </template>
 
 <style lang="scss" scoped>

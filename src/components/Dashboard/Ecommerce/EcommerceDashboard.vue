@@ -1,11 +1,5 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import {
-  Cart16Regular as BasketIcon,
-  Box16Regular as BoxIcon,
-  DataTrending16Regular as StatIcon,
-  People16Regular as UserIcon,
-} from '@vicons/fluent'
 
 const { t } = useI18n()
 const notify = useNotifyStore()
@@ -34,23 +28,8 @@ onMounted(() => {
       </div>
 
       <div class="flex flex-col lg:flex-row margin-outside w-full pb-1">
-        <div class="flex flex-wrap w-1/2">
-          <SummaryStatCard
-            class="w-full sm:w-1/2" :loading="isLoading" :data="summaryStat.registers"
-            :title="t('dashboard.registers')" :icon="UserIcon"
-          />
-          <SummaryStatCard
-            class="w-full sm:w-1/2" :loading="isLoading" :data="summaryStat.products"
-            :title="t('dashboard.products')" :icon="BoxIcon"
-          />
-          <SummaryStatCard
-            class="w-full sm:w-1/2" :loading="isLoading" :data="summaryStat.sells"
-            :title="t('dashboard.sells')" :icon="BasketIcon"
-          />
-          <SummaryStatCard
-            class="w-full sm:w-1/2" :loading="isLoading" :data="summaryStat.visits"
-            :title="t('dashboard.visits')" :icon="StatIcon"
-          />
+        <div class="w-1/2">
+          <VisitsChart />
         </div>
 
         <div class="flex flex-col lg:flex-row w-full lg:w-1/2">
