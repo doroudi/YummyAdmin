@@ -9,12 +9,12 @@ const total = computed(() => registersSource.value.reduce((a, b) => a + b.value,
 </script>
 
 <template>
-  <Card stretch-height class="p-2" title-small :title="t('dashboard.summary')">
+  <Card stretch-height class="p-2" title-small :title="t('dashboard.registerSource.title')">
     <h3 class="text-3xl font-bold">
       {{ total }}
     </h3>
     <p class="text-xsm text-coolgray font-light pb-2">
-      Total Registered users
+      {{ t('dashboard.registerSource.subtitle') }}
     </p>
     <DonutChart :data="registersSource" color-scheme="#DB0B51" />
   </Card>

@@ -23,7 +23,7 @@ onMounted(() => {
     <div>
       <div class="line-row flex flex-col justify-stretch items-stretch lg:flex-row margin-outside w-full">
         <WelcomeCard class="w-full lg:w-2/4" />
-        <SellChart class="w-full lg:w-1/4" />
+        <RevenueChart class="w-full lg:w-1/4" />
         <RegisterSourceChart class="w-full lg:w-1/4" />
       </div>
 
@@ -34,7 +34,7 @@ onMounted(() => {
 
         <div class="flex flex-col lg:flex-row w-full lg:w-1/2">
           <UsersPlatformChart class="w-full lg:w-1/2" />
-          <SellChart class="w-full lg:w-1/2" />
+          <RevenueChart class="w-full lg:w-1/2" />
         </div>
       </div>
 
@@ -45,8 +45,8 @@ onMounted(() => {
           </Card>
         </div>
         <div class="w-full lg:w-1/2 px-2">
-          <Card :title="t('dashboard.recentOrders')">
-            <RecentOrders />
+          <Card :title="t('dashboard.trendingProducts')">
+            <TrendingProducts />
           </Card>
         </div>
       </div>

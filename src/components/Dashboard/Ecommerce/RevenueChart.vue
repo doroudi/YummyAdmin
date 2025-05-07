@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import VueApexCharts from 'vue3-apexcharts'
 
-const revenueFlow = [100, 500, 480, 590, 780, 900, 880]
+const store = useDashboardStore()
+const { revenueStat } = storeToRefs(store)
+const period = ref('day')
 
+onMounted(() => {
+  store.getRevenueStat(period.value)
+})
 const chartOptions = {
   chart: {
     type: 'area',
@@ -49,18 +55,29 @@ const chartOptions = {
     size: 0,
   },
 }
+const series = ref([{ data: [] }])
+watch(() => revenueStat.value, () => {
+  series.value = [
+    {
+      data: revenueStat.value,
+    },
+  ]
+})
 
-const series = [{ data: revenueFlow }]
-const period = ref('day')
+watch(() => period.value, () => {
+  store.getRevenueStat(period.value)
+})
+
+const { t } = useI18n()
 </script>
 
 <template>
   <div class="p-2">
-    <Card stretch-height title-size="normal" title="Revenue">
+    <Card stretch-height title-size="normal" :title="t('dashboard.revenueChart.title')">
       <div class="h-full flex flex-col justify-between">
         <div>
           <p class="text-xsm text-coolgray font-light pb-2">
-            Total Registered users
+            {{ t('dashboard.revenueChart.subtitle') }}
           </p>
         </div>
 
@@ -68,7 +85,7 @@ const period = ref('day')
           v-model:value="period"
           :ranges="[{ label: 'Day', value: 'day' }, { label: 'Week', value: 'week' }, { label: 'Month', value: 'month' }]"
         />
-        <div class="-mx-4">
+        <div v-if="revenueStat.length > 0" class="-mx-4">
           <VueApexCharts type="area" width="100%" height="150" :options="chartOptions" :series="series" />
         </div>
       </div>
@@ -76,6 +93,4 @@ const period = ref('day')
   </div>
 </template>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

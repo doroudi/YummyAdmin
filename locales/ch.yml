@@ -90,6 +90,17 @@ dashboard:
   transactions: 交易
   trendingProducts: 热门产品
   visits: 访问
+  welcome: 欢迎使用 Yummy Admin！
+  greeting_message: 祝您有美好的一天！我们很高兴见到您。
+  revenueChart: 
+    title: 收入图表
+    subtitle: 收入
+  userPlatforms:
+    title: 用户平台
+    subtitle: 用户平台
+  registerSource:
+    title: 注册来源
+    subtitle: 注册来源
 de: German
 description: 免费的Vue 3仪表板
 direction: ltr
@@ -148,6 +159,8 @@ menu:
   createProduct: 创建产品
   customers: 客户
   dashboard: 仪表板
+  eCommerce: 电子商务
+  analytics: 分析
   feedbacks: 反馈
   forgetPassword: 忘记密码
   login: 登录

@@ -9,12 +9,12 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <Card stretch-height class="p-2" title-small :title="t('dashboard.summary')">
+  <Card stretch-height class="p-2" title-small :title="t('dashboard.userPlatforms.title')">
     <h3 class="text-3xl font-bold">
       {{ total }}
     </h3>
     <p class="text-xsm text-coolgray font-light pb-2">
-      Total Registered users
+      {{ t('dashboard.userPlatforms.subtitle') }}
     </p>
     <DonutChart :data="registersSource" color-scheme="#4FC3F7" legend-position="bottom" />
   </Card>

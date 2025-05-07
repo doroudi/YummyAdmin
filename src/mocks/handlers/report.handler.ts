@@ -8,6 +8,13 @@ const handlers = [
     const response = createFakeSummaryData()
     return HttpResponse.json(response, { status: 200 })
   }),
+
+  http.get('/api/report/revenue/:period', (req) => {
+    const { period } = req.params
+    const response = times(10, () => faker.number.int({ min: 1000, max: 10000 }))
+
+    return HttpResponse.json(response, { status: 200 })
+  }),
 ]
 
 function createFakeSummaryData(): DashboardSummaryStatDto {
