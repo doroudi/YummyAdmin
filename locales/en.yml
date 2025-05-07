@@ -95,6 +95,18 @@ dashboard:
   transactions: Transactions
   trendingProducts: Trending Products
   visits: Visits
+  welcome: Welcome to Yummy Admin
+  greeting_message: Have a nice day! We are happy to see you here.
+  revenueChart: 
+    title: Revenue Chart
+    subtitle: Total Revenue balance
+  userPlatforms:
+    title: User Platforms
+    subtitle: Total Users
+  registerSource:
+    title: Register Source
+    subtitle: Total Registers
+
 de: German
 description: Free Vue 3 Dashboard
 direction: ltr

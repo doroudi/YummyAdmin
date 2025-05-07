@@ -1,11 +1,5 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import {
-  Cart16Regular as BasketIcon,
-  Box16Regular as BoxIcon,
-  DataTrending16Regular as StatIcon,
-  People16Regular as UserIcon,
-} from '@vicons/fluent'
 
 const { t } = useI18n()
 const notify = useNotifyStore()
@@ -29,33 +23,18 @@ onMounted(() => {
     <div>
       <div class="line-row flex flex-col justify-stretch items-stretch lg:flex-row margin-outside w-full">
         <WelcomeCard class="w-full lg:w-2/4" />
-        <SellChart class="w-full lg:w-1/4" />
+        <RevenueChart class="w-full lg:w-1/4" />
         <RegisterSourceChart class="w-full lg:w-1/4" />
       </div>
 
       <div class="flex flex-col lg:flex-row margin-outside w-full pb-1">
-        <div class="flex flex-wrap w-1/2">
-          <SummaryStatCard
-            class="w-full sm:w-1/2" :loading="isLoading" :data="summaryStat.registers"
-            :title="t('dashboard.registers')" :icon="UserIcon"
-          />
-          <SummaryStatCard
-            class="w-full sm:w-1/2" :loading="isLoading" :data="summaryStat.products"
-            :title="t('dashboard.products')" :icon="BoxIcon"
-          />
-          <SummaryStatCard
-            class="w-full sm:w-1/2" :loading="isLoading" :data="summaryStat.sells"
-            :title="t('dashboard.sells')" :icon="BasketIcon"
-          />
-          <SummaryStatCard
-            class="w-full sm:w-1/2" :loading="isLoading" :data="summaryStat.visits"
-            :title="t('dashboard.visits')" :icon="StatIcon"
-          />
+        <div class="w-1/2">
+          <VisitsChart />
         </div>
 
         <div class="flex flex-col lg:flex-row w-full lg:w-1/2">
           <UsersPlatformChart class="w-full lg:w-1/2" />
-          <SellChart class="w-full lg:w-1/2" />
+          <RevenueChart class="w-full lg:w-1/2" />
         </div>
       </div>
 
@@ -66,8 +45,8 @@ onMounted(() => {
           </Card>
         </div>
         <div class="w-full lg:w-1/2 px-2">
-          <Card :title="t('dashboard.recentOrders')">
-            <RecentOrders />
+          <Card :title="t('dashboard.trendingProducts')">
+            <TrendingProducts />
           </Card>
         </div>
       </div>

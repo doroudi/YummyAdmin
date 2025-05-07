@@ -9,6 +9,7 @@ export const useDashboardStore = defineStore('Dashboard', () => {
     products: { count: 0, progress: 0, progressFlow: [] },
     sells: { count: 0, progress: 0, progressFlow: [] },
   })
+  const revenueStat = ref<any>([])
   const isLoading = ref(false)
 
   async function getSummaryStat() {
@@ -21,10 +22,21 @@ export const useDashboardStore = defineStore('Dashboard', () => {
     }
   }
 
+  async function getRevenueStat(period: string) {
+    isLoading.value = true
+    try {
+      revenueStat.value = await reportService.getRevenueStat(period)
+    }
+    finally {
+      isLoading.value = false
+    }
+  }
   return {
     summaryStat,
     getSummaryStat,
     isLoading,
+    getRevenueStat,
+    revenueStat,
   }
 })
 if (import.meta.hot)

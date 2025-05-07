@@ -8,5 +8,10 @@ class ReportService {
     const response = await apiService.get<DashboardSummaryStatDto>('Summary')
     return response
   }
+
+  async getRevenueStat(period: string): Promise<any> {
+    const response = await apiService.get<any>(`Revenue/${period}`)
+    return response
+  }
 }
 export default new ReportService()

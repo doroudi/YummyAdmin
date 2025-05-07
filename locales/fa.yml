@@ -91,6 +91,17 @@ dashboard:
   summary: خلاصه
   trendingProducts: محصولات پربازدید
   visits: بازدید ها
+  welcome: خوش آمدید
+  greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
+  revenueChart: 
+    title: درآمد
+    subtitle: مجموع درآمد
+  userPlatforms:
+    title: پلتفرم های کاربر
+    subtitle: مجموع کاربران
+  registerSource:
+    title: منبع ثبت نام
+    subtitle: مجموع ثبت نام ها
 de: German
 description: داشبورد رایگان vue3
 direction: rtl
@@ -149,6 +160,8 @@ menu:
   createProduct: ایجاد محصول
   customers: مشتری ها
   dashboard: داشبورد
+  eCommerce: تجارت الکترونیک
+  analytics: آنالیز
   feedbacks: بازخورد ها
   forgetPassword: فراموشی رمز
   login: ورود

@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-
-const profileStore = useProfileStore()
-const { userProfile } = storeToRefs(profileStore)
+const { t } = useI18n()
 </script>
 
 <template>
@@ -13,15 +10,13 @@ const { userProfile } = storeToRefs(profileStore)
           <div class="flex flex-row md:pt-4">
             <span class="text-9 me-2">👋</span>
             <div>
-              <p class="text-lg">
-                <HyperText :text="`Welcome back ${userProfile?.firstName}`" :duration="800" :animate-on-load="true" />
-              </p>
+              <h3 class="text-lg font-bold">
+                {{ t('dashboard.welcome') }}
+              </h3>
+
               <p class="inline-flex items-center">
-                Have a great day, Enjoy using
+                {{ t('dashboard.greeting_message') }}
               </p>
-              <span class="font-bold text-lg text-primary ms-2">
-                <HyperText text="YummyAdmin" :duration="800" :animate-on-load="true" />
-              </span>
             </div>
           </div>
           <img
