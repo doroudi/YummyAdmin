@@ -6,9 +6,10 @@ interface Props {
   icon: any
   data: SummaryStatDto
   loading: boolean
+  color?: string
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), { color: 'var(--primary-color)' })
 const value = ref(0)
 const element = ref()
 
@@ -55,7 +56,7 @@ function doAnimate() {
     <Card no-shadow>
       <div class="inner flex flex-col">
         <div class="head flex justify-between items-center">
-          <NIcon class="icon text-primary opacity-80" :component="props.icon" />
+          <NIcon class="icon opacity-80" :color="color" :component="props.icon" />
           <span>
             <n-badge
               :value="`${props.data.progress}%`"
@@ -73,7 +74,7 @@ function doAnimate() {
                 {{ props.title }}
               </h4>
             </div>
-            <Sparkline v-if="!loading" :data="props.data.progressFlow" />
+            <Sparkline v-if="!loading" :data="props.data.progressFlow" :color="color" />
           </div>
         </section>
       </div>

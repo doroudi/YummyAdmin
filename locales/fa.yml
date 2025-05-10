@@ -1,7 +1,13 @@
 Github:
   button: گیت هاب
   tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
-ar: Arabic
+languages:
+  ar: Arabic
+  ch: Chinese
+  de: German
+  en: English
+  fa: Persian
+  tr: Turkish
 brands:
   create:
     brandName: نام برند
@@ -39,7 +45,6 @@ categories:
 category:
   name: دسته بندی
   productsCount: تعداد محصولات
-ch: Chinese
 colors:
   color: رنگ
   create:
@@ -93,7 +98,7 @@ dashboard:
   visits: بازدید ها
   welcome: خوش آمدید
   greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
-  revenueChart: 
+  revenueChart:
     title: درآمد
     subtitle: مجموع درآمد
   userPlatforms:
@@ -102,10 +107,12 @@ dashboard:
   registerSource:
     title: منبع ثبت نام
     subtitle: مجموع ثبت نام ها
-de: German
+  genderChart:
+    title: جنسیت مشتریان
+  locationChart:
+    title: موقعیت مکانی مشتریان
 description: داشبورد رایگان vue3
 direction: rtl
-en: English
 enums:
   OrderStatus:
     Delivered: تحویل شده
@@ -117,7 +124,6 @@ enums:
     Active: فعال
     Draft: پیش نویس
     NotActive: غیر فعال
-fa: Persian
 forgot:
   button: بازیابی
   email: ایمیل
@@ -247,7 +253,6 @@ reviews:
   product: محصول
   rate: امتیاز
 title: پنل مدیریت Yummy
-tr: Turkish
 userMenu:
   dark: تیره
   en: انگلیسی
