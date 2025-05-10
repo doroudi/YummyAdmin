@@ -83,7 +83,7 @@ dashboard:
   genderChart:
     title: جنس العميل
   greeting_message: |-
-    طاب يومك! 
+    طاب يومك!
     يسعدنا رؤيتك هنا.
   locationChart:
     title: موقع العميل

@@ -84,7 +84,7 @@ dashboard:
   genderChart:
     title: Müşterinin Cinsiyeti
   greeting_message: |-
-    İyi günler! 
+    İyi günler!
     Seni burada gördüğümüz için mutluyuz.
   locationChart:
     title: Müşterinin Konumu

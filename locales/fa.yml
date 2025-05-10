@@ -98,7 +98,7 @@ dashboard:
   visits: بازدید ها
   welcome: خوش آمدید
   greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
-  revenueChart: 
+  revenueChart:
     title: درآمد
     subtitle: مجموع درآمد
   userPlatforms:

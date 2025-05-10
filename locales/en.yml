@@ -102,7 +102,7 @@ dashboard:
   visits: Visits
   welcome: Welcome to Yummy Admin
   greeting_message: Have a nice day! We are happy to see you here.
-  revenueChart: 
+  revenueChart:
     title: Revenue Chart
     subtitle: Total Revenue balance
   userPlatforms:

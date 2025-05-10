@@ -88,7 +88,7 @@ dashboard:
   genderChart:
     title: Geschlecht des Kunden
   greeting_message: |-
-    Einen schönen Tag noch! 
+    Einen schönen Tag noch!
     Wir freuen uns, Sie hier zu sehen.
   locationChart:
     title: Standort des Kunden
