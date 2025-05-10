@@ -10,38 +10,36 @@ import {
 const { t } = useI18n()
 const store = useDashboardStore()
 const { summaryStat, isLoading } = storeToRefs(store)
+
+onMounted(() => {
+  store.getSummaryStat()
+})
 </script>
 
 <template>
   <div>
     <div class="margin-outside flex flex-wrap pb-3">
       <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4"
-        :loading="isLoading" :data="summaryStat.registers" :title="t('dashboard.registers')"
-        :icon="UserIcon"
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoading" :data="summaryStat.registers"
+        :title="t('dashboard.registers')" color="#00a096" :icon="UserIcon"
       />
       <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4"
-        :loading="isLoading" :data="summaryStat.products" :title="t('dashboard.products')"
-        :icon="BoxIcon"
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoading" :data="summaryStat.products"
+        :title="t('dashboard.products')" color="#DB0B51" :icon="BoxIcon"
       />
       <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4"
-        :loading="isLoading" :data="summaryStat.sells" :title="t('dashboard.sells')"
-        :icon="BasketIcon"
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoading" :data="summaryStat.sells"
+        :title="t('dashboard.sells')" :icon="BasketIcon" color="#9575cd"
       />
       <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4"
-        :loading="isLoading" :data="summaryStat.visits" :title="t('dashboard.visits')"
-        :icon="StatIcon"
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoading" :data="summaryStat.visits"
+        :title="t('dashboard.visits')" :icon="StatIcon" color="#FF8000"
       />
     </div>
     <div>
       <div class="flex flex-col lg:flex-row margin-outside pb-3">
-        <div class="w-full lg:w-2/3 p-2">
-          <Card :title="t('dashboard.summary')">
-            <BarChart />
-          </Card>
+        <div class="w-full lg:w-2/3">
+          <UsersLocationChart />
         </div>
         <div class="flex flex-col w-full lg:w-1/3">
           <Card class="p-2" :title="t('dashboard.summary')">

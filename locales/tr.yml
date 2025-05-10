@@ -1,7 +1,6 @@
 Github:
   button: GitHub
   tooltip: Bu projeye ⭐️ Github'da destek verin
-ar: Arabic
 brands:
   create:
     brandName: İsim
@@ -82,18 +81,33 @@ customize:
   title: Özelleştir
 dashboard:
   activeOrders: Aktif Siparişler
+  genderChart:
+    title: Müşterinin Cinsiyeti
+  greeting_message: |-
+    İyi günler! 
+    Seni burada gördüğümüz için mutluyuz.
+  locationChart:
+    title: Müşterinin Konumu
   products: Ürünler
   recentOrders: Son siparişler
+  registerSource:
+    subtitle: Toplam Kayıtlar
+    title: Kayıt Kaynağı
   registers: Kayıtlar
+  revenueChart:
+    subtitle: Toplam Gelir Dengesi
+    title: Gelir grafiği
   sells: Satışlar
   summary: Özet
   transactions: İşlemler
   trendingProducts: trend olan Ürünler
+  userPlatforms:
+    subtitle: Toplam kullanıcılar
+    title: Kullanıcı platformları
   visits: Ziyaretler
-de: German
+  welcome: Nefis Yöneticisine Hoş Geldiniz
 description: Ücretsiz Vue 3 Gösterge Paneli
 direction: ltr
-en: English
 enums:
   OrderStatus:
     Delivered: Teslim Edildi
@@ -119,6 +133,13 @@ forgot:
   title: Şifremi Unuttum
   username: Kullanıcı Adı
 home: Ana Sayfa
+languages:
+  ar: Arabic
+  ch: Chinese
+  de: German
+  en: English
+  fa: Persian
+  tr: Turkish
 login:
   createAccount: Hesap Oluştur!
   failedMessage: Giriş Başarısız
@@ -138,6 +159,7 @@ login:
   welcome: Tekrar Hoşgeldiniz!
 menu:
   accountSettings: Hesap Ayarları
+  analytics: Analitik
   announcement: Duyuru
   authentication: kimlik doğrulama
   blog: Blog
@@ -149,7 +171,6 @@ menu:
   customers: Müşteriler
   dashboard: Gösterge Paneli
   eCommerce: E-Ticaret
-  analytics: Analitik
   feedbacks: Geri Bildirimler
   forgetPassword: Şifremi Unuttum
   login: Giriş
@@ -235,7 +256,6 @@ reviews:
   product: Ürün
   rate: Oran
 title: Yummy Admin
-tr: Turkish
 userMenu:
   dark: Karanlık
   en: İngilizce

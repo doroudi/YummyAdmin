@@ -1,7 +1,9 @@
 import { faker } from '@faker-js/faker/locale/en'
 import { HttpResponse, http } from 'msw'
 import times from 'lodash/times'
+import _ from 'lodash'
 import type { DashboardSummaryStatDto, SummaryStatDto } from '~/models/SummaryStat'
+import type { DonutChartSeries, LocationChartSeries } from '~/models/ChartData'
 
 const handlers = [
   http.get('/api/report/summary', () => {
@@ -13,6 +15,16 @@ const handlers = [
     const { period } = req.params
     const response = times(10, () => faker.number.int({ min: 1000, max: 10000 }))
 
+    return HttpResponse.json(response, { status: 200 })
+  }),
+
+  http.get('/api/report/usersGender', () => {
+    const response = createFakeGenderData()
+    return HttpResponse.json(response, { status: 200 })
+  }),
+
+  http.get('/api/report/usersLocation', () => {
+    const response = createFakeLocationData()
     return HttpResponse.json(response, { status: 200 })
   }),
 ]
@@ -32,6 +44,37 @@ function createFakeSummaryStatDto(): SummaryStatDto {
     progress: faker.number.float({ min: -20, max: 40, multipleOf: 0.1 }),
     progressFlow: times(10, () => faker.number.int({ min: 0, max: 100 })),
   }
+}
+
+function createFakeGenderData(): DonutChartSeries[] {
+  const malePercent = faker.number.int({ min: 35, max: 45 })
+  const femalePercent = faker.number.int({ min: 35, max: 45 })
+  const unknownPercent = 100 - malePercent - femalePercent
+
+  return [
+    { name: 'Male', value: malePercent },
+    { name: 'Female', value: femalePercent },
+    { name: 'Unknown', value: unknownPercent },
+  ]
+}
+
+function createFakeLocationData(): LocationChartSeries[] {
+  const locations = _.times(20, () => faker.location.countryCode('alpha-2'))
+
+  if (locations.includes('IS'))
+    locations.splice(locations.indexOf('IS'), 1)
+  if (locations.includes('IR'))
+    locations.splice(locations.indexOf('IR'), 1)
+
+  const locationData: LocationChartSeries[] = locations.map((location: string) => ({
+    key: location,
+    value: faker.number.int({ min: 500, max: 1000 }),
+  }))
+
+  locationData.push({ key: 'PS', value: { value: 1000, color: '#a11923' } })
+  locationData.push({ key: 'IR', value: { value: 1000, color: '#00A693' } })
+
+  return locationData
 }
 
 export default handlers

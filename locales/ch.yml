@@ -1,7 +1,14 @@
 Github:
   button: Github
   tooltip: 请在Github上给这个项目一个⭐️支持
-ar: Arabic
+languages:
+  ar: Arabic
+  ch: Chinese
+  de: German
+  en: English
+  fa: Persian
+  tr: Turkish
+
 brands:
   create:
     brandName: 名称
@@ -38,7 +45,6 @@ categories:
 category:
   name: 分类
   productsCount: 产品数量
-ch: Chinese
 colors:
   color: 颜色
   create:
@@ -82,29 +88,31 @@ customize:
   title: 定制
 dashboard:
   activeOrders: 活跃订单
+  genderChart:
+    title: 客户性别
+  greeting_message: 祝您有美好的一天！我们很高兴见到您。
+  locationChart:
+    title: 客户位置
   products: 产品
   recentOrders: 近期订单
+  registerSource:
+    subtitle: 注册来源
+    title: 注册来源
   registers: 注册
+  revenueChart:
+    subtitle: 收入
+    title: 收入图表
   sells: 销售
   summary: 概要
   transactions: 交易
   trendingProducts: 热门产品
+  userPlatforms:
+    subtitle: 用户平台
+    title: 用户平台
   visits: 访问
   welcome: 欢迎使用 Yummy Admin！
-  greeting_message: 祝您有美好的一天！我们很高兴见到您。
-  revenueChart: 
-    title: 收入图表
-    subtitle: 收入
-  userPlatforms:
-    title: 用户平台
-    subtitle: 用户平台
-  registerSource:
-    title: 注册来源
-    subtitle: 注册来源
-de: German
 description: 免费的Vue 3仪表板
 direction: ltr
-en: English
 enums:
   OrderStatus:
     Delivered: 已送达
@@ -116,7 +124,6 @@ enums:
     Active: 激活
     Draft: 草稿
     NotActive: 未激活
-fa: Persian
 forgot:
   button: 恢复
   email: 电子邮件
@@ -149,6 +156,7 @@ login:
   welcome: 欢迎回来！
 menu:
   accountSettings: 账户设置
+  analytics: 分析
   announcement: 公告
   authentication: 验证
   blog: 博客
@@ -160,7 +168,6 @@ menu:
   customers: 客户
   dashboard: 仪表板
   eCommerce: 电子商务
-  analytics: 分析
   feedbacks: 反馈
   forgetPassword: 忘记密码
   login: 登录
@@ -244,7 +251,6 @@ reviews:
   product: 产品
   rate: 评分
 title: 美味管理系统
-tr: Turkish
 userMenu:
   dark: 深色
   en: 英语

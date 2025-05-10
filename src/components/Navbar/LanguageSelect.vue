@@ -19,7 +19,7 @@ const language = ref(activeLanguage)
 
 const languages = availableLocales.map((x) => {
   return {
-    label: () => renderLabel(t(x), x),
+    label: () => renderLabel(t(`languages.${x}`), x),
     value: x,
   }
 })
@@ -66,7 +66,7 @@ function getLanguageIcon(language: string) {
             <TranslateIcon />
           </NIcon>
         </template>
-        <span v-if="showTitle">{{ t(activeLanguage) }}</span>
+        <span v-if="showTitle">{{ t(`languages.${activeLanguage}`) }}</span>
       </n-button>
     </n-popselect>
   </div>

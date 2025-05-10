@@ -3,7 +3,6 @@ Github:
   tooltip: >-
     Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
     geben
-ar: Arabic
 brands:
   brand: Marke
   create:
@@ -41,7 +40,6 @@ categories:
 category:
   name: Kategorie
   productsCount: Produkte Anzahl
-ch: Chinese
 colors:
   color: Farbe
   create:
@@ -87,18 +85,33 @@ customize:
   title: Anpassen
 dashboard:
   activeOrders: Aktive Bestellungen
+  genderChart:
+    title: Geschlecht des Kunden
+  greeting_message: |-
+    Einen schönen Tag noch! 
+    Wir freuen uns, Sie hier zu sehen.
+  locationChart:
+    title: Standort des Kunden
   products: Produkte
   recentOrders: Aktuelle Bestellungen
+  registerSource:
+    subtitle: Gesamtregister
+    title: Quelle registrieren
   registers: Registrierungen
+  revenueChart:
+    subtitle: Gesamtumsatzbilanz
+    title: Einnahmediagramm
   sells: Verkäufe
   summary: Zusammenfassung
   transactions: Transaktionen
   trendingProducts: Trendige Produkte
+  userPlatforms:
+    subtitle: Gesamt Benutzer
+    title: Benutzerplattformen
   visits: Besuche
-de: German
+  welcome: Willkommen bei Yummy Administrator
 description: Kostenloses Vue 3 Dashboard
 direction: ltr
-en: English
 enums:
   OrderStatus:
     Delivered: Geliefert
@@ -110,7 +123,6 @@ enums:
     Active: Aktiv
     Draft: Entwurf
     NotActive: Nicht aktiv
-fa: Persian
 forgot:
   button: Wiederherstellen
   email: E-Mail
@@ -124,6 +136,13 @@ forgot:
   title: Passwort vergessen
   username: Benutzername
 home: Startseite
+languages:
+  ar: Arabic
+  ch: Chinese
+  de: German
+  en: English
+  fa: Persian
+  tr: Turkish
 login:
   createAccount: Erstellen Sie eins!
   failedMessage: Anmeldung fehlgeschlagen
@@ -143,6 +162,7 @@ login:
   welcome: Willkommen zurück!
 menu:
   accountSettings: Kontoeinstellungen
+  analytics: Analytik
   announcement: Ankündigung
   authentication: Authentifizierung
   blog: Blog
@@ -154,7 +174,6 @@ menu:
   customers: Kunden
   dashboard: Dashboard
   eCommerce: E-Commerce
-  analytics: Analytik
   feedbacks: Rückmeldungen
   forgetPassword: Passwort vergessen
   login: Anmelden
@@ -241,7 +260,6 @@ reviews:
   product: Produkt
   rate: Bewertung
 title: Yummy Admin
-tr: Turkish
 userMenu:
   dark: Dunkel
   language: Sprache

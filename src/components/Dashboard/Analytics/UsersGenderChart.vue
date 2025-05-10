@@ -1,15 +1,15 @@
 <script setup lang="ts">
-const registersSource = ref<any[]>([
-  { name: 'Male', value: 1500 },
-  { name: 'Female', value: 1400 },
-  { name: 'Unknown', value: 820 },
-])
+import { storeToRefs } from 'pinia'
+
 const { t } = useI18n()
+const store = useDashboardStore()
+onMounted(() => store.getGenderStat())
+const { usersGenderData } = storeToRefs(store)
 </script>
 
 <template>
-  <Card class="p-2" :title="t('dashboard.summary')">
-    <DonutChart :data="registersSource" />
+  <Card class="p-2" :title="t('dashboard.genderChart.title')">
+    <DonutChart v-if="usersGenderData.length" :data="usersGenderData" />
   </Card>
 </template>
 

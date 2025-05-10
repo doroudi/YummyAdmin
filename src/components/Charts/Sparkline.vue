@@ -3,6 +3,7 @@ import VueApexCharts from 'vue3-apexcharts'
 
 interface Props {
   data: number[]
+  color: string
 }
 const props = defineProps<Props>()
 
@@ -29,14 +30,14 @@ const chartOptions = {
     type: 'gradient',
     gradient: {
       shade: 'light',
-      gradientToColors: ['var(--main-content)', 'var(--primary-color)'],
+      gradientToColors: ['var(--main-content)', props.color],
       type: 'vertical',
       shadeIntensity: 0,
       opacityFrom: 0.3,
       opacityTo: 0.1,
     },
   },
-  colors: ['var(--primary-color)'],
+  colors: [props.color],
   grid: {
     padding: {
       top: 10,

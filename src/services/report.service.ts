@@ -13,5 +13,15 @@ class ReportService {
     const response = await apiService.get<any>(`Revenue/${period}`)
     return response
   }
+
+  async getUsersGenderStat(): Promise<any> {
+    const response = await apiService.get<any>('UsersGender')
+    return response
+  }
+
+  async getUsersLocationStat(): Promise<any> {
+    const response = await apiService.get<any>('UsersLocation')
+    return response
+  }
 }
 export default new ReportService()
