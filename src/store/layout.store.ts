@@ -34,6 +34,10 @@ export const useLayoutStore = defineStore('layout', () => {
     mobileMenuClosed.value = true
   }
 
+  function setDarkTheme(state: boolean) {
+    isDark.value = state
+  }
+
   function toggleTheme() {
     isDark.value = !isDark.value
     window.umami?.track('SwitchTheme', { theme: isDark ? 'Dark' : 'Light' })
@@ -85,6 +89,7 @@ export const useLayoutStore = defineStore('layout', () => {
     mobileMenuClosed,
     isFluid,
     flatDesign,
+    setDarkTheme,
   }
 }, {
   persist: {
