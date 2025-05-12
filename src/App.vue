@@ -31,6 +31,9 @@ const customTheme = ref({ ...themeOverrides })
 const customDarkTheme = ref({ ...themeOverrides, ...darkThemeOverrides })
 const { makeLighter } = useColors()
 
+const activeTheme = computed(() => layout.isDark ? darkTheme : lightTheme)
+const activeThemeOverrides = computed(() => layout.isDark ? customDarkTheme.value : customTheme.value)
+
 watch(() => layout.activeLanguage, () => {
   const body = document.querySelector('body') as HTMLElement
   if (layout.isRtl)
@@ -95,8 +98,9 @@ function setThemeColor(newValue: string) {
 <template>
   <n-config-provider
     inline-theme-disabled
-    :theme="layout.isDark ? darkTheme : lightTheme"
-    :theme-overrides="layout.isDark ? customDarkTheme : customTheme" :rtl="layout.isRtl ? rtlStyles : []"
+    :theme="activeTheme"
+    :theme-overrides="activeThemeOverrides"
+    :rtl="layout.isRtl ? rtlStyles : []"
     :preflight-style-disabled="false"
   >
     <n-notification-provider placement="bottom-right">

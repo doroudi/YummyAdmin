@@ -9,13 +9,6 @@ import '@unocss/reset/tailwind-compat.css'
 import 'uno.css'
 import './styles/main.scss'
 
-declare module '@vue/runtime-core' {
-
-  export interface ComponentCustomProperties {
-    $filters: any
-  }
-}
-
 async function initializeMocking() {
   const { worker } = await import('~/mocks/browser')
   return worker.start({
@@ -23,7 +16,6 @@ async function initializeMocking() {
     serviceWorker: {
       url: '/mockServiceWorker.js',
       options: {
-        // Add more reliable service worker options
         scope: '/',
       },
     },
@@ -31,7 +23,6 @@ async function initializeMocking() {
     waitUntilReady: false,
   }).catch((error) => {
     console.warn('MSW initialization failed:', error)
-    // Continue app execution even if mocking fails
     return Promise.resolve()
   })
 }
