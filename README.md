@@ -1,21 +1,26 @@
-
 # Yummy Admin
 
 [![CI](https://github.com/doroudi/YummyAdmin/actions/workflows/ci.yml/badge.svg)](https://github.com/doroudi/YummyAdmin/actions/workflows/ci.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/24e54305-5d97-447e-adba-ed0a7c18513e/deploy-status)](https://app.netlify.com/sites/yummy-admin/deploys)
+[![StandWithPalestine](https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/StandWithPalestine.svg)](https://techforpalestine.org/learn-more)
 
-Free Admin Panel based on the Vue3 and Naive UI. fairly completed with beautiful design,RTL support and multilingual, State management using Pinia, TypeScript, MockServiceWorker, Cypress and easily Customizable. 
+Free Vue Admin Panel based on Naive UI and TailwindCss. fairly completed with beautiful design,RTL support and multilingual, State management using Pinia, TypeScript, MockServiceWorker, Cypress and easily Customizable.
 
-![Preview](/docs/banner.png "Preview")
-
+![Preview](/docs/banner-dark.png "Preview")
 
 <p align='center'>
    <a href="https://yummy-admin.netlify.app/">🌏 Live Demo</a>
+   <a href="https://yummy-admin.netlify.app?theme=dark">🌑 Dark Mode</a>
+   <br>
+   Other languages <br />
+   <a href="https://yummy-admin.netlify.app?lang=ch">🇨🇳 Chines</a> |
+   <a href="https://yummy-admin.netlify.app?lang=fa">🇮🇷 Persian</a> |
+   <a href="https://yummy-admin.netlify.app?lang=ar">🇸🇦 Arabic</a> |
+   <a href="https://yummy-admin.netlify.app?lang=tr">🇹🇷 Turkish</a> |
+   <a href="https://yummy-admin.netlify.app?lang=de">🇩🇪 Germany</a>
 </p>
 
-<br>
-
-> **Note**: This project build using [ViteSSE](https://github.com/antfu/vitesse/) template and uses [NaiveUI](https://github.com/tusen-ai/naive-ui) as Component Library.
+![Preview](/docs/banner-light.png "Preview Light")
 
 ## Features
 
@@ -37,12 +42,10 @@ Free Admin Panel based on the Vue3 and Naive UI. fairly completed with beautiful
 
 - ☁️ Deploy on Netlify, zero-config
 
-<br>
-
 ## Try it now!
 
-> YummyAdmin requires Node >=18.18
-> 
+> Yummy Admin requires Node >=18.18
+
 ### Clone to local
 
 ```bash
@@ -85,10 +88,6 @@ And you will see the generated file in `dist` that ready to be served.
 ### Deploy on Netlify
 
 Go to [Netlify](https://app.netlify.com/start) and select your clone, `OK` along the way, and your App will be live in a minute.
-
-### Docker Production Build
-
-First, build the vitesse image by opening the terminal in the project's root directory.
 
 ```bash
 docker buildx build . -t yummyadmin:latest
