@@ -28,7 +28,7 @@ onMounted(() => {
       </div>
 
       <div class="flex flex-col lg:flex-row margin-outside w-full pb-1">
-        <div class="w-1/2">
+        <div class="w-1/2 w-full">
           <VisitsChart />
         </div>
 
