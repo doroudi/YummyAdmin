@@ -8,10 +8,12 @@ defineProps<Props>()
 </script>
 
 <template>
-  <n-list hoverable clickable>
+  <n-list hoverable clickable class="px-1">
     <n-list-item v-for="item of items" :key="item.id">
       <template #prefix>
-        <NAvatar round size="medium" :src="item.from.avatar" fallback-src="assets/images/fallback.png" />
+        <n-badge :value="item.badge" color="gray">
+          <NAvatar round size="medium" :src="item.from.avatar" fallback-src="assets/images/fallback.png" />
+        </n-badge>
       </template>
       <!-- <NSPace>
         <span> {{ item.from.name }}</span>
