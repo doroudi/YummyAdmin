@@ -29,22 +29,25 @@ const handlers: Array<RequestHandler | WebSocketHandler> = [
 ]
 
 function createFakeChatMessage(): MessageItem {
+  const randomCount = faker.number.int({ min: -10, max: 10 })
   return {
     from: {
       avatar: `https://avatar.iran.liara.run/public/${faker.number.int({ min: 1, max: 200 })}`,
       name: faker.person.fullName(),
     },
     title: faker.lorem.sentence(4),
-    updated: faker.date.recent(),
+    updated: randomCount > 0 ? new Date() : faker.date.recent(),
     id: faker.string.uuid(),
-    badge: faker.number.int({ min: 0, max: 10 }),
+    badge: randomCount > 0 ? randomCount : undefined,
+    isUnread: randomCount > 0,
   }
 }
 
 function updateMessages() {
-  chatMessages.forEach((message) => {
-    message.updated = faker.date.recent()
-    message.badge = faker.number.int({ min: 0, max: 10 })
-  })
+  const randomIndex = faker.number.int({ min: 0, max: chatMessages.length - 1 })
+  const randomMessage = chatMessages[randomIndex]
+  randomMessage.updated = faker.date.recent()
+  randomMessage.badge = faker.number.int({ min: 1, max: 10 })
+  randomMessage.isUnread = true
 }
 export default handlers

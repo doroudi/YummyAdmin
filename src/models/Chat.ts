@@ -4,6 +4,7 @@ export interface MessageItem {
   title: string
   badge?: number
   updated: Date
+  isUnread: boolean
 }
 
 export interface Contact {
