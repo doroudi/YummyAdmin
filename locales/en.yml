@@ -191,6 +191,8 @@ menu:
   support: Support
   users: Users
   websiteSettings: Website Settings
+  apps: Apps
+  chat: Chat App
 not-found: Not found
 notifications:
   clear: Clear All

@@ -2,9 +2,11 @@
 import type { MenuInst, MenuOption } from 'naive-ui'
 import {
   PersonSettings20Regular as AccountSettingsIcon,
+  AppFolder20Regular as AppsIcon,
   DoorArrowRight20Regular as AuthIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
   Folder24Regular as CategoryIcon,
+  ChatMultiple20Regular as ChatAppIcon,
   Dismiss24Filled as CloseIcon,
   Color24Regular as ColorsIcon,
   People24Regular as CustomersIcon,
@@ -95,7 +97,18 @@ const menuOptions: MenuOption[] = [
     key: 'customers',
     icon: renderIcon(CustomersIcon),
   },
-
+  {
+    label: () => t('menu.apps'),
+    key: 'apps',
+    icon: renderIcon(AppsIcon),
+    children: [
+      {
+        label: () => renderLabel(t('menu.chat'), '/apps/chat'),
+        key: 'apps-chat',
+        icon: renderIcon(ChatAppIcon),
+      },
+    ],
+  },
   {
     label: () => t('menu.authentication'),
     key: 'auth',

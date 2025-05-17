@@ -1,13 +1,21 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
 import type { ToastNotification } from '~/store/notify.store'
+
+const props = defineProps({
+  isFluid: {
+    type: Boolean,
+    default: false,
+  },
+})
 
 const layoutStore = useLayoutStore()
 
-const { isFluid } = storeToRefs(layoutStore)
 const notification = useNotification()
 const notificationsStore = useNotifyStore()
 
+const effectiveFluid = computed(() => {
+  return props.isFluid || layoutStore.isFluid
+})
 watch(() => notificationsStore.messages, (newVal: ToastNotification[], oldVal: ToastNotification[]) => {
   if (newVal.length < oldVal.length)
     return
@@ -32,7 +40,7 @@ watch(() => notificationsStore.messages, (newVal: ToastNotification[], oldVal: T
           <NScrollbar>
             <div
               class="h-full px-2 py-2 md:p-3 md:pb-15 overflow-auto md:mx-auto"
-              :class="{ 'md-container': !isFluid }"
+              :class="{ 'md-container': !effectiveFluid }"
             >
               <router-view v-slot="{ Component, route }">
                 <transition name="route" mode="out-in">
