@@ -30,7 +30,9 @@ categories:
     parent: Üst Kategori
     title: Yeni Kategori Oluştur
   createButton: Oluştur
+  stat: İstatistik
   title: Kategoriler
+  topCategories: En iyi kategoriler
   validations:
     nameRequired: İsim gerekli
     parentRequired: Üst kategori seçilmedi

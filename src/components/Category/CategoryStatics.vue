@@ -1,19 +1,35 @@
 <script setup>
+import { storeToRefs } from 'pinia'
 import {
-  People16Regular as UserIcon,
+  DataTrending16Regular as StatIcon,
 } from '@vicons/fluent'
 
 const { t } = useI18n()
+const store = useCategoryStore()
+const { categoryStats, isLoadingStats } = storeToRefs(store)
+
+onMounted(() => {
+  store.getCategoryStats()
+})
 </script>
 
 <template>
-  <div class="px-4">
-    <h2 class="card-title">
+  <div class="">
+    {{ categoryStats.coun }}
+    <h2 class="card-title px-2 pb-4">
       {{ t('categories.stat') }}
     </h2>
-    <DashboardCard class="w-full sm:w-full md:w-full" :icon="UserIcon" title="Registers" no-shadow :progress="10" :value="250" />
-    <DashboardCard class="w-full sm:w-full md:w-full" :icon="UserIcon" title="Registers" :progress="10" :value="250" />
-    <DonutChart />
+    <SummaryStatCard
+      class="w-full" :data="categoryStats.summaryStats" :loading="isLoadingStats"
+      :title="t('categories.stat')" :icon="StatIcon"
+    />
+    <h2 class="card-title px-2 py-4">
+      {{ t('categories.topCategories') }}
+    </h2>
+    <DonutChart
+      v-if="!isLoadingStats && categoryStats.productsByCategoryStat" :data="categoryStats.productsByCategoryStat"
+      :show-legend="false" color-scheme="#4FC3F7"
+    />
   </div>
 </template>
 

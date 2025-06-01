@@ -6,12 +6,27 @@ import type { Category, CategoryCreateModel } from '~/models/Category'
 
 const categories = times(20, createFakeCategory)
 const handlers = [
-  http.get('/api/Category', ({ request }) => {
+  http.get('/api/category', ({ request }) => {
     const response = CreatePagedResponse<Category>(request, categories)
     return HttpResponse.json(response, { status: 200 })
   }),
+  http.get('/api/category/stats', () => {
+    const response = {
+      summaryStats: {
+        count: categories.length,
+      },
+      productsByCategoryStat:
+      categories
+        .sort((a, b) => b.productsCount - a.productsCount)
+        .slice(0, 5).map(cat => ({
+          name: cat.name,
+          value: cat.productsCount,
+        })),
+    }
+    return HttpResponse.json(response, { status: 200 })
+  }),
 
-  http.post('/api/Category', async ({ request }) => {
+  http.post('/api/category', async ({ request }) => {
     const newItem = (await request.json()) as CategoryCreateModel
     const category: Category = {
       id: faker.number.int({ max: 2000 }),
@@ -23,7 +38,7 @@ const handlers = [
     return HttpResponse.json(category, { status: 201 })
   }),
 
-  http.delete('/api/Category/:id', ({ params }) => {
+  http.delete('/api/category/:id', ({ params }) => {
     const { id } = params ?? '1'
     const itemIndex = categories.findIndex(x => x.id === Number.parseInt(id?.toString() ?? '1'))
     categories.splice(itemIndex, 1)

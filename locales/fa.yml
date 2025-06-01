@@ -1,13 +1,6 @@
 Github:
   button: گیت هاب
   tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
-languages:
-  ar: Arabic
-  ch: Chinese
-  de: German
-  en: English
-  fa: Persian
-  tr: Turkish
 brands:
   create:
     brandName: نام برند
@@ -39,6 +32,7 @@ categories:
   createButton: ذخیره
   stat: آمار
   title: دسته بندی ها
+  topCategories: دسته های برتر
   validations:
     nameRequired: نام دسته الزامی است
     parentRequired: دسته والد الزامی است
@@ -89,28 +83,28 @@ customize:
   title: سفارشی سازی
 dashboard:
   activeOrders: سفارش های فعال
+  genderChart:
+    title: جنسیت مشتریان
+  greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
+  locationChart:
+    title: موقعیت مکانی مشتریان
   products: محصولات
   recentOrders: سفارش های اخیر
+  registerSource:
+    subtitle: مجموع ثبت نام ها
+    title: منبع ثبت نام
   registers: ثبت نام ها
+  revenueChart:
+    subtitle: مجموع درآمد
+    title: درآمد
   sells: فروش
   summary: خلاصه
   trendingProducts: محصولات پربازدید
+  userPlatforms:
+    subtitle: مجموع کاربران
+    title: پلتفرم های کاربر
   visits: بازدید ها
   welcome: خوش آمدید
-  greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
-  revenueChart:
-    title: درآمد
-    subtitle: مجموع درآمد
-  userPlatforms:
-    title: پلتفرم های کاربر
-    subtitle: مجموع کاربران
-  registerSource:
-    title: منبع ثبت نام
-    subtitle: مجموع ثبت نام ها
-  genderChart:
-    title: جنسیت مشتریان
-  locationChart:
-    title: موقعیت مکانی مشتریان
 description: داشبورد رایگان vue3
 direction: rtl
 enums:
@@ -137,6 +131,13 @@ forgot:
   title: فراموشی رمز عبور
   username: نام کاربری
 home: خانه
+languages:
+  ar: Arabic
+  ch: Chinese
+  de: German
+  en: English
+  fa: Persian
+  tr: Turkish
 login:
   createAccount: یکی بسازید
   failedMessage: خطا در ورود
@@ -156,6 +157,7 @@ login:
   welcome: خوش آمدید
 menu:
   accountSettings: تنظیمات کاربر
+  analytics: آنالیز
   announcement: اطلاع رسانی
   authentication: احراز هویت
   blog: بلاگ
@@ -167,7 +169,6 @@ menu:
   customers: مشتری ها
   dashboard: داشبورد
   eCommerce: تجارت الکترونیک
-  analytics: آنالیز
   feedbacks: بازخورد ها
   forgetPassword: فراموشی رمز
   login: ورود

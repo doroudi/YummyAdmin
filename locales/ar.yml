@@ -30,7 +30,9 @@ categories:
     parent: الفئة الأم
     title: إنشاء فئة جديدة
   createButton: إنشاء
+  stat: إحصائيات
   title: الفئات
+  topCategories: الفئات العليا
   validations:
     nameRequired: الاسم مطلوب
     parentRequired: الفئة الأم غير محددة

@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import {
   PanelLeftContract24Regular as CollapseIcon,
   PanelLeftExpand20Regular as ExpandIcon,

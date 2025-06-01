@@ -38,6 +38,8 @@ categories:
     title: Create New Category
   createButton: Create
   stat: Statistics
+  count: Count
+  topCategories: Top Categories
   title: Categories
   validations:
     nameRequired: Name is required
@@ -191,6 +193,8 @@ menu:
   support: Support
   users: Users
   websiteSettings: Website Settings
+  apps: Apps
+  chat: Chat App
 not-found: Not found
 notifications:
   clear: Clear All

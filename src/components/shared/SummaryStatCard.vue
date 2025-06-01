@@ -9,14 +9,19 @@ interface Props {
   color?: string
 }
 
-const props = withDefaults(defineProps<Props>(), { color: 'var(--primary-color)' })
-const value = ref(0)
+const props = withDefaults(defineProps<Props>(), { color: 'var(--primary-color)', loading: true })
+const counter = ref(0)
 const element = ref()
 
 watch(() => props.data, () => {
-  value.value = 0
-  doAnimate()
-}, { deep: true })
+  if (!props.data)
+    return
+
+  counter.value = 0
+  setTimeout(() => {
+    doAnimate()
+  }, 230)
+}, { immediate: true, deep: true })
 
 function doAnimate() {
   const countFrom = 0
@@ -36,7 +41,7 @@ function doAnimate() {
       const progress = Math.min((currentTime - startTime) / duration, 1)
       const currentNumber = Math.floor(progress * (countTo - countFrom))
 
-      value.value = currentNumber + countFrom
+      counter.value = currentNumber + countFrom
 
       if (progress < 1)
         element.value.animationFrameID = window.requestAnimationFrame(step)
@@ -56,25 +61,25 @@ function doAnimate() {
     <Card no-shadow>
       <div class="inner flex flex-col">
         <div class="head flex justify-between items-center">
-          <NIcon class="icon opacity-80" :color="color" :component="props.icon" />
-          <span>
+          <NIcon class="icon opacity-80" :color="color" :component="icon" />
+          <span v-if="!loading && data && data.progress">
             <n-badge
-              :value="`${props.data.progress}%`"
-              :type="props.data.progress && props.data.progress > 0 ? 'success' : 'warning'"
+              :value="`${data.progress}%`"
+              :type="data.progress && data.progress > 0 ? 'success' : 'warning'"
             />
           </span>
         </div>
         <section>
           <div class="flex flex-column items-center justify-between">
-            <div w-20>
+            <div class="w-25 overflow-hidden">
               <h3 ref="element" class="text-gray-700 dark:text-gray-200 value">
-                {{ value }}
+                {{ counter }}
               </h3>
               <h4 class="title text-gray-600 dark:text-gray-200">
-                {{ props.title }}
+                {{ title }}
               </h4>
             </div>
-            <Sparkline v-if="!loading" :data="props.data.progressFlow" :color="color" />
+            <Sparkline v-if="!loading && data && data.progressFlow" :data="data.progressFlow" :color="color" />
           </div>
         </section>
       </div>

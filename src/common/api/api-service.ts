@@ -1,6 +1,6 @@
 import type { AxiosInstance } from 'axios'
 import HttpClient from './http-client'
-import type { PaginatedList } from '~/models/PaginatedList'
+import type { PaginatedList } from '~/models/PagedListResult'
 
 import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
 import type { ListResult } from '~/models/ListResult'
