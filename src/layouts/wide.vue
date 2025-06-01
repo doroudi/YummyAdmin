@@ -10,5 +10,5 @@ defineOptions({
 </script>
 
 <template>
-  <DefaultLayout :is-fluid="true" />
+  <DefaultLayout :is-fluid="true" full-screen />
 </template>

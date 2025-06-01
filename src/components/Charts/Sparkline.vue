@@ -4,8 +4,9 @@ import VueApexCharts from 'vue3-apexcharts'
 interface Props {
   data: number[]
   color: string
+  width?: number
 }
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), { width: 200 })
 
 const chartOptions = {
   chart: {
@@ -58,7 +59,7 @@ const series = [{ data: props.data }]
 </script>
 
 <template>
-  <VueApexCharts type="area" width="200" height="50" :options="chartOptions" :series="series" />
+  <VueApexCharts type="area" :width="width" height="50" :options="chartOptions" :series="series" />
 </template>
 
 <style lang="scss" scoped></style>

@@ -2,9 +2,9 @@ import { faker } from '@faker-js/faker'
 import _ from 'lodash'
 import { ws } from 'msw'
 import type { RequestHandler, WebSocketHandler, WebSocketLink } from 'msw'
-import type { MessageItem } from '~/models/Chat'
+import type { ChatItem } from '~/models/Chat'
 
-const chatMessages: Array<MessageItem> = _.times(12, createFakeChatMessage)
+const chatMessages: Array<ChatItem> = _.times(22, createFakeChatMessage)
 export const chat: WebSocketLink = ws.link('wss://localhost:7000/chat')
 const handlers: Array<RequestHandler | WebSocketHandler> = [
   chat.addEventListener('connection', ({ client }) => {
@@ -28,7 +28,7 @@ const handlers: Array<RequestHandler | WebSocketHandler> = [
   }),
 ]
 
-function createFakeChatMessage(): MessageItem {
+function createFakeChatMessage(): ChatItem {
   const randomCount = faker.number.int({ min: -10, max: 10 })
   return {
     from: {

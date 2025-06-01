@@ -3,7 +3,7 @@ import { storeToRefs } from 'pinia'
 
 const collapsed = ref(false)
 const store = useChatStore()
-const { messages, status } = storeToRefs(store)
+const { chats, status } = storeToRefs(store)
 
 onMounted(() => {
   store.connect()
@@ -13,24 +13,29 @@ onBeforeUnmount(() => {
   if (status === 'OPEN')
     store.disconnect()
 })
+
+function loadChatMessages(chatId: number) {
+  store.loadChatMessages(chatId)
+}
 </script>
 
 <template>
-  <n-layout has-sider sider-placement="left">
-    <n-layout-sider
+  <NLayout has-sider sider-placement="left" class="h-100vh">
+    <NLayoutSider
       bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed"
       @collapse="collapsed = true" @expand="collapsed = false"
     >
-      <n-scrollbar style="height: 100%">
-        <ChatList :items="messages" />
-      </n-scrollbar>
-    </n-layout-sider>
-    <n-layout-content>
-      <div class="px-3">
-        {{ status }}
-      </div>
-    </n-layout-content>
-  </n-layout>
+      <NScrollbar>
+        <div class="p-3">
+          <NInput round placeholder="Search Chats" clearable />
+        </div>
+        <ChatList :items="chats" @select="loadChatMessages" />
+      </NScrollbar>
+    </NLayoutSider>
+    <NLayoutContent>
+      <ChatMessages />
+    </NLayoutContent>
+  </NLayout>
 </template>
 
 <style lang="scss" scoped>

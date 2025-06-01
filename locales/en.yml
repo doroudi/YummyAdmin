@@ -38,6 +38,8 @@ categories:
     title: Create New Category
   createButton: Create
   stat: Statistics
+  count: Count
+  topCategories: Top Categories
   title: Categories
   validations:
     nameRequired: Name is required

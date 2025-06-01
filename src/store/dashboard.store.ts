@@ -15,14 +15,15 @@ export const useDashboardStore = defineStore('Dashboard', () => {
   const usersLocationData = ref<LocationChartSeries[]>()
   const revenueStat = ref<any>([])
   const isLoading = ref(false)
+  const isLoadingStats = ref(false)
 
   async function getSummaryStat() {
-    isLoading.value = true
+    isLoadingStats.value = true
     try {
       summaryStat.value = await reportService.getSummaryReport()
     }
     finally {
-      isLoading.value = false
+      isLoadingStats.value = false
     }
   }
 
@@ -59,6 +60,7 @@ export const useDashboardStore = defineStore('Dashboard', () => {
     summaryStat,
     getSummaryStat,
     isLoading,
+    isLoadingStats,
     getRevenueStat,
     revenueStat,
     getGenderStat,

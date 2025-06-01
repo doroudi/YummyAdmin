@@ -1,19 +1,25 @@
 <script lang="ts" setup>
-import type { MessageItem } from '~/models/Chat'
+import type { ChatItem } from '~/models/Chat'
 
 interface Props {
-  items: MessageItem[]
+  items: ChatItem[]
 }
 defineProps<Props>()
+const emits = defineEmits(['select'])
+const selectedChat = ref<ChatItem | null>(null)
+function selectChat(item: ChatItem) {
+  selectedChat.value = item
+  emits('select', item.id)
+}
 </script>
 
 <template>
-  <n-list hoverable clickable class="pe-1">
-    <n-list-item v-for="item of items" :key="item.id">
+  <NList hoverable clickable class="pe-1">
+    <NListItem v-for="item of items" :key="item.id" @click="selectChat">
       <template #prefix>
-        <n-badge :value="item.badge" type="success" :max="9">
+        <NBadge :value="item.badge" type="success" :max="9">
           <NAvatar round size="medium" :src="item.from.avatar" fallback-src="assets/images/fallback.png" />
-        </n-badge>
+        </NBadge>
       </template>
       <div class="flex flex-col">
         <span class="text-sm text-gray-800 dark:text-white" :class="{ 'font-bold': item.isUnread }">
@@ -25,10 +31,9 @@ defineProps<Props>()
         >
           {{ item.title }} {{ item.createdAt }}
         </span>
-        <!-- <n-thing :title="item.from.name" :description="item.title" /> -->
       </div>
-    </n-list-item>
-  </n-list>
+    </NListItem>
+  </NList>
 </template>
 
 <style lang="scss" scoped>

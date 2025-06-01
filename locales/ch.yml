@@ -1,14 +1,6 @@
 Github:
   button: Github
   tooltip: 请在Github上给这个项目一个⭐️支持
-languages:
-  ar: Arabic
-  ch: Chinese
-  de: German
-  en: English
-  fa: Persian
-  tr: Turkish
-
 brands:
   create:
     brandName: 名称
@@ -38,7 +30,9 @@ categories:
     parent: 父级
     title: 创建新分类
   createButton: 创建
+  stat: 统计
   title: 分类
+  topCategories: 顶级分类
   validations:
     nameRequired: 名称必填
     parentRequired: 未选择父级
@@ -137,6 +131,13 @@ forgot:
   title: 忘记密码
   username: 用户名
 home: 首页
+languages:
+  ar: Arabic
+  ch: Chinese
+  de: German
+  en: English
+  fa: Persian
+  tr: Turkish
 login:
   createAccount: 创建一个！
   failedMessage: 登录失败

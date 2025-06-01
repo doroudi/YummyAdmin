@@ -9,7 +9,7 @@ import {
 
 const { t } = useI18n()
 const store = useDashboardStore()
-const { summaryStat, isLoading } = storeToRefs(store)
+const { summaryStat, isLoadingStats } = storeToRefs(store)
 
 onMounted(() => {
   store.getSummaryStat()
@@ -20,19 +20,19 @@ onMounted(() => {
   <div>
     <div class="margin-outside flex flex-wrap pb-3">
       <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoading" :data="summaryStat.registers"
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.registers"
         :title="t('dashboard.registers')" color="#00a096" :icon="UserIcon"
       />
       <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoading" :data="summaryStat.products"
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.products"
         :title="t('dashboard.products')" color="#DB0B51" :icon="BoxIcon"
       />
       <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoading" :data="summaryStat.sells"
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.sells"
         :title="t('dashboard.sells')" :icon="BasketIcon" color="#9575cd"
       />
       <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoading" :data="summaryStat.visits"
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.visits"
         :title="t('dashboard.visits')" :icon="StatIcon" color="#FF8000"
       />
     </div>
