@@ -6,8 +6,8 @@ const { t } = useI18n()
   <div class="github-button">
     <n-tooltip placement="top" trigger="hover">
       <template #trigger>
-        <a data-umami-event="Githu Button" href="https://github.com/doroudi/yummyadmin" block target="_blank">
-          <n-button strong round type="primary" class="pulse-animated" flex space-between py-5 px-3>
+        <a href="https://github.com/doroudi/yummyadmin" block target="_blank">
+          <n-button circle type="primary" class="pulse-animated">
             <NIcon size="1.6rem">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32">
                 <path
@@ -17,7 +17,7 @@ const { t } = useI18n()
               </svg>
             </NIcon>
 
-            <span>{{ t('Github.button') }}</span>
+            <!-- <span>{{ t('Github.button') }}</span> -->
           </n-button>
         </a>
       </template>
@@ -29,24 +29,20 @@ const { t } = useI18n()
 <style lang="scss">
 .github-button {
     position: absolute;
-    right: 40px;
+    left: 30px;
     bottom: 30px;
     z-index: 100;
+    opacity: 0.8;
 
-    .n-icon {
-      margin-left: auto;
-      margin-right: 0.5rem;
+    &:hover {
+      opacity: 1;
     }
 }
 
 .rtl .github-button {
-    right: auto;
-    left: 40px;
+    left: auto;
+    right: 30px;
 
-    .n-icon {
-        margin-left: 0.5rem;
-        margin-right: 0;
-    }
 }
 
 .pulse-animated {

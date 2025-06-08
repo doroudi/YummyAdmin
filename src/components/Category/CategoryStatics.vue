@@ -15,7 +15,7 @@ onMounted(() => {
 
 <template>
   <div class="">
-    {{ categoryStats.coun }}
+    {{ categoryStats.count }}
     <h2 class="card-title px-2 pb-4">
       {{ t('categories.stat') }}
     </h2>
