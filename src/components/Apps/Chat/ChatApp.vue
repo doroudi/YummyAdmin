@@ -20,17 +20,19 @@ function loadChatMessages(chatId: number) {
 </script>
 
 <template>
-  <NLayout has-sider sider-placement="left" class="h-100vh">
+  <NLayout has-sider sider-placement="left" class="chat-layout">
     <NLayoutSider
       bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed"
       @collapse="collapsed = true" @expand="collapsed = false"
     >
-      <NScrollbar>
-        <div class="p-3">
-          <NInput round placeholder="Search Chats" clearable />
-        </div>
-        <ChatList :items="chats" @select="loadChatMessages" />
-      </NScrollbar>
+      <div class="p-3">
+        <NInput round placeholder="Search Chats" clearable />
+      </div>
+      <div class="chat-sidebar">
+        <NScrollbar>
+          <ChatList :items="chats" @select="loadChatMessages" />
+        </NScrollbar>
+      </div>
     </NLayoutSider>
     <NLayoutContent>
       <ChatMessages />
@@ -39,5 +41,14 @@ function loadChatMessages(chatId: number) {
 </template>
 
 <style lang="scss" scoped>
+.n-layout {
+  padding: 0;
+}
+.chat-layout {
+  height: calc(100vh - 30px);
+}
 
+.chat-sidebar {
+  height: calc(100vh - 150px);
+}
 </style>

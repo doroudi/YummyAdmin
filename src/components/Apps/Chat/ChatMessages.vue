@@ -20,18 +20,17 @@ function sendMessage() {
 </script>
 
 <template>
-  <section class="messages-box flex flex-col justify-between h-100 overflow-y-auto">
-    <n-scrollbar>
-      <div class="flex-1 flex flex-col justify-end items-start gap-2 p-4">
-        <MessageItem v-for="item of messages" :key="item.id" :message="item" />
-      </div>
-    </n-scrollbar>
+  <section class="messages-box flex flex-col items-stretch justify-stretch">
+    <div class="flex-1 items-end flex-col justify-end">
+      <n-scrollbar>
+        <div class="flex flex-col justify-end items-start gap-2 p-4 flex-1">
+          <MessageItem v-for="item of messages" :key="item.id" :message="item" />
+        </div>
+      </n-scrollbar>
+    </div>
     <div class="send-message p-4 bg-gray-100 dark:bg-gray-700 flex items-center">
-      <input
-        v-model="message" placeholder="Write Message" class="message-input flex-1"
-        @keypress.enter="sendMessage"
-      >
-      <NButton v-show="sendIsActive" text type="primary" @click="sendMessage">
+      <input v-model="message" placeholder="Write Message" class="message-input flex-1" @keypress.enter="sendMessage">
+      <NButton :disabled="!sendIsActive" text type="primary" @click="sendMessage">
         <template #icon>
           <NIcon size="1.4rem">
             <SendIcon />
@@ -44,8 +43,7 @@ function sendMessage() {
 
 <style scoped lang="scss">
 .messages-box {
-    height: 100%;
-
+    height: calc(100% - 51px);
     .message-input {
         background: transparent;
         border: none;

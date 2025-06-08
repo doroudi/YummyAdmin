@@ -4,7 +4,7 @@ import { ws } from 'msw'
 import type { RequestHandler, WebSocketHandler, WebSocketLink } from 'msw'
 import type { ChatItem } from '~/models/Chat'
 
-const chatMessages: Array<ChatItem> = _.times(22, createFakeChatMessage)
+const chatMessages: Array<ChatItem> = _.times(52, createFakeChatMessage)
 export const chat: WebSocketLink = ws.link('wss://localhost:7000/chat')
 const handlers: Array<RequestHandler | WebSocketHandler> = [
   chat.addEventListener('connection', ({ client }) => {
