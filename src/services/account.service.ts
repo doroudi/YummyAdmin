@@ -1,5 +1,11 @@
 import { ApiService } from '~/common/api/api-service'
-import type { ForgetPasswordResponse, LoginResponse, LoginViewModel, RegisterResponse, RegisterViewModel } from '~/models/Account'
+import type {
+  ForgetPasswordResponse,
+  LoginResponse,
+  LoginViewModel,
+  RegisterResponse,
+  RegisterViewModel,
+} from '~/models/Account'
 
 const apiService = new ApiService('account')
 class AccountService {
@@ -9,12 +15,20 @@ class AccountService {
   }
 
   async register(registerModel: RegisterViewModel): Promise<RegisterResponse> {
-    const response = await apiService.post<RegisterResponse>('register', registerModel)
+    const response = await apiService.post<RegisterResponse>(
+      'register',
+      registerModel,
+    )
     return response
   }
 
-  async forgetPassword(forgetPasswordModel: LoginViewModel): Promise<ForgetPasswordResponse> {
-    const response = await apiService.post<ForgetPasswordResponse>('forget-password', forgetPasswordModel)
+  async forgetPassword(
+    forgetPasswordModel: LoginViewModel,
+  ): Promise<ForgetPasswordResponse> {
+    const response = await apiService.post<ForgetPasswordResponse>(
+      'forget-password',
+      forgetPasswordModel,
+    )
     return response
   }
 }

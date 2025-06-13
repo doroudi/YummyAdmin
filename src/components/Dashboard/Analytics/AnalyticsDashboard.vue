@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
 import {
   Cart16Regular as BasketIcon,
   Box16Regular as BoxIcon,
   DataTrending16Regular as StatIcon,
   People16Regular as UserIcon,
 } from '@vicons/fluent'
+import { storeToRefs } from 'pinia'
 
 const { t } = useI18n()
 const store = useDashboardStore()

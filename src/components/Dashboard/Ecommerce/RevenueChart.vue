@@ -21,7 +21,6 @@ const chartOptions = {
     zoom: {
       enabled: false,
     },
-
   },
   stroke: {
     width: 2,
@@ -56,17 +55,23 @@ const chartOptions = {
   },
 }
 const series = ref([{ data: [] }])
-watch(() => revenueStat.value, () => {
-  series.value = [
-    {
-      data: revenueStat.value,
-    },
-  ]
-})
+watch(
+  () => revenueStat.value,
+  () => {
+    series.value = [
+      {
+        data: revenueStat.value,
+      },
+    ]
+  },
+)
 
-watch(() => period.value, () => {
-  store.getRevenueStat(period.value)
-})
+watch(
+  () => period.value,
+  () => {
+    store.getRevenueStat(period.value)
+  },
+)
 
 const { t } = useI18n()
 </script>

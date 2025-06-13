@@ -1,8 +1,8 @@
-import { HttpResponse, http } from 'msw'
-import times from 'lodash/times'
 import { faker } from '@faker-js/faker/locale/en'
-import { CreatePagedResponse } from '../handlers.utility'
+import times from 'lodash/times'
+import { http, HttpResponse } from 'msw'
 import type { Brand, BrandCreateModel } from '~/models/Brand'
+import { CreatePagedResponse } from '../handlers.utility'
 
 const brands = times(17, createFakeBrand)
 const handlers = [
@@ -23,11 +23,10 @@ const handlers = [
   }),
   http.delete('/api/Brand/:id', ({ params }) => {
     const { id } = params
-    const itemIndex = brands.findIndex(x => x.id === id)
+    const itemIndex = brands.findIndex((x) => x.id === id)
     brands.splice(itemIndex, 1)
     return HttpResponse.json(true, { status: 200 })
   }),
-
 ]
 
 function createFakeBrand(): Brand {
@@ -41,7 +40,10 @@ function createFakeBrand(): Brand {
 }
 
 function toKebabCase(str: string) {
-  return str.replaceAll(' ', '').replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+  return str
+    .replaceAll(' ', '')
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .toLowerCase()
 }
 
 export default handlers

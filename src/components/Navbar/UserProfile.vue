@@ -10,19 +10,18 @@ const profileStore = useProfileStore()
 const { userProfile } = storeToRefs(profileStore)
 const { t } = useI18n()
 onMounted(() => profileStore.loadUserProfile())
-const items: any[]
-  = [
-    {
-      icon: renderIcon(SettingsIcon),
-      label: () => renderLabel(t('userMenu.profile'), '/account/profile'),
-      key: 'options',
-    },
-    {
-      icon: renderIcon(LogoutIcon),
-      label: () => renderLabel(t('userMenu.logout'), '/account/login'),
-      key: 'login',
-    },
-  ]
+const items: any[] = [
+  {
+    icon: renderIcon(SettingsIcon),
+    label: () => renderLabel(t('userMenu.profile'), '/account/profile'),
+    key: 'options',
+  },
+  {
+    icon: renderIcon(LogoutIcon),
+    label: () => renderLabel(t('userMenu.logout'), '/account/login'),
+    key: 'login',
+  },
+]
 </script>
 
 <template>

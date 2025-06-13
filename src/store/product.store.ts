@@ -15,9 +15,10 @@ export const useProductStore = defineStore('Product', () => {
     try {
       const response = await productService.getPagedList(options)
       products.value = response.items
-      options.pageCount = Math.ceil(response.totalCount! / options.itemsPerPage!)
-    }
-    finally {
+      options.pageCount = Math.ceil(
+        response.totalCount! / options.itemsPerPage!,
+      )
+    } finally {
       isLoading.value = false
     }
   }
@@ -25,10 +26,12 @@ export const useProductStore = defineStore('Product', () => {
   async function getTrendingProducts(itemsPerPage = 5) {
     isLoading.value = true
     try {
-      const response = await productService.getPagedList({ page: 1, itemsPerPage })
+      const response = await productService.getPagedList({
+        page: 1,
+        itemsPerPage,
+      })
       trendingProducts.value = response.items
-    }
-    finally {
+    } finally {
       isLoading.value = false
     }
   }
@@ -37,8 +40,7 @@ export const useProductStore = defineStore('Product', () => {
     isLoading.value = true
     try {
       await productService.create<ProductCreateModel>(product)
-    }
-    finally {
+    } finally {
       isLoading.value = false
     }
   }
@@ -47,9 +49,7 @@ export const useProductStore = defineStore('Product', () => {
     await productService.delete(id)
   }
 
-  function editProduct() {
-
-  }
+  function editProduct() {}
 
   return {
     isLoading,

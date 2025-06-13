@@ -3,9 +3,7 @@ import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import type { Review } from '~/models/Review'
 import reviewService from '~/services/review.service'
 
-export interface ReviewState {
-
-}
+export type ReviewState = {}
 export const useReviewStore = defineStore('Review', () => {
   const reviews = ref<Review[]>([])
 
@@ -19,9 +17,10 @@ export const useReviewStore = defineStore('Review', () => {
     try {
       const response = await reviewService.getReviewList(options)
       reviews.value = response.items
-      options.pageCount = Math.ceil(response.totalCount! / options.itemsPerPage!)
-    }
-    finally {
+      options.pageCount = Math.ceil(
+        response.totalCount! / options.itemsPerPage!,
+      )
+    } finally {
       isLoading.value = false
     }
   }

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { MenuInst, MenuOption } from 'naive-ui'
 import {
   PersonSettings20Regular as AccountSettingsIcon,
   AppFolder20Regular as AppsIcon,
@@ -23,18 +22,19 @@ import {
   StarThreeQuarter20Filled as ReviewIcon,
   Settings28Regular as SettingsIcon,
 } from '@vicons/fluent'
+import type { MenuInst, MenuOption } from 'naive-ui'
 import { storeToRefs } from 'pinia'
 
 const layoutStore = useLayoutStore()
-const { collapsed, forceCollapsed, mobileMode, mobileMenuClosed } = storeToRefs(layoutStore)
+const { collapsed, forceCollapsed, mobileMode, mobileMenuClosed } =
+  storeToRefs(layoutStore)
 const { t } = useI18n()
 const { renderIcon, renderLabel } = useRender()
 
 const effectiveCollapsed = computed(() => {
-  if (mobileMode.value)
-    return mobileMenuClosed.value
+  if (mobileMode.value) return mobileMenuClosed.value
 
-  return (collapsed.value || forceCollapsed.value)
+  return collapsed.value || forceCollapsed.value
 })
 
 const menuOptions: MenuOption[] = [
@@ -126,7 +126,8 @@ const menuOptions: MenuOption[] = [
       },
 
       {
-        label: () => renderLabel(t('menu.forgetPassword'), '/account/ForgotPassword'),
+        label: () =>
+          renderLabel(t('menu.forgetPassword'), '/account/ForgotPassword'),
         key: 'forget-password',
         icon: renderIcon(ForgetIcon),
       },
@@ -142,7 +143,6 @@ const menuOptions: MenuOption[] = [
         key: 'account-settings',
         icon: renderIcon(AccountSettingsIcon),
       },
-
     ],
   },
   {
@@ -167,9 +167,11 @@ onMounted(() => {
 })
 
 function activateCurrentRoute() {
-  const keys = menuOptions.flatMap(m => m.children || m) as [{ key: string }]
+  const keys = menuOptions.flatMap((m) => m.children || m) as [{ key: string }]
   if (keys !== undefined) {
-    selectedMenuKey.value = keys.find(k => k.key.toLowerCase() === route.name.toLowerCase())?.key ?? 'dashboard-ecommerce'
+    selectedMenuKey.value =
+      keys.find((k) => k.key.toLowerCase() === route.name.toLowerCase())?.key ??
+      'dashboard-ecommerce'
     menuRef.value?.showOption(selectedMenuKey.value)
   }
 }

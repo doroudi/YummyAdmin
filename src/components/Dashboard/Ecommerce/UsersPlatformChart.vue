@@ -4,7 +4,9 @@ const registersSource = ref<any[]>([
   { name: 'Windows', value: 500 },
   { name: 'iOS', value: 820 },
 ])
-const total = computed(() => registersSource.value.reduce((a, b) => a + b.value, 0))
+const total = computed(() =>
+  registersSource.value.reduce((a, b) => a + b.value, 0),
+)
 const { t } = useI18n()
 </script>
 

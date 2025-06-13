@@ -5,8 +5,9 @@ import type { PaginatedList } from '~/models/PagedListResult'
 
 const apiService = new ApiService('order')
 class OrderService {
-  constructor() { }
-  async getOrderList(options: PagedAndSortedRequest): Promise<PaginatedList<OrderList>> {
+  async getOrderList(
+    options: PagedAndSortedRequest,
+  ): Promise<PaginatedList<OrderList>> {
     const response = await apiService.getPagedList<OrderList>('', options)
     return response
   }

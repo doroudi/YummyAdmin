@@ -1,13 +1,14 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NSpace, NText } from 'naive-ui/es/components'
-import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Delete24Regular as DeleteIcon,
   MoreHorizontal28Regular as MoreIcon,
 } from '@vicons/fluent'
+import { type DataTableColumns, NSpace, NText } from 'naive-ui/es/components'
+import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { OrderStatus } from '~/models/Order'
 
-const { renderActionButton, renderTag, renderPrice, renderUserAvatar } = useRender()
+const { renderActionButton, renderTag, renderPrice, renderUserAvatar } =
+  useRender()
 const { getStatusColor } = useOrders()
 const store = useOrderStore()
 const { proxy } = getCurrentInstance()
@@ -20,12 +21,17 @@ const columns: DataTableColumns<RowData> = [
     title: t('orders.customer'),
     key: 'customer',
     fixed: 'left',
-    render: row => renderUserAvatar(row.customer.avatar, row.customer.name),
+    render: (row) => renderUserAvatar(row.customer.avatar, row.customer.name),
   },
   {
     title: t('common.date'),
     key: 'createdDate',
-    render: row => h(NText, {}, { default: () => proxy.$filters.friendlyTime(row.createdDate) }),
+    render: (row) =>
+      h(
+        NText,
+        {},
+        { default: () => proxy.$filters.friendlyTime(row.createdDate) },
+      ),
   },
   {
     title: t('orders.itemsCount'),
@@ -34,22 +40,27 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('common.price'),
     key: 'category',
-    render: row => renderPrice(row.totalPrice, t('currencySign')),
+    render: (row) => renderPrice(row.totalPrice, t('currencySign')),
   },
   {
     title: t('common.status'),
     key: 'status',
-    render: row => renderTag(row.status, getStatusColor(row.status), OrderStatus, 'OrderStatus'),
+    render: (row) =>
+      renderTag(
+        row.status,
+        getStatusColor(row.status),
+        OrderStatus,
+        'OrderStatus',
+      ),
   },
   {
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render: () =>
-      [
-        renderActionButton(MoreIcon, () => {}),
-        renderActionButton(DeleteIcon, () => {}),
-      ],
+    render: () => [
+      renderActionButton(MoreIcon, () => {}),
+      renderActionButton(DeleteIcon, () => {}),
+    ],
   },
 ]
 const { options } = useOptions()

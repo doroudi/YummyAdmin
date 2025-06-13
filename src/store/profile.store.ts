@@ -13,8 +13,7 @@ export const useProfileStore = defineStore('Profile', () => {
     try {
       const profile = await ProfileService.getUserProfile()
       userProfile.value = profile
-    }
-    finally {
+    } finally {
       isLoading.value = false
     }
   }

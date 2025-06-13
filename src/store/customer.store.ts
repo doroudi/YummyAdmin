@@ -3,9 +3,7 @@ import type { Customer } from '~/models/Customer'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import customerService from '~/services/customer.service'
 
-export interface CustomerState {
-
-}
+export type CustomerState = {}
 export const useCustomerStore = defineStore('Customer', () => {
   const customers = ref<Customer>([])
   const customerItem = ref<Customer>()
@@ -17,9 +15,10 @@ export const useCustomerStore = defineStore('Customer', () => {
     try {
       const response = await customerService.getList(options)
       customers.value = response.items
-      options.pageCount = Math.ceil(response.totalCount! / options.itemsPerPage!)
-    }
-    finally {
+      options.pageCount = Math.ceil(
+        response.totalCount! / options.itemsPerPage!,
+      )
+    } finally {
       isLoading.value = false
     }
   }

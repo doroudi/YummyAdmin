@@ -3,13 +3,12 @@ import axios from 'axios'
 import tokenService from './token.service'
 
 function httpClient(baseApi: string | null = null): AxiosInstance {
-  const client
-    = axios.create({
-      baseURL: baseApi ?? `${import.meta.env.VITE_API_URL}/`,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+  const client = axios.create({
+    baseURL: baseApi ?? `${import.meta.env.VITE_API_URL}/`,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
 
   client.interceptors.request.use(
     (config: AxiosRequestConfig) => {
@@ -24,14 +23,17 @@ function httpClient(baseApi: string | null = null): AxiosInstance {
     },
   )
 
-  client.interceptors.response.use((response) => {
-    return response
-  }, (error) => {
-    if (error.response.statusText)
-      useNotifyStore().error(error.response.statusText)
+  client.interceptors.response.use(
+    (response) => {
+      return response
+    },
+    (error) => {
+      if (error.response.statusText)
+        useNotifyStore().error(error.response.statusText)
 
-    return Promise.reject(error)
-  })
+      return Promise.reject(error)
+    },
+  )
   return client
 }
 

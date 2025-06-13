@@ -1,5 +1,5 @@
-import { HttpResponse, http } from 'msw'
 import { faker } from '@faker-js/faker/locale/en'
+import { http, HttpResponse } from 'msw'
 import { CreateListResponse } from '../handlers.utility'
 
 import { type Notification, NotificationType } from '~/models/Notification'
@@ -8,7 +8,11 @@ const notifications = createFakeNotification()
 
 const handlers = [
   http.get('/api/notification', ({ request }) => {
-    const response = CreateListResponse<Notification>(request, notifications, 'title')
+    const response = CreateListResponse<Notification>(
+      request,
+      notifications,
+      'title',
+    )
     return HttpResponse.json(response, { status: 200 })
   }),
 ]

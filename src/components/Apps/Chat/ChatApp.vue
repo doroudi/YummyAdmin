@@ -10,8 +10,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  if (status === 'OPEN')
-    store.disconnect()
+  if (status === 'OPEN') store.disconnect()
 })
 
 function loadChatMessages(chatId: number) {

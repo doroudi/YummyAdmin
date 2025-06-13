@@ -15,8 +15,10 @@ export interface DonutChartSeries {
 
 export interface LocationChartSeries {
   key: string
-  value: {
-    value: number
-    color?: string
-  } | number
+  value:
+    | {
+        value: number
+        color?: string
+      }
+    | number
 }

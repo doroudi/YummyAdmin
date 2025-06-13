@@ -9,34 +9,38 @@ interface Props {
   color?: string
 }
 
-const props = withDefaults(defineProps<Props>(), { color: 'var(--primary-color)', loading: true })
+const props = withDefaults(defineProps<Props>(), {
+  color: 'var(--primary-color)',
+  loading: true,
+})
 const counter = ref(0)
 const element = ref()
 
-watch(() => props.data, () => {
-  if (!props.data)
-    return
+watch(
+  () => props.data,
+  () => {
+    if (!props.data) return
 
-  counter.value = 0
-  setTimeout(() => {
-    doAnimate()
-  }, 230)
-}, { immediate: true, deep: true })
+    counter.value = 0
+    setTimeout(() => {
+      doAnimate()
+    }, 230)
+  },
+  { immediate: true, deep: true },
+)
 
 function doAnimate() {
   const countFrom = 0
   const countTo = props.data.count
 
   const duration = 2000
-  if (countTo <= 0)
-    return
+  if (countTo <= 0) return
 
   const animate = () => {
     let startTime: number
 
     const step = (currentTime: number) => {
-      if (!startTime)
-        startTime = currentTime
+      if (!startTime) startTime = currentTime
 
       const progress = Math.min((currentTime - startTime) / duration, 1)
       const currentNumber = Math.floor(progress * (countTo - countFrom))
@@ -45,8 +49,7 @@ function doAnimate() {
 
       if (progress < 1)
         element.value.animationFrameID = window.requestAnimationFrame(step)
-      else
-        window.cancelAnimationFrame(element.value.animationFrameID)
+      else window.cancelAnimationFrame(element.value.animationFrameID)
     }
 
     window.requestAnimationFrame(step)

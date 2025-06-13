@@ -7,7 +7,6 @@ import {
   Info24Regular as InfoIcon,
   Cart20Regular as OrderIcon,
   Shield24Regular as SecurityIcon,
-
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 import { NotificationType } from '~/models/Notification'

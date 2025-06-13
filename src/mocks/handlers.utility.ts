@@ -1,12 +1,18 @@
 import type { ListResult } from '~/models/ListResult'
 import type { PaginatedList } from '~/models/PagedListResult'
 
-export function CreatePagedResponse<T extends { [key: string]: any }>(req: any, items: T[], searchKey = 'name'): PaginatedList<T> {
+export function CreatePagedResponse<T extends { [key: string]: any }>(
+  req: any,
+  items: T[],
+  searchKey = 'name',
+): PaginatedList<T> {
   const url = new URL(req.url)
   const query = url.searchParams.get('query')
   let filteredItems = items
   if (query)
-    filteredItems = items.filter(x => x[searchKey].toLowerCase().includes(query.toLowerCase()))
+    filteredItems = items.filter((x) =>
+      x[searchKey].toLowerCase().includes(query.toLowerCase()),
+    )
 
   const pageSize = url.searchParams.get('itemsPerPage')
   const skipCount = url.searchParams.get('page')
@@ -22,12 +28,18 @@ export function CreatePagedResponse<T extends { [key: string]: any }>(req: any, 
   }
 }
 
-export function CreateListResponse<T extends { [key: string]: any }>(req: any, items: T[], searchKey = 'name'): ListResult<T> {
+export function CreateListResponse<T extends { [key: string]: any }>(
+  req: any,
+  items: T[],
+  searchKey = 'name',
+): ListResult<T> {
   const url = new URL(req.url)
   const query = url.searchParams.get('query')
   let filteredItems = items
   if (query)
-    filteredItems = items.filter(x => x[searchKey].toLowerCase().includes(query.toLowerCase()))
+    filteredItems = items.filter((x) =>
+      x[searchKey].toLowerCase().includes(query.toLowerCase()),
+    )
   return {
     items: filteredItems,
   }

@@ -1,9 +1,9 @@
 import { faker } from '@faker-js/faker/locale/en'
-import { HttpResponse, http } from 'msw'
 import times from 'lodash/times'
-import { CreatePagedResponse } from '../handlers.utility'
-import { type ProductListDto, ProductStatus } from '~/models/Product'
+import { http, HttpResponse } from 'msw'
 import type { Category } from '~/models/Category'
+import { type ProductListDto, ProductStatus } from '~/models/Product'
+import { CreatePagedResponse } from '../handlers.utility'
 
 const products = times(27, createFakeProductListItem)
 const handlers = [

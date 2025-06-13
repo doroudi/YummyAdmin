@@ -19,12 +19,16 @@ export const useNotifyStore = defineStore('notify', {
   }),
   actions: {
     notify(notification: ToastNotification) {
-      notification.id = this.messages.length ? (Math.max(...this.messages.map(x => x.id))) + 1 : 0
+      notification.id = this.messages.length
+        ? Math.max(...this.messages.map((x) => x.id)) + 1
+        : 0
       notification.duration = notification.duration || 5000
       this.messages.push(notification)
       if (!notification.permanent) {
         setTimeout(() => {
-          const messageIndex = this.messages.findIndex(x => x.id === notification.id)
+          const messageIndex = this.messages.findIndex(
+            (x) => x.id === notification.id,
+          )
           this.messages.splice(messageIndex, 1)
         }, notification.duration ?? 3000)
       }

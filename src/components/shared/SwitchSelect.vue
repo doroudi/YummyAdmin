@@ -9,9 +9,12 @@ interface Props {
 const props = defineProps<Props>()
 const emit = defineEmits(['update:value'])
 const localValue = ref<string>(props.value)
-watch(() => localValue.value, (val) => {
-  emit('update:value', val)
-})
+watch(
+  () => localValue.value,
+  (val) => {
+    emit('update:value', val)
+  },
+)
 </script>
 
 <template>

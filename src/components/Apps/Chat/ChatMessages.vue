@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { Send28Filled as SendIcon } from '@vicons/fluent'
 import { NButton } from 'naive-ui'
 import { storeToRefs } from 'pinia'
-import { Send28Filled as SendIcon } from '@vicons/fluent'
 
 const store = useChatStore()
 const { messages } = storeToRefs(store)

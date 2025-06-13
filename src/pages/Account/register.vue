@@ -19,8 +19,7 @@ async function register() {
       if (registerResult) {
         useNotifyStore().success(t('register.successMessage'))
         setTimeout(() => router.push('/'), 500)
-      }
-      else {
+      } else {
         loginFailed.value = true
         setTimeout(() => {
           loginFailed.value = false

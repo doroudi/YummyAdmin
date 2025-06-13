@@ -5,8 +5,9 @@ import type { Review } from '~/models/Review'
 
 const apiService = new ApiService('review')
 class ReviewService {
-  constructor() { }
-  async getReviewList(options: PagedAndSortedRequest): Promise<PaginatedList<Review>> {
+  async getReviewList(
+    options: PagedAndSortedRequest,
+  ): Promise<PaginatedList<Review>> {
     const response = await apiService.getPagedList<Review>('', options)
     return response
   }

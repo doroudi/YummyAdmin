@@ -1,9 +1,12 @@
 import { faker } from '@faker-js/faker/locale/en'
-import { HttpResponse, http } from 'msw'
-import times from 'lodash/times'
 import _ from 'lodash'
-import type { DashboardSummaryStatDto, SummaryStatDto } from '~/models/SummaryStat'
+import times from 'lodash/times'
+import { http, HttpResponse } from 'msw'
 import type { DonutChartSeries, LocationChartSeries } from '~/models/ChartData'
+import type {
+  DashboardSummaryStatDto,
+  SummaryStatDto,
+} from '~/models/SummaryStat'
 
 const handlers = [
   http.get('/api/report/summary', () => {
@@ -13,7 +16,9 @@ const handlers = [
 
   http.get('/api/report/revenue/:period', (req) => {
     const { period } = req.params
-    const response = times(10, () => faker.number.int({ min: 1000, max: 10000 }))
+    const response = times(10, () =>
+      faker.number.int({ min: 1000, max: 10000 }),
+    )
 
     return HttpResponse.json(response, { status: 200 })
   }),
@@ -61,15 +66,15 @@ function createFakeGenderData(): DonutChartSeries[] {
 function createFakeLocationData(): LocationChartSeries[] {
   const locations = _.times(20, () => faker.location.countryCode('alpha-2'))
 
-  if (locations.includes('IS'))
-    locations.splice(locations.indexOf('IS'), 1)
-  if (locations.includes('IR'))
-    locations.splice(locations.indexOf('IR'), 1)
+  if (locations.includes('IS')) locations.splice(locations.indexOf('IS'), 1)
+  if (locations.includes('IR')) locations.splice(locations.indexOf('IR'), 1)
 
-  const locationData: LocationChartSeries[] = locations.map((location: string) => ({
-    key: location,
-    value: faker.number.int({ min: 500, max: 1000 }),
-  }))
+  const locationData: LocationChartSeries[] = locations.map(
+    (location: string) => ({
+      key: location,
+      value: faker.number.int({ min: 500, max: 1000 }),
+    }),
+  )
 
   locationData.push({ key: 'PS', value: { value: 1000, color: '#a11923' } })
   locationData.push({ key: 'IR', value: { value: 1000, color: '#00A693' } })

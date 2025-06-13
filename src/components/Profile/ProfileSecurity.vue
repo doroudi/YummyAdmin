@@ -6,9 +6,7 @@ const userInfo = ref({
 })
 const isLoading = ref(false)
 const { t } = useI18n()
-function changePassword() {
-
-}
+function changePassword() {}
 </script>
 
 <template>

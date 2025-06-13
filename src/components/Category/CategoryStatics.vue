@@ -1,8 +1,6 @@
 <script setup>
+import { DataTrending16Regular as StatIcon } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
-import {
-  DataTrending16Regular as StatIcon,
-} from '@vicons/fluent'
 
 const { t } = useI18n()
 const store = useCategoryStore()

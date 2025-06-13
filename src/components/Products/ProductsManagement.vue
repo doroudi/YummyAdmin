@@ -2,12 +2,12 @@
 import { NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
 import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
 
-import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Delete20Regular as DeleteIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
 import { useMessage } from 'naive-ui'
+import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { ProductStatus } from '~/models/Product'
 
 const { t } = useI18n()
@@ -29,46 +29,56 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('products.name'),
     key: 'name',
-    render: row => renderProductImage(row.image, row.name),
+    render: (row) => renderProductImage(row.image, row.name),
   },
   {
     title: t('products.category'),
     key: 'category',
     render(row) {
-      return h(NText,
-        {}, {
+      return h(
+        NText,
+        {},
+        {
           default: () => row.category.name,
-        })
+        },
+      )
     },
   },
   {
     title: t('products.rate'),
     key: 'rate',
-    render: row => renderRate(row.rate),
+    render: (row) => renderRate(row.rate),
   },
   {
     title: t('common.price'),
     key: 'price',
-    render: row => renderPrice(row.price, t('currencySign')),
+    render: (row) => renderPrice(row.price, t('currencySign')),
   },
   {
     title: t('common.status'),
     key: 'status',
-    render: row => renderTag(row.status, getStatusColor(row.status), ProductStatus, 'ProductStatus'),
+    render: (row) =>
+      renderTag(
+        row.status,
+        getStatusColor(row.status),
+        ProductStatus,
+        'ProductStatus',
+      ),
   },
   {
     title: t('products.stoke'),
     key: 'stock',
-    render: row => h(NSwitch, { value: row.stock, size: 'small' }, {}),
+    render: (row) => h(NSwitch, { value: row.stock, size: 'small' }, {}),
   },
   {
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render: row =>
-      [
-        renderDeleteActionButton(t('common.deleteConfirm'), () => handleDeleteItem(row)),
-      ],
+    render: (row) => [
+      renderDeleteActionButton(t('common.deleteConfirm'), () =>
+        handleDeleteItem(row),
+      ),
+    ],
   },
 ]
 function getStatusColor(status: ProductStatus) {

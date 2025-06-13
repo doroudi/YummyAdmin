@@ -8,7 +8,9 @@ class GenericService<T, TKey> {
     this.apiService = service
   }
 
-  async getPagedList(options: PagedAndSortedRequest): Promise<PaginatedList<T>> {
+  async getPagedList(
+    options: PagedAndSortedRequest,
+  ): Promise<PaginatedList<T>> {
     const response = await this.apiService.getPagedList<T>('', options)
     return response
   }

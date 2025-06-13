@@ -7,7 +7,12 @@ interface Props {
 }
 const props = defineProps<Props>()
 const content = ref<string>(props.modelValue)
-watch(() => props.modelValue, () => content.value = props.modelValue)
+watch(
+  () => props.modelValue,
+  () => {
+    content.value = props.modelValue
+  },
+)
 </script>
 
 <template>

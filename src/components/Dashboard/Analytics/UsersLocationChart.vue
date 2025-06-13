@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import 'vue3-map-chart/dist/style.css'
-import { MapChart } from 'vue3-map-chart'
 import { storeToRefs } from 'pinia'
+import { MapChart } from 'vue3-map-chart'
 import type { MapData } from 'vue3-map-chart/types/types'
 import type { LocationChartSeries } from '~/models/ChartData'
 
@@ -9,8 +9,7 @@ const { t } = useI18n()
 const store = useDashboardStore()
 const { usersLocationData, isLoading } = storeToRefs(store)
 const locationData = computed(() => {
-  if (!usersLocationData.value)
-    return {}
+  if (!usersLocationData.value) return {}
   return arrayToKeyValue(usersLocationData.value!)
 })
 onMounted(() => {
@@ -22,11 +21,10 @@ function arrayToKeyValue(arr: LocationChartSeries[]) {
     acc[item.key] = item.value
     return acc
   }, {} as MapData)
-};
+}
 
 function onMapItemClick(areaId: string) {
-  if (areaId === 'IR')
-    window.open('https://www.visitiran.ir/')
+  if (areaId === 'IR') window.open('https://www.visitiran.ir/')
   else if (areaId === 'PS')
     window.open('https://techforpalestine.org/learn-more/')
 }

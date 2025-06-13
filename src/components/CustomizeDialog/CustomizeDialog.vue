@@ -12,13 +12,11 @@ const { t } = useI18n()
 const layout = useLayoutStore()
 const { isRtl, isFluid, flatDesign } = storeToRefs(layout)
 function setLight() {
-  if (layout.isDark)
-    layout.toggleTheme()
+  if (layout.isDark) layout.toggleTheme()
 }
 
 function setDark() {
-  if (!layout.isDark)
-    layout.toggleTheme()
+  if (!layout.isDark) layout.toggleTheme()
 }
 
 const colors = useColors().primaryColors
@@ -29,7 +27,7 @@ function setColor(index) {
 }
 
 onMounted(() => {
-  selectedColorIndex.value = colors.findIndex(x => x === layout.themeColor)
+  selectedColorIndex.value = colors.findIndex((x) => x === layout.themeColor)
 })
 </script>
 

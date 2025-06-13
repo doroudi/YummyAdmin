@@ -4,7 +4,6 @@ import type { Notification } from '~/models/Notification'
 
 const apiService = new ApiService('notification')
 class NotificationsService {
-  constructor() { }
   async getNotificationsList(): Promise<ListResult<Notification>> {
     const response = await apiService.getList<Notification>('', {})
     return response

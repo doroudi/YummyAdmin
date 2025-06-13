@@ -24,13 +24,10 @@
   "i18n-ally.sortKeys": true,
   "prettier.enable": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll.biome": "always"
   },
   "files.associations": {
     "*.css": "postcss"
   },
-  "editor.formatOnSave": false,
-  "conventionalCommits.scopes": [
-    "categories"
-  ]
+  "editor.formatOnSave": false
 }

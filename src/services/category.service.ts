@@ -1,6 +1,6 @@
-import GenericService from './generic.service'
-import type { Category } from '~/models/Category'
 import { ApiService } from '~/common/api/api-service'
+import type { Category } from '~/models/Category'
+import GenericService from './generic.service'
 
 const apiService = new ApiService('category')
 class CategoryService extends GenericService<Category, number> {
@@ -13,7 +13,9 @@ class CategoryService extends GenericService<Category, number> {
   }
 
   getStats() {
-    return apiService.get<{ summaryStats: any; productsByCategoryStat: any }>('stats')
+    return apiService.get<{ summaryStats: any; productsByCategoryStat: any }>(
+      'stats',
+    )
   }
 }
 export default new CategoryService()

@@ -1,12 +1,12 @@
 <script setup lang='ts'>
-import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
-import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Edit32Regular as EditIcon,
   Add20Regular as PlusIcon,
 } from '@vicons/fluent'
-import { storeToRefs } from 'pinia'
 import { useMessage } from 'naive-ui'
+import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
+import type { RowData } from 'naive-ui/es/data-table/src/interface'
+import { storeToRefs } from 'pinia'
 
 const { renderDeleteActionButton, renderActionButton } = useRender()
 const layout = useLayoutStore()
@@ -32,11 +32,12 @@ const columns: DataTableColumns<RowData> = [
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render: row =>
-      [
-        renderActionButton(EditIcon, () => { }),
-        renderDeleteActionButton(t('common.deleteConfirm'), () => handleDeleteItem(row)),
-      ],
+    render: (row) => [
+      renderActionButton(EditIcon, () => {}),
+      renderDeleteActionButton(t('common.deleteConfirm'), () =>
+        handleDeleteItem(row),
+      ),
+    ],
   },
 ]
 const { options } = useOptions()

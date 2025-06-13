@@ -21,18 +21,21 @@ const effectiveFluid = computed(() => {
   return props.isFluid || layoutStore.isFluid
 })
 
-watch(() => notificationsStore.messages, (newVal: ToastNotification[], oldVal: ToastNotification[]) => {
-  if (newVal.length < oldVal.length)
-    return
+watch(
+  () => notificationsStore.messages,
+  (newVal: ToastNotification[], oldVal: ToastNotification[]) => {
+    if (newVal.length < oldVal.length) return
 
-  const lastMessage = newVal[newVal.length - 1]
-  notification.create({
-    type: lastMessage.type,
-    content: lastMessage.body,
-    duration: !lastMessage.permanent ? lastMessage.duration : undefined,
-    closable: !lastMessage.permanent,
-  })
-}, { deep: true })
+    const lastMessage = newVal[newVal.length - 1]
+    notification.create({
+      type: lastMessage.type,
+      content: lastMessage.body,
+      duration: !lastMessage.permanent ? lastMessage.duration : undefined,
+      closable: !lastMessage.permanent,
+    })
+  },
+  { deep: true },
+)
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { HttpResponse, http } from 'msw'
+import { http, HttpResponse } from 'msw'
 import type { Profile, ProfileSettings } from '~/models/Profile'
 
 const handlers = [
@@ -30,7 +30,10 @@ function createFakeProfile(): Profile {
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
     role: 'Administrator',
-    avatar: `https://avatar.iran.liara.run/public/${faker.number.int({ min: 1, max: 100 })}`,
+    avatar: `https://avatar.iran.liara.run/public/${faker.number.int({
+      min: 1,
+      max: 100,
+    })}`,
     phone: faker.phone.number(),
     socials: [
       { name: 'facebook', url: faker.internet.url() },

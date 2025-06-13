@@ -1,7 +1,10 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Category, CategoryCreateModel } from '~/models/Category'
 import type { DonutChartSeries } from '~/models/ChartData'
-import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
+import {
+  type PagedAndSortedRequest,
+  defaultOptions,
+} from '~/models/PagedAndSortedRequest'
 import type { SummaryStatDto } from '~/models/SummaryStat'
 import categoryService from '~/services/category.service'
 
@@ -11,16 +14,22 @@ export const useCategoryStore = defineStore('Category', () => {
   const isLoading = ref(true)
   const isLoadingStats = ref(false)
   const isSaving = ref(false)
-  const categoryStats = ref<{ summaryStats: SummaryStatDto; productsStat: DonutChartSeries }>({})
+  const categoryStats = ref<{
+    summaryStats: SummaryStatDto
+    productsStat: DonutChartSeries
+  }>({})
 
-  async function getCategories(options: PagedAndSortedRequest = defaultOptions) {
+  async function getCategories(
+    options: PagedAndSortedRequest = defaultOptions,
+  ) {
     isLoading.value = true
     try {
       const response = await categoryService.getPagedList(options)
       categories.value = response.items
-      options.pageCount = Math.ceil(response.totalCount! / options.itemsPerPage!)
-    }
-    finally {
+      options.pageCount = Math.ceil(
+        response.totalCount! / options.itemsPerPage!,
+      )
+    } finally {
       isLoading.value = false
     }
   }
@@ -29,8 +38,7 @@ export const useCategoryStore = defineStore('Category', () => {
     isLoadingStats.value = true
     try {
       categoryStats.value = await categoryService.getStats()
-    }
-    finally {
+    } finally {
       isLoadingStats.value = false
     }
   }
@@ -40,8 +48,7 @@ export const useCategoryStore = defineStore('Category', () => {
     try {
       await categoryService.create<CategoryCreateModel>(categoryItem)
       getCategories()
-    }
-    finally {
+    } finally {
       isLoading.value = false
     }
   }

@@ -17,9 +17,7 @@ const handlers: Array<RequestHandler | WebSocketHandler> = [
 
     const updateInterval = setInterval(() => {
       updateMessages()
-      client.send(
-        JSON.stringify({ type: 'UPDATE', payload: chatMessages }),
-      )
+      client.send(JSON.stringify({ type: 'UPDATE', payload: chatMessages }))
     }, 10000)
 
     client.addEventListener('close', () => {
@@ -32,7 +30,10 @@ function createFakeChatMessage(): ChatItem {
   const randomCount = faker.number.int({ min: -10, max: 10 })
   return {
     from: {
-      avatar: `https://avatar.iran.liara.run/public/${faker.number.int({ min: 1, max: 200 })}`,
+      avatar: `https://avatar.iran.liara.run/public/${faker.number.int({
+        min: 1,
+        max: 200,
+      })}`,
       name: faker.person.fullName(),
     },
     title: faker.lorem.sentence(4),
@@ -44,7 +45,10 @@ function createFakeChatMessage(): ChatItem {
 }
 
 function updateMessages() {
-  const randomIndex = faker.number.int({ min: 0, max: chatMessages.length - 1 })
+  const randomIndex = faker.number.int({
+    min: 0,
+    max: chatMessages.length - 1,
+  })
   const randomMessage = chatMessages[randomIndex]
   randomMessage.updated = faker.date.recent()
   randomMessage.badge = faker.number.int({ min: 1, max: 10 })

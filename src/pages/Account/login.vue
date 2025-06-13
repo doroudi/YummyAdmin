@@ -1,16 +1,19 @@
 <script setup lang="ts">
 import type { FormInst, FormRules } from 'naive-ui/es/form/src/interface'
 import { storeToRefs } from 'pinia'
+import AppleIcon from '~/components/CustomIcons/AppleIcon.vue'
 import GoogleIcon from '~/components/CustomIcons/GoogleIcon.vue'
 import MicrosoftIcon from '~/components/CustomIcons/MicrosoftIcon.vue'
-import AppleIcon from '~/components/CustomIcons/AppleIcon.vue'
 
 import type { LoginViewModel } from '~/models/Account'
 
 const { t } = useI18n()
 const accountStore = useAccountStore()
 const { isLoading } = storeToRefs(accountStore)
-const loginInfo = ref<LoginViewModel>({ username: 'Yummy', password: 'Admin!' })
+const loginInfo = ref<LoginViewModel>({
+  username: 'Yummy',
+  password: 'Admin!',
+})
 const loginFailed = ref(false)
 const router = useRouter()
 const formRef = ref<FormInst | null>(null)
@@ -21,8 +24,7 @@ async function login() {
       if (loginSucceed) {
         useNotifyStore().success(t('login.successMessage'))
         setTimeout(() => router.push('/'), 500)
-      }
-      else {
+      } else {
         loginFailed.value = true
         setTimeout(() => {
           loginFailed.value = false

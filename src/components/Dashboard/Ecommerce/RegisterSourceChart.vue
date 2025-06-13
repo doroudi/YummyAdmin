@@ -5,7 +5,9 @@ const registersSource = ref<any[]>([
   { name: 'Apple', value: 10 },
 ])
 const { t } = useI18n()
-const total = computed(() => registersSource.value.reduce((a, b) => a + b.value, 0))
+const total = computed(() =>
+  registersSource.value.reduce((a, b) => a + b.value, 0),
+)
 </script>
 
 <template>

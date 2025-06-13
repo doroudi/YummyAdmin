@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
 import { Translate16Regular as TranslateIcon } from '@vicons/fluent'
 import { NIcon } from 'naive-ui/es/icon'
+import { storeToRefs } from 'pinia'
+import ArabicIcon from '../CustomIcons/ArabicIcon.vue'
+import ChineseIcon from '../CustomIcons/ChineseIcon.vue'
 import EnglandIcon from '../CustomIcons/EnglandIcon.vue'
 import GermanyIcon from '../CustomIcons/GermanyIcon.vue'
-import ChineseIcon from '../CustomIcons/ChineseIcon.vue'
-import ArabicIcon from '../CustomIcons/ArabicIcon.vue'
 import TurkishIcon from '../CustomIcons/TurkishIcon.vue'
 
 import PersianIcon from '../CustomIcons/PersianIcon.vue'

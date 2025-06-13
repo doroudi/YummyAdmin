@@ -1,5 +1,5 @@
-import { acceptHMRUpdate, defineStore } from 'pinia'
 import { useWebSocket } from '@vueuse/core'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { ChatItem, MessageItem } from '~/models/Chat'
 
 export const useChatStore = defineStore('Chat', () => {
@@ -18,12 +18,13 @@ export const useChatStore = defineStore('Chat', () => {
     },
   ])
   const isLoading = ref(false)
-  const { status, data, send, open, close } = useWebSocket(`wss://${import.meta.env.VITE_BASE_URL}/chat`)
+  const { status, data, send, open, close } = useWebSocket(
+    `wss://${import.meta.env.VITE_BASE_URL}/chat`,
+  )
   const unwatch: (() => void) | null = null
 
   async function connect() {
-    if (status === 'CLOSED')
-      open()
+    if (status === 'CLOSED') open()
   }
 
   function loadChatMessages(id: number) {
@@ -34,9 +35,13 @@ export const useChatStore = defineStore('Chat', () => {
     messages.value.push(message)
   }
 
-  watch(() => data, (val: any) => {
-    handleMessage(val)
-  }, { deep: true, lazy: true })
+  watch(
+    () => data,
+    (val: any) => {
+      handleMessage(val)
+    },
+    { deep: true, lazy: true },
+  )
 
   function handleMessage(message: any) {
     const { type, payload } = JSON.parse(message.value)
@@ -57,10 +62,8 @@ export const useChatStore = defineStore('Chat', () => {
   }
 
   function disconnect() {
-    if (status !== 'CLOSED')
-      close()
-    if (unwatch)
-      unwatch()
+    if (status !== 'CLOSED') close()
+    if (unwatch) unwatch()
   }
 
   return {

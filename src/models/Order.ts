@@ -25,11 +25,11 @@ export interface OrderItem {
 }
 
 export enum OrderStatus {
-  Submitted,
-  Processing,
-  ReadyToSend,
-  Sent,
-  Delivered,
+  Submitted = 0,
+  Processing = 1,
+  ReadyToSend = 2,
+  Sent = 3,
+  Delivered = 4,
 }
 
 export interface OrderCustomer {

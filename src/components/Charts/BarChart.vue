@@ -9,11 +9,14 @@ interface Props {
   height: number
 }
 
-const props = withDefaults(defineProps<Props>(),
-  {
-    colors: () => ['var(--primary-color)', 'var(--primary-color-shade1)', 'var(--primary-color-shade2)'],
-    height: 480,
-  })
+const props = withDefaults(defineProps<Props>(), {
+  colors: () => [
+    'var(--primary-color)',
+    'var(--primary-color-shade1)',
+    'var(--primary-color-shade2)',
+  ],
+  height: 480,
+})
 const chartOptions = ref({
   chart: {
     stacked: true,
@@ -70,21 +73,23 @@ const chartOptions = ref({
       },
     },
   },
-  responsive: [{
-    breakpoint: 992,
-    options: {
-      plotOptions: {
-        bar: {
-          columnWidth: '29%',
-          borderRadius: 3,
+  responsive: [
+    {
+      breakpoint: 992,
+      options: {
+        plotOptions: {
+          bar: {
+            columnWidth: '29%',
+            borderRadius: 3,
+          },
+          distributed: true,
         },
-        distributed: true,
-      },
-      chart: {
-        height: 250,
+        chart: {
+          height: 250,
+        },
       },
     },
-  }],
+  ],
 })
 </script>
 

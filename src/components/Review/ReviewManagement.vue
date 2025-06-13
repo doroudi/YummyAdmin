@@ -1,10 +1,8 @@
 <script setup lang='ts'>
+import { Delete20Regular as DeleteIcon } from '@vicons/fluent'
 import { NRate, NSpace, NText } from 'naive-ui/es/components'
-import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
-import {
-  Delete20Regular as DeleteIcon,
-} from '@vicons/fluent'
+import type { RowData } from 'naive-ui/es/data-table/src/interface'
 
 const { t } = useI18n()
 const store = useReviewStore()
@@ -23,7 +21,12 @@ const columns: DataTableColumns<RowData> = [
     key: 'rate',
     render(row) {
       return [
-        h(NRate, { color: 'gold', readonly: true, defaultValue: row.rate, allowHalf: false }),
+        h(NRate, {
+          color: 'gold',
+          readonly: true,
+          defaultValue: row.rate,
+          allowHalf: false,
+        }),
       ]
     },
     fixed: 'left',
@@ -32,21 +35,28 @@ const columns: DataTableColumns<RowData> = [
     title: t('reviews.comment'),
     key: 'comment',
     render(row) {
-      return h(NText,
-        {}, {
+      return h(
+        NText,
+        {},
+        {
           default: () => row.comment.message,
-        })
+        },
+      )
     },
   },
   {
     title: t('reviews.product'),
     key: 'name',
-    render: row =>
-      h(NSpace, {}, {
-        default: () => [
-          h(NText, {}, { default: () => `${row.product.name}` }),
-        ],
-      }),
+    render: (row) =>
+      h(
+        NSpace,
+        {},
+        {
+          default: () => [
+            h(NText, {}, { default: () => `${row.product.name}` }),
+          ],
+        },
+      ),
   },
 
   {
@@ -54,23 +64,27 @@ const columns: DataTableColumns<RowData> = [
     key: 'phone',
     render(row) {
       return [
-        h(NText, {}, { default: () => `${row.customer.firstName} ${row.customer.lastName}` }),
+        h(
+          NText,
+          {},
+          {
+            default: () => `${row.customer.firstName} ${row.customer.lastName}`,
+          },
+        ),
       ]
     },
   },
   {
     title: t('common.date'),
     key: 'date',
-    render: row => renderDate(row.date),
+    render: (row) => renderDate(row.date),
   },
   {
     title: t('common.actions'),
     key: 'actions',
     width: 110,
     render() {
-      return [
-        renderDeleteActionButton(t('common.deleteConfirm'), () => { }),
-      ]
+      return [renderDeleteActionButton(t('common.deleteConfirm'), () => {})]
     },
   },
 ]

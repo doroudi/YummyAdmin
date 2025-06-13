@@ -20,7 +20,6 @@ const chartOptions = {
     zoom: {
       enabled: false,
     },
-
   },
   stroke: {
     width: 2,

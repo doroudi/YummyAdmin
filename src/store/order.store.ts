@@ -13,9 +13,10 @@ export const useOrderStore = defineStore('Order', () => {
     try {
       const response = await orderService.getOrderList(options)
       orders.value = response.items
-      options.pageCount = Math.ceil(response.totalCount! / options.itemsPerPage!)
-    }
-    finally {
+      options.pageCount = Math.ceil(
+        response.totalCount! / options.itemsPerPage!,
+      )
+    } finally {
       isLoading.value = false
     }
   }
@@ -23,10 +24,12 @@ export const useOrderStore = defineStore('Order', () => {
   async function getRecentOrders(itemsPerPage = 5) {
     isLoading.value = true
     try {
-      const response = await orderService.getOrderList({ page: 1, itemsPerPage })
+      const response = await orderService.getOrderList({
+        page: 1,
+        itemsPerPage,
+      })
       orders.value = response.items
-    }
-    finally {
+    } finally {
       isLoading.value = false
     }
   }

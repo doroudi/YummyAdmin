@@ -11,7 +11,11 @@ onMounted(() => {
   store.getSummaryStat()
   if (!layout.isWelcomeShown) {
     setTimeout(() => {
-      notify.notify({ body: t('notify.welcome'), type: 'success', duration: 10000 })
+      notify.notify({
+        body: t('notify.welcome'),
+        type: 'success',
+        duration: 10000,
+      })
       layout.showWelcome()
     }, 2000)
   }

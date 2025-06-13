@@ -1,13 +1,11 @@
 <script setup lang='ts'>
-import type { UploadFileInfo } from 'naive-ui/es/upload'
+import { Add24Filled as PlusIcon } from '@vicons/fluent'
 import type { TreeSelectOption } from 'naive-ui/es/tree-select/src/interface'
+import type { UploadFileInfo } from 'naive-ui/es/upload'
 import { storeToRefs } from 'pinia'
-import {
-  Add24Filled as PlusIcon,
-} from '@vicons/fluent'
+import type { Brand } from '~/models/Brand'
 import type { Category } from '~/models/Category'
 import type { ProductCreateModel } from '~/models/Product'
-import type { Brand } from '~/models/Brand'
 
 const { t } = useI18n()
 const previewImageUrl = ref('')

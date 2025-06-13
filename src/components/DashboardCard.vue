@@ -14,15 +14,13 @@ onMounted(() => {
   const countTo = props.value
 
   const duration = 2000
-  if (countTo <= 0)
-    return
+  if (countTo <= 0) return
 
   const animate = () => {
     let startTime: number
 
     const step = (currentTime: number) => {
-      if (!startTime)
-        startTime = currentTime
+      if (!startTime) startTime = currentTime
 
       const progress = Math.min((currentTime - startTime) / duration, 1)
       const currentNumber = Math.floor(progress * (countTo - countFrom))
@@ -31,8 +29,7 @@ onMounted(() => {
 
       if (progress < 1)
         element.value.animationFrameID = window.requestAnimationFrame(step)
-      else
-        window.cancelAnimationFrame(element.value.animationFrameID)
+      else window.cancelAnimationFrame(element.value.animationFrameID)
     }
 
     window.requestAnimationFrame(step)

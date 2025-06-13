@@ -5,9 +5,7 @@ const { t } = useI18n()
 const store = useProfileStore()
 const { userProfile, isLoading } = storeToRefs(store)
 
-function editProfile() {
-
-}
+function editProfile() {}
 </script>
 
 <template>

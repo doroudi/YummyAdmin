@@ -16,27 +16,30 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('products.name'),
     key: 'name',
-    render: row => renderProductImage(row.image, row.name),
+    render: (row) => renderProductImage(row.image, row.name),
   },
   {
     title: t('products.category'),
     key: 'category',
     render(row) {
-      return h(NText,
-        {}, {
+      return h(
+        NText,
+        {},
+        {
           default: () => row.category.name,
-        })
+        },
+      )
     },
   },
   {
     title: t('products.rate'),
     key: 'rate',
-    render: row => renderRate(row.rate),
+    render: (row) => renderRate(row.rate),
   },
   {
     title: t('common.price'),
     key: 'price',
-    render: row => renderPrice(row.price, t('currencySign')),
+    render: (row) => renderPrice(row.price, t('currencySign')),
   },
 ]
 </script>

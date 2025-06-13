@@ -1,9 +1,9 @@
-import { HttpResponse, http } from 'msw'
-import times from 'lodash/times'
 import { faker } from '@faker-js/faker/locale/en'
-import { CreatePagedResponse } from '../handlers.utility'
+import times from 'lodash/times'
+import { http, HttpResponse } from 'msw'
 import { OrderStatus } from '~/models/Order'
 import type { OrderList } from '~/models/Order'
+import { CreatePagedResponse } from '../handlers.utility'
 
 const orders = times(100, createFakeOrder)
 const handlers = [
@@ -18,8 +18,15 @@ function createFakeOrder(): OrderList {
     id: faker.number.int().toString(),
     status: faker.helpers.enumValue(OrderStatus),
     address: {
-      city: { name: faker.location.city(), provinceId: faker.number.int().toString(), id: faker.number.int().toString() },
-      province: { name: faker.location.city(), id: faker.number.int().toString() },
+      city: {
+        name: faker.location.city(),
+        provinceId: faker.number.int().toString(),
+        id: faker.number.int().toString(),
+      },
+      province: {
+        name: faker.location.city(),
+        id: faker.number.int().toString(),
+      },
       id: faker.number.int().toString(),
       text: faker.location.streetAddress(),
     },
@@ -27,7 +34,10 @@ function createFakeOrder(): OrderList {
     createdDate: faker.date.recent(),
     customer: {
       id: faker.number.int().toString(),
-      avatar: `https://avatar.iran.liara.run/public/${faker.number.int({ min: 1, max: 100 })}`,
+      avatar: `https://avatar.iran.liara.run/public/${faker.number.int({
+        min: 1,
+        max: 100,
+      })}`,
       name: faker.person.fullName(),
     },
     totalPrice: faker.number.int({ min: 10, max: 2000 }),

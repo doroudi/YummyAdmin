@@ -1,8 +1,8 @@
-import { HttpResponse, http } from 'msw'
 import { faker } from '@faker-js/faker/locale/en'
 import times from 'lodash/times'
-import { CreatePagedResponse } from '../handlers.utility'
+import { http, HttpResponse } from 'msw'
 import type { Review } from '~/models/Review'
+import { CreatePagedResponse } from '../handlers.utility'
 
 const reviews = times(65, createFakeReview)
 const handlers = [

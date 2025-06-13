@@ -1,7 +1,5 @@
 <script setup lang='ts'>
-import {
-  Settings48Regular as CustomizeIcon,
-} from '@vicons/fluent'
+import { Settings48Regular as CustomizeIcon } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 
 const showCustomizeDialog = ref(false)

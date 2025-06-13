@@ -3,7 +3,6 @@ import type { Profile, ProfileSettings } from '~/models/Profile'
 
 const apiService = new ApiService('Profile')
 class ProfileService {
-  constructor() { }
   async getUserProfile(): Promise<Profile> {
     const response = await apiService.get<Profile>('user-profile')
     return response

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import VueApexCharts from 'vue3-apexcharts'
 import { ref } from 'vue'
+import VueApexCharts from 'vue3-apexcharts'
 
 const barChartOptions = ref({
   chart: {

@@ -7,7 +7,10 @@ interface Props {
   showLegend?: boolean
   legendPosition?: 'bottom' | 'right' | 'left'
 }
-const props = withDefaults(defineProps<Props>(), { showLegend: true, legendPosition: 'bottom' })
+const props = withDefaults(defineProps<Props>(), {
+  showLegend: true,
+  legendPosition: 'bottom',
+})
 
 const { makeLighter } = useColors()
 
@@ -15,11 +18,16 @@ const labels = computed(() => props.data.map((item: any) => item.name))
 const values = computed(() => props.data.map((item: any) => item.value))
 const colors = computed(() => {
   if (!props.colorScheme)
-    return ['var(--primary-color)', 'var(--primary-color-shade1)', 'var(--primary-color-shade2)', 'var(--primary-color-shade3)']
+    return [
+      'var(--primary-color)',
+      'var(--primary-color-shade1)',
+      'var(--primary-color-shade2)',
+      'var(--primary-color-shade3)',
+    ]
 
   const result = []
   for (let i = 0; i < props.data.length; i++)
-    result.push(makeLighter(props.colorScheme, 1 - (i * 0.25)))
+    result.push(makeLighter(props.colorScheme, 1 - i * 0.25))
 
   return result
 })
@@ -82,44 +90,51 @@ const donutChartOptions = ref({
             offsetY: 15,
             label: 'Total',
             formatter() {
-              return props.data.reduce((acc: number, item: any) => acc + item.value, 0)
+              return props.data.reduce(
+                (acc: number, item: any) => acc + item.value,
+                0,
+              )
             },
           },
         },
       },
     },
   },
-  responsive: [{
-    breakpoint: 1325,
-    options: {
-      chart: {
-        height: 150,
+  responsive: [
+    {
+      breakpoint: 1325,
+      options: {
+        chart: {
+          height: 150,
+        },
       },
     },
-  }, {
-    breakpoint: 1200,
-    options: {
-      chart: {
-        height: 120,
+    {
+      breakpoint: 1200,
+      options: {
+        chart: {
+          height: 120,
+        },
       },
     },
-  }, {
-    breakpoint: 1045,
-    options: {
-      chart: {
-        height: 200,
+    {
+      breakpoint: 1045,
+      options: {
+        chart: {
+          height: 200,
+        },
       },
     },
-  }, {
-    breakpoint: 992,
-    options: {
-      chart: {
-        height: 250,
+    {
+      breakpoint: 992,
+      options: {
+        chart: {
+          height: 250,
+        },
       },
     },
-  }],
-},
-)
+  ],
+})
 </script>
 
 <template>

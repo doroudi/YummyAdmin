@@ -1,10 +1,12 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Brand, BrandCreateModel } from '~/models/Brand'
-import { type PagedAndSortedRequest, defaultOptions } from '~/models/PagedAndSortedRequest'
+import {
+  type PagedAndSortedRequest,
+  defaultOptions,
+} from '~/models/PagedAndSortedRequest'
 import brandService from '~/services/brand.service'
 
-export interface BrandState {
-}
+export type BrandState = {}
 export const useBrandStore = defineStore('Brand', () => {
   const brands = ref<Brand[]>([])
   const brandItem = ref<Brand>()
@@ -16,12 +18,12 @@ export const useBrandStore = defineStore('Brand', () => {
     try {
       const response = await brandService.getPagedList(options)
       brands.value = response.items
-      options.pageCount = Math.ceil(response.totalCount! / options.itemsPerPage!)
-    }
-    catch (err) {
+      options.pageCount = Math.ceil(
+        response.totalCount! / options.itemsPerPage!,
+      )
+    } catch (err) {
       console.error(err)
-    }
-    finally {
+    } finally {
       isLoading.value = false
     }
   }
@@ -30,8 +32,7 @@ export const useBrandStore = defineStore('Brand', () => {
     isLoading.value = true
     try {
       await brandService.create(brandItem)
-    }
-    finally {
+    } finally {
       isLoading.value = false
     }
   }

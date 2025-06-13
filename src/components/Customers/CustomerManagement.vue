@@ -1,20 +1,28 @@
 <script setup lang='ts'>
-import { getCurrentInstance } from 'vue'
-import { type DataTableColumns, type DataTableRowKey, NButton, NIcon, NSpace, NText } from 'naive-ui/es/components'
-import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import {
   Delete20Regular as DeleteIcon,
   Edit24Regular as EditIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
 import { useMessage } from 'naive-ui'
+import {
+  type DataTableColumns,
+  type DataTableRowKey,
+  NButton,
+  NIcon,
+  NSpace,
+  NText,
+} from 'naive-ui/es/components'
+import type { RowData } from 'naive-ui/es/data-table/src/interface'
+import { getCurrentInstance } from 'vue'
 
 const { t } = useI18n()
 const store = useCustomerStore()
 const message = useMessage()
 const router = useRouter()
 const { options } = useOptions()
-const { renderActionButton, renderDeleteActionButton, renderUserAvatar } = useRender()
+const { renderActionButton, renderDeleteActionButton, renderUserAvatar } =
+  useRender()
 
 const { proxy } = getCurrentInstance()
 
@@ -28,35 +36,40 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('customers.customerName'),
     key: 'name',
-    render: row => renderUserAvatar(row.avatar, `${row.firstName} ${row.lastName}`),
+    render: (row) =>
+      renderUserAvatar(row.avatar, `${row.firstName} ${row.lastName}`),
   },
   {
     title: t('customers.joinDate'),
     key: 'join-date',
     render(row) {
-      return h(NText,
-        {}, {
+      return h(
+        NText,
+        {},
+        {
           default: () => proxy.$filters.friendlyTime(row.joinDate),
-        })
+        },
+      )
     },
   },
   {
     title: t('customers.phone'),
     key: 'phone',
     render(row) {
-      return [
-        h(NText, {}, { default: () => row.mobile }),
-      ]
+      return [h(NText, {}, { default: () => row.mobile })]
     },
   },
   {
     title: t('customers.email'),
     key: 'email',
     render(row) {
-      return h(NText,
-        {}, {
+      return h(
+        NText,
+        {},
+        {
           default: () => row.email.toLowerCase(),
-        })
+        },
+      )
     },
   },
   {
@@ -67,11 +80,12 @@ const columns: DataTableColumns<RowData> = [
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render: () =>
-      [
-        renderActionButton(EditIcon, () => { }),
-        renderDeleteActionButton(t('common.deleteConfirm'), () => handleDeleteItem()),
-      ],
+    render: () => [
+      renderActionButton(EditIcon, () => {}),
+      renderDeleteActionButton(t('common.deleteConfirm'), () =>
+        handleDeleteItem(),
+      ),
+    ],
   },
 ]
 

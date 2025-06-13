@@ -18,11 +18,8 @@
     "types": [
       "vitest",
       "vite/client",
-      "vue/ref-macros",
       "vite-plugin-pages/client",
-      "vite-plugin-vue-component-preview/client",
       "vite-plugin-vue-layouts/client",
-      "vite-plugin-pwa/client",
       "unplugin-vue-macros/macros-global"
     ],
     "paths": {
@@ -35,5 +32,5 @@
       "@vue-macros/volar/define-slots"
     ]
   },
-  "exclude": ["__dist", "node_modules", "cypress"]
+  "exclude": ["__dist", "node_modules", "cypress", "public"]
 }

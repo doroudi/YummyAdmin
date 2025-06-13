@@ -1,11 +1,18 @@
 export default function useColors() {
-  const primaryColors = ['#00ad4c', '#DB0B51', '#4FC3F7', '#f8b334', '#FF8000', '#00a096', '#9575cd']
+  const primaryColors = [
+    '#00ad4c',
+    '#DB0B51',
+    '#4FC3F7',
+    '#f8b334',
+    '#FF8000',
+    '#00a096',
+    '#9575cd',
+  ]
 
   function buildThemeColorSeries(count: number) {
     const color = useLayoutStore().themeColor
     const series = []
-    for (let i = 0; i < count; i++)
-      series.push(makeDarker(color, 1 + i * 0.2))
+    for (let i = 0; i < count; i++) series.push(makeDarker(color, 1 + i * 0.2))
 
     return series
   }
@@ -28,8 +35,7 @@ export default function useColors() {
 
   function toHex(num: number) {
     const hexValue = num.toString(16)
-    if (hexValue.length === 1)
-      return `0${hexValue}`
+    if (hexValue.length === 1) return `0${hexValue}`
 
     return hexValue
   }

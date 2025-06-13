@@ -1,15 +1,15 @@
 import path from 'node:path'
-import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
-import Layouts from 'vite-plugin-vue-layouts'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
 import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import Vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
-import VueMacros from 'unplugin-vue-macros/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import Components from 'unplugin-vue-components/vite'
+import VueMacros from 'unplugin-vue-macros/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
+import { defineConfig } from 'vite'
 import Pages from 'vite-plugin-pages'
+import Layouts from 'vite-plugin-vue-layouts'
 
 export default defineConfig({
   server: {
@@ -79,10 +79,7 @@ export default defineConfig({
         },
       ],
       dts: 'src/auto-imports.d.ts',
-      dirs: [
-        'src/composables',
-        'src/store',
-      ],
+      dirs: ['src/composables', 'src/store'],
       vueTemplate: true,
     }),
 

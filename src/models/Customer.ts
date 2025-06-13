@@ -29,6 +29,4 @@ export interface Province {
   name: string
 }
 
-export interface CustomerCreateModel extends Customer {
-
-}
+export interface CustomerCreateModel extends Customer {}
