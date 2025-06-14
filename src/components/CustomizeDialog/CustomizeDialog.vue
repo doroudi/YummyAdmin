@@ -60,7 +60,7 @@ onMounted(() => {
       {{ t('customize.color') }}
     </NTag>
 
-    <div py-3>
+    <div>
       <NButton
         v-for="(color, index) of colors" :key="index" :color="color" size="medium" circle icon="CheckIcon"
         class="mx-1" @click="setColor(index)"
@@ -89,23 +89,12 @@ onMounted(() => {
       <n-switch v-model:value="flatDesign" />
       Flat Design
     </div>
-
-    <div class="section">
-      <NTag type="primary" :bordered="false" size="small" class="mb-3 font-bold">
-        {{ t('customize.language') }}
-      </NTag>
-
-      <div>
-        <LanguageSelect :show-title="true" />
-      </div>
-    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .section {
-    margin-bottom: .8rem;
-    padding: 1rem 0;
+    padding: .8rem 0;
     .section-title {
         font-weight: 500;
         padding: 0.2rem 0;
