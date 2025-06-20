@@ -107,3 +107,7 @@ select:-webkit-autofill:focus {
   height: calc(100% - 10px);
   border-radius: var(--n-border-radius);
 }
+
+.n-list {
+  background-color: transparent!important;
+}

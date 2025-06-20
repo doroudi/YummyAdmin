@@ -189,6 +189,9 @@ menu:
   support: پشتیبانی
   users: کاربران
   websiteSettings: تنظیمات وبسایت
+  apps: اپلیکیشن ها
+  chat: چت
+  todo: لیست وظایف
 notifications:
   clear: همه را پاک کنید
   empty: هیچ اعلانی وجود ندارد

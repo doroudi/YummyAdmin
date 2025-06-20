@@ -21,6 +21,7 @@ import {
   PersonAdd20Regular as RegisterIcon,
   StarThreeQuarter20Filled as ReviewIcon,
   Settings28Regular as SettingsIcon,
+  CheckmarkCircle24Regular as TodoAppIcon,
 } from '@vicons/fluent'
 import type { MenuInst, MenuOption } from 'naive-ui'
 import { storeToRefs } from 'pinia'
@@ -106,6 +107,11 @@ const menuOptions: MenuOption[] = [
         label: () => renderLabel(t('menu.chat'), '/apps/chat'),
         key: 'apps-chat',
         icon: renderIcon(ChatAppIcon),
+      },
+      {
+        label: () => renderLabel(t('menu.todo'), '/apps/todo'),
+        key: 'apps-todo',
+        icon: renderIcon(TodoAppIcon),
       },
     ],
   },
