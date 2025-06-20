@@ -26,7 +26,7 @@ function searchInList(keyword: string) {
   }
 
   filteredGroups.value = groups.value.filter(
-    (x) => x.title.toLowerCase().indexOf(keyword.toLowerCase()) >= 0,
+    (x: TaskGroup) => x.title.toLowerCase().indexOf(keyword.toLowerCase()) >= 0,
   )
 }
 

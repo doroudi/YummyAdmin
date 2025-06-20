@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import type { ChatItem } from '~/models/Chat'
 
 const collapsed = ref(false)
 const store = useChatStore()
@@ -16,20 +17,33 @@ onBeforeUnmount(() => {
 function loadChatMessages(chatId: number) {
   store.loadChatMessages(chatId)
 }
+
+const searchKeyword = ref('')
+const filteredChats = ref([])
+
+function searchInList(keyword: string) {
+  searchKeyword.value = keyword
+  if (!keyword.trim()) {
+    filteredChats.value = []
+  }
+
+  filteredChats.value = chats.value.filter(
+    (x: ChatItem) =>
+      x.from.name.toLowerCase().indexOf(keyword.toLowerCase()) >= 0,
+  )
+}
 </script>
 
 <template>
   <NLayout has-sider sider-placement="left" class="chat-layout">
-    <NLayoutSider
-      bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed"
-      @collapse="collapsed = true" @expand="collapsed = false"
-    >
+    <NLayoutSider bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed"
+      @collapse="collapsed = true" @expand="collapsed = false">
       <div class="p-3">
-        <NInput round placeholder="Search Chats" clearable />
+        <NInput round placeholder="Search Chats" @input="searchInList" clearable />
       </div>
       <div class="chat-sidebar">
         <NScrollbar>
-          <ChatList :items="chats" @select="loadChatMessages" />
+          <ChatList :items="searchKeyword.length ? filteredChats : chats" @select="loadChatMessages" />
         </NScrollbar>
       </div>
     </NLayoutSider>
