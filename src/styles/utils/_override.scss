@@ -94,7 +94,6 @@ select:-webkit-autofill:focus {
 
   .apexcharts-legend-text {
     color: #fff !important;
-    // border: 1px solid #555 !important;
   }
 }
 
@@ -106,4 +105,8 @@ select:-webkit-autofill:focus {
   right: 5px;
   height: calc(100% - 10px);
   border-radius: var(--n-border-radius);
+}
+
+.n-list {
+  background-color: transparent!important;
 }

@@ -195,6 +195,7 @@ menu:
   websiteSettings: Website Settings
   apps: Apps
   chat: Chat App
+  todo: ToDo
 not-found: Not found
 notifications:
   clear: Clear All

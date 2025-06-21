@@ -28,16 +28,15 @@ function sendMessage() {
         </div>
       </n-scrollbar>
     </div>
-    <div class="send-message p-4 bg-gray-100 dark:bg-gray-700 flex items-center">
+    
+    <section id="send-message" class="send-message p-4 bg-gray-100 dark:bg-gray-700 flex items-center">
       <input v-model="message" placeholder="Write Message" class="message-input flex-1" @keypress.enter="sendMessage">
       <NButton :disabled="!sendIsActive" text type="primary" @click="sendMessage">
         <template #icon>
-          <NIcon size="1.4rem">
-            <SendIcon />
-          </NIcon>
+          <NIcon size="1.4rem"><SendIcon /></NIcon>
         </template>
       </NButton>
-    </div>
+    </section>
   </section>
 </template>
 
