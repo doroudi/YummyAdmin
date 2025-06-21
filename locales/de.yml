@@ -165,10 +165,12 @@ menu:
   accountSettings: Kontoeinstellungen
   analytics: Analytik
   announcement: Ankündigung
+  apps: Apps
   authentication: Authentifizierung
   blog: Blog
   brands: Marken
   categories: Kategorien
+  chat: Ketsen
   colors: Farben
   comments: Kommentare
   createProduct: Produkt erstellen
@@ -192,6 +194,7 @@ menu:
   settings: Einstellungen
   sms: SMS
   support: Support
+  todo: Alles
   users: Benutzer
   websiteSettings: Websiteeinstellungen
 not-found: Nicht gefunden
@@ -269,3 +272,10 @@ userMenu:
   options: Optionen
   profile: Profil
   theme: Design
+chatApp:
+  writeMessage: Schrijf bericht
+
+todoApp:
+  createGroup: Groep aanmaken
+  createTask: Nieuwe taak maken
+  today: Vandaag

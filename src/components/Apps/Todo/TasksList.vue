@@ -9,6 +9,8 @@ import type { TaskGroup } from '~/models/Todo'
 interface Props {
   group: TaskGroup
 }
+
+const { t } = useI18n()
 const props = defineProps<Props>()
 
 watch(
@@ -49,10 +51,8 @@ function favTask(id: number) {
     <section class="tasks-box flex flex-col items-stretch justify-stretch p-8"
         :style="{ 'background-color': group?.bgColor }">
 
-        <h2 class="task-title flex items-center mb-4">
-            <span class="icon">{{ group.icon }}</span>
-            <span>{{ group.title }}</span>
-        </h2>
+        <GroupTitle :group="group" @edit="updateGroup" />
+        
         <div class="flex-1 flex-col justify-end mb-1 overflow-y-auto">
             <n-scrollbar>
                 <TaskItem v-for="item of tasks" :key="item.id" :task="item" class="my-2" @done="doneTask(item.id)" @fav="favTask(item.id)" />
@@ -64,22 +64,14 @@ function favTask(id: number) {
                 <AddIcon v-if="!inputIsActive" />
                 <CircleIcon v-else />
             </NIcon>
-            <input v-model="taskName" placeholder="Create new task" class="message-input flex-1"
+            <input v-model="taskName" :placeholder="t('todoApp.createTask')" class="message-input flex-1"
                 @keypress.enter="createTask" @focus="inputIsActive = true" @blur="inputIsActive = false">
         </section>
     </section>
 </template>
 
 <style scoped lang="scss">
-.task-title {
-    font-size: 1.7rem;
-    font-weight: bold;
 
-    .icon {
-        display: inline-flex;
-        margin: 0 .4rem;
-    }
-}
 
 .tasks-box {
     height: calc(100% - 51px);

@@ -62,6 +62,12 @@
   .n-rate {
     direction: ltr;
   }
+
+    .n-list .n-list-item .n-list-item__prefix {
+      margin-left: 20px;
+      margin-right: auto;
+      flex: 0;
+    }
 }
 
 

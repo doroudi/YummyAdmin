@@ -29,7 +29,7 @@ const { t } = useI18n()
 <style lang="scss">
 .github-button {
     position: absolute;
-    left: 30px;
+    left: 20px;
     bottom: 30px;
     z-index: 100;
     opacity: 0.8;
@@ -41,7 +41,7 @@ const { t } = useI18n()
 
 .rtl .github-button {
     left: auto;
-    right: 30px;
+    right: 20px;
 
 }
 

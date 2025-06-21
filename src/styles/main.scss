@@ -49,6 +49,10 @@ body {
       font-family: Shabnam;
     }
   }
+
+  .rtl-rotate {
+    transform: rotate(180deg);
+  }
 }
 
 .main-content { 
@@ -76,6 +80,8 @@ body {
 .text-primary {
   color: var(--primary-color);
 }
+
+
 
 @import url('./utils/_error.scss');
 @import url('./utils/_progress.scss');

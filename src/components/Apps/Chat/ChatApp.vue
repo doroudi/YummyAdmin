@@ -5,6 +5,7 @@ import type { ChatItem } from '~/models/Chat'
 const collapsed = ref(false)
 const store = useChatStore()
 const { chats, status } = storeToRefs(store)
+const { t } = useI18n()
 
 onMounted(() => {
   store.connect()
@@ -39,7 +40,7 @@ function searchInList(keyword: string) {
     <NLayoutSider bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed"
       @collapse="collapsed = true" @expand="collapsed = false">
       <div class="p-3">
-        <NInput round placeholder="Search Chats" @input="searchInList" clearable />
+        <NInput round :placeholder="t('common.search')" @input="searchInList" clearable />
       </div>
       <div class="chat-sidebar">
         <NScrollbar>

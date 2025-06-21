@@ -274,3 +274,12 @@ profile:
   personalInfo: Personal Info
   notifications: Notifications
   security: Security
+
+chatApp:
+  writeMessage: Write Message
+
+todoApp:
+  createGroup: Create Group
+  createTask: Create new task
+  today: Today
+  

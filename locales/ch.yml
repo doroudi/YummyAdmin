@@ -159,10 +159,12 @@ menu:
   accountSettings: 账户设置
   analytics: 分析
   announcement: 公告
+  apps: 应用程序
   authentication: 验证
   blog: 博客
   brands: 品牌
   categories: 分类
+  chat: 聊天
   colors: 颜色
   comments: 评论
   createProduct: 创建产品
@@ -186,6 +188,7 @@ menu:
   settings: 设置
   sms: 短信
   support: 支持
+  todo: 待办事项
   users: 用户
   websiteSettings: 网站设置
 not-found: 未找到
@@ -262,3 +265,10 @@ userMenu:
   options: 选项
   profile: 个人资料
   theme: 主题
+chatApp:
+  writeMessage: 写消息
+
+todoApp:
+  createGroup: 创建组
+  createTask: 创建新任务
+  today: 今天

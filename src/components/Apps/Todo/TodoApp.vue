@@ -3,6 +3,8 @@ import { Add20Regular as AddIcon } from '@vicons/fluent'
 import { NButton } from 'naive-ui'
 import { storeToRefs } from 'pinia'
 import type { TaskGroup } from '~/models/Todo'
+
+const { t } = useI18n()
 const collapsed = ref(false)
 const store = useTodoAppStore()
 const { groups, tasks } = storeToRefs(store)
@@ -40,7 +42,7 @@ function createGroup() {
         <NLayoutSider bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed"
             @collapse="collapsed = true" @expand="collapsed = false">
             <div class="p-3">
-                <NInput @input="searchInList" round placeholder="Search" clearable />
+                <NInput @input="searchInList" round :placeholder="t('common.search')" clearable />
             </div>
             <div class="todo-sidebar">
                 <NScrollbar>
@@ -54,7 +56,7 @@ function createGroup() {
                             <AddIcon />
                         </NIcon>
                     </template>
-                    Create a group
+                    {{ t('todoApp.createGroup') }}
                 </NButton>
             </div>
         </NLayoutSider>

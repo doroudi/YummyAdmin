@@ -161,10 +161,12 @@ menu:
   accountSettings: إعدادات الحساب
   analytics: التحليلات
   announcement: الإعلانات
+  apps: برنامج
   authentication: المصادقة
   blog: المدونة
   brands: العلامات التجارية
   categories: الفئات
+  chat: محادثة
   colors: الألوان
   comments: التعليقات
   createProduct: إنشاء المنتج
@@ -188,6 +190,7 @@ menu:
   settings: الإعدادات
   sms: الرسائل القصيرة
   support: الدعم
+  todo: المهام
   users: المستخدمون
   websiteSettings: إعدادات الموقع
 not-found: غير موجود
@@ -266,3 +269,11 @@ userMenu:
   options: الخيارات
   profile: الملف الشخصي
   theme: المظهر
+
+chatApp:
+  writeMessage: اكتب رسالة
+
+todoApp:
+  createGroup: إنشاء مجموعة
+  createTask: إنشاء مهمة جديدة
+  today: اليوم

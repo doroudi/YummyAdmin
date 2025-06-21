@@ -159,10 +159,12 @@ menu:
   accountSettings: تنظیمات کاربر
   analytics: آنالیز
   announcement: اطلاع رسانی
+  apps: اپ ها
   authentication: احراز هویت
   blog: بلاگ
   brands: برند ها
   categories: دسته بندی ها
+  chat: چت
   colors: رنگ ها
   comments: نظرات
   createProduct: ایجاد محصول
@@ -187,11 +189,9 @@ menu:
   settings: تنظیمات
   sms: پیامک
   support: پشتیبانی
+  todo: کارها
   users: کاربران
   websiteSettings: تنظیمات وبسایت
-  apps: اپلیکیشن ها
-  chat: چت
-  todo: لیست وظایف
 notifications:
   clear: همه را پاک کنید
   empty: هیچ اعلانی وجود ندارد
@@ -268,3 +268,11 @@ userMenu:
   profile: پروفایل
   signOut: خروج
   theme: پوسته
+
+chatApp:
+  writeMessage: پیغام تان را بنویسید
+
+todoApp:
+  createGroup: گروه جدید
+  createTask: ایجاد تسک جدید
+  today: امروز

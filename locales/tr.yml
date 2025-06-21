@@ -163,10 +163,12 @@ menu:
   accountSettings: Hesap Ayarları
   analytics: Analitik
   announcement: Duyuru
+  apps: Uygulamalar
   authentication: kimlik doğrulama
   blog: Blog
   brands: Markalar
   categories: Kategoriler
+  chat: Sohbet
   colors: Renkler
   comments: Yorumlar
   createProduct: Ürün Oluştur
@@ -190,6 +192,7 @@ menu:
   settings: Ayarlar
   sms: SMS
   support: Destek
+  todo: Yapılacaklar
   users: Kullanıcılar
   websiteSettings: Website Ayarları
 not-found: Bulunamadı
@@ -268,3 +271,11 @@ userMenu:
   options: Seçenekler
   profile: Profil
   theme: Tema
+
+chatApp:
+  writeMessage: Mesaj yaz
+
+todoApp:
+  createGroup: Grup Oluştur
+  createTask: Yeni görev oluştur
+  today: Bugün
