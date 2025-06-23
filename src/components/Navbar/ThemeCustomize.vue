@@ -13,25 +13,8 @@ function toggleDialog() {
 </script>
 
 <template>
-  <!-- <div v-bind="$attrs">
-    <n-button quaternary circle @click="toggleDialog()">
-      <template #icon>
-        <NIcon size="1.4rem">
-          <CustomizeIcon />
-        </NIcon>
-      </template>
-    </n-button>
-  </div> -->
-
-  <!-- <n-drawer v-model:show="showCustomizeDialog" :width="380" :placement="dialogPlacement">
-    <n-drawer-content closable :title="t('customize.title')">
-      <CustomizeDialog @close="showCustomizeDialog = false" />
-    </n-drawer-content>
-  </n-drawer> -->
-
-
   <div v-bind="$attrs">
-    <n-popover class="notifications" trigger="click" :show-arrow="false" style="width: 370px;max-height: 550px;">
+    <n-popover trigger="click" :show-arrow="false" style="width: 370px;max-height: 550px;">
       <template #trigger>
         <div v-bind="$attrs">
           <n-button quaternary circle @click="toggleDialog()">
@@ -43,22 +26,9 @@ function toggleDialog() {
           </n-button>
         </div>
       </template>
-      <!-- <template #header>
-        <NText strong depth="1">
-          {{ t('notifications.title') }}
-        </NText>
-      </template> -->
-      <!-- <template #footer>
-        <NButton quaternary>
-          {{ t('notifications.clear') }}
-        </NButton>
-      </template> -->
-      
       <div class="px-1">
         <customize-dialog />
       </div>
     </n-popover>
   </div>
 </template>
-
-<style scoped lang='scss'></style>
