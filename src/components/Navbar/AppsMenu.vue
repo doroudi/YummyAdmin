@@ -5,15 +5,11 @@ import {
   MoreCircle20Filled as MoreIcon,
   CheckmarkCircle24Regular as TodoAppIcon,
 } from '@vicons/fluent'
-import { storeToRefs } from 'pinia'
-
-const showCustomizeDialog = ref(false)
+const showDialog = ref(false)
 const { t } = useI18n()
-const layout = useLayoutStore()
-const { dialogPlacement } = storeToRefs(layout)
 
 function toggleDialog() {
-  showCustomizeDialog.value = !showCustomizeDialog.value
+  showDialog.value = !showDialog.value
 }
 </script>
 
@@ -35,33 +31,33 @@ function toggleDialog() {
                 <router-link to="/apps/chat">
                     <NButton class="app-link" ghost flex flex-col items-center align-center>
                         <template #icon>
-                            <NIcon size="1.8rem">
+                            <NIcon size="1.8rem" ms-1>
                                 <ChatAppIcon />
                             </NIcon>
                         </template>
-                        <span>Chat</span>
+                        <span>{{ t('menu.chat') }}</span>
                     </NButton>
                 </router-link>
 
                 <router-link to="/apps/todo">
                     <NButton class="app-link" ghost flex flex-col items-center align-center>
                         <template #icon>
-                            <NIcon size="1.8rem">
+                            <NIcon size="1.8rem" ms-1>
                                 <TodoAppIcon />
                             </NIcon>
                         </template>
-                        <span>ToDo</span>
-                    </NButton> 
+                        <span>{{ t('menu.todo') }}</span>
+                    </NButton>
                 </router-link>
 
                 <a href="https://github.com/doroudi/yummyadmin" target="_blank">
                     <NButton ghost class="app-link" flex flex-col items-center align-center>
                         <template #icon>
-                            <NIcon size="1.8rem">
+                            <NIcon size="1.8rem" ms-1>
                                 <MoreIcon />
                             </NIcon>
                         </template>
-                        <span>More</span>
+                        <span>...</span>
                     </NButton>
                 </a>
 
