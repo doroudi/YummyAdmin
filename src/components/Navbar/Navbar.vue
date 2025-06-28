@@ -32,10 +32,12 @@ const { collapsed, isRtl, mobileMode } = storeToRefs(layoutStore)
           </n-button>
         </div>
         <BreadCrumb />
+        <!-- <Search /> -->
       </div>
     </template>
     <template #extra>
       <div class="flex items-center">
+        <Search />
         <AppsMenu />
         <ThemeCustomize />
         <ThemeSwitch class="mx-1" />

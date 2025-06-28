@@ -37,7 +37,7 @@ function getIcon(notificationType: NotificationType) {
 
 <template>
   <div v-bind="$attrs">
-    <n-popover class="notifications" trigger="click" :show-arrow="false" style="width: 270px;max-height: 450px;">
+    <n-popover class="notifications" trigger="hover" :show-arrow="true" style="width: 270px;max-height: 450px;">
       <template #trigger>
         <n-button quaternary circle>
           <template #icon>

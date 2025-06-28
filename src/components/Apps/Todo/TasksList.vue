@@ -23,7 +23,6 @@ watch(
 const store = useTodoAppStore()
 const { tasks } = storeToRefs(store)
 const taskName = ref('')
-// const createIsActive = computed(() => taskName.value.trim().length > 0)
 const inputIsActive = ref(false)
 onMounted(() => {
   store.loadGroupTasks(props.group.id)
@@ -34,16 +33,19 @@ function createTask() {
       title: taskName.value,
       groupId: props.group.id,
     })
+    window.umami?.track('Todo:CreateTask', { title: taskName.value })
     taskName.value = ''
   }
 }
 
 function doneTask(id: number) {
   store.toggleDoneTask(id)
+  window.umami?.track('Todo:DoneTask')
 }
 
 function favTask(id: number) {
   store.toggleFavTask(id)
+  window.umami?.track('Todo:FavTask')
 }
 </script>
 

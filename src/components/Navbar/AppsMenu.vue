@@ -15,7 +15,7 @@ function toggleDialog() {
 
 <template>
     <div v-bind="$attrs">
-        <n-popover trigger="click" :show-arrow="false" style="width: 270px;max-height: 200px;">
+        <n-popover trigger="hover" :show-arrow="false" style="width: 270px;max-height: 200px;">
             <template #trigger>
                 <div v-bind="$attrs">
                     <n-button quaternary circle @click="toggleDialog()">

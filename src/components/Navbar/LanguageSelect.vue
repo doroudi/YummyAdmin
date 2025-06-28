@@ -59,7 +59,7 @@ function getLanguageIcon(language: string) {
 
 <template>
   <div v-bind="$attrs">
-    <n-popselect v-model:value="language" trigger="click" :options="languages" @update-value="changeLanguage">
+    <n-popselect v-model:value="language" trigger="hover" :options="languages" @update-value="changeLanguage">
       <n-button quaternary :circle="!showTitle">
         <template #icon>
           <NIcon size="1.4rem">
