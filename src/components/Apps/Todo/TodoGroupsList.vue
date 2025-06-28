@@ -10,6 +10,7 @@ const selectedGroup = ref<TaskGroup | null>(null)
 function selectGroup(item: TaskGroup) {
   selectedGroup.value = item
   emits('select', item)
+  window.umami?.track('Todo:SelectGroup', { title: item.title })
 }
 </script>
 

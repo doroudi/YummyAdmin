@@ -34,6 +34,7 @@ function searchInList(keyword: string) {
 
 function createGroup() {
   store.createGroup()
+  window.umami?.track('Todo:CreateGroup')
 }
 </script>
 
