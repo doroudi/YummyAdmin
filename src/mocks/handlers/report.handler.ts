@@ -66,7 +66,6 @@ function createFakeGenderData(): DonutChartSeries[] {
 function createFakeLocationData(): LocationChartSeries[] {
   const locations = _.times(20, () => faker.location.countryCode('alpha-2'))
 
-  if (locations.includes('IS')) locations.splice(locations.indexOf('IS'), 1)
   if (locations.includes('IR')) locations.splice(locations.indexOf('IR'), 1)
 
   const locationData: LocationChartSeries[] = locations.map(
@@ -76,8 +75,7 @@ function createFakeLocationData(): LocationChartSeries[] {
     }),
   )
 
-  locationData.push({ key: 'PS', value: { value: 1000, color: '#a11923' } })
-  locationData.push({ key: 'IR', value: { value: 1000, color: '#00A693' } })
+  locationData.push({ key: 'IR', value: { value: 1000, color: '#00A693' } }) //Persian Green
 
   return locationData
 }

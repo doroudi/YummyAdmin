@@ -14,7 +14,7 @@ export const useLayoutStore = defineStore(
     const isDark = ref(false)
     const isWelcomeShown = ref(false)
     const isFluid = ref(false)
-    const flatDesign = ref(false)
+    const flatDesign = ref(true)
 
     const dialogPlacement = computed(() => (isRtl.value ? 'left' : 'right'))
 
