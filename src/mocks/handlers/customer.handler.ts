@@ -52,7 +52,12 @@ function createFakeCustomer(): Customer {
       min: 1,
       max: 100,
     })}`,
+    emailConfirmed: faker.datatype.boolean({ probability: 0.8 }),
+    phoneConfirmed: faker.datatype.boolean({ probability: 0.8 }),
+    points: faker.number.int({ min: 0, max: 250 }),
     ordersCount: faker.number.int({ max: 50 }),
+    userGroup: 'General',
+    walletBalance: faker.number.int({ max: 150000 }),
   }
 }
 

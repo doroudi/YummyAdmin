@@ -132,7 +132,7 @@ export function useRender() {
     const iconColor = status ? 'green' : 'orange'
     return h(
       NSpace,
-      { align: 'center' },
+      { align: 'center', justify: 'start' },
       {
         default: () => [
           h(

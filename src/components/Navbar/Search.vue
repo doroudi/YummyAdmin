@@ -1,3 +1,34 @@
+<script setup lang="ts">
+import { Search24Regular as SearchIcon } from '@vicons/fluent'
+import { useMagicKeys, whenever } from '@vueuse/core'
+import type { InputInst } from 'naive-ui/es/input/src/interface'
+
+const { t } = useI18n()
+const value = ref('')
+const focused = ref(false)
+const valueRef = ref('')
+
+//TODO: implement features search
+const options = computed(() => {
+  return ['@gmail.com', '@outlook.com', '@yahoo.com'].map((suffix) => {
+    const prefix = valueRef.value.split('@')[0]
+    return {
+      label: prefix + suffix,
+      value: prefix + suffix,
+    }
+  })
+})
+
+const searchInput = ref<InputInst | null>(null)
+const { ctrl_k } = useMagicKeys({
+  passive: false,
+  onEventFired(e) {
+    if (e.ctrlKey && e.key === 'k' && e.type === 'keydown') e.preventDefault()
+  },
+})
+whenever(ctrl_k, () => searchInput.value.focus())
+</script>
+
 <template>
     <div class="hidden md:block md:me-2 md:w-40 transition-property-all transition-ease-in transition-duration-200"
         :class="{ 'md:w-60': focused }">
@@ -22,36 +53,6 @@
         </n-auto-complete>
     </div>
 </template>
-
-<script setup lang="ts">
-import { Search24Regular as SearchIcon } from '@vicons/fluent'
-import { useMagicKeys, whenever } from '@vueuse/core'
-import type { InputInst } from 'naive-ui/es/input/src/interface'
-
-const { t } = useI18n()
-const value = ref('')
-const focused = ref(false)
-const valueRef = ref('')
-
-const options = computed(() => {
-  return ['@gmail.com', '@outlook.com', '@yahoo.com'].map((suffix) => {
-    const prefix = valueRef.value.split('@')[0]
-    return {
-      label: prefix + suffix,
-      value: prefix + suffix,
-    }
-  })
-})
-
-const searchInput = ref<InputInst | null>(null)
-const { ctrl_k } = useMagicKeys({
-  passive: false,
-  onEventFired(e) {
-    if (e.ctrlKey && e.key === 'k' && e.type === 'keydown') e.preventDefault()
-  },
-})
-whenever(ctrl_k, () => searchInput.value.focus())
-</script>
 
 <style scoped lang="scss">
 .kbd-container {
