@@ -25,8 +25,6 @@ function arrayToKeyValue(arr: LocationChartSeries[]) {
 
 function onMapItemClick(areaId: string) {
   if (areaId === 'IR') window.open('https://www.visitiran.ir/')
-  else if (areaId === 'PS')
-    window.open('https://techforpalestine.org/learn-more/')
 }
 </script>
 

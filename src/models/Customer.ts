@@ -9,11 +9,11 @@ export interface Customer {
   birthDate: Date
   ordersCount?: number
   avatar?: string
-  emailConfirmed: boolean
-  phoneConfirmed: boolean
-  userGroup: string
-  points: number
-  walletBalance: number
+  emailConfirmed?: boolean
+  phoneConfirmed?: boolean
+  userGroup?: string
+
+  walletBalance?: number
 }
 
 export interface Address {

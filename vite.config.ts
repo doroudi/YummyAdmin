@@ -25,6 +25,9 @@ export default defineConfig({
       '@/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
+  build: {
+    chunkSizeWarningLimit: 1600,
+  },
   css: {
     preprocessorOptions: {
       scss: {
@@ -45,7 +48,6 @@ export default defineConfig({
     Pages({
       extensions: ['vue'],
       importMode: 'async',
-      syncIndex: false,
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts

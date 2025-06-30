@@ -43,7 +43,7 @@ whenever(ctrl_k, () => searchInput.value.focus())
                     <template #suffix>
                         <span class="kbd-container">
                             <span class="kbd">
-                                <kbd>Ctrl</kbd>+
+                                <kbd class="kbd-ctrl">Ctrl</kbd>
                                 <kbd>K</kbd>
                             </span>
                         </span>
@@ -61,13 +61,18 @@ whenever(ctrl_k, () => searchInput.value.focus())
     justify-content: center;
     max-height: 25px;
     .kbd {
-        border: solid 1px #CCC;
+        border: solid 1px var(--border-color);
         margin: 0.2rem 0;
         background: var(--n-background-color);
         border-radius: var(--n-border-radius);
         padding: 0 0.4rem;
         height: 23px;
         line-height: 1.2rem;
+        font-size:.85rem;
+
+        .kbd-ctrl {
+            margin-right: 2px;
+        }
     }
 }
 
