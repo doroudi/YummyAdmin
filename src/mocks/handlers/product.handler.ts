@@ -5,7 +5,41 @@ import type { Category } from '~/models/Category'
 import { type ProductListDto, ProductStatus } from '~/models/Product'
 import { CreatePagedResponse } from '../handlers.utility'
 
+let counter = 0
+const fakeImages = [
+  'ZANVnHE',
+  'QkIa5tT',
+  'Qphac99',
+  'wXuQ7bm',
+  'R3iobJA',
+  '9LFjwpI',
+  'ZKGofuB',
+  'QkIa5tT',
+  'cSytoSD',
+  'qNOjJje',
+  'cBuLvBi',
+  'N1GkCIR',
+  'kKc9A5p',
+  'ZKGofuB',
+  'GJi73H0',
+  '633Fqrz',
+  'mp3rUty',
+  'JQRGIc2',
+  '9LFjwpI',
+  'vzrTgUR',
+  'p5NdI6n',
+  'R3iobJA',
+  'Wv2KTsf',
+  '76HAxcA',
+  'wXuQ7bm',
+  'BZrIEmb',
+  'KcT6BE0',
+  'cBuLvBi',
+  'N1GkCIR',
+  'kKc9A5p',
+]
 const products = times(27, createFakeProductListItem)
+
 const handlers = [
   http.get('/api/product', ({ request }) => {
     const response = CreatePagedResponse<ProductListDto>(request, products)
@@ -24,7 +58,7 @@ function createFakeProductListItem(): ProductListDto {
     status: faker.helpers.enumValue(ProductStatus),
     stock: faker.datatype.boolean(),
     category: createFakeCategory(),
-    image: faker.image.urlPicsumPhotos({ height: 400, width: 400 }),
+    image: `https://i.imgur.com/${fakeImages[counter++]}.jpeg`, //faker.image.urlPicsumPhotos({ height: 400, width: 400 }),
   }
 }
 
@@ -35,4 +69,5 @@ function createFakeCategory(): Category {
     productsCount: 0, // faker.number.int(),
   }
 }
+
 export default handlers
