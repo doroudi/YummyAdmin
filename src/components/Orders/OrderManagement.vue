@@ -74,13 +74,8 @@ function handlePageChange(page: number) {
   getItems()
 }
 
-let searchTimerId: any = null
-function searchInListDebounced(value: string) {
-  clearTimeout(searchTimerId)
-  options.value.query = value
-  searchTimerId = setTimeout(() => {
-    getItems()
-  }, 500) /* 500ms throttle */
+function rowKey(row: RowData) {
+  return row.id
 }
 </script>
 
@@ -89,16 +84,12 @@ function searchInListDebounced(value: string) {
     <n-layout-content>
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
-          <n-input
-            v-model="options.query" :value="options.query" :placeholder="t('common.search')"
-            @input="searchInListDebounced"
-          />
+          <SearchInput v-model="options.query" @search="getItems" />
         </NSpace>
-        <n-data-table
-          remote :columns="columns" :data="store.orders" :loading="store.isLoading"
-          :pagination="options" :row-key="(row) => row.id" :scroll-x="1000" @update:sorter="getItems"
-          @update:filters="getItems" @update:page="handlePageChange"
-        />
+        <SkeletonTable v-if="store.isLoading" :columns="columns" />
+        <n-data-table v-else remote :columns="columns" :data="store.orders" :pagination="options"
+          :row-key="rowKey" :scroll-x="1000" @update:sorter="getItems" @update:filters="getItems"
+          @update:page="handlePageChange" />
       </div>
     </n-layout-content>
   </n-layout>

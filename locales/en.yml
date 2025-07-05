@@ -1,14 +1,8 @@
 Github:
   button: Github
   tooltip: Support this project by giving a star ⭐️ on GitHub
-languages:
-  ar: Arabic
-  ch: Chinese
-  de: German
-  en: English
-  fa: Persian
-  tr: Turkish
 brands:
+  brand: Brand
   create:
     brandName: Name
     buttonTitle: Create
@@ -31,6 +25,7 @@ button:
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
 categories:
+  count: Count
   create:
     buttonTitle: Create
     categoryName: Name
@@ -38,15 +33,16 @@ categories:
     title: Create New Category
   createButton: Create
   stat: Statistics
-  count: Count
-  topCategories: Top Categories
   title: Categories
+  topCategories: Top Categories
   validations:
     nameRequired: Name is required
     parentRequired: Parent Not Selected
 category:
   name: Category
   productsCount: Products Count
+chatApp:
+  writeMessage: Write Message
 colors:
   color: Color
   create:
@@ -67,6 +63,8 @@ common:
     Sorry but the page you are looking for does not exist, have been removed.
     name changed or is temporarily unavailable
   actions: Actions
+  cancel: Cancel
+  confirm: Confirm
   date: Date
   delete: Delete
   deleteConfirm: Are you sure to delete this item?
@@ -94,29 +92,29 @@ customize:
   title: Customize
 dashboard:
   activeOrders: Active Orders
+  genderChart:
+    title: Customer's Gender
+  greeting_message: Have a nice day! We are happy to see you here.
+  locationChart:
+    title: Customer's Location
   products: Products
   recentOrders: Recent Orders
+  registerSource:
+    subtitle: Total Registers
+    title: Register Source
   registers: Registers
+  revenueChart:
+    subtitle: Total Revenue balance
+    title: Revenue Chart
   sells: Sells
   summary: Summary
   transactions: Transactions
   trendingProducts: Trending Products
+  userPlatforms:
+    subtitle: Total Users
+    title: User Platforms
   visits: Visits
   welcome: Welcome to Yummy Admin
-  greeting_message: Have a nice day! We are happy to see you here.
-  revenueChart:
-    title: Revenue Chart
-    subtitle: Total Revenue balance
-  userPlatforms:
-    title: User Platforms
-    subtitle: Total Users
-  registerSource:
-    title: Register Source
-    subtitle: Total Registers
-  genderChart:
-    title: Customer's Gender
-  locationChart:
-    title: Customer's Location
 description: Free Vue 3 Dashboard
 direction: ltr
 enums:
@@ -143,6 +141,13 @@ forgot:
   title: Forgot Password
   username: User Name
 home: Home
+languages:
+  ar: Arabic
+  ch: Chinese
+  de: German
+  en: English
+  fa: Persian
+  tr: Turkish
 login:
   createAccount: Create One!
   failedMessage: Login Failed
@@ -162,18 +167,20 @@ login:
   welcome: Welcome Back!
 menu:
   accountSettings: Account Settings
+  analytics: Analytics
   announcement: Announcement
+  apps: Apps
   authentication: Authentication
   blog: Blog
   brands: Brands
   categories: Categories
+  chat: Chat
   colors: Colors
   comments: Comments
   createProduct: Create Product
   customers: Customers
-  eCommerce: eCommerce
-  analytics: Analytics
   dashboard: Dashboard
+  eCommerce: eCommerce
   feedbacks: Feedbacks
   forgetPassword: Forget Password
   login: Login
@@ -186,16 +193,16 @@ menu:
   pages: Pages
   productManagement: Products Management
   products: Products
+  productsManagement: Products Management
+  profile: Profile
   register: Register
   reviews: Reviews
   settings: Settings
   sms: Sms
   support: Support
+  todo: ToDo
   users: Users
   websiteSettings: Website Settings
-  apps: Apps
-  chat: Chat
-  todo: ToDo
 not-found: Not found
 notifications:
   clear: Clear All
@@ -229,7 +236,27 @@ products:
     title: Create Product
   name: Product Name
   rate: Rate
+  stock: stock
   stoke: Stoke
+profile:
+  changePassword: Change Password
+  confirmPassword: Confirm Password
+  email: Email
+  firstName: First Name
+  lastName: Last Name
+  location: Location
+  newPassword: New Password
+  notificationType: Notification Type
+  notifications: Notifications
+  oldPassword: Old Password
+  personalInfo: Personal Info
+  phone: Phone
+  push: Push
+  save: Save
+  security: Security
+  sms: Sms
+  title: Profile
+  username: UserName
 register:
   button: Register
   haveAccount: Have Account?
@@ -245,6 +272,10 @@ reviews:
   product: Product
   rate: Rate
 title: Yummy Admin
+todoApp:
+  createGroup: Create Group
+  createTask: Create new task
+  today: Today
 userMenu:
   dark: Dark
   en: English
@@ -254,32 +285,5 @@ userMenu:
   logout: Logout
   options: Options
   profile: Profile
+  signOut: sign out
   theme: Theme
-profile:
-  title: Profile
-  firstName: First Name
-  lastName: Last Name
-  username: UserName
-  email: Email
-  location: Location
-  phone: Phone
-  save: Save
-  oldPassword: Old Password
-  newPassword: New Password
-  confirmPassword: Confirm Password
-  changePassword: Change Password
-  sms: Sms
-  notificationType: Notification Type
-  push: Push
-  personalInfo: Personal Info
-  notifications: Notifications
-  security: Security
-
-chatApp:
-  writeMessage: Write Message
-
-todoApp:
-  createGroup: Create Group
-  createTask: Create new task
-  today: Today
-  

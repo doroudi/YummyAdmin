@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker/locale/en'
 import times from 'lodash/times'
-import { http, HttpResponse } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 import type { Category } from '~/models/Category'
 import { type ProductListDto, ProductStatus } from '~/models/Product'
 import { CreatePagedResponse } from '../handlers.utility'
@@ -41,8 +41,9 @@ const fakeImages = [
 const products = times(27, createFakeProductListItem)
 
 const handlers = [
-  http.get('/api/product', ({ request }) => {
+  http.get('/api/product', async ({ request }) => {
     const response = CreatePagedResponse<ProductListDto>(request, products)
+    await delay(1000)
     return HttpResponse.json(response, { status: 200 })
   }),
 ]

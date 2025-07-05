@@ -1,13 +1,14 @@
 import { faker } from '@faker-js/faker/locale/en'
 import times from 'lodash/times'
-import { http, HttpResponse } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 import type { Review } from '~/models/Review'
 import { CreatePagedResponse } from '../handlers.utility'
 
 const reviews = times(65, createFakeReview)
 const handlers = [
-  http.get('/api/review/', ({ request }) => {
+  http.get('/api/review/', async ({ request }) => {
     const response = CreatePagedResponse<Review>(request, reviews)
+    await delay(1500)
     return HttpResponse.json(response, { status: 200 })
   }),
 ]

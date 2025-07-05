@@ -71,15 +71,6 @@ function handleFiltersChange() {
 function createCategory() {
   showAddDialog.value = true
 }
-
-let searchTimerId: any = null
-function searchInListDebounced(value: string) {
-  options.value.query = value
-  clearTimeout(searchTimerId)
-  searchTimerId = setTimeout(() => {
-    getItems()
-  }, 500) /* 500ms throttle */
-}
 </script>
 
 <template>
@@ -87,7 +78,7 @@ function searchInListDebounced(value: string) {
     <n-layout-content>
       <div class="px-3">
         <n-space justify="space-between" class="mb-3">
-          <n-input v-model="options.query" :value="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
+          <SearchInput v-model="options.query" @search="getItems" />
           <NButton type="primary" @click="createCategory">
             <template #icon>
               <NIcon>
@@ -97,17 +88,14 @@ function searchInListDebounced(value: string) {
             {{ t('common.new') }}
           </NButton>
         </n-space>
-        <n-data-table
-          remote :columns="columns" :data="store.categories" :loading="store.isLoading"
+        <SkeletonTable v-if="store.isLoading" :columns="columns" />
+        <n-data-table v-else remote :columns="columns" :data="store.categories"
           :pagination="options" :scroll-x="1000" :row-key="rowKey" @update:sorter="handleSorterChange"
-          @update:filters="handleFiltersChange" @update:page="handlePageChange"
-        />
+          @update:filters="handleFiltersChange" @update:page="handlePageChange" />
       </div>
     </n-layout-content>
-    <n-layout-sider
-      bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed"
-      @collapse="collapsed = true" @expand="collapsed = false"
-    >
+    <n-layout-sider bordered collapse-mode="width" :collapsed-width="0" :width="300" :collapsed="collapsed"
+      @collapse="collapsed = true" @expand="collapsed = false">
       <CategoryStatics />
     </n-layout-sider>
 

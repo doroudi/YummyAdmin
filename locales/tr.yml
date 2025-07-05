@@ -2,6 +2,7 @@ Github:
   button: GitHub
   tooltip: Bu projeye ⭐️ Github'da destek verin
 brands:
+  brand: Marka
   create:
     brandName: İsim
     buttonTitle: Oluştur
@@ -24,6 +25,7 @@ button:
   toggle_dark: Karanlık modu değiştir
   toggle_langs: Dil değiştir
 categories:
+  count: Saymak
   create:
     buttonTitle: Oluştur
     categoryName: İsim
@@ -39,6 +41,8 @@ categories:
 category:
   name: Kategori
   productsCount: Produkte Anzahl
+chatApp:
+  writeMessage: Mesaj yaz
 colors:
   color: Renk
   create:
@@ -46,6 +50,7 @@ colors:
     color: Renk
     name: İsim
     title: Yeni Renk Oluştur
+  createButton: Yaratmak
   name: İsim
   title: Renkler
   validations:
@@ -58,12 +63,16 @@ common:
     Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya
     geçici olarak kullanılamıyor
   actions: Eylemler
+  cancel: İptal etmek
+  confirm: Onaylamak
   date: Tarih
   delete: Silmek
   deleteConfirm: Bu öğeyi sileceğinizden emin misiniz?
   goHome: Ana Sayfaya Dön
+  name: İsim
   new: Yeni
   notFound: Bulunamadı
+  oops: Oops sayfası
   price: Fiyat
   search: Ara
   status: Durum
@@ -187,6 +196,8 @@ menu:
   pages: Sayfalar
   productManagement: Ürün Yönetimi
   products: Ürünler
+  productsManagement: Ürün Yönetimi
+  profile: Profil
   register: Kayıt Ol
   reviews: İncelemeler
   settings: Ayarlar
@@ -246,6 +257,8 @@ profile:
   save: Kaydetmek
   security: Güvenlik
   sms: SMS
+  title: Profil
+  username: Kullanıcı adı
 register:
   button: Kayıt Ol
   haveAccount: Hesabınız var mı?
@@ -261,6 +274,10 @@ reviews:
   product: Ürün
   rate: Oran
 title: Yummy Admin
+todoApp:
+  createGroup: Grup Oluştur
+  createTask: Yeni görev oluştur
+  today: Bugün
 userMenu:
   dark: Karanlık
   en: İngilizce
@@ -270,12 +287,5 @@ userMenu:
   logout: Çıkış
   options: Seçenekler
   profile: Profil
+  signOut: oturumu Kapat
   theme: Tema
-
-chatApp:
-  writeMessage: Mesaj yaz
-
-todoApp:
-  createGroup: Grup Oluştur
-  createTask: Yeni görev oluştur
-  today: Bugün

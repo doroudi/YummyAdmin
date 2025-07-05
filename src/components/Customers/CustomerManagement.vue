@@ -111,7 +111,8 @@ function handlePageChange(page: number) {
         <NSpace justify="space-between" class="mb-3">
           <SearchInput v-model="options.query" @search="getItems" />
         </NSpace>
-        <n-data-table remote selectable :columns="columns" :data="store.customers" :loading="store.isLoading"
+        <SkeletonTable v-if="store.isLoading" :columns="columns" />
+        <n-data-table v-else remote selectable :columns="columns" :data="store.customers"
           :pagination="options" :row-key="rowKey" :scroll-x="1000" @update:sorter="getItems" @update:filters="getItems"
           @update:page="handlePageChange" @update:checked-row-keys="handleCheck" />
       </div>

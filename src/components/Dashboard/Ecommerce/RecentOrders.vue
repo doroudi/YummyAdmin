@@ -43,9 +43,8 @@ const columns: DataTableColumns<RowData> = [
 
 <template>
   <div>
-    <n-data-table
-      :bordered="false" :columns="columns" :data="store.orders" :loading="store.isLoading"
-      :scroll-x="500"
-    />
+    <SkeletonTable v-if="store.isLoading" :columns="columns" />
+    <n-data-table v-else :bordered="false" :columns="columns" :data="store.orders"
+      :scroll-x="500" />
   </div>
 </template>

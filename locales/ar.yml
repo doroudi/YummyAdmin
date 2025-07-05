@@ -2,6 +2,7 @@ Github:
   button: GitHub
   tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
 brands:
+  brand: ''
   create:
     brandName: الاسم
     buttonTitle: إنشاء
@@ -24,6 +25,7 @@ button:
   toggle_dark: تبديل الوضع المظلم
   toggle_langs: تغيير اللغات
 categories:
+  count: عدد
   create:
     buttonTitle: إنشاء
     categoryName: الاسم
@@ -39,13 +41,17 @@ categories:
 category:
   name: الفئة
   productsCount: عدد المنتجات
+chatApp:
+  writeMessage: اكتب رسالة
 colors:
+  color: لون
   create:
     buttonTitle: إنشاء
     color: اللون
     name: الاسم
     title: إنشاء لون جديد
   createButton: إنشاء
+  name: اسم
   title: الألوان
   validations:
     colorRequired: اللون غير محدد
@@ -57,12 +63,16 @@ common:
     عذراً ولكن الصفحة التي تبحث عنها غير موجودة، تم إزالتها، تم تغيير اسمها أو
     غير متاحة مؤقتاً
   actions: الإجراءات
+  cancel: يلغي
+  confirm: يتأكد
   date: تاریخ
   delete: يمسح
   deleteConfirm: هل أنت متأكد من حذف هذا العنصر؟
   goHome: العودة إلى الرئيسية
+  name: اسم
   new: جدید
   notFound: غير موجود
+  oops: عفوًا
   price: سعر
   search: بحث
   status: حالة
@@ -185,6 +195,8 @@ menu:
   pages: الصفحات
   productManagement: إدارة المنتجات
   products: المنتجات
+  productsManagement: ''
+  profile: حساب تعريفي
   register: تسجيل الدخول
   reviews: المراجعات
   settings: الإعدادات
@@ -226,6 +238,7 @@ products:
     title: إنشاء منتج
   name: الاسم
   rate: التقييم
+  stock: ''
   stoke: المخزون
 profile:
   changePassword: تغيير كلمة المرور
@@ -244,6 +257,8 @@ profile:
   save: يحفظ
   security: حماية
   sms: رسالة قصيرة
+  title: حساب تعريفي
+  username: اسم المستخدم
 register:
   button: تسجيل
   haveAccount: لديك حساب؟
@@ -259,6 +274,10 @@ reviews:
   product: المنتج
   rate: التقييم
 title: لوحة تحكم يامي
+todoApp:
+  createGroup: إنشاء مجموعة
+  createTask: إنشاء مهمة جديدة
+  today: اليوم
 userMenu:
   dark: داكن
   en: الإنجليزية
@@ -268,12 +287,5 @@ userMenu:
   logout: تسجيل الخروج
   options: الخيارات
   profile: الملف الشخصي
+  signOut: ''
   theme: المظهر
-
-chatApp:
-  writeMessage: اكتب رسالة
-
-todoApp:
-  createGroup: إنشاء مجموعة
-  createTask: إنشاء مهمة جديدة
-  today: اليوم

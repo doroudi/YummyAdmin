@@ -2,6 +2,7 @@ Github:
   button: Github
   tooltip: 请在Github上给这个项目一个⭐️支持
 brands:
+  brand: 品牌
   create:
     brandName: 名称
     buttonTitle: 创建
@@ -24,6 +25,7 @@ button:
   toggle_dark: 切换深色模式
   toggle_langs: 切换语言
 categories:
+  count: 数数
   create:
     buttonTitle: 创建
     categoryName: 名称
@@ -39,6 +41,8 @@ categories:
 category:
   name: 分类
   productsCount: 产品数量
+chatApp:
+  writeMessage: 写消息
 colors:
   color: 颜色
   create:
@@ -57,12 +61,16 @@ common:
   404Error: 404错误
   404Message: 抱歉，您要查找的页面不存在、已被删除、名称已更改或暂时不可用
   actions: 操作
+  cancel: 取消
+  confirm: 确认
   date: 日期
   delete: 删除
   deleteConfirm: 确认删除？
   goHome: 返回首页
+  name: Na'an
   new: 新
   notFound: 未找到
+  oops: Palo Pali'e
   price: 价格
   search: 搜索
   status: 状态
@@ -183,6 +191,8 @@ menu:
   pages: 页面
   productManagement: 产品管理
   products: 产品
+  productsManagement: 产品管理
+  profile: 轮廓
   register: 注册
   reviews: 评论
   settings: 设置
@@ -222,6 +232,7 @@ products:
     title: 创建产品
   name: 名称
   rate: 评分
+  stock: 库存
   stoke: 库存
 profile:
   changePassword: 更改密码
@@ -240,6 +251,8 @@ profile:
   save: 保存
   security: 安全
   sms: 短信
+  title: 轮廓
+  username: 用户名
 register:
   button: 注册
   haveAccount: 已有账户？
@@ -255,6 +268,10 @@ reviews:
   product: 产品
   rate: 评分
 title: 美味管理系统
+todoApp:
+  createGroup: 创建组
+  createTask: 创建新任务
+  today: 今天
 userMenu:
   dark: 深色
   en: 英语
@@ -264,11 +281,5 @@ userMenu:
   logout: 退出
   options: 选项
   profile: 个人资料
+  signOut: 登出
   theme: 主题
-chatApp:
-  writeMessage: 写消息
-
-todoApp:
-  createGroup: 创建组
-  createTask: 创建新任务
-  today: 今天

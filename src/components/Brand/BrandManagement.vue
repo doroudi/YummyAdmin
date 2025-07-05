@@ -7,6 +7,7 @@ import { useMessage } from 'naive-ui'
 import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { storeToRefs } from 'pinia'
+import type { Brand } from '~/models/Brand'
 
 const layout = useLayoutStore()
 const { dialogPlacement } = storeToRefs(layout)
@@ -60,21 +61,8 @@ function handlePageChange(page: number) {
   getItems()
 }
 
-function handleFiltersChange() {
-  getItems()
-}
-
 function createBrand() {
   showAddDialog.value = true
-}
-
-let searchTimerId: any = null
-function searchInListDebounced(value: string) {
-  options.value.query = value
-  clearTimeout(searchTimerId)
-  searchTimerId = setTimeout(() => {
-    getItems()
-  }, 500) /* 500ms throttle */
 }
 </script>
 
@@ -82,10 +70,7 @@ function searchInListDebounced(value: string) {
   <n-layout>
     <n-layout-content>
       <n-space justify="space-between" class="mb-3">
-        <n-input
-          v-model="options.query" :value="options.query" :placeholder="t('common.search')"
-          @input="searchInListDebounced"
-        />
+        <SearchInput v-model="options.query" @search="getItems" />
         <NButton type="primary" @click="createBrand">
           <template #icon>
             <NIcon>
@@ -95,11 +80,14 @@ function searchInListDebounced(value: string) {
           {{ t('common.new') }}
         </NButton>
       </n-space>
-      <n-data-table
-        remote :columns="columns" :data="store.brands" :loading="store.isLoading"
-        :pagination="options" :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange"
-        @update:page="handlePageChange"
-      />
+
+      <SkeletonTable v-if="store.isLoading" :columns="columns" />
+      <n-data-table v-else remote :columns="columns" :data="store.brands"
+        :pagination="options" :row-key="rowKey" :scroll-x="1000" @update:filters="getItems"
+        @update:page="handlePageChange" />
+
+
+
     </n-layout-content>
 
     <n-drawer v-model:show="showAddDialog" :width="380" :placement="dialogPlacement">
@@ -109,5 +97,3 @@ function searchInListDebounced(value: string) {
     </n-drawer>
   </n-layout>
 </template>
-
-<style scoped lang='scss'></style>

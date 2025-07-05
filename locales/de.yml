@@ -12,6 +12,7 @@ brands:
     title: Neue Marke erstellen
     url: URL
   createButton: Erstellen
+  name: Marke
   shortName: Kurzname
   title: Marken
   validations:
@@ -26,6 +27,7 @@ button:
   toggle_dark: Dunkelmodus umschalten
   toggle_langs: Sprache ändern
 categories:
+  count: Zählen
   create:
     buttonTitle: Erstellen
     categoryName: Name
@@ -41,6 +43,8 @@ categories:
 category:
   name: Kategorie
   productsCount: Produkte Anzahl
+chatApp:
+  writeMessage: Schrijf bericht
 colors:
   color: Farbe
   create:
@@ -61,12 +65,16 @@ common:
     Entschuldigung, aber die gesuchte Seite existiert nicht, wurde entfernt, der
     Name wurde geändert oder ist vorübergehend nicht verfügbar
   actions: Aktionen
+  cancel: Stornieren
+  confirm: Bestätigen
   date: Datum
   delete: Löschen
   deleteConfirm: Sind Sie sicher, diesen Artikel zu löschen?
   goHome: Zurück zur Startseite
+  name: Name
   new: Neu
   notFound: Nicht gefunden
+  oops: Oops Seite
   price: Price
   search: Suche
   status: Status
@@ -124,6 +132,7 @@ enums:
     Active: Aktiv
     Draft: Entwurf
     NotActive: Nicht aktiv
+fa: ''
 forgot:
   button: Wiederherstellen
   email: E-Mail
@@ -189,6 +198,8 @@ menu:
   pages: Seiten
   productManagement: Produktverwaltung
   products: Produkte
+  productsManagement: Produktmanagement
+  profile: Profil
   register: Registrieren
   reviews: Bewertungen
   settings: Einstellungen
@@ -231,6 +242,7 @@ products:
     title: Produkt erstellen
   name: Produktname
   rate: Bewertung
+  stock: Aktie
   stoke: Auf Lager
 profile:
   changePassword: Kennwort ändern
@@ -249,6 +261,8 @@ profile:
   save: Speichern
   security: Sicherheit
   sms: SMS
+  title: Profil
+  username: Benutzername
 register:
   button: Registrieren
   haveAccount: Haben Sie ein Konto?
@@ -264,6 +278,10 @@ reviews:
   product: Produkt
   rate: Bewertung
 title: Yummy Admin
+todoApp:
+  createGroup: Groep aanmaken
+  createTask: Nieuwe taak maken
+  today: Vandaag
 userMenu:
   dark: Dunkel
   language: Sprache
@@ -271,11 +289,5 @@ userMenu:
   logout: Abmelden
   options: Optionen
   profile: Profil
+  signOut: Abmelden
   theme: Design
-chatApp:
-  writeMessage: Schrijf bericht
-
-todoApp:
-  createGroup: Groep aanmaken
-  createTask: Nieuwe taak maken
-  today: Vandaag
