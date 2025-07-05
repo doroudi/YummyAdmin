@@ -137,7 +137,7 @@ function handleCheck(checkedRowKeys: DataTableRowKey[]) {
     <n-layout-content>
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
-          <n-input v-model="options.query" :value="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
+          <SearchInput v-model="options.query" @search="getItems" />
           <div>
             <n-tooltip v-if="checkedRows.length" trigger="hover">
               <template #trigger>
@@ -161,12 +161,10 @@ function handleCheck(checkedRowKeys: DataTableRowKey[]) {
             </NButton>
           </div>
         </NSpace>
-        <n-data-table
-          remote :columns="columns" :data="store.products" :loading="store.isLoading"
-          :pagination="options" selectable :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
-          @update:filters="handleFiltersChange" @update:checked-row-keys="handleCheck"
-          @update:page="handlePageChange"
-        />
+        <SkeletonTable v-if="store.isLoading" :columns="columns" />
+        <n-data-table v-else remote :columns="columns" :data="store.products" :pagination="options" selectable
+          :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
+          @update:checked-row-keys="handleCheck" @update:page="handlePageChange" />
       </div>
     </n-layout-content>
   </n-layout>

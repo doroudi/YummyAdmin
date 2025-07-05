@@ -4,7 +4,7 @@
 
 <route lang="yaml">
 meta:
-  title: Profile
+  title: profile
   breadcrumb:
     - accountSettings
 </route>

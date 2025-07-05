@@ -1,13 +1,14 @@
 import { faker } from '@faker-js/faker/locale/en'
 import times from 'lodash/times'
-import { http, HttpResponse } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 import type { Color, ColorCreateModel } from '~/models/Color'
 import { CreatePagedResponse } from '../handlers.utility'
 
 const colors = times(15, createFakeColor)
 const handlers = [
-  http.get('/api/Color', ({ request }) => {
+  http.get('/api/Color', async ({ request }) => {
     const response = CreatePagedResponse<Color>(request, colors)
+    await delay(1000)
     return HttpResponse.json(response, { status: 200 })
   }),
   http.post('/api/color', async ({ request }) => {

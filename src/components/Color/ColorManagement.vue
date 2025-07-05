@@ -73,15 +73,6 @@ function handleFiltersChange() {
 function createColor() {
   showAddDialog.value = true
 }
-
-let searchTimerId: any = null
-function searchInListDebounced(value: string) {
-  clearTimeout(searchTimerId)
-  options.value.query = value
-  searchTimerId = setTimeout(() => {
-    getItems()
-  }, 500) /* 500ms throttle */
-}
 </script>
 
 <template>
@@ -89,7 +80,7 @@ function searchInListDebounced(value: string) {
     <n-layout-content>
       <div>
         <n-space justify="space-between" class="mb-3">
-          <n-input v-model="options.query" :value="options.query" :placeholder="t('common.search')" @input="searchInListDebounced" />
+          <SearchInput v-model="options.query" @search="getItems" />
           <NButton type="primary" @click="createColor">
             <template #icon>
               <NIcon>
@@ -99,10 +90,9 @@ function searchInListDebounced(value: string) {
             {{ t('common.new') }}
           </NButton>
         </n-space>
-        <n-data-table
-          remote :columns="columns" :data="store.colors" :loading="store.isLoading" :pagination="options"
-          :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange" @update:page="handlePageChange"
-        />
+        <SkeletonTable v-if="store.isLoading" :columns="columns" />
+        <n-data-table v-else remote :columns="columns" :data="store.colors" :pagination="options"
+          :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange" @update:page="handlePageChange" />
       </div>
     </n-layout-content>
 

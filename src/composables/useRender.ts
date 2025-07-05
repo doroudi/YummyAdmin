@@ -176,6 +176,9 @@ export function useRender() {
       NPopconfirm,
       {
         onPositiveClick: confirmAction,
+        positiveText: t('common.confirm'),
+        negativeText: t('common.cancel'),
+        negativeButtonProps: { ghost: true, type: 'tertiary' },
       },
       {
         trigger: () => renderActionButton(DeleteIcon, () => null),

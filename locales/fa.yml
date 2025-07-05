@@ -2,6 +2,7 @@ Github:
   button: گیت هاب
   tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
 brands:
+  brand: برند
   create:
     brandName: نام برند
     buttonTitle: ایجاد
@@ -24,6 +25,7 @@ button:
   toggle_dark: حالت تیره
   toggle_langs: تغییر زبان
 categories:
+  count: تعداد
   create:
     buttonTitle: دسته جدید
     categoryName: نام دسته
@@ -39,6 +41,8 @@ categories:
 category:
   name: دسته بندی
   productsCount: تعداد محصولات
+chatApp:
+  writeMessage: پیغام تان را بنویسید
 colors:
   color: رنگ
   create:
@@ -57,10 +61,13 @@ common:
   404Error: 404 خطای
   404Message: متاسفانه صفحه ای که دنبالش بودید پیدا نشد
   actions: عملیات
+  cancel: لغو کردن
+  confirm: تأیید کردن
   date: تاریخ
   delete: حذف کردن
   deleteConfirm: آیا از حذف این مورد مطمئن هستید؟
   goHome: بازگشت به خانه
+  name: نام
   new: جدید
   notFound: پیدا نشد
   oops: صفحه
@@ -99,6 +106,7 @@ dashboard:
     title: درآمد
   sells: فروش
   summary: خلاصه
+  transactions: تراکنش ها
   trendingProducts: محصولات پربازدید
   userPlatforms:
     subtitle: مجموع کاربران
@@ -184,6 +192,7 @@ menu:
   productManagement: مدیریت محصولات
   products: محصولات
   productsManagement: مدیریت محصولات
+  profile: پروفایل
   register: ثبت نام
   reviews: بررسی ها
   settings: تنظیمات
@@ -192,6 +201,7 @@ menu:
   todo: کارها
   users: کاربران
   websiteSettings: تنظیمات وبسایت
+not-found: یافت نشد
 notifications:
   clear: همه را پاک کنید
   empty: هیچ اعلانی وجود ندارد
@@ -224,6 +234,7 @@ products:
     title: ایجاد محصول
   name: نام محصول
   rate: امتیاز
+  stock: موجود
   stoke: موجود
 profile:
   changePassword: تغییر رمز عبور
@@ -242,6 +253,8 @@ profile:
   save: ذخیره
   security: امنیت
   sms: پیامک
+  title: پروفایل
+  username: نام کاربری
 register:
   button: ثبت نام
   haveAccount: اکانت دارید؟
@@ -257,6 +270,10 @@ reviews:
   product: محصول
   rate: امتیاز
 title: پنل مدیریت Yummy
+todoApp:
+  createGroup: گروه جدید
+  createTask: ایجاد تسک جدید
+  today: امروز
 userMenu:
   dark: تیره
   en: انگلیسی
@@ -268,11 +285,3 @@ userMenu:
   profile: پروفایل
   signOut: خروج
   theme: پوسته
-
-chatApp:
-  writeMessage: پیغام تان را بنویسید
-
-todoApp:
-  createGroup: گروه جدید
-  createTask: ایجاد تسک جدید
-  today: امروز

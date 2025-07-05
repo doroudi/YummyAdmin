@@ -1,13 +1,14 @@
 import { faker } from '@faker-js/faker/locale/en'
 import times from 'lodash/times'
-import { http, HttpResponse } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 import type { Category, CategoryCreateModel } from '~/models/Category'
 import { CreatePagedResponse } from '../handlers.utility'
 
 const categories = times(20, createFakeCategory)
 const handlers = [
-  http.get('/api/category', ({ request }) => {
+  http.get('/api/category', async ({ request }) => {
     const response = CreatePagedResponse<Category>(request, categories)
+    await delay(1500)
     return HttpResponse.json(response, { status: 200 })
   }),
   http.get('/api/category/stats', () => {

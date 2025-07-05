@@ -1,14 +1,15 @@
 import { faker } from '@faker-js/faker/locale/en'
 import times from 'lodash/times'
-import { http, HttpResponse } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 import { OrderStatus } from '~/models/Order'
 import type { OrderList } from '~/models/Order'
 import { CreatePagedResponse } from '../handlers.utility'
 
 const orders = times(100, createFakeOrder)
 const handlers = [
-  http.get('/api/order', ({ request }) => {
+  http.get('/api/order', async ({ request }) => {
     const response = CreatePagedResponse<OrderList>(request, orders, 'customer')
+    await delay(1500)
     return HttpResponse.json(response, { status: 200 })
   }),
 ]

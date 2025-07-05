@@ -133,12 +133,12 @@ function handleCheck(checkedRowKeys: DataTableRowKey[]) {
             <span>{{ t('common.delete') }}</span>
           </n-tooltip>
         </NSpace>
-        <n-data-table
-          remote :columns="columns" :data="store.reviews" :loading="store.isLoading"
-          :pagination="options" selectable :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
+
+        <SkeletonTable v-if="store.isLoading" :columns="columns" />
+        <n-data-table v-else remote :columns="columns" :data="store.reviews" :pagination="options"
+          selectable :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange"
           @update:filters="handleFiltersChange" @update:page="handlePageChange"
-          @update:checked-row-keys="handleCheck"
-        />
+          @update:checked-row-keys="handleCheck" />
       </div>
     </n-layout-content>
   </n-layout>
