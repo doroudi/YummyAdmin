@@ -1,22 +1,28 @@
 <script setup lang="ts">
+import generatedRoutes from 'virtual:generated-pages'
 import { Search24Regular as SearchIcon } from '@vicons/fluent'
 import { useMagicKeys, whenever } from '@vueuse/core'
 import type { InputInst } from 'naive-ui/es/input/src/interface'
-
+import type { RouteRecordRaw } from 'vue-router'
 const { t } = useI18n()
-const value = ref('')
+const searchTerm = ref('')
 const focused = ref(false)
-const valueRef = ref('')
-
-//TODO: implement features search
 const options = computed(() => {
-  return ['@gmail.com', '@outlook.com', '@yahoo.com'].map((suffix) => {
-    const prefix = valueRef.value.split('@')[0]
-    return {
-      label: prefix + suffix,
-      value: prefix + suffix,
-    }
-  })
+  return generatedRoutes
+    .filter((x) => x.meta?.title !== undefined && x.meta?.title !== null)
+    .filter(
+      (x) =>
+        searchTerm.value === '' ||
+        (typeof x.meta?.title === 'string' &&
+          x.meta.title.indexOf(searchTerm.value) >= 0),
+    )
+    .map((item) => {
+      return {
+        label: t(`menu.${item.meta?.title || item.name}`),
+        value: item,
+        key: item.name || item.path,
+      }
+    })
 })
 
 const searchInput = ref<InputInst | null>(null)
@@ -27,12 +33,19 @@ const { ctrl_k } = useMagicKeys({
   },
 })
 whenever(ctrl_k, () => searchInput.value.focus())
+const router = useRouter()
+function gotoRoute(route: RouteRecordRaw) {
+  if (route) {
+    searchTerm.value = ''
+    router.push(route.path)
+  }
+}
 </script>
 
 <template>
     <div class="hidden md:block md:me-2 md:w-40 transition-property-all transition-ease-in transition-duration-200"
         :class="{ 'md:w-60': focused }">
-        <n-auto-complete v-model:value="value" :options="options">
+        <n-auto-complete v-model:value="searchTerm" @select="gotoRoute" :options="options" blur-after-select>
             <template #default="{ value: slotValue, handleInput }">
                 <n-input ref="searchInput" @input="handleInput" :value="slotValue" :placeholder="t('common.search')"
                     @focus="focused = true" @blur="focused = false">
