@@ -1,10 +1,11 @@
 <template>
-    <n-data-table v-bind="$attrs" :columns="skeletonColumns" :data="skeletonData" class="skeleton-table" />
+    <n-data-table :row-key="rowKey" v-bind="$attrs" :columns="skeletonColumns" :data="skeletonData" class="skeleton-table" />
 </template>
 
 <script setup lang="ts">
 import { NDataTable, NSkeleton } from 'naive-ui'
 import type { DataTableColumn } from 'naive-ui'
+import type { RowData } from 'naive-ui/es/data-table/src/interface'
 
 interface Props {
   columns: DataTableColumn<any>[] | number
@@ -14,6 +15,10 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   rowCount: 10,
 })
+
+function rowKey(row: RowData) {
+  return row.key
+}
 
 // Generate skeleton columns
 const skeletonColumns = computed(() => {
@@ -32,7 +37,7 @@ const skeletonColumns = computed(() => {
       }))
   }
 
-  return props.columns.map((col) => ({
+  return props.columns.map((col: any) => ({
     ...col,
     render: () =>
       h(NSkeleton, {
@@ -45,7 +50,9 @@ const skeletonColumns = computed(() => {
 
 // Generate skeleton rows
 const skeletonData = computed(() => {
-  return Array(props.rowCount).fill({})
+  return Array(props.rowCount)
+    .fill({})
+    .map((_, i) => ({ key: i + 1 }))
 })
 </script>
 
