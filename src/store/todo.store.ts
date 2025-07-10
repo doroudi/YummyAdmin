@@ -32,14 +32,16 @@ export const useTodoAppStore = defineStore('Todo', () => {
     }
   }
 
-  function createGroup() {
+  function createGroup(group: TaskGroup) {
     try {
-      const newGroup: GroupCreateModel = {
-        title: 'New Group',
-        icon: '🆕',
-      }
-      groups.value.push(newGroup)
+      group.id = groups.value.length + 1
+      groups.value.push(group)
     } catch (error) {}
+  }
+
+  function deleteGroup(id: number) {
+    const index = groups.value.findIndex((x: TaskGroup) => x.id === id)
+    if (index) groups.value.splice(index, 1)
   }
 
   function toggleDoneTask(id: number) {
@@ -49,7 +51,7 @@ export const useTodoAppStore = defineStore('Todo', () => {
   }
 
   function toggleFavTask(id: number) {
-    const task = tasks.value.find((x) => x.id === id)
+    const task = tasks.value.find((x: TaskItem) => x.id === id)
     task.isFavorite = !task.isFavorite
   }
 
@@ -72,6 +74,7 @@ export const useTodoAppStore = defineStore('Todo', () => {
     createTask,
     toggleDoneTask,
     toggleFavTask,
+    deleteGroup,
   }
 })
 if (import.meta.hot)

@@ -58,6 +58,7 @@ colors:
   validations:
     colorRequired: Farbe nicht ausgewählt
     nameRequired: Name wird benötigt
+  
 common:
   403Error: Sie haben keine Zugriffsberechtigung
   404Error: 404 Fehler
@@ -78,6 +79,7 @@ common:
   price: Price
   search: Suche
   status: Status
+  create: Erstellen
 currencySign: €
 customers:
   customerName: Kundenname

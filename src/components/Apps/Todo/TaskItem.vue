@@ -13,7 +13,7 @@ const isDone = ref(props.task.isDone)
 const emits = defineEmits(['done', 'fav'])
 watch(
   () => isDone.value,
-  () => emits('done', isDone.value),
+  (newValue: boolean) => newValue === true && emits('done'),
 )
 function toggleFav() {
   emits('fav')

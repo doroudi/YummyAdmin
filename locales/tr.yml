@@ -76,6 +76,8 @@ common:
   price: Fiyat
   search: Ara
   status: Durum
+  create: Yaratmak
+
 currencySign: ₺
 customers:
   customerName: Müşteri Adı

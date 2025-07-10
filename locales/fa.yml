@@ -74,6 +74,7 @@ common:
   price: قیمت
   search: جستجو
   status: وضعیت
+  create: ایجاد
 currencySign: تومان
 customers:
   customerName: نام مشتری
@@ -271,7 +272,11 @@ reviews:
   rate: امتیاز
 title: پنل مدیریت Yummy
 todoApp:
-  createGroup: گروه جدید
+  createGroup:
+    groupTitle: عنوان
+    taskTitle: عنوان تسک
+    theme: تم
+    title: گروه جدید
   createTask: ایجاد تسک جدید
   today: امروز
 userMenu:

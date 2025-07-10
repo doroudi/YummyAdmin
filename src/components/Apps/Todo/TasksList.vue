@@ -41,6 +41,18 @@ function createTask() {
 function doneTask(id: number) {
   store.toggleDoneTask(id)
   window.umami?.track('Todo:DoneTask')
+  playSound()
+}
+
+function playSound() {
+  const audioEl = document.createElement('audio')
+  audioEl.style.display = 'none'
+  audioEl.src = '../../../assets/sounds/done.mp3'
+  audioEl.autoplay = true
+  document.body.appendChild(audioEl)
+  setTimeout(() => {
+    document.body.getElementsByTagName('audio')[0].remove()
+  }, 890)
 }
 
 function favTask(id: number) {
@@ -53,7 +65,7 @@ function favTask(id: number) {
     <section class="tasks-box flex flex-col items-stretch justify-stretch p-8"
         :style="{ 'background-color': group?.bgColor }">
 
-        <GroupTitle :group="group" @edit="updateGroup" />
+        <GroupTitle :group="group" />
         
         <div class="flex-1 flex-col justify-end mb-1 overflow-y-auto">
             <n-scrollbar>
