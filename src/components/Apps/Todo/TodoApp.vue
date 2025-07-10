@@ -31,10 +31,11 @@ function searchInList(keyword: string) {
     (x: TaskGroup) => x.title.toLowerCase().indexOf(keyword.toLowerCase()) >= 0,
   )
 }
-
+const showCreateModal = ref(false)
 function createGroup() {
-  store.createGroup()
-  window.umami?.track('Todo:CreateGroup')
+  showCreateModal.value = true
+  //   store.createGroup()
+  //   window.umami?.track('Todo:CreateGroup')
 }
 </script>
 
@@ -57,9 +58,10 @@ function createGroup() {
                             <AddIcon />
                         </NIcon>
                     </template>
-                    {{ t('todoApp.createGroup') }}
+                    {{ t('todoApp.createGroup.title') }}
                 </NButton>
             </div>
+            <CreateGroup :show="showCreateModal" @close="showCreateModal = false" />
         </NLayoutSider>
         <NLayoutContent>
             <TasksList v-if="selectedGroup" :group="selectedGroup" />
