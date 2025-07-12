@@ -8,10 +8,16 @@ interface Props {
 const props = defineProps<Props>()
 const emits = defineEmits(['select'])
 const selectedGroup = ref<TaskGroup | null>(null)
+const { t } = useI18n()
+
+const allGroups = computed(() => [
+  { id: 1, title: t('todoApp.today'), icon: '📅' },
+  ...props.groups,
+])
 
 onMounted(() => {
   setTimeout(() => {
-    const item = props.groups.at(0)
+    const item = allGroups.value.at(0)
     if (item) {
       selectedGroup.value = item
       emits('select', item)
@@ -19,7 +25,6 @@ onMounted(() => {
   }, 100)
 })
 
-const { t } = useI18n()
 const { renderIcon } = useRender()
 
 const options = [
@@ -62,7 +67,7 @@ function handleSelect(action: string) {
 <template>
     <div>
         <NList hoverable clickable class="px-1">
-            <NListItem v-for="item of groups" :key="item.id" @click="selectGroup(item)" @contextmenu="(e: MouseEvent) => handleContextMenu(item, e)"
+            <NListItem v-for="item of allGroups" :key="item.id" @click="selectGroup(item)" @contextmenu="(e: MouseEvent) => handleContextMenu(item, e)"
                 :class="{ selected: item.id === selectedGroup?.id }">
                 <template #prefix>
                     <span class="icon text-lg">{{ item.icon }}</span>

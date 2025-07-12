@@ -39,7 +39,7 @@
   }
 
   .n-menu .n-submenu .n-submenu-children .n-menu-item .n-menu-item-content {
-    padding-right: 64px;
+    padding-right: 45px;
     padding-left: 1.2rem !important;
   }
 
@@ -63,10 +63,15 @@
     direction: ltr;
   }
 
-    .n-list .n-list-item .n-list-item__prefix {
-      margin-left: 20px;
-      margin-right: auto;
-      flex: 0;
+  .n-list .n-list-item .n-list-item__prefix {
+    margin-left: 20px;
+    margin-right: auto;
+    flex: 0;
+  }
+
+    .n-layout-sider .n-layout-sider__border {
+      left:0;
+      right: auto;
     }
 }
 

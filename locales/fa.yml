@@ -1,4 +1,4 @@
-Github:
+github:
   button: گیت هاب
   tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
 brands:
@@ -75,6 +75,9 @@ common:
   search: جستجو
   status: وضعیت
   create: ایجاد
+  day: روز
+  week: هفته
+  month: ماه
 currencySign: تومان
 customers:
   customerName: نام مشتری

@@ -88,7 +88,7 @@ const { t } = useI18n()
 
         <SwitchSelect
           v-model:value="period"
-          :ranges="[{ label: 'Day', value: 'day' }, { label: 'Week', value: 'week' }, { label: 'Month', value: 'month' }]"
+          :ranges="[{ label: t('common.day'), value: 'day' }, { label: t('common.week'), value: 'week' }, { label: t('common.month'), value: 'month' }]"
         />
         <div v-if="revenueStat.length > 0" class="-mx-4">
           <VueApexCharts type="area" width="100%" height="150" :options="chartOptions" :series="series" />

@@ -13,7 +13,6 @@ const props = defineProps({
 })
 
 const layoutStore = useLayoutStore()
-
 const notification = useNotification()
 const notificationsStore = useNotifyStore()
 
