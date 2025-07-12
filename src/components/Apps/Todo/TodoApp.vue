@@ -34,8 +34,6 @@ function searchInList(keyword: string) {
 const showCreateModal = ref(false)
 function createGroup() {
   showCreateModal.value = true
-  //   store.createGroup()
-  //   window.umami?.track('Todo:CreateGroup')
 }
 </script>
 

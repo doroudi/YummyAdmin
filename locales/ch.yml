@@ -1,4 +1,4 @@
-Github:
+github:
   button: Github
   tooltip: 请在Github上给这个项目一个⭐️支持
 brands:
@@ -67,13 +67,16 @@ common:
   delete: 删除
   deleteConfirm: 确认删除？
   goHome: 返回首页
-  name: Na'an
+  name: 姓名
   new: 新
   notFound: 未找到
   price: 价格
   search: 搜索
   status: 状态
   create: 确认
+  day: 天
+  week: 星期
+  month: 月
 currencySign: ¥
 customers:
   customerName: 客户名称
@@ -207,7 +210,7 @@ notifications:
   empty: 没有通知
   title: 通知
 notify:
-  welcome: 欢迎使用 Yummy Admin！基于 Naive UI 和 Vue 3 的免费管理面板，请在 GitHub 上点赞⭐️来支持此项目
+  welcome: 欢迎使用 YummyAdmin！基于 Naive UI 和 Vue 的免费管理面板，请在 GitHub 上点赞⭐️来支持此项目
 orders:
   customer: 客户名称
   itemsCount: 项目数量
@@ -269,7 +272,11 @@ reviews:
   rate: 评分
 title: 美味管理系统
 todoApp:
-  createGroup: 创建组
+  createGroup: 
+    groupTitle: 群组标题
+    taskTitle: 任务标题
+    theme: 主题
+    title: 创建组
   createTask: 创建新任务
   today: 今天
 userMenu:

@@ -168,9 +168,7 @@ const route = useRoute()
 const selectedMenuKey = ref('dashboard')
 const menuRef = ref<MenuInst | null>(null)
 
-onMounted(() => {
-  activateCurrentRoute()
-})
+onMounted(() => activateCurrentRoute())
 
 function activateCurrentRoute() {
   const keys = menuOptions.flatMap((m) => m.children || m) as [{ key: string }]
@@ -231,7 +229,6 @@ router.beforeEach(() => {
     font-size: 1.3rem;
     font-weight: 500;
     user-select: none;
-
   }
 
   .logo {

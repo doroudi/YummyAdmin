@@ -1,4 +1,4 @@
-Github:
+github:
   button: Github
   tooltip: Support this project by giving a star ⭐️ on GitHub
 brands:
@@ -78,6 +78,9 @@ common:
   search: Search
   status: Status
   create: Create
+  day: Day
+  week: Week
+  month: Month
 currencySign: $
 customers:
   customerName: Customer Name

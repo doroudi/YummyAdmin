@@ -1,4 +1,4 @@
-Github:
+github:
   button: GitHub
   tooltip: Bu projeye ⭐️ Github'da destek verin
 brands:
@@ -77,7 +77,9 @@ common:
   search: Ara
   status: Durum
   create: Yaratmak
-
+  day: Gün
+  week: Hafta
+  month: Ay
 currencySign: ₺
 customers:
   customerName: Müşteri Adı
@@ -277,7 +279,11 @@ reviews:
   rate: Oran
 title: Yummy Admin
 todoApp:
-  createGroup: Grup Oluştur
+  createGroup:
+    groupTitle: Grup Başlığı
+    taskTitle: Görev Başlığı
+    theme: Tema
+    title: Grup Oluştur
   createTask: Yeni görev oluştur
   today: Bugün
 userMenu:

@@ -39,7 +39,7 @@ const activeThemeOverrides = computed(() =>
 )
 
 watch(
-  () => layout.activeLanguage,
+  () => layout.isRtl,
   () => {
     const body = document.querySelector('body') as HTMLElement
     if (layout.isRtl) body.classList.add('rtl')
@@ -52,7 +52,7 @@ watch(
 
 watch(
   () => layout.isDark,
-  (newValue) => {
+  (newValue: boolean) => {
     if (newValue) document.documentElement.classList.add('dark')
     else document.documentElement.classList.remove('dark')
   },
@@ -61,7 +61,7 @@ watch(
 
 watch(
   () => layout.themeColor,
-  (newValue) => {
+  (newValue: string) => {
     setThemeColor(newValue)
   },
   { immediate: true },

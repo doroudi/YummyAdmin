@@ -16,12 +16,10 @@ const { t } = useI18n()
                 />
               </svg>
             </NIcon>
-
-            <!-- <span>{{ t('Github.button') }}</span> -->
           </n-button>
         </a>
       </template>
-      <span>{{ t('Github.tooltip') }}</span>
+      <span>{{ t('github.tooltip') }}</span>
     </n-tooltip>
   </div>
 </template>

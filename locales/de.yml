@@ -1,4 +1,4 @@
-Github:
+github:
   button: Github
   tooltip: >-
     Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
@@ -80,6 +80,9 @@ common:
   search: Suche
   status: Status
   create: Erstellen
+  day: Tag
+  week: Woche
+  month: Monat
 currencySign: €
 customers:
   customerName: Kundenname
@@ -218,7 +221,7 @@ notifications:
 notify:
   welcome: >-
     Willkommen bei Yummy Admin! Kostenloses Admin-Panel basierend auf Naive UI
-    und Vue 3. Bitte unterstützen Sie dieses Projekt, indem Sie auf GitHub einen
+    und Vue. Bitte unterstützen Sie dieses Projekt, indem Sie auf GitHub einen
     Stern ⭐️ vergeben.
 orders:
   customer: Kundenname
@@ -281,7 +284,11 @@ reviews:
   rate: Bewertung
 title: Yummy Admin
 todoApp:
-  createGroup: Groep aanmaken
+  createGroup: 
+    title: Groep aanmaken
+    groupTitle: GroupTitle
+    taskTitle: Aufgabenname
+    theme: Design
   createTask: Nieuwe taak maken
   today: Vandaag
 userMenu:

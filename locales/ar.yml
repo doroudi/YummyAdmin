@@ -1,4 +1,4 @@
-Github:
+github:
   button: GitHub
   tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
 brands:
@@ -55,9 +55,7 @@ colors:
   title: الألوان
   validations:
     colorRequired: اللون غير محدد
-    nameRequired: الاسم مطلوب
-commin:
-  create: يخلق
+    nameRequired: الاسم مطلوب  
 common:
   403Error: ليس لديك صلاحية الوصول
   404Error: خطأ 404
@@ -78,6 +76,10 @@ common:
   price: سعر
   search: بحث
   status: حالة
+  create: يخلق
+  day: یوم
+  week: أسبوع
+  month: شهر
 currencySign: درهم
 customers:
   customerName: اسم العميل
