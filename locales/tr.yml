@@ -207,7 +207,7 @@ menu:
   settings: Ayarlar
   sms: SMS
   support: Destek
-  todo: Yapılacaklar
+  todo: ToDo
   users: Kullanıcılar
   websiteSettings: Website Ayarları
 not-found: Bulunamadı
@@ -285,7 +285,7 @@ todoApp:
     theme: Tema
     title: Grup Oluştur
   createTask: Yeni görev oluştur
-  today: Bugün
+  today: Gügüm
 userMenu:
   dark: Karanlık
   en: İngilizce

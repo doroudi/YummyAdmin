@@ -12,7 +12,7 @@ const { collapsed, isRtl, mobileMode } = storeToRefs(layoutStore)
 </script>
 
 <template>
-  <n-page-header class="px-2 py-3 navbar">
+  <n-page-header class="px-2 py-3 navbar relative z-100">
     <template #title>
       <div class="flex items-center">
         <div flex w-full justify-start items-center>

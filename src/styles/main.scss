@@ -7,10 +7,11 @@
     --background: #EEE;
     --main-content: #FFF;
     --border-color: #ECECEC;
+    --background-dark: #283046;
 }
 
 .dark {
-  --background: #283046;
+  --background: var(--background-dark);
   --main-content: #222;
   --border-color: #2f3339;
 }
@@ -35,7 +36,11 @@ body,
 body {
   background-color: var(--background);
   background-size: cover;
+  max-height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
 }
+
 
 .rtl {
   html,

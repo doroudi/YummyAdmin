@@ -30,6 +30,9 @@ export const darkThemeOverrides: GlobalThemeOverrides = {
   Card: {
     borderRadius: '7px',
   },
+  Popover: {
+    color: '#0f172a',
+  },
   DataTable: {
     thColor: '#1c202c',
     tdColor: '#1c2334',

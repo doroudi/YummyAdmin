@@ -33,7 +33,16 @@ const customTheme = ref({ ...themeOverrides })
 const customDarkTheme = ref({ ...themeOverrides, ...darkThemeOverrides })
 const { makeLighter } = useColors()
 
-const activeTheme = computed(() => (layout.isDark ? darkTheme : lightTheme))
+const activeTheme = ref(layout.isDark ? darkTheme : lightTheme)
+watch(
+  () => layout.isDark,
+  (isDark: boolean) => {
+    setTimeout(() => {
+      activeTheme.value = isDark ? darkTheme : lightTheme
+    }, 250)
+  },
+  { immediate: true },
+)
 const activeThemeOverrides = computed(() =>
   layout.isDark ? customDarkTheme.value : customTheme.value,
 )
@@ -50,11 +59,23 @@ watch(
   },
 )
 
+const transitionDone = ref(true)
 watch(
   () => layout.isDark,
   (newValue: boolean) => {
-    if (newValue) document.documentElement.classList.add('dark')
-    else document.documentElement.classList.remove('dark')
+    if (newValue) {
+      transitionDone.value = false
+      setTimeout(() => {
+        document.documentElement.classList.add('dark')
+        transitionDone.value = true
+      }, 700)
+    } else {
+      transitionDone.value = false
+      document.documentElement.classList.remove('dark')
+      setTimeout(() => {
+        transitionDone.value = true
+      }, 1010)
+    }
   },
   { immediate: true },
 )
@@ -106,16 +127,14 @@ function setThemeColor(newValue: string) {
 </script>
 
 <template>
-  <n-config-provider
-    inline-theme-disabled
-    :theme="activeTheme"
-    :theme-overrides="activeThemeOverrides"
-    :rtl="layout.isRtl ? rtlStyles : []"
-    :preflight-style-disabled="false"
-  >
+  <n-config-provider inline-theme-disabled :theme="activeTheme" :theme-overrides="activeThemeOverrides"
+    :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false">
     <n-notification-provider placement="bottom-right">
       <n-message-provider placement="bottom-right">
         <n-dialog-provider>
+          <div class="dark-mode-container" :class="{ 'done': transitionDone }">
+            <div class="dark-mode" :class="{ 'active': layout.isDark }"></div>
+          </div>
           <RouterView />
           <GithubButton />
         </n-dialog-provider>
@@ -123,3 +142,50 @@ function setThemeColor(newValue: string) {
     </n-notification-provider>
   </n-config-provider>
 </template>
+
+
+<style scoped lang="scss">
+
+.rtl {
+  .dark-mode-container {
+    left: 148px;
+    right: auto;
+  }
+}
+.dark-mode-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 148px;
+  top: 30px;
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+
+  &.done {
+    z-index: 0;
+  }
+
+  .dark-mode {
+    position: relative;
+    transform: scale(0);
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 250vw;
+    height: 250vw;
+    border-radius: 50%;
+    background: var(--background-dark);
+    transition: 1000ms ease-in-out;
+    display: flex;
+    flex: 0 0 auto;
+
+    &.active {
+      transform: scale(1);
+      transition: 1000ms ease-in-out;
+    }
+  }
+}
+</style>
