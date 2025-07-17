@@ -73,7 +73,7 @@ And, enjoy :)
 
 ### Support this project
 
-<a href="https://www.buymeacoffee.com/ericdolch"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png"></a>
+<a href="https://coff.ee/yummyui"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png"></a>
 
 ### Development
 
