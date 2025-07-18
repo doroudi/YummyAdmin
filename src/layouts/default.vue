@@ -42,7 +42,7 @@ watch(
     <Sidebar />
 
     <n-layout :native-scrollbar="false" position="static">
-      <div class="main-content flex-1 bg-slate-100 dark:bg-slate-800 dark:text-white my-2">
+      <div class="main-content flex-1 dark:bg-slate-800 dark:text-white my-2">
         <Navbar />
         <div class="relative h-full">
           <NScrollbar>
@@ -69,5 +69,9 @@ watch(
 .n-layout {
   padding: 0 4px;
   background-color: transparent !important;
+}
+
+.main-content {
+  --un-bg-opacity: .6;
 }
 </style>

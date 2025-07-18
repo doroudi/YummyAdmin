@@ -1,6 +1,6 @@
 <route lang="yaml">
 meta:
-  name: dashboard
+  name: ecommerce-dashboard
   title: dashboard
   breadcrumb:
     - dashboard
