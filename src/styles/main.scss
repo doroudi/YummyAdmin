@@ -6,15 +6,17 @@
     --primary-color: #00ad4c;
     --background: #EEE;
     --main-content: #FFF;
-    --border-color: #ECECEC;
+    --border-color: #e0dfdf74;
     --background-dark: #283046;
 }
+
 
 .dark {
   --background: var(--background-dark);
   --main-content: #222;
-  --border-color: #2f3339;
+  --border-color: #161c2d78;
 }
+
 
 html,
 body,

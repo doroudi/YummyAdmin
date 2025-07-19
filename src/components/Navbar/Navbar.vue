@@ -51,14 +51,8 @@ const { collapsed, isRtl, mobileMode } = storeToRefs(layoutStore)
 
 <style lang="scss">
 .navbar {
-  border-bottom: solid 1px #ececec;
+  border-bottom: solid 1px var(--border-color);
   padding-bottom: 0.4rem;
-}
-
-.dark {
-  .navbar {
-    border-bottom-color: #2f3339;
-  }
 }
 
 .rtl {

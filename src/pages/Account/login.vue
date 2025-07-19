@@ -62,7 +62,7 @@ meta:
 <template>
   <div class="bg flex justify-center items-center h-screen">
     <div class="login-box w-full px-3 md:px-0">
-      <div class="md:shadow-lg bg-white dark:bg-slate-800 rounded-md w-full" :class="{ failed: loginFailed }">
+      <div class="md:shadow-lg bg-white dark:bg-slate-800  rounded-md w-full" :class="{ failed: loginFailed }">
         <div class="p-5">
           <div class="text-2xl font-medium mb-8">
             {{ t('login.title') }}
@@ -149,6 +149,8 @@ meta:
 
 .login-box {
   max-width: 380px;
+  position: relative;
+  z-index:2;
 
   .failed {
     animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;

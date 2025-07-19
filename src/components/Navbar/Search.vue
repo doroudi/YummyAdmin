@@ -24,7 +24,7 @@ const options = computed(() => {
     .map((item, i) => {
       return {
         label: t(`menu.${item.meta?.title || item.name}`),
-        value: item,
+        value: item.name,
         key: i,
       }
     })
@@ -40,10 +40,11 @@ const { ctrl_k } = useMagicKeys({
 whenever(ctrl_k, () => searchInput.value.focus())
 
 const router = useRouter()
-function gotoRoute(route: RouteRecordRaw) {
+function gotoRoute(name: string) {
+  const route = generatedRoutes.find((x) => x.name === name)
   if (route) {
     searchTerm.value = ''
-    router.push(route.path)
+    router.push(route)
   }
 }
 </script>
@@ -84,7 +85,6 @@ function gotoRoute(route: RouteRecordRaw) {
   .kbd {
     border: solid 1px var(--border-color);
     margin: 0.2rem 0;
-    background: var(--n-background-color);
     border-radius: var(--n-border-radius);
     padding: 0 0.4rem;
     height: 23px;

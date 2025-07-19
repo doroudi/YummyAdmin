@@ -1,7 +1,7 @@
 <route lang="yaml">
 meta:
-  name: dashboard
-  title: dashboard
+  name: analytics-dashboard
+  title: analytics
   breadcrumb:
     - dashboard
 </route>

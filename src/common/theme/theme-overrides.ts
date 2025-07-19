@@ -24,7 +24,7 @@ export const darkThemeOverrides: GlobalThemeOverrides = {
     warningColor: '#FF8000',
     borderRadius: '5px',
     borderRadiusSmall: '3px',
-    cardColor: '#0f172a',
+    // cardColor: '#0f172a33',
     borderColor: '#1c2334',
   },
   Card: {

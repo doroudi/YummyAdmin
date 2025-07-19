@@ -7,7 +7,7 @@ const { t } = useI18n()
   <div v-bind="$attrs">
     <n-tooltip placement="top" trigger="hover">
       <template #trigger>
-        <n-button quaternary circle @click="layout.toggleTheme()" class="theme-toggle"
+        <n-button quaternary circle @click="layout.toggleTheme()" class="theme-toggle" id="theme-toggle"
           :class="{ 'theme-toggle--toggled': layout.isDark }">
           <template #icon>
             <NIcon size="1.4rem">

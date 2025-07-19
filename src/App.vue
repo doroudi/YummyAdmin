@@ -39,7 +39,7 @@ watch(
   (isDark: boolean) => {
     setTimeout(() => {
       activeTheme.value = isDark ? darkTheme : lightTheme
-    }, 250)
+    }, 50)
   },
   { immediate: true },
 )
@@ -59,6 +59,12 @@ watch(
   },
 )
 
+onMounted(() =>
+  setTimeout(() => {
+    getToggleElementPosition()
+  }, 200),
+)
+
 const transitionDone = ref(true)
 watch(
   () => layout.isDark,
@@ -74,7 +80,7 @@ watch(
       document.documentElement.classList.remove('dark')
       setTimeout(() => {
         transitionDone.value = true
-      }, 1010)
+      }, 1000)
     }
   },
   { immediate: true },
@@ -124,6 +130,17 @@ function setThemeColor(newValue: string) {
     colorFocus: shade3,
   }
 }
+const toggleButtonPosition = ref<DOMRect>({ left: 0, top: 0 })
+function getToggleElementPosition() {
+  const element = document.querySelector('#theme-toggle') as HTMLElement
+  const rect = element.getBoundingClientRect()
+
+  toggleButtonPosition.value = {
+    left: layout.isRtl ? 'auto' : `${rect.left + window.scrollX}px`,
+    right: layout.isRtl ? `${window.innerWidth - rect.right}px` : 'auto',
+    top: `${rect.top + window.scrollY}px`,
+  }
+}
 </script>
 
 <template>
@@ -132,7 +149,9 @@ function setThemeColor(newValue: string) {
     <n-notification-provider placement="bottom-right">
       <n-message-provider placement="bottom-right">
         <n-dialog-provider>
-          <div class="dark-mode-container" :class="{ 'done': transitionDone }">
+          <div class="dark-mode-container"
+            :style="{ 'left': toggleButtonPosition.left, 'right': toggleButtonPosition.right, 'top': toggleButtonPosition.top }"
+            :class="{ 'done': transitionDone }">
             <div class="dark-mode" :class="{ 'active': layout.isDark }"></div>
           </div>
           <RouterView />
@@ -145,20 +164,17 @@ function setThemeColor(newValue: string) {
 
 
 <style scoped lang="scss">
-
 .rtl {
   .dark-mode-container {
-    left: 148px;
     right: auto;
   }
 }
+
 .dark-mode-container {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  right: 148px;
-  top: 30px;
   width: 20px;
   height: 20px;
   z-index: 1;

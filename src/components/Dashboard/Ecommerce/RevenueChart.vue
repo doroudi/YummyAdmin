@@ -90,7 +90,7 @@ const { t } = useI18n()
           v-model:value="period"
           :ranges="[{ label: t('common.day'), value: 'day' }, { label: t('common.week'), value: 'week' }, { label: t('common.month'), value: 'month' }]"
         />
-        <div v-if="revenueStat.length > 0" class="-mx-4">
+        <div v-if="revenueStat.length > 0" class="my-2 -mx-4">
           <VueApexCharts type="area" width="100%" height="150" :options="chartOptions" :series="series" />
         </div>
       </div>
