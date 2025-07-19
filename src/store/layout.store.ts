@@ -55,6 +55,7 @@ export const useLayoutStore = defineStore(
       const dir = t('direction')
       isRtl.value = dir !== null && dir === 'rtl'
       window.umami?.track('LanguageChange', { language: lang })
+      showWelcome()
     }
 
     function setThemeColor(color: string) {
@@ -63,7 +64,15 @@ export const useLayoutStore = defineStore(
     }
 
     function showWelcome() {
-      isWelcomeShown.value = true
+      useNotifyStore().clear()
+      setTimeout(() => {
+        useNotifyStore().notify({
+          body: t('notify.welcome'),
+          type: 'success',
+          duration: 10000,
+        })
+        isWelcomeShown.value = true
+      }, 1500)
     }
 
     function resetWelcomeState() {

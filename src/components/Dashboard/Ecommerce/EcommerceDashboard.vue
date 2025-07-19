@@ -10,14 +10,7 @@ const layout = useLayoutStore()
 onMounted(() => {
   store.getSummaryStat()
   if (!layout.isWelcomeShown) {
-    setTimeout(() => {
-      notify.notify({
-        body: t('notify.welcome'),
-        type: 'success',
-        duration: 10000,
-      })
-      layout.showWelcome()
-    }, 2000)
+    layout.showWelcome()
   }
 })
 </script>

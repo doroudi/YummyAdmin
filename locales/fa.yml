@@ -139,9 +139,13 @@ forgot:
   sendEmailSuccess: ایمیل با موفقیت ارسال شد، لطفا ایمیل خود را بررسی کنید
   title: فراموشی رمز عبور
   username: نام کاربری
-github:
-  button: گیت هاب
-  tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
+
+support:
+  github:
+    tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
+  buyMeCoffee:
+    tooltip: با خرید یک فنجان قهوه حامی این پروژه باشید
+
 home: خانه
 languages:
   ar: Arabic

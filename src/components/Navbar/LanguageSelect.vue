@@ -28,7 +28,7 @@ const languages = availableLocales.sort(sortLangs).map((x) => {
 function changeLanguage(lang: string) {
   layoutStore.changeLanguage(lang)
   layoutStore.resetWelcomeState()
-  setTimeout(() => window.location.reload(), 1500)
+  // setTimeout(() => window.location.reload(), 1500)
 }
 
 function renderLabel(label: string, language: string) {

@@ -141,9 +141,12 @@ forgot:
   sendEmailSuccess: Email Sent Successfully, Please Check Your Email
   title: Forgot Password
   username: User Name
-github:
-  button: Github
-  tooltip: Support this project by giving a star ⭐️ on GitHub
+support:
+  github:
+    tooltip: Support this project by giving a star ⭐️ on GitHub
+  buyMeCoffee:
+    tooltip: Support this project by buying me a coffee
+
 home: Home
 languages:
   ar: Arabic

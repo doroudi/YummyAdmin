@@ -143,9 +143,11 @@ forgot:
   sendEmailSuccess: تم إرسال البريد الإلكتروني بنجاح، يرجى التحقق من بريدك الإلكتروني
   title: نسيت كلمة المرور
   username: اسم المستخدم
-github:
-  button: GitHub
-  tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
+support:
+  github:
+    tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
+  buyMeCoffee:
+    tooltip: ادعم هذا المشروع بشراء كوب من القهوة.
 home: الرئيسية
 languages:
   ar: Arabic

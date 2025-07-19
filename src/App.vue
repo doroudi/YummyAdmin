@@ -155,7 +155,7 @@ function getToggleElementPosition() {
             <div class="dark-mode" :class="{ 'active': layout.isDark }"></div>
           </div>
           <RouterView />
-          <GithubButton />
+          <SupportProject />
         </n-dialog-provider>
       </n-message-provider>
     </n-notification-provider>

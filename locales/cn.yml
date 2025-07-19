@@ -138,9 +138,12 @@ forgot:
   sendEmailSuccess: 电子邮件发送成功，请检查您的电子邮件
   title: 忘记密码
   username: 用户名
-github:
-  button: Github
-  tooltip: 请在Github上给这个项目一个⭐️支持
+support:
+  github:
+    tooltip: 请在Github上给这个项目一个⭐️支持
+  buyMeCoffee:
+    tooltip: 购买一杯咖啡来支持这个项目。
+  
 home: 首页
 languages:
   ar: Arabic

@@ -144,9 +144,11 @@ forgot:
   sendEmailSuccess: Email Başarıyla Gönderildi, Lütfen E-postanızı Kontrol Edin
   title: Şifremi Unuttum
   username: Kullanıcı Adı
-github:
-  button: GitHub
-  tooltip: Bu projeye ⭐️ Github'da destek verin
+support:
+  github:
+    tooltip: Bu projeye ⭐️ Github'da destek verin
+  buyMeCoffee:
+    tooltip: Bir fincan kahve satın alarak bu projeye destek olun.
 home: Ana Sayfa
 languages:
   ar: Arabic
