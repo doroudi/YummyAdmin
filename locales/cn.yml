@@ -1,6 +1,3 @@
-github:
-  button: Github
-  tooltip: 请在Github上给这个项目一个⭐️支持
 brands:
   brand: 品牌
   create:
@@ -63,20 +60,20 @@ common:
   actions: 操作
   cancel: 取消
   confirm: 确认
+  create: 确认
   date: 日期
+  day: 天
   delete: 删除
   deleteConfirm: 确认删除？
   goHome: 返回首页
+  month: 月
   name: 姓名
   new: 新
   notFound: 未找到
   price: 价格
   search: 搜索
   status: 状态
-  create: 确认
-  day: 天
   week: 星期
-  month: 月
 currencySign: ¥
 customers:
   customerName: 客户名称
@@ -141,10 +138,13 @@ forgot:
   sendEmailSuccess: 电子邮件发送成功，请检查您的电子邮件
   title: 忘记密码
   username: 用户名
+github:
+  button: Github
+  tooltip: 请在Github上给这个项目一个⭐️支持
 home: 首页
 languages:
   ar: Arabic
-  ch: Chinese
+  cn: Chinese
   de: German
   en: English
   fa: Persian
@@ -272,7 +272,8 @@ reviews:
   rate: 评分
 title: 美味管理系统
 todoApp:
-  createGroup: 
+  completed: 完全的
+  createGroup:
     groupTitle: 群组标题
     taskTitle: 任务标题
     theme: 主题

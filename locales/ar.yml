@@ -1,6 +1,3 @@
-github:
-  button: GitHub
-  tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
 brands:
   brand: ''
   create:
@@ -55,7 +52,7 @@ colors:
   title: الألوان
   validations:
     colorRequired: اللون غير محدد
-    nameRequired: الاسم مطلوب  
+    nameRequired: الاسم مطلوب
 common:
   403Error: ليس لديك صلاحية الوصول
   404Error: خطأ 404
@@ -65,10 +62,13 @@ common:
   actions: الإجراءات
   cancel: يلغي
   confirm: يتأكد
+  create: يخلق
   date: تاریخ
+  day: یوم
   delete: يمسح
   deleteConfirm: هل أنت متأكد من حذف هذا العنصر؟
   goHome: العودة إلى الرئيسية
+  month: شهر
   name: اسم
   new: جدید
   notFound: غير موجود
@@ -76,10 +76,7 @@ common:
   price: سعر
   search: بحث
   status: حالة
-  create: يخلق
-  day: یوم
   week: أسبوع
-  month: شهر
 currencySign: درهم
 customers:
   customerName: اسم العميل
@@ -146,10 +143,13 @@ forgot:
   sendEmailSuccess: تم إرسال البريد الإلكتروني بنجاح، يرجى التحقق من بريدك الإلكتروني
   title: نسيت كلمة المرور
   username: اسم المستخدم
+github:
+  button: GitHub
+  tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
 home: الرئيسية
 languages:
   ar: Arabic
-  ch: Chinese
+  cn: Chinese
   de: German
   en: English
   fa: Persian
@@ -279,6 +279,7 @@ reviews:
   rate: التقييم
 title: لوحة تحكم يامي
 todoApp:
+  completed: مكتمل
   createGroup: إنشاء مجموعة
   createTask: إنشاء مهمة جديدة
   today: اليوم

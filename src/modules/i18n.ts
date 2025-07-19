@@ -20,7 +20,7 @@ if (storedValue) {
     parsed &&
     Object.prototype.hasOwnProperty.call(parsed, 'activeLanguage')
   ) {
-    if (['en', 'fa', 'tr', 'ar', 'ch', 'de'].includes(parsed.activeLanguage))
+    if (['en', 'fa', 'tr', 'ar', 'cn', 'de'].includes(parsed.activeLanguage))
       locale = parsed.activeLanguage
   }
 }

@@ -1,10 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type {
-  GroupCreateModel,
-  TaskCreateModel,
-  TaskGroup,
-  TaskItem,
-} from '~/models/Todo'
+
+import type { TaskCreateModel, TaskGroup, TaskItem } from '~/models/Todo'
 import todoService from '~/services/todo.service'
 
 export const useTodoAppStore = defineStore('Todo', () => {
@@ -33,10 +29,9 @@ export const useTodoAppStore = defineStore('Todo', () => {
   }
 
   function createGroup(group: TaskGroup) {
-    try {
-      group.id = groups.value.length + 1
-      groups.value.push(group)
-    } catch (error) {}
+    group.id = groups.value.length + 1
+    groups.value.push(group)
+    window.umami?.track('Todo:CreateGroup', { title: group.title })
   }
 
   function deleteGroup(id: number) {
@@ -46,21 +41,27 @@ export const useTodoAppStore = defineStore('Todo', () => {
 
   function toggleDoneTask(id: number) {
     const task = tasks.value.find((x) => x.id === id)
-    task.isDone = true
+    task.isDone = !task.isDone
     task.doneDate = new Date()
   }
 
   function toggleFavTask(id: number) {
-    const task = tasks.value.find((x: TaskItem) => x.id === id)
+    const task = tasks.value.find((x) => x.id === id)
     task.isFavorite = !task.isFavorite
+    if (task.isFavorite) window.umami?.track('Todo:FavTask')
+  }
+
+  function deleteTask(id: number) {
+    const taskIndex = tasks.value.findIndex((x) => x.id === id)
+    if (taskIndex) {
+      tasks.value.splice(taskIndex, 1)
+    }
   }
 
   async function createTask(task: TaskCreateModel) {
-    try {
-      const result = await todoService.createTask(task)
-      tasks.value.unshift({ id: result.id, title: task.title })
-    } finally {
-    }
+    const result = await todoService.createTask(task)
+    tasks.value.unshift({ id: result.id, title: task.title })
+    window.umami?.track('Todo:CreateTask', { title: task.title })
   }
 
   return {
@@ -75,6 +76,7 @@ export const useTodoAppStore = defineStore('Todo', () => {
     toggleDoneTask,
     toggleFavTask,
     deleteGroup,
+    deleteTask,
   }
 })
 if (import.meta.hot)

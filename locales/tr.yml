@@ -1,6 +1,3 @@
-github:
-  button: GitHub
-  tooltip: Bu projeye ⭐️ Github'da destek verin
 brands:
   brand: Marka
   create:
@@ -65,10 +62,13 @@ common:
   actions: Eylemler
   cancel: İptal etmek
   confirm: Onaylamak
+  create: Yaratmak
   date: Tarih
+  day: Gün
   delete: Silmek
   deleteConfirm: Bu öğeyi sileceğinizden emin misiniz?
   goHome: Ana Sayfaya Dön
+  month: Ay
   name: İsim
   new: Yeni
   notFound: Bulunamadı
@@ -76,10 +76,7 @@ common:
   price: Fiyat
   search: Ara
   status: Durum
-  create: Yaratmak
-  day: Gün
   week: Hafta
-  month: Ay
 currencySign: ₺
 customers:
   customerName: Müşteri Adı
@@ -147,10 +144,13 @@ forgot:
   sendEmailSuccess: Email Başarıyla Gönderildi, Lütfen E-postanızı Kontrol Edin
   title: Şifremi Unuttum
   username: Kullanıcı Adı
+github:
+  button: GitHub
+  tooltip: Bu projeye ⭐️ Github'da destek verin
 home: Ana Sayfa
 languages:
   ar: Arabic
-  ch: Chinese
+  cn: Chinese
   de: German
   en: English
   fa: Persian
@@ -279,6 +279,7 @@ reviews:
   rate: Oran
 title: Yummy Admin
 todoApp:
+  completed: Tamamlanmış
   createGroup:
     groupTitle: Grup Başlığı
     taskTitle: Görev Başlığı
