@@ -22,14 +22,21 @@ watch(
 )
 const store = useTodoAppStore()
 const { tasks } = storeToRefs(store)
-const orderedTasks = ref<TaskItem[]>(tasks.value)
+const orderedTasks = ref<TaskItem[]>(
+  tasks.value.filter((x: TaskItem) => !x.isDone),
+)
+const doneTasks = ref<TaskItem[]>(tasks.value.filter((x: TaskItem) => x.isDone))
 watch(
   () => tasks.value,
   () => {
-    orderedTasks.value = tasks.value.sort(
-      (item1: TaskItem, item2: TaskItem) =>
-        Number(item2.isFavorite ?? false) - Number(item1.isFavorite ?? false),
-    )
+    orderedTasks.value = tasks.value
+      .filter((x: TaskItem) => !x.isDone)
+      .sort(
+        (item1: TaskItem, item2: TaskItem) =>
+          Number(item2.isFavorite ?? false) - Number(item1.isFavorite ?? false),
+      )
+
+    doneTasks.value = tasks.value.filter((x: TaskItem) => x.isDone)
   },
   { deep: true },
 )
@@ -51,9 +58,9 @@ function createTask() {
   taskName.value = ''
 }
 
-function doneTask(id: number) {
+function toggleDoneTask(id: number, isChecked: boolean) {
   store.toggleDoneTask(id)
-  playSound()
+  if (!isChecked) playSound()
 }
 
 function playSound() {
@@ -70,6 +77,10 @@ function playSound() {
 function favTask(id: number) {
   store.toggleFavTask(id)
 }
+
+function deleteTask(id: number) {
+  store.deleteTask(id)
+}
 </script>
 
 <template>
@@ -79,8 +90,19 @@ function favTask(id: number) {
 
     <div class="flex-1 flex-col justify-end mb-1 overflow-y-auto">
       <n-scrollbar>
-        <TaskItem v-for="item of orderedTasks" :key="item.id" :task="item" class="my-2" @done="doneTask(item.id)"
-          @fav="favTask(item.id)" />
+        <TaskItem v-for="item of orderedTasks" :key="item.id" :task="item" class="my-2"
+          @toggle="value => toggleDoneTask(item.id, value)" @fav="favTask(item.id)" @delete="deleteTask(item.id)" />
+
+        <div pt-2>
+          <n-collapse>
+            <n-collapse-item :title="`${t('todoApp.completed')} (${doneTasks.length})`" name="done">
+              <TaskItem v-for="item of doneTasks" :key="item.id" :task="item" class="my-2"
+                @toggle="value => toggleDoneTask(item.id, value)" @fav="favTask(item.id)"
+                @delete="deleteTask(item.id)" />
+            </n-collapse-item>
+          </n-collapse>
+        </div>
+
       </n-scrollbar>
     </div>
 

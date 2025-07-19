@@ -40,8 +40,8 @@ export const useTodoAppStore = defineStore('Todo', () => {
   }
 
   function toggleDoneTask(id: number) {
-    const task = tasks.value.find((x: TaskItem) => x.id === id)
-    task.isDone = true
+    const task = tasks.value.find((x) => x.id === id)
+    task.isDone = !task.isDone
     task.doneDate = new Date()
   }
 
@@ -49,6 +49,13 @@ export const useTodoAppStore = defineStore('Todo', () => {
     const task = tasks.value.find((x) => x.id === id)
     task.isFavorite = !task.isFavorite
     if (task.isFavorite) window.umami?.track('Todo:FavTask')
+  }
+
+  function deleteTask(id: number) {
+    const taskIndex = tasks.value.findIndex((x) => x.id === id)
+    if (taskIndex) {
+      tasks.value.splice(taskIndex, 1)
+    }
   }
 
   async function createTask(task: TaskCreateModel) {
@@ -69,6 +76,7 @@ export const useTodoAppStore = defineStore('Todo', () => {
     toggleDoneTask,
     toggleFavTask,
     deleteGroup,
+    deleteTask,
   }
 })
 if (import.meta.hot)
