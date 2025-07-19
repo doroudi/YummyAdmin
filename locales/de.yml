@@ -1,8 +1,3 @@
-github:
-  button: Github
-  tooltip: >-
-    Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
-    geben
 brands:
   brand: Marke
   create:
@@ -58,7 +53,6 @@ colors:
   validations:
     colorRequired: Farbe nicht ausgewählt
     nameRequired: Name wird benötigt
-  
 common:
   403Error: Sie haben keine Zugriffsberechtigung
   404Error: 404 Fehler
@@ -68,10 +62,13 @@ common:
   actions: Aktionen
   cancel: Stornieren
   confirm: Bestätigen
+  create: Erstellen
   date: Datum
+  day: Tag
   delete: Löschen
   deleteConfirm: Sind Sie sicher, diesen Artikel zu löschen?
   goHome: Zurück zur Startseite
+  month: Monat
   name: Name
   new: Neu
   notFound: Nicht gefunden
@@ -79,10 +76,7 @@ common:
   price: Price
   search: Suche
   status: Status
-  create: Erstellen
-  day: Tag
   week: Woche
-  month: Monat
 currencySign: €
 customers:
   customerName: Kundenname
@@ -150,10 +144,15 @@ forgot:
   sendEmailSuccess: E-Mail erfolgreich gesendet, bitte überprüfen Sie Ihre E-Mail
   title: Passwort vergessen
   username: Benutzername
+github:
+  button: Github
+  tooltip: >-
+    Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
+    geben
 home: Startseite
 languages:
   ar: Arabic
-  ch: Chinese
+  cn: Chinese
   de: German
   en: English
   fa: Persian
@@ -284,11 +283,12 @@ reviews:
   rate: Bewertung
 title: Yummy Admin
 todoApp:
-  createGroup: 
-    title: Groep aanmaken
+  completed: Vollendet
+  createGroup:
     groupTitle: GroupTitle
     taskTitle: Aufgabenname
     theme: Design
+    title: Groep aanmaken
   createTask: Nieuwe taak maken
   today: Vandaag
 userMenu:

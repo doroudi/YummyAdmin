@@ -1,6 +1,3 @@
-github:
-  button: Github
-  tooltip: Support this project by giving a star ⭐️ on GitHub
 brands:
   brand: Brand
   create:
@@ -56,7 +53,6 @@ colors:
   validations:
     colorRequired: Color not selected
     nameRequired: Name is required
-
 common:
   403Error: You have not Permission to access
   404Error: 404 Error
@@ -66,10 +62,13 @@ common:
   actions: Actions
   cancel: Cancel
   confirm: Confirm
+  create: Create
   date: Date
+  day: Day
   delete: Delete
   deleteConfirm: Are you sure to delete this item?
   goHome: Back To Home
+  month: Month
   name: Name
   new: New
   notFound: Not Found
@@ -77,10 +76,7 @@ common:
   price: Price
   search: Search
   status: Status
-  create: Create
-  day: Day
   week: Week
-  month: Month
 currencySign: $
 customers:
   customerName: Customer Name
@@ -145,10 +141,13 @@ forgot:
   sendEmailSuccess: Email Sent Successfully, Please Check Your Email
   title: Forgot Password
   username: User Name
+github:
+  button: Github
+  tooltip: Support this project by giving a star ⭐️ on GitHub
 home: Home
 languages:
   ar: Arabic
-  ch: Chinese
+  cn: Chinese
   de: German
   en: English
   fa: Persian
@@ -278,6 +277,7 @@ reviews:
   rate: Rate
 title: Yummy Admin
 todoApp:
+  completed: Completed
   createGroup:
     groupTitle: Group Title
     taskTitle: Task Title

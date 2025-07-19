@@ -1,6 +1,3 @@
-github:
-  button: گیت هاب
-  tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
 brands:
   brand: برند
   create:
@@ -63,10 +60,13 @@ common:
   actions: عملیات
   cancel: لغو کردن
   confirm: تأیید کردن
+  create: ایجاد
   date: تاریخ
+  day: روز
   delete: حذف کردن
   deleteConfirm: آیا از حذف این مورد مطمئن هستید؟
   goHome: بازگشت به خانه
+  month: ماه
   name: نام
   new: جدید
   notFound: پیدا نشد
@@ -74,10 +74,7 @@ common:
   price: قیمت
   search: جستجو
   status: وضعیت
-  create: ایجاد
-  day: روز
   week: هفته
-  month: ماه
 currencySign: تومان
 customers:
   customerName: نام مشتری
@@ -142,10 +139,13 @@ forgot:
   sendEmailSuccess: ایمیل با موفقیت ارسال شد، لطفا ایمیل خود را بررسی کنید
   title: فراموشی رمز عبور
   username: نام کاربری
+github:
+  button: گیت هاب
+  tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
 home: خانه
 languages:
   ar: Arabic
-  ch: Chinese
+  cn: Chinese
   de: German
   en: English
   fa: Persian
@@ -275,6 +275,7 @@ reviews:
   rate: امتیاز
 title: پنل مدیریت Yummy
 todoApp:
+  completed: کامل
   createGroup:
     groupTitle: عنوان
     taskTitle: عنوان تسک
