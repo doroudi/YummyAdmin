@@ -8,6 +8,7 @@ import EnglandIcon from '../CustomIcons/EnglandIcon.vue'
 import GermanyIcon from '../CustomIcons/GermanyIcon.vue'
 import TurkishIcon from '../CustomIcons/TurkishIcon.vue'
 
+import { off } from 'dist/assets/index-CPwl54Xv'
 import PersianIcon from '../CustomIcons/PersianIcon.vue'
 
 defineProps<{ showTitle?: boolean }>()
@@ -17,7 +18,7 @@ const { activeLanguage } = storeToRefs(layoutStore)
 const { availableLocales } = useI18n()
 const language = ref(activeLanguage)
 
-const languages = availableLocales.map((x) => {
+const languages = availableLocales.sort(sortLangs).map((x) => {
   return {
     label: () => renderLabel(t(`languages.${x}`), x),
     value: x,
@@ -49,11 +50,16 @@ function getLanguageIcon(language: string) {
       return TurkishIcon
     case 'fa':
       return PersianIcon
-    case 'ch':
+    case 'cn':
       return ChineseIcon
     default:
       return EnglandIcon
   }
+}
+
+function sortLangs(a: string, b: string): number {
+  const ordered = ['en', 'fa', 'cn', 'de', 'ar', 'tr']
+  return ordered.findIndex((x) => x === a) - ordered.findIndex((x) => x === b)
 }
 </script>
 
