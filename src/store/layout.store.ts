@@ -44,7 +44,9 @@ export const useLayoutStore = defineStore(
 
     function toggleTheme() {
       isDark.value = !isDark.value
-      // window.umami?.track('ToggleDarkMode', { theme: isDark.value ? 'Dark' : 'Light' })
+      window.umami?.track('ToggleDarkMode', {
+        theme: isDark.value ? 'Dark' : 'Light',
+      })
     }
 
     function changeLanguage(lang: string) {

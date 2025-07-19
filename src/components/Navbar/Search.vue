@@ -22,7 +22,6 @@ const options = computed(() => {
             ) >= 0)),
     )
     .map((item, i) => {
-      console.log('✅', item)
       return {
         label: t(`menu.${item.meta?.title || item.name}`),
         value: item.name,
