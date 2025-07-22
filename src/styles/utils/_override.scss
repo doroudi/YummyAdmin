@@ -49,8 +49,21 @@
     top: 2px;
   }
 
+  .n-pagination *:not(:last-child) {
+    margin: var(--n-item-margin);
+  }
+
+  .n-pagination *:last-child {
+    margin: auto;
+  }
+
   .n-pagination {
-    flex-direction: row-reverse !important;
+
+    .n-pagination-item--button {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
   }
 
   .n-data-table-expand-trigger {
@@ -69,10 +82,10 @@
     flex: 0;
   }
 
-    .n-layout-sider .n-layout-sider__border {
-      left:0;
-      right: auto;
-    }
+  .n-layout-sider .n-layout-sider__border {
+    left: 0;
+    right: auto;
+  }
 }
 
 
@@ -93,6 +106,7 @@ select:-webkit-autofill:focus {
 .border-color-default {
   border-color: var(--border-color);
 }
+
 // ApexCharts
 .dark {
   .apexcharts-text {
@@ -122,5 +136,5 @@ select:-webkit-autofill:focus {
 }
 
 .n-list {
-  background-color: transparent!important;
+  background-color: transparent !important;
 }

@@ -48,7 +48,7 @@ watch(
           <NScrollbar>
             <div
               class="h-full overflow-auto md:mx-auto"
-              :class="{ 'md-container': !effectiveFluid, 'md:pb-15': !fullScreen, 'p-3': !fullScreen }"
+              :class="{ 'md-container': !effectiveFluid, 'md:pb-18': !fullScreen, 'p-3': !fullScreen }"
             >
               <router-view v-slot="{ Component, route }">
                 <transition name="route" mode="out-in">
