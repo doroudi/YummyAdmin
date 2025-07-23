@@ -38,6 +38,11 @@ export const useOrderStore = defineStore('Order', () => {
     return await orderService.getOrder(order.id)
   }
 
+  async function deleteItem(id: number) {
+    const itemIndex = orders.value.findIndex((x) => x.id === id)
+    if (itemIndex) orders.value.splice(itemIndex, 1)
+  }
+
   return {
     orders,
     getOrders,
@@ -45,6 +50,7 @@ export const useOrderStore = defineStore('Order', () => {
     isSaving,
     isLoading,
     getRecentOrders,
+    deleteItem,
   }
 })
 if (import.meta.hot)

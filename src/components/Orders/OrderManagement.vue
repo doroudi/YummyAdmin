@@ -7,8 +7,13 @@ import { type DataTableColumns, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { OrderStatus } from '~/models/Order'
 
-const { renderActionButton, renderTag, renderPrice, renderUserAvatar } =
-  useRender()
+const {
+  renderActionButton,
+  renderTag,
+  renderPrice,
+  renderUserAvatar,
+  renderDeleteActionButton,
+} = useRender()
 const { getStatusColor } = useOrders()
 const store = useOrderStore()
 const { proxy } = getCurrentInstance()
@@ -57,9 +62,11 @@ const columns: DataTableColumns<RowData> = [
     title: t('common.actions'),
     key: 'actions',
     width: 110,
-    render: () => [
-      renderActionButton(MoreIcon, () => {}),
-      renderActionButton(DeleteIcon, () => {}),
+    render: (row) => [
+      // renderActionButton(MoreIcon, () => {}),
+      renderDeleteActionButton(t('common.deleteConfirm'), () =>
+        handleDeleteItem(row),
+      ),
     ],
   },
 ]
@@ -76,6 +83,11 @@ function handlePageChange(page: number) {
 
 function rowKey(row: RowData) {
   return row.id
+}
+
+async function handleDeleteItem(row: RowData) {
+  await store.deleteItem(row.id)
+  useNotifyStore().success('Order was deleted!')
 }
 </script>
 

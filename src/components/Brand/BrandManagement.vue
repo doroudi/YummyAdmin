@@ -3,7 +3,6 @@ import {
   Edit32Regular as EditIcon,
   Add20Regular as PlusIcon,
 } from '@vicons/fluent'
-import { useMessage } from 'naive-ui'
 import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { storeToRefs } from 'pinia'
@@ -13,7 +12,6 @@ const layout = useLayoutStore()
 const { dialogPlacement } = storeToRefs(layout)
 const { t } = useI18n()
 const store = useBrandStore()
-const message = useMessage()
 
 onMounted(getItems)
 const { renderActionButton, renderDeleteActionButton } = useRender()
@@ -45,7 +43,8 @@ const showAddDialog = ref(false)
 
 function handleDeleteItem(row: RowData) {
   store.deleteBrand(row.id)
-  message.success('Brand was deleted!')
+  getItems()
+  useNotifyStore().success(`Brand ${row.name} was deleted!`)
 }
 
 function rowKey(row: RowData) {
