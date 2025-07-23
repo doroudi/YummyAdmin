@@ -21,6 +21,7 @@ button:
   home: خانه
   toggle_dark: حالت تیره
   toggle_langs: تغییر زبان
+  toggle_fullscreen: تمام صفحه
 categories:
   count: تعداد
   create:

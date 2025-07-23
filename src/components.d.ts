@@ -35,6 +35,7 @@ declare module 'vue' {
     EcommerceDashboard: typeof import('./components/Dashboard/Ecommerce/EcommerceDashboard.vue')['default']
     Editor: typeof import('./components/Editor.vue')['default']
     EnglandIcon: typeof import('./components/CustomIcons/EnglandIcon.vue')['default']
+    FullScreenButton: typeof import('./components/Navbar/FullScreenButton.vue')['default']
     GermanyIcon: typeof import('./components/CustomIcons/GermanyIcon.vue')['default']
     GithubIcon: typeof import('./components/CustomIcons/GithubIcon.vue')['default']
     GoogleIcon: typeof import('./components/CustomIcons/GoogleIcon.vue')['default']

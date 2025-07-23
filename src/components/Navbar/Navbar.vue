@@ -18,10 +18,8 @@ const { collapsed, isRtl, mobileMode } = storeToRefs(layoutStore)
         <div flex w-full justify-start items-center>
           <img v-if="mobileMode" width="35" src="@/assets/images/logo.png" alt="logo" class="logo">
 
-          <n-button
-            mx-2 size="small" quaternary circle :class="{ 'rotate-180': isRtl }"
-            @click="layoutStore.toggleSidebar"
-          >
+          <n-button mx-2 size="small" quaternary circle :class="{ 'rotate-180': isRtl }"
+            @click="layoutStore.toggleSidebar">
             <template #icon>
               <NIcon size="1.2rem">
                 <MenuIcon v-if="mobileMode" />
@@ -42,6 +40,7 @@ const { collapsed, isRtl, mobileMode } = storeToRefs(layoutStore)
         <ThemeCustomize />
         <ThemeSwitch class="mx-1" />
         <LanguageSelect class="mx-1" />
+        <FullScreenButton class="mx-1" />
         <Notifications class="mx-1" />
         <UserProfile class="mx-1" />
       </div>

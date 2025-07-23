@@ -21,6 +21,7 @@ button:
   home: Home
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
+  toggle_fullscreen: Toggle Full Screen
 categories:
   count: Count
   create:
