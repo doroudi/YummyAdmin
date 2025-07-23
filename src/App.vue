@@ -146,7 +146,7 @@ function getToggleElementPosition() {
 <template>
   <n-config-provider inline-theme-disabled :theme="activeTheme" :theme-overrides="activeThemeOverrides"
     :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false">
-    <n-notification-provider placement="bottom-right">
+    <n-notification-provider :placement="layout.isRtl ? 'bottom-left':'bottom-right'">
       <n-message-provider placement="bottom-right">
         <n-dialog-provider>
           <div class="dark-mode-container"
