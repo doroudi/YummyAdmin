@@ -1,10 +1,6 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-
 const { t } = useI18n()
-const notify = useNotifyStore()
 const store = useDashboardStore()
-const { isLoading, summaryStat } = storeToRefs(store)
 const layout = useLayoutStore()
 
 onMounted(() => {
