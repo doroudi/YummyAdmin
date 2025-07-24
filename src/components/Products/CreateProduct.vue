@@ -19,6 +19,7 @@ const { categories } = storeToRefs(categoryStore)
 const { brands } = storeToRefs(brandStore)
 const categoryOptions = ref<any[]>([])
 const brandOptions = ref<any[]>([])
+
 onMounted(async () => {
   await categoryStore.getCategories()
   await brandStore.getBrands()
@@ -52,7 +53,7 @@ function handlePreview(file: UploadFileInfo) {
   <n-form>
     <n-flex>
       <div class="w-full lg:w-3/4">
-        <n-card size="small" :title="t('products.create.productInformation')" class="mb-3">
+        <Card size="small" :title="t('products.create.productInformation')" class="mb-3">
           <n-form-item path="name" :label="t('products.create.name')">
             <n-input :placeholder="t('products.create.name')" label="Name" size="large" />
           </n-form-item>
@@ -67,26 +68,24 @@ function handlePreview(file: UploadFileInfo) {
           </n-space>
 
           <div path="description">
-            <Editor v-model="productItem.description" />
+            <Editor v-model="productItem.description" :placeholder="t('products.create.productInformation')" />
           </div>
-        </n-card>
-        <n-card size="small" title="Media">
+        </Card>
+        <Card size="small" :title="t('products.create.media')">
           <div class="form-control">
             <n-form-item class="mb-5" path="image" :label="t('brands.create.image')">
               <n-upload list-type="image-card" accept="image/png, image/jpeg" :max="20" @preview="handlePreview" />
-              <n-modal
-                v-model:show="showModal" preset="card" style="width: 600px"
-                :title="t('products.create.imageName')"
-              >
+              <n-modal v-model:show="showModal" preset="card" style="width: 600px"
+                :title="t('products.create.imageName')">
                 <img :src="previewImageUrl" style="width: 100%">
-              </n-modal>
+              </n-modal>  
             </n-form-item>
           </div>
-        </n-card>
+        </Card>
       </div>
 
       <div class="w-full lg:flex-1">
-        <n-card size="small" :title="t('products.create.pricing')" class="mb-2">
+        <Card size="small" :title="t('products.create.pricing')" class="mb-2">
           <n-space vertical>
             <n-form-item path="name" :label="t('products.create.price')">
               <n-input size="large" :placeholder="t('products.create.price')" />
@@ -100,18 +99,17 @@ function handlePreview(file: UploadFileInfo) {
               <n-switch />
             </n-space>
           </n-space>
-        </n-card>
+        </Card>
 
-        <n-card size="small" title="Category">
+        <Card size="small" :title="t('products.create.category')">
           <n-space vertical>
             <n-form-item path="category" :label="t('products.create.category')">
-              <n-tree-select
-                v-model="productItem.categoryId" key-field="key" :options="categoryOptions"
-                :placeholder="t('products.create.category')"
-              />
+              <n-tree-select v-model="productItem.categoryId" key-field="key" :options="categoryOptions"
+                :placeholder="t('products.create.category')" />
             </n-form-item>
             <n-form-item path="brand" :label="t('products.create.brand')">
-              <n-select v-model="productItem.brandId" :options="brandOptions" />
+              <n-select v-model="productItem.brandId" :options="brandOptions"
+                :placeholder="t('products.create.brand')" />
             </n-form-item>
             <n-form-item path="keywords" :label="t('products.create.keywords')">
               <n-dynamic-tags v-model:value="productItem.tags" :max="10">
@@ -128,7 +126,7 @@ function handlePreview(file: UploadFileInfo) {
               </n-dynamic-tags>
             </n-form-item>
           </n-space>
-        </n-card>
+        </Card>
       </div>
     </n-flex>
   </n-form>

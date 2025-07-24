@@ -227,7 +227,7 @@ products:
   create:
     barcode: بارکد
     brand: برند
-    category: گروه محصو
+    category: گروه محصول
     description: توضیحات
     discountedPrice: قیمت بعد از تخفیف
     imageName: تصویر محصول
