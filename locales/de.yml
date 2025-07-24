@@ -20,6 +20,7 @@ button:
   go: LOS
   home: Startseite
   toggle_dark: Dunkelmodus umschalten
+  toggle_fullscreen: Vollbildschirmen
   toggle_langs: Sprache ändern
 categories:
   count: Zählen
@@ -143,13 +144,6 @@ forgot:
   sendEmailSuccess: E-Mail erfolgreich gesendet, bitte überprüfen Sie Ihre E-Mail
   title: Passwort vergessen
   username: Benutzername
-support:
-  github:
-    tooltip: >-
-      Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
-      geben
-    buyMeCoffee:
-      tooltip: Unterstützen Sie dieses Projekt mit dem Kauf einer Tasse Kaffee.
 home: Startseite
 languages:
   ar: Arabic
@@ -282,6 +276,15 @@ reviews:
   date: Datum
   product: Produkt
   rate: Bewertung
+support:
+  buyMeCoffee:
+    tooltip: Unterstützen Sie dieses Projekt, indem Sie mir einen Kaffee kaufen
+  github:
+    buyMeCoffee:
+      tooltip: Unterstützen Sie dieses Projekt mit dem Kauf einer Tasse Kaffee.
+    tooltip: >-
+      Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
+      geben
 title: Yummy Admin
 todoApp:
   completed: Vollendet

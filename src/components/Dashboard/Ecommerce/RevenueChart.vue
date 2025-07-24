@@ -80,17 +80,13 @@ const { t } = useI18n()
   <div class="p-2">
     <Card stretch-height title-size="normal" :title="t('dashboard.revenueChart.title')">
       <div class="h-full flex flex-col justify-between">
-        <div>
-          <p class="text-xsm text-coolgray font-light pb-2">
-            {{ t('dashboard.revenueChart.subtitle') }}
-          </p>
-        </div>
+        <p class="text-xsm text-coolgray font-light pb-2">
+          {{ t('dashboard.revenueChart.subtitle') }}
+        </p>
 
-        <SwitchSelect
-          v-model:value="period"
-          :ranges="[{ label: t('common.day'), value: 'day' }, { label: t('common.week'), value: 'week' }, { label: t('common.month'), value: 'month' }]"
-        />
-        <div v-if="revenueStat.length > 0" class="my-2 -mx-4">
+        <SwitchSelect v-model:value="period"
+          :ranges="[{ label: t('common.day'), value: 'day' }, { label: t('common.week'), value: 'week' }, { label: t('common.month'), value: 'month' }]" />
+        <div v-if="revenueStat.length" class="my-2 -mx-4">
           <VueApexCharts type="area" width="100%" height="150" :options="chartOptions" :series="series" />
         </div>
       </div>

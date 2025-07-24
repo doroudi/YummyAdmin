@@ -20,6 +20,7 @@ button:
   go: 前往
   home: 首页
   toggle_dark: 切换深色模式
+  toggle_fullscreen: Toggle Full Screen
   toggle_langs: 切换语言
 categories:
   count: 数数
@@ -138,12 +139,6 @@ forgot:
   sendEmailSuccess: 电子邮件发送成功，请检查您的电子邮件
   title: 忘记密码
   username: 用户名
-support:
-  github:
-    tooltip: 请在Github上给这个项目一个⭐️支持
-  buyMeCoffee:
-    tooltip: 购买一杯咖啡来支持这个项目。
-  
 home: 首页
 languages:
   ar: Arabic
@@ -273,6 +268,11 @@ reviews:
   date: 日期
   product: 产品
   rate: 评分
+support:
+  buyMeCoffee:
+    tooltip: 购买一杯咖啡来支持这个项目。
+  github:
+    tooltip: 请在Github上给这个项目一个⭐️支持
 title: 美味管理系统
 todoApp:
   completed: 完全的

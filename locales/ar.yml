@@ -20,6 +20,7 @@ button:
   go: انتقال
   home: الرئيسية
   toggle_dark: تبديل الوضع المظلم
+  toggle_fullscreen: تبديل ملء الشاشة
   toggle_langs: تغيير اللغات
 categories:
   count: عدد
@@ -143,11 +144,6 @@ forgot:
   sendEmailSuccess: تم إرسال البريد الإلكتروني بنجاح، يرجى التحقق من بريدك الإلكتروني
   title: نسيت كلمة المرور
   username: اسم المستخدم
-support:
-  github:
-    tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
-  buyMeCoffee:
-    tooltip: ادعم هذا المشروع بشراء كوب من القهوة.
 home: الرئيسية
 languages:
   ar: Arabic
@@ -279,6 +275,13 @@ reviews:
   date: التاريخ
   product: المنتج
   rate: التقييم
+support:
+  buyMeCoffee:
+    tooltip: ادعم هذا المشروع بشراء كوب من القهوة.
+  github:
+    buyMeCoffee:
+      tooltip: ''
+    tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
 title: لوحة تحكم يامي
 todoApp:
   completed: مكتمل

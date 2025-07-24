@@ -20,6 +20,7 @@ button:
   go: GİT
   home: Ana Sayfa
   toggle_dark: Karanlık modu değiştir
+  toggle_fullscreen: Tam ekranı geçiş
   toggle_langs: Dil değiştir
 categories:
   count: Saymak
@@ -144,11 +145,6 @@ forgot:
   sendEmailSuccess: Email Başarıyla Gönderildi, Lütfen E-postanızı Kontrol Edin
   title: Şifremi Unuttum
   username: Kullanıcı Adı
-support:
-  github:
-    tooltip: Bu projeye ⭐️ Github'da destek verin
-  buyMeCoffee:
-    tooltip: Bir fincan kahve satın alarak bu projeye destek olun.
 home: Ana Sayfa
 languages:
   ar: Arabic
@@ -279,6 +275,11 @@ reviews:
   date: Tarih
   product: Ürün
   rate: Oran
+support:
+  buyMeCoffee:
+    tooltip: Bir fincan kahve satın alarak bu projeye destek olun.
+  github:
+    tooltip: Bu projeye ⭐️ Github'da destek verin
 title: Yummy Admin
 todoApp:
   completed: Tamamlanmış

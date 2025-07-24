@@ -21,6 +21,7 @@ button:
   home: خانه
   toggle_dark: حالت تیره
   toggle_langs: تغییر زبان
+  toggle_fullscreen: تمام صفحه
 categories:
   count: تعداد
   create:
@@ -226,7 +227,7 @@ products:
   create:
     barcode: بارکد
     brand: برند
-    category: گروه محصو
+    category: گروه محصول
     description: توضیحات
     discountedPrice: قیمت بعد از تخفیف
     imageName: تصویر محصول

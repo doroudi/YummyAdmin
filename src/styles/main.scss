@@ -43,6 +43,9 @@ body {
   overflow: hidden;
 }
 
+.ql-editor {
+  font-family: 'Inter var', 'ui-sans-serif',;
+}
 
 .rtl {
   html,
@@ -59,6 +62,10 @@ body {
 
     .n-base-select-menu .n-base-select-option {
       font-family: Shabnam;
+    }
+    .ql-editor {
+      font-family: Shabnam;
+      text-align: right;
     }
 
   .rtl-rotate {

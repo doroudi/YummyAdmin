@@ -13,10 +13,18 @@ watch(
     content.value = props.modelValue
   },
 )
+
+const options = {
+  readOnly: true,
+  theme: 'snow',
+  format: {
+    align: 'left',
+  },
+}
 </script>
 
 <template>
-  <QuillEditor v-model="content" toolbar="minimal" theme="snow" />
+  <QuillEditor v-model="content" :option="options" toolbar="minimal" align="right" v-bind="$attrs" />
 </template>
 
 <style lang="scss">
@@ -31,6 +39,7 @@ watch(
 }
 
 .ql-editor {
-  min-height: 150px;
+  min-height: 180px;
+  font-family: Shabnam;
 }
 </style>
