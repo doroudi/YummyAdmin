@@ -16,7 +16,7 @@ class GenericService<T, TKey> {
   }
 
   async getList(): Promise<T[]> {
-    const response = await this.apiService.getList<T>('', {})
+    const response = await this.apiService.getList<T>('all', {})
     return response.items
   }
 

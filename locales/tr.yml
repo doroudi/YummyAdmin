@@ -30,6 +30,7 @@ categories:
     parent: Üst Kategori
     title: Yeni Kategori Oluştur
   createButton: Oluştur
+  createdSucceed: Başarıyla yaratıldı
   stat: İstatistik
   title: Kategoriler
   topCategories: En iyi kategoriler
@@ -68,6 +69,7 @@ common:
   day: Gün
   delete: Silmek
   deleteConfirm: Bu öğeyi sileceğinizden emin misiniz?
+  deletedMessage: Başarıyla silindi
   goHome: Ana Sayfaya Dön
   month: Ay
   name: İsim

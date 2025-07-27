@@ -30,6 +30,7 @@ categories:
     parent: Übergeordnet
     title: Neue Kategorie erstellen
   createButton: Erstellen
+  createdSucceed: Erfolgreich erstellt
   stat: Statistiken
   title: Kategorien
   topCategories: Top -Kategorien
@@ -68,6 +69,7 @@ common:
   day: Tag
   delete: Löschen
   deleteConfirm: Sind Sie sicher, diesen Artikel zu löschen?
+  deletedMessage: Erfolgreich gelöscht
   goHome: Zurück zur Startseite
   month: Monat
   name: Name

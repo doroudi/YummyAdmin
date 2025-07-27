@@ -20,8 +20,8 @@ button:
   go: برو
   home: خانه
   toggle_dark: حالت تیره
-  toggle_langs: تغییر زبان
   toggle_fullscreen: تمام صفحه
+  toggle_langs: تغییر زبان
 categories:
   count: تعداد
   create:
@@ -30,6 +30,7 @@ categories:
     parent: دسته والد
     title: ایجاد دسته بندی جدید
   createButton: ذخیره
+  createdSucceed: با موفقیت ایجاد شد
   stat: آمار
   title: دسته بندی ها
   topCategories: دسته های برتر
@@ -66,6 +67,7 @@ common:
   day: روز
   delete: حذف کردن
   deleteConfirm: آیا از حذف این مورد مطمئن هستید؟
+  deletedMessage: با موفقیت حذف شد
   goHome: بازگشت به خانه
   month: ماه
   name: نام
@@ -140,13 +142,6 @@ forgot:
   sendEmailSuccess: ایمیل با موفقیت ارسال شد، لطفا ایمیل خود را بررسی کنید
   title: فراموشی رمز عبور
   username: نام کاربری
-
-support:
-  github:
-    tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
-  buyMeCoffee:
-    tooltip: با خرید یک فنجان قهوه حامی این پروژه باشید
-
 home: خانه
 languages:
   ar: Arabic
@@ -278,6 +273,11 @@ reviews:
   date: تاریخ
   product: محصول
   rate: امتیاز
+support:
+  buyMeCoffee:
+    tooltip: با خرید یک فنجان قهوه حامی این پروژه باشید
+  github:
+    tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
 title: پنل مدیریت Yummy
 todoApp:
   completed: کامل

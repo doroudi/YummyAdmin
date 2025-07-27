@@ -21,7 +21,7 @@ export class ApiService {
     return response.data
   }
 
-  async getList<T>(url, params: any): Promise<ListResult<T>> {
+  async getList<T>(url: string, params: any): Promise<ListResult<T>> {
     const response = await this.httpClient.get<ListResult<T>>(
       `${this.apiBase}/${url}`,
       { params },

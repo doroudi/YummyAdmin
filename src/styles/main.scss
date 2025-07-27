@@ -3,11 +3,11 @@
 @use 'utils/animations';
 
 :root {
-    --primary-color: #00ad4c;
-    --background: #EEE;
-    --main-content: #FFF;
-    --border-color: #e0dfdf74;
-    --background-dark: #283046;
+  --primary-color: #00ad4c;
+  --background: #EEE;
+  --main-content: #FFF;
+  --border-color: #e0dfdf74;
+  --background-dark: #283046;
 }
 
 
@@ -44,10 +44,11 @@ body {
 }
 
 .ql-editor {
-  font-family: 'Inter var', 'ui-sans-serif',;
+  font-family: 'Inter var', 'ui-sans-serif', ;
 }
 
 .rtl {
+
   html,
   body,
   .n-drawer,
@@ -60,20 +61,22 @@ body {
     }
   }
 
-    .n-base-select-menu .n-base-select-option {
-      font-family: Shabnam;
-    }
-    .ql-editor {
-      font-family: Shabnam;
-      text-align: right;
-    }
+  .n-notification-main__content,
+  .n-base-select-menu .n-base-select-option {
+    font-family: Shabnam !important;
+  }
+
+  .ql-editor {
+    font-family: Shabnam;
+    text-align: right;
+  }
 
   .rtl-rotate {
     transform: rotate(180deg);
   }
 }
 
-.main-content { 
+.main-content {
   background: var(--main-content);
   height: calc(100vh - 1.3rem);
   border-radius: 10px;

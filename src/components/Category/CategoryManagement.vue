@@ -45,7 +45,7 @@ const showAddDialog = ref(false)
 
 function handleDeleteItem(row: RowData) {
   store.deleteCategory(row.id)
-  message.success('Category was deleted!')
+  useNotifyStore().success(t('common.deletedMessage'))
 }
 
 function rowKey(row: RowData) {

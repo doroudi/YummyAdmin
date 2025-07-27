@@ -50,6 +50,7 @@ async function create() {
   formRef.value?.validate(async (errors: any) => {
     if (!errors) {
       await categoryStore.createCategory(categoryItem.value)
+      useNotifyStore().success(t('categories.createdSucceed'))
       emits('close')
     }
   })

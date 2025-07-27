@@ -30,6 +30,7 @@ categories:
     parent: 父级
     title: 创建新分类
   createButton: 创建
+  createdSucceed: 创建成功
   stat: 统计
   title: 分类
   topCategories: 顶级分类
@@ -66,6 +67,7 @@ common:
   day: 天
   delete: 删除
   deleteConfirm: 确认删除？
+  deletedMessage: 删除成功
   goHome: 返回首页
   month: 月
   name: 姓名

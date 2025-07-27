@@ -20,8 +20,8 @@ button:
   go: GO
   home: Home
   toggle_dark: Toggle dark mode
-  toggle_langs: Change languages
   toggle_fullscreen: Toggle Full Screen
+  toggle_langs: Change languages
 categories:
   count: Count
   create:
@@ -30,6 +30,7 @@ categories:
     parent: Parent
     title: Create New Category
   createButton: Create
+  createdSucceed: Created Successfully
   stat: Statistics
   title: Categories
   topCategories: Top Categories
@@ -68,6 +69,7 @@ common:
   day: Day
   delete: Delete
   deleteConfirm: Are you sure to delete this item?
+  deletedMessage: Deleted Successfully
   goHome: Back To Home
   month: Month
   name: Name
@@ -142,12 +144,6 @@ forgot:
   sendEmailSuccess: Email Sent Successfully, Please Check Your Email
   title: Forgot Password
   username: User Name
-support:
-  github:
-    tooltip: Support this project by giving a star ⭐️ on GitHub
-  buyMeCoffee:
-    tooltip: Support this project by buying me a coffee
-
 home: Home
 languages:
   ar: Arabic
@@ -279,6 +275,11 @@ reviews:
   date: Date
   product: Product
   rate: Rate
+support:
+  buyMeCoffee:
+    tooltip: Support this project by buying me a coffee
+  github:
+    tooltip: Support this project by giving a star ⭐️ on GitHub
 title: Yummy Admin
 todoApp:
   completed: Completed

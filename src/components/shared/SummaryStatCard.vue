@@ -31,7 +31,7 @@ const element = ref()
             <div class="w-25 overflow-hidden">
 
               <h3 ref="element" class="text-gray-700 dark:text-gray-200 value">
-                <n-number-animation ref="numberAnimationInstRef" :from="0" :to="data.count" />
+                <n-number-animation v-if="data" ref="numberAnimationInstRef" :from="0" :to="data.count" />
               </h3>
               <h4 class="title text-gray-600 dark:text-gray-200">
                 {{ title }}
