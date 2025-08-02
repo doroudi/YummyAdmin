@@ -9,12 +9,14 @@ export interface ChatItem {
 
 export interface MessageItem {
   id: string
+  senderId?: string
   content: string
   created: Date
   updated: Date
 }
 
 export interface Contact {
+  id: string
   name: string
   avatar: string
 }

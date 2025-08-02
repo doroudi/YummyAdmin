@@ -41,6 +41,7 @@ category:
   name: Kategorie
   productsCount: Produkte Anzahl
 chatApp:
+  call: Anruf
   writeMessage: Schrijf bericht
 colors:
   color: Farbe

@@ -41,6 +41,7 @@ category:
   name: 分类
   productsCount: 产品数量
 chatApp:
+  call: 称呼
   writeMessage: 写消息
 colors:
   color: 颜色

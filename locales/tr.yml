@@ -41,6 +41,7 @@ category:
   name: Kategori
   productsCount: Produkte Anzahl
 chatApp:
+  call: Arama
   writeMessage: Mesaj yaz
 colors:
   color: Renk

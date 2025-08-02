@@ -41,6 +41,7 @@ category:
   name: الفئة
   productsCount: عدد المنتجات
 chatApp:
+  call: يتصل
   writeMessage: اكتب رسالة
 colors:
   color: لون

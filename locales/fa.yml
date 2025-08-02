@@ -42,6 +42,7 @@ category:
   productsCount: تعداد محصولات
 chatApp:
   writeMessage: پیغام تان را بنویسید
+  call: تماس
 colors:
   color: رنگ
   create:
