@@ -28,7 +28,7 @@ defineProps<Props>()
 }
 
 .chat-message {
-  --current-color: #FFF;
+  --current-color: #f3f4f6;
   --self-background: #e0f7fa;
 
   span a {
