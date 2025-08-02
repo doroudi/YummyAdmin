@@ -45,6 +45,7 @@ declare module 'vue' {
     MessageItem: typeof import('./components/Apps/Chat/MessageItem.vue')['default']
     MicrosoftIcon: typeof import('./components/CustomIcons/MicrosoftIcon.vue')['default']
     NAutoComplete: typeof import('naive-ui')['NAutoComplete']
+    NAvatar: typeof import('naive-ui')['NAvatar']
     Navbar: typeof import('./components/Navbar/Navbar.vue')['default']
     NBadge: typeof import('naive-ui')['NBadge']
     NBreadcrumb: typeof import('naive-ui')['NBreadcrumb']

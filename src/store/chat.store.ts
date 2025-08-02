@@ -4,35 +4,28 @@ import type { ChatItem, MessageItem } from '~/models/Chat'
 
 export const useChatStore = defineStore('Chat', () => {
   const chats = ref<ChatItem[]>([])
-  const messages = ref<MessageItem[]>([
-    {
-      id: '1',
-      content: 'Welcome to the chat! How can I assist you today?',
-      created: new Date(),
-      updated: new Date(),
-    },
-    {
-      id: '1',
-      content: 'How are things?',
-      created: new Date(),
-    },
-  ])
+  const currentChat = ref<ChatItem | null>(null)
+  const messages = ref<MessageItem[]>([])
   const isLoading = ref(false)
+  const unwatch: (() => void) | null = null
+
   const { status, data, send, open, close } = useWebSocket(
     `wss://${import.meta.env.VITE_BASE_URL}/chat`,
   )
-  const unwatch: (() => void) | null = null
 
   async function connect() {
     if (status === 'CLOSED') open()
   }
 
   function loadChatMessages(id: number) {
+    currentChat.value = chats.value.find((chat) => chat.id === id)
+    messages.value = []
     send(JSON.stringify({ action: 'DETAILS', id }))
   }
 
   function sendMessage(message: MessageItem) {
     messages.value.push(message)
+    send(JSON.stringify({ action: 'MESSAGE', message }))
   }
 
   watch(
@@ -50,8 +43,8 @@ export const useChatStore = defineStore('Chat', () => {
       case 'UPDATE':
         chats.value = sortChats(payload)
         break
-      case 'DETAILS':
-        messages.value = payload
+      case 'MESSAGE':
+        messages.value.push(payload)
     }
   }
 
@@ -75,6 +68,7 @@ export const useChatStore = defineStore('Chat', () => {
     loadChatMessages,
     messages,
     sendMessage,
+    currentChat,
   }
 })
 if (import.meta.hot)

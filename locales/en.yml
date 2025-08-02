@@ -42,6 +42,7 @@ category:
   productsCount: Products Count
 chatApp:
   writeMessage: Write Message
+  call: Call
 colors:
   color: Color
   create:
