@@ -104,6 +104,7 @@ dashboard:
     يسعدنا رؤيتك هنا.
   locationChart:
     title: موقع العميل
+  monthlySell: البيع الشهري
   products: المنتجات
   recentOrders: الطلبات الأخيرة
   registerSource:

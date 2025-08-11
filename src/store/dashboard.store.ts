@@ -1,5 +1,9 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import type { DonutChartSeries, LocationChartSeries } from '~/models/ChartData'
+import type {
+  ChartData,
+  DonutChartSeries,
+  LocationChartSeries,
+} from '~/models/ChartData'
 import type { DashboardSummaryStatDto } from '~/models/SummaryStat'
 import reportService from '~/services/report.service'
 
@@ -16,13 +20,23 @@ export const useDashboardStore = defineStore('Dashboard', () => {
   const revenueStat = ref<any>([])
   const isLoading = ref(false)
   const isLoadingStats = ref(false)
-
+  const monthlySellStat = ref<ChartData | null>()
   async function getSummaryStat() {
     isLoadingStats.value = true
     try {
       summaryStat.value = await reportService.getSummaryReport()
     } finally {
       isLoadingStats.value = false
+    }
+  }
+
+  async function getMonthlySellStat() {
+    isLoading.value = true
+    try {
+      const data = await reportService.getMonthlySellStat()
+      monthlySellStat.value = data
+    } finally {
+      isLoading.value = false
     }
   }
 
@@ -63,6 +77,8 @@ export const useDashboardStore = defineStore('Dashboard', () => {
     usersGenderData,
     getLocationStat,
     usersLocationData,
+    getMonthlySellStat,
+    monthlySellStat,
   }
 })
 if (import.meta.hot)

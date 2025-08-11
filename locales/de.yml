@@ -104,6 +104,7 @@ dashboard:
     Wir freuen uns, Sie hier zu sehen.
   locationChart:
     title: Standort des Kunden
+  monthlySell: Monatlich verkaufen
   products: Produkte
   recentOrders: Aktuelle Bestellungen
   registerSource:

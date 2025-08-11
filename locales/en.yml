@@ -41,8 +41,8 @@ category:
   name: Category
   productsCount: Products Count
 chatApp:
-  writeMessage: Write Message
   call: Call
+  writeMessage: Write Message
 colors:
   color: Color
   create:
@@ -102,6 +102,7 @@ dashboard:
   greeting_message: Have a nice day! We are happy to see you here.
   locationChart:
     title: Customer's Location
+  monthlySell: Monthly Sell
   products: Products
   recentOrders: Recent Orders
   registerSource:

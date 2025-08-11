@@ -2,7 +2,11 @@ import { faker } from '@faker-js/faker/locale/en'
 import _ from 'lodash'
 import times from 'lodash/times'
 import { http, HttpResponse } from 'msw'
-import type { DonutChartSeries, LocationChartSeries } from '~/models/ChartData'
+import type {
+  ChartData,
+  DonutChartSeries,
+  LocationChartSeries,
+} from '~/models/ChartData'
 import type {
   DashboardSummaryStatDto,
   SummaryStatDto,
@@ -15,7 +19,6 @@ const handlers = [
   }),
 
   http.get('/api/report/revenue/:period', (req) => {
-    const { period } = req.params
     const response = times(10, () =>
       faker.number.int({ min: 1000, max: 10000 }),
     )
@@ -30,6 +33,36 @@ const handlers = [
 
   http.get('/api/report/usersLocation', () => {
     const response = createFakeLocationData()
+    return HttpResponse.json(response, { status: 200 })
+  }),
+
+  http.get('/api/report/monthlySellStat', () => {
+    const response: ChartData = {
+      labels: [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ],
+      series: [
+        {
+          name: 'Total',
+          data: times(12, () => faker.number.int({ min: 1000, max: 10000 })),
+        },
+        {
+          name: 'Revenue',
+          data: times(12, () => faker.number.int({ min: 1000, max: 3000 })),
+        },
+      ],
+    }
     return HttpResponse.json(response, { status: 200 })
   }),
 ]

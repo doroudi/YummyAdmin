@@ -104,6 +104,7 @@ dashboard:
     Seni burada gördüğümüz için mutluyuz.
   locationChart:
     title: Müşterinin Konumu
+  monthlySell: Aylık Satış
   products: Ürünler
   recentOrders: Son siparişler
   registerSource:

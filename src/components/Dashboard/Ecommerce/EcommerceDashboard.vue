@@ -21,13 +21,14 @@ onMounted(() => {
       </div>
 
       <div class="flex flex-col lg:flex-row margin-outside w-full pb-1">
-        <div class="lg:w-1/2 w-full">
-          <VisitsChart />
+        <div class="lg:w-3/4 w-full">
+          <MonthlySellChart  />
+          <!-- <VisitsChart /> -->
         </div>
 
-        <div class="flex flex-col lg:flex-row w-full lg:w-1/2">
-          <UsersPlatformChart class="w-full lg:w-1/2" />
-          <RevenueChart class="w-full lg:w-1/2" />
+        <div class="flex flex-col lg:flex-row w-full lg:w-1/4">
+          <UsersPlatformChart class="w-full" />
+          <!-- <RevenueChart class="w-full lg:w-1/2" /> -->
         </div>
       </div>
 

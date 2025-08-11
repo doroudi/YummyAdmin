@@ -11,7 +11,7 @@ const emit = defineEmits(['update:value'])
 const localValue = ref<string>(props.value)
 watch(
   () => localValue.value,
-  (val) => {
+  (val: string) => {
     emit('update:value', val)
   },
 )
@@ -36,6 +36,11 @@ watch(
 
             &:hover {
                 border: none;
+            }
+
+            &.n-radio-button--checked {
+              background-color: rgb(from var(--primary-color) r g b / .5);
+              color: var(--n-color-text);
             }
 
             .n-radio-button__state-border {

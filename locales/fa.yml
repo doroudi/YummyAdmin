@@ -41,8 +41,8 @@ category:
   name: دسته بندی
   productsCount: تعداد محصولات
 chatApp:
-  writeMessage: پیغام تان را بنویسید
   call: تماس
+  writeMessage: پیغام تان را بنویسید
 colors:
   color: رنگ
   create:
@@ -100,6 +100,7 @@ dashboard:
   greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
   locationChart:
     title: موقعیت مکانی مشتریان
+  monthlySell: فروش ماهانه
   products: محصولات
   recentOrders: سفارش های اخیر
   registerSource:

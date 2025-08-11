@@ -99,6 +99,7 @@ dashboard:
   greeting_message: 祝您有美好的一天！我们很高兴见到您。
   locationChart:
     title: 客户位置
+  monthlySell: 每月销售
   products: 产品
   recentOrders: 近期订单
   registerSource:
