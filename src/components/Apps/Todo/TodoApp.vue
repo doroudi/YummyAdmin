@@ -7,16 +7,15 @@ import type { TaskGroup } from '~/models/Todo'
 const { t } = useI18n()
 const collapsed = ref(false)
 const store = useTodoAppStore()
-const { groups, tasks } = storeToRefs(store)
+const { groups } = storeToRefs(store)
 const filteredGroups = ref([])
 const searchKeyword = ref('')
 onMounted(async () => {
   await store.loadGroups()
-  selectedGroup.value = groups.value[0]
+  selectGroup(groups.value[0])
 })
 
 const selectedGroup = ref<TaskGroup>()
-
 function selectGroup(group: TaskGroup) {
   selectedGroup.value = group
 }
@@ -35,6 +34,11 @@ const showCreateModal = ref(false)
 function createGroup() {
   showCreateModal.value = true
 }
+
+function handleNewGroupCreated() {
+  showCreateModal.value = false
+  selectGroup(groups.value[groups.value.length - 1])
+}
 </script>
 
 <template>
@@ -46,7 +50,7 @@ function createGroup() {
             </div>
             <div class="todo-sidebar">
                 <NScrollbar>
-                    <TodoGroupsList :groups="searchKeyword.length ? filteredGroups : groups" @select="selectGroup" />
+                    <TodoGroupsList :groups="searchKeyword.length ? filteredGroups : groups" :selected-group="selectedGroup" @select="selectGroup" />
                 </NScrollbar>
             </div>
             <div class="p-2">
@@ -59,7 +63,7 @@ function createGroup() {
                     {{ t('todoApp.createGroup.title') }}
                 </NButton>
             </div>
-            <CreateGroup :show="showCreateModal" @close="showCreateModal = false" />
+            <CreateGroup :show="showCreateModal" @close="showCreateModal = false" @created="handleNewGroupCreated" />
         </NLayoutSider>
         <NLayoutContent>
             <TasksList v-if="selectedGroup" :group="selectedGroup" />

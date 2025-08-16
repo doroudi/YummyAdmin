@@ -7,7 +7,7 @@ import { Checkmark48Filled as CheckIcon } from '@vicons/fluent'
 import type { TaskGroup } from '~/models/Todo'
 
 const props = defineProps<Props>()
-const emits = defineEmits(['close'])
+const emits = defineEmits(['close', 'created'])
 const showModal = computed(() => props.show)
 const { t } = useI18n()
 const colors = useColors().primaryColors
@@ -28,7 +28,7 @@ function createGroup() {
   groupItem.value.bgColor = color
   groupItem.value.icon = '📁'
   store.createGroup(groupItem.value)
-  emits('close')
+  emits('created')
   window.umami?.track('Todo:CreateGroup', { title: groupItem.value.title })
   groupItem.value = {}
   selectedColorIndex.value = -1

@@ -9,7 +9,7 @@ const tasks: TaskItem[] = [
     createDate: new Date(),
     isDone: false,
     isToday: true,
-    title: 'Go Gym',
+    title: 'Continue learn ML',
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const tasks: TaskItem[] = [
     createDate: new Date(),
     isDone: false,
     isToday: true,
-    title: 'MINST Implementation',
+    title: 'Improve YummyAdmin',
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const tasks: TaskItem[] = [
     id: 5,
     groupId: 2,
     createDate: new Date(),
-    isDone: false,
+    isDone: true,
     isToday: false,
     title: 'Search feature',
   },
@@ -65,7 +65,7 @@ const tasks: TaskItem[] = [
     createDate: new Date(),
     isDone: true,
     isToday: false,
-    title: 'God Father 1',
+    title: 'God Father I',
   },
   {
     id: 9,
@@ -129,7 +129,7 @@ const tasks: TaskItem[] = [
     createDate: new Date(),
     isDone: false,
     isToday: false,
-    title: 'Karamazov brothers',
+    title: 'The Brothers Karamazov',
   },
   {
     id: 17,
@@ -169,6 +169,7 @@ const handlers = [
 
 function createFakeTaskGroups(): TaskGroup[] {
   const groups: TaskGroup[] = [
+    { id: 1, title: 'Today', icon: '📅' },
     { id: 2, title: 'YummyAdmin', icon: '😋', bgColor: '#1aa58b' },
     { id: 3, title: 'ToWatch', icon: '🎞️', bgColor: '#e58f6b' },
     { id: 4, title: 'Buy List', icon: '🛒', bgColor: '' },

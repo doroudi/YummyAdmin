@@ -43,9 +43,14 @@ watch(
 
 const taskName = ref('')
 const inputIsActive = ref(false)
-onMounted(() => {
-  store.loadGroupTasks(props.group.id)
-})
+
+watch(
+  () => props.group.id,
+  (newVal: TaskGroup, oldVal: TaskGroup) => {
+    if (newVal !== oldVal) store.loadGroupTasks(props.group.id)
+  },
+  { immediate: true },
+)
 
 function createTask() {
   if (!taskName.value.trim()) return

@@ -59,7 +59,7 @@ function handleSelect(action: string) {
     <div class="task-item flex justify-between items-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-3 py-3.5 rounded-md"
         :class="{ done: isDone, favorite: task.isFavorite }" @contextmenu="handleContextMenu">
         <div class="flex items-center">
-            <NCheckbox v-model:checked="isDone" @on-update:checked="update" class="me-2 circle">
+            <NCheckbox v-model:checked="isDone" @update:checked="update" class="me-2 circle">
                 <span>{{ task.title }}</span>
             </NCheckbox>
 

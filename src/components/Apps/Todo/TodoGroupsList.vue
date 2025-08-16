@@ -4,27 +4,18 @@ import type { TaskGroup } from '~/models/Todo'
 
 interface Props {
   groups: TaskGroup[]
+  selectedGroup?: TaskGroup
 }
+
 const props = defineProps<Props>()
 const emits = defineEmits(['select'])
-const selectedGroup = ref<TaskGroup | null>(null)
 const { t } = useI18n()
-
-const allGroups = computed(() => [
-  { id: 1, title: t('todoApp.today'), icon: '📅' },
-  ...props.groups,
-])
-
-onMounted(() => {
-  setTimeout(() => {
-    const item = allGroups.value.at(0)
-    if (item) {
-      selectedGroup.value = item
-      emits('select', item)
-    }
-  }, 100)
-})
-
+// const innerSelectedGroup = ref<TaskGroup>()
+watch(
+  () => props.selectedGroup,
+  () => selectGroup(props.selectedGroup),
+  { immediate: true },
+)
 const { renderIcon } = useRender()
 
 const options = [
@@ -35,10 +26,15 @@ const options = [
   },
 ]
 
-function selectGroup(item: TaskGroup) {
-  selectedGroup.value = item
+function selectGroup(item: TaskGroup | undefined) {
+  if (item === undefined) return
+  if (props.selectedGroup && item && props.selectedGroup.id === item.id) return
+
+  // selectedGroup.value = item
+
   emits('select', item)
-  window.umami?.track('Todo:SelectGroup', { title: item.title })
+  if (item!.id !== 1)
+    window.umami?.track('Todo:SelectGroup', { title: item!.title })
 }
 
 const showDropdown = ref(false)
@@ -65,47 +61,48 @@ function handleSelect(action: string) {
 </script>
 
 <template>
-    <div>
-        <NList hoverable clickable class="px-1">
-            <NListItem v-for="item of allGroups" :key="item.id" @click="selectGroup(item)" @contextmenu="(e: MouseEvent) => handleContextMenu(item, e)"
-                :class="{ selected: item.id === selectedGroup?.id }">
-                <template #prefix>
-                    <span class="icon text-lg">{{ item.icon }}</span>
-                </template>
-                <div class="flex flex-col">
-                    <span class="text-sm text-gray-800 dark:text-white">
-                        {{ item.title }}
-                    </span>
-                </div>
+  <div>
+    <NList hoverable clickable class="px-1">
+      <NListItem v-for="item of groups" :key="item.id" @click="selectGroup(item)"
+        @contextmenu="(e: MouseEvent) => handleContextMenu(item, e)"
+        :class="{ selected: item.id === selectedGroup?.id }">
+        <template #prefix>
+          <span class="icon text-lg">{{ item.icon }}</span>
+        </template>
+        <div class="flex flex-col">
+          <span class="text-sm text-gray-800 dark:text-white">
+            {{ item.title }}
+          </span>
+        </div>
 
-            </NListItem>
-            <n-dropdown :on-clickoutside="() => showDropdown = false" placement="bottom-start" trigger="manual" :x="x"
-                :y="y" :options="options" :show="showDropdown" @select="handleSelect" />
-        </NList>
-    </div>
+      </NListItem>
+      <n-dropdown :on-clickoutside="() => showDropdown = false" placement="bottom-start" trigger="manual" :x="x" :y="y"
+        :options="options" :show="showDropdown" @select="handleSelect" />
+    </NList>
+  </div>
 </template>
 
 
 <style scoped lang="scss">
 .icon {
-    position: relative;
+  position: relative;
 }
 
 .selected {
-    font-weight: bold;
-    background: var(--n-merged-color-hover);
+  font-weight: bold;
+  background: var(--n-merged-color-hover);
 
-    .icon {
-        &::before {
-            content: '';
-            position: absolute;
-            left: -10px;
-            top: 2px;
-            height: 18px;
-            width: 3px;
-            border-radius: 3px;
-            background: var(--primary-color);
-        }
+  .icon {
+    &::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 2px;
+      height: 18px;
+      width: 3px;
+      border-radius: 3px;
+      background: var(--primary-color);
     }
+  }
 }
 </style>
