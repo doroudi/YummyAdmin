@@ -99,9 +99,6 @@ dashboard:
   activeOrders: Aktive Bestellungen
   genderChart:
     title: Geschlecht des Kunden
-  greeting_message: |-
-    Einen schönen Tag noch!
-    Wir freuen uns, Sie hier zu sehen.
   locationChart:
     title: Standort des Kunden
   monthlySell: Monatlich verkaufen
@@ -122,7 +119,13 @@ dashboard:
     subtitle: Gesamt Benutzer
     title: Benutzerplattformen
   visits: Besuche
-  welcome: Willkommen bei Yummy Administrator
+  welcome: 
+    title: Willkommen bei Yummy Administrator
+    greeting_message: |-
+      Einen schönen Tag noch!
+      Wir freuen uns, Sie hier zu sehen.
+    congratulations1: Sie haben
+    congratulations2: Verkäufe erreicht.
 description: Kostenloses Vue 3 Dashboard
 direction: ltr
 enums:
@@ -172,7 +175,7 @@ login:
   validations:
     passwordRequired: Passwort wird benötigt
     userNameRequired: Benutzername eingeben
-  welcome: Willkommen zurück!
+  
 menu:
   accountSettings: Kontoeinstellungen
   analytics: Analytik

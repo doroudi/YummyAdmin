@@ -99,9 +99,6 @@ dashboard:
   activeOrders: Aktif Siparişler
   genderChart:
     title: Müşterinin Cinsiyeti
-  greeting_message: |-
-    İyi günler!
-    Seni burada gördüğümüz için mutluyuz.
   locationChart:
     title: Müşterinin Konumu
   monthlySell: Aylık Satış
@@ -122,7 +119,13 @@ dashboard:
     subtitle: Toplam kullanıcılar
     title: Kullanıcı platformları
   visits: Ziyaretler
-  welcome: Nefis Yöneticisine Hoş Geldiniz
+  welcome: 
+    title: Nefis Yöneticisine Hoş Geldiniz
+    greeting_message: |-
+      İyi günler!
+      Seni burada gördüğümüz için mutluyuz.
+    congratulations1: siz
+    congratulations2: satışa ulaştınız.
 description: Ücretsiz Vue 3 Gösterge Paneli
 direction: ltr
 enums:

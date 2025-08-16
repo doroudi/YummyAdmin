@@ -99,7 +99,6 @@ dashboard:
   activeOrders: Active Orders
   genderChart:
     title: Customer's Gender
-  greeting_message: Have a nice day! We are happy to see you here.
   locationChart:
     title: Customer's Location
   monthlySell: Monthly Sell
@@ -120,7 +119,11 @@ dashboard:
     subtitle: Total Users
     title: User Platforms
   visits: Visits
-  welcome: Welcome to Yummy Admin
+  welcome:
+    title: Welcome to Yummy Admin
+    greeting_message: Have a nice day! We are happy to see you here.
+    congratulations1: You reached to
+    congratulations2: sales.
 description: Free Vue 3 Dashboard
 direction: ltr
 enums:

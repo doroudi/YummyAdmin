@@ -96,7 +96,6 @@ dashboard:
   activeOrders: 活跃订单
   genderChart:
     title: 客户性别
-  greeting_message: 祝您有美好的一天！我们很高兴见到您。
   locationChart:
     title: 客户位置
   monthlySell: 每月销售
@@ -117,7 +116,11 @@ dashboard:
     subtitle: 用户平台
     title: 用户平台
   visits: 访问
-  welcome: 欢迎使用 Yummy Admin！
+  welcome:
+    title: 欢迎回来！
+    greeting_message: 祝您有美好的一天！我们很高兴见到您。
+    congratulations1: 您的销量已达
+    congratulations2: 份。   
 description: 免费的Vue 3仪表板
 direction: ltr
 enums:
@@ -167,7 +170,11 @@ login:
   validations:
     passwordRequired: 密码必填
     userNameRequired: 请输入用户名
-  welcome: 欢迎回来！
+  welcome:
+    title: 欢迎回来！
+    greeting_message: 祝您有美好的一天！我们很高兴见到您。
+    congratulations1: 您的销量已达
+    congratulations2: 份。   
 menu:
   accountSettings: 账户设置
   analytics: 分析

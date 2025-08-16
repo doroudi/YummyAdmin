@@ -97,7 +97,6 @@ dashboard:
   activeOrders: سفارش های فعال
   genderChart:
     title: جنسیت مشتریان
-  greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
   locationChart:
     title: موقعیت مکانی مشتریان
   monthlySell: فروش ماهانه
@@ -118,7 +117,11 @@ dashboard:
     subtitle: مجموع کاربران
     title: پلتفرم های کاربر
   visits: بازدید ها
-  welcome: خوش آمدید
+  welcome:
+    title: خوش آمدید
+    greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
+    congratulations1: شما به
+    congratulations2: فروش رسیدید
 description: داشبورد رایگان vue3
 direction: rtl
 enums:
@@ -190,7 +193,7 @@ menu:
   login: ورود
   messages: نظرات
   news: اخبار
-  notFound: '404'
+  notFound: "404"
   notifications: نوتیفیکشن ها
   orders: سفارشات
   other: سایر
