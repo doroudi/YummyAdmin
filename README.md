@@ -2,10 +2,9 @@
 
 [![CI](https://github.com/doroudi/YummyAdmin/actions/workflows/ci.yml/badge.svg)](https://github.com/doroudi/YummyAdmin/actions/workflows/ci.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/24e54305-5d97-447e-adba-ed0a7c18513e/deploy-status)](https://app.netlify.com/sites/yummy-admin/deploys)
-[![StandWithPalestine](https://raw.githubusercontent.com/Safouene1/support-palestine-banner/master/StandWithPalestine.svg)](https://techforpalestine.org/learn-more)
 
-Free Vue AdminPanel based on Naive UI and Tailwind CSS. Fairly complete with a beautiful design, RTL, and multilingual support.
-Built using modern web technologies like Pinia, TypeScript, MockServiceWorker (MSW), Cypress, Socket
+Free Vue AdminPanel based on Naive UI and Tailwind CSS. Fairly complete with a beautiful design, Full RTL support and multilingual support.
+Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (MSW), Cypress, UnoCss, Web Socket
 
 ![Preview](/docs/banner-dark.png "Preview")
 
@@ -14,11 +13,11 @@ Built using modern web technologies like Pinia, TypeScript, MockServiceWorker (M
    <a href="https://yummy-admin.netlify.app?theme=dark">🌑 Dark Mode</a>
    <br>
    Other languages <br />
-   <a href="https://yummy-admin.netlify.app?lang=ch">🇨🇳 Chines</a> |
-   <a href="https://yummy-admin.netlify.app?lang=fa">🇮🇷 Persian</a> |
-   <a href="https://yummy-admin.netlify.app?lang=ar">🇸🇦 Arabic</a> |
-   <a href="https://yummy-admin.netlify.app?lang=tr">🇹🇷 Turkish</a> |
-   <a href="https://yummy-admin.netlify.app?lang=de">🇩🇪 Germany</a>
+   <a href="https://yummy-admin.netlify.app?lang=ch"> Chines</a> |
+   <a href="https://yummy-admin.netlify.app?lang=fa"> Persian</a> |
+   <a href="https://yummy-admin.netlify.app?lang=ar"> Arabic</a> |
+   <a href="https://yummy-admin.netlify.app?lang=tr"> Turkish</a> |
+   <a href="https://yummy-admin.netlify.app?lang=de"> Germany</a>
 </p>
 
 ![Preview](/docs/banner-light.png "Preview Light")
