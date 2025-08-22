@@ -109,7 +109,7 @@ const menuOptions: MenuOption[] = [
         icon: renderIcon(ChatAppIcon),
       },
       {
-        label: () => renderLabel(t('menu.todo'), '/apps/todo'),
+        label: () => renderLabel(t('menu.todo'), '/apps/todo', true),
         key: 'apps-todo',
         icon: renderIcon(TodoAppIcon),
       },

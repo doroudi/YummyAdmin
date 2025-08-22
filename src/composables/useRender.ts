@@ -20,7 +20,7 @@ import i18n from '~/modules/i18n'
 const { t } = i18n.global
 
 export function useRender() {
-  function renderLabel(title: string, path: string) {
+  function renderLabel(title: string, path: string, isNew = false) {
     return h(
       RouterLink,
       {
@@ -28,7 +28,17 @@ export function useRender() {
           path,
         },
       },
-      { default: () => title },
+      {
+        default: () => [
+          h(NText, { class: 'mx-2' }, { default: () => title }),
+          isNew &&
+            h(
+              NTag,
+              { type: 'primary', bordered: false, round: true, size: 'small' },
+              { default: () => t('common.new') },
+            ),
+        ],
+      },
     )
   }
 
