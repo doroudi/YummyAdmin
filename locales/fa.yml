@@ -285,7 +285,7 @@ support:
     tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
 title: پنل مدیریت Yummy
 todoApp:
-  completed: کامل
+  completed: انجام شده
   createGroup:
     groupTitle: عنوان
     taskTitle: عنوان تسک

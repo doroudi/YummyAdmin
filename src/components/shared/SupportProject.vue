@@ -1,11 +1,10 @@
 <script setup lang="ts">
-
 onMounted(getGithubStarsCount)
 
 const starsCount = ref<number>(34)
 async function getGithubStarsCount() {
-  const res = await fetch("https://api.github.com/repos/doroudi/yummyadmin");
-  const json = await res.json();
+  const res = await fetch('https://api.github.com/repos/doroudi/yummyadmin')
+  const json = await res.json()
   starsCount.value = json.stargazers_count
 }
 </script>
