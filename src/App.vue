@@ -133,6 +133,7 @@ function setThemeColor(newValue: string) {
 const toggleButtonPosition = ref<DOMRect>({ left: 0, top: 0 })
 function getToggleElementPosition() {
   const element = document.querySelector('#theme-toggle') as HTMLElement
+  if (element === null) return
   const rect = element.getBoundingClientRect()
 
   toggleButtonPosition.value = {

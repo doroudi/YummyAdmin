@@ -35,6 +35,8 @@ const items = [
   '⚽',
   '🍿',
   '🎞️',
+  '🎨',
+  '🎵',
 ]
 function renderEmojiPicker() {
   return h(
