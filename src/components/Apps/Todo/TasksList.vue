@@ -98,7 +98,7 @@ function deleteTask(id: number) {
         <TaskItem v-for="item of orderedTasks" :key="item.id" :task="item" class="my-2"
           @toggle="value => toggleDoneTask(item.id, value)" @fav="favTask(item.id)" @delete="deleteTask(item.id)" />
 
-        <div pt-2>
+        <div pt-2 v-if="doneTasks.length">
           <n-collapse>
             <n-collapse-item :title="`${t('todoApp.completed')} (${doneTasks.length})`" name="done">
               <TaskItem v-for="item of doneTasks" :key="item.id" :task="item" class="my-2"

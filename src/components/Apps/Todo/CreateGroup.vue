@@ -26,7 +26,6 @@ function createGroup() {
   const color =
     selectedColorIndex.value >= 0 ? colors[selectedColorIndex.value] : null
   groupItem.value.bgColor = color
-  groupItem.value.icon = '📁'
   store.createGroup(groupItem.value)
   emits('created')
   window.umami?.track('Todo:CreateGroup', { title: groupItem.value.title })
@@ -39,7 +38,11 @@ function createGroup() {
 <template>
     <div>
         <n-modal v-model:show="showModal" @close="emits('close')" preset="card" style="width: 500px" :title="t('todoApp.createGroup.title')">
-            <n-input v-model:value="groupItem.title" :placeholder="t('todoApp.createGroup.groupTitle')" />
+            
+            <div class="flex">
+                <EmojiPicker v-model="groupItem.icon" class="me-1" />
+                <n-input v-model:value="groupItem.title" :placeholder="t('todoApp.createGroup.groupTitle')" />
+            </div>
 
             <div py-4>
                 <div>
