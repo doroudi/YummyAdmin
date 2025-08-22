@@ -29,10 +29,8 @@ const options = [
 function selectGroup(item: TaskGroup | undefined) {
   if (item === undefined) return
   if (props.selectedGroup && item && props.selectedGroup.id === item.id) return
-
-  // selectedGroup.value = item
-
   emits('select', item)
+
   if (item!.id !== 1)
     window.umami?.track('Todo:SelectGroup', { title: item!.title })
 }
@@ -55,6 +53,7 @@ const store = useTodoAppStore()
 function handleSelect(action: string) {
   if (action === 'delete') {
     store.deleteGroup(selectedMenuId.value)
+    emits('select', undefined)
   }
   showDropdown.value = false
 }

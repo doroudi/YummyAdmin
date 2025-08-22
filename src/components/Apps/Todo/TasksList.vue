@@ -64,7 +64,9 @@ function createTask() {
 }
 
 function toggleDoneTask(id: number, isChecked: boolean) {
-  store.toggleDoneTask(id)
+  setTimeout(() => {
+    store.toggleDoneTask(id)
+  }, 500)
   if (!isChecked) playSound()
 }
 
@@ -91,16 +93,16 @@ function deleteTask(id: number) {
 <template>
   <section class="tasks-box flex flex-col items-stretch justify-stretch p-8"
     :style="{ 'background-color': group?.bgColor }">
-    <GroupTitle :group="group" />
+    <GroupTitle :group="group" @edit="toggleEditMode" />
 
     <div class="flex-1 flex-col justify-end mb-1 overflow-y-auto">
       <n-scrollbar>
         <TaskItem v-for="item of orderedTasks" :key="item.id" :task="item" class="my-2"
           @toggle="value => toggleDoneTask(item.id, value)" @fav="favTask(item.id)" @delete="deleteTask(item.id)" />
 
-        <div pt-2>
+        <div pt-2 v-if="doneTasks.length">
           <n-collapse>
-            <n-collapse-item :title="`${t('todoApp.completed')} (${doneTasks.length})`" name="done">
+            <n-collapse-item :title="`${t('todoApp.completed')}  ${doneTasks.length}`" name="done">
               <TaskItem v-for="item of doneTasks" :key="item.id" :task="item" class="my-2"
                 @toggle="value => toggleDoneTask(item.id, value)" @fav="favTask(item.id)"
                 @delete="deleteTask(item.id)" />
