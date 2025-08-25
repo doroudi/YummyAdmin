@@ -36,7 +36,7 @@ const { collapsed, isRtl, mobileMode } = storeToRefs(layoutStore)
     <template #extra>
       <div class="flex items-center">
         <Search />
-        <AppsMenu />
+        <!-- <AppsMenu /> -->
         <ThemeCustomize />
         <ThemeSwitch class="mx-1" />
         <LanguageSelect class="mx-1" />

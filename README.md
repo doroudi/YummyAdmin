@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/doroudi/YummyAdmin/actions/workflows/ci.yml/badge.svg)](https://github.com/doroudi/YummyAdmin/actions/workflows/ci.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/24e54305-5d97-447e-adba-ed0a7c18513e/deploy-status)](https://app.netlify.com/sites/yummy-admin/deploys)
+<a href="https://coff.ee/doroudi"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" height="20px"></a>
+
 
 Free Vue AdminPanel based on Naive UI and Tailwind CSS. Fairly complete with a beautiful design, Full RTL support and multilingual support.
 Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (MSW), Cypress, UnoCss, Web Socket
@@ -12,7 +14,7 @@ Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (
    <a href="https://yummy-admin.netlify.app/">🌏 Live Demo</a>
    <a href="https://yummy-admin.netlify.app?theme=dark">🌑 Dark Mode</a>
    <br>
-   Other languages <br />
+   Other languages demo:<br />
    <a href="https://yummy-admin.netlify.app?lang=ch"> Chines</a> |
    <a href="https://yummy-admin.netlify.app?lang=fa"> Persian</a> |
    <a href="https://yummy-admin.netlify.app?lang=ar"> Arabic</a> |
@@ -44,7 +46,7 @@ Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (
 
 ## Try it now!
 
-> Yummy Admin requires Node >=18.18
+> Yummy Admin requires Node >=20.0
 
 ### Clone to local
 
@@ -66,6 +68,10 @@ When you use this template, try to follow the checklist to update your info prop
 - [ ] Clean up the READMEs and remove routes
 
 And, enjoy :)
+
+### Support this project
+
+<a href="https://coff.ee/doroudi"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png"></a>
 
 ### Development
 
