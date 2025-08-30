@@ -91,8 +91,11 @@ customers:
   title: العملاء
 customize:
   color: اللون
+  flatDesign: تصميم مسطح
+  fluid: تخطيط السوائل
   language: اللغة
   layout: التخطيط
+  rtl: تخطيط RTL
   theme: المظهر
   title: تخصيص
 dashboard:
@@ -120,13 +123,12 @@ dashboard:
     title: منصات المستخدم
   visits: الزيارات
   welcome:
-    title: مرحباً بعودتك!
+    congratulations1: لقد وصلت إلى
+    congratulations2: عملية بيع
     greeting_message: |-
       طاب يومك!
       يسعدنا رؤيتك هنا.
-    congratulations1: لقد وصلت إلى
-    congratulations2: عملية بيع
-
+    title: مرحباً بعودتك!
 description: لوحة تحكم Vue 3 مجانية
 direction: rtl
 enums:
@@ -176,7 +178,6 @@ login:
   validations:
     passwordRequired: كلمة المرور مطلوبة
     userNameRequired: أدخل اسم المستخدم
-  
 menu:
   accountSettings: إعدادات الحساب
   analytics: التحليلات

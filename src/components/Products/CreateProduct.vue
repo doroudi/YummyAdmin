@@ -47,6 +47,17 @@ function handlePreview(file: UploadFileInfo) {
   previewImageUrlRef.value = url as string
   showModalRef.value = true
 }
+
+function parseCurrency(input: string) {
+  const nums = input.replace(/(,|\$|\s)/g, '').trim()
+  if (/^\d+(\.(\d+)?)?$/.test(nums)) return Number(nums)
+  return nums === '' ? null : Number.NaN
+}
+
+function formatCurrency(value: number | null) {
+  if (value === null) return ''
+  return `${value.toLocaleString('en-US')} \u{24}`
+}
 </script>
 
 <template>
@@ -78,7 +89,7 @@ function handlePreview(file: UploadFileInfo) {
               <n-modal v-model:show="showModal" preset="card" style="width: 600px"
                 :title="t('products.create.imageName')">
                 <img :src="previewImageUrl" style="width: 100%">
-              </n-modal>  
+              </n-modal>
             </n-form-item>
           </div>
         </Card>
@@ -87,11 +98,13 @@ function handlePreview(file: UploadFileInfo) {
       <div class="w-full lg:flex-1">
         <Card size="small" :title="t('products.create.pricing')" class="mb-2">
           <n-space vertical>
-            <n-form-item path="name" :label="t('products.create.price')">
-              <n-input size="large" :placeholder="t('products.create.price')" />
+            <n-form-item path="price" :label="t('products.create.price')">
+              <n-input-number :placeholder="t('products.create.price')" class="flex-1" :default-value="0"
+                v-model="productItem.price" :parse="parseCurrency" :show-button="false" :format="formatCurrency" />
             </n-form-item>
             <n-form-item path="name" :label="t('products.create.discountedPrice')">
-              <n-input size="large" :placeholder="t('products.create.discountedPrice')" />
+              <n-input-number :placeholder="t('products.create.discountedPrice')" class="flex-1" :default-value="0"
+                v-model="productItem.discountedPrice" :show-button="false" :parse="parseCurrency" :format="formatCurrency" />
             </n-form-item>
             <hr>
             <n-space p-1 justify="space-between">

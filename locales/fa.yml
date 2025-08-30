@@ -89,8 +89,11 @@ customers:
   title: مشتریان
 customize:
   color: رنگ
+  flatDesign: طرح مسطح
+  fluid: عرض شناور
   language: زبان
   layout: چیدمان
+  rtl: راست به چپ
   theme: پوسته
   title: سفارشی سازی
 dashboard:
@@ -118,10 +121,10 @@ dashboard:
     title: پلتفرم های کاربر
   visits: بازدید ها
   welcome:
-    title: خوش آمدید
-    greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
     congratulations1: شما به
     congratulations2: فروش رسیدید
+    greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
+    title: خوش آمدید
 description: داشبورد رایگان vue3
 direction: rtl
 enums:
@@ -193,7 +196,7 @@ menu:
   login: ورود
   messages: نظرات
   news: اخبار
-  notFound: "404"
+  notFound: '404'
   notifications: نوتیفیکشن ها
   orders: سفارشات
   other: سایر

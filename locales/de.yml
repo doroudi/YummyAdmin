@@ -91,8 +91,11 @@ customers:
   title: Kunden
 customize:
   color: Farbe
+  flatDesign: Flaches Design
+  fluid: Flüssigkeitslayout
   language: Sprache
   layout: Layout
+  rtl: RTL -Layout
   theme: Design
   title: Anpassen
 dashboard:
@@ -119,13 +122,13 @@ dashboard:
     subtitle: Gesamt Benutzer
     title: Benutzerplattformen
   visits: Besuche
-  welcome: 
-    title: Willkommen bei Yummy Administrator
+  welcome:
+    congratulations1: Sie haben
+    congratulations2: Verkäufe erreicht.
     greeting_message: |-
       Einen schönen Tag noch!
       Wir freuen uns, Sie hier zu sehen.
-    congratulations1: Sie haben
-    congratulations2: Verkäufe erreicht.
+    title: Willkommen bei Yummy Administrator
 description: Kostenloses Vue 3 Dashboard
 direction: ltr
 enums:
@@ -175,7 +178,6 @@ login:
   validations:
     passwordRequired: Passwort wird benötigt
     userNameRequired: Benutzername eingeben
-  
 menu:
   accountSettings: Kontoeinstellungen
   analytics: Analytik

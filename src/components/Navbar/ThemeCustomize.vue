@@ -1,11 +1,7 @@
 <script setup lang='ts'>
 import { PaintBrush24Regular as CustomizeIcon } from '@vicons/fluent'
-import { storeToRefs } from 'pinia'
 
 const showCustomizeDialog = ref(false)
-const { t } = useI18n()
-const layout = useLayoutStore()
-const { dialogPlacement } = storeToRefs(layout)
 
 function toggleDialog() {
   showCustomizeDialog.value = !showCustomizeDialog.value
@@ -14,7 +10,7 @@ function toggleDialog() {
 
 <template>
   <div v-bind="$attrs">
-    <n-popover trigger="hover" :show-arrow="false" style="width: 370px;max-height: 550px;">
+    <n-popover trigger="click" :show-arrow="false" style="width: 370px;max-height: 550px;">
       <template #trigger>
         <div v-bind="$attrs">
           <n-button quaternary circle @click="toggleDialog()">

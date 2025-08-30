@@ -91,8 +91,11 @@ customers:
   title: Customers
 customize:
   color: Color
+  flatDesign: Flat Design
+  fluid: Fluid Layout
   language: Language
   layout: Layout
+  rtl: RTL Layout
   theme: Theme
   title: Customize
 dashboard:
@@ -120,10 +123,10 @@ dashboard:
     title: User Platforms
   visits: Visits
   welcome:
-    title: Welcome to Yummy Admin
-    greeting_message: Have a nice day! We are happy to see you here.
     congratulations1: You reached to
     congratulations2: sales.
+    greeting_message: Have a nice day! We are happy to see you here.
+    title: Welcome to Yummy Admin
 description: Free Vue 3 Dashboard
 direction: ltr
 enums:

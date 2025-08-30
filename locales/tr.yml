@@ -91,8 +91,11 @@ customers:
   title: Müşteriler
 customize:
   color: Renk
+  flatDesign: Düz tasarım
+  fluid: Akışkan düzeni
   language: Dil
   layout: Düzen
+  rtl: RTL Düzeni
   theme: Tema
   title: Özelleştir
 dashboard:
@@ -119,13 +122,13 @@ dashboard:
     subtitle: Toplam kullanıcılar
     title: Kullanıcı platformları
   visits: Ziyaretler
-  welcome: 
-    title: Nefis Yöneticisine Hoş Geldiniz
+  welcome:
+    congratulations1: siz
+    congratulations2: satışa ulaştınız.
     greeting_message: |-
       İyi günler!
       Seni burada gördüğümüz için mutluyuz.
-    congratulations1: siz
-    congratulations2: satışa ulaştınız.
+    title: Nefis Yöneticisine Hoş Geldiniz
 description: Ücretsiz Vue 3 Gösterge Paneli
 direction: ltr
 enums:
