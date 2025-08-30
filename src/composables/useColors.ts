@@ -1,12 +1,12 @@
 export default function useColors() {
   const primaryColors = [
-    '#00ad4c',
+    '#009b43',
     '#DB0B51',
-    '#4FC3F7',
-    '#f8b334',
-    '#FF8000',
-    '#00a096',
+    '#0099e0',
+    '#ff7300',
+    '#008f85',
     '#9575cd',
+    '#FFCC00',
   ]
 
   function buildThemeColorSeries(count: number) {

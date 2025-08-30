@@ -79,15 +79,16 @@ onMounted(() => {
 
     <div py-3>
       <n-switch v-model:value="isFluid" />
-      Fluid Layout
+      {{ t('customize.fluid') }}
     </div>
     <div py-3>
       <n-switch v-model:value="isRtl" />
-      RTL Layout
+      {{ t('customize.rtl') }}
+      
     </div>
     <div py-3>
       <n-switch v-model:value="flatDesign" />
-      Flat Design
+      {{t('customize.flatDesign')}} 
     </div>
   </div>
 </template>

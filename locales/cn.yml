@@ -88,8 +88,11 @@ customers:
   title: 客户
 customize:
   color: 颜色
+  flatDesign: Flat Design
+  fluid: Fluid Layout
   language: 语言
   layout: 布局
+  rtl: RTL Layout
   theme: 主题
   title: 定制
 dashboard:
@@ -117,10 +120,10 @@ dashboard:
     title: 用户平台
   visits: 访问
   welcome:
-    title: 欢迎回来！
-    greeting_message: 祝您有美好的一天！我们很高兴见到您。
     congratulations1: 您的销量已达
-    congratulations2: 份。   
+    congratulations2: 份。
+    greeting_message: 祝您有美好的一天！我们很高兴见到您。
+    title: 欢迎回来！
 description: 免费的Vue 3仪表板
 direction: ltr
 enums:
@@ -171,10 +174,10 @@ login:
     passwordRequired: 密码必填
     userNameRequired: 请输入用户名
   welcome:
-    title: 欢迎回来！
-    greeting_message: 祝您有美好的一天！我们很高兴见到您。
     congratulations1: 您的销量已达
-    congratulations2: 份。   
+    congratulations2: 份。
+    greeting_message: 祝您有美好的一天！我们很高兴见到您。
+    title: 欢迎回来！
 menu:
   accountSettings: 账户设置
   analytics: 分析
