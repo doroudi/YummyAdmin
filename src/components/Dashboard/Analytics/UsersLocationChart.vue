@@ -8,10 +8,12 @@ import type { LocationChartSeries } from '~/models/ChartData'
 const { t } = useI18n()
 const store = useDashboardStore()
 const { usersLocationData, isLoading } = storeToRefs(store)
+
 const locationData = computed(() => {
   if (!usersLocationData.value) return {}
   return arrayToKeyValue(usersLocationData.value!)
 })
+
 onMounted(() => {
   store.getLocationStat()
 })
@@ -24,14 +26,18 @@ function arrayToKeyValue(arr: LocationChartSeries[]) {
 }
 
 function onMapItemClick(areaId: string) {
-  if (areaId === 'IR') window.open('https://www.visitiran.ir/')
+  if (areaId === 'IR') {
+    window.umami?.track('VisitIran')
+    window.open('https://www.visitiran.ir/')
+  }
 }
 </script>
 
 <template>
   <Card class="p-2" :title="t('dashboard.locationChart.title')">
     <MapChart
-      v-if="!isLoading" :data="locationData" base-color="var(--primary-color)"
+      v-if="!isLoading" :data="locationData" 
+      base-color="var(--primary-color)"
       @map-item-click="onMapItemClick"
     />
   </Card>
