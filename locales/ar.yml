@@ -270,6 +270,11 @@ profile:
   sms: رسالة قصيرة
   title: حساب تعريفي
   username: اسم المستخدم
+  notificationTypes:
+    newOrder: طلب جديد
+    newRegister: تسجيل جديد
+    newMessage: رسالة جديدة
+    outOfStock: غير متوفر
 register:
   button: تسجيل
   haveAccount: لديك حساب؟

@@ -11,10 +11,10 @@ const handlers = [
   http.get('/api/profile/user-settings', () => {
     const response: ProfileSettings = {
       notifications: [
-        { type: 'New Order', email: true, push: false, sms: false },
-        { type: 'New Register', email: false, push: false, sms: false },
-        { type: 'New Message', email: true, push: false, sms: false },
-        { type: 'Out Of Stoke', email: true, push: true, sms: true },
+        { type: 'newOrder', email: true, push: false, sms: false },
+        { type: 'newRegister', email: false, push: false, sms: false },
+        { type: 'newMessage', email: true, push: false, sms: false },
+        { type: 'outOfStock', email: true, push: true, sms: true },
       ],
     }
 

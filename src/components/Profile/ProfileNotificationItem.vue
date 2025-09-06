@@ -1,13 +1,14 @@
 <script lang="ts" setup>
 import type { NotificationSetting } from '@/models/Profile'
+const { t } = useI18n()
 
-defineProps<{ item: NotificationSetting }>()
+defineProps<{ item: notificationTypes }>()
 </script>
 
 <template>
   <n-grid x-gap="12" :cols="4" class="py-3">
     <n-gi>
-      {{ item.type }}
+      {{ t(`profile.notificationTypes.${item.type}`) }}
     </n-gi>
 
     <n-gi>

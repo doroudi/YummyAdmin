@@ -51,7 +51,7 @@ export function useRender() {
           { default: () => h(NIcon, {}, { default: () => h(icon) }) },
         )
 
-    return () => h(NIcon, null, { default: () => h(icon, {}) })
+    return () => h(NIcon, {}, { default: () => h(icon, {}) })
   }
 
   function renderTag(

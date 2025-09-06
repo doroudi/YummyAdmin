@@ -271,6 +271,11 @@ profile:
   sms: SMS
   title: Profil
   username: Benutzername
+  notificationTypes:
+    newOrder: Neue Bestellung
+    newRegister: Neue Registrierung
+    newMessage: Neue Nachricht
+    outOfStock: Nicht vorrätig
 register:
   button: Registrieren
   haveAccount: Haben Sie ein Konto?
