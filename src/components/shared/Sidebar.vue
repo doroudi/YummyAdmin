@@ -4,7 +4,7 @@ import {
   AppFolder20Regular as AppsIcon,
   DoorArrowRight20Regular as AuthIcon,
   CheckmarkStarburst16Regular as BrandsIcon,
-  Folder24Regular as CategoryIcon,
+  Folder24Filled as CategoryIcon,
   ChatMultiple20Regular as ChatAppIcon,
   Dismiss24Filled as CloseIcon,
   Color24Regular as ColorsIcon,
@@ -15,6 +15,7 @@ import {
   PersonLightbulb20Regular as ForgetIcon,
   Cart24Regular as InvoicesIcon,
   PersonLock20Regular as LoginIcon,
+  ShieldError24Regular as NotFoundIcon,
   DocumentLink20Regular as PagesIcon,
   BoxCheckmark24Regular as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
@@ -23,14 +24,14 @@ import {
   Settings28Regular as SettingsIcon,
   CheckmarkCircle24Regular as TodoAppIcon,
 } from '@vicons/fluent'
-import type { MenuInst, MenuOption } from 'naive-ui'
+
 import { storeToRefs } from 'pinia'
+import type { SidebarMenuOption } from './SidebarMenu.vue'
 
 const layoutStore = useLayoutStore()
 const { collapsed, forceCollapsed, mobileMode, mobileMenuClosed } =
   storeToRefs(layoutStore)
 const { t } = useI18n()
-const { renderIcon, renderLabel } = useRender()
 
 const effectiveCollapsed = computed(() => {
   if (mobileMode.value) return mobileMenuClosed.value
@@ -38,148 +39,149 @@ const effectiveCollapsed = computed(() => {
   return collapsed.value || forceCollapsed.value
 })
 
-const menuOptions: MenuOption[] = [
+const newMenuOptions: SidebarMenuOption[] = [
   {
-    label: () => t('menu.dashboard'),
+    label: t('menu.dashboard'),
     key: 'index',
-    icon: renderIcon(DashboardIcon),
+    icon: DashboardIcon,
     children: [
       {
-        label: () => renderLabel(t('menu.eCommerce'), '/'),
+        label: t('menu.eCommerce'),
         key: 'dashboard-ecommerce',
-        icon: renderIcon(DashboardIcon1),
+        icon: DashboardIcon1,
+        route: '/',
       },
       {
-        label: () => renderLabel(t('menu.analytics'), '/Dashboard/Analytics'),
+        label: t('menu.analytics'),
+        route: '/Dashboard/Analytics',
         key: 'dashboard-analytics',
-        icon: renderIcon(DashboardIcon2),
+        icon: DashboardIcon2,
       },
     ],
   },
   {
-    label: () => t('menu.productManagement'),
+    label: t('menu.productManagement'),
     key: 'productManagement',
-    icon: renderIcon(ProductsIcon),
+    icon: ProductsIcon,
     children: [
       {
-        label: () => renderLabel(t('menu.products'), '/products'),
+        label: t('menu.products'),
+        route: '/products',
         key: 'products',
-        icon: renderIcon(ProductsIcon2),
+        icon: ProductsIcon2,
       },
       {
-        label: () => renderLabel(t('menu.categories'), '/categories'),
+        label: t('menu.categories'),
+        route: '/categories',
         key: 'categories',
-        icon: renderIcon(CategoryIcon),
+        icon: CategoryIcon,
       },
       {
-        label: () => renderLabel(t('menu.brands'), '/brands'),
+        label: t('menu.brands'),
+        route: '/brands',
         key: 'brands',
-        icon: renderIcon(BrandsIcon),
+        icon: BrandsIcon,
       },
       {
-        label: () => renderLabel(t('menu.colors'), '/colors'),
+        label: t('menu.colors'),
+        route: '/colors',
         key: 'colors',
-        icon: renderIcon(ColorsIcon),
+        icon: ColorsIcon,
       },
       {
-        label: () => renderLabel(t('menu.reviews'), '/reviews'),
+        label: t('menu.reviews'),
+        route: '/reviews',
         key: 'reviews',
-        icon: renderIcon(ReviewIcon),
+        icon: ReviewIcon,
       },
     ],
   },
   {
-    label: () => renderLabel(t('menu.orders'), '/orders'),
+    label: t('menu.orders'),
+    route: '/orders',
     key: 'orders',
-    icon: renderIcon(InvoicesIcon, true),
+    icon: InvoicesIcon,
+    showBadge: true,
   },
   {
-    label: () => renderLabel(t('menu.customers'), '/customers'),
+    label: t('menu.customers'),
+    route: '/customers',
     key: 'customers',
-    icon: renderIcon(CustomersIcon),
+    icon: CustomersIcon,
   },
   {
-    label: () => t('menu.apps'),
+    label: t('menu.apps'),
     key: 'apps',
-    icon: renderIcon(AppsIcon),
+    icon: AppsIcon,
     children: [
       {
-        label: () => renderLabel(t('menu.chat'), '/apps/chat'),
+        label: t('menu.chat'),
+        route: '/apps/chat',
         key: 'apps-chat',
-        icon: renderIcon(ChatAppIcon),
+        icon: ChatAppIcon,
       },
       {
-        label: () => renderLabel(t('menu.todo'), '/apps/todo', true),
+        label: t('menu.todo'),
+        route: '/apps/todo',
+        isNew: true,
         key: 'apps-todo',
-        icon: renderIcon(TodoAppIcon),
+        icon: TodoAppIcon,
       },
     ],
   },
   {
-    label: () => t('menu.authentication'),
+    label: t('menu.authentication'),
     key: 'auth',
-    icon: renderIcon(AuthIcon),
+    icon: AuthIcon,
     children: [
       {
-        label: () => renderLabel(t('menu.login'), '/account/login'),
+        label: t('menu.login'),
+        route: '/account/login',
         key: 'login',
-        icon: renderIcon(LoginIcon),
+        icon: LoginIcon,
       },
       {
-        label: () => renderLabel(t('menu.register'), '/account/register'),
+        label: t('menu.register'),
+        route: '/account/register',
         key: 'register',
-        icon: renderIcon(RegisterIcon),
+        icon: RegisterIcon,
       },
 
       {
-        label: () =>
-          renderLabel(t('menu.forgetPassword'), '/account/ForgotPassword'),
+        label: t('menu.forgetPassword'),
+        route: '/account/ForgotPassword',
         key: 'forget-password',
-        icon: renderIcon(ForgetIcon),
+        icon: ForgetIcon,
       },
     ],
   },
   {
-    label: () => t('menu.settings'),
+    label: t('menu.settings'),
     key: 'settings',
-    icon: renderIcon(SettingsIcon),
+    icon: SettingsIcon,
     children: [
       {
-        label: () => renderLabel(t('menu.accountSettings'), '/account/profile'),
+        label: t('menu.accountSettings'),
+        route: '/account/profile',
         key: 'account-settings',
-        icon: renderIcon(AccountSettingsIcon),
+        icon: AccountSettingsIcon,
       },
     ],
   },
   {
-    label: () => t('menu.other'),
+    label: t('menu.other'),
     key: 'other',
-    icon: renderIcon(PagesIcon),
+    icon: PagesIcon,
     children: [
       {
-        label: () => renderLabel(t('menu.notFound'), '/404'),
+        label: t('menu.notFound'),
+        route: '/404',
         key: 'not-found',
+        icon: NotFoundIcon,
       },
     ],
   },
 ]
-
-const route = useRoute()
-const selectedMenuKey = ref('dashboard')
-const menuRef = ref<MenuInst | null>(null)
-
-onMounted(() => activateCurrentRoute())
-
-function activateCurrentRoute() {
-  const keys = menuOptions.flatMap((m) => m.children || m) as [{ key: string }]
-  if (keys !== undefined) {
-    selectedMenuKey.value =
-      keys.find((k) => k.key.toLowerCase() === route.name.toLowerCase())?.key ??
-      'dashboard-ecommerce'
-    menuRef.value?.showOption(selectedMenuKey.value)
-  }
-}
-
 const router = useRouter()
 router.beforeEach(() => {
   layoutStore.closeSidebar()
@@ -187,10 +189,8 @@ router.beforeEach(() => {
 </script>
 
 <template>
-  <n-layout-sider
-    :native-scrollbar="false" collapse-mode="width" :collapsed-width="mobileMode ? 0 : 64"
-    :collapsed="effectiveCollapsed" :class="{ 'collapsed': effectiveCollapsed, 'mobile-mode': mobileMode }"
-  >
+  <n-layout-sider :native-scrollbar="false" collapse-mode="width" :collapsed-width="mobileMode ? 0 : 64"
+    :collapsed="effectiveCollapsed" :class="{ 'collapsed': effectiveCollapsed, 'mobile-mode': mobileMode }">
     <div class="logo-container mb-4">
       <div flex w-full justify-between items-center>
         <div flex w-full justify-start items-center>
@@ -209,10 +209,8 @@ router.beforeEach(() => {
         </n-button>
       </div>
     </div>
-    <n-menu
-      ref="menuRef" v-model:value="selectedMenuKey" :collapsed-width="mobileMode ? 0 : 64"
-      :collapsed-icon-size="mobileMode ? 30 : 20" :options="menuOptions"
-    />
+    <SidebarMenu :collapsed-width="mobileMode ? 0 : 64" :collapsed-icon-size="mobileMode ? 30 : 20"
+      :options="newMenuOptions" />
   </n-layout-sider>
 </template>
 
@@ -241,6 +239,7 @@ router.beforeEach(() => {
     max-width: 175px;
   }
 }
+
 .mobile-mode {
   max-width: 100% !important;
   width: 100% !important;
@@ -249,6 +248,7 @@ router.beforeEach(() => {
 .mobile-mode.collapsed {
   max-width: 0 !important;
 }
+
 .collapsed {
 
   .logo-container {

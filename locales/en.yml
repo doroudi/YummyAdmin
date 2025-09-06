@@ -269,6 +269,11 @@ profile:
   sms: Sms
   title: Profile
   username: UserName
+  notificationTypes:
+    newOrder: New Order
+    newRegister: New Register
+    newMessage: New Message
+    outOfStock: Out Of Stock
 register:
   button: Register
   haveAccount: Have Account?

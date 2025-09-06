@@ -262,7 +262,7 @@ profile:
   newPassword: Yeni Şifre
   notificationType: Bildirim Türü
   notifications: Bildirimler
-  oldPassword: eski Şifre
+  oldPassword: Eski Şifre
   personalInfo: Kişisel Bilgi
   phone: Telefon
   push: İtmek
@@ -271,6 +271,11 @@ profile:
   sms: SMS
   title: Profil
   username: Kullanıcı adı
+  notificationTypes:
+    newOrder: Yeni Sipariş
+    newRegister: Yeni Kayıt
+    newMessage: Yeni Mesaj
+    outOfStock: Stokta Yok
 register:
   button: Kayıt Ol
   haveAccount: Hesabınız var mı?

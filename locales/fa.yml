@@ -267,6 +267,11 @@ profile:
   sms: پیامک
   title: پروفایل
   username: نام کاربری
+  notificationTypes:
+    newOrder: سفارش جدید
+    newRegister: ثبت نام جدید
+    newMessage: پیغام جدید
+    outOfStock: اتمام موجودی
 register:
   button: ثبت نام
   haveAccount: اکانت دارید؟
