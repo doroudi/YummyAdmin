@@ -157,12 +157,12 @@ forgot:
   username: Kullanıcı Adı
 home: Ana Sayfa
 languages:
-  ar: Arabic
-  cn: Chinese
-  de: German
-  en: English
-  fa: Persian
-  tr: Turkish
+  ar: Arapça
+  cn: Çince
+  de: Almanca
+  en: İngilizce
+  fa: Farsça
+  tr: Türkçe
 login:
   createAccount: Hesap Oluştur!
   failedMessage: Giriş Başarısız
@@ -292,8 +292,10 @@ reviews:
   rate: Oran
 support:
   buyMeCoffee:
+    title: Bana bir kahve ısmarla
     tooltip: Bir fincan kahve satın alarak bu projeye destek olun.
   github:
+    title: Github Yıldızı
     tooltip: Bu projeye ⭐️ Github'da destek verin
 title: Yummy Admin
 todoApp:

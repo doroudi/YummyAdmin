@@ -8,7 +8,6 @@ import EnglandIcon from '../CustomIcons/EnglandIcon.vue'
 import GermanyIcon from '../CustomIcons/GermanyIcon.vue'
 import TurkishIcon from '../CustomIcons/TurkishIcon.vue'
 
-import { off } from 'dist/assets/index-CPwl54Xv'
 import PersianIcon from '../CustomIcons/PersianIcon.vue'
 
 defineProps<{ showTitle?: boolean }>()
@@ -70,7 +69,7 @@ function sortLangs(a: string, b: string): number {
         <template #icon>
           <NIcon size="1.4rem">
             <TranslateIcon />
-          </NIcon>
+          </NIcon> 
         </template>
         <span v-if="showTitle">{{ t(`languages.${activeLanguage}`) }}</span>
       </n-button>

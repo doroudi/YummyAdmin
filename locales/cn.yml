@@ -151,12 +151,12 @@ forgot:
   username: 用户名
 home: 首页
 languages:
-  ar: Arabic
-  cn: Chinese
-  de: German
-  en: English
-  fa: Persian
-  tr: Turkish
+  ar: 阿拉伯语
+  cn: 中文
+  de: 德语
+  en: 英语
+  fa: 波斯语
+  tr: 土耳其语
 login:
   createAccount: 创建一个！
   failedMessage: 登录失败
@@ -289,8 +289,10 @@ reviews:
   rate: 评分
 support:
   buyMeCoffee:
+    title: 请我喝杯咖啡
     tooltip: 购买一杯咖啡来支持这个项目。
   github:
+    title: Github 星标
     tooltip: 请在Github上给这个项目一个⭐️支持
 title: 美味管理系统
 todoApp:

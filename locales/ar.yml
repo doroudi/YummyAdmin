@@ -156,12 +156,12 @@ forgot:
   username: اسم المستخدم
 home: الرئيسية
 languages:
-  ar: Arabic
-  cn: Chinese
-  de: German
-  en: English
-  fa: Persian
-  tr: Turkish
+  ar: العربية
+  cn: الصينية
+  de: الألمانية
+  en: الإنجليزية
+  fa: الفارسية
+  tr: التركية
 login:
   createAccount: أنشئ واحداً!
   failedMessage: فشل تسجيل الدخول
@@ -291,10 +291,10 @@ reviews:
   rate: التقييم
 support:
   buyMeCoffee:
+    title: اشتري لي قهوة
     tooltip: ادعم هذا المشروع بشراء كوب من القهوة.
   github:
-    buyMeCoffee:
-      tooltip: ''
+    title: یحب Github
     tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
 title: لوحة تحكم يامي
 todoApp:

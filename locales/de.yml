@@ -156,12 +156,12 @@ forgot:
   username: Benutzername
 home: Startseite
 languages:
-  ar: Arabic
-  cn: Chinese
-  de: German
-  en: English
-  fa: Persian
-  tr: Turkish
+  ar: Arabisch
+  cn: Chinesisch
+  de: Deutsch
+  en: Englisch
+  fa: Persisch
+  tr: Türkisch
 login:
   createAccount: Erstellen Sie eins!
   failedMessage: Anmeldung fehlgeschlagen
@@ -292,10 +292,10 @@ reviews:
   rate: Bewertung
 support:
   buyMeCoffee:
+    title: Kauf mir einen Kaffee
     tooltip: Unterstützen Sie dieses Projekt, indem Sie mir einen Kaffee kaufen
   github:
-    buyMeCoffee:
-      tooltip: Unterstützen Sie dieses Projekt mit dem Kauf einer Tasse Kaffee.
+    title: Github Star
     tooltip: >-
       Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
       geben

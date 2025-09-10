@@ -152,12 +152,12 @@ forgot:
   username: نام کاربری
 home: خانه
 languages:
-  ar: Arabic
-  cn: Chinese
-  de: German
-  en: English
-  fa: Persian
-  tr: Turkish
+  ar: عربی
+  cn: چینی
+  de: آلمانی
+  en: انگلیسی
+  fa: فارسی
+  tr: ترکی
 login:
   createAccount: یکی بسازید
   failedMessage: خطا در ورود
@@ -288,8 +288,10 @@ reviews:
   rate: امتیاز
 support:
   buyMeCoffee:
+    title: پشتیبانی از پروژه
     tooltip: با خرید یک فنجان قهوه حامی این پروژه باشید
   github:
+    title: امتیاز گیت هاب
     tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
 title: پنل مدیریت Yummy
 todoApp:

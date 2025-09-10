@@ -290,8 +290,10 @@ reviews:
   rate: Rate
 support:
   buyMeCoffee:
+    title: Buy me coffee
     tooltip: Support this project by buying me a coffee
   github:
+    title: Star On Github
     tooltip: Support this project by giving a star ⭐️ on GitHub
 title: Yummy Admin
 todoApp:
@@ -305,8 +307,6 @@ todoApp:
   today: Today
 userMenu:
   dark: Dark
-  en: English
-  fa: Persian
   language: Language
   light: Light
   logout: Logout
