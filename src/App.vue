@@ -39,7 +39,7 @@ watch(
   (isDark: boolean) => {
     setTimeout(() => {
       activeTheme.value = isDark ? darkTheme : lightTheme
-    }, 50)
+    }, 1)
   },
   { immediate: true },
 )
@@ -57,33 +57,6 @@ watch(
   {
     immediate: true,
   },
-)
-
-onMounted(() =>
-  setTimeout(() => {
-    getToggleElementPosition()
-  }, 200),
-)
-
-const transitionDone = ref(true)
-watch(
-  () => layout.isDark,
-  (newValue: boolean) => {
-    if (newValue) {
-      transitionDone.value = false
-      setTimeout(() => {
-        document.documentElement.classList.add('dark')
-        transitionDone.value = true
-      }, 700)
-    } else {
-      transitionDone.value = false
-      document.documentElement.classList.remove('dark')
-      setTimeout(() => {
-        transitionDone.value = true
-      }, 1000)
-    }
-  },
-  { immediate: true },
 )
 
 watch(
@@ -130,18 +103,6 @@ function setThemeColor(newValue: string) {
     colorFocus: shade3,
   }
 }
-const toggleButtonPosition = ref<DOMRect>({ left: 0, top: 0 })
-function getToggleElementPosition() {
-  const element = document.querySelector('#theme-toggle') as HTMLElement
-  if (element === null) return
-  const rect = element.getBoundingClientRect()
-
-  toggleButtonPosition.value = {
-    left: layout.isRtl ? 'auto' : `${rect.left + window.scrollX}px`,
-    right: layout.isRtl ? `${window.innerWidth - rect.right}px` : 'auto',
-    top: `${rect.top + window.scrollY}px`,
-  }
-}
 </script>
 
 <template>
@@ -150,11 +111,7 @@ function getToggleElementPosition() {
     <n-notification-provider :placement="layout.isRtl ? 'bottom-left':'bottom-right'">
       <n-message-provider placement="bottom-right">
         <n-dialog-provider>
-          <div class="dark-mode-container"
-            :style="{ 'left': toggleButtonPosition.left, 'right': toggleButtonPosition.right, 'top': toggleButtonPosition.top }"
-            :class="{ 'done': transitionDone }">
-            <div class="dark-mode" :class="{ 'active': layout.isDark }"></div>
-          </div>
+          <DarkModeContainer class="z-1" />
           <RouterView />
           <SupportProject />
         </n-dialog-provider>
@@ -165,44 +122,5 @@ function getToggleElementPosition() {
 
 
 <style scoped lang="scss">
-.rtl {
-  .dark-mode-container {
-    right: auto;
-  }
-}
 
-.dark-mode-container {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  z-index: 1;
-
-  &.done {
-    z-index: 0;
-  }
-
-  .dark-mode {
-    position: relative;
-    transform: scale(0);
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 250vw;
-    height: 250vw;
-    border-radius: 50%;
-    background: var(--background-dark);
-    transition: 1000ms ease-in-out;
-    display: flex;
-    flex: 0 0 auto;
-
-    &.active {
-      transform: scale(1);
-      transition: 1000ms ease-in-out;
-    }
-  }
-}
 </style>

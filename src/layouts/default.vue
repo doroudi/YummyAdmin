@@ -40,20 +40,17 @@ watch(
 <template>
   <n-layout has-sider position="absolute">
     <Sidebar />
-
     <n-layout :native-scrollbar="false" position="static">
       <div class="main-content flex-1 dark:bg-slate-800 dark:text-white my-2">
         <Navbar />
         <div class="relative h-full">
           <NScrollbar>
-            <div
-              class="h-full overflow-auto md:mx-auto"
-              :class="{ 'md-container': !effectiveFluid, 'md:pb-18': !fullScreen, 'p-3': !fullScreen }"
-            >
+            <div class="h-full overflow-auto md:mx-auto"
+              :class="{ 'md-container': !effectiveFluid, 'md:pb-18': !fullScreen, 'p-3': !fullScreen }">
               <router-view v-slot="{ Component, route }">
                 <transition name="route" mode="out-in">
                   <div :key="route.name">
-                    <component :is="Component" />
+                    <component :is="Component" class="relative" />
                   </div>
                 </transition>
               </router-view>
@@ -71,7 +68,15 @@ watch(
   background-color: transparent !important;
 }
 
+.dark {
+  .main-content {
+    --un-bg-opacity: .6;
+    background: rgb(30 41 59 / var(--un-bg-opacity)) !important;
+  }
+}
+
 .main-content {
-  --un-bg-opacity: .6;
+  --un-bg-opacity: .4;
+  background: #ffffffcc !important;
 }
 </style>

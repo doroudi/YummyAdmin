@@ -96,6 +96,7 @@ meta:
 <style lang='scss'>
 .register-box {
   max-width: 380px;
+  z-index: 2;
 }
 
 input:-webkit-autofill,
