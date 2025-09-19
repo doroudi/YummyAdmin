@@ -45,7 +45,7 @@ const { renderIcon, renderLabel } = useRender()
 function convertToMenuOption(item: SidebarMenuOption): MenuOption {
   return {
     label: item.route
-      ? () => renderLabel(item.label, item.route, item.isNew ?? false)
+      ? () => renderLabel(item.label, item.route!, item.isNew ?? false)
       : () => item.label,
     icon: renderIcon(item.icon, item.showBadge),
     key: item.key, //TODO: auto generate key

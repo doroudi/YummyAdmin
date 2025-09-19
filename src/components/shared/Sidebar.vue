@@ -215,6 +215,9 @@ router.beforeEach(() => {
 </template>
 
 <style lang="scss">
+.n-scrollbar {
+  z-index: 1;
+}
 .logo-container {
   display: flex;
   align-items: center;
