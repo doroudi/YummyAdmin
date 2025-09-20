@@ -83,6 +83,7 @@ function handleSelect(action: string) {
 .circle {
     --n-border-radius: 50%;
     --n-size: 20px;
+    --n-border: 1px solid #FFF;
 
     .n-checkbox .n-checkbox-box {
         border-radius: 50% !important;
@@ -99,7 +100,7 @@ function handleSelect(action: string) {
     }
 
     &.favorite {
-        border: solid 1px gold;
+        border: solid 1px rgb(223, 191, 12);
     }
 }
 </style>

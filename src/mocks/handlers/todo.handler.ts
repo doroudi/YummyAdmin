@@ -169,7 +169,7 @@ const handlers = [
 
 function createFakeTaskGroups(): TaskGroup[] {
   const groups: TaskGroup[] = [
-    { id: 1, title: 'Today', icon: '📅' },
+    { id: 1, title: 'My Day', icon: '📅', isToday: true },
     { id: 2, title: 'YummyAdmin', icon: '😋', bgColor: '#1aa58b' },
     { id: 3, title: 'ToWatch', icon: '🎞️', bgColor: '#e58f6b' },
     { id: 4, title: 'Buy List', icon: '🛒', bgColor: '' },

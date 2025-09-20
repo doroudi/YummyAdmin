@@ -3,6 +3,7 @@ export interface TaskGroup {
   title: string
   icon: string
   bgColor?: string
+  isToday?: boolean
 }
 
 export interface TaskItem {
