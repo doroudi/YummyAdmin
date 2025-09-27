@@ -78,6 +78,10 @@ common:
   deleteConfirm: Sind Sie sicher, diesen Artikel zu löschen?
   deletedMessage: Erfolgreich gelöscht
   goHome: Zurück zur Startseite
+  maintenance: Website unter Wartung
+  maintenanceDetail: |-
+    Wir führen derzeit geplante Wartung durch. 
+    Wir werden in Kürze wieder online sein!
   month: Monat
   name: Name
   new: Neu
@@ -209,6 +213,7 @@ menu:
   feedbacks: Rückmeldungen
   forgetPassword: Passwort vergessen
   login: Anmelden
+  maintenance: Wartung
   messages: Nachrichten
   news: Neuigkeiten
   notFound: '404'

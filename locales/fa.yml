@@ -74,6 +74,10 @@ common:
   deleteConfirm: آیا از حذف این مورد مطمئن هستید؟
   deletedMessage: با موفقیت حذف شد
   goHome: بازگشت به خانه
+  maintenance: بروزرسانی
+  maintenanceDetail: |-
+    ما در حال حاضر تعمیر و نگهداری برنامه ریزی شده را انجام می دهیم. 
+    ما به زودی به صورت آنلاین باز خواهیم گشت!
   month: ماه
   name: نام
   new: جدید
@@ -195,13 +199,14 @@ menu:
   customers: مشتری ها
   dashboard: داشبورد
   eCommerce: تجارت الکترونیک
+  error: خطای 500
   feedbacks: بازخورد ها
   forgetPassword: فراموشی رمز
   login: ورود
+  maintenance: بروزرسانی
   messages: نظرات
   news: اخبار
-  notFound: 'خطای 404'
-  error: 'خطای 500'
+  notFound: خطای 404
   notifications: نوتیفیکشن ها
   orders: سفارشات
   other: سایر
@@ -262,6 +267,11 @@ profile:
   location: محل
   newPassword: رمزعبور جدید
   notificationType: نوع اعلان
+  notificationTypes:
+    newMessage: پیغام جدید
+    newOrder: سفارش جدید
+    newRegister: ثبت نام جدید
+    outOfStock: اتمام موجودی
   notifications: اعلان ها
   oldPassword: رمز عبور جاری
   personalInfo: اطلاعات شخصی
@@ -272,11 +282,6 @@ profile:
   sms: پیامک
   title: پروفایل
   username: نام کاربری
-  notificationTypes:
-    newOrder: سفارش جدید
-    newRegister: ثبت نام جدید
-    newMessage: پیغام جدید
-    outOfStock: اتمام موجودی
 register:
   button: ثبت نام
   haveAccount: اکانت دارید؟

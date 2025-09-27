@@ -76,6 +76,10 @@ common:
   deleteConfirm: هل أنت متأكد من حذف هذا العنصر؟
   deletedMessage: تم حذفه بنجاح
   goHome: العودة إلى الرئيسية
+  maintenance: موقع على شبكة الإنترنت تحت الصيانة
+  maintenanceDetail: |-
+    نحن نقوم حاليا بإجراء الصيانة المجدولة. 
+    سنعود عبر الإنترنت قريبًا!
   month: شهر
   name: اسم
   new: جدید
@@ -207,6 +211,7 @@ menu:
   feedbacks: التعليقات
   forgetPassword: نسيت كلمة المرور
   login: تسجيل الدخول
+  maintenance: صيانة
   messages: الرسائل
   news: الأخبار
   notFound: '404'

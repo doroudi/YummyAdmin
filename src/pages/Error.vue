@@ -20,4 +20,5 @@ const { t } = useI18n()
 <route lang="yaml">
 meta:
   layout: ErrorLayout
+  title: error
 </route>

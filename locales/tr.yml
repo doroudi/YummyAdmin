@@ -78,6 +78,10 @@ common:
   deleteConfirm: Bu öğeyi sileceğinizden emin misiniz?
   deletedMessage: Başarıyla silindi
   goHome: Ana Sayfaya Dön
+  maintenance: BAŞARILI BAKIM
+  maintenanceDetail: |-
+    Şu anda zamanlanmış bakım gerçekleştiriyoruz. 
+    Kısa bir süre sonra çevrimiçi olacağız!
   month: Ay
   name: İsim
   new: Yeni
@@ -206,6 +210,7 @@ menu:
   feedbacks: Geri Bildirimler
   forgetPassword: Şifremi Unuttum
   login: Giriş
+  maintenance: Bakım
   messages: Mesajlar
   news: Haberler
   notFound: '404'
