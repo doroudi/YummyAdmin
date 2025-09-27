@@ -5,6 +5,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yummy Admin - Free Vue dashboard</title>
+  
+    <style>
+      .preloader {
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.8em;
+        flex-direction: column;
+      }
+    
+    
+      .preloader h1 {
+        margin-top: 1rem;
+        font-weight: bold;
+        font-size: 1.44rem;
+      }
+    
+      .loader {
+        animation: rotate 1s infinite;
+        height: 50px;
+        width: 50px;
+      }
+    
+      .loader:before,
+      .loader:after {
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 20px;
+        width: 20px;
+      }
+    
+      .loader:before {
+        animation: ball1 1s infinite;
+        background-color: #cb2025;
+        box-shadow: 30px 0 0 #f8b334;
+        margin-bottom: 10px;
+      }
+    
+      .loader:after {
+        animation: ball2 1s infinite;
+        background-color: #00a096;
+        box-shadow: 30px 0 0 #97bf0d;
+      }
+    
+      @keyframes rotate {
+        0% {
+          -webkit-transform: rotate(0deg) scale(0.8);
+          -moz-transform: rotate(0deg) scale(0.8);
+        }
+    
+        50% {
+          -webkit-transform: rotate(360deg) scale(1.2);
+          -moz-transform: rotate(360deg) scale(1.2);
+        }
+    
+        100% {
+          -webkit-transform: rotate(720deg) scale(0.8);
+          -moz-transform: rotate(720deg) scale(0.8);
+        }
+      }
+    
+      @keyframes ball1 {
+        0% {
+          box-shadow: 30px 0 0 #f8b334;
+        }
+    
+        50% {
+          box-shadow: 0 0 0 #f8b334;
+          margin-bottom: 0;
+          -webkit-transform: translate(15px, 15px);
+          -moz-transform: translate(15px, 15px);
+        }
+    
+        100% {
+          box-shadow: 30px 0 0 #f8b334;
+          margin-bottom: 10px;
+        }
+      }
+    
+      @keyframes ball2 {
+        0% {
+          box-shadow: 30px 0 0 #97bf0d;
+        }
+    
+        50% {
+          box-shadow: 0 0 0 #97bf0d;
+          margin-top: -20px;
+          -webkit-transform: translate(15px, 15px);
+          -moz-transform: translate(15px, 15px);
+        }
+    
+        100% {
+          box-shadow: 30px 0 0 #97bf0d;
+          margin-top: 0;
+        }
+      }
+    </style>
+
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
@@ -25,8 +125,7 @@
     "description": "Free Vue Dashboard - Free Vue admin panel. Modern designed Vue.js dashboard based on Naive UI, Tailwind, MSW, Pinia, TypeScript."
   }
   </script>
-  <meta name="description"
-    content="Free Vue Dashboard - Free vue admin panel. modern designed vue.js dashboard based on naive ui - tailwind - msw - pinia - typescript" />
+  <meta name="description" content="Yummy Admin - Free VueJS admin panel " />
   <meta property="og:title" content="Yummy Admin - Free Vue Admin Panel">
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://yummy-admin.netlify.app/banner.png">
@@ -36,104 +135,7 @@
   <meta property="og:site_name" content="Yummy Admin">
   <meta name="twitter:image:alt" content="Yummy Admin - Free Vue Admin Panel">
 
-  <style>
-    .preloader {
-      display: flex;
-      height: 100vh;
-      align-items: center;
-      justify-content: center;
-      line-height: 1.8em;
-      flex-direction: column;
-    }
 
-
-    .preloader h1 {
-      margin-top: 1rem;
-      font-weight: bold;
-      font-size: 1.44rem;
-    }
-
-    .loader {
-      animation: rotate 1s infinite;
-      height: 50px;
-      width: 50px;
-    }
-
-    .loader:before,
-    .loader:after {
-      border-radius: 50%;
-      content: '';
-      display: block;
-      height: 20px;
-      width: 20px;
-    }
-
-    .loader:before {
-      animation: ball1 1s infinite;
-      background-color: #cb2025;
-      box-shadow: 30px 0 0 #f8b334;
-      margin-bottom: 10px;
-    }
-
-    .loader:after {
-      animation: ball2 1s infinite;
-      background-color: #00a096;
-      box-shadow: 30px 0 0 #97bf0d;
-    }
-
-    @keyframes rotate {
-      0% {
-        -webkit-transform: rotate(0deg) scale(0.8);
-        -moz-transform: rotate(0deg) scale(0.8);
-      }
-
-      50% {
-        -webkit-transform: rotate(360deg) scale(1.2);
-        -moz-transform: rotate(360deg) scale(1.2);
-      }
-
-      100% {
-        -webkit-transform: rotate(720deg) scale(0.8);
-        -moz-transform: rotate(720deg) scale(0.8);
-      }
-    }
-
-    @keyframes ball1 {
-      0% {
-        box-shadow: 30px 0 0 #f8b334;
-      }
-
-      50% {
-        box-shadow: 0 0 0 #f8b334;
-        margin-bottom: 0;
-        -webkit-transform: translate(15px, 15px);
-        -moz-transform: translate(15px, 15px);
-      }
-
-      100% {
-        box-shadow: 30px 0 0 #f8b334;
-        margin-bottom: 10px;
-      }
-    }
-
-    @keyframes ball2 {
-      0% {
-        box-shadow: 30px 0 0 #97bf0d;
-      }
-
-      50% {
-        box-shadow: 0 0 0 #97bf0d;
-        margin-top: -20px;
-        -webkit-transform: translate(15px, 15px);
-        -moz-transform: translate(15px, 15px);
-      }
-
-      100% {
-        box-shadow: 30px 0 0 #97bf0d;
-        margin-top: 0;
-      }
-    }
-  </style>
 </head>
 
 <body class="font-inter">

@@ -20,7 +20,7 @@ button:
   go: 前往
   home: 首页
   toggle_dark: 切换深色模式
-  toggle_fullscreen: Toggle Full Screen
+  toggle_fullscreen: 全屏
   toggle_langs: 切换语言
 categories:
   count: 数数
@@ -60,6 +60,8 @@ common:
   403Error: 您没有访问权限
   404Error: 404错误
   404Message: 抱歉，您要查找的页面不存在、已被删除、名称已更改或暂时不可用
+  500Error: 500 Error
+  500Message: 出现错误。请稍后重试；如果问题仍然存在，请联系管理员。
   actions: 操作
   cancel: 取消
   confirm: 确认
@@ -70,10 +72,14 @@ common:
   deleteConfirm: 确认删除？
   deletedMessage: 删除成功
   goHome: 返回首页
+  maintenance: 网站正在维护中
+  maintenanceDetail: >-
+    我们目前正在进行定期维护。很快将恢复正常！
   month: 月
   name: 姓名
   new: 新
   notFound: 未找到
+  oops: Oops Page
   price: 价格
   search: 搜索
   status: 状态
@@ -88,11 +94,11 @@ customers:
   title: 客户
 customize:
   color: 颜色
-  flatDesign: Flat Design
-  fluid: Fluid Layout
+  flatDesign: 扁平化设计
+  fluid: 流体布局
   language: 语言
   layout: 布局
-  rtl: RTL Layout
+  rtl: RTL布局
   theme: 主题
   title: 定制
 dashboard:
@@ -194,9 +200,11 @@ menu:
   customers: 客户
   dashboard: 仪表板
   eCommerce: 电子商务
+  error: 500错误
   feedbacks: 反馈
   forgetPassword: 忘记密码
   login: 登录
+  maintenance: 维护
   messages: 消息
   news: 新闻
   notFound: '404'
@@ -258,6 +266,11 @@ profile:
   location: 位置
   newPassword: 新密码
   notificationType: 通知类型
+  notificationTypes:
+    newMessage: 新消息
+    newOrder: 新订单
+    newRegister: 新注册
+    outOfStock: 缺货
   notifications: 通知
   oldPassword: 旧密码
   personalInfo: 个人信息
@@ -268,11 +281,6 @@ profile:
   sms: 短信
   title: 轮廓
   username: 用户名
-  notificationTypes:
-    newOrder: 新订单
-    newRegister: 新注册
-    newMessage: 新消息
-    outOfStock: 缺货
 register:
   button: 注册
   haveAccount: 已有账户？

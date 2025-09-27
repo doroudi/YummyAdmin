@@ -62,6 +62,13 @@ common:
   404Message: >-
     Sorry but the page you are looking for does not exist, have been removed.
     name changed or is temporarily unavailable
+  500Error: 500 Error
+  500Message: >-
+    Something went wrong. Please try again later or contact the administrator if
+    the problem persists.
+  maintenance: Website in under maintenance
+  maintenanceDetail: >-
+    We are currently performing scheduled maintenance. We will be back online shortly!
   actions: Actions
   cancel: Cancel
   confirm: Confirm
@@ -198,7 +205,9 @@ menu:
   login: Login
   messages: Messages
   news: News
-  notFound: 404 Error
+  notFound: 404 Not Found
+  error: Error Page
+  maintenance: Maintenance
   notifications: Notifications
   orders: Orders
   other: Other
