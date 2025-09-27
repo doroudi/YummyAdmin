@@ -62,6 +62,10 @@ common:
   404Message: >-
     Sorry but the page you are looking for does not exist, have been removed.
     name changed or is temporarily unavailable
+  500Error: 500 Error
+  500Message: >-
+    Something went wrong. Please try again later or contact the administrator if
+    the problem persists.
   actions: Actions
   cancel: Cancel
   confirm: Confirm
@@ -199,6 +203,7 @@ menu:
   messages: Messages
   news: News
   notFound: 404 Error
+  error: 500 Error
   notifications: Notifications
   orders: Orders
   other: Other

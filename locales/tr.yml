@@ -62,6 +62,12 @@ common:
   404Message: >-
     Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya
     geçici olarak kullanılamıyor
+  500Error: 500 Hata
+  500Message: >-
+    Bir şeyler ters gitti. 
+
+    Sorun devam ederse lütfen daha sonra tekrar deneyin veya yöneticiyle
+    iletişime geçin.
   actions: Eylemler
   cancel: İptal etmek
   confirm: Onaylamak
@@ -196,6 +202,7 @@ menu:
   customers: Müşteriler
   dashboard: Gösterge Paneli
   eCommerce: E-Ticaret
+  error: 500 Hata
   feedbacks: Geri Bildirimler
   forgetPassword: Şifremi Unuttum
   login: Giriş
@@ -252,6 +259,7 @@ products:
   name: Ürün Adı
   rate: Oran
   stock: Stok
+  stoke: Stoke
 profile:
   changePassword: Şifre değiştir
   confirmPassword: Şifreyi onaylayın
@@ -261,6 +269,11 @@ profile:
   location: Konum
   newPassword: Yeni Şifre
   notificationType: Bildirim Türü
+  notificationTypes:
+    newMessage: Yeni Mesaj
+    newOrder: Yeni Sipariş
+    newRegister: Yeni Kayıt
+    outOfStock: Stokta Yok
   notifications: Bildirimler
   oldPassword: Eski Şifre
   personalInfo: Kişisel Bilgi
@@ -271,11 +284,6 @@ profile:
   sms: SMS
   title: Profil
   username: Kullanıcı adı
-  notificationTypes:
-    newOrder: Yeni Sipariş
-    newRegister: Yeni Kayıt
-    newMessage: Yeni Mesaj
-    outOfStock: Stokta Yok
 register:
   button: Kayıt Ol
   haveAccount: Hesabınız var mı?
