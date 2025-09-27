@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import type { MenuInst, MenuOption } from 'naive-ui/es/components'
 defineModel<string>()
@@ -6,6 +5,7 @@ export interface SidebarMenuOption {
   label: string
   key: string
   icon?: any
+  activeIcon?: any
   selectedIcon?: any
   isNew?: boolean
   showBadge?: boolean
@@ -25,16 +25,28 @@ const menuRef = ref<MenuInst | null>(null)
 onMounted(() => activateCurrentRoute())
 
 function activateCurrentRoute() {
-  const keys = props.options.flatMap((m: SidebarMenuOption) => m.children || m)
-  if (keys !== undefined) {
-    selectedMenuKey.value =
-      keys.find(
-        (s: SidebarMenuOption) =>
-          s.key.toLowerCase() === route.name.toLowerCase(),
-      )?.key ?? 'dashboard-ecommerce' //default route
-    menuRef.value?.showOption(selectedMenuKey.value)
-  }
+  setTimeout(() => {
+    const keys = props.options.flatMap(
+      (m: SidebarMenuOption) => m.children || m,
+    )
+    if (keys !== undefined) {
+      selectedMenuKey.value =
+        keys.find(
+          (s: SidebarMenuOption) =>
+            s.key.toLowerCase() === route.name.toLowerCase(),
+        )?.key ?? 'dashboard-ecommerce' //default route
+
+      menuRef.value?.showOption(selectedMenuKey.value)
+    }
+  }, 20)
 }
+
+watch(
+  () => route.name,
+  () => {
+    setTimeout(() => activateCurrentRoute(), 200)
+  },
+)
 
 const items = computed(() =>
   props.options.map((o: SidebarMenuOption) => convertToMenuOption(o)),
@@ -47,15 +59,22 @@ function convertToMenuOption(item: SidebarMenuOption): MenuOption {
     label: item.route
       ? () => renderLabel(item.label, item.route!, item.isNew ?? false)
       : () => item.label,
-    icon: renderIcon(item.icon, item.showBadge),
+    icon: renderIcon(
+      isActiveRoute(item) && item.activeIcon ? item.activeIcon : item.icon,
+      item.showBadge,
+    ),
     key: item.key, //TODO: auto generate key
     children: item.children?.map((i) => convertToMenuOption(i)),
   }
 }
+
+function isActiveRoute(item: SidebarMenuOption) {
+  return selectedMenuKey.value === item.key
+}
 </script>
 
 <template>
-    <n-menu ref="menuRef" v-bind="$attrs" v-model:value="model" :options="items" />
+  <n-menu ref="menuRef" v-bind="$attrs" v-model:value="selectedMenuKey" :options="items" />
 </template>
 
 
