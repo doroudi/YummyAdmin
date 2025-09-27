@@ -51,6 +51,7 @@ watch(
                 <transition name="route" mode="out-in">
                   <div :key="route.name">
                     <component :is="Component" class="relative" />
+                    
                   </div>
                 </transition>
               </router-view>
@@ -59,6 +60,7 @@ watch(
         </div>
       </div>
     </n-layout>
+    <SupportProject />
   </n-layout>
 </template>
 

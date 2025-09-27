@@ -113,7 +113,6 @@ function setThemeColor(newValue: string) {
         <n-dialog-provider>
           <DarkModeContainer class="z-1" />
           <RouterView />
-          <SupportProject />
         </n-dialog-provider>
       </n-message-provider>
     </n-notification-provider>

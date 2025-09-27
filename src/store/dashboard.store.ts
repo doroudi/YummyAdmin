@@ -19,6 +19,7 @@ export const useDashboardStore = defineStore('Dashboard', () => {
   const usersLocationData = ref<LocationChartSeries[]>()
   const revenueStat = ref<any>([])
   const isLoading = ref(false)
+  const isLoadingMonthlyStat = ref(false)
   const isLoadingStats = ref(false)
   const monthlySellStat = ref<ChartData | null>()
   async function getSummaryStat() {
@@ -31,12 +32,12 @@ export const useDashboardStore = defineStore('Dashboard', () => {
   }
 
   async function getMonthlySellStat() {
-    isLoading.value = true
+    isLoadingMonthlyStat.value = true
     try {
       const data = await reportService.getMonthlySellStat()
       monthlySellStat.value = data
     } finally {
-      isLoading.value = false
+      isLoadingMonthlyStat.value = false
     }
   }
 
@@ -79,6 +80,7 @@ export const useDashboardStore = defineStore('Dashboard', () => {
     usersLocationData,
     getMonthlySellStat,
     monthlySellStat,
+    isLoadingMonthlyStat,
   }
 })
 if (import.meta.hot)

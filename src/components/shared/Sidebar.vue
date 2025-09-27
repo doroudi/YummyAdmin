@@ -1,30 +1,42 @@
 <script setup lang="ts">
 import {
   PersonSettings20Regular as AccountSettingsIcon,
+  PersonSettings20Filled as AccountSettingsIconActive,
   AppFolder20Regular as AppsIcon,
   DoorArrowRight20Regular as AuthIcon,
-  CheckmarkStarburst16Regular as BrandsIcon,
-  Folder24Filled as CategoryIcon,
+  CheckmarkStarburst20Regular as BrandsIcon,
+  CheckmarkStarburst20Filled as BrandsIconActive,
+  Folder24Regular as CategoryIcon,
+  Folder24Filled as CategoryIconSelected,
   ChatMultiple20Regular as ChatAppIcon,
+  ChatMultiple20Filled as ChatAppIconActive,
   Dismiss24Filled as CloseIcon,
   Color24Regular as ColorsIcon,
+  Color24Filled as ColorsIconActive,
+  AppsAddIn24Regular as CreateProductIcon,
+  AppsAddIn24Filled as CreateProductIconActive,
   People24Regular as CustomersIcon,
+  People24Filled as CustomersIconActive,
   Board24Regular as DashboardIcon,
   ChartMultiple20Regular as DashboardIcon1,
+  ChartMultiple20Filled as DashboardIcon1Active,
   ArrowTrendingLines24Regular as DashboardIcon2,
   ErrorCircle24Regular as ErrorIcon,
   PersonLightbulb20Regular as ForgetIcon,
   Cart24Regular as InvoicesIcon,
+  Cart24Filled as InvoicesIconActive,
   PersonLock20Regular as LoginIcon,
   ErrorCircleSettings20Regular as MaintenanceIcon,
   ShieldError24Regular as NotFoundIcon,
   DocumentLink20Regular as PagesIcon,
   BoxCheckmark24Regular as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
+  BoxMultiple20Filled as ProductsIcon2Active,
   PersonAdd20Regular as RegisterIcon,
   StarThreeQuarter20Filled as ReviewIcon,
   Settings28Regular as SettingsIcon,
   CheckmarkCircle24Regular as TodoAppIcon,
+  CheckmarkCircle24Filled as TodoAppIconActive,
 } from '@vicons/fluent'
 
 import { storeToRefs } from 'pinia'
@@ -51,6 +63,7 @@ const newMenuOptions: SidebarMenuOption[] = [
         label: t('menu.eCommerce'),
         key: 'dashboard-ecommerce',
         icon: DashboardIcon1,
+        activeIcon: DashboardIcon1Active,
         route: '/',
       },
       {
@@ -71,24 +84,35 @@ const newMenuOptions: SidebarMenuOption[] = [
         route: '/products',
         key: 'products',
         icon: ProductsIcon2,
+        activeIcon: ProductsIcon2Active,
+      },
+      {
+        label: t('menu.createProduct'),
+        route: '/products/create',
+        key: 'create-product',
+        icon: CreateProductIcon,
+        activeIcon: CreateProductIconActive,
       },
       {
         label: t('menu.categories'),
         route: '/categories',
         key: 'categories',
         icon: CategoryIcon,
+        activeIcon: CategoryIconSelected,
       },
       {
         label: t('menu.brands'),
         route: '/brands',
         key: 'brands',
         icon: BrandsIcon,
+        activeIcon: BrandsIconActive,
       },
       {
         label: t('menu.colors'),
         route: '/colors',
         key: 'colors',
         icon: ColorsIcon,
+        activeIcon: ColorsIconActive,
       },
       {
         label: t('menu.reviews'),
@@ -103,6 +127,7 @@ const newMenuOptions: SidebarMenuOption[] = [
     route: '/orders',
     key: 'orders',
     icon: InvoicesIcon,
+    activeIcon: InvoicesIconActive,
     showBadge: true,
   },
   {
@@ -110,6 +135,7 @@ const newMenuOptions: SidebarMenuOption[] = [
     route: '/customers',
     key: 'customers',
     icon: CustomersIcon,
+    activeIcon: CustomersIconActive,
   },
   {
     label: t('menu.apps'),
@@ -121,6 +147,7 @@ const newMenuOptions: SidebarMenuOption[] = [
         route: '/apps/chat',
         key: 'apps-chat',
         icon: ChatAppIcon,
+        activeIcon: ChatAppIconActive,
       },
       {
         label: t('menu.todo'),
@@ -128,6 +155,7 @@ const newMenuOptions: SidebarMenuOption[] = [
         isNew: true,
         key: 'apps-todo',
         icon: TodoAppIcon,
+        activeIcon: TodoAppIconActive,
       },
     ],
   },
@@ -167,6 +195,7 @@ const newMenuOptions: SidebarMenuOption[] = [
         route: '/account/profile',
         key: 'account-settings',
         icon: AccountSettingsIcon,
+        activeIcon: AccountSettingsIconActive,
       },
     ],
   },
@@ -197,6 +226,7 @@ const newMenuOptions: SidebarMenuOption[] = [
   },
 ]
 const router = useRouter()
+//mobile view
 router.beforeEach(() => {
   layoutStore.closeSidebar()
 })
