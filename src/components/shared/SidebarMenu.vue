@@ -74,7 +74,7 @@ function isActiveRoute(item: SidebarMenuOption) {
 </script>
 
 <template>
-  <n-menu ref="menuRef" v-bind="$attrs" v-model:value="selectedMenuKey" :options="items" />
+  <n-menu ref="menuRef" v-bind="$attrs" accordion v-model:value="selectedMenuKey" :options="items" />
 </template>
 
 

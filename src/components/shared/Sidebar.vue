@@ -311,6 +311,10 @@ router.beforeEach(() => {
   background-color: rgba(189, 189, 189, 0.15);
 }
 
+.n-menu-tooltip span {
+  color: #e4e4e4 !important;
+}
+
 .n-layout-sider {
   background-color: transparent;
 }
