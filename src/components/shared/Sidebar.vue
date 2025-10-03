@@ -238,7 +238,7 @@ router.beforeEach(() => {
     <div class="logo-container mb-4">
       <div flex w-full justify-between items-center>
         <div flex w-full justify-start items-center>
-          <div class="logo-bg"><img src="@/assets/images/logo.svg" alt="logo" class="logo"></div>
+          <div class="logo-bg"><img src="@/assets/images/logo.png" alt="logo" class="logo"></div>
           <h1 class="main-title">
             {{ t('title') }}
           </h1>
@@ -277,15 +277,14 @@ router.beforeEach(() => {
   }
 
   .logo-bg {
-    border-radius: 8px;
     width: 38px;
     height: 38px;
     display: flex;
-    margin: 0 .7rem;
+    margin: 0 .34rem;
     justify-content: center;
     align-items: center;
     .logo {
-      height: 75%;
+      width: 34px;
       object-fit: cover;
     }
   }
