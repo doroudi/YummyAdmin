@@ -89,6 +89,8 @@ common:
   search: بحث
   status: حالة
   week: أسبوع
+  locale: ar-EG
+  currency: درهم
 currencySign: درهم
 customers:
   customerName: اسم العميل

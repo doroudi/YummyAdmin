@@ -87,7 +87,9 @@ common:
   search: جستجو
   status: وضعیت
   week: هفته
-currencySign: تومان
+  locale: fa-IR
+  currency: IRR
+currencySign: ریال
 customers:
   customerName: نام مشتری
   email: ایمیل

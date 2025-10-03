@@ -1,5 +1,22 @@
 <script setup lang="ts">
 import { darkTheme, lightTheme } from 'naive-ui'
+import {
+  unstableAlertRtl,
+  unstableBadgeRtl,
+  unstableButtonGroupRtl,
+  unstableButtonRtl,
+  unstableCardRtl,
+  unstableCheckboxRtl,
+  unstableCollapseRtl,
+  unstableDataTableRtl,
+  unstableDialogRtl,
+  unstableDrawerRtl,
+  unstableInputRtl,
+  unstableMessageRtl,
+  unstablePaginationRtl,
+  unstableSelectRtl,
+  unstableTreeSelectRtl,
+} from 'naive-ui'
 import scrollbarRtl from 'naive-ui/es/_internal/scrollbar/styles/rtl'
 import { alertRtl } from 'naive-ui/es/alert/styles'
 import { buttonRtl } from 'naive-ui/es/button/styles'
@@ -27,6 +44,21 @@ const rtlStyles = [
   tagRtl,
   dialogRtl,
   drawerRtl,
+  unstableSelectRtl,
+  unstableTreeSelectRtl,
+  unstableAlertRtl,
+  unstableBadgeRtl,
+  unstableCardRtl,
+  unstableCheckboxRtl,
+  unstableButtonRtl,
+  unstableDialogRtl,
+  unstableDataTableRtl,
+  unstableButtonGroupRtl,
+  unstableInputRtl,
+  unstableCollapseRtl,
+  unstableDrawerRtl,
+  unstableMessageRtl,
+  unstablePaginationRtl,
 ]
 
 const customTheme = ref({ ...themeOverrides })
@@ -108,7 +140,7 @@ function setThemeColor(newValue: string) {
 <template>
   <n-config-provider inline-theme-disabled :theme="activeTheme" :theme-overrides="activeThemeOverrides"
     :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false">
-    <n-notification-provider :placement="layout.isRtl ? 'bottom-left':'bottom-right'">
+    <n-notification-provider :placement="layout.isRtl ? 'bottom-left' : 'bottom-right'">
       <n-message-provider placement="bottom-right">
         <n-dialog-provider>
           <DarkModeContainer class="z-1" />
@@ -120,6 +152,4 @@ function setThemeColor(newValue: string) {
 </template>
 
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

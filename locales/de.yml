@@ -91,6 +91,8 @@ common:
   search: Suche
   status: Status
   week: Woche
+  locale: de-DE
+  currency: EUR
 currencySign: €
 customers:
   customerName: Kundenname

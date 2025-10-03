@@ -49,14 +49,17 @@ function handlePreview(file: UploadFileInfo) {
 }
 
 function parseCurrency(input: string) {
-  const nums = input.replace(/(,|\$|\s)/g, '').trim()
+  const nums = input.replace(/(,|\$|¥|₺|€|ریال|\s)/g, '').trim()
   if (/^\d+(\.(\d+)?)?$/.test(nums)) return Number(nums)
   return nums === '' ? null : Number.NaN
 }
 
 function formatCurrency(value: number | null) {
   if (value === null) return ''
-  return `${value.toLocaleString('en-US')} \u{24}`
+  return value.toLocaleString(t('common.locale'), {
+    style: 'currency',
+    currency: t('common.currency'),
+  })
 }
 </script>
 

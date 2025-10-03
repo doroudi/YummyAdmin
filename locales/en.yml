@@ -88,6 +88,8 @@ common:
   search: Search
   status: Status
   week: Week
+  locale: en-US
+  currency: USD
 currencySign: $
 customers:
   customerName: Customer Name

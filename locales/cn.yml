@@ -84,6 +84,8 @@ common:
   search: 搜索
   status: 状态
   week: 星期
+  locale: zh-CN
+  currency: CNY
 currencySign: ¥
 customers:
   customerName: 客户名称
