@@ -19,9 +19,12 @@ button:
   back: Geri
   go: GİT
   home: Ana Sayfa
+  notifications: Bildirimler
+  toggle_customize: Özelleştirmek
   toggle_dark: Karanlık modu değiştir
   toggle_fullscreen: Tam ekranı geçiş
   toggle_langs: Dil değiştir
+
 categories:
   count: Saymak
   create:

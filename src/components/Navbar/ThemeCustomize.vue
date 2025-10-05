@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { PaintBrush24Regular as CustomizeIcon } from '@vicons/fluent'
-
+const { t } = useI18n()
 const showCustomizeDialog = ref(false)
 
 function toggleDialog() {
@@ -10,21 +10,26 @@ function toggleDialog() {
 
 <template>
   <div v-bind="$attrs">
-    <n-popover trigger="click" :show-arrow="false" style="width: 370px;max-height: 550px;">
+    <n-tooltip placement="top" trigger="hover">
       <template #trigger>
-        <div v-bind="$attrs">
-          <n-button quaternary circle @click="toggleDialog()">
-            <template #icon>
-              <NIcon size="1.4rem">
-                <CustomizeIcon />
-              </NIcon>
-            </template>
-          </n-button>
-        </div>
+        <n-popover trigger="click" :show-arrow="false" style="width: 390px;max-height: 550px;">
+          <template #trigger>
+            <div v-bind="$attrs">
+              <n-button quaternary circle @click="toggleDialog()">
+                <template #icon>
+                  <NIcon size="1.4rem">
+                    <CustomizeIcon />
+                  </NIcon>
+                </template>
+              </n-button>
+            </div>
+          </template>
+          <div class="px-1">
+            <customize-dialog />
+          </div>
+        </n-popover>
       </template>
-      <div class="px-1">
-        <customize-dialog />
-      </div>
-    </n-popover>
+      <span>{{ t('button.toggle_customize') }}</span>
+    </n-tooltip>
   </div>
 </template>

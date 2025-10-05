@@ -15,7 +15,7 @@ Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (
    <a href="https://yummy-admin.netlify.app?theme=dark">🌑 Dark Mode</a>
    <br>
    Other languages demo:<br />
-   <a href="https://yummy-admin.netlify.app?lang=ch"> Chines</a> |
+   <a href="https://yummy-admin.netlify.app?lang=cn"> Chines</a> |
    <a href="https://yummy-admin.netlify.app?lang=fa"> Persian</a> |
    <a href="https://yummy-admin.netlify.app?lang=ar"> Arabic</a> |
    <a href="https://yummy-admin.netlify.app?lang=tr"> Turkish</a> |

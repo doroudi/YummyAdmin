@@ -19,9 +19,12 @@ button:
   back: Zurück
   go: LOS
   home: Startseite
+  notifications: Benachrichtigungen
+  toggle_customize: Anpassen
   toggle_dark: Dunkelmodus umschalten
   toggle_fullscreen: Vollbildschirmen
   toggle_langs: Sprache ändern
+
 categories:
   count: Zählen
   create:
@@ -72,12 +75,14 @@ common:
   cancel: Stornieren
   confirm: Bestätigen
   create: Erstellen
+  currency: EUR
   date: Datum
   day: Tag
   delete: Löschen
   deleteConfirm: Sind Sie sicher, diesen Artikel zu löschen?
   deletedMessage: Erfolgreich gelöscht
   goHome: Zurück zur Startseite
+  locale: de-DE
   maintenance: Website unter Wartung
   maintenanceDetail: |-
     Wir führen derzeit geplante Wartung durch. 
@@ -91,8 +96,6 @@ common:
   search: Suche
   status: Status
   week: Woche
-  locale: de-DE
-  currency: EUR
 currencySign: €
 customers:
   customerName: Kundenname

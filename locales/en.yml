@@ -19,9 +19,12 @@ button:
   back: Back
   go: GO
   home: Home
+  notifications: Notifications
   toggle_dark: Toggle dark mode
   toggle_fullscreen: Toggle Full Screen
   toggle_langs: Change languages
+  toggle_notifications: Notifications
+  toggle_customize: Customize
 categories:
   count: Count
   create:
@@ -66,19 +69,22 @@ common:
   500Message: >-
     Something went wrong. Please try again later or contact the administrator if
     the problem persists.
-  maintenance: Website in under maintenance
-  maintenanceDetail: >-
-    We are currently performing scheduled maintenance. We will be back online shortly!
   actions: Actions
   cancel: Cancel
   confirm: Confirm
   create: Create
+  currency: USD
   date: Date
   day: Day
   delete: Delete
   deleteConfirm: Are you sure to delete this item?
   deletedMessage: Deleted Successfully
   goHome: Back To Home
+  locale: en-US
+  maintenance: Website in under maintenance
+  maintenanceDetail: >-
+    We are currently performing scheduled maintenance. We will be back online
+    shortly!
   month: Month
   name: Name
   new: New
@@ -88,8 +94,6 @@ common:
   search: Search
   status: Status
   week: Week
-  locale: en-US
-  currency: USD
 currencySign: $
 customers:
   customerName: Customer Name
@@ -202,14 +206,14 @@ menu:
   customers: Customers
   dashboard: Dashboard
   eCommerce: eCommerce
+  error: Error Page
   feedbacks: Feedbacks
   forgetPassword: Forget Password
   login: Login
+  maintenance: Maintenance
   messages: Messages
   news: News
   notFound: 404 Not Found
-  error: Error Page
-  maintenance: Maintenance
   notifications: Notifications
   orders: Orders
   other: Other
@@ -270,6 +274,11 @@ profile:
   location: Location
   newPassword: New Password
   notificationType: Notification Type
+  notificationTypes:
+    newMessage: New Message
+    newOrder: New Order
+    newRegister: New Register
+    outOfStock: Out Of Stock
   notifications: Notifications
   oldPassword: Old Password
   personalInfo: Personal Info
@@ -280,11 +289,6 @@ profile:
   sms: Sms
   title: Profile
   username: UserName
-  notificationTypes:
-    newOrder: New Order
-    newRegister: New Register
-    newMessage: New Message
-    outOfStock: Out Of Stock
 register:
   button: Register
   haveAccount: Have Account?

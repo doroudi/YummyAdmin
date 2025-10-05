@@ -29,7 +29,7 @@
 
 
 .rtl {
-  .n-popover__content {
+  .n-popover__content, .n-popover__header, .n-popover__footer {
     direction: rtl;
     font-family: 'Shabnam';
   }

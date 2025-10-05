@@ -19,6 +19,8 @@ button:
   back: بازگشت
   go: برو
   home: خانه
+  notifications: اعلان ها
+  toggle_customize: سفارشی کردن
   toggle_dark: حالت تیره
   toggle_fullscreen: تمام صفحه
   toggle_langs: تغییر زبان
@@ -68,12 +70,14 @@ common:
   cancel: لغو کردن
   confirm: تأیید کردن
   create: ایجاد
+  currency: IRR
   date: تاریخ
   day: روز
   delete: حذف کردن
   deleteConfirm: آیا از حذف این مورد مطمئن هستید؟
   deletedMessage: با موفقیت حذف شد
   goHome: بازگشت به خانه
+  locale: fa-IR
   maintenance: بروزرسانی
   maintenanceDetail: |-
     ما در حال حاضر تعمیر و نگهداری برنامه ریزی شده را انجام می دهیم. 
@@ -87,8 +91,6 @@ common:
   search: جستجو
   status: وضعیت
   week: هفته
-  locale: fa-IR
-  currency: IRR
 currencySign: ریال
 customers:
   customerName: نام مشتری

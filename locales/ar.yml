@@ -19,9 +19,12 @@ button:
   back: رجوع
   go: انتقال
   home: الرئيسية
+  notifications: إشعارات
+  toggle_customize: تخصيص
   toggle_dark: تبديل الوضع المظلم
   toggle_fullscreen: تبديل ملء الشاشة
   toggle_langs: تغيير اللغات
+
 categories:
   count: عدد
   create:
@@ -70,12 +73,14 @@ common:
   cancel: يلغي
   confirm: يتأكد
   create: يخلق
+  currency: درهم
   date: تاریخ
   day: یوم
   delete: يمسح
   deleteConfirm: هل أنت متأكد من حذف هذا العنصر؟
   deletedMessage: تم حذفه بنجاح
   goHome: العودة إلى الرئيسية
+  locale: ar-EG
   maintenance: موقع على شبكة الإنترنت تحت الصيانة
   maintenanceDetail: |-
     نحن نقوم حاليا بإجراء الصيانة المجدولة. 
@@ -89,8 +94,6 @@ common:
   search: بحث
   status: حالة
   week: أسبوع
-  locale: ar-EG
-  currency: درهم
 currencySign: درهم
 customers:
   customerName: اسم العميل

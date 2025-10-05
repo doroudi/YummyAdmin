@@ -19,6 +19,8 @@ button:
   back: 返回
   go: 前往
   home: 首页
+  notifications: 通知
+  toggle_customize: 定制
   toggle_dark: 切换深色模式
   toggle_fullscreen: 全屏
   toggle_langs: 切换语言
@@ -66,15 +68,16 @@ common:
   cancel: 取消
   confirm: 确认
   create: 确认
+  currency: CNY
   date: 日期
   day: 天
   delete: 删除
   deleteConfirm: 确认删除？
   deletedMessage: 删除成功
   goHome: 返回首页
+  locale: zh-CN
   maintenance: 网站正在维护中
-  maintenanceDetail: >-
-    我们目前正在进行定期维护。很快将恢复正常！
+  maintenanceDetail: 我们目前正在进行定期维护。很快将恢复正常！
   month: 月
   name: 姓名
   new: 新
@@ -84,8 +87,6 @@ common:
   search: 搜索
   status: 状态
   week: 星期
-  locale: zh-CN
-  currency: CNY
 currencySign: ¥
 customers:
   customerName: 客户名称

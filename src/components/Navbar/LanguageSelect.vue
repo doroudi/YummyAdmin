@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Translate16Regular as TranslateIcon } from '@vicons/fluent'
+import { Globe20Regular as TranslateIcon } from '@vicons/fluent'
 import { NIcon } from 'naive-ui/es/icon'
 import { storeToRefs } from 'pinia'
 import ArabicIcon from '../CustomIcons/ArabicIcon.vue'
@@ -64,16 +64,21 @@ function sortLangs(a: string, b: string): number {
 
 <template>
   <div v-bind="$attrs">
-    <n-popselect v-model:value="language" trigger="hover" :options="languages" @update-value="changeLanguage">
-      <n-button quaternary :circle="!showTitle">
-        <template #icon>
-          <NIcon size="1.4rem">
-            <TranslateIcon />
-          </NIcon> 
-        </template>
-        <span v-if="showTitle">{{ t(`languages.${activeLanguage}`) }}</span>
-      </n-button>
-    </n-popselect>
+    <n-tooltip placement="top" trigger="hover">
+      <template #trigger>
+        <n-popselect v-model:value="language" trigger="click" :options="languages" @update-value="changeLanguage">
+          <n-button quaternary :circle="!showTitle">
+            <template #icon>
+              <NIcon size="1.4rem">
+                <TranslateIcon />
+              </NIcon>
+            </template>
+            <span v-if="showTitle">{{ t(`languages.${activeLanguage}`) }}</span>
+          </n-button>
+        </n-popselect>
+      </template>
+      <span>{{ t('button.toggle_langs') }}</span>
+    </n-tooltip>
   </div>
 </template>
 

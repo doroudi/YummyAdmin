@@ -37,52 +37,57 @@ function getIcon(notificationType: NotificationType) {
 
 <template>
   <div v-bind="$attrs">
-    <n-popover class="notifications" trigger="hover" :show-arrow="true" style="width: 270px;max-height: 450px;">
+    <n-tooltip placement="top" trigger="hover">
       <template #trigger>
-        <n-button quaternary circle>
-          <template #icon>
-            <n-badge dot type="success" :offset="[-5, 5]" processing>
-              <NIcon class="shake-item" size="1.4rem">
-                <BellIcon />
-              </NIcon>
-            </n-badge>
-          </template>
-        </n-button>
-      </template>
-      <template #header>
-        <NText strong depth="1">
-          {{ t('notifications.title') }}
-        </NText>
-      </template>
-      <template #footer>
-        <NButton :disabled="!notifications.length" quaternary @click="store.clearAll()">
-          {{ t('notifications.clear') }}
-        </NButton>
-      </template>
-      <n-empty v-if="!notifications.length" class="m-5" :description="t('notifications.empty')">
-        <template #icon>
-          <n-icon>
-            <EmptyIcon />
-          </n-icon>
-        </template>
-      </n-empty>
-      <NScrollbar v-else style="max-height:300px">
-        <div class="notifications-list">
-          <n-list hoverable clickable>
-            <n-list-item v-for="item of notifications" :key="item.id">
-              <template #prefix>
-                <div class="icon ms-2">
-                  <NIcon class="notification-icon" :class="NotificationType[item.type].toLowerCase()" size="20">
-                    <Component :is="getIcon(item.type)" />
+        <n-popover class="notifications" trigger="click" :show-arrow="true" style="width: 270px;max-height: 450px;">
+          <template #trigger>
+            <n-button quaternary circle>
+              <template #icon>
+                <n-badge dot type="success" :offset="[-5, 5]" processing>
+                  <NIcon class="shake-item" size="1.4rem">
+                    <BellIcon />
                   </NIcon>
-                </div>
+                </n-badge>
               </template>
-              <n-thing :title="item.title" :description="item.message" />
-            </n-list-item>
-          </n-list>
-        </div>
-      </NScrollbar>
-    </n-popover>
+            </n-button>
+          </template>
+          <template #header>
+            <NText strong depth="1">
+              {{ t('notifications.title') }}
+            </NText>
+          </template>
+          <template #footer>
+            <NButton :disabled="!notifications.length" quaternary @click="store.clearAll()">
+              {{ t('notifications.clear') }}
+            </NButton>
+          </template>
+          <n-empty v-if="!notifications.length" class="m-5" :description="t('notifications.empty')">
+            <template #icon>
+              <n-icon>
+                <EmptyIcon />
+              </n-icon>
+            </template>
+          </n-empty>
+          <NScrollbar v-else style="max-height:300px">
+            <div class="notifications-list">
+              <n-list hoverable clickable>
+                <n-list-item v-for="item of notifications" :key="item.id">
+                  <template #prefix>
+                    <div class="icon ms-2">
+                      <NIcon class="notification-icon" :class="NotificationType[item.type].toLowerCase()" size="20">
+                        <Component :is="getIcon(item.type)" />
+                      </NIcon>
+                    </div>
+                  </template>
+                  <n-thing :title="item.title" :description="item.message" />
+                </n-list-item>
+              </n-list>
+            </div>
+          </NScrollbar>
+        </n-popover>
+      </template>
+      <span>{{ t('button.notifications') }}</span>
+    </n-tooltip>
   </div>
 </template>
 
