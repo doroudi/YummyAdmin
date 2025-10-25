@@ -13,6 +13,7 @@ import {
   Dismiss24Filled as CloseIcon,
   Color24Regular as ColorsIcon,
   Color24Filled as ColorsIconActive,
+  PuzzlePiece24Regular as ComponentsIcon,
   AppsAddIn24Regular as CreateProductIcon,
   AppsAddIn24Filled as CreateProductIconActive,
   People24Regular as CustomersIcon,
@@ -75,152 +76,194 @@ const newMenuOptions: SidebarMenuOption[] = [
     ],
   },
   {
-    label: t('menu.productManagement'),
-    key: 'productManagement',
-    icon: ProductsIcon,
+    label: t('menu.components'),
+    key: 'components',
+    icon: ComponentsIcon,
     children: [
       {
-        label: t('menu.products'),
+        label: 'Charts',
         route: '/products',
         key: 'products',
         icon: ProductsIcon2,
         activeIcon: ProductsIcon2Active,
       },
       {
-        label: t('menu.createProduct'),
+        label: 'Forms',
         route: '/products/create',
         key: 'create-product',
         icon: CreateProductIcon,
         activeIcon: CreateProductIconActive,
       },
       {
-        label: t('menu.categories'),
-        route: '/categories',
-        key: 'categories',
-        icon: CategoryIcon,
-        activeIcon: CategoryIconSelected,
+        label: 'Data',
+        route: '/products/create',
+        key: 'create-product',
+        icon: CreateProductIcon,
+        activeIcon: CreateProductIconActive,
       },
       {
-        label: t('menu.brands'),
-        route: '/brands',
-        key: 'brands',
-        icon: BrandsIcon,
-        activeIcon: BrandsIconActive,
-      },
-      {
-        label: t('menu.colors'),
-        route: '/colors',
-        key: 'colors',
-        icon: ColorsIcon,
-        activeIcon: ColorsIconActive,
-      },
-      {
-        label: t('menu.reviews'),
-        route: '/reviews',
-        key: 'reviews',
-        icon: ReviewIcon,
+        label: 'Typography',
+        route: '/products/create',
+        key: 'create-product',
+        icon: CreateProductIcon,
+        activeIcon: CreateProductIconActive,
       },
     ],
   },
   {
-    label: t('menu.orders'),
-    route: '/orders',
-    key: 'orders',
-    icon: InvoicesIcon,
-    activeIcon: InvoicesIconActive,
-    showBadge: true,
-  },
-  {
-    label: t('menu.customers'),
-    route: '/customers',
-    key: 'customers',
-    icon: CustomersIcon,
-    activeIcon: CustomersIconActive,
-  },
-  {
-    label: t('menu.apps'),
-    key: 'apps',
-    icon: AppsIcon,
+    key: 'apps-group',
+    type: 'group',
+    label: 'Apps',
     children: [
       {
-        label: t('menu.chat'),
-        route: '/apps/chat',
-        key: 'apps-chat',
-        icon: ChatAppIcon,
-        activeIcon: ChatAppIconActive,
+        label: t('menu.eCommerce'),
+        key: 'e-commerce',
+        icon: ProductsIcon,
+        children: [
+          {
+            label: t('menu.products'),
+            route: '/products',
+            key: 'products',
+            icon: ProductsIcon2,
+            activeIcon: ProductsIcon2Active,
+          },
+          {
+            label: t('menu.createProduct'),
+            route: '/products/create',
+            key: 'create-product',
+            icon: CreateProductIcon,
+            activeIcon: CreateProductIconActive,
+          },
+          {
+            label: t('menu.categories'),
+            route: '/categories',
+            key: 'categories',
+            icon: CategoryIcon,
+            activeIcon: CategoryIconSelected,
+          },
+          {
+            label: t('menu.brands'),
+            route: '/brands',
+            key: 'brands',
+            icon: BrandsIcon,
+            activeIcon: BrandsIconActive,
+          },
+          {
+            label: t('menu.colors'),
+            route: '/colors',
+            key: 'colors',
+            icon: ColorsIcon,
+            activeIcon: ColorsIconActive,
+          },
+          {
+            label: t('menu.reviews'),
+            route: '/reviews',
+            key: 'reviews',
+            icon: ReviewIcon,
+          },
+          {
+            label: t('menu.orders'),
+            route: '/orders',
+            key: 'orders',
+            icon: InvoicesIcon,
+            activeIcon: InvoicesIconActive,
+            showBadge: true,
+          },
+          {
+            label: t('menu.customers'),
+            route: '/customers',
+            key: 'customers',
+            icon: CustomersIcon,
+            activeIcon: CustomersIconActive,
+          },
+        ],
       },
       {
-        label: t('menu.todo'),
-        route: '/apps/todo',
-        isNew: true,
-        key: 'apps-todo',
-        icon: TodoAppIcon,
-        activeIcon: TodoAppIconActive,
+        label: t('menu.apps'),
+        key: 'apps',
+        icon: AppsIcon,
+        children: [
+          {
+            label: t('menu.chat'),
+            route: '/apps/chat',
+            key: 'apps-chat',
+            icon: ChatAppIcon,
+            activeIcon: ChatAppIconActive,
+          },
+          {
+            label: t('menu.todo'),
+            route: '/apps/todo',
+            isNew: true,
+            key: 'apps-todo',
+            icon: TodoAppIcon,
+            activeIcon: TodoAppIconActive,
+          },
+        ],
       },
     ],
   },
   {
-    label: t('menu.authentication'),
-    key: 'auth',
-    icon: AuthIcon,
+    key: 'other-group',
+    type: 'group',
+    label: 'Others',
     children: [
       {
-        label: t('menu.login'),
-        route: '/account/login',
-        key: 'login',
-        icon: LoginIcon,
-      },
-      {
-        label: t('menu.register'),
-        route: '/account/register',
-        key: 'register',
-        icon: RegisterIcon,
-      },
+        label: t('menu.pages'),
+        key: 'pages',
+        icon: AuthIcon,
+        children: [
+          {
+            label: t('menu.login'),
+            route: '/account/login',
+            key: 'login',
+            icon: LoginIcon,
+          },
+          {
+            label: t('menu.register'),
+            route: '/account/register',
+            key: 'register',
+            icon: RegisterIcon,
+          },
 
-      {
-        label: t('menu.forgetPassword'),
-        route: '/account/ForgotPassword',
-        key: 'forget-password',
-        icon: ForgetIcon,
-      },
-    ],
-  },
-  {
-    label: t('menu.settings'),
-    key: 'settings',
-    icon: SettingsIcon,
-    children: [
-      {
-        label: t('menu.accountSettings'),
-        route: '/account/profile',
-        key: 'account-settings',
-        icon: AccountSettingsIcon,
-        activeIcon: AccountSettingsIconActive,
-      },
-    ],
-  },
-  {
-    label: t('menu.other'),
-    key: 'other',
-    icon: PagesIcon,
-    children: [
-      {
-        label: t('menu.notFound'),
-        route: '/404',
-        key: 'not-found',
-        icon: NotFoundIcon,
+          {
+            label: t('menu.forgetPassword'),
+            route: '/account/ForgotPassword',
+            key: 'forget-password',
+            icon: ForgetIcon,
+          },
+          {
+            label: t('menu.notFound'),
+            route: '/404',
+            key: 'not-found',
+            icon: NotFoundIcon,
+          },
+          {
+            label: t('menu.error'),
+            route: '/error',
+            key: 'error',
+            icon: ErrorIcon,
+          },
+          {
+            label: t('menu.maintenance'),
+            route: '/maintenance',
+            key: 'maintenance',
+            icon: MaintenanceIcon,
+          },
+        ],
       },
       {
-        label: t('menu.error'),
-        route: '/error',
-        key: 'error',
-        icon: ErrorIcon,
-      },
-      {
-        label: t('menu.maintenance'),
-        route: '/maintenance',
-        key: 'maintenance',
-        icon: MaintenanceIcon,
+        label: t('menu.settings'),
+        key: 'settings',
+        icon: SettingsIcon,
+        children: [
+          {
+            label: t('menu.accountSettings'),
+            route: '/account/profile',
+            key: 'account-settings',
+            icon: AccountSettingsIcon,
+            activeIcon: AccountSettingsIconActive,
+          },
+        ],
       },
     ],
   },
@@ -262,6 +305,7 @@ router.beforeEach(() => {
 .n-scrollbar {
   z-index: 1;
 }
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -283,13 +327,14 @@ router.beforeEach(() => {
     margin: 0 .34rem;
     justify-content: center;
     align-items: center;
+
     .logo {
       width: 34px;
       object-fit: cover;
     }
   }
 
-  
+
 
   .text-logo {
     max-width: 175px;

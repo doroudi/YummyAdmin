@@ -230,6 +230,7 @@ menu:
   todo: ToDo
   users: Users
   websiteSettings: Website Settings
+  components: Components
 not-found: Not found
 notifications:
   clear: Clear All

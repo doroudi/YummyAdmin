@@ -2,7 +2,8 @@
 import type { MenuInst, MenuOption } from 'naive-ui/es/components'
 defineModel<string>()
 export interface SidebarMenuOption {
-  label: string
+  type?: string
+  label?: string
   key: string
   icon?: any
   activeIcon?: any
@@ -11,6 +12,7 @@ export interface SidebarMenuOption {
   showBadge?: boolean
   route?: string
   children?: SidebarMenuOption[]
+  props?: any
 }
 
 export interface Props {
@@ -56,14 +58,24 @@ const { renderIcon, renderLabel } = useRender()
 
 function convertToMenuOption(item: SidebarMenuOption): MenuOption {
   return {
+    type: item.type,
+    props: item.props,
     label: item.route
-      ? () => renderLabel(item.label, item.route!, item.isNew ?? false)
+      ? () =>
+          item.label !== undefined
+            ? renderLabel(item.label, item.route!, item.isNew ?? false)
+            : () => null
       : () => item.label,
-    icon: renderIcon(
-      isActiveRoute(item) && item.activeIcon ? item.activeIcon : item.icon,
-      item.showBadge,
-    ),
-    key: item.key, //TODO: auto generate key
+    icon:
+      item.type === 'group'
+        ? () => null
+        : renderIcon(
+            isActiveRoute(item) && item.activeIcon
+              ? item.activeIcon
+              : item.icon,
+            item.showBadge,
+          ),
+    key: item.key,
     children: item.children?.map((i) => convertToMenuOption(i)),
   }
 }
