@@ -233,6 +233,12 @@ menu:
   todo: ToDo
   users: Kullanıcılar
   websiteSettings: Website Ayarları
+  components: Bileşenler
+  charts: Grafikler
+  forms: Formlar
+  data: Veri Tabloları
+  typography: Tipografi
+  icons: Simgeler
 not-found: Bulunamadı
 notifications:
   clear: Hepsini temizlemek

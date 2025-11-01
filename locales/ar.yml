@@ -236,6 +236,12 @@ menu:
   todo: المهام
   users: المستخدمون
   websiteSettings: إعدادات الموقع
+  components: المكونات
+  charts: المخططات
+  forms: النماذج
+  data: جداول البيانات
+  typography: الطباعة
+  icons: الرموز
 not-found: غير موجود
 notifications:
   clear: مسح كل شيء

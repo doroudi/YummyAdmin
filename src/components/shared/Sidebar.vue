@@ -81,28 +81,28 @@ const newMenuOptions: SidebarMenuOption[] = [
     icon: ComponentsIcon,
     children: [
       {
-        label: 'Charts',
+        label: t('menu.charts'),
         route: '/products',
         key: 'products',
         icon: ProductsIcon2,
         activeIcon: ProductsIcon2Active,
       },
       {
-        label: 'Forms',
+        label: t('menu.forms'),
         route: '/products/create',
         key: 'create-product',
         icon: CreateProductIcon,
         activeIcon: CreateProductIconActive,
       },
       {
-        label: 'Data',
+        label: t('menu.data'),
         route: '/products/create',
         key: 'create-product',
         icon: CreateProductIcon,
         activeIcon: CreateProductIconActive,
       },
       {
-        label: 'Typography',
+        label: t('menu.typography'),
         route: '/products/create',
         key: 'create-product',
         icon: CreateProductIcon,
@@ -113,7 +113,7 @@ const newMenuOptions: SidebarMenuOption[] = [
   {
     key: 'apps-group',
     type: 'group',
-    label: 'Apps',
+    label: t('menu.apps'),
     children: [
       {
         label: t('menu.eCommerce'),
@@ -205,7 +205,7 @@ const newMenuOptions: SidebarMenuOption[] = [
   {
     key: 'other-group',
     type: 'group',
-    label: 'Others',
+    label: t('menu.other'),
     children: [
       {
         label: t('menu.pages'),

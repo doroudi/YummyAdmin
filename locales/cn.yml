@@ -227,6 +227,12 @@ menu:
   todo: 待办事项
   users: 用户
   websiteSettings: 网站设置
+  components: 组件
+  charts: 图表
+  forms: 表单
+  data: 数据
+  typography: 排版
+  icons: 图标
 not-found: 未找到
 notifications:
   clear: 清除所有

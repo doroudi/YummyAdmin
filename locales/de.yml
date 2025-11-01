@@ -237,7 +237,13 @@ menu:
   support: Support
   todo: Alles
   users: Benutzer
-  websiteSettings: Websiteeinstellungen
+  websiteSettings: Instellungen
+  components: Komponenten
+  charts: Diagramme
+  forms: Formulare
+  data: Datentabellen
+  typography: Typografie
+  icons: Symbole
 not-found: Nicht gefunden
 notifications:
   clear: Alle klar

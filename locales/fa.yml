@@ -227,6 +227,12 @@ menu:
   todo: کارها
   users: کاربران
   websiteSettings: تنظیمات وبسایت
+  components: کامپوننت ها
+  charts: نمودار ها
+  forms: فرم ها
+  data: داده ها
+  typography: تایپوگرافی
+  icons: آیکون ها
 not-found: یافت نشد
 notifications:
   clear: همه را پاک کنید

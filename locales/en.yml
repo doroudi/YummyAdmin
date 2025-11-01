@@ -231,6 +231,11 @@ menu:
   users: Users
   websiteSettings: Website Settings
   components: Components
+  charts: Charts
+  forms: Forms
+  data: Data Tables
+  typography: Typography
+  icons: Icons
 not-found: Not found
 notifications:
   clear: Clear All
