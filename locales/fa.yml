@@ -191,7 +191,8 @@ menu:
   accountSettings: تنظیمات کاربر
   analytics: آنالیز
   announcement: اطلاع رسانی
-  apps: اپ ها
+  apps: برنامه ها
+  otherApps: سایر برنامه ها
   authentication: احراز هویت
   blog: بلاگ
   brands: برند ها
@@ -202,7 +203,7 @@ menu:
   createProduct: ایجاد محصول
   customers: مشتری ها
   dashboard: داشبورد
-  eCommerce: تجارت الکترونیک
+  eCommerce: فروشگاه اینترنتی
   error: خطای 500
   feedbacks: بازخورد ها
   forgetPassword: فراموشی رمز

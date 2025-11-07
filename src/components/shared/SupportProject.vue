@@ -3,9 +3,12 @@ import { storeToRefs } from 'pinia'
 const store = useLayoutStore()
 const { collapsed, forceCollapsed } = storeToRefs(store)
 
-onMounted(getGithubStarsCount)
+onMounted(() => {
+  getGithubStarsCount()
+  store.setSupportEnabled()
+})
 
-const starsCount = ref<number>(34)
+const starsCount = ref<number>()
 const sidebarOpen = computed(() => !collapsed.value && !forceCollapsed.value)
 const { t } = useI18n()
 async function getGithubStarsCount() {

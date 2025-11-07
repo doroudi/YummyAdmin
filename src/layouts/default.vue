@@ -60,6 +60,7 @@ watch(
         </div>
       </div>
     </n-layout>
+    <!-- you can remove it -->
     <SupportProject />
   </n-layout>
 </template>

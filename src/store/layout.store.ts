@@ -15,6 +15,7 @@ export const useLayoutStore = defineStore(
     const isWelcomeShown = ref(false)
     const isFluid = ref(false)
     const flatDesign = ref(true)
+    const supportEnabled = ref(false)
 
     const dialogPlacement = computed(() => (isRtl.value ? 'left' : 'right'))
 
@@ -83,6 +84,10 @@ export const useLayoutStore = defineStore(
       mobileMode.value = false
     }
 
+    function setSupportEnabled() {
+      supportEnabled.value = true
+    }
+
     return {
       collapsed,
       forceCollapsed,
@@ -105,11 +110,13 @@ export const useLayoutStore = defineStore(
       isFluid,
       flatDesign,
       setDarkTheme,
+      supportEnabled,
+      setSupportEnabled,
     }
   },
   {
     persist: {
-      omit: ['mobileMode', 'forceCollapsed'],
+      omit: ['mobileMode', 'forceCollapsed', 'supportEnabled'],
     },
   },
 )

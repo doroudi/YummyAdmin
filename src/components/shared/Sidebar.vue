@@ -8,6 +8,7 @@ import {
   CheckmarkStarburst20Filled as BrandsIconActive,
   Folder24Regular as CategoryIcon,
   Folder24Filled as CategoryIconSelected,
+  DataTrending16Regular as ChartsIcon,
   ChatMultiple20Regular as ChatAppIcon,
   ChatMultiple20Filled as ChatAppIconActive,
   Dismiss24Filled as CloseIcon,
@@ -22,15 +23,17 @@ import {
   ChartMultiple20Regular as DashboardIcon1,
   ChartMultiple20Filled as DashboardIcon1Active,
   ArrowTrendingLines24Regular as DashboardIcon2,
+  Table28Regular as DataIcon,
+  Table28Filled as DataIconActive,
   ErrorCircle24Regular as ErrorIcon,
   PersonLightbulb20Regular as ForgetIcon,
+  FormNew24Regular as FormsIcon,
   Cart24Regular as InvoicesIcon,
   Cart24Filled as InvoicesIconActive,
   PersonLock20Regular as LoginIcon,
   ErrorCircleSettings20Regular as MaintenanceIcon,
   ShieldError24Regular as NotFoundIcon,
   DocumentLink20Regular as PagesIcon,
-  BoxCheckmark24Regular as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
   BoxMultiple20Filled as ProductsIcon2Active,
   PersonAdd20Regular as RegisterIcon,
@@ -38,6 +41,9 @@ import {
   Settings28Regular as SettingsIcon,
   CheckmarkCircle24Regular as TodoAppIcon,
   CheckmarkCircle24Filled as TodoAppIconActive,
+  ScanType24Regular as TypographyIcon,
+  ScanType24Filled as TypographyIconActive,
+  Cart24Regular as eCommerceIcon,
 } from '@vicons/fluent'
 
 import { storeToRefs } from 'pinia'
@@ -54,7 +60,7 @@ const effectiveCollapsed = computed(() => {
   return collapsed.value || forceCollapsed.value
 })
 
-const newMenuOptions: SidebarMenuOption[] = [
+const menuOptions: SidebarMenuOption[] = [
   {
     label: t('menu.dashboard'),
     key: 'index',
@@ -84,29 +90,27 @@ const newMenuOptions: SidebarMenuOption[] = [
         label: t('menu.charts'),
         route: '/products',
         key: 'products',
-        icon: ProductsIcon2,
-        activeIcon: ProductsIcon2Active,
+        icon: ChartsIcon,
       },
       {
         label: t('menu.forms'),
         route: '/products/create',
         key: 'create-product',
-        icon: CreateProductIcon,
-        activeIcon: CreateProductIconActive,
+        icon: FormsIcon,
       },
       {
         label: t('menu.data'),
         route: '/products/create',
         key: 'create-product',
-        icon: CreateProductIcon,
-        activeIcon: CreateProductIconActive,
+        icon: DataIcon,
+        activeIcon: DataIconActive,
       },
       {
         label: t('menu.typography'),
         route: '/products/create',
         key: 'create-product',
-        icon: CreateProductIcon,
-        activeIcon: CreateProductIconActive,
+        icon: TypographyIcon,
+        activeIcon: TypographyIconActive,
       },
     ],
   },
@@ -118,7 +122,7 @@ const newMenuOptions: SidebarMenuOption[] = [
       {
         label: t('menu.eCommerce'),
         key: 'e-commerce',
-        icon: ProductsIcon,
+        icon: eCommerceIcon,
         children: [
           {
             label: t('menu.products'),
@@ -179,7 +183,7 @@ const newMenuOptions: SidebarMenuOption[] = [
         ],
       },
       {
-        label: t('menu.apps'),
+        label: t('menu.otherApps'),
         key: 'apps',
         icon: AppsIcon,
         children: [
@@ -277,7 +281,7 @@ router.beforeEach(() => {
 
 <template>
   <n-layout-sider :native-scrollbar="false" collapse-mode="width" :collapsed-width="mobileMode ? 0 : 64"
-    :collapsed="effectiveCollapsed" :class="{ 'collapsed': effectiveCollapsed, 'mobile-mode': mobileMode }">
+    :collapsed="effectiveCollapsed" :class="{ 'collapsed': effectiveCollapsed, 'mobile-mode': mobileMode, 'support-mode': layoutStore.supportEnabled  }">
     <div class="logo-container mb-4">
       <div flex w-full justify-between items-center>
         <div flex w-full justify-start items-center>
@@ -297,13 +301,19 @@ router.beforeEach(() => {
       </div>
     </div>
     <SidebarMenu :collapsed-width="mobileMode ? 0 : 64" :collapsed-icon-size="mobileMode ? 30 : 20"
-      :options="newMenuOptions" />
+      :options="menuOptions" />
   </n-layout-sider>
 </template>
 
 <style lang="scss">
 .n-scrollbar {
   z-index: 1;
+}
+
+.support-mode {
+  .n-scrollbar>.n-scrollbar-container {
+    max-height: calc(100% - 120px);
+  }
 }
 
 .logo-container {
@@ -357,6 +367,10 @@ router.beforeEach(() => {
   }
 
   .main-title {
+    display: none;
+  }
+
+  .n-menu-item-group > .n-menu-item-group-title {
     display: none;
   }
 }
