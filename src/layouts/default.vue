@@ -65,6 +65,7 @@ watch(
   </n-layout>
 </template>
 
+
 <style lang="scss">
 .n-layout {
   padding: 0 4px;

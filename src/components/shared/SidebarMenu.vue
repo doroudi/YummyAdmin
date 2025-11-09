@@ -4,7 +4,7 @@ defineModel<string>()
 export interface SidebarMenuOption {
   type?: string
   label?: string
-  key: string
+  key?: string
   icon?: any
   activeIcon?: any
   selectedIcon?: any
@@ -23,19 +23,23 @@ const props = defineProps<Props>()
 const route = useRoute()
 const selectedMenuKey = ref('dashboard')
 const menuRef = ref<MenuInst | null>(null)
+const { renderIcon, renderLabel } = useRender()
 
 onMounted(() => activateCurrentRoute())
 
 function activateCurrentRoute() {
   setTimeout(() => {
-    const keys = props.options.flatMap(
-      (m: SidebarMenuOption) => m.children || m,
+    const keys = props.options.flatMap((m: SidebarMenuOption) =>
+      m.children
+        ? [m, ...m.children.flatMap((child) => child.children || child)]
+        : m,
     )
+
     if (keys !== undefined) {
       selectedMenuKey.value =
         keys.find(
           (s: SidebarMenuOption) =>
-            s.key.toLowerCase() === route.name.toLowerCase(),
+            s.key?.toLowerCase() === route.name.toLowerCase(),
         )?.key ?? 'dashboard-ecommerce' //default route
 
       menuRef.value?.showOption(selectedMenuKey.value)
@@ -53,8 +57,6 @@ watch(
 const items = computed(() =>
   props.options.map((o: SidebarMenuOption) => convertToMenuOption(o)),
 )
-
-const { renderIcon, renderLabel } = useRender()
 
 function convertToMenuOption(item: SidebarMenuOption): MenuOption {
   return {
@@ -81,7 +83,7 @@ function convertToMenuOption(item: SidebarMenuOption): MenuOption {
 }
 
 function isActiveRoute(item: SidebarMenuOption) {
-  return selectedMenuKey.value === item.key
+  return selectedMenuKey.value.toLowerCase() === item.key?.toLowerCase()
 }
 </script>
 

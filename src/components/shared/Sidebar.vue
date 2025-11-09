@@ -88,40 +88,38 @@ const menuOptions: SidebarMenuOption[] = [
     children: [
       {
         label: t('menu.charts'),
-        route: '/products',
-        key: 'products',
+        route: '/components/charts',
+        key: 'components-charts',
         icon: ChartsIcon,
       },
       {
         label: t('menu.forms'),
-        route: '/products/create',
-        key: 'create-product',
+        route: '/components/forms',
+        key: 'components-forms',
         icon: FormsIcon,
       },
       {
         label: t('menu.data'),
-        route: '/products/create',
-        key: 'create-product',
+        route: '/components/data',
+        key: 'components-data',
         icon: DataIcon,
         activeIcon: DataIconActive,
       },
       {
         label: t('menu.typography'),
-        route: '/products/create',
-        key: 'create-product',
+        route: '/components/typography',
+        key: 'components-typography',
         icon: TypographyIcon,
         activeIcon: TypographyIconActive,
       },
     ],
   },
   {
-    key: 'apps-group',
     type: 'group',
     label: t('menu.apps'),
     children: [
       {
         label: t('menu.eCommerce'),
-        key: 'e-commerce',
         icon: eCommerceIcon,
         children: [
           {
@@ -134,7 +132,7 @@ const menuOptions: SidebarMenuOption[] = [
           {
             label: t('menu.createProduct'),
             route: '/products/create',
-            key: 'create-product',
+            key: 'products-create',
             icon: CreateProductIcon,
             activeIcon: CreateProductIconActive,
           },
@@ -219,20 +217,20 @@ const menuOptions: SidebarMenuOption[] = [
           {
             label: t('menu.login'),
             route: '/account/login',
-            key: 'login',
+            key: 'account-login',
             icon: LoginIcon,
           },
           {
             label: t('menu.register'),
             route: '/account/register',
-            key: 'register',
+            key: 'account-register',
             icon: RegisterIcon,
           },
 
           {
             label: t('menu.forgetPassword'),
             route: '/account/ForgotPassword',
-            key: 'forget-password',
+            key: 'account-forget-password',
             icon: ForgetIcon,
           },
           {
@@ -263,7 +261,7 @@ const menuOptions: SidebarMenuOption[] = [
           {
             label: t('menu.accountSettings'),
             route: '/account/profile',
-            key: 'account-settings',
+            key: 'account-profile',
             icon: AccountSettingsIcon,
             activeIcon: AccountSettingsIconActive,
           },
@@ -281,7 +279,8 @@ router.beforeEach(() => {
 
 <template>
   <n-layout-sider :native-scrollbar="false" collapse-mode="width" :collapsed-width="mobileMode ? 0 : 64"
-    :collapsed="effectiveCollapsed" :class="{ 'collapsed': effectiveCollapsed, 'mobile-mode': mobileMode, 'support-mode': layoutStore.supportEnabled  }">
+    :collapsed="effectiveCollapsed"
+    :class="{ 'collapsed': effectiveCollapsed, 'mobile-mode': mobileMode, 'support-mode': layoutStore.supportEnabled }">
     <div class="logo-container mb-4">
       <div flex w-full justify-between items-center>
         <div flex w-full justify-start items-center>
@@ -308,12 +307,6 @@ router.beforeEach(() => {
 <style lang="scss">
 .n-scrollbar {
   z-index: 1;
-}
-
-.support-mode {
-  .n-scrollbar>.n-scrollbar-container {
-    max-height: calc(100% - 120px);
-  }
 }
 
 .logo-container {
@@ -344,8 +337,6 @@ router.beforeEach(() => {
     }
   }
 
-
-
   .text-logo {
     max-width: 175px;
   }
@@ -361,7 +352,6 @@ router.beforeEach(() => {
 }
 
 .collapsed {
-
   .logo-container {
     padding: 1.5rem 0.5rem 0.5rem .5rem;
   }
@@ -370,7 +360,11 @@ router.beforeEach(() => {
     display: none;
   }
 
-  .n-menu-item-group > .n-menu-item-group-title {
+  .n-menu-item-group>.n-menu-item-group-title {
+    display: none;
+  }
+
+  .p-button-label {
     display: none;
   }
 }
@@ -387,12 +381,6 @@ router.beforeEach(() => {
   background-color: transparent;
 }
 
-.collapsed {
-  .p-button-label {
-    display: none;
-  }
-}
-
 .p-button {
   .p-button-label {
     text-align: left;
@@ -403,6 +391,17 @@ router.beforeEach(() => {
   .logo {
     margin-left: 0.8rem;
     margin-right: .5rem;
+  }
+
+  .n-menu-item-group-title {
+    margin-left: auto;
+    margin-right: 32px;
+  }
+}
+
+.support-mode {
+  .n-scrollbar>.n-scrollbar-container {
+    max-height: calc(100% - 120px);
   }
 }
 
@@ -439,5 +438,12 @@ router.beforeEach(() => {
 
 .p-sidebar-header-content {
   width: 100%;
+}
+
+.n-menu-item-group .n-submenu .n-menu-item-content.n-menu-item-content--collapsed {
+  padding-left: 22px !important;
+}
+.n-menu .n-menu-item-group .n-menu-item-group-title{
+  height: 20px;
 }
 </style>
