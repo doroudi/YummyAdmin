@@ -22,10 +22,9 @@ const chartOptions = {
     },
   },
   stroke: {
-    width: 2,
+    width: 1.5,
     curve: 'smooth',
   },
-
   fill: {
     type: 'gradient',
     gradient: {

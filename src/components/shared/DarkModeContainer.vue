@@ -47,7 +47,7 @@ router.afterEach((to: any, _: any, next: any) => {
   setTimeout(() => {
     getToggleElementPosition()
   }, 1000)
-  next()
+  //next()
 })
 </script>
 

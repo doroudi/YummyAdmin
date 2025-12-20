@@ -3,7 +3,6 @@ import generatedRoutes from 'virtual:generated-pages'
 import { Search24Regular as SearchIcon } from '@vicons/fluent'
 import { useMagicKeys, whenever } from '@vueuse/core'
 import type { InputInst } from 'naive-ui/es/input/src/interface'
-import type { RouteRecordRaw } from 'vue-router'
 
 const { t } = useI18n()
 const searchTerm = ref('')

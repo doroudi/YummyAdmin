@@ -22,7 +22,7 @@ const colors = ['var(--primary-color)', 'var(--primary-color-shade1)']
 <template>
   <div class="p-2">
     <Card stretch-height title-size="normal" :title="t('dashboard.visits')">
-      <BarChart :height="300" :data="chartData" :colors="colors" />
+      <BarChart :loading="false" :height="300" :data="chartData" :colors="colors" />
     </Card>
   </div>
 </template>

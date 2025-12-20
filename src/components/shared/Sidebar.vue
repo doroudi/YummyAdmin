@@ -92,180 +92,170 @@ const menuOptions: SidebarMenuOption[] = [
         key: 'components-charts',
         icon: ChartsIcon,
       },
-      {
-        label: t('menu.forms'),
-        route: '/components/forms',
-        key: 'components-forms',
-        icon: FormsIcon,
-      },
-      {
-        label: t('menu.data'),
-        route: '/components/data',
-        key: 'components-data',
-        icon: DataIcon,
-        activeIcon: DataIconActive,
-      },
-      {
-        label: t('menu.typography'),
-        route: '/components/typography',
-        key: 'components-typography',
-        icon: TypographyIcon,
-        activeIcon: TypographyIconActive,
-      },
+      // {
+      //   label: t('menu.forms'),
+      //   route: '/components/forms',
+      //   key: 'components-forms',
+      //   icon: FormsIcon,
+      // },
+      // {
+      //   label: t('menu.data'),
+      //   route: '/components/data',
+      //   key: 'components-data',
+      //   icon: DataIcon,
+      //   activeIcon: DataIconActive,
+      // },
+      // {
+      //   label: t('menu.typography'),
+      //   route: '/components/typography',
+      //   key: 'components-typography',
+      //   icon: TypographyIcon,
+      //   activeIcon: TypographyIconActive,
+      // },
     ],
   },
-  {
-    type: 'group',
-    label: t('menu.apps'),
-    children: [
-      {
-        label: t('menu.eCommerce'),
-        icon: eCommerceIcon,
-        children: [
-          {
-            label: t('menu.products'),
-            route: '/products',
-            key: 'products',
-            icon: ProductsIcon2,
-            activeIcon: ProductsIcon2Active,
-          },
-          {
-            label: t('menu.createProduct'),
-            route: '/products/create',
-            key: 'products-create',
-            icon: CreateProductIcon,
-            activeIcon: CreateProductIconActive,
-          },
-          {
-            label: t('menu.categories'),
-            route: '/categories',
-            key: 'categories',
-            icon: CategoryIcon,
-            activeIcon: CategoryIconSelected,
-          },
-          {
-            label: t('menu.brands'),
-            route: '/brands',
-            key: 'brands',
-            icon: BrandsIcon,
-            activeIcon: BrandsIconActive,
-          },
-          {
-            label: t('menu.colors'),
-            route: '/colors',
-            key: 'colors',
-            icon: ColorsIcon,
-            activeIcon: ColorsIconActive,
-          },
-          {
-            label: t('menu.reviews'),
-            route: '/reviews',
-            key: 'reviews',
-            icon: ReviewIcon,
-          },
-          {
-            label: t('menu.orders'),
-            route: '/orders',
-            key: 'orders',
-            icon: InvoicesIcon,
-            activeIcon: InvoicesIconActive,
-            showBadge: true,
-          },
-          {
-            label: t('menu.customers'),
-            route: '/customers',
-            key: 'customers',
-            icon: CustomersIcon,
-            activeIcon: CustomersIconActive,
-          },
-        ],
-      },
-      {
-        label: t('menu.otherApps'),
-        key: 'apps',
-        icon: AppsIcon,
-        children: [
-          {
-            label: t('menu.chat'),
-            route: '/apps/chat',
-            key: 'apps-chat',
-            icon: ChatAppIcon,
-            activeIcon: ChatAppIconActive,
-          },
-          {
-            label: t('menu.todo'),
-            route: '/apps/todo',
-            isNew: true,
-            key: 'apps-todo',
-            icon: TodoAppIcon,
-            activeIcon: TodoAppIconActive,
-          },
-        ],
-      },
-    ],
-  },
-  {
-    key: 'other-group',
-    type: 'group',
-    label: t('menu.other'),
-    children: [
-      {
-        label: t('menu.pages'),
-        key: 'pages',
-        icon: AuthIcon,
-        children: [
-          {
-            label: t('menu.login'),
-            route: '/account/login',
-            key: 'account-login',
-            icon: LoginIcon,
-          },
-          {
-            label: t('menu.register'),
-            route: '/account/register',
-            key: 'account-register',
-            icon: RegisterIcon,
-          },
 
-          {
-            label: t('menu.forgetPassword'),
-            route: '/account/ForgotPassword',
-            key: 'account-forget-password',
-            icon: ForgetIcon,
-          },
-          {
-            label: t('menu.notFound'),
-            route: '/404',
-            key: 'not-found',
-            icon: NotFoundIcon,
-          },
-          {
-            label: t('menu.error'),
-            route: '/error',
-            key: 'error',
-            icon: ErrorIcon,
-          },
-          {
-            label: t('menu.maintenance'),
-            route: '/maintenance',
-            key: 'maintenance',
-            icon: MaintenanceIcon,
-          },
-        ],
+  {
+    label: t('menu.eCommerce'),
+    icon: eCommerceIcon,
+    children: [
+      {
+        label: t('menu.products'),
+        route: '/products',
+        key: 'products',
+        icon: ProductsIcon2,
+        activeIcon: ProductsIcon2Active,
       },
       {
-        label: t('menu.settings'),
-        key: 'settings',
-        icon: SettingsIcon,
-        children: [
-          {
-            label: t('menu.accountSettings'),
-            route: '/account/profile',
-            key: 'account-profile',
-            icon: AccountSettingsIcon,
-            activeIcon: AccountSettingsIconActive,
-          },
-        ],
+        label: t('menu.createProduct'),
+        route: '/products/create',
+        key: 'products-create',
+        icon: CreateProductIcon,
+        activeIcon: CreateProductIconActive,
+      },
+      {
+        label: t('menu.categories'),
+        route: '/categories',
+        key: 'categories',
+        icon: CategoryIcon,
+        activeIcon: CategoryIconSelected,
+      },
+      {
+        label: t('menu.brands'),
+        route: '/brands',
+        key: 'brands',
+        icon: BrandsIcon,
+        activeIcon: BrandsIconActive,
+      },
+      {
+        label: t('menu.colors'),
+        route: '/colors',
+        key: 'colors',
+        icon: ColorsIcon,
+        activeIcon: ColorsIconActive,
+      },
+      {
+        label: t('menu.reviews'),
+        route: '/reviews',
+        key: 'reviews',
+        icon: ReviewIcon,
+      },
+      {
+        label: t('menu.orders'),
+        route: '/orders',
+        key: 'orders',
+        icon: InvoicesIcon,
+        activeIcon: InvoicesIconActive,
+        showBadge: true,
+      },
+      {
+        label: t('menu.customers'),
+        route: '/customers',
+        key: 'customers',
+        icon: CustomersIcon,
+        activeIcon: CustomersIconActive,
+      },
+    ],
+  },
+  {
+    label: t('menu.apps'),
+    key: 'apps',
+    icon: AppsIcon,
+    children: [
+      {
+        label: t('menu.chat'),
+        route: '/apps/chat',
+        key: 'apps-chat',
+        icon: ChatAppIcon,
+        activeIcon: ChatAppIconActive,
+      },
+      {
+        label: t('menu.todo'),
+        route: '/apps/todo',
+        isNew: true,
+        key: 'apps-todo',
+        icon: TodoAppIcon,
+        activeIcon: TodoAppIconActive,
+      },
+    ],
+  },
+
+  {
+    label: t('menu.pages'),
+    key: 'pages',
+    icon: AuthIcon,
+    children: [
+      {
+        label: t('menu.login'),
+        route: '/account/login',
+        key: 'account-login',
+        icon: LoginIcon,
+      },
+      {
+        label: t('menu.register'),
+        route: '/account/register',
+        key: 'account-register',
+        icon: RegisterIcon,
+      },
+
+      {
+        label: t('menu.forgetPassword'),
+        route: '/account/ForgotPassword',
+        key: 'account-forget-password',
+        icon: ForgetIcon,
+      },
+      {
+        label: t('menu.notFound'),
+        route: '/404',
+        key: 'not-found',
+        icon: NotFoundIcon,
+      },
+      {
+        label: t('menu.error'),
+        route: '/error',
+        key: 'error',
+        icon: ErrorIcon,
+      },
+      {
+        label: t('menu.maintenance'),
+        route: '/maintenance',
+        key: 'maintenance',
+        icon: MaintenanceIcon,
+      },
+    ],
+  },
+
+  {
+    label: t('menu.settings'),
+    key: 'settings',
+    icon: SettingsIcon,
+    children: [
+      {
+        label: t('menu.accountSettings'),
+        route: '/account/profile',
+        key: 'account-profile',
+        icon: AccountSettingsIcon,
+        activeIcon: AccountSettingsIconActive,
       },
     ],
   },
@@ -443,7 +433,8 @@ router.beforeEach(() => {
 .n-menu-item-group .n-submenu .n-menu-item-content.n-menu-item-content--collapsed {
   padding-left: 22px !important;
 }
-.n-menu .n-menu-item-group .n-menu-item-group-title{
+
+.n-menu .n-menu-item-group .n-menu-item-group-title {
   height: 20px;
 }
 </style>

@@ -94,6 +94,8 @@ common:
   search: Search
   status: Status
   week: Week
+  refresh: Refresh
+  settings: Settings
 currencySign: $
 customers:
   customerName: Customer Name
@@ -118,28 +120,31 @@ dashboard:
   locationChart:
     title: Customer's Location
   monthlySell: Monthly Sell
-  products: Products
   recentOrders: Recent Orders
   registerSource:
     subtitle: Total Registers
     title: Register Source
-  registers: Registers
   revenueChart:
     subtitle: Total Revenue balance
     title: Revenue Chart
-  sells: Sells
   summary: Summary
   transactions: Transactions
   trendingProducts: Trending Products
   userPlatforms:
     subtitle: Total Users
     title: User Platforms
-  visits: Visits
   welcome:
     congratulations1: You reached to
     congratulations2: sales.
     greeting_message: Have a nice day! We are happy to see you here.
     title: Welcome to Yummy Admin
+analyticsDashboard:
+  visitors: Visitors
+  visits: Visits
+  views: Views
+  bounceRate: Bounce Rate
+  summary: Summary
+
 description: Free Vue 3 Dashboard
 direction: ltr
 enums:

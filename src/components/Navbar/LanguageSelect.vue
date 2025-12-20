@@ -6,9 +6,8 @@ import ArabicIcon from '../CustomIcons/ArabicIcon.vue'
 import ChineseIcon from '../CustomIcons/ChineseIcon.vue'
 import EnglandIcon from '../CustomIcons/EnglandIcon.vue'
 import GermanyIcon from '../CustomIcons/GermanyIcon.vue'
-import TurkishIcon from '../CustomIcons/TurkishIcon.vue'
-
 import PersianIcon from '../CustomIcons/PersianIcon.vue'
+import TurkishIcon from '../CustomIcons/TurkishIcon.vue'
 
 defineProps<{ showTitle?: boolean }>()
 const { t } = useI18n()

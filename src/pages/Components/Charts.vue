@@ -1,7 +1,5 @@
 <template>
-    <div>
-        Charts
-    </div>
+   <ChartsComponentView />
 </template>
 
 <script setup lang="ts">

@@ -1,12 +1,13 @@
 export interface DashboardSummaryStatDto {
-  registers: SummaryStatDto
-  products: SummaryStatDto
-  sells: SummaryStatDto
   visits: SummaryStatDto
+  visitors: SummaryStatDto
+  views: SummaryStatDto
+  bounceRate: SummaryStatDto
 }
 
 export interface SummaryStatDto {
   count: number
+  suffix?: string
   progress: number
   progressFlow: number[]
 }

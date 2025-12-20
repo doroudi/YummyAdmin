@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import DonutChart from '~/components/Charts/chart-components/DonutChart.vue'
 
 const { t } = useI18n()
 const store = useDashboardStore()
@@ -12,5 +13,3 @@ const { usersGenderData } = storeToRefs(store)
     <DonutChart v-if="usersGenderData.length" :data="usersGenderData" />
   </Card>
 </template>
-
-<style scoped></style>

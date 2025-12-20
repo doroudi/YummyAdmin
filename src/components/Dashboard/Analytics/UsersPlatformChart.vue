@@ -1,11 +1,13 @@
 <script setup lang="ts">
 const registersSource = ref<any[]>([
-  { name: 'Android', value: 2000 },
-  { name: 'Windows', value: 500 },
-  { name: 'iOS', value: 820 },
+  { name: 'Desktop', value: 1800 },
+  { name: 'Mobile', value: 5001 },
+  { name: 'Tablet', value: 50 },
+  { name: 'Others', value: 12 },
 ])
+
 const total = computed(() =>
-  registersSource.value.reduce((a, b) => a + b.value, 0),
+  registersSource.value.reduce((a: any, b: any) => a + b.value, 0),
 )
 const { t } = useI18n()
 </script>
@@ -18,7 +20,7 @@ const { t } = useI18n()
     <p class="text-xsm text-coolgray font-light pb-2">
       {{ t('dashboard.userPlatforms.subtitle') }}
     </p>
-    <DonutChart :data="registersSource" color-scheme="#4FC3F7" legend-position="bottom" />
+    <DonutChart :data="registersSource" color-scheme="#FFCC00" legend-position="bottom" />
   </Card>
 </template>
 
