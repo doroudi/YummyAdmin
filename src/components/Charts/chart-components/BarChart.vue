@@ -15,7 +15,8 @@ const props = withDefaults(defineProps<ChartProps>(), {
 </script>
 
 <template>
-  <BaseChart type="bar" :loading="loading" :height="height" :data="data" :colors="colors" />
+  <BaseChart v-bind="$attrs" type="bar" :loading="loading" :height="height" :data="data" :colors="colors"
+    :show-legend="showLegend" />
 </template>
 
 <style lang="scss" scoped></style>

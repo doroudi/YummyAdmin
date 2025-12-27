@@ -3,12 +3,12 @@ const { t } = useI18n()
 const store = useDashboardStore()
 const layout = useLayoutStore()
 
-// onMounted(() => {
-//   store.getSummaryStat()
-//   if (!layout.isWelcomeShown) {
-//     layout.showWelcome()
-//   }
-// })
+onMounted(() => {
+  store.getSummaryStat()
+  if (!layout.isWelcomeShown) {
+    layout.showWelcome()
+  }
+})
 </script>
 
 <template>

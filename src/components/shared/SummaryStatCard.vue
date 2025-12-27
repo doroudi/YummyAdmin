@@ -31,19 +31,21 @@ const props = withDefaults(defineProps<Props>(), {
           <div class="flex flex-column items-center justify-between">
             <div class="w-25 overflow-hidden">
               <h3 class="text-gray-700 dark:text-gray-200 value">
-                <n-number-animation v-if="data"  :from="0" :to="data.count" /> <span class="-ms-2">{{ data.suffix }}</span>
+                <n-number-animation v-if="data" :from="0" :to="data.count" /> <span class="-ms-2">{{ data.suffix
+                  }}</span>
               </h3>
 
               <span v-if="!loading && data && data.progress">
-                <div class="badge flex items-center" :class="data.progress && data.progress > 0 ? 'badge-success' : 'badge-error'">
+                <div class="badge flex items-center"
+                  :class="data.progress && data.progress > 0 ? 'badge-success' : 'badge-error'">
                   <n-icon class="me-.5 pt-.5" size=".8rem"
                     :component="data.progress && data.progress > 0 ? UpIcon : DownIcon" />
-                    
+
                   <span>{{ `${data.progress}%` }}</span>
                 </div>
               </span>
             </div>
-            <Sparkline v-if="!loading && data && data.progressFlow" :data="data.progressFlow" :color="color" />
+            <Sparkline v-if="!loading && data && data.progressFlow" width="190px" :data="data.progressFlow" :color="color" />
           </div>
         </section>
       </div>

@@ -263,6 +263,7 @@ declare global {
   const useSeoMeta: typeof import('@vueuse/head')['useSeoMeta']
   const useSessionStorage: typeof import('@vueuse/core')['useSessionStorage']
   const useShare: typeof import('@vueuse/core')['useShare']
+  const useSimpleChartOptions: typeof import('./composables/useSimpleChartOptions')['useSimpleChartOptions']
   const useSlots: typeof import('vue')['useSlots']
   const useSorted: typeof import('@vueuse/core')['useSorted']
   const useSpeechRecognition: typeof import('@vueuse/core')['useSpeechRecognition']
@@ -941,6 +942,9 @@ declare module 'vue' {
       typeof import('@vueuse/core')['useSessionStorage']
     >
     readonly useShare: UnwrapRef<typeof import('@vueuse/core')['useShare']>
+    readonly useSimpleChartOptions: UnwrapRef<
+      typeof import('./composables/useSimpleChartOptions')['useSimpleChartOptions']
+    >
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSorted: UnwrapRef<typeof import('@vueuse/core')['useSorted']>
     readonly useSpeechRecognition: UnwrapRef<

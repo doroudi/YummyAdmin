@@ -118,6 +118,7 @@ declare module 'vue' {
     PersianIcon: typeof import('./components/CustomIcons/PersianIcon.vue')['default']
     PieChart: typeof import('./components/Charts/chart-components/PieChart.vue')['default']
     PieChartDemo: typeof import('./components/Charts/demos/PieChartDemo.vue')['default']
+    PolarChart: typeof import('./components/Charts/chart-components/PolarChart.vue')['default']
     ProductsManagement: typeof import('./components/Products/ProductsManagement.vue')['default']
     ProfileHeader: typeof import('./components/Profile/ProfileHeader.vue')['default']
     ProfileNotificationItem: typeof import('./components/Profile/ProfileNotificationItem.vue')['default']

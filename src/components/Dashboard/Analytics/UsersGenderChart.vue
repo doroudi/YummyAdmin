@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
-import DonutChart from '~/components/Charts/chart-components/DonutChart.vue'
-
 const { t } = useI18n()
-const store = useDashboardStore()
+const store = useAnalyticsDashboardStore()
 onMounted(() => store.getGenderStat())
-const { usersGenderData } = storeToRefs(store)
 </script>
 
 <template>
   <Card class="p-2" :title="t('dashboard.genderChart.title')">
-    <DonutChart v-if="usersGenderData.length" :data="usersGenderData" />
+    <PolarChart height="250" :colors="['#2986cc','#c90076','#CCC',]" :data="store.usersGenderData" />
   </Card>
 </template>

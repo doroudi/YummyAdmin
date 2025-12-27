@@ -15,5 +15,6 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <BaseChart v-bind="$attrs" :data="data" :show-legend="showLegend" :loading="loading" :legend-position="legendPosition" type="donut" :height="height" :colors="colors" />
+    <BaseChart type="polarArea" :data="data" :show-legend="showLegend" :loading="loading"
+        :legend-position="legendPosition" :height="height" :colors="colors" />
 </template>

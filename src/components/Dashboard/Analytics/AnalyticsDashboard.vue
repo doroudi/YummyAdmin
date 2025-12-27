@@ -3,7 +3,6 @@ import { storeToRefs } from 'pinia'
 
 const { t } = useI18n()
 const store = useAnalyticsDashboardStore()
-// const store = useDashboardStore()
 const { summaryStat, isLoadingStats } = storeToRefs(store)
 
 onMounted(() => {
@@ -13,7 +12,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="margin-outside flex flex-wrap pb-3">
+    <div class="margin-outside flex flex-wrap">
       <SummaryStatCard
         class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.visitors"
         :title="t('analyticsDashboard.visitors')" color="#00a096"
@@ -38,7 +37,7 @@ onMounted(() => {
         </div>
         <div class="flex flex-col w-full lg:w-1/3">
           <UsersPlatformChart class="w-full" />
-          <UsersGenderChart />
+          <UsersGenderChart class="w-full" />
         </div>
       </div>
 

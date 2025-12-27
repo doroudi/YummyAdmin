@@ -112,9 +112,9 @@ const handlers = [
 
 function createFakeSummaryData(): DashboardSummaryStatDto {
   return {
-    visitors: createFakeSummaryStatDto(),
-    visits: createFakeSummaryStatDto(),
-    views: createFakeSummaryStatDto(),
+    visitors: createFakeSummaryStatDto(1, 3, 'K'),
+    visits: createFakeSummaryStatDto(2, 10, 'K'),
+    views: createFakeSummaryStatDto(1, 300, 'K'),
     bounceRate: createFakeSummaryStatDto(5, 100, '%'),
   }
 }

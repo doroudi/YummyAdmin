@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import VueApexCharts from 'vue3-apexcharts'
-import type { ChartData } from '~/models/ChartData'
-import type { ChartProps } from '~/models/ChartProps'
+import type { ChartData, SimpleChartSeries } from '~/models/ChartData'
+import type { ChartProps, SimpleChartProps } from '~/models/ChartProps'
 
-const props = withDefaults(defineProps<ChartProps>(), {
-  data: () => null as ChartData | null,
+const props = withDefaults(defineProps<ChartProps | SimpleChartProps>(), {
+  data: () => null as ChartData | SimpleChartSeries | null,
   colors: () => [
     'var(--primary-color)',
     'var(--primary-color-shade1)',
@@ -16,8 +16,11 @@ const props = withDefaults(defineProps<ChartProps>(), {
   error: null,
   options: null,
 })
-const { defaultOptions, safeSeries, validateChartData, showChart } =
-  useChartOptions(props)
+
+const { defaultOptions, safeSeries, safeLabels, validateChartData, showChart } =
+  Array.isArray(props.data)
+    ? useSimpleChartOptions(props)
+    : useChartOptions(props)
 
 const activeOptions = computed(
   () =>
@@ -26,6 +29,7 @@ const activeOptions = computed(
       ...props.options,
     },
 )
+console.log('🚀 ~ activeOptions:', activeOptions.value)
 </script>
 
 
@@ -50,12 +54,13 @@ const activeOptions = computed(
         </div>
 
         <div v-else-if="showChart" class="chart-wrapper">
-            <VueApexCharts :type="type" :options="activeOptions" :height="height" :series="safeSeries"
+            <VueApexCharts  :type="type" :options="activeOptions" :height="height" :series="safeSeries"
                 class="chart-component" />
         </div>
 
         <div v-else class="chart-fallback">
             <p>Unable to display chart</p>
+            <!-- TODO: use localization -->
         </div>
 
         <div v-if="$slots.footer" class="chart-footer">
@@ -81,7 +86,8 @@ const activeOptions = computed(
     justify-content: center;
     height: v-bind(height + 'px');
     /* background: var(--background-color, #f8f9fa); */
-    border-radius: var(--border-radius);;
+    border-radius: var(--border-radius);
+    ;
     padding: 2rem;
     text-align: center;
 }

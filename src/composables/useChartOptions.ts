@@ -3,6 +3,27 @@ import type { ChartData } from '~/models/ChartData'
 import type { ChartProps } from '~/models/ChartProps'
 
 export function useChartOptions(props: ChartProps) {
+  const { makeLighter } = useColors()
+
+  const colors = computed(() => {
+    if (!props.colorScheme && !props.colors)
+      return [
+        'var(--primary-color)',
+        'var(--primary-color-shade1)',
+        'var(--primary-color-shade2)',
+        'var(--primary-color-shade3)',
+      ]
+
+    if (props.colors && props.colors.length > 0) return props.colors
+
+    const result = []
+    if (props.data?.series) {
+      for (let i = 0; i < props.data?.series?.length; i++)
+        result.push(makeLighter(props.colorScheme ?? '', 1 - i * 0.25))
+    }
+
+    return result
+  })
   const defaultOptions = computed<ApexOptions>(() => {
     const baseOptions: ApexOptions = {
       chart: {
@@ -70,7 +91,7 @@ export function useChartOptions(props: ChartProps) {
       dataLabels: {
         enabled: false,
       },
-      colors: props.colors,
+      colors: colors.value,
       plotOptions: {
         bar: {
           columnWidth: '17%',
@@ -166,7 +187,6 @@ export function useChartOptions(props: ChartProps) {
 
   const safeLabels = computed(() => {
     if (!props.data?.labels) return []
-
     try {
       return props.data.labels.map((label: any) =>
         label !== null && label !== undefined ? String(label) : '',
@@ -230,6 +250,7 @@ export function useChartOptions(props: ChartProps) {
     defaultOptions,
     showChart,
     safeSeries,
+    safeLabels,
     props,
     validateChartData,
   }
