@@ -37,6 +37,7 @@ declare module 'vue' {
     CustomerDetail: typeof import('./components/Customers/CustomerDetail.vue')['default']
     CustomerManagement: typeof import('./components/Customers/CustomerManagement.vue')['default']
     CustomizeDialog: typeof import('./components/CustomizeDialog/CustomizeDialog.vue')['default']
+    DailySellChart: typeof import('./components/Dashboard/Ecommerce/DailySellChart.vue')['default']
     DarkModeContainer: typeof import('./components/shared/DarkModeContainer.vue')['default']
     DashboardCard: typeof import('./components/DashboardCard.vue')['default']
     DonutChart: typeof import('./components/Charts/chart-components/DonutChart.vue')['default']
@@ -125,6 +126,7 @@ declare module 'vue' {
     ProfileNotifications: typeof import('./components/Profile/ProfileNotifications.vue')['default']
     ProfilePersonalInfo: typeof import('./components/Profile/ProfilePersonalInfo.vue')['default']
     ProfileSecurity: typeof import('./components/Profile/ProfileSecurity.vue')['default']
+    RadarChart: typeof import('./components/Charts/chart-components/RadarChart.vue')['default']
     RecentOrders: typeof import('./components/Dashboard/Ecommerce/RecentOrders.vue')['default']
     RegisterSourceChart: typeof import('./components/Dashboard/Ecommerce/RegisterSourceChart.vue')['default']
     RevenueChart: typeof import('./components/Dashboard/Ecommerce/RevenueChart.vue')['default']
@@ -154,7 +156,7 @@ declare module 'vue' {
     UsersGenderChart: typeof import('./components/Dashboard/Analytics/UsersGenderChart.vue')['default']
     UsersLocationChart: typeof import('./components/Dashboard/Analytics/UsersLocationChart.vue')['default']
     UsersPlatformChart: typeof import('./components/Dashboard/Analytics/UsersPlatformChart.vue')['default']
-    VisitsChart: typeof import('./components/Dashboard/Ecommerce/VisitsChart.vue')['default']
+    VisitsChart: typeof import('./components/Dashboard/Analytics/VisitsChart.vue')['default']
     WelcomeCard: typeof import('./components/Dashboard/Ecommerce/WelcomeCard.vue')['default']
   }
 }

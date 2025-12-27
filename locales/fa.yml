@@ -1,3 +1,9 @@
+analyticsDashboard:
+  bounceRate: نرخ بازگشت
+  summary: خلاصه
+  views: مشاهده ها
+  visitors: بازدید کننده ها
+  visits: بازدید ها
 brands:
   brand: برند
   create:
@@ -88,7 +94,9 @@ common:
   notFound: پیدا نشد
   oops: صفحه
   price: قیمت
+  refresh: تازه کردن
   search: جستجو
+  settings: تنظیمات
   status: وضعیت
   week: هفته
 currencySign: ریال
@@ -124,6 +132,8 @@ dashboard:
   revenueChart:
     subtitle: مجموع درآمد
     title: درآمد
+  sellChart:
+    title: فروش و درآمد روزانه
   sells: فروش
   summary: خلاصه
   transactions: تراکنش ها
@@ -131,7 +141,6 @@ dashboard:
   userPlatforms:
     subtitle: مجموع کاربران
     title: پلتفرم های کاربر
-  visits: بازدید ها
   welcome:
     congratulations1: شما به
     congratulations2: فروش رسیدید
@@ -192,21 +201,25 @@ menu:
   analytics: آنالیز
   announcement: اطلاع رسانی
   apps: برنامه ها
-  otherApps: سایر برنامه ها
   authentication: احراز هویت
   blog: بلاگ
   brands: برند ها
   categories: دسته بندی ها
+  charts: نمودار ها
   chat: چت
   colors: رنگ ها
   comments: نظرات
+  components: کامپوننت ها
   createProduct: ایجاد محصول
   customers: مشتری ها
   dashboard: داشبورد
+  data: داده ها
   eCommerce: فروشگاه اینترنتی
   error: خطای 500
   feedbacks: بازخورد ها
   forgetPassword: فراموشی رمز
+  forms: فرم ها
+  icons: آیکون ها
   login: ورود
   maintenance: بروزرسانی
   messages: نظرات
@@ -215,6 +228,7 @@ menu:
   notifications: نوتیفیکشن ها
   orders: سفارشات
   other: سایر
+  otherApps: سایر برنامه ها
   pages: صفحات
   productManagement: مدیریت محصولات
   products: محصولات
@@ -226,14 +240,9 @@ menu:
   sms: پیامک
   support: پشتیبانی
   todo: کارها
+  typography: تایپوگرافی
   users: کاربران
   websiteSettings: تنظیمات وبسایت
-  components: کامپوننت ها
-  charts: نمودار ها
-  forms: فرم ها
-  data: داده ها
-  typography: تایپوگرافی
-  icons: آیکون ها
 not-found: یافت نشد
 notifications:
   clear: همه را پاک کنید

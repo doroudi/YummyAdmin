@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<ChartProps | SimpleChartProps>(), {
   options: null,
 })
 
-const { defaultOptions, safeSeries, safeLabels, validateChartData, showChart } =
+const { defaultOptions, safeSeries, validateChartData, showChart } =
   Array.isArray(props.data)
     ? useSimpleChartOptions(props)
     : useChartOptions(props)
@@ -29,7 +29,6 @@ const activeOptions = computed(
       ...props.options,
     },
 )
-console.log('🚀 ~ activeOptions:', activeOptions.value)
 </script>
 
 

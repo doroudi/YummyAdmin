@@ -127,6 +127,8 @@ dashboard:
   revenueChart:
     subtitle: Total Revenue balance
     title: Revenue Chart
+  sellChart:
+    title: Daily Sell and Revenue
   summary: Summary
   transactions: Transactions
   trendingProducts: Trending Products

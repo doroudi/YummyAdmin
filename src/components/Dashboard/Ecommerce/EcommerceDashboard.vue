@@ -25,7 +25,7 @@ onMounted(() => {
       </div>
 
       <div class="flex flex-col lg:flex-row w-full lg:w-1/4">
-        
+        <DailySellChart class="w-full" />
       </div>
     </div>
 

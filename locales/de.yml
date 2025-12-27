@@ -1,3 +1,8 @@
+analyticsDashboard:
+  bounceRate: Absprungrate
+  views: Ansichten
+  visitors: Besucher
+  visits: Besuche
 brands:
   brand: Marke
   create:
@@ -24,7 +29,6 @@ button:
   toggle_dark: Dunkelmodus umschalten
   toggle_fullscreen: Vollbildschirmen
   toggle_langs: Sprache ändern
-
 categories:
   count: Zählen
   create:
@@ -93,7 +97,9 @@ common:
   notFound: Nicht gefunden
   oops: Oops Seite
   price: Price
+  refresh: Aktualisieren
   search: Suche
+  settings: Einstellungen
   status: Status
   week: Woche
 currencySign: €
@@ -129,6 +135,8 @@ dashboard:
   revenueChart:
     subtitle: Gesamtumsatzbilanz
     title: Einnahmediagramm
+  sellChart:
+    title: Täglicher Verkauf und Umsatz
   sells: Verkäufe
   summary: Zusammenfassung
   transactions: Transaktionen
@@ -207,16 +215,21 @@ menu:
   blog: Blog
   brands: Marken
   categories: Kategorien
+  charts: Diagramme
   chat: Ketsen
   colors: Farben
   comments: Kommentare
+  components: Komponenten
   createProduct: Produkt erstellen
   customers: Kunden
   dashboard: Dashboard
+  data: Datentabellen
   eCommerce: E-Commerce
   error: 500 Fehler
   feedbacks: Rückmeldungen
   forgetPassword: Passwort vergessen
+  forms: Formulare
+  icons: Symbole
   login: Anmelden
   maintenance: Wartung
   messages: Nachrichten
@@ -236,14 +249,9 @@ menu:
   sms: SMS
   support: Support
   todo: Alles
+  typography: Typografie
   users: Benutzer
   websiteSettings: Instellungen
-  components: Komponenten
-  charts: Diagramme
-  forms: Formulare
-  data: Datentabellen
-  typography: Typografie
-  icons: Symbole
 not-found: Nicht gefunden
 notifications:
   clear: Alle klar

@@ -32,7 +32,7 @@ const props = withDefaults(defineProps<Props>(), {
             <div class="w-25 overflow-hidden">
               <h3 class="text-gray-700 dark:text-gray-200 value">
                 <n-number-animation v-if="data" :from="0" :to="data.count" /> <span class="-ms-2">{{ data.suffix
-                  }}</span>
+                }}</span>
               </h3>
 
               <span v-if="!loading && data && data.progress">
@@ -45,7 +45,8 @@ const props = withDefaults(defineProps<Props>(), {
                 </div>
               </span>
             </div>
-            <Sparkline v-if="!loading && data && data.progressFlow" width="190px" :data="data.progressFlow" :color="color" />
+            <Sparkline v-if="!loading && data && data.progressFlow" width="190px" :data="data.progressFlow"
+              :color="color" />
           </div>
         </section>
       </div>
@@ -65,7 +66,10 @@ const props = withDefaults(defineProps<Props>(), {
       font-size: 1.7rem;
       font-weight: 500;
       margin-top: 7px;
+
     }
+
+
 
     .title {
       font-size: 1rem;
@@ -89,5 +93,17 @@ const props = withDefaults(defineProps<Props>(), {
       }
     }
   }
+}
+
+.rtl {
+  .dashboard-card {
+    .value {
+      direction: ltr;
+      text-align: right;
+    }
+  }
+    .badge { 
+      direction: ltr;
+    }
 }
 </style>

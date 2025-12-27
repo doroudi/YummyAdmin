@@ -20,8 +20,6 @@ async function loadData() {
   }
 }
 
-const demo = ref()
-
 const demoOptions = [
   { value: 'colors', label: 'Color' },
   { value: 'randomData', label: 'Random Data' },
@@ -33,8 +31,8 @@ const demoOptions = [
 <template>
     <Card stretch-height title-size="medium">
         <template #title>
-            <header class="flex w-full flex-row justify-between items-center pb-5">
-                <h3 class="title">📊 Bar Chart Demo</h3>
+            <header class="flex w-full flex-row justify-between items-center pb-5" title="">
+                <h3 class="title text-lg">📊 Bar Chart Demo</h3>
                 <div>
                     <n-tooltip placement="top" trigger="hover">
                         <template #trigger>
@@ -56,7 +54,6 @@ const demoOptions = [
                     <!-- <n-select class="w-50" v-model="demo" :options="demoOptions" placeholder="Demo" /> -->
                 </div>
             </header>
-
         </template>
         <div class="pt-2">
             <BarChart :data="monthlySellStat" :loading="isLoading" :height="300" />

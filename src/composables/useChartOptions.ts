@@ -118,6 +118,7 @@ export function useChartOptions(props: ChartProps) {
         },
         forceNiceScale: true,
         tickAmount: 5,
+        stepSize: 20,
       },
       tooltip: {
         theme: 'dark',

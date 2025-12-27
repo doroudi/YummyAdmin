@@ -1,3 +1,9 @@
+analyticsDashboard:
+  bounceRate: 跳出率
+  summary: 概括
+  views: 浏览
+  visitors: 访客
+  visits: 访问
 brands:
   brand: 品牌
   create:
@@ -84,7 +90,9 @@ common:
   notFound: 未找到
   oops: Oops Page
   price: 价格
+  refresh: Refresh
   search: 搜索
+  settings: Settings
   status: 状态
   week: 星期
 currencySign: ¥
@@ -120,6 +128,8 @@ dashboard:
   revenueChart:
     subtitle: 收入
     title: 收入图表
+  sellChart:
+    title: 每日销售额和收入
   sells: 销售
   summary: 概要
   transactions: 交易
@@ -196,16 +206,21 @@ menu:
   blog: 博客
   brands: 品牌
   categories: 分类
+  charts: 图表
   chat: 聊天
   colors: 颜色
   comments: 评论
+  components: 组件
   createProduct: 创建产品
   customers: 客户
   dashboard: 仪表板
+  data: 数据
   eCommerce: 电子商务
   error: 500错误
   feedbacks: 反馈
   forgetPassword: 忘记密码
+  forms: 表单
+  icons: 图标
   login: 登录
   maintenance: 维护
   messages: 消息
@@ -225,14 +240,9 @@ menu:
   sms: 短信
   support: 支持
   todo: 待办事项
+  typography: 排版
   users: 用户
   websiteSettings: 网站设置
-  components: 组件
-  charts: 图表
-  forms: 表单
-  data: 数据
-  typography: 排版
-  icons: 图标
 not-found: 未找到
 notifications:
   clear: 清除所有
