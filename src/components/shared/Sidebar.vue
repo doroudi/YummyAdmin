@@ -8,11 +8,13 @@ import {
   CheckmarkStarburst20Filled as BrandsIconActive,
   Folder24Regular as CategoryIcon,
   Folder24Filled as CategoryIconSelected,
+  DataTrending16Regular as ChartsIcon,
   ChatMultiple20Regular as ChatAppIcon,
   ChatMultiple20Filled as ChatAppIconActive,
   Dismiss24Filled as CloseIcon,
   Color24Regular as ColorsIcon,
   Color24Filled as ColorsIconActive,
+  PuzzlePiece24Regular as ComponentsIcon,
   AppsAddIn24Regular as CreateProductIcon,
   AppsAddIn24Filled as CreateProductIconActive,
   People24Regular as CustomersIcon,
@@ -21,15 +23,17 @@ import {
   ChartMultiple20Regular as DashboardIcon1,
   ChartMultiple20Filled as DashboardIcon1Active,
   ArrowTrendingLines24Regular as DashboardIcon2,
+  Table28Regular as DataIcon,
+  Table28Filled as DataIconActive,
   ErrorCircle24Regular as ErrorIcon,
   PersonLightbulb20Regular as ForgetIcon,
+  FormNew24Regular as FormsIcon,
   Cart24Regular as InvoicesIcon,
   Cart24Filled as InvoicesIconActive,
   PersonLock20Regular as LoginIcon,
   ErrorCircleSettings20Regular as MaintenanceIcon,
   ShieldError24Regular as NotFoundIcon,
   DocumentLink20Regular as PagesIcon,
-  BoxCheckmark24Regular as ProductsIcon,
   BoxMultiple20Regular as ProductsIcon2,
   BoxMultiple20Filled as ProductsIcon2Active,
   PersonAdd20Regular as RegisterIcon,
@@ -37,6 +41,9 @@ import {
   Settings28Regular as SettingsIcon,
   CheckmarkCircle24Regular as TodoAppIcon,
   CheckmarkCircle24Filled as TodoAppIconActive,
+  ScanType24Regular as TypographyIcon,
+  ScanType24Filled as TypographyIconActive,
+  Cart24Regular as eCommerceIcon,
 } from '@vicons/fluent'
 
 import { storeToRefs } from 'pinia'
@@ -53,7 +60,7 @@ const effectiveCollapsed = computed(() => {
   return collapsed.value || forceCollapsed.value
 })
 
-const newMenuOptions: SidebarMenuOption[] = [
+const menuOptions: SidebarMenuOption[] = [
   {
     label: t('menu.dashboard'),
     key: 'index',
@@ -75,9 +82,42 @@ const newMenuOptions: SidebarMenuOption[] = [
     ],
   },
   {
-    label: t('menu.productManagement'),
-    key: 'productManagement',
-    icon: ProductsIcon,
+    label: t('menu.components'),
+    key: 'components',
+    icon: ComponentsIcon,
+    children: [
+      {
+        label: t('menu.charts'),
+        route: '/components/charts',
+        key: 'components-charts',
+        icon: ChartsIcon,
+      },
+      // {
+      //   label: t('menu.forms'),
+      //   route: '/components/forms',
+      //   key: 'components-forms',
+      //   icon: FormsIcon,
+      // },
+      // {
+      //   label: t('menu.data'),
+      //   route: '/components/data',
+      //   key: 'components-data',
+      //   icon: DataIcon,
+      //   activeIcon: DataIconActive,
+      // },
+      // {
+      //   label: t('menu.typography'),
+      //   route: '/components/typography',
+      //   key: 'components-typography',
+      //   icon: TypographyIcon,
+      //   activeIcon: TypographyIconActive,
+      // },
+    ],
+  },
+
+  {
+    label: t('menu.eCommerce'),
+    icon: eCommerceIcon,
     children: [
       {
         label: t('menu.products'),
@@ -89,7 +129,7 @@ const newMenuOptions: SidebarMenuOption[] = [
       {
         label: t('menu.createProduct'),
         route: '/products/create',
-        key: 'create-product',
+        key: 'products-create',
         icon: CreateProductIcon,
         activeIcon: CreateProductIconActive,
       },
@@ -120,22 +160,22 @@ const newMenuOptions: SidebarMenuOption[] = [
         key: 'reviews',
         icon: ReviewIcon,
       },
+      {
+        label: t('menu.orders'),
+        route: '/orders',
+        key: 'orders',
+        icon: InvoicesIcon,
+        activeIcon: InvoicesIconActive,
+        showBadge: true,
+      },
+      {
+        label: t('menu.customers'),
+        route: '/customers',
+        key: 'customers',
+        icon: CustomersIcon,
+        activeIcon: CustomersIconActive,
+      },
     ],
-  },
-  {
-    label: t('menu.orders'),
-    route: '/orders',
-    key: 'orders',
-    icon: InvoicesIcon,
-    activeIcon: InvoicesIconActive,
-    showBadge: true,
-  },
-  {
-    label: t('menu.customers'),
-    route: '/customers',
-    key: 'customers',
-    icon: CustomersIcon,
-    activeIcon: CustomersIconActive,
   },
   {
     label: t('menu.apps'),
@@ -159,51 +199,31 @@ const newMenuOptions: SidebarMenuOption[] = [
       },
     ],
   },
+
   {
-    label: t('menu.authentication'),
-    key: 'auth',
+    label: t('menu.pages'),
+    key: 'pages',
     icon: AuthIcon,
     children: [
       {
         label: t('menu.login'),
         route: '/account/login',
-        key: 'login',
+        key: 'account-login',
         icon: LoginIcon,
       },
       {
         label: t('menu.register'),
         route: '/account/register',
-        key: 'register',
+        key: 'account-register',
         icon: RegisterIcon,
       },
 
       {
         label: t('menu.forgetPassword'),
         route: '/account/ForgotPassword',
-        key: 'forget-password',
+        key: 'account-forget-password',
         icon: ForgetIcon,
       },
-    ],
-  },
-  {
-    label: t('menu.settings'),
-    key: 'settings',
-    icon: SettingsIcon,
-    children: [
-      {
-        label: t('menu.accountSettings'),
-        route: '/account/profile',
-        key: 'account-settings',
-        icon: AccountSettingsIcon,
-        activeIcon: AccountSettingsIconActive,
-      },
-    ],
-  },
-  {
-    label: t('menu.other'),
-    key: 'other',
-    icon: PagesIcon,
-    children: [
       {
         label: t('menu.notFound'),
         route: '/404',
@@ -224,6 +244,21 @@ const newMenuOptions: SidebarMenuOption[] = [
       },
     ],
   },
+
+  {
+    label: t('menu.settings'),
+    key: 'settings',
+    icon: SettingsIcon,
+    children: [
+      {
+        label: t('menu.accountSettings'),
+        route: '/account/profile',
+        key: 'account-profile',
+        icon: AccountSettingsIcon,
+        activeIcon: AccountSettingsIconActive,
+      },
+    ],
+  },
 ]
 const router = useRouter()
 //mobile view
@@ -234,7 +269,8 @@ router.beforeEach(() => {
 
 <template>
   <n-layout-sider :native-scrollbar="false" collapse-mode="width" :collapsed-width="mobileMode ? 0 : 64"
-    :collapsed="effectiveCollapsed" :class="{ 'collapsed': effectiveCollapsed, 'mobile-mode': mobileMode }">
+    :collapsed="effectiveCollapsed"
+    :class="{ 'collapsed': effectiveCollapsed, 'mobile-mode': mobileMode, 'support-mode': layoutStore.supportEnabled }">
     <div class="logo-container mb-4">
       <div flex w-full justify-between items-center>
         <div flex w-full justify-start items-center>
@@ -254,7 +290,7 @@ router.beforeEach(() => {
       </div>
     </div>
     <SidebarMenu :collapsed-width="mobileMode ? 0 : 64" :collapsed-icon-size="mobileMode ? 30 : 20"
-      :options="newMenuOptions" />
+      :options="menuOptions" />
   </n-layout-sider>
 </template>
 
@@ -262,6 +298,7 @@ router.beforeEach(() => {
 .n-scrollbar {
   z-index: 1;
 }
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -283,13 +320,12 @@ router.beforeEach(() => {
     margin: 0 .34rem;
     justify-content: center;
     align-items: center;
+
     .logo {
       width: 34px;
       object-fit: cover;
     }
   }
-
-  
 
   .text-logo {
     max-width: 175px;
@@ -306,12 +342,19 @@ router.beforeEach(() => {
 }
 
 .collapsed {
-
   .logo-container {
     padding: 1.5rem 0.5rem 0.5rem .5rem;
   }
 
   .main-title {
+    display: none;
+  }
+
+  .n-menu-item-group>.n-menu-item-group-title {
+    display: none;
+  }
+
+  .p-button-label {
     display: none;
   }
 }
@@ -328,12 +371,6 @@ router.beforeEach(() => {
   background-color: transparent;
 }
 
-.collapsed {
-  .p-button-label {
-    display: none;
-  }
-}
-
 .p-button {
   .p-button-label {
     text-align: left;
@@ -344,6 +381,17 @@ router.beforeEach(() => {
   .logo {
     margin-left: 0.8rem;
     margin-right: .5rem;
+  }
+
+  .n-menu-item-group-title {
+    margin-left: auto;
+    margin-right: 32px;
+  }
+}
+
+.support-mode {
+  .n-scrollbar>.n-scrollbar-container {
+    max-height: calc(100% - 120px);
   }
 }
 
@@ -380,5 +428,13 @@ router.beforeEach(() => {
 
 .p-sidebar-header-content {
   width: 100%;
+}
+
+.n-menu-item-group .n-submenu .n-menu-item-content.n-menu-item-content--collapsed {
+  padding-left: 22px !important;
+}
+
+.n-menu .n-menu-item-group .n-menu-item-group-title {
+  height: 20px;
 }
 </style>

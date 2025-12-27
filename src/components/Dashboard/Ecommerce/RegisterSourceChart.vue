@@ -18,6 +18,6 @@ const total = computed(() =>
     <p class="text-xsm text-coolgray font-light pb-2">
       {{ t('dashboard.registerSource.subtitle') }}
     </p>
-    <DonutChart :data="registersSource" color-scheme="#DB0B51" />
+    <DonutChart :data="registersSource" color-scheme="#DB0B51" height="250" />
   </Card>
 </template>

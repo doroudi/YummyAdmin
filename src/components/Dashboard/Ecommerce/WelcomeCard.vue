@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { t } = useI18n()
-const canvasEl = ref()
 
 function randomInRange(min: number, max: number) {
   return Math.random() * (max - min) + min

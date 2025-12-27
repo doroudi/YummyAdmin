@@ -1,3 +1,8 @@
+analyticsDashboard:
+  bounceRate: Hemen Çıkma Oranı
+  views: Görünümler
+  visitors: Ziyaretçiler
+  visits: Ziyaretler
 brands:
   brand: Marka
   create:
@@ -24,7 +29,6 @@ button:
   toggle_dark: Karanlık modu değiştir
   toggle_fullscreen: Tam ekranı geçiş
   toggle_langs: Dil değiştir
-
 categories:
   count: Saymak
   create:
@@ -91,7 +95,9 @@ common:
   notFound: Bulunamadı
   oops: Oops sayfası
   price: Fiyat
+  refresh: Yenile
   search: Ara
+  settings: Ayarlar
   status: Durum
   week: Hafta
 currencySign: ₺
@@ -127,6 +133,8 @@ dashboard:
   revenueChart:
     subtitle: Toplam Gelir Dengesi
     title: Gelir grafiği
+  sellChart:
+    title: Günlük Satış ve Gelir
   sells: Satışlar
   summary: Özet
   transactions: İşlemler
@@ -202,16 +210,21 @@ menu:
   blog: Blog
   brands: Markalar
   categories: Kategoriler
+  charts: Grafikler
   chat: Sohbet
   colors: Renkler
   comments: Yorumlar
+  components: Bileşenler
   createProduct: Ürün Oluştur
   customers: Müşteriler
   dashboard: Gösterge Paneli
+  data: Veri Tabloları
   eCommerce: E-Ticaret
   error: 500 Hata
   feedbacks: Geri Bildirimler
   forgetPassword: Şifremi Unuttum
+  forms: Formlar
+  icons: Simgeler
   login: Giriş
   maintenance: Bakım
   messages: Mesajlar
@@ -231,6 +244,7 @@ menu:
   sms: SMS
   support: Destek
   todo: ToDo
+  typography: Tipografi
   users: Kullanıcılar
   websiteSettings: Website Ayarları
 not-found: Bulunamadı

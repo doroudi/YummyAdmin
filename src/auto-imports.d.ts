@@ -115,6 +115,7 @@ declare global {
   const until: typeof import('@vueuse/core')['until']
   const useAccountStore: typeof import('./store/account.store')['useAccountStore']
   const useActiveElement: typeof import('@vueuse/core')['useActiveElement']
+  const useAnalyticsDashboardStore: typeof import('./store/analyticsDashboard.store')['useAnalyticsDashboardStore']
   const useAnimate: typeof import('@vueuse/core')['useAnimate']
   const useArrayDifference: typeof import('@vueuse/core')['useArrayDifference']
   const useArrayEvery: typeof import('@vueuse/core')['useArrayEvery']
@@ -140,6 +141,7 @@ declare global {
   const useBrowserLocation: typeof import('@vueuse/core')['useBrowserLocation']
   const useCached: typeof import('@vueuse/core')['useCached']
   const useCategoryStore: typeof import('./store/category.store')['useCategoryStore']
+  const useChartOptions: typeof import('./composables/useChartOptions')['useChartOptions']
   const useChatStore: typeof import('./store/chat.store')['useChatStore']
   const useClipboard: typeof import('@vueuse/core')['useClipboard']
   const useClipboardItems: typeof import('@vueuse/core')['useClipboardItems']
@@ -261,6 +263,7 @@ declare global {
   const useSeoMeta: typeof import('@vueuse/head')['useSeoMeta']
   const useSessionStorage: typeof import('@vueuse/core')['useSessionStorage']
   const useShare: typeof import('@vueuse/core')['useShare']
+  const useSimpleChartOptions: typeof import('./composables/useSimpleChartOptions')['useSimpleChartOptions']
   const useSlots: typeof import('vue')['useSlots']
   const useSorted: typeof import('@vueuse/core')['useSorted']
   const useSpeechRecognition: typeof import('@vueuse/core')['useSpeechRecognition']
@@ -575,6 +578,9 @@ declare module 'vue' {
     readonly useActiveElement: UnwrapRef<
       typeof import('@vueuse/core')['useActiveElement']
     >
+    readonly useAnalyticsDashboardStore: UnwrapRef<
+      typeof import('./store/analyticsDashboard.store')['useAnalyticsDashboardStore']
+    >
     readonly useAnimate: UnwrapRef<typeof import('@vueuse/core')['useAnimate']>
     readonly useArrayDifference: UnwrapRef<
       typeof import('@vueuse/core')['useArrayDifference']
@@ -639,6 +645,9 @@ declare module 'vue' {
     readonly useCached: UnwrapRef<typeof import('@vueuse/core')['useCached']>
     readonly useCategoryStore: UnwrapRef<
       typeof import('./store/category.store')['useCategoryStore']
+    >
+    readonly useChartOptions: UnwrapRef<
+      typeof import('./composables/useChartOptions')['useChartOptions']
     >
     readonly useChatStore: UnwrapRef<
       typeof import('./store/chat.store')['useChatStore']
@@ -933,6 +942,9 @@ declare module 'vue' {
       typeof import('@vueuse/core')['useSessionStorage']
     >
     readonly useShare: UnwrapRef<typeof import('@vueuse/core')['useShare']>
+    readonly useSimpleChartOptions: UnwrapRef<
+      typeof import('./composables/useSimpleChartOptions')['useSimpleChartOptions']
+    >
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useSorted: UnwrapRef<typeof import('@vueuse/core')['useSorted']>
     readonly useSpeechRecognition: UnwrapRef<

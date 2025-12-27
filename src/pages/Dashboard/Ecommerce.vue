@@ -10,4 +10,3 @@ meta:
   <EcommerceDashboard />
 </template>
 
-<style scoped></style>

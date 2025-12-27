@@ -1,3 +1,8 @@
+analyticsDashboard:
+  bounceRate: معدل الارتداد
+  views: وجهات النظر
+  visitors: الزوار
+  visits: الزيارات
 brands:
   brand: ''
   create:
@@ -24,7 +29,6 @@ button:
   toggle_dark: تبديل الوضع المظلم
   toggle_fullscreen: تبديل ملء الشاشة
   toggle_langs: تغيير اللغات
-
 categories:
   count: عدد
   create:
@@ -91,7 +95,9 @@ common:
   notFound: غير موجود
   oops: عفوًا
   price: سعر
+  refresh: ينعش
   search: بحث
+  settings: إعدادات
   status: حالة
   week: أسبوع
 currencySign: درهم
@@ -127,6 +133,8 @@ dashboard:
   revenueChart:
     subtitle: إجمالي رصيد الإيرادات
     title: مخطط الإيرادات
+  sellChart:
+    title: البيع والإيرادات اليومية
   sells: المبيعات
   summary: الملخص
   transactions: المعاملات
@@ -205,16 +213,21 @@ menu:
   blog: المدونة
   brands: العلامات التجارية
   categories: الفئات
+  charts: المخططات
   chat: محادثة
   colors: الألوان
   comments: التعليقات
+  components: المكونات
   createProduct: إنشاء المنتج
   customers: العملاء
   dashboard: لوحة التحكم
+  data: جداول البيانات
   eCommerce: التجارة الإلكترونية
   error: 500 خطأ
   feedbacks: التعليقات
   forgetPassword: نسيت كلمة المرور
+  forms: النماذج
+  icons: الرموز
   login: تسجيل الدخول
   maintenance: صيانة
   messages: الرسائل
@@ -234,6 +247,7 @@ menu:
   sms: الرسائل القصيرة
   support: الدعم
   todo: المهام
+  typography: الطباعة
   users: المستخدمون
   websiteSettings: إعدادات الموقع
 not-found: غير موجود

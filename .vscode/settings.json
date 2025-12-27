@@ -29,5 +29,7 @@
   "files.associations": {
     "*.css": "postcss"
   },
-  "editor.formatOnSave": false
+  "editor.formatOnSave": false,
+  "editor.occurrencesHighlight": false,
+  "editor.selectionHighlight": false
 }

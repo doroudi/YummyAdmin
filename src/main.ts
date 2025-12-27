@@ -69,7 +69,12 @@ async function startApp() {
   } catch (error) {
     console.warn('Mock service initialization failed:', error)
   }
-  app.mount('#app')
+
+  try {
+    app.mount('#app')
+  } catch (error) {
+    console.error('App mounting failed:', error)
+  }
 }
 
 startApp()

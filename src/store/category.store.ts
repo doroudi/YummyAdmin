@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Category, CategoryCreateModel } from '~/models/Category'
-import type { DonutChartSeries } from '~/models/ChartData'
+import type { SimpleChartSeries } from '~/models/ChartData'
 import {
   type PagedAndSortedRequest,
   defaultOptions,
@@ -16,7 +16,7 @@ export const useCategoryStore = defineStore('Category', () => {
   const isSaving = ref(false)
   const categoryStats = ref<{
     summaryStats: SummaryStatDto
-    productsStat: DonutChartSeries
+    productsStat: SimpleChartSeries
   }>({})
 
   async function getCategories(

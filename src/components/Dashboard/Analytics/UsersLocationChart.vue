@@ -38,6 +38,7 @@ function onMapItemClick(areaId: string) {
     <MapChart
       v-if="!isLoading" :data="locationData" 
       base-color="var(--primary-color)"
+      height="450"
       @map-item-click="onMapItemClick"
     />
   </Card>

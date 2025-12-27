@@ -3,7 +3,6 @@ import generatedRoutes from 'virtual:generated-pages'
 import { Search24Regular as SearchIcon } from '@vicons/fluent'
 import { useMagicKeys, whenever } from '@vueuse/core'
 import type { InputInst } from 'naive-ui/es/input/src/interface'
-import type { RouteRecordRaw } from 'vue-router'
 
 const { t } = useI18n()
 const searchTerm = ref('')
@@ -31,13 +30,13 @@ const options = computed(() => {
 })
 
 const searchInput = ref<InputInst | null>(null)
-const { ctrl_k } = useMagicKeys({
+const { slash } = useMagicKeys({
   passive: false,
   onEventFired(e) {
-    if (e.ctrlKey && e.key === 'k' && e.type === 'keydown') e.preventDefault()
+    if (e.key === '/' && e.type === 'keydown') e.preventDefault()
   },
 })
-whenever(ctrl_k, () => searchInput.value.focus())
+whenever(slash, () => searchInput.value.focus())
 
 const router = useRouter()
 function gotoRoute(name: string) {
@@ -64,8 +63,7 @@ function gotoRoute(name: string) {
           <template #suffix>
             <span class="kbd-container">
               <span class="kbd">
-                <kbd class="kbd-ctrl">Ctrl</kbd>
-                <kbd>K</kbd>
+                /
               </span>
             </span>
           </template>
@@ -86,14 +84,10 @@ function gotoRoute(name: string) {
     border: solid 1px var(--border-color);
     margin: 0.2rem 0;
     border-radius: var(--n-border-radius);
-    padding: 0 0.4rem;
+    padding: 0 0.5rem;
     height: 23px;
     line-height: 1.2rem;
     font-size: .85rem;
-
-    .kbd-ctrl {
-      margin-right: 2px;
-    }
   }
 }
 </style>

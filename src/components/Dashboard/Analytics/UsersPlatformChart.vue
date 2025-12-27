@@ -1,13 +1,20 @@
 <script setup lang="ts">
 const registersSource = ref<any[]>([
-  { name: 'Android', value: 2000 },
-  { name: 'Windows', value: 500 },
-  { name: 'iOS', value: 820 },
+  //TODO: use translations
+  { name: 'Desktop', value: 4321 },
+  { name: 'Mobile', value: 5001 },
+  { name: 'Tablet', value: 1112 },
+  { name: 'Unknown', value: 880 },
 ])
+
 const total = computed(() =>
-  registersSource.value.reduce((a, b) => a + b.value, 0),
+  registersSource.value.reduce((a: any, b: any) => a + b.value, 0),
 )
 const { t } = useI18n()
+
+const legendPosition = computed(() =>
+  useLayoutStore().isRtl ? 'left' : 'right',
+)
 </script>
 
 <template>
@@ -18,7 +25,7 @@ const { t } = useI18n()
     <p class="text-xsm text-coolgray font-light pb-2">
       {{ t('dashboard.userPlatforms.subtitle') }}
     </p>
-    <DonutChart :data="registersSource" color-scheme="#4FC3F7" legend-position="bottom" />
+    <DonutChart height="200" :data="registersSource" :colors="['#da2c38','#226f54','#87c38f', '#f4f0bb']" :legend-position="legendPosition"/>
   </Card>
 </template>
 

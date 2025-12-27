@@ -1,16 +1,31 @@
 import { faker } from '@faker-js/faker/locale/en'
 import _ from 'lodash'
 import times from 'lodash/times'
-import { http, HttpResponse } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 import type {
   ChartData,
-  DonutChartSeries,
   LocationChartSeries,
+  SimpleChartSeries,
 } from '~/models/ChartData'
 import type {
   DashboardSummaryStatDto,
   SummaryStatDto,
 } from '~/models/SummaryStat'
+
+const months = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+]
 
 const handlers = [
   http.get('/api/report/summary', () => {
@@ -18,10 +33,24 @@ const handlers = [
     return HttpResponse.json(response, { status: 200 })
   }),
 
-  http.get('/api/report/revenue/:period', (req) => {
-    const response = times(10, () =>
-      faker.number.int({ min: 1000, max: 10000 }),
-    )
+  http.get('/api/report/revenue/:period', ({ params }) => {
+    const { period } = params
+    let min = 10
+    let max = 200
+    switch (period) {
+      case 'day':
+        min = 10
+        max = 200
+        break
+      case 'week':
+        min = 700
+        max = 1500
+        break
+      case 'month':
+        min = 25000
+        max = 70000
+    }
+    const response = times(7, () => faker.number.int({ min, max }))
 
     return HttpResponse.json(response, { status: 200 })
   }),
@@ -38,20 +67,7 @@ const handlers = [
 
   http.get('/api/report/monthlySellStat', () => {
     const response: ChartData = {
-      labels: [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec',
-      ],
+      labels: months,
       series: [
         {
           name: 'Total',
@@ -65,26 +81,58 @@ const handlers = [
     }
     return HttpResponse.json(response, { status: 200 })
   }),
+
+  http.get('/api/report/chartDemoData/:length', async ({ params }) => {
+    const { length } = params
+    let lengthNum = Number.parseInt(length?.toString() ?? '12')
+    if (lengthNum > 12) lengthNum = 12
+
+    const response: ChartData = {
+      labels: months.slice(0, lengthNum),
+      series: [
+        {
+          name: 'Total',
+          data: times(lengthNum, () =>
+            faker.number.int({ min: 1000, max: 10000 }),
+          ),
+        },
+        {
+          name: 'Revenue',
+          data: times(lengthNum, () =>
+            faker.number.int({ min: 1000, max: 3000 }),
+          ),
+        },
+      ],
+    }
+    await delay(1000)
+
+    return HttpResponse.json(response, { status: 200 })
+  }),
 ]
 
 function createFakeSummaryData(): DashboardSummaryStatDto {
   return {
-    products: createFakeSummaryStatDto(),
-    registers: createFakeSummaryStatDto(),
-    sells: createFakeSummaryStatDto(),
-    visits: createFakeSummaryStatDto(),
+    visitors: createFakeSummaryStatDto(1, 3, 'K'),
+    visits: createFakeSummaryStatDto(2, 10, 'K'),
+    views: createFakeSummaryStatDto(1, 300, 'K'),
+    bounceRate: createFakeSummaryStatDto(5, 100, '%'),
   }
 }
 
-function createFakeSummaryStatDto(): SummaryStatDto {
+function createFakeSummaryStatDto(
+  min = 20,
+  max = 1000,
+  suffix = '',
+): SummaryStatDto {
   return {
-    count: faker.number.int({ min: 100, max: 1000 }),
+    count: faker.number.int({ min, max }),
+    suffix,
     progress: faker.number.float({ min: -20, max: 40, multipleOf: 0.1 }),
     progressFlow: times(10, () => faker.number.int({ min: 0, max: 100 })),
   }
 }
 
-function createFakeGenderData(): DonutChartSeries[] {
+function createFakeGenderData(): SimpleChartSeries[] {
   const malePercent = faker.number.int({ min: 35, max: 45 })
   const femalePercent = faker.number.int({ min: 35, max: 45 })
   const unknownPercent = 100 - malePercent - femalePercent
@@ -108,7 +156,7 @@ function createFakeLocationData(): LocationChartSeries[] {
     }),
   )
 
-  locationData.push({ key: 'IR', value: { value: 1000, color: '#00A693' } }) //Persian Green
+  locationData.push({ key: 'IR', value: { value: 1000, color: '#00A693' } }) //Persian Green 💚 (this product made by love in IRAN)
 
   return locationData
 }

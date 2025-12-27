@@ -1,14 +1,8 @@
 <script setup lang="ts">
-import {
-  Cart16Regular as BasketIcon,
-  Box16Regular as BoxIcon,
-  DataTrending16Regular as StatIcon,
-  People16Regular as UserIcon,
-} from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 
 const { t } = useI18n()
-const store = useDashboardStore()
+const store = useAnalyticsDashboardStore()
 const { summaryStat, isLoadingStats } = storeToRefs(store)
 
 onMounted(() => {
@@ -18,22 +12,22 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="margin-outside flex flex-wrap pb-3">
+    <div class="margin-outside flex flex-wrap">
       <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.registers"
-        :title="t('dashboard.registers')" color="#00a096" :icon="UserIcon"
-      />
-      <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.products"
-        :title="t('dashboard.products')" color="#DB0B51" :icon="BoxIcon"
-      />
-      <SummaryStatCard
-        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.sells"
-        :title="t('dashboard.sells')" :icon="BasketIcon" color="#9575cd"
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.visitors"
+        :title="t('analyticsDashboard.visitors')" color="#00a096"
       />
       <SummaryStatCard
         class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.visits"
-        :title="t('dashboard.visits')" :icon="StatIcon" color="#FF8000"
+        :title="t('analyticsDashboard.visits')" color="#DB0B51"
+      />
+      <SummaryStatCard
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.views"
+        :title="t('analyticsDashboard.views')" color="#9575cd"
+      />
+      <SummaryStatCard
+        class="w-full sm:w-1/2 md:w-1/4" :loading="isLoadingStats" :data="summaryStat.bounceRate"
+        :title="t('analyticsDashboard.bounceRate')" color="#FF8000"
       />
     </div>
     <div>
@@ -42,10 +36,8 @@ onMounted(() => {
           <UsersLocationChart />
         </div>
         <div class="flex flex-col w-full lg:w-1/3">
-          <Card class="p-2" :title="t('dashboard.summary')">
-            <LineChart />
-          </Card>
-          <UsersGenderChart />
+          <UsersPlatformChart class="w-full" />
+          <UsersGenderChart class="w-full" />
         </div>
       </div>
 
@@ -64,5 +56,3 @@ onMounted(() => {
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped></style>

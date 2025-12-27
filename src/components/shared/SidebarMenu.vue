@@ -2,8 +2,9 @@
 import type { MenuInst, MenuOption } from 'naive-ui/es/components'
 defineModel<string>()
 export interface SidebarMenuOption {
-  label: string
-  key: string
+  type?: string
+  label?: string
+  key?: string
   icon?: any
   activeIcon?: any
   selectedIcon?: any
@@ -11,6 +12,7 @@ export interface SidebarMenuOption {
   showBadge?: boolean
   route?: string
   children?: SidebarMenuOption[]
+  props?: any
 }
 
 export interface Props {
@@ -21,19 +23,23 @@ const props = defineProps<Props>()
 const route = useRoute()
 const selectedMenuKey = ref('dashboard')
 const menuRef = ref<MenuInst | null>(null)
+const { renderIcon, renderLabel } = useRender()
 
 onMounted(() => activateCurrentRoute())
 
 function activateCurrentRoute() {
   setTimeout(() => {
-    const keys = props.options.flatMap(
-      (m: SidebarMenuOption) => m.children || m,
+    const keys = props.options.flatMap((m: SidebarMenuOption) =>
+      m.children
+        ? [m, ...m.children.flatMap((child) => child.children || child)]
+        : m,
     )
+
     if (keys !== undefined) {
       selectedMenuKey.value =
         keys.find(
           (s: SidebarMenuOption) =>
-            s.key.toLowerCase() === route.name.toLowerCase(),
+            s.key?.toLowerCase() === route.name.toLowerCase(),
         )?.key ?? 'dashboard-ecommerce' //default route
 
       menuRef.value?.showOption(selectedMenuKey.value)
@@ -52,24 +58,32 @@ const items = computed(() =>
   props.options.map((o: SidebarMenuOption) => convertToMenuOption(o)),
 )
 
-const { renderIcon, renderLabel } = useRender()
-
 function convertToMenuOption(item: SidebarMenuOption): MenuOption {
   return {
+    type: item.type,
+    props: item.props,
     label: item.route
-      ? () => renderLabel(item.label, item.route!, item.isNew ?? false)
+      ? () =>
+          item.label !== undefined
+            ? renderLabel(item.label, item.route!, item.isNew ?? false)
+            : () => null
       : () => item.label,
-    icon: renderIcon(
-      isActiveRoute(item) && item.activeIcon ? item.activeIcon : item.icon,
-      item.showBadge,
-    ),
-    key: item.key, //TODO: auto generate key
+    icon:
+      item.type === 'group'
+        ? () => null
+        : renderIcon(
+            isActiveRoute(item) && item.activeIcon
+              ? item.activeIcon
+              : item.icon,
+            item.showBadge,
+          ),
+    key: item.key,
     children: item.children?.map((i) => convertToMenuOption(i)),
   }
 }
 
 function isActiveRoute(item: SidebarMenuOption) {
-  return selectedMenuKey.value === item.key
+  return selectedMenuKey.value.toLowerCase() === item.key?.toLowerCase()
 }
 </script>
 

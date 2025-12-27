@@ -28,5 +28,10 @@ class ReportService {
     const response = await apiService.get<ChartData>('monthlySellStat')
     return response
   }
+
+  async getChartDemoData(length: number): Promise<ChartData> {
+    const response = await apiService.get<ChartData>(`chartDemoData/${length}`)
+    return response
+  }
 }
 export default new ReportService()

@@ -12,6 +12,7 @@ import { storeToRefs } from 'pinia'
 import { NotificationType } from '~/models/Notification'
 
 const store = useNotificationStore()
+const layoutStore = useLayoutStore()
 const { notifications } = storeToRefs(store)
 const { t } = useI18n()
 
@@ -33,6 +34,8 @@ function getIcon(notificationType: NotificationType) {
       return CustomerIcon
   }
 }
+
+const badgeOffset = computed(() => [layoutStore.isRtl ? 4 : -4, 5])
 </script>
 
 <template>
@@ -43,7 +46,7 @@ function getIcon(notificationType: NotificationType) {
           <template #trigger>
             <n-button quaternary circle>
               <template #icon>
-                <n-badge dot type="success" :offset="[-5, 5]" processing>
+                <n-badge dot type="success" :offset="badgeOffset" processing>
                   <NIcon class="shake-item" size="1.4rem">
                     <BellIcon />
                   </NIcon>
