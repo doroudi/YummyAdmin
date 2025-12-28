@@ -1,5 +1,5 @@
 import path from 'node:path'
-import VueI18n from '@intlify/unplugin-vue-i18n/vite'
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import Vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -19,6 +19,7 @@ export default defineConfig({
       host: 'localhost',
     },
   },
+  assetsInclude: ['**/*.yml', '**/*.yaml'],
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
@@ -37,6 +38,15 @@ export default defineConfig({
   },
 
   plugins: [
+    // https://github.com/intlify/vite-plugin-vue-i18n
+    VueI18nPlugin({
+      runtimeOnly: false,
+      fullInstall: true,
+      include: [
+        path.resolve(__dirname, 'src/locales/**/*.yml'),
+        path.resolve(__dirname, 'src/locales/**/*.yaml'),
+      ]
+    }),
     VueMacros({
       plugins: {
         vue: Vue({
@@ -95,18 +105,12 @@ export default defineConfig({
     // https://github.com/antfu/unocss
     // see uno.config.ts for config
     Unocss(),
-
-    // https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
-    VueI18n({
-      runtimeOnly: true,
-      compositionOnly: true,
-      fullInstall: true,
-      include: [path.resolve(__dirname, 'locales/**')],
-    }),
-
     // https://github.com/webfansplz/vite-plugin-vue-devtools
     // VueDevTools(),
   ],
+   optimizeDeps: {
+    include: ['@intlify/vite-plugin-vue-i18n']
+  },
 
   define: { 'process.env': {} },
 })

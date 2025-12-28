@@ -348,9 +348,9 @@ declare global {
   import('vue')
 }
 // for vue template auto import
-import type { UnwrapRef } from 'vue'
+import { UnwrapRef } from 'vue'
 declare module 'vue' {
-  type GlobalComponents = {}
+  interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly $$: UnwrapRef<typeof import('vue/macros')['$$']>
     readonly $: UnwrapRef<typeof import('vue/macros')['$']>

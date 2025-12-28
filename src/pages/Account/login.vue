@@ -139,14 +139,6 @@ meta:
 </template>
 
 <style lang='scss'>
-.banner {
-  background-image: url('~/assets/images/login_banner.jpg');
-  background-size: cover;
-  background-position: center center;
-  height: 150px;
-  border-radius: 4px 4px 0 0;
-}
-
 .login-box {
   max-width: 380px;
   position: relative;

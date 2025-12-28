@@ -6,6 +6,7 @@ import {
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 import type { TaskGroup, TaskItem } from '~/models/Todo'
+
 interface Props {
   group: TaskGroup
 }

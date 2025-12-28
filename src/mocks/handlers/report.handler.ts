@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker/locale/en'
 import _ from 'lodash'
 import times from 'lodash/times'
-import { http, HttpResponse, delay } from 'msw'
+import { delay, HttpResponse, http } from 'msw'
 import type {
   ChartData,
   LocationChartSeries,
@@ -84,7 +84,7 @@ const handlers = [
 
   http.get('/api/report/chartDemoData/:length', async ({ params }) => {
     const { length } = params
-    let lengthNum = Number.parseInt(length?.toString() ?? '12')
+    let lengthNum = Number.parseInt(length?.toString() ?? '12', 10)
     if (lengthNum > 12) lengthNum = 12
 
     const response: ChartData = {

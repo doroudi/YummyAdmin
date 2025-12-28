@@ -1,12 +1,11 @@
 <script setup lang='ts'>
-import { NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
-import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
-
 import {
   Delete20Regular as DeleteIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
 import { useMessage } from 'naive-ui'
+import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
+import { NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { ProductStatus } from '~/models/Product'
 

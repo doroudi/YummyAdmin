@@ -4,7 +4,7 @@ analyticsDashboard:
   visitors: الزوار
   visits: الزيارات
 brands:
-  brand: ''
+  brand: العلامة التجارية
   create:
     brandName: الاسم
     buttonTitle: إنشاء
@@ -178,7 +178,7 @@ forgot:
 home: الرئيسية
 languages:
   ar: العربية
-  cn: الصينية
+  zn: الصينية
   de: الألمانية
   en: الإنجليزية
   fa: الفارسية
@@ -345,5 +345,5 @@ userMenu:
   logout: تسجيل الخروج
   options: الخيارات
   profile: الملف الشخصي
-  signOut: ''
+  signOut: تسجيل الخروج
   theme: المظهر

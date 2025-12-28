@@ -146,7 +146,6 @@ analyticsDashboard:
   views: Views
   bounceRate: Bounce Rate
   summary: Summary
-
 description: Free Vue 3 Dashboard
 direction: ltr
 enums:
@@ -175,7 +174,7 @@ forgot:
 home: Home
 languages:
   ar: Arabic
-  cn: Chinese
+  zn: Chinese
   de: German
   en: English
   fa: Persian

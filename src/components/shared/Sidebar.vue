@@ -26,6 +26,7 @@ import {
   Table28Regular as DataIcon,
   Table28Filled as DataIconActive,
   ErrorCircle24Regular as ErrorIcon,
+  Cart24Regular as eCommerceIcon,
   PersonLightbulb20Regular as ForgetIcon,
   FormNew24Regular as FormsIcon,
   Cart24Regular as InvoicesIcon,
@@ -43,7 +44,6 @@ import {
   CheckmarkCircle24Filled as TodoAppIconActive,
   ScanType24Regular as TypographyIcon,
   ScanType24Filled as TypographyIconActive,
-  Cart24Regular as eCommerceIcon,
 } from '@vicons/fluent'
 
 import { storeToRefs } from 'pinia'

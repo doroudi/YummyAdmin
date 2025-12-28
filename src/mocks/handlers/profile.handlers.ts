@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import { http, HttpResponse } from 'msw'
+import { HttpResponse, http } from 'msw'
 import type { Profile, ProfileSettings } from '~/models/Profile'
 
 const handlers = [

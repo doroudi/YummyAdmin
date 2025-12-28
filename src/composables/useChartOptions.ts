@@ -1,6 +1,6 @@
 import type { ApexOptions } from 'apexcharts'
 import type { ChartData } from '~/models/ChartData'
-import type { ChartProps } from '~/models/ChartProps'
+import type { ChartProps } from '~/models/ChartsProps'
 
 export function useChartOptions(props: ChartProps) {
   const { makeLighter } = useColors()
@@ -41,7 +41,7 @@ export function useChartOptions(props: ChartProps) {
           },
         },
         events: {
-          click: (event: any, chartContext: any, config: any) => {
+          click: () => {
             // emit('chart-click', event, chartContext, config)
           },
         },
@@ -192,7 +192,7 @@ export function useChartOptions(props: ChartProps) {
       return props.data.labels.map((label: any) =>
         label !== null && label !== undefined ? String(label) : '',
       )
-    } catch (error) {
+    } catch {
       return []
     }
   })
@@ -209,7 +209,7 @@ export function useChartOptions(props: ChartProps) {
         }),
         ...series,
       }))
-    } catch (error) {
+    } catch {
       // emit('data-error', 'Failed to process series data')
       return []
     }

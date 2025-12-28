@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import {
   ArrowCounterclockwise32Filled as RandomIcon,
-  Settings24Regular as SettingIcon,
+  //   Settings24Regular as SettingIcon,
 } from '@vicons/fluent'
 import type { ChartData } from '~/models/ChartData'
 import reportService from '~/services/report.service'
@@ -43,14 +43,14 @@ const demoOptions = [
                         {{ t('common.refresh') }}
                     </n-tooltip>
 
-                    <n-tooltip placement="top" trigger="hover">
+                    <!-- <n-tooltip placement="top" trigger="hover">
                         <template #trigger>
                             <n-button quaternary circle>
                                 <n-icon @click="loadData" :component="SettingIcon"></n-icon>
                             </n-button>
                         </template>
                         {{ t('common.settings') }}
-                    </n-tooltip>
+                    </n-tooltip> -->
                     <!-- <n-select class="w-50" v-model="demo" :options="demoOptions" placeholder="Demo" /> -->
                 </div>
             </header>

@@ -43,11 +43,10 @@ function getToggleElementPosition() {
 
 const router = useRouter()
 
-router.afterEach((to: any, _: any, next: any) => {
+router.afterEach((_to: any, _: any, _next: any) => {
   setTimeout(() => {
     getToggleElementPosition()
   }, 1000)
-  //next()
 })
 </script>
 

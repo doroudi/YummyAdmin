@@ -5,6 +5,7 @@ import {
 } from '@vicons/fluent'
 import { NButton } from 'naive-ui'
 import { storeToRefs } from 'pinia'
+
 const { t } = useI18n()
 
 const store = useChatStore()

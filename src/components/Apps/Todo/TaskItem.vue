@@ -7,6 +7,7 @@ import {
 
 import { NCheckbox } from 'naive-ui'
 import type { TaskItem } from '~/models/Todo'
+
 interface Props {
   task: TaskItem
 }

@@ -179,7 +179,7 @@ forgot:
 home: Ana Sayfa
 languages:
   ar: Arapça
-  cn: Çince
+  zn: Çince
   de: Almanca
   en: İngilizce
   fa: Farsça
@@ -229,7 +229,7 @@ menu:
   maintenance: Bakım
   messages: Mesajlar
   news: Haberler
-  notFound: '404'
+  notFound: "404"
   notifications: Bildirimler
   orders: Siparişler
   other: Diğer

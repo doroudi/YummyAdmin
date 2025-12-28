@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+
 const { t } = useI18n()
 const store = useDashboardStore()
 

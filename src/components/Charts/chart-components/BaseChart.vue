@@ -1,9 +1,17 @@
 <script setup lang="ts">
 import VueApexCharts from 'vue3-apexcharts'
 import type { ChartData, SimpleChartSeries } from '~/models/ChartData'
-import type { ChartProps, SimpleChartProps } from '~/models/ChartProps'
 
-const props = withDefaults(defineProps<ChartProps | SimpleChartProps>(), {
+type LocalChartProps = {
+  data?: ChartData | SimpleChartSeries | null
+  colors?: string[]
+  height?: number
+  type?: string
+  error?: any
+  options?: any
+}
+
+const props = withDefaults(defineProps<LocalChartProps>(), {
   data: () => null as ChartData | SimpleChartSeries | null,
   colors: () => [
     'var(--primary-color)',

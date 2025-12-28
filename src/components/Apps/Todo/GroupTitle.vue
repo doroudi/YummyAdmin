@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import type { TaskGroup } from '~/models/Todo'
-
 import {
   Checkmark28Filled as CheckIcon,
   Edit24Regular as EditIcon,
 } from '@vicons/fluent'
+import type { TaskGroup } from '~/models/Todo'
 
 const props = defineProps<{ group: TaskGroup }>()
 const emits = defineEmits(['update'])

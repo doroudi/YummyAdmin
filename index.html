@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yummy Admin - Free Vue dashboard</title>
-  
     <style>
       .preloader {
         display: flex;
@@ -15,12 +14,14 @@
         line-height: 1.8em;
         flex-direction: column;
       }
-    
-    
-      .preloader h1 {
-        margin-top: 1rem;
+      .preloader h1, .preloader h2{
+        margin: 1rem 0 0 0;
         font-weight: bold;
         font-size: 1.44rem;
+        font-family: 'Inter', 'Sans serif', 'Roboto','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .preloader .description {
+        color: transparent;
       }
     
       .loader {
@@ -118,24 +119,29 @@
   <link rel="canonical" href="https://yummy-admin.netlify.app/" />
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Yummy Admin",
-    "url": "https://yummy-admin.netlify.app/",
-    "description": "Free Vue Dashboard - Free Vue admin panel. Modern designed Vue.js dashboard based on Naive UI, Tailwind, MSW, Pinia, TypeScript."
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Yummy Admin",
+  "url": "https://yummy-admin.netlify.app/",
+  "description": "Free Vue 3 admin dashboard",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Yummy Admin"
   }
+}
   </script>
   <meta name="description" content="Yummy Admin - Free VueJS admin panel " />
   <meta property="og:title" content="Yummy Admin - Free Vue Admin Panel">
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://yummy-admin.netlify.app/banner.png">
   <meta property="og:url" content="https://yummy-admin.netlify.app">
-  <meta name="twitter:card" content="Yummy Admin - Free Vue3 Admin Panel">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yummy Admin - Free Vue Admin Panel">
+  <meta name="twitter:description" content="Free Vue 3 admin dashboard built with Tailwind, Pinia, and Naive UI">
+  <meta name="twitter:image" content="https://yummy-admin.netlify.app/banner.png">
   <meta property="og:description" content="Yummy Admin - Free Vue Admin Panel">
   <meta property="og:site_name" content="Yummy Admin">
   <meta name="twitter:image:alt" content="Yummy Admin - Free Vue Admin Panel">
-
-
 </head>
 
 <body class="font-inter">
@@ -143,11 +149,27 @@
     <div class="preloader">
       <div class="loader"></div>
       <h1>Yummy Admin</h1>
-      <h2>Free Vue Admin Panel</h2>
+      <h2>Free VueJs Admin Panel</h2>
+      <!-- SEO Staff you can remove it -->
+      <p class="description">Yummy Admin is a free Vue 3 admin dashboard built with
+      Tailwind CSS, Naive UI, Pinia, and TypeScript.</p>
+      <p class="description">
+        Yummy Admin 是一个免费的 Vue 3 管理后台，使用 Tailwind CSS、Naive UI、Pinia 和 TypeScript 构建。
+      </p>
+      <p class="description">
+        Yummy Admin ist ein kostenloses Vue 3 Admin-Dashboard, das mit Tailwind CSS, Naive UI, Pinia und TypeScript entwickelt
+        wurde.
+      </p>
+      <p class="description">
+        ادین یامی یک داشبورد مدیریت رایگان Vue 3 است که با Tailwind CSS، Naive UI، Pinia و TypeScript ساخته شده است.
+      </p>
+      <p class="description">
+        اليومي أدمين هو لوحة تحكم إدارية مجانية مبنية على Vue 3 باستخدام Tailwind CSS و Naive UI و Pinia و TypeScript.
+      </p>
     </div>
   </div>
 
-  <script type="module" src="/src/main.ts"></script>
+  <script rel="preload" type="module" src="/src/main.ts"></script>
   <noscript>This website requires JavaScript to function properly. Please enable JavaScript to continue.</noscript>
   <script defer async src="https://cloud.umami.is/script.js" data-website-id="19a8d926-ef84-44b6-a2a9-7e438716fd9d"></script>
 </body>

@@ -2,8 +2,8 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Category, CategoryCreateModel } from '~/models/Category'
 import type { SimpleChartSeries } from '~/models/ChartData'
 import {
-  type PagedAndSortedRequest,
   defaultOptions,
+  type PagedAndSortedRequest,
 } from '~/models/PagedAndSortedRequest'
 import type { SummaryStatDto } from '~/models/SummaryStat'
 import categoryService from '~/services/category.service'

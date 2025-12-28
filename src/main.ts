@@ -39,7 +39,9 @@ const app = createApp(App)
 app.use(router)
 Object.values(
   import.meta.glob<{ install: AppModule }>('./modules/*.ts', { eager: true }),
-).forEach((i: any) => i.install?.(app, router))
+).forEach((i: any) => {
+  i.install?.(app, router)
+})
 
 // register filters
 app.config.globalProperties.$filters = {}
@@ -48,11 +50,11 @@ Object.values(
     eager: true,
     import: 'default',
   }),
-).forEach((filters: any) =>
+).forEach((filters: any) => {
   Object.keys(filters).forEach((func) => {
     app.config.globalProperties.$filters[func] = filters[func]
-  }),
-)
+  })
+})
 
 router.beforeEach((to, _, next) => {
   const { t } = i18n.global

@@ -5,6 +5,7 @@ import type {
   TaskGroup,
   TaskItem,
 } from '~/models/Todo'
+
 const apiService = new ApiService('todo')
 class TodoService {
   async loadGroups(): Promise<TaskGroup[]> {

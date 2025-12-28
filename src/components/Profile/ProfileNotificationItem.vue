@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { NotificationSetting } from '@/models/Profile'
+
 const { t } = useI18n()
 
 defineProps<{ item: notificationTypes }>()

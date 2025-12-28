@@ -6,7 +6,6 @@ import {
 import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { storeToRefs } from 'pinia'
-import type { Brand } from '~/models/Brand'
 
 const layout = useLayoutStore()
 const { dialogPlacement } = storeToRefs(layout)

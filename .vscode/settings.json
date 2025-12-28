@@ -20,8 +20,8 @@
   ],
   "i18n-ally.sourceLanguage": "en",
   "i18n-ally.keystyle": "nested",
-  "i18n-ally.localesPaths": "locales",
-  "i18n-ally.sortKeys": true,
+  "i18n-ally.localesPaths": "src/locales",
+  "i18n-ally.sortKeys": false,
   "prettier.enable": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "always"

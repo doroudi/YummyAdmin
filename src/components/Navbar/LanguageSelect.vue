@@ -48,7 +48,7 @@ function getLanguageIcon(language: string) {
       return TurkishIcon
     case 'fa':
       return PersianIcon
-    case 'cn':
+    case 'zn':
       return ChineseIcon
     default:
       return EnglandIcon
@@ -56,8 +56,8 @@ function getLanguageIcon(language: string) {
 }
 
 function sortLangs(a: string, b: string): number {
-  const ordered = ['en', 'fa', 'cn', 'de', 'ar', 'tr']
-  return ordered.findIndex((x) => x === a) - ordered.findIndex((x) => x === b)
+  const ordered = ['en', 'fa', 'zn', 'de', 'ar', 'tr']
+  return ordered.indexOf(a) - ordered.indexOf(b)
 }
 </script>
 

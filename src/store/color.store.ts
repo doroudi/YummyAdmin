@@ -1,8 +1,8 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Color, ColorCreateModel } from '~/models/Color'
 import {
-  type PagedAndSortedRequest,
   defaultOptions,
+  type PagedAndSortedRequest,
 } from '~/models/PagedAndSortedRequest'
 import colorService from '~/services/color.service'
 

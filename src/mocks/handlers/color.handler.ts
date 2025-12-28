@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker/locale/en'
 import times from 'lodash/times'
-import { http, HttpResponse, delay } from 'msw'
+import { delay, HttpResponse, http } from 'msw'
 import type { Color, ColorCreateModel } from '~/models/Color'
 import { CreatePagedResponse } from '../handlers.utility'
 

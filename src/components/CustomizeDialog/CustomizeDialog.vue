@@ -27,7 +27,7 @@ function setColor(index) {
 }
 
 onMounted(() => {
-  selectedColorIndex.value = colors.findIndex((x) => x === layout.themeColor)
+  selectedColorIndex.value = colors.indexOf(layout.themeColor)
 })
 
 const colorPickerRef = ref()

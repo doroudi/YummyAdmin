@@ -1,8 +1,8 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Brand, BrandCreateModel } from '~/models/Brand'
 import {
-  type PagedAndSortedRequest,
   defaultOptions,
+  type PagedAndSortedRequest,
 } from '~/models/PagedAndSortedRequest'
 import brandService from '~/services/brand.service'
 

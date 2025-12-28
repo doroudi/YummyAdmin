@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { MenuInst, MenuOption } from 'naive-ui/es/components'
+
 defineModel<string>()
 export interface SidebarMenuOption {
   type?: string

@@ -6,6 +6,7 @@ import {
   CheckmarkCircle20Filled as SuccessIcon,
 } from '@vicons/fluent'
 import type { Customer } from '~/models/Customer'
+
 interface Props {
   customer: Customer
 }

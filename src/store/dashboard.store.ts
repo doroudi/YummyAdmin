@@ -39,10 +39,6 @@ export const useDashboardStore = defineStore('Dashboard', () => {
       monthlySellStat.value = data
     } finally {
       isLoadingMonthlyStat.value = false
-      console.log(
-        '🚀 ~ getMonthlySellStat ~ isLoadingMonthlyStat:',
-        isLoadingMonthlyStat.value,
-      )
     }
   }
 

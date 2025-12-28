@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+
 const store = useLayoutStore()
 const { collapsed, forceCollapsed } = storeToRefs(store)
 

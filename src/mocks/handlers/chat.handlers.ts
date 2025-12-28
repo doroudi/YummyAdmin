@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 import _ from 'lodash'
-import { ws } from 'msw'
 import type { RequestHandler, WebSocketHandler, WebSocketLink } from 'msw'
+import { ws } from 'msw'
 import type { ChatItem } from '~/models/Chat'
 
 const chatMessages: Array<ChatItem> = _.times(10, createFakeChatMessage)
@@ -37,7 +37,7 @@ const handlers: Array<RequestHandler | WebSocketHandler> = [
   }),
 ]
 
-function sendInitialMessages(id: string, client: any) {
+function sendInitialMessages(_id: string, client: any) {
   const message = {
     id: faker.string.uuid(),
     senderId: faker.string.uuid(),

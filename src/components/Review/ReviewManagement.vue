@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import { Delete20Regular as DeleteIcon } from '@vicons/fluent'
-import { NRate, NSpace, NText } from 'naive-ui/es/components'
 import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
+import { NRate, NSpace, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 
 const { t } = useI18n()

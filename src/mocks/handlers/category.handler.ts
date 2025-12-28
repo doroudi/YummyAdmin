@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker/locale/en'
 import times from 'lodash/times'
-import { http, HttpResponse, delay } from 'msw'
+import { delay, HttpResponse, http } from 'msw'
 import type { Category, CategoryCreateModel } from '~/models/Category'
 import { CreateListResponse, CreatePagedResponse } from '../handlers.utility'
 
@@ -47,7 +47,7 @@ const handlers = [
   http.delete('/api/category/:id', ({ params }) => {
     const { id } = params ?? '1'
     const itemIndex = categories.findIndex(
-      (x) => x.id === Number.parseInt(id?.toString() ?? '1'),
+      (x) => x.id === Number.parseInt(id?.toString() ?? '1', 10),
     )
     categories.splice(itemIndex, 1)
     return HttpResponse.json(true, { status: 200 })

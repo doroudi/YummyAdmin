@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker/locale/en'
-import { http, HttpResponse } from 'msw'
+import { HttpResponse, http } from 'msw'
 import type { TaskCreateModel, TaskGroup, TaskItem } from '~/models/Todo'
 
 const tasks: TaskItem[] = [
@@ -141,17 +141,17 @@ const tasks: TaskItem[] = [
   },
 ]
 const handlers = [
-  http.get('/api/todo/groups', ({ request }) => {
+  http.get('/api/todo/groups', () => {
     return HttpResponse.json({ items: createFakeTaskGroups() }, { status: 200 })
   }),
   http.get('/api/todo/groups/:id/tasks', ({ params }) => {
     const { id } = params
     return HttpResponse.json(
-      createFakeTaskItems(Number.parseInt(id?.toString() ?? '1')),
+      createFakeTaskItems(Number.parseInt(id?.toString() ?? '1', 10)),
       { status: 200 },
     )
   }),
-  http.post('/api/todo/groups/:id/tasks', async ({ params, request }) => {
+  http.post('/api/todo/groups/:id/tasks', async ({ request }) => {
     const newItem = (await request.json()) as TaskCreateModel
     const task: TaskItem = {
       id: faker.number.int({ max: 2000 }),
@@ -161,9 +161,6 @@ const handlers = [
     }
     tasks.unshift(task)
     return HttpResponse.json(task, { status: 201 })
-  }),
-  http.post('/api/todo/groups/:id/tasks', ({ params, request }) => {
-    const { id } = params
   }),
 ]
 

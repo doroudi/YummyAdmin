@@ -1,8 +1,7 @@
 import { faker } from '@faker-js/faker/locale/en'
-import { http, HttpResponse } from 'msw'
-import { CreateListResponse } from '../handlers.utility'
-
+import { HttpResponse, http } from 'msw'
 import { type Notification, NotificationType } from '~/models/Notification'
+import { CreateListResponse } from '../handlers.utility'
 
 const notifications = createFakeNotification()
 

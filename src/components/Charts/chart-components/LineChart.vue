@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import type { ChartProps } from '~/models/ChartProps'
-
-const props = withDefaults(defineProps<ChartProps>(), {
+const props = withDefaults(defineProps(), {
   colors: () => [
     'var(--primary-color)',
     'var(--primary-color-shade1)',

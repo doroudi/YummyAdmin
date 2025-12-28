@@ -174,7 +174,7 @@ forgot:
 home: خانه
 languages:
   ar: عربی
-  cn: چینی
+  zn: چینی
   de: آلمانی
   en: انگلیسی
   fa: فارسی
@@ -323,7 +323,7 @@ support:
   github:
     title: امتیاز گیت هاب
     tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
-title: پنل مدیریت Yummy
+title: ادمین پنل یامی
 todoApp:
   completed: انجام شده
   createGroup:

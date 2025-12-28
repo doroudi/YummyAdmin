@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker/locale/en'
 import times from 'lodash/times'
-import { http, HttpResponse, delay } from 'msw'
+import { delay, HttpResponse, http } from 'msw'
 import type { Category } from '~/models/Category'
 import { type ProductListDto, ProductStatus } from '~/models/Product'
 import { CreatePagedResponse } from '../handlers.utility'

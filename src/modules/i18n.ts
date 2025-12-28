@@ -1,29 +1,17 @@
+import messages from '@intlify/unplugin-vue-i18n/messages'
 import { createI18n } from 'vue-i18n'
 import type { AppModule } from '~/types'
-
-const messages = Object.fromEntries(
-  Object.entries(
-    import.meta.glob<{ default: any }>('../../locales/*.y(a)?ml', {
-      eager: true,
-    }),
-  ).map(([key, value]) => {
-    const yaml = key.endsWith('.yaml')
-    return [key.slice(14, yaml ? -5 : -4), value.default]
-  }),
-)
 
 const storedValue = localStorage.getItem('layout')
 let locale = 'en'
 if (storedValue) {
   const parsed = JSON.parse(storedValue)
-  if (
-    parsed &&
-    Object.prototype.hasOwnProperty.call(parsed, 'activeLanguage')
-  ) {
-    if (['en', 'fa', 'tr', 'ar', 'cn', 'de'].includes(parsed.activeLanguage))
+  if (parsed && Object.hasOwn(parsed, 'activeLanguage')) {
+    if (['en', 'fa', 'tr', 'ar', 'zn', 'de'].includes(parsed.activeLanguage))
       locale = parsed.activeLanguage
   }
 }
+
 const i18n = createI18n({
   legacy: false,
   locale,

@@ -42,9 +42,8 @@ meta:
 
 <template>
   <div class="bg flex justify-center items-center h-screen">
-    <div class="login-box w-full px-3 md:px-0">
+    <div class="login-box w-full px-3 md:px-0 z-100">
       <div class="md:shadow-lg bg-white dark:bg-slate-800 rounded-md w-full">
-        <div class="hidden md:block banner" />
         <div class="p-5">
           <div class="text-2xl font-medium mb-8">
             {{ t('forgot.title') }}
@@ -82,14 +81,6 @@ meta:
 </template>
 
 <style lang='scss'>
-.banner {
-    background-image: url('~/assets/images/login_banner.jpg');
-    background-size: cover;
-    background-position: center center;
-    height: 150px;
-    border-radius: 4px 4px 0 0;
-}
-
 .login-box {
     max-width: 380px;
 

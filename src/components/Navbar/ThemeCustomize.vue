@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import { PaintBrush24Regular as CustomizeIcon } from '@vicons/fluent'
+
 const { t } = useI18n()
 const showCustomizeDialog = ref(false)
 

@@ -21,7 +21,7 @@ export const useAccountStore = defineStore(
         }
 
         return false
-      } catch (error) {
+      } catch {
         return false
       } finally {
         isLoading.value = false
@@ -44,7 +44,7 @@ export const useAccountStore = defineStore(
         }
 
         return false
-      } catch (error) {
+      } catch {
         return false
       } finally {
         isLoading.value = false

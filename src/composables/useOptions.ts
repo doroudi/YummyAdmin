@@ -23,7 +23,7 @@ export function useOptions(autoBind = true) {
     for (const prop of Object.keys(options.value)) {
       const value = options.value[prop as keyof PagedAndSortedRequest]
       if (
-        Object.prototype.hasOwnProperty.call(options.value, prop) &&
+        Object.hasOwn(options.value, prop) &&
         value !== null &&
         value !== ''
       ) {
@@ -38,7 +38,7 @@ export function useOptions(autoBind = true) {
     const route = useRoute()
     const queryString = route.query
     for (const prop in queryString) {
-      if (Object.prototype.hasOwnProperty.call(queryString, prop)) {
+      if (Object.hasOwn(queryString, prop)) {
         const value = queryString[prop] as any
         if (!isNumber(value)) {
           if (value === 'true' || value === 'false') {
@@ -50,6 +50,7 @@ export function useOptions(autoBind = true) {
         } else {
           options.value[prop as keyof PagedAndSortedRequest] = Number.parseInt(
             queryString[prop] as any,
+            10,
           )
         }
       }

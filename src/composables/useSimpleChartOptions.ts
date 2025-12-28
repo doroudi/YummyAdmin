@@ -1,6 +1,6 @@
 import type { ApexOptions } from 'apexcharts'
 import type { SimpleChartSeries } from '~/models/ChartData'
-import type { SimpleChartProps } from '~/models/ChartProps'
+import type { SimpleChartProps } from '~/models/ChartsProps'
 
 export function useSimpleChartOptions(props: SimpleChartProps) {
   const { makeLighter } = useColors()
@@ -79,7 +79,7 @@ export function useSimpleChartOptions(props: SimpleChartProps) {
               value: {
                 offsetY: -15,
                 formatter(t: string): any {
-                  return Number.parseInt(t).toString()
+                  return Number.parseInt(t, 10).toString()
                 },
               },
               total: {
