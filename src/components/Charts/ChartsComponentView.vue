@@ -4,12 +4,11 @@
 
 <template>
    <div>
-      <div class="line-row flex flex-col justify-stretch items-stretch lg:flex-row margin-outside w-full">
+      <div class="box-row">
          <BarChartDemo w-full p2 />
          <LineChartDemo w-full p2 />
       </div>
-      <div class="line-row flex flex-col justify-stretch items-stretch lg:flex-row margin-outside w-full">
-
+      <div class="box-row">
          <AreaChartDemo w-full p2 />
       </div>
       <!-- <PieChartDemo />

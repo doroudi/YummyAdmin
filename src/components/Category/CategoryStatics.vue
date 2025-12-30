@@ -24,9 +24,9 @@ onMounted(() => {
     <h2 class="card-title px-2 py-4">
       {{ t('categories.topCategories') }}
     </h2>
-    <DonutChart
+    <DonutChart height="300"
       v-if="!isLoadingStats && categoryStats.productsByCategoryStat" :data="categoryStats.productsByCategoryStat"
-      :show-legend="false" color-scheme="#4FC3F7"
+      :show-legend="true" color-scheme="#4FC3F7"
     />
   </div>
 </template>

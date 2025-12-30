@@ -20,6 +20,10 @@ export default defineConfig({
       'icon-btn',
       'inline-block cursor-pointer select-none opacity-75 transition duration-200 ease-in-out hover:opacity-100 hover:text-teal-600',
     ],
+    [
+      'box-row',
+      'line-row flex flex-col justify-stretch items-stretch lg:flex-row margin-outside w-full'
+    ]
   ],
   presets: [
     presetUno(),

@@ -31,8 +31,8 @@ const props = withDefaults(defineProps<Props>(), {
           <div class="flex flex-column items-center justify-between">
             <div class="w-25 overflow-hidden">
               <h3 class="text-gray-700 dark:text-gray-200 value">
-                <n-number-animation v-if="data" :from="0" :to="data.count" /> <span class="-ms-2">{{ data.suffix
-                }}</span>
+                <n-number-animation v-if="data" :from="0" :to="data.count" /> <span class="-ms-2">
+                  {{ data?.suffix }}</span>
               </h3>
 
               <span v-if="!loading && data && data.progress">

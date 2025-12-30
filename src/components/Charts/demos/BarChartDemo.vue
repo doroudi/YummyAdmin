@@ -9,11 +9,13 @@ import reportService from '~/services/report.service'
 const monthlySellStat = ref<ChartData | null>(null)
 const isLoading = ref(true)
 const { t } = useI18n()
+
 onMounted(loadData)
 
 async function loadData() {
   try {
     isLoading.value = true
+    monthlySellStat.value = []
     monthlySellStat.value = await reportService.getChartDemoData(7)
   } finally {
     isLoading.value = false
@@ -56,7 +58,7 @@ const demoOptions = [
             </header>
         </template>
         <div class="pt-2">
-            <BarChart :data="monthlySellStat" :loading="isLoading" :height="300" />
+            <BarChart :loading="isLoading" :data="monthlySellStat" :height="300" />
         </div>
     </Card>
 </template>

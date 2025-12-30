@@ -13,7 +13,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="line-row flex flex-col justify-stretch items-stretch lg:flex-row margin-outside w-full">
+    <div class="box-row">
       <WelcomeCard class="w-full lg:w-2/4" />
       <RevenueChart class="w-full lg:w-1/4" />
       <RegisterSourceChart class="w-full lg:w-1/4" />
@@ -45,7 +45,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-.line-row {
+.box-row {
   min-height: 350px;
 }
 </style>

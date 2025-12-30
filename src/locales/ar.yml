@@ -347,3 +347,7 @@ userMenu:
   profile: الملف الشخصي
   signOut: تسجيل الخروج
   theme: المظهر
+charts:
+  loading: جارٍ تحميل بيانات المخطط...
+  notData: لا توجد بيانات الرسم البياني المتاحة
+  unableToDisplay: غير قادر على عرض الرسم البياني

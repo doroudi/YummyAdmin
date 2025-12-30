@@ -29,17 +29,29 @@ const options = {
 
 <style lang="scss">
 .ql-container.ql-snow {
-  border: solid 1px var(--n-scrollbar-color);
+  border: solid 1px var(--border-color);
   border-radius: 0 0 5px 5px;
 }
 
 .ql-toolbar.ql-snow {
-  border: solid 1px var(--n-scrollbar-color);
+  border: solid 1px var(--border-color);
   border-radius: 5px 5px 0 0;
 }
 
 .ql-editor {
   min-height: 180px;
   font-family: Shabnam;
+}
+
+.dark {
+  .ql-editor.ql-blank::before {
+    color: #CCC;
+    font-size: .9rem;
+  }
+
+  .ql-container.ql-snow, .ql-toolbar.ql-snow {
+    background: #2e3342;
+    // border-color: var(--second-background);
+  }
 }
 </style>

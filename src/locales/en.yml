@@ -25,6 +25,10 @@ button:
   toggle_langs: Change languages
   toggle_notifications: Notifications
   toggle_customize: Customize
+charts:
+  loading: Loading chart data...
+  notData: No chart data available
+  unableToDisplay:  Unable to display chart
 categories:
   count: Count
   create:

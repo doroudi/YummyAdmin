@@ -17,8 +17,8 @@ export function useSimpleChartOptions(props: SimpleChartProps) {
     if (props.colors && props.colors.length > 0) return props.colors
 
     const result = []
-    if (props.data?.series) {
-      for (let i = 0; i < props.data?.series?.length; i++)
+    if (props.data?.length) {
+      for (let i = 0; i < props.data?.length; i++)
         result.push(makeLighter(props.colorScheme ?? '', 1 - i * 0.25))
     }
 

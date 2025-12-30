@@ -25,7 +25,11 @@ const legendPosition = computed(() =>
     <p class="text-xsm text-coolgray font-light pb-2">
       {{ t('dashboard.userPlatforms.subtitle') }}
     </p>
-    <DonutChart height="200" :data="registersSource" :colors="['#da2c38','#226f54','#87c38f', '#f4f0bb']" :legend-position="legendPosition"/>
+    <DonutChart height="200" 
+      show-legend
+      :colors="['#da2c38', '#226f54', '#87c38f', '#f4f0bb']"
+      :data="registersSource" 
+      :legend-position="legendPosition" />
   </Card>
 </template>
 

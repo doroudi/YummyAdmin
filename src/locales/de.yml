@@ -354,3 +354,7 @@ userMenu:
   profile: Profil
   signOut: Abmelden
   theme: Design
+charts:
+  loading: Diagrammdaten werden geladen...
+  notData: Keine Kartendaten verfügbar
+  unableToDisplay: Diagramm kann nicht angezeigt werden

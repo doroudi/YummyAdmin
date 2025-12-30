@@ -2,23 +2,25 @@
 import VueApexCharts from 'vue3-apexcharts'
 import type { ChartData, SimpleChartSeries } from '~/models/ChartData'
 
+const { t } = useI18n()
+
 type LocalChartProps = {
   data?: ChartData | SimpleChartSeries | null
   colors?: string[]
+  colorScheme?: string
   height?: number
   type?: string
   error?: any
   options?: any
+  showLegend?: boolean
+  loading?: boolean
+  legendPosition: 'bottom' | 'right' | 'left'
 }
 
 const props = withDefaults(defineProps<LocalChartProps>(), {
   data: () => null as ChartData | SimpleChartSeries | null,
-  colors: () => [
-    'var(--primary-color)',
-    'var(--primary-color-shade1)',
-    'var(--primary-color-shade2)',
-    'var(--primary-color-shade3)',
-  ],
+  colors: () => null,
+  colorScheme: null,
   height: 400,
   type: 'line',
   error: null,
@@ -44,7 +46,7 @@ const activeOptions = computed(
     <div class="chart-container">
         <div v-if="loading" class="chart-loading">
             <div class="loading-spinner"></div>
-            <p class="loading-text">Loading chart data...</p>
+            <p class="loading-text">{{ t('charts.loading') }}</p>
         </div>
 
         <div v-else-if="error" class="chart-error">
@@ -57,16 +59,16 @@ const activeOptions = computed(
 
         <div v-else-if="!data || !validateChartData(data)" class="chart-no-data">
             <div class="no-data-icon">📊</div>
-            <p class="no-data-text">No chart data available</p>
+            <p class="no-data-text">{{ t('charts.notData') }}</p>
         </div>
 
         <div v-else-if="showChart" class="chart-wrapper">
-            <VueApexCharts  :type="type" :options="activeOptions" :height="height" :series="safeSeries"
+            <VueApexCharts v-bind="$attrs" :type="type" :options="activeOptions" :height="height" :series="safeSeries"
                 class="chart-component" />
         </div>
 
         <div v-else class="chart-fallback">
-            <p>Unable to display chart</p>
+            <p>{{ t('charts.unableToDisplay') }}</p>
             <!-- TODO: use localization -->
         </div>
 
@@ -92,7 +94,6 @@ const activeOptions = computed(
     align-items: center;
     justify-content: center;
     height: v-bind(height + 'px');
-    /* background: var(--background-color, #f8f9fa); */
     border-radius: var(--border-radius);
     ;
     padding: 2rem;

@@ -342,3 +342,7 @@ userMenu:
   profile: 个人资料
   signOut: 登出
   theme: 主题
+charts:
+  loading: Loading chart data...
+  notData: No chart data available
+  unableToDisplay: Unable to display chart

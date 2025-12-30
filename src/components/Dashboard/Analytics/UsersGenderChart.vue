@@ -6,6 +6,7 @@ onMounted(() => store.getGenderStat())
 
 <template>
   <Card class="p-2" :title="t('dashboard.genderChart.title')">
-    <PolarChart height="250" :colors="['#2986cc','#c90076','#CCC',]" :data="store.usersGenderData" />
+    <PolarChart show-legend legend-position="right" height="250" :colors="['#2986cc', '#c90076', '#CCC',]"
+      :data="store.usersGenderData" />
   </Card>
 </template>

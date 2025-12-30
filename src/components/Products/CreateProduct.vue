@@ -68,21 +68,30 @@ function formatCurrency(value: number | null) {
     <n-flex>
       <div class="w-full lg:w-3/4">
         <Card size="small" :title="t('products.create.productInformation')" class="mb-3">
-          <n-form-item path="name" :label="t('products.create.name')">
-            <n-input :placeholder="t('products.create.name')" label="Name" size="large" />
-          </n-form-item>
-          <n-space justify="start">
-            <n-form-item path="name" :label="t('products.create.sku')">
-              <n-input :placeholder="t('products.create.sku')" :label="t('products.create.sku')" size="large" />
+          <div class="pt-3">
+            <n-form-item path="name" :label="t('products.create.name')">
+              <n-input :placeholder="t('products.create.name')" label="Name" size="large" />
             </n-form-item>
+            <n-grid :span="24" :x-gap="24">
+              <n-form-item-gi :span="8" path="sku" :label="t('products.create.sku')" >
+                <n-input :placeholder="t('products.create.sku')" :label="t('products.create.sku')" size="large" />
+              </n-form-item-gi>
 
-            <n-form-item path="name" :label="t('products.create.barcode')">
-              <n-input :placeholder="t('products.create.barcode')" :label="t('products.create.barcode')" size="large" />
-            </n-form-item>
-          </n-space>
+              <n-form-item-gi :span="8" path="name" :label="t('products.create.barcode')">
+                <n-input :placeholder="t('products.create.barcode')" :label="t('products.create.barcode')"
+                  size="large" />
+              </n-form-item-gi>
 
-          <div path="description">
-            <Editor v-model="productItem.description" :placeholder="t('products.create.productInformation')" />
+              <n-form-item-gi :span="8" path="name" :label="t('products.create.barcode')">
+                <n-input :placeholder="t('products.create.barcode')" :label="t('products.create.barcode')"
+                  size="large" />
+              </n-form-item-gi>
+             
+            </n-grid>
+
+            <div path="description">
+              <Editor v-model="productItem.description" :placeholder="t('products.create.productInformation')" />
+            </div>
           </div>
         </Card>
         <Card size="small" :title="t('products.create.media')">
@@ -107,9 +116,10 @@ function formatCurrency(value: number | null) {
             </n-form-item>
             <n-form-item path="name" :label="t('products.create.discountedPrice')">
               <n-input-number :placeholder="t('products.create.discountedPrice')" class="flex-1" :default-value="0"
-                v-model="productItem.discountedPrice" :show-button="false" :parse="parseCurrency" :format="formatCurrency" />
+                v-model="productItem.discountedPrice" :show-button="false" :parse="parseCurrency"
+                :format="formatCurrency" />
             </n-form-item>
-            <hr>
+            <hr />
             <n-space p-1 justify="space-between">
               {{ t('products.create.inStock') }}
               <n-switch />
@@ -151,5 +161,9 @@ function formatCurrency(value: number | null) {
 <style lang='scss'>
 .n-card>.n-card-header .n-card-header__main {
   font-weight: bold;
+}
+
+hr {
+  border-color: var(--background);
 }
 </style>

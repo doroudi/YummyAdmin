@@ -344,3 +344,7 @@ userMenu:
   profile: پروفایل
   signOut: خروج
   theme: پوسته
+charts:
+  loading: در حال بارگزاری
+  notData: هیچ داده در دسترس نیست
+  unableToDisplay: خطا در داده های نمودار
