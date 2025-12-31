@@ -1,1 +1,0 @@
-pnpm check . && git diff --exit-code || (echo 'Commit aborted: Files were modified by check script. Please review and stage changes.' && exit 1)

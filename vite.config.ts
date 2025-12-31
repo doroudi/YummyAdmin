@@ -5,11 +5,11 @@ import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
-import VueMacros from 'unplugin-vue-macros/vite'
+import VueMacros from 'vue-macros/vite'
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import { defineConfig } from 'vite'
 import Pages from 'vite-plugin-pages'
-import Layouts from 'vite-plugin-vue-layouts'
+import Layouts from 'vite-plugin-vue-layouts-next'
 
 export default defineConfig({
   server: {
@@ -108,9 +108,5 @@ export default defineConfig({
     // https://github.com/webfansplz/vite-plugin-vue-devtools
     // VueDevTools(),
   ],
-   optimizeDeps: {
-    include: ['@intlify/vite-plugin-vue-i18n']
-  },
-
   define: { 'process.env': {} },
 })

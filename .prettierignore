@@ -1,0 +1,19 @@
+dist
+package.json
+pnpm-lock.yaml
+src/index.html
+README.md
+CHANGELOG.md
+**/*.md
+# Handled by biome
+**/*.ts
+**/*.js
+**/*.json
+**/*.jsonc
+
+# Auto-generated
+**/components.d.ts
+**/auto-imports.d.ts
+**/typed-routes.d.ts
+
+justfile

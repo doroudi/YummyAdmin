@@ -1,0 +1,9 @@
+pre-commit:
+  commands:
+    biome_check:
+      glob: 'src/**/*.{js,ts,json}'
+      run: pnpm biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      stage_fixed: true
+      skip:
+        - merge
+        - rebase
