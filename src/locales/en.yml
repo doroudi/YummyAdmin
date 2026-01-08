@@ -150,6 +150,8 @@ analyticsDashboard:
   views: Views
   bounceRate: Bounce Rate
   summary: Summary
+  pages: Pages
+  source: Source
 description: Free Vue 3 Dashboard
 direction: ltr
 enums:

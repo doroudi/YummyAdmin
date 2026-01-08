@@ -11,6 +11,7 @@ import type {
   DashboardSummaryStatDto,
   SummaryStatDto,
 } from '~/models/SummaryStat'
+import type { VisitStat } from '~/models/VisitStat'
 
 const months = [
   'Jan',
@@ -105,6 +106,22 @@ const handlers = [
       ],
     }
     await delay(1000)
+
+    return HttpResponse.json(response, { status: 200 })
+  }),
+
+  http.get('/api/report/visitsData', () => {
+    const pages = ['/', '/products', '/products/1', '/about', '/contact', '/blog', '/blog/1', '/cart', '/checkout']
+    const response: VisitStat = {
+      pages: times(8, () => ({
+        url: pages[faker.number.int({ min: 0, max: pages.length - 1 })],
+        count: faker.number.int({ min: 500, max: 8000 }),
+      })),
+      sources: times(8, () => ({
+        name: faker.internet.url(),
+        count: faker.number.int({ min: 300, max: 10000 }),
+      })),
+    }
 
     return HttpResponse.json(response, { status: 200 })
   }),

@@ -1,6 +1,7 @@
 import { ApiService } from '~/common/api/api-service'
 import type { ChartData } from '~/models/ChartData'
 import type { DashboardSummaryStatDto } from '~/models/SummaryStat'
+import type { VisitStat } from '~/models/VisitStat'
 
 const apiService = new ApiService('Report')
 class ReportService {
@@ -31,6 +32,11 @@ class ReportService {
 
   async getChartDemoData(length: number): Promise<ChartData> {
     const response = await apiService.get<ChartData>(`chartDemoData/${length}`)
+    return response
+  }
+
+  async getVisitsStat(): Promise<VisitStat> {
+    const response = await apiService.get<VisitStat>(`visitsData`)
     return response
   }
 }

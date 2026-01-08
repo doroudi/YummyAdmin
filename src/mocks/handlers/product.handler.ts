@@ -46,6 +46,14 @@ const handlers = [
     await delay(1000)
     return HttpResponse.json(response, { status: 200 })
   }),
+  http.delete('/api/product/:id', ({ params }) => {
+    const { id } = params
+    products.splice(
+      products.findIndex((x) => x.id === id),
+      1,
+    )
+    return HttpResponse.json({}, { status: 200 })
+  }),
 ]
 
 function createFakeProductListItem(): ProductListDto {
@@ -67,7 +75,7 @@ function createFakeCategory(): Category {
   return {
     id: faker.number.int({ min: 100, max: 20000 }),
     name: faker.commerce.productAdjective(),
-    productsCount: 0, // faker.number.int(),
+    productsCount: faker.number.int(),
   }
 }
 

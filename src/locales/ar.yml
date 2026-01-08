@@ -3,6 +3,8 @@ analyticsDashboard:
   views: وجهات النظر
   visitors: الزوار
   visits: الزيارات
+  pages: الصفحات
+  source: مصدر
 brands:
   brand: العلامة التجارية
   create:

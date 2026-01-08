@@ -4,6 +4,8 @@ analyticsDashboard:
   views: 浏览
   visitors: 访客
   visits: 访问
+  pages: Pages
+  source: Source
 brands:
   brand: 品牌
   create:

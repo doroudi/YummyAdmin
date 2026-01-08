@@ -72,6 +72,7 @@ declare module 'vue' {
     NIcon: typeof import('naive-ui')['NIcon']
     NInput: typeof import('naive-ui')['NInput']
     NLayout: typeof import('naive-ui')['NLayout']
+    NLayoutContent: typeof import('naive-ui')['NLayoutContent']
     NLayoutSider: typeof import('naive-ui')['NLayoutSider']
     NList: typeof import('naive-ui')['NList']
     NListItem: typeof import('naive-ui')['NListItem']
@@ -105,6 +106,7 @@ declare module 'vue' {
     ProfileSecurity: typeof import('./components/Profile/ProfileSecurity.vue')['default']
     RadarChart: typeof import('./components/Charts/chart-components/RadarChart.vue')['default']
     RecentOrders: typeof import('./components/Dashboard/Ecommerce/RecentOrders.vue')['default']
+    RecentVisits: typeof import('./components/Dashboard/Analytics/RecentVisits.vue')['default']
     RegisterSourceChart: typeof import('./components/Dashboard/Ecommerce/RegisterSourceChart.vue')['default']
     RevenueChart: typeof import('./components/Dashboard/Ecommerce/RevenueChart.vue')['default']
     ReviewManagement: typeof import('./components/Review/ReviewManagement.vue')['default']
@@ -132,6 +134,7 @@ declare module 'vue' {
     UsersGenderChart: typeof import('./components/Dashboard/Analytics/UsersGenderChart.vue')['default']
     UsersLocationChart: typeof import('./components/Dashboard/Analytics/UsersLocationChart.vue')['default']
     UsersPlatformChart: typeof import('./components/Dashboard/Analytics/UsersPlatformChart.vue')['default']
+    VisitSources: typeof import('./components/Dashboard/Analytics/VisitSources.vue')['default']
     WelcomeCard: typeof import('./components/Dashboard/Ecommerce/WelcomeCard.vue')['default']
   }
 }

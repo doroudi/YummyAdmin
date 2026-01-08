@@ -45,8 +45,9 @@ export const useProductStore = defineStore('Product', () => {
     }
   }
 
-  async function deleteProduct(id: number) {
-    await productService.delete(id)
+  async function deleteProduct(id: string) {
+      await productService.delete(id)
+      products.value.splice(products.value.findIndex((x: Product) => x.id === id),1)
   }
 
   function editProduct() {}

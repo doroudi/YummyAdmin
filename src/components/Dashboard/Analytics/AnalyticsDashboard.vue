@@ -7,6 +7,7 @@ const { summaryStat, isLoadingStats } = storeToRefs(store)
 
 onMounted(() => {
   store.getSummaryStat()
+  store.getVisitsStat()
 })
 </script>
 
@@ -43,13 +44,13 @@ onMounted(() => {
 
       <div class="flex flex-wrap margin-outside">
         <div class="w-full lg:w-1/2 px-2">
-          <Card :title="t('dashboard.recentOrders')">
-            <RecentOrders />
+          <Card :title="t('analyticsDashboard.pages')">
+            <RecentVisits />
           </Card>
         </div>
         <div class="w-full lg:w-1/2 px-2">
-          <Card :title="t('dashboard.trendingProducts')">
-            <TrendingProducts />
+          <Card :title="t('analyticsDashboard.source')">
+            <VisitSources />
           </Card>
         </div>
       </div>

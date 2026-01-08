@@ -4,6 +4,8 @@ analyticsDashboard:
   views: مشاهده ها
   visitors: بازدید کننده ها
   visits: بازدید ها
+  pages: صفحه ها
+  source: منبع
 brands:
   brand: برند
   create:

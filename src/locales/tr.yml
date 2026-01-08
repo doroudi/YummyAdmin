@@ -3,6 +3,8 @@ analyticsDashboard:
   views: Görünümler
   visitors: Ziyaretçiler
   visits: Ziyaretler
+  pages: Sayfalar
+  source: Kaynak
 brands:
   brand: Marka
   create:

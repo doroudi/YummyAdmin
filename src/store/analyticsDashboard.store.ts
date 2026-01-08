@@ -1,6 +1,7 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { LocationChartSeries, SimpleChartSeries } from '~/models/ChartData'
 import type { DashboardSummaryStatDto } from '~/models/SummaryStat'
+import type { VisitStat } from '~/models/VisitStat'
 import reportService from '~/services/report.service'
 
 export const useAnalyticsDashboardStore = defineStore(
@@ -15,8 +16,10 @@ export const useAnalyticsDashboardStore = defineStore(
 
     const usersGenderData = ref<SimpleChartSeries[]>([])
     const usersLocationData = ref<LocationChartSeries[]>()
+    const visitsStatData = ref<VisitStat | null>(null)
     const isLoadingStats = ref(false)
     const isLoading = ref(false)
+    const isLoadingVisits = ref(false)
 
     async function getSummaryStat() {
       isLoadingStats.value = true
@@ -33,6 +36,15 @@ export const useAnalyticsDashboardStore = defineStore(
         usersGenderData.value = await reportService.getUsersGenderStat()
       } finally {
         isLoading.value = false
+      }
+    }
+
+    async function getVisitsStat() {
+      isLoadingVisits.value = true
+      try {
+        visitsStatData.value = await reportService.getVisitsStat()
+      } finally {
+        isLoadingVisits.value = false
       }
     }
 
@@ -54,6 +66,9 @@ export const useAnalyticsDashboardStore = defineStore(
       usersGenderData,
       getLocationStat,
       usersLocationData,
+      getVisitsStat,
+      isLoadingVisits,
+      visitsStatData,
     }
   },
 )

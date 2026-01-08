@@ -33,6 +33,14 @@ const searchInput = ref<InputInst | null>(null)
 const { slash } = useMagicKeys({
   passive: false,
   onEventFired(e) {
+    const target = e.target as HTMLElement
+    if (
+      target.tagName === 'INPUT' ||
+      target.tagName === 'TEXTAREA' ||
+      target.isContentEditable
+    ) {
+      return
+    }
     if (e.key === '/' && e.type === 'keydown') e.preventDefault()
   },
 })

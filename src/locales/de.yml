@@ -3,6 +3,8 @@ analyticsDashboard:
   views: Ansichten
   visitors: Besucher
   visits: Besuche
+  pages: Seiten
+  source: Quelle
 brands:
   brand: Marke
   create:
