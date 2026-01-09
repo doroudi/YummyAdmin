@@ -42,7 +42,11 @@ export function useRender() {
     )
   }
 
-  function renderIcon(icon: any, showBadge = false) {
+  function renderIcon(
+    icon: any,
+    showBadge = false,
+    color: string | null = null,
+  ) {
     if (showBadge)
       return () =>
         h(
@@ -51,7 +55,7 @@ export function useRender() {
           { default: () => h(NIcon, {}, { default: () => h(icon) }) },
         )
 
-    return () => h(NIcon, {}, { default: () => h(icon, {}) })
+    return () => h(NIcon, { color }, { default: () => h(icon, {}) })
   }
 
   function renderTag(
@@ -122,7 +126,7 @@ export function useRender() {
             NImage,
             {
               src: image,
-              fallbackSrc: 'assets/images/fallback.png',
+              fallbackSrc: 'assets/images/avatar.png',
               width: 38,
               height: 38,
               objectFit: 'contain',
@@ -201,6 +205,31 @@ export function useRender() {
     return h(NText, { onClick: onClickAction }, { default: () => text })
   }
 
+  function renderEmailAddress(email: string, confirmed?: boolean) {
+    if (confirmed === undefined) {
+      return h(NText, { class: 'en' }, { default: () => email.toLowerCase() })
+    }
+
+    return h(
+      NTag,
+      {
+        class: 'en',
+        round: true,
+        bordered: false,
+        color: { color: 'transparent'}
+        // type: confirmed ? 'success' : 'warning',
+      },
+      {
+        icon: renderIcon(
+          confirmed ? SuccessIcon : FailedIcon,
+          false,
+          confirmed ? 'green' : 'orange',
+        ),
+        default: () => email.toLowerCase(),
+      },
+    )
+  }
+
   return {
     renderIcon,
     renderTag,
@@ -215,5 +244,6 @@ export function useRender() {
     renderConfirmStatus,
     renderActionLabel,
     renderDeleteActionButton,
+    renderEmailAddress,
   }
 }

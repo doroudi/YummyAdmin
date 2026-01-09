@@ -1,14 +1,13 @@
-
 <script lang="ts" setup>
 import {
-  Warning20Filled as FailedIcon,
-  Star24Regular as PintsIcon,
-  CheckmarkCircle20Filled as SuccessIcon,
+    Warning20Filled as FailedIcon,
+    Star24Regular as PintsIcon,
+    CheckmarkCircle20Filled as SuccessIcon,
 } from '@vicons/fluent'
 import type { Customer } from '~/models/Customer'
-
+const { t } = useI18n()
 interface Props {
-  customer: Customer
+    customer: Customer
 }
 
 defineProps<Props>()
@@ -19,36 +18,36 @@ defineProps<Props>()
     <div class="p-2 px-8">
         <div class="row">
             <span>
-                <n-tag round :bordered="false" :type="customer.emailConfirmed?'success': 'warning'">
-                    {{ customer.email }}
+                <n-tag round :bordered="false" :type="customer.emailConfirmed ? 'success' : 'warning'">
+                    {{ t('customers.email') }} : {{ customer.email }}
                     <template #icon>
-                        <n-icon :component="customer.emailConfirmed? SuccessIcon: FailedIcon" />
+                        <n-icon :component="customer.emailConfirmed ? SuccessIcon : FailedIcon" />
                     </template>
                 </n-tag>
             </span>
         </div>
         <div class="row">
             <span>
-                <n-tag round :bordered="false" :type="customer.phoneConfirmed?'success': 'warning'">
-                    {{ customer.mobile }}
+                <n-tag round :bordered="false" :type="customer.phoneConfirmed ? 'success' : 'warning'">
+                    {{ t('customers.phone') }} : {{ customer.mobile }}
                     <template #icon>
-                        <n-icon :component="customer.phoneConfirmed? SuccessIcon: FailedIcon" />
+                        <n-icon :component="customer.phoneConfirmed ? SuccessIcon : FailedIcon" />
                     </template>
                 </n-tag>
             </span>
         </div>
         <div class="row">
             <span>
-                <NTag round>UserGroup: {{customer.userGroup}}</NTag>
+                <NTag round>{{ t('customers.userGroup') }}: {{ customer.userGroup }}</NTag>
             </span>
         </div>
         <div class="row">
             <span>
-                <NTag round :color="{color: '#FC0'}">
+                <NTag round :color="{ color: '#FC0' }">
                     <template #icon>
                         <n-icon :component="PintsIcon" />
                     </template>
-                    Points: {{customer.points}}
+                    {{ t('customers.points') }}: {{ customer.points }}
                 </NTag>
             </span>
         </div>
@@ -56,11 +55,12 @@ defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-.row { 
+.row {
     margin: .3rem 0;
+
     .content {
         display: inline-flex;
-        background: #CCC; 
+        background: #CCC;
         border-radius: varA(n-border-radius);
     }
 }
