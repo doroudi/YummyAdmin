@@ -3,7 +3,6 @@ import {
   Delete20Regular as DeleteIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
-import { useMessage } from 'naive-ui'
 import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
 import { NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
@@ -11,7 +10,6 @@ import { ProductStatus } from '~/models/Product'
 
 const { t } = useI18n()
 const store = useProductStore()
-const message = useMessage()
 const router = useRouter()
 const { renderDeleteActionButton } = useRender()
 const { options } = useOptions()
@@ -93,7 +91,7 @@ function getStatusColor(status: ProductStatus) {
 
 async function handleDeleteItem(row: RowData) {
   await store.deleteProduct(row.id)
-  message.success('Product was deleted!')
+  useNotifyStore().success(t('products.deleteMessage'))
 }
 
 function rowKey(row: RowData) {

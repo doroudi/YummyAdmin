@@ -15,6 +15,14 @@ const themeOverrides: GlobalThemeOverrides = {
   Tag: {
     borderRadius: '4px',
   },
+  List: {
+    borderRadius: '0',
+    borderColorPopover: '#e4e7ec',
+    // colorHoverPopover: '#1c202c',
+  },
+  Notification: {
+    padding: '15px'
+  }
 }
 
 export const darkThemeOverrides: GlobalThemeOverrides = {
@@ -41,6 +49,14 @@ export const darkThemeOverrides: GlobalThemeOverrides = {
   Tag: {
     borderRadius: '4px',
   },
+  List: {
+    borderRadius: '0',
+    borderColorPopover: '#1c2334',
+    colorHoverPopover: '#1c202c',
+  },
+  Menu: {
+    
+  }
 }
 
 export default themeOverrides

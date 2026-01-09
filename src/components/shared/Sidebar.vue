@@ -42,8 +42,6 @@ import {
   Settings28Regular as SettingsIcon,
   CheckmarkCircle24Regular as TodoAppIcon,
   CheckmarkCircle24Filled as TodoAppIconActive,
-  ScanType24Regular as TypographyIcon,
-  ScanType24Filled as TypographyIconActive,
 } from '@vicons/fluent'
 
 import { storeToRefs } from 'pinia'

@@ -29,10 +29,26 @@
 
 
 .rtl {
-  .n-popover__content, .n-popover__header, .n-popover__footer {
+  .n-popover__content,
+  .n-popover__header,
+  .n-popover__footer,
+  .n-dropdown-menu {
     direction: rtl;
     font-family: 'Shabnam';
   }
+
+  .en {
+    font-family: 'Inter var',
+      'ui-sans-serif',
+      'system-ui',
+      'sans-serif';
+  }
+
+  .n-popconfirm .n-popconfirm__action .n-button:not(:last-child) {
+    margin-left: 8px;
+    margin-right: auto;
+  }
+
   .n-menu-item-content__icon {
     margin-left: 8px;
     margin-right: 5px !important;
@@ -73,8 +89,8 @@
     left: 0;
     right: auto;
   }
-  
-   
+
+
 }
 
 

@@ -100,7 +100,7 @@ meta:
 
           <div class="social-login pt-3">
             <div class="separator">
-              <span class="title bg-white dark:bg-slate-800">Or</span>
+              <span class="title bg-white dark:bg-slate-800">{{ t('login.loginUsing') }}</span>
             </div>
             <div class="flex items-center justify-center">
               <n-button quaternary circle mx-2>
@@ -198,7 +198,7 @@ select:-webkit-autofill:focus {
     color: var(--border);
     font-size: 0.8rem;
     position: absolute;
-    left: calc(50% - 10px);
+    left: calc(50% - 45px);
     padding: 0 0.3rem;
   }
 }
