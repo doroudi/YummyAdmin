@@ -40,7 +40,12 @@ export const useColorStore = defineStore('Color', () => {
 
   async function deleteColor(id: string) {
     await colorService.delete(id)
-    getColors(defaultOptions)
+    colors.value.splice(
+      colors.value.findIndex((x: Color) => x.id === id),
+      1,
+    )
+
+    // getColors(defaultOptions)
   }
 
   function editColor() {}

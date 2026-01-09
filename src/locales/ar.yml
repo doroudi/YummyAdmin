@@ -202,10 +202,10 @@ login:
     passwordRequired: كلمة المرور مطلوبة
     userNameRequired: أدخل اسم المستخدم
   welcome:
-    congratulations1: ''
-    congratulations2: ''
-    greeting_message: ''
-    title: ''
+    congratulations1: ""
+    congratulations2: ""
+    greeting_message: ""
+    title: ""
 menu:
   accountSettings: إعدادات الحساب
   analytics: التحليلات
@@ -234,14 +234,14 @@ menu:
   maintenance: صيانة
   messages: الرسائل
   news: الأخبار
-  notFound: '404'
+  notFound: "404"
   notifications: الإشعارات
   orders: الطلبات
   other: آخر
   pages: الصفحات
   productManagement: إدارة المنتجات
   products: المنتجات
-  productsManagement: ''
+  productsManagement: ""
   profile: حساب تعريفي
   register: تسجيل الدخول
   reviews: المراجعات
@@ -285,7 +285,7 @@ products:
     title: إنشاء منتج
   name: الاسم
   rate: التقييم
-  stock: ''
+  stock: ""
   stoke: المخزون
 profile:
   changePassword: تغيير كلمة المرور

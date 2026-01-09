@@ -13,7 +13,7 @@ async function create() {
   formRef.value?.validate(async (errors: any) => {
     if (!errors) {
       await colorStore.createColor(colorItem.value)
-      useNotifyStore().success('Color created successfully')
+      useNotifyStore().success(t('colors.createMessage'))
       emits('close')
     }
   })

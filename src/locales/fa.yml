@@ -66,6 +66,8 @@ colors:
   validations:
     colorRequired: رنگ الزامی است
     nameRequired: نام رنگ الزامی است
+  deleteMessage: رنگ با موفقیت حذف شد!
+  createMessage: رنگ جدید با موفقیت اضافه شد
 common:
   403Error: خطای دسترسی
   404Error: 404 خطای
@@ -76,7 +78,7 @@ common:
     تماس بگیرید.
   actions: عملیات
   cancel: لغو کردن
-  confirm: تأیید کردن
+  confirm: تایید
   create: ایجاد
   currency: IRR
   date: تاریخ
@@ -109,6 +111,8 @@ customers:
   ordersCount: تعداد سفارش ها
   phone: موبایل
   title: مشتریان
+  points: امتیاز ها
+  userGroup: گروه کاربری
 customize:
   color: رنگ
   flatDesign: طرح مسطح
@@ -198,6 +202,7 @@ login:
     passwordRequired: رمز عبور الزامی است
     userNameRequired: نام کاربری الزامی است
   welcome: خوش آمدید
+  loginUsing: ورود با
 menu:
   accountSettings: تنظیمات کاربر
   analytics: آنالیز
@@ -280,6 +285,7 @@ products:
   rate: امتیاز
   stock: موجود
   stoke: موجود
+  deleteMessage: محصول حذف شد
 profile:
   changePassword: تغییر رمز عبور
   confirmPassword: تأیید رمز عبور

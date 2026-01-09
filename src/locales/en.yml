@@ -28,7 +28,7 @@ button:
 charts:
   loading: Loading chart data...
   notData: No chart data available
-  unableToDisplay:  Unable to display chart
+  unableToDisplay: Unable to display chart
 categories:
   count: Count
   create:
@@ -63,6 +63,8 @@ colors:
   validations:
     colorRequired: Color not selected
     nameRequired: Name is required
+  deleteMessage: Color deleted successfully!
+  createMessage: New color was added successfully!
 common:
   403Error: You have not Permission to access
   404Error: 404 Error
@@ -108,6 +110,8 @@ customers:
   ordersCount: Orders Count
   phone: Phone
   title: Customers
+  points: Points
+  userGroup: UserGroup
 customize:
   color: Color
   flatDesign: Flat Design
@@ -202,6 +206,7 @@ login:
     passwordRequired: Password is required
     userNameRequired: Enter username
   welcome: Welcome Back!
+  loginUsing: Login Using
 menu:
   accountSettings: Account Settings
   analytics: Analytics
@@ -284,6 +289,7 @@ products:
   rate: Rate
   stock: stock
   stoke: Stoke
+  deleteMessage: Product was deleted!
 profile:
   changePassword: Change Password
   confirmPassword: Confirm Password
