@@ -14,7 +14,7 @@ export function CreatePagedResponse<T extends { [key: string]: any }>(
       x[searchKey].toLowerCase().includes(query.toLowerCase()),
     )
 
-  const pageSize = url.searchParams.get('itemsPerPage')
+  const pageSize = url.searchParams.get('pageSize')
   const skipCount = url.searchParams.get('page')
   const count = Number(pageSize)
   const skip = (Number(skipCount) - 1) * count

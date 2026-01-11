@@ -1,13 +1,37 @@
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 
+import i18n from '~/modules/i18n'
+
+const { t } = i18n.global
+
 export function useOptions(autoBind = true) {
-  const options = ref<PagedAndSortedRequest>({
+  const pageSizes = [
+    {
+      label: `5 ${t('common.perPage')}`,
+      value: 5,
+    },
+    {
+      label: `10 ${t('common.perPage')}`,
+      value: 10,
+    },
+    {
+      label: `15 ${t('common.perPage')}`,
+      value: 15,
+    },
+    {
+      label: `20 ${t('common.perPage')}`,
+      value: 20,
+    },
+  ]
+  const options = ref({
     page: 1,
-    itemsPerPage: 10,
+    pageSize: 10,
+    showSizePicker: true,
+    pageSizes,
   })
 
   onMounted(() => {
-    if (autoBind) bindOptionsToQueryString()
+    //if (autoBind) bindOptionsToQueryString()
   })
 
   watch(
@@ -81,7 +105,16 @@ export function useOptions(autoBind = true) {
   }
 
   function isDefaultProperty(prop: string, value: number) {
-    if (['itemsPerPage', 'sortBy', 'sortDesc', 'pageCount'].includes(prop))
+    if (
+      [
+        'sortBy',
+        'sortDesc',
+        'pageCount',
+        'onUpdatePageSize',
+        'showSizePicker',
+        'pageSizes',
+      ].includes(prop)
+    )
       return true
 
     if (prop === 'page' && value === 1) return true

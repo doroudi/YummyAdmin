@@ -84,6 +84,7 @@ common:
   day: Day
   delete: Delete
   deleteConfirm: Are you sure to delete this item?
+  deleteMultipleConfirm: Are you sure to delete selected items?
   deletedMessage: Deleted Successfully
   goHome: Back To Home
   locale: en-US
@@ -102,6 +103,7 @@ common:
   week: Week
   refresh: Refresh
   settings: Settings
+  perPage: per page
 currencySign: $
 customers:
   customerName: Customer Name

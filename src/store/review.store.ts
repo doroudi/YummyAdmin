@@ -18,7 +18,7 @@ export const useReviewStore = defineStore('Review', () => {
       const response = await reviewService.getReviewList(options)
       reviews.value = response.items
       options.pageCount = Math.ceil(
-        response.totalCount! / options.itemsPerPage!,
+        response.totalCount! / options.pageSize!,
       )
     } finally {
       isLoading.value = false

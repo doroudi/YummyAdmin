@@ -19,7 +19,7 @@ export const useColorStore = defineStore('Color', () => {
       const response = await colorService.getPagedList(options)
       colors.value = response.items
       options.pageCount = Math.ceil(
-        response.totalCount! / options.itemsPerPage!,
+        response.totalCount! / options.pageSize!,
       )
     } finally {
       isLoading.value = false

@@ -3,7 +3,6 @@ import {
   Edit32Regular as EditIcon,
   Add20Regular as PlusIcon,
 } from '@vicons/fluent'
-import { useMessage } from 'naive-ui'
 import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { storeToRefs } from 'pinia'
@@ -14,7 +13,6 @@ const { dialogPlacement } = storeToRefs(layout)
 const { t } = useI18n()
 const collapsed = ref(useWindowSize().width.value < 600)
 const store = useCategoryStore()
-const message = useMessage()
 
 onMounted(getItems)
 
