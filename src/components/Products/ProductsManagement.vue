@@ -1,6 +1,5 @@
 <script setup lang='ts'>
 import {
-  Delete20Regular as DeleteIcon,
   Add24Filled as PlusIcon,
 } from '@vicons/fluent'
 import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
@@ -94,6 +93,11 @@ async function handleDeleteItem(row: RowData) {
   useNotifyStore().success(t('products.deleteMessage'))
 }
 
+async function handleDeleteSelected() {
+  await store.deleteMultipleProducts(checkedRows.value)
+  useNotifyStore().success(t('products.deleteMessage'))
+}
+
 function rowKey(row: RowData) {
   return row.id
 }
@@ -113,7 +117,11 @@ function handleSorterChange() {
 function handleFiltersChange() {
   getItems()
 }
-
+function onUpdatePageSize(pageSize: number) {
+  options.value.pageSize = pageSize
+  options.value.page = 1
+  getItems()
+}
 let searchTimerId: any = null
 function searchInListDebounced(value: string) {
   clearTimeout(searchTimerId)
@@ -136,18 +144,8 @@ function handleCheck(checkedRowKeys: DataTableRowKey[]) {
         <NSpace justify="space-between" class="mb-3">
           <SearchInput v-model="options.query" @search="getItems" />
           <div>
-            <n-tooltip v-if="checkedRows.length" trigger="hover">
-              <template #trigger>
-                <NButton mx-2 quaternary circle>
-                  <template #icon>
-                    <NIcon>
-                      <DeleteIcon />
-                    </NIcon>
-                  </template>
-                </NButton>
-              </template>
-              <span>{{ t('common.delete') }}</span>
-            </n-tooltip>
+            <DeleteSelectedItems v-if="checkedRows.length" @delete="handleDeleteSelected" />
+
             <NButton type="primary" @click="router.push('/Products/Create')">
               <template #icon>
                 <NIcon>
@@ -160,8 +158,9 @@ function handleCheck(checkedRowKeys: DataTableRowKey[]) {
         </NSpace>
         <SkeletonTable v-if="store.isLoading" :columns="columns" />
         <n-data-table v-else remote :columns="columns" :data="store.products" :pagination="options" selectable
-          :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
-          @update:checked-row-keys="handleCheck" @update:page="handlePageChange" />
+          :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange" @update:pageSize="onUpdatePageSize"
+          @update:filters="handleFiltersChange" @update:checked-row-keys="handleCheck"
+          @update:page="handlePageChange" />
       </div>
     </n-layout-content>
   </n-layout>
