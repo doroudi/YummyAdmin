@@ -106,7 +106,7 @@ export function useRender() {
               objectFit: 'contain',
               showToolbar: false,
               alt: name,
-              style: { 'border-radius': '3px' },
+              style: { 'border-radius': 'var(--n-border-radius)' },
             },
             {},
           ),

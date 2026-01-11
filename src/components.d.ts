@@ -158,5 +158,7 @@ declare module 'vue' {
     UsersPlatformChart: typeof import('./components/Dashboard/Analytics/UsersPlatformChart.vue')['default']
     VisitSources: typeof import('./components/Dashboard/Analytics/VisitSources.vue')['default']
     WelcomeCard: typeof import('./components/Dashboard/Ecommerce/WelcomeCard.vue')['default']
+    YummyDataTable: typeof import('./components/shared/YummyDataTable.vue')['default']
+    YummyTable: typeof import('./components/shared/YummyTable.vue')['default']
   }
 }

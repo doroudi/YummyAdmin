@@ -43,8 +43,6 @@ const columns: DataTableColumns<RowData> = [
 
 <template>
   <div>
-    <SkeletonTable v-if="store.isLoading" :columns="columns" />
-    <n-data-table v-else :bordered="false" :columns="columns" :data="store.orders"
-      :scroll-x="500" />
+    <YummyDataTable :loading="store.isLoading" :columns="columns" :data="store.orders" :scroll-x="500" />
   </div>
 </template>

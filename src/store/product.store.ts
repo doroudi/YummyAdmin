@@ -23,12 +23,12 @@ export const useProductStore = defineStore('Product', () => {
     }
   }
 
-  async function getTrendingProducts(itemsPerPage = 5) {
+  async function getTrendingProducts(pageSize = 5) {
     isLoading.value = true
     try {
       const response = await productService.getPagedList({
         page: 1,
-        itemsPerPage,
+        pageSize,
       })
       trendingProducts.value = response.items
     } finally {
