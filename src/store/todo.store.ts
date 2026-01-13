@@ -40,20 +40,20 @@ export const useTodoAppStore = defineStore('Todo', () => {
   }
 
   function toggleDoneTask(id: number) {
-    const task = tasks.value.find((x) => x.id === id)
+    const task = tasks.value.find((x: TaskItem) => x.id === id)
     task.isDone = !task.isDone
     task.doneDate = new Date()
   }
 
   function toggleFavTask(id: number) {
-    const task = tasks.value.find((x) => x.id === id)
+    const task = tasks.value.find((x: TaskItem) => x.id === id)
     task.isFavorite = !task.isFavorite
     if (task.isFavorite) window.umami?.track('Todo:FavTask')
   }
 
   function deleteTask(id: number) {
-    const taskIndex = tasks.value.findIndex((x) => x.id === id)
-    if (taskIndex) {
+    const taskIndex = tasks.value.findIndex((x: TaskItem) => x.id === id)
+    if (taskIndex > -1) {
       tasks.value.splice(taskIndex, 1)
     }
   }
