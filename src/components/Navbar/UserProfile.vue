@@ -26,8 +26,8 @@ const items: any[] = [
 
 <template>
   <div class="flex items-center" v-bind="$attrs">
-    <n-dropdown :options="items" trigger="click">
-      <NImage class="avatar" :src="userProfile.avatar" alt="avatar" fallbackSrc="/assets/images/avatar.png"  />
+    <n-dropdown :options="items">
+      <NImage class="avatar" preview-disabled  :src="userProfile.avatar" alt="avatar" fallbackSrc="/assets/images/avatar.png"  />
     </n-dropdown>
   </div>
 </template>

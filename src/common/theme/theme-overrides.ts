@@ -32,19 +32,28 @@ export const darkThemeOverrides: GlobalThemeOverrides = {
     warningColor: '#FF8000',
     borderRadius: '5px',
     borderRadiusSmall: '3px',
-    // cardColor: '#0f172a33',
     borderColor: '#1c2334',
+    cardColor: '#0f172a33',
+    popoverColor: '#0f172a',
+    modalColor: '#1c202c',
   },
   Card: {
     borderRadius: '7px',
+    color: '#1c202c',
+
+    // closeBorderRadius: '30px'
   },
-  Popover: {
-    color: '#0f172a',
+  Dropdown: {
+    color: '#1c2334',
+  },
+  Drawer: {
+    color: '#1c202c',
   },
   DataTable: {
     thColor: '#1c202c',
     tdColor: '#1c2334',
     hoverColor: '#1c202c',
+    tdColorHover: '#1c202c',
   },
   Tag: {
     borderRadius: '4px',
@@ -54,9 +63,7 @@ export const darkThemeOverrides: GlobalThemeOverrides = {
     borderColorPopover: '#1c2334',
     colorHoverPopover: '#1c202c',
   },
-  Menu: {
-    
-  }
+  Menu: {},
 }
 
 export default themeOverrides

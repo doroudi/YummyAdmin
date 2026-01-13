@@ -104,6 +104,7 @@ common:
   refresh: Refresh
   settings: Settings
   perPage: per page
+  filter: Filter
 currencySign: $
 customers:
   customerName: Customer Name

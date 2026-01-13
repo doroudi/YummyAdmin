@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import {
   Add24Filled as PlusIcon,
+  Filter24Regular as FilterIcon
 } from '@vicons/fluent'
 import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
 import { NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
@@ -93,10 +94,7 @@ async function handleDeleteItem(row: RowData) {
   useNotifyStore().success(t('products.deleteMessage'))
 }
 
-async function handleDeleteSelected() {
-  await store.deleteMultipleProducts(checkedRows.value)
-  useNotifyStore().success(t('products.deleteMessage'))
-}
+
 
 function rowKey(row: RowData) {
   return row.id
@@ -135,6 +133,14 @@ const checkedRows = ref<DataTableRowKey[]>([])
 function handleCheck(checkedRowKeys: DataTableRowKey[]) {
   checkedRows.value = checkedRowKeys
 }
+
+async function handleDeleteSelected() {
+  await store.deleteMultipleProducts(checkedRows.value)
+  useNotifyStore().success(t('products.deleteMessage'))
+
+  checkedRows.value = []
+}
+
 </script>
 
 <template>
@@ -142,7 +148,22 @@ function handleCheck(checkedRowKeys: DataTableRowKey[]) {
     <n-layout-content>
       <div class="px-3">
         <NSpace justify="space-between" class="mb-3">
-          <SearchInput v-model="options.query" @search="getItems" />
+          <div>
+
+            <SearchInput v-model="options.query" @search="getItems" />
+
+            <Filter>
+              hello Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde libero iure minus consequatur sunt distinctio corrupti, quae delectus pariatur facilis blanditiis nemo deserunt reiciendis earum nesciunt? Quos laudantium repellendus voluptatem?
+            </Filter>
+            <!-- <NButton secondary type="success" class="ms-2">
+              <template #icon>
+                <NIcon>
+                  <FilterIcon />
+                </NIcon>
+              </template>
+              {{ t('common.filter') }}
+            </NButton> -->
+          </div>
           <div>
             <DeleteSelectedItems v-if="checkedRows.length" @delete="handleDeleteSelected" />
 
