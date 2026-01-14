@@ -18,7 +18,6 @@ const themeOverrides: GlobalThemeOverrides = {
   List: {
     borderRadius: '0',
     borderColorPopover: '#e4e7ec',
-    // colorHoverPopover: '#1c202c',
   },
   Notification: {
     padding: '15px'
@@ -40,8 +39,6 @@ export const darkThemeOverrides: GlobalThemeOverrides = {
   Card: {
     borderRadius: '7px',
     color: '#1c202c',
-
-    // closeBorderRadius: '30px'
   },
   Dropdown: {
     color: '#1c2334',

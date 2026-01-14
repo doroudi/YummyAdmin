@@ -45,6 +45,9 @@ body {
   max-height: 100vh;
   max-width: 100vw;
   overflow: hidden;
+  &::selection {
+    background: color-mix(in srgb, var(--primary-color), var(--background) 85%)
+  }
 }
 
 .ql-editor {
@@ -52,7 +55,6 @@ body {
 }
 
 .rtl {
-
   html,
   body,
   .n-drawer,
@@ -105,8 +107,6 @@ body {
 .text-primary {
   color: var(--primary-color);
 }
-
-
 
 @import url('./utils/_error.scss');
 @import url('./utils/_progress.scss');
