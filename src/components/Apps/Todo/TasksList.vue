@@ -2,7 +2,6 @@
 import {
   Add20Regular as AddIcon,
   Circle20Regular as CircleIcon,
-  Send28Filled as SendIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 import type { TaskGroup, TaskItem } from '~/models/Todo'

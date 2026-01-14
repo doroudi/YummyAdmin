@@ -104,6 +104,8 @@ common:
   settings: Einstellungen
   status: Status
   week: Woche
+  perPage: Per Page
+  filter: Filter
 currencySign: €
 customers:
   customerName: Kundenname
