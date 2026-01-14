@@ -10,7 +10,7 @@ const { t } = useI18n()
         <n-button quaternary circle @click="layout.toggleTheme()" class="theme-toggle" id="theme-toggle"
           :class="{ 'theme-toggle--toggled': layout.isDark }">
           <template #icon>
-            <NIcon size="1.4rem">
+            <NIcon size="1.4rem" :color="layout.isDark? '#FFF' : '#444'">
               <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="1em" height="1em" fill="currentColor"
                 class="theme-toggle__expand" viewBox="0 0 32 32">
                 <clipPath id="theme-toggle__expand__cutout">
