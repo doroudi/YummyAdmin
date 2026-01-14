@@ -64,6 +64,10 @@ export const useTodoAppStore = defineStore('Todo', () => {
     window.umami?.track('Todo:CreateTask', { title: task.title })
   }
 
+  const counts = computed(() => {
+    return groups.value.map((g: TaskGroup) => ({ id: g.id, count: tasks.value.filter((x: TaskItem) => x.groupId === g.id && !x.isDone).length}))
+  })
+
   return {
     isLoadingGroups,
     isLoadingTasks,
@@ -77,6 +81,7 @@ export const useTodoAppStore = defineStore('Todo', () => {
     toggleFavTask,
     deleteGroup,
     deleteTask,
+    counts
   }
 })
 if (import.meta.hot)

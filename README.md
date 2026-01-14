@@ -6,7 +6,7 @@
 
 
 Free Vue AdminPanel based on Naive UI and Tailwind CSS. Fairly complete with a beautiful design, Full RTL support and multilingual support.
-Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (MSW), Cypress, UnoCss, Web Socket
+Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (MSW), UnoCss, Web Socket
 
 ![Preview](/docs/banner-dark.png "Preview")
 
@@ -39,8 +39,6 @@ Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (
 - 📑 Layout system
 
 - 🌍 Multi-language support using I18n
-
-- ⚙️ Unit Testing with [Vitest](https://github.com/vitest-dev/vitest), E2E Testing with [Cypress](https://cypress.io/) on [GitHub Actions](https://github.com/features/actions)
 
 - ☁️ Deploy on Netlify, zero-config
 

@@ -4,6 +4,7 @@ export interface TaskGroup {
   icon: string
   bgColor?: string
   isToday?: boolean
+  count?: number
 }
 
 export interface TaskItem {
