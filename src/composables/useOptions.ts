@@ -107,8 +107,6 @@ export function useOptions(autoBind = true) {
   function isDefaultProperty(prop: string, value: number) {
     if (
       [
-        'sortBy',
-        'sortDesc',
         'pageCount',
         'onUpdatePageSize',
         'showSizePicker',

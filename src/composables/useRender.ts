@@ -126,7 +126,7 @@ export function useRender() {
             NImage,
             {
               src: image,
-              fallbackSrc: 'assets/images/avatar.png',
+              fallbackSrc: './assets/images/avatar.png',
               width: 38,
               height: 38,
               objectFit: 'contain',

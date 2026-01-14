@@ -8,11 +8,16 @@ export function CreatePagedResponse<T extends { [key: string]: any }>(
 ): PaginatedList<T> {
   const url = new URL(req.url)
   const query = url.searchParams.get('query')
+  const sortBy = url.searchParams.get('sortBy')
+  const sortDescending = url.searchParams.get('sortDesc')
   let filteredItems = items
   if (query)
     filteredItems = items.filter((x) =>
       x[searchKey].toLowerCase().includes(query.toLowerCase()),
     )
+
+  if(sortBy)
+      filteredItems.sort((a,b) => a[sortBy] - b[sortBy])
 
   const pageSize = url.searchParams.get('pageSize')
   const skipCount = url.searchParams.get('page')

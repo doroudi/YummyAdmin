@@ -1,13 +1,14 @@
 <script setup lang='ts'>
 import {
   Add24Filled as PlusIcon,
-  Filter24Regular as FilterIcon
+  // Filter24Regular as FilterIcon
 } from '@vicons/fluent'
-import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
+import type { DataTableColumns, DataTableRowKey, DataTableSortState } from 'naive-ui/es/components'
 import { NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { ProductStatus } from '~/models/Product'
 
+const{ enumToFilter } = useFilter()
 const { t } = useI18n()
 const store = useProductStore()
 const router = useRouter()
@@ -44,16 +45,22 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('products.rate'),
     key: 'rate',
+    sorter: (row1, row2) => row1.age - row2.age,
     render: (row) => renderRate(row.rate),
   },
   {
     title: t('common.price'),
     key: 'price',
+    sorter: (row1, row2) => row1.age - row2.age,
     render: (row) => renderPrice(row.price, t('currencySign')),
   },
   {
     title: t('common.status'),
     key: 'status',
+    filterOptions: enumToFilter(ProductStatus),
+    filter(value, row) {
+      return Boolean(~row.status.indexOf(value as string))
+    },
     render: (row) =>
       renderTag(
         row.status,
@@ -78,6 +85,7 @@ const columns: DataTableColumns<RowData> = [
     ],
   },
 ]
+const show = ref(false)
 function getStatusColor(status: ProductStatus) {
   switch (status) {
     case ProductStatus.Draft:
@@ -108,25 +116,14 @@ function handlePageChange(page: number) {
   getItems()
 }
 
-function handleSorterChange() {
-  getItems()
-}
-
 function handleFiltersChange() {
   getItems()
 }
+
 function onUpdatePageSize(pageSize: number) {
   options.value.pageSize = pageSize
   options.value.page = 1
   getItems()
-}
-let searchTimerId: any = null
-function searchInListDebounced(value: string) {
-  clearTimeout(searchTimerId)
-  options.value.query = value
-  searchTimerId = setTimeout(() => {
-    getItems()
-  }, 500) /* 500ms throttle */
 }
 
 const checkedRows = ref<DataTableRowKey[]>([])
@@ -141,6 +138,13 @@ async function handleDeleteSelected() {
   checkedRows.value = []
 }
 
+function handleSorterChange(sorter: DataTableSortState) {
+  options.value.sortBy = sorter.columnKey
+  if(sorter.order === 'descend')
+    options.value.sortDesc = 'true'
+  getItems()
+s}
+
 </script>
 
 <template>
@@ -151,11 +155,7 @@ async function handleDeleteSelected() {
           <div>
 
             <SearchInput v-model="options.query" @search="getItems" />
-
-            <Filter>
-              hello Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde libero iure minus consequatur sunt distinctio corrupti, quae delectus pariatur facilis blanditiis nemo deserunt reiciendis earum nesciunt? Quos laudantium repellendus voluptatem?
-            </Filter>
-            <!-- <NButton secondary type="success" class="ms-2">
+            <!-- <NButton secondary type="primary" @click="show = !show" class="ms-2">
               <template #icon>
                 <NIcon>
                   <FilterIcon />
@@ -177,10 +177,19 @@ async function handleDeleteSelected() {
             </NButton>
           </div>
         </NSpace>
+
+        <div>
+          <n-collapse-transition :show="show">
+            <div pt-2 pb-5>
+            <SearchInput v-model="options.query" @search="getItems" />
+            </div>
+          </n-collapse-transition>
+          </div>
         <SkeletonTable v-if="store.isLoading" :columns="columns" />
         <n-data-table v-else remote :columns="columns" :data="store.products" :pagination="options" selectable
           :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange" @update:pageSize="onUpdatePageSize"
-          @update:filters="handleFiltersChange" @update:checked-row-keys="handleCheck"
+          @update:filters="handleFiltersChange" 
+          @update:checked-row-keys="handleCheck"
           @update:page="handlePageChange" />
       </div>
     </n-layout-content>
