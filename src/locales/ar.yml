@@ -1,3 +1,27 @@
+title: لوحة تحكم يامي
+description: لوحة تحكم Vue 3 مجانية
+direction: rtl
+currencySign: درهم
+home: الرئيسية
+not-found: غير موجود
+languages:
+  ar: العربية
+  zn: الصينية
+  de: الألمانية
+  en: الإنجليزية
+  fa: الفارسية
+  tr: التركية
+enums:
+  OrderStatus:
+    Delivered: تم التوصيل
+    Processing: تحت المعالجة
+    ReadyToSend: جاهز للإرسال
+    Sent: تم الإرسال
+    Submitted: تم الإرسال
+  ProductStatus:
+    Active: نشط
+    Draft: مسودة
+    NotActive: غير نشط
 analyticsDashboard:
   bounceRate: معدل الارتداد
   views: وجهات النظر
@@ -102,7 +126,6 @@ common:
   settings: إعدادات
   status: حالة
   week: أسبوع
-currencySign: درهم
 customers:
   customerName: اسم العميل
   email: البريد الإلكتروني
@@ -152,19 +175,6 @@ dashboard:
       طاب يومك!
       يسعدنا رؤيتك هنا.
     title: مرحباً بعودتك!
-description: لوحة تحكم Vue 3 مجانية
-direction: rtl
-enums:
-  OrderStatus:
-    Delivered: تم التوصيل
-    Processing: تحت المعالجة
-    ReadyToSend: جاهز للإرسال
-    Sent: تم الإرسال
-    Submitted: تم الإرسال
-  ProductStatus:
-    Active: نشط
-    Draft: مسودة
-    NotActive: غير نشط
 forgot:
   button: استعادة
   email: البريد الإلكتروني
@@ -177,14 +187,6 @@ forgot:
   sendEmailSuccess: تم إرسال البريد الإلكتروني بنجاح، يرجى التحقق من بريدك الإلكتروني
   title: نسيت كلمة المرور
   username: اسم المستخدم
-home: الرئيسية
-languages:
-  ar: العربية
-  zn: الصينية
-  de: الألمانية
-  en: الإنجليزية
-  fa: الفارسية
-  tr: التركية
 login:
   createAccount: أنشئ واحداً!
   failedMessage: فشل تسجيل الدخول
@@ -252,7 +254,6 @@ menu:
   typography: الطباعة
   users: المستخدمون
   websiteSettings: إعدادات الموقع
-not-found: غير موجود
 notifications:
   clear: مسح كل شيء
   empty: لا يوجد إشعارات
@@ -332,7 +333,6 @@ support:
   github:
     title: یحب Github
     tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
-title: لوحة تحكم يامي
 todoApp:
   completed: مكتمل
   createGroup: إنشاء مجموعة

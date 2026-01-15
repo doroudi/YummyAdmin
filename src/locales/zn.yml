@@ -1,3 +1,58 @@
+title: 美味管理系统
+description: 免费的Vue 3仪表板
+currencySign: ¥
+direction: ltr
+home: 首页
+not-found: 未找到
+languages:
+  ar: 阿拉伯语
+  zn: 中文
+  de: 德语
+  en: 英语
+  fa: 波斯语
+  tr: 土耳其语
+enums:
+  OrderStatus:
+    Delivered: 已送达
+    Processing: 处理中
+    ReadyToSend: 准备发货
+    Sent: 已发货
+    Submitted: 已提交
+  ProductStatus:
+    Active: 激活
+    Draft: 草稿
+    NotActive: 未激活
+common:
+  403Error: 您没有访问权限
+  404Error: 404错误
+  404Message: 抱歉，您要查找的页面不存在、已被删除、名称已更改或暂时不可用
+  500Error: 500 Error
+  500Message: 出现错误。请稍后重试；如果问题仍然存在，请联系管理员。
+  actions: 操作
+  cancel: 取消
+  confirm: 确认
+  create: 确认
+  currency: CNY
+  date: 日期
+  day: 天
+  delete: 删除
+  deleteConfirm: 确认删除？
+  deletedMessage: 删除成功
+  goHome: 返回首页
+  locale: zh-CN
+  maintenance: 网站正在维护中
+  maintenanceDetail: 我们目前正在进行定期维护。很快将恢复正常！
+  month: 月
+  name: 姓名
+  new: 新
+  notFound: 未找到
+  oops: Oops Page
+  price: 价格
+  refresh: Refresh
+  search: 搜索
+  settings: Settings
+  status: 状态
+  week: 星期
 analyticsDashboard:
   bounceRate: 跳出率
   summary: 概括
@@ -66,38 +121,6 @@ colors:
   validations:
     colorRequired: 未选择颜色
     nameRequired: 名称必填
-common:
-  403Error: 您没有访问权限
-  404Error: 404错误
-  404Message: 抱歉，您要查找的页面不存在、已被删除、名称已更改或暂时不可用
-  500Error: 500 Error
-  500Message: 出现错误。请稍后重试；如果问题仍然存在，请联系管理员。
-  actions: 操作
-  cancel: 取消
-  confirm: 确认
-  create: 确认
-  currency: CNY
-  date: 日期
-  day: 天
-  delete: 删除
-  deleteConfirm: 确认删除？
-  deletedMessage: 删除成功
-  goHome: 返回首页
-  locale: zh-CN
-  maintenance: 网站正在维护中
-  maintenanceDetail: 我们目前正在进行定期维护。很快将恢复正常！
-  month: 月
-  name: 姓名
-  new: 新
-  notFound: 未找到
-  oops: Oops Page
-  price: 价格
-  refresh: Refresh
-  search: 搜索
-  settings: Settings
-  status: 状态
-  week: 星期
-currencySign: ¥
 customers:
   customerName: 客户名称
   email: 电子邮件
@@ -145,19 +168,6 @@ dashboard:
     congratulations2: 份。
     greeting_message: 祝您有美好的一天！我们很高兴见到您。
     title: 欢迎回来！
-description: 免费的Vue 3仪表板
-direction: ltr
-enums:
-  OrderStatus:
-    Delivered: 已送达
-    Processing: 处理中
-    ReadyToSend: 准备发货
-    Sent: 已发货
-    Submitted: 已提交
-  ProductStatus:
-    Active: 激活
-    Draft: 草稿
-    NotActive: 未激活
 forgot:
   button: 恢复
   email: 电子邮件
@@ -170,14 +180,6 @@ forgot:
   sendEmailSuccess: 电子邮件发送成功，请检查您的电子邮件
   title: 忘记密码
   username: 用户名
-home: 首页
-languages:
-  ar: 阿拉伯语
-  zn: 中文
-  de: 德语
-  en: 英语
-  fa: 波斯语
-  tr: 土耳其语
 login:
   createAccount: 创建一个！
   failedMessage: 登录失败
@@ -245,7 +247,6 @@ menu:
   typography: 排版
   users: 用户
   websiteSettings: 网站设置
-not-found: 未找到
 notifications:
   clear: 清除所有
   empty: 没有通知
@@ -323,7 +324,6 @@ support:
   github:
     title: Github 星标
     tooltip: 请在Github上给这个项目一个⭐️支持
-title: 美味管理系统
 todoApp:
   completed: 完全的
   createGroup:

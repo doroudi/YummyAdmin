@@ -1,3 +1,68 @@
+title: Yummy Admin
+description: Free Vue 3 Dashboard
+direction: ltr
+currencySign: $
+home: Home
+not-found: Not found
+languages:
+  ar: Arabic
+  zn: Chinese
+  de: German
+  en: English
+  fa: Persian
+  tr: Turkish
+enums:
+  OrderStatus:
+    Delivered: Delivered
+    Processing: Processing
+    ReadyToSend: ReadyToSend
+    Sent: Sent
+    Submitted: Submitted
+  ProductStatus:
+    Active: Active
+    Draft: Draft
+    NotActive: NotActive
+common:
+  403Error: You have not Permission to access
+  404Error: 404 Error
+  404Message: >-
+    Sorry but the page you are looking for does not exist, have been removed.
+    name changed or is temporarily unavailable
+  500Error: 500 Error
+  500Message: >-
+    Something went wrong. Please try again later or contact the administrator if
+    the problem persists.
+  actions: Actions
+  cancel: Cancel
+  confirm: Confirm
+  create: Create
+  currency: USD
+  date: Date
+  day: Day
+  delete: Delete
+  deleteConfirm: Are you sure to delete this item?
+  deleteMultipleConfirm: Are you sure to delete selected items?
+  deletedMessage: Deleted Successfully
+  goHome: Back To Home
+  locale: en-US
+  maintenance: Website in under maintenance
+  maintenanceDetail: >-
+    We are currently performing scheduled maintenance. We will be back online
+    shortly!
+  month: Month
+  name: Name
+  new: New
+  notFound: Not Found
+  oops: Oops Page
+  price: Price
+  search: Search
+  status: Status
+  week: Week
+  refresh: Refresh
+  settings: Settings
+  perPage: per page
+  filter: Filter
+
 brands:
   brand: Brand
   create:
@@ -65,47 +130,6 @@ colors:
     nameRequired: Name is required
   deleteMessage: Color deleted successfully!
   createMessage: New color was added successfully!
-common:
-  403Error: You have not Permission to access
-  404Error: 404 Error
-  404Message: >-
-    Sorry but the page you are looking for does not exist, have been removed.
-    name changed or is temporarily unavailable
-  500Error: 500 Error
-  500Message: >-
-    Something went wrong. Please try again later or contact the administrator if
-    the problem persists.
-  actions: Actions
-  cancel: Cancel
-  confirm: Confirm
-  create: Create
-  currency: USD
-  date: Date
-  day: Day
-  delete: Delete
-  deleteConfirm: Are you sure to delete this item?
-  deleteMultipleConfirm: Are you sure to delete selected items?
-  deletedMessage: Deleted Successfully
-  goHome: Back To Home
-  locale: en-US
-  maintenance: Website in under maintenance
-  maintenanceDetail: >-
-    We are currently performing scheduled maintenance. We will be back online
-    shortly!
-  month: Month
-  name: Name
-  new: New
-  notFound: Not Found
-  oops: Oops Page
-  price: Price
-  search: Search
-  status: Status
-  week: Week
-  refresh: Refresh
-  settings: Settings
-  perPage: per page
-  filter: Filter
-currencySign: $
 customers:
   customerName: Customer Name
   email: Email
@@ -159,19 +183,6 @@ analyticsDashboard:
   summary: Summary
   pages: Pages
   source: Source
-description: Free Vue 3 Dashboard
-direction: ltr
-enums:
-  OrderStatus:
-    Delivered: Delivered
-    Processing: Processing
-    ReadyToSend: ReadyToSend
-    Sent: Sent
-    Submitted: Submitted
-  ProductStatus:
-    Active: Active
-    Draft: Draft
-    NotActive: NotActive
 forgot:
   button: Recover
   email: Email
@@ -184,14 +195,6 @@ forgot:
   sendEmailSuccess: Email Sent Successfully, Please Check Your Email
   title: Forgot Password
   username: User Name
-home: Home
-languages:
-  ar: Arabic
-  zn: Chinese
-  de: German
-  en: English
-  fa: Persian
-  tr: Turkish
 login:
   createAccount: Create One!
   failedMessage: Login Failed
@@ -257,7 +260,6 @@ menu:
   data: Data Tables
   typography: Typography
   icons: Icons
-not-found: Not found
 notifications:
   clear: Clear All
   empty: No notifications
@@ -338,7 +340,6 @@ support:
   github:
     title: Star On Github
     tooltip: Support this project by giving a star ⭐️ on GitHub
-title: Yummy Admin
 todoApp:
   completed: Completed
   createGroup:
