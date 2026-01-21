@@ -258,6 +258,15 @@ notifications:
   clear: همه را پاک کنید
   empty: هیچ اعلانی وجود ندارد
   title: اعلان ها
+  order: سفارش
+  security: امنیت
+  productStock: موجودی محصول
+  stats: آمار
+  orderSubmitted: سفارش جدید ثبت شد
+  passwordExpire: رمز عبور شما در {count} روز دیگر منقضی می‌شود
+  customerRegister: "{count} مشتری جدید دیروز ثبت‌نام کردند"
+  stockWarning: موجودی محصول در حال کاهش است
+  orderCanceled: یک سفارش لغو شد
 notify:
   welcome: >-
     به پنل ادمین یامی خوش آمدید، لطفا این پروژه را با دادن یک ستاره ⭐️ در گیت

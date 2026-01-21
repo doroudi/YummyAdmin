@@ -37,8 +37,10 @@ common:
   cancel: İptal etmek
   confirm: Onaylamak
   create: Yaratmak
+  currency: TRY
   date: Tarih
   day: Gün
+  locale: tr-TR
   delete: Silmek
   deleteConfirm: Bu öğeyi sileceğinizden emin misiniz?
   deletedMessage: Başarıyla silindi
@@ -58,6 +60,8 @@ common:
   settings: Ayarlar
   status: Durum
   week: Hafta
+  filter: Filter
+  clearFilter: Filtreyi Temizle
 analyticsDashboard:
   bounceRate: Hemen Çıkma Oranı
   views: Görünümler
@@ -253,6 +257,15 @@ notifications:
   clear: Hepsini temizlemek
   empty: Hiçbir bildirim yok
   title: Bildirimler
+  order: Sipariş
+  security: Güvenlik
+  productStock: Ürün Stoku
+  stats: İstatistikler
+  orderSubmitted: Yeni Sipariş Gönderildi
+  passwordExpire: Şifreniz {count} gün sonra geçersiz olacak
+  customerRegister: "Dün {count} Yeni Müşteri Kayıt Oldu"
+  stockWarning: Ürün stoğu azalıyor
+  orderCanceled: Bir sipariş iptal edildia
 notify:
   welcome: >-
     Yummy Admin'e hoş geldiniz! Naive UI ve Vue 3 tabanlı Ücretsiz Admin Paneli,

@@ -62,6 +62,7 @@ common:
   settings: Settings
   perPage: per page
   filter: Filter
+  clearFilter: Clear Filters
 
 brands:
   brand: Brand
@@ -264,6 +265,15 @@ notifications:
   clear: Clear All
   empty: No notifications
   title: Notifications
+  order: Order
+  security: Security
+  productStock: Product Stock
+  stats: Stats
+  orderSubmitted: New Order Submitted
+  passwordExpire: Your password will expires in {count} days
+  customerRegister: "{count} New Customers registered yesterday"
+  stockWarning: Product stock is getting low
+  orderCanceled: An order was canceled
 notify:
   welcome: >-
     Welcome to Yummy Admin! Free Admin Panel based on NaiveUI and Vue3, please

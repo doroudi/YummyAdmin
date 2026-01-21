@@ -48,19 +48,21 @@ common:
   notFound: 未找到
   oops: Oops Page
   price: 价格
-  refresh: Refresh
+  refresh: 刷新
   search: 搜索
-  settings: Settings
+  settings: 设置
   status: 状态
   week: 星期
+  filter: 筛选
+  clearFilter: 清除筛选
 analyticsDashboard:
   bounceRate: 跳出率
   summary: 概括
   views: 浏览
   visitors: 访客
   visits: 访问
-  pages: Pages
-  source: Source
+  pages: 页面
+  source: 来源
 brands:
   brand: 品牌
   create:
@@ -251,6 +253,15 @@ notifications:
   clear: 清除所有
   empty: 没有通知
   title: 通知
+  order: 订单
+  security: 安全
+  productStock: 产品库存
+  stats: 统计
+  orderSubmitted: 新订单已提交
+  passwordExpire: 您的密码将在 {count} 天后过期
+  customerRegister: "昨天有 {count} 位新客户注册"
+  stockWarning: 产品库存不足
+  orderCanceled: 订单已取消
 notify:
   welcome: 欢迎使用 YummyAdmin！基于 Naive UI 和 Vue 的免费管理面板，请在 GitHub 上点赞⭐️来支持此项目
 orders:
@@ -345,6 +356,6 @@ userMenu:
   signOut: 登出
   theme: 主题
 charts:
-  loading: Loading chart data...
-  notData: No chart data available
-  unableToDisplay: Unable to display chart
+  loading: 正在加载图表数据...
+  notData: 暂无图表数据
+  unableToDisplay: 无法显示图表

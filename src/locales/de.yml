@@ -130,6 +130,7 @@ common:
   week: Woche
   perPage: Per Page
   filter: Filter
+  clearFilter: Filter löschen
 customers:
   customerName: Kundenname
   email: E-Mail
@@ -261,6 +262,15 @@ notifications:
   clear: Alle klar
   empty: Keine Benachrichtigungen
   title: Benachrichtigungen
+  order: Bestellung
+  security: Sicherheit
+  productStock: Produktbestand
+  stats: Statistiken
+  orderSubmitted: Neue Bestellung eingereicht
+  passwordExpire: Ihr Passwort läuft in {count} Tagen ab
+  customerRegister: "{count} neue Kunden haben sich gestern registriert"
+  stockWarning: Produktbestand wird knapp
+  orderCanceled: Eine Bestellung wurde storniert
 notify:
   welcome: >-
     Willkommen bei Yummy Admin! Kostenloses Admin-Panel basierend auf Naive UI
