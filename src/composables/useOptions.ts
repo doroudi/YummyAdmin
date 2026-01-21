@@ -1,3 +1,5 @@
+import type { DataTableColumns } from 'naive-ui/es/components'
+import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 
 import i18n from '~/modules/i18n'
@@ -31,13 +33,13 @@ export function useOptions(autoBind = true) {
   })
 
   onMounted(() => {
-    //if (autoBind) bindOptionsToQueryString()
+    if (autoBind) bindOptionsToQueryString()
   })
 
   watch(
     () => options.value,
     () => {
-      if (autoBind) writeOptionsQueryString()
+      if (autoBind) writeOptionsToQueryString()
     },
     { immediate: true, deep: true },
   )
@@ -46,6 +48,7 @@ export function useOptions(autoBind = true) {
     const str = []
     for (const prop of Object.keys(options.value)) {
       const value = options.value[prop as keyof PagedAndSortedRequest]
+      if (Array.isArray(value) && value.length === 0) continue
       if (
         Object.hasOwn(options.value, prop) &&
         value !== null &&
@@ -56,6 +59,40 @@ export function useOptions(autoBind = true) {
       }
     }
     return str.join('&')
+  }
+
+  function bindOptionsToDataTable(columns: DataTableColumns<RowData>) {
+    columns.filter(c => c['sorter'] === true).forEach(col => { delete col['sortOrder'] })
+
+     columns
+      .filter((c) => c['filterOptionValues'] !== undefined)
+      .forEach((col) => {
+        col['filterOptionValues'] = []
+      })
+    for (const prop of Object.keys(options.value)) {
+      const value = options.value[prop as keyof PagedAndSortedRequest]
+      if (
+        Object.hasOwn(options.value, prop) &&
+        value !== null &&
+        value !== ''
+      ) {
+        if (isDefaultProperty(prop, value)) continue
+
+        if (prop === 'sortBy') {
+          const sortCol = columns.find((x: any) => x.key === value)
+          if (sortCol !== undefined) {
+            sortCol['sortOrder'] =
+              sortCol['sortOrder'] === 'ascend' ? 'descend' : 'ascend'
+          }
+          continue
+        }
+        const col = columns.find((x:any) => x.key === prop)
+
+        if (col !== undefined) {
+          col['filterOptionValues'] = [...value]
+        }
+      }
+    }
   }
 
   function bindOptionsToQueryString() {
@@ -82,11 +119,10 @@ export function useOptions(autoBind = true) {
   }
 
   function isNumber(value: string | number): boolean {
-    // eslint-disable-next-line unicorn/prefer-number-properties
     return typeof value === 'number' && !Number.isNaN(value)
   }
 
-  function writeOptionsQueryString() {
+  function writeOptionsToQueryString() {
     const queryString = getFilterQueryString()
     let existingQuery = ''
     if (window.location.href.includes('?'))
@@ -104,26 +140,44 @@ export function useOptions(autoBind = true) {
       window.history.pushState(null, '', `?${queryString}`)
   }
 
-  function isDefaultProperty(prop: string, value: number) {
+  function isDefaultProperty(prop: string, value: any) {
     if (
-      [
-        'pageCount',
-        'onUpdatePageSize',
-        'showSizePicker',
-        'pageSizes',
-      ].includes(prop)
+      ['pageCount', 'onUpdatePageSize', 'showSizePicker', 'pageSizes'].includes(
+        prop,
+      )
     )
       return true
 
-    if (prop === 'page' && value === 1) return true
-
+    if (prop === 'page' && Number.parseInt(value,10) === 1) return true
+    if (prop === 'pageSize' && Number.parseInt(value, 10) === 10) return true
+    
     return false
+  }
+
+  const filterApplied = computed(() => {
+    return (
+      Object.keys(options.value).filter(
+        (i: any) => !isDefaultProperty(i, options.value[i]) && i !== 'page',
+      ).length > 0
+    )
+  })
+
+  function resetFilters() {
+    const filters = Object.keys(options.value).filter(
+      (i: any) => !isDefaultProperty(i, options.value[i]),
+    )
+    filters.forEach((f) => {
+        delete options.value[f]
+    })
   }
 
   return {
     options,
     getFilterQueryString,
     bindOptionsToQueryString,
-    writeOptionsQueryString,
+    writeOptionsToQueryString,
+    filterApplied,
+    resetFilters,
+    bindOptionsToDataTable,
   }
 }

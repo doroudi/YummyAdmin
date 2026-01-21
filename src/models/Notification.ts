@@ -3,7 +3,8 @@ export interface Notification {
   type: NotificationType
   title: string
   message?: string
-  isForce: boolean
+  key?: string
+  data?: any
 }
 
 export enum NotificationType {

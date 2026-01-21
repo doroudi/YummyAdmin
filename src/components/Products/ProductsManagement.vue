@@ -1,23 +1,21 @@
 <script setup lang='ts'>
 import {
   Add24Filled as PlusIcon,
-  // Filter24Regular as FilterIcon
+  FilterDismiss24Regular as FilterIcon
 } from '@vicons/fluent'
 import type { DataTableColumns, DataTableRowKey, DataTableSortState } from 'naive-ui/es/components'
 import { NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
-import type { RowData } from 'naive-ui/es/data-table/src/interface'
+import type { FilterOptionValue, RowData } from 'naive-ui/es/data-table/src/interface'
 import { ProductStatus } from '~/models/Product'
 
-const{ enumToFilter } = useFilter()
+const { enumToFilter } = useFilter()
 const { t } = useI18n()
 const store = useProductStore()
 const router = useRouter()
 const { renderDeleteActionButton } = useRender()
-const { options } = useOptions()
+const { options, bindOptionsToDataTable, filterApplied, resetFilters } = useOptions()
 
 const { renderPrice, renderRate, renderTag, renderProductImage } = useRender()
-
-onMounted(getItems)
 
 const columns: DataTableColumns<RowData> = [
   {
@@ -45,22 +43,21 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('products.rate'),
     key: 'rate',
-    sorter: (row1, row2) => row1.age - row2.age,
+    sorter: true,
     render: (row) => renderRate(row.rate),
   },
   {
     title: t('common.price'),
     key: 'price',
-    sorter: (row1, row2) => row1.age - row2.age,
+    sorter: true,
     render: (row) => renderPrice(row.price, t('currencySign')),
   },
   {
     title: t('common.status'),
     key: 'status',
-    filterOptions: enumToFilter(ProductStatus),
-    filter(value, row) {
-      return Boolean(~row.status.indexOf(value as string))
-    },
+    filter: true,
+    filterOptionValues: [],
+    filterOptions: enumToFilter(ProductStatus, 'ProductStatus'),
     render: (row) =>
       renderTag(
         row.status,
@@ -85,6 +82,12 @@ const columns: DataTableColumns<RowData> = [
     ],
   },
 ]
+
+onMounted(() => {
+  bindOptionsToDataTable(columns)
+  getItems()
+})
+
 const show = ref(false)
 function getStatusColor(status: ProductStatus) {
   switch (status) {
@@ -102,8 +105,6 @@ async function handleDeleteItem(row: RowData) {
   useNotifyStore().success(t('products.deleteMessage'))
 }
 
-
-
 function rowKey(row: RowData) {
   return row.id
 }
@@ -113,10 +114,6 @@ function getItems() {
 
 function handlePageChange(page: number) {
   options.value.page = page
-  getItems()
-}
-
-function handleFiltersChange() {
   getItems()
 }
 
@@ -140,10 +137,25 @@ async function handleDeleteSelected() {
 
 function handleSorterChange(sorter: DataTableSortState) {
   options.value.sortBy = sorter.columnKey
-  if(sorter.order === 'descend')
-    options.value.sortDesc = 'true'
+  
+  // if (sorter.order === 'descend')
+  //   options.value.sortDesc = 'true'
+
+  bindOptionsToDataTable(columns)
   getItems()
-s}
+}
+
+function handleFiltersChange(filterValues: FilterOptionValue[] | null) {
+  options.value = { ...options.value, ...filterValues }
+  bindOptionsToDataTable(columns)
+  getItems()
+}
+
+function resetFilter() {
+  resetFilters()
+  bindOptionsToDataTable(columns)
+  getItems()
+}
 
 </script>
 
@@ -155,14 +167,14 @@ s}
           <div>
 
             <SearchInput v-model="options.query" @search="getItems" />
-            <!-- <NButton secondary type="primary" @click="show = !show" class="ms-2">
+            <NButton v-if="filterApplied" @click="resetFilter()" secondary type="primary" class="ms-2">
               <template #icon>
                 <NIcon>
                   <FilterIcon />
                 </NIcon>
               </template>
-              {{ t('common.filter') }}
-            </NButton> -->
+              {{ t('common.clearFilter') }}
+            </NButton>
           </div>
           <div>
             <DeleteSelectedItems v-if="checkedRows.length" @delete="handleDeleteSelected" />
@@ -181,15 +193,14 @@ s}
         <div>
           <n-collapse-transition :show="show">
             <div pt-2 pb-5>
-            <SearchInput v-model="options.query" @search="getItems" />
+              <SearchInput v-model="options.query" @search="getItems" />
             </div>
           </n-collapse-transition>
-          </div>
+        </div>
         <SkeletonTable v-if="store.isLoading" :columns="columns" />
         <n-data-table v-else remote :columns="columns" :data="store.products" :pagination="options" selectable
           :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange" @update:pageSize="onUpdatePageSize"
-          @update:filters="handleFiltersChange" 
-          @update:checked-row-keys="handleCheck"
+          @update:filters="handleFiltersChange" @update:checked-row-keys="handleCheck"
           @update:page="handlePageChange" />
       </div>
     </n-layout-content>

@@ -34,7 +34,7 @@ export class ApiService {
   ): Promise<PaginatedList<T>> {
     const response = await this.httpClient.get<PaginatedList<T>>(
       `${this.apiBase}/${url}`,
-      { params: options },
+      { params: this.removeDefaultOptions(options) },
     )
     return response.data as PaginatedList<T>
   }
@@ -92,5 +92,38 @@ export class ApiService {
         'Content-Type': 'multipart/form-data',
       },
     })
+  }
+
+  removeDefaultOptions(options: PagedAndSortedRequest) {
+    const result: PagedAndSortedRequest = {} as PagedAndSortedRequest
+    for (const prop of Object.keys(options)) {
+      const value = options[prop as keyof PagedAndSortedRequest]
+      if (
+        Object.hasOwn(options, prop) &&
+        value !== null &&
+        value !== ''
+      ) {
+        if (this.isDefaultProperty(prop, value)) continue
+
+        if(Array.isArray(prop))
+          continue;
+        result[prop] = value
+      }
+    }
+    
+    return result
+  }
+
+  isDefaultProperty(prop: string, value: number) {
+    if (
+      ['pageCount', 'onUpdatePageSize', 'showSizePicker', 'pageSizes'].includes(
+        prop,
+      )
+    )
+      return true
+
+    // if (prop === 'page' && value === 1) return true
+
+    return false
   }
 }

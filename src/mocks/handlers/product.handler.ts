@@ -42,7 +42,7 @@ const products = times(27, createFakeProductListItem)
 
 const handlers = [
   http.get('/api/product', async ({ request }) => {
-    const response = CreatePagedResponse<ProductListDto>(request, products)
+    const response = CreatePagedResponse<ProductListDto>(request, products, 'name', ['status'])
     await delay(1000)
     return HttpResponse.json(response, { status: 200 })
   }),

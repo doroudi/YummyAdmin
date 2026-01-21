@@ -1,3 +1,4 @@
+import { filter } from 'lodash'
 import type { ListResult } from '~/models/ListResult'
 import type { PaginatedList } from '~/models/PagedListResult'
 
@@ -5,19 +6,19 @@ export function CreatePagedResponse<T extends { [key: string]: any }>(
   req: any,
   items: T[],
   searchKey = 'name',
+  filterParams: any[] = [],
 ): PaginatedList<T> {
   const url = new URL(req.url)
   const query = url.searchParams.get('query')
   const sortBy = url.searchParams.get('sortBy')
   const sortDescending = url.searchParams.get('sortDesc')
-  let filteredItems = items
+  let filteredItems = getFilteredItems(items, filterParams, url.searchParams)
   if (query)
     filteredItems = items.filter((x) =>
       x[searchKey].toLowerCase().includes(query.toLowerCase()),
     )
 
-  if(sortBy)
-      filteredItems.sort((a,b) => a[sortBy] - b[sortBy])
+  if (sortBy) filteredItems.sort((a, b) => a[sortBy] - b[sortBy])
 
   const pageSize = url.searchParams.get('pageSize')
   const skipCount = url.searchParams.get('page')
@@ -31,6 +32,29 @@ export function CreatePagedResponse<T extends { [key: string]: any }>(
     hasNextPage: skip + count < filteredItems.length,
     pageNumber: Math.floor(skip / count) + 1,
   }
+}
+
+function getFilteredItems(items: any[], filterParams: any[], params: any) {
+  for (let i = 0; i < filterParams.length; i++) {
+    const filter = filterParams[i]
+    const filterParameter = params.get(filter)
+    if (filterParameter) {
+      if (
+        filterParameter == null ||
+        (Array.isArray(filterParameter) && filterParameter.length === 0)
+      ) {
+        continue
+      }
+
+      if(Array.isArray(filterParameter)) {
+        items = items.filter(i => filterParameter.indexOf(x => x[filter] >= 0))
+      }
+      else
+        items = items.filter((x) => x[filter] == filterParameter)
+    }
+  }
+
+  return items
 }
 
 export function CreateListResponse<T extends { [key: string]: any }>(
