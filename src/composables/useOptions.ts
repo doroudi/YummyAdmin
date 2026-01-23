@@ -11,7 +11,7 @@ type Options = Partial<PagedAndSortedRequest> & {
   page: number
   pageSize: number
   showSizePicker: boolean
-  pageSizes: Array<{ label: string; value: number }>
+  pageSizes?: Array<{ label: string; value: number }>
 }
 
 const DEFAULTS = {
@@ -231,7 +231,7 @@ export function useOptions(autoBind = true) {
       page: DEFAULTS.page,
       pageSize: DEFAULTS.pageSize,
       showSizePicker: true,
-      pageSizes,
+      // pageSizes,
     }
 
     // If you want to preserve some other keys, add them here:

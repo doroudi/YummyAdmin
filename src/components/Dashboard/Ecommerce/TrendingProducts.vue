@@ -46,6 +46,6 @@ const columns: DataTableColumns<RowData> = [
 
 <template>
   <div>
-    <YummyDataTable :loading="store.isLoading" :columns="columns" :data="store.trendingProducts" :scroll-x="500" />
+    <YummyDataTable :loading="store.isLoading" no-pagination :columns="columns" :rows="store.trendingProducts" :scroll-x="500" />
   </div>
 </template>
