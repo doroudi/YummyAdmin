@@ -168,33 +168,6 @@ function fetchProducts(options: any) {
   <n-layout>
     <n-layout-content>
       <div class="px-3">
-        <!-- <NSpace justify="space-between" class="mb-3">
-          <div>
-
-            <SearchInput v-model="options.query" @search="getItems" />
-            <NButton v-if="filterApplied" @click="resetFilter()" secondary type="primary" class="ms-2">
-              <template #icon>
-                <NIcon>
-                  <FilterIcon />
-                </NIcon>
-              </template>
-{{ t('common.clearFilter') }}
-</NButton>
-</div>
-<div>
-  <DeleteSelectedItems v-if="checkedRows.length" @delete="handleDeleteSelected" />
-
-  <NButton type="primary" @click="router.push('/Products/Create')">
-    <template #icon>
-                <NIcon>
-                  <PlusIcon />
-                </NIcon>
-              </template>
-    {{ t('common.new') }}
-  </NButton>
-</div>
-</NSpace> -->
-        {{ checkedRows }}
         <YummyDataTable reload-on-mount :columns="columns" :rows="store.products" :row-key="(row: any) => row.id"
           :data="store.products" :loading="store.isLoading" :fetch="(opt: any) => fetchProducts(opt)"
           v-model:checkedRowKeys="checkedRows">

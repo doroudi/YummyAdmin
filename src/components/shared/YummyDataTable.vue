@@ -52,12 +52,7 @@ function handleFiltersChange(filterValues: Record<string, FilterOptionValue[] | 
     reload()
 }
 
-/**
- * 3-state sort cycle: none -> ascend -> descend -> none
- * We control it by storing sortBy + sortDir in options.
- */
 type SortDir = 'asc' | 'desc'
-
 function nextSort(clickedKey: string) {
     const sortBy = (options.value as any).sortBy as string | undefined
     const sortDir = (options.value as any).sortDir as SortDir | undefined
@@ -73,12 +68,12 @@ function nextSort(clickedKey: string) {
 function handleSorterChange(sorter: DataTableSortState | null) {
     const key = (sorter as any)?.columnKey ?? (sorter as any)?.key
     if (!key) {
-        ; (options.value as any).sortBy = undefined
-            ; (options.value as any).sortDir = undefined
+        (options.value as any).sortBy = undefined;
+        (options.value as any).sortDir = undefined;
     } else {
-        const next = nextSort(String(key))
-            ; (options.value as any).sortBy = next.sortBy
-            ; (options.value as any).sortDir = next.sortDir
+        const next = nextSort(String(key));
+        (options.value as any).sortBy = next.sortBy;
+        (options.value as any).sortDir = next.sortDir;
     }
 
     if (props.resetPageOnSortChange) options.value.page = 1
@@ -87,29 +82,27 @@ function handleSorterChange(sorter: DataTableSortState | null) {
 
 onMounted(async () => {
     // if (props.reloadOnMount)
-        await reload()
+    await reload()
 })
 
 </script>
 
 <template>
+    <p class="hidden">{{ rows.length }}</p>
     <SkeletonTable v-if="initLoading" :columns="columns" />
-
     <div v-else>
         <slot name="toolbar" :options="options" :filterApplied="filterApplied" :resetFilters="resetAndReload"
             :reload="reload" :checkedRowKeys="checkedRowKeysModel" />
-
-        <n-data-table remote selectable :columns="internalColumns" :data="rows" :loading="loading" :pagination="!noPagination && options" :row-key="rowKey"
-            :scroll-x="scrollX" :checked-row-keys="checkedRowKeysModel"
-            @update:checked-row-keys="checkedRowKeysModel = $event" @update:page="handlePageChange"
-            @update:page-size="handlePageSizeChange" @update:filters="handleFiltersChange"
-            @update:sorter="handleSorterChange">
+        <n-data-table remote selectable :columns="internalColumns" :data="rows" :loading="loading"
+            :pagination="!noPagination && options" :row-key="rowKey" :scroll-x="scrollX"
+            :checked-row-keys="checkedRowKeysModel" @update:checked-row-keys="checkedRowKeysModel = $event"
+            @update:page="handlePageChange" @update:page-size="handlePageSizeChange"
+            @update:filters="handleFiltersChange" @update:sorter="handleSorterChange">
             <template #empty>
                 <slot name="empty" />
             </template>
         </n-data-table>
     </div>
 </template>
-
 
 <style scoped></style>
