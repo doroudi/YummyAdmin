@@ -1,3 +1,69 @@
+title: Yummy Admin
+description: Free Vue 3 Dashboard
+direction: ltr
+currencySign: $
+home: Home
+not-found: Not found
+languages:
+  ar: Arabic
+  zn: Chinese
+  de: German
+  en: English
+  fa: Persian
+  tr: Turkish
+enums:
+  OrderStatus:
+    Delivered: Delivered
+    Processing: Processing
+    ReadyToSend: ReadyToSend
+    Sent: Sent
+    Submitted: Submitted
+  ProductStatus:
+    Active: Active
+    Draft: Draft
+    NotActive: NotActive
+common:
+  403Error: You have not Permission to access
+  404Error: 404 Error
+  404Message: >-
+    Sorry but the page you are looking for does not exist, have been removed.
+    name changed or is temporarily unavailable
+  500Error: 500 Error
+  500Message: >-
+    Something went wrong. Please try again later or contact the administrator if
+    the problem persists.
+  actions: Actions
+  cancel: Cancel
+  confirm: Confirm
+  create: Create
+  currency: USD
+  date: Date
+  day: Day
+  delete: Delete
+  deleteConfirm: Are you sure to delete this item?
+  deleteMultipleConfirm: Are you sure to delete selected items?
+  deletedMessage: Deleted Successfully
+  goHome: Back To Home
+  locale: en-US
+  maintenance: Website in under maintenance
+  maintenanceDetail: >-
+    We are currently performing scheduled maintenance. We will be back online
+    shortly!
+  month: Month
+  name: Name
+  new: New
+  notFound: Not Found
+  oops: Oops Page
+  price: Price
+  search: Search
+  status: Status
+  week: Week
+  refresh: Refresh
+  settings: Settings
+  perPage: per page
+  filter: Filter
+  clearFilter: Clear Filters
+
 brands:
   brand: Brand
   create:
@@ -28,7 +94,7 @@ button:
 charts:
   loading: Loading chart data...
   notData: No chart data available
-  unableToDisplay:  Unable to display chart
+  unableToDisplay: Unable to display chart
 categories:
   count: Count
   create:
@@ -63,44 +129,8 @@ colors:
   validations:
     colorRequired: Color not selected
     nameRequired: Name is required
-common:
-  403Error: You have not Permission to access
-  404Error: 404 Error
-  404Message: >-
-    Sorry but the page you are looking for does not exist, have been removed.
-    name changed or is temporarily unavailable
-  500Error: 500 Error
-  500Message: >-
-    Something went wrong. Please try again later or contact the administrator if
-    the problem persists.
-  actions: Actions
-  cancel: Cancel
-  confirm: Confirm
-  create: Create
-  currency: USD
-  date: Date
-  day: Day
-  delete: Delete
-  deleteConfirm: Are you sure to delete this item?
-  deletedMessage: Deleted Successfully
-  goHome: Back To Home
-  locale: en-US
-  maintenance: Website in under maintenance
-  maintenanceDetail: >-
-    We are currently performing scheduled maintenance. We will be back online
-    shortly!
-  month: Month
-  name: Name
-  new: New
-  notFound: Not Found
-  oops: Oops Page
-  price: Price
-  search: Search
-  status: Status
-  week: Week
-  refresh: Refresh
-  settings: Settings
-currencySign: $
+  deleteMessage: Color deleted successfully!
+  createMessage: New color was added successfully!
 customers:
   customerName: Customer Name
   email: Email
@@ -108,6 +138,8 @@ customers:
   ordersCount: Orders Count
   phone: Phone
   title: Customers
+  points: Points
+  userGroup: UserGroup
 customize:
   color: Color
   flatDesign: Flat Design
@@ -152,19 +184,6 @@ analyticsDashboard:
   summary: Summary
   pages: Pages
   source: Source
-description: Free Vue 3 Dashboard
-direction: ltr
-enums:
-  OrderStatus:
-    Delivered: Delivered
-    Processing: Processing
-    ReadyToSend: ReadyToSend
-    Sent: Sent
-    Submitted: Submitted
-  ProductStatus:
-    Active: Active
-    Draft: Draft
-    NotActive: NotActive
 forgot:
   button: Recover
   email: Email
@@ -177,14 +196,6 @@ forgot:
   sendEmailSuccess: Email Sent Successfully, Please Check Your Email
   title: Forgot Password
   username: User Name
-home: Home
-languages:
-  ar: Arabic
-  zn: Chinese
-  de: German
-  en: English
-  fa: Persian
-  tr: Turkish
 login:
   createAccount: Create One!
   failedMessage: Login Failed
@@ -202,6 +213,7 @@ login:
     passwordRequired: Password is required
     userNameRequired: Enter username
   welcome: Welcome Back!
+  loginUsing: Login Using
 menu:
   accountSettings: Account Settings
   analytics: Analytics
@@ -249,11 +261,19 @@ menu:
   data: Data Tables
   typography: Typography
   icons: Icons
-not-found: Not found
 notifications:
   clear: Clear All
   empty: No notifications
   title: Notifications
+  order: Order
+  security: Security
+  productStock: Product Stock
+  stats: Stats
+  orderSubmitted: New Order Submitted
+  passwordExpire: Your password will expires in {count} days
+  customerRegister: "{count} New Customers registered yesterday"
+  stockWarning: Product stock is getting low
+  orderCanceled: An order was canceled
 notify:
   welcome: >-
     Welcome to Yummy Admin! Free Admin Panel based on NaiveUI and Vue3, please
@@ -284,6 +304,7 @@ products:
   rate: Rate
   stock: stock
   stoke: Stoke
+  deleteMessage: Product was deleted!
 profile:
   changePassword: Change Password
   confirmPassword: Confirm Password
@@ -329,7 +350,6 @@ support:
   github:
     title: Star On Github
     tooltip: Support this project by giving a star ⭐️ on GitHub
-title: Yummy Admin
 todoApp:
   completed: Completed
   createGroup:

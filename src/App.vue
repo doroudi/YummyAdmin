@@ -35,7 +35,7 @@ import useColors from './composables/useColors'
 
 const layout = useLayoutStore()
 
-const rtlStyles = [
+const rtlStyles = computed(() => !layout.isRtl? [] : [
   buttonRtl,
   tableRtl,
   inputRtl,
@@ -60,7 +60,7 @@ const rtlStyles = [
   unstableDrawerRtl,
   unstableMessageRtl,
   unstablePaginationRtl,
-]
+])
 
 const customTheme = ref({ ...themeOverrides })
 const customDarkTheme = ref({ ...themeOverrides, ...darkThemeOverrides })
@@ -101,16 +101,20 @@ watch(
 )
 
 function setThemeColor(newValue: string) {
-  if (newValue === '') return
+  if (newValue === '') 
+    return
 
   const shade1 = makeLighter(newValue, 0.8)
-  const shade2 = makeLighter(newValue, 0.6)
-  const shade3 = makeLighter(newValue, 0.4)
+  const shade2 = makeLighter(newValue, 0.7)
+  const shade3 = makeLighter(newValue, 0.7)
+
   document.documentElement.style.setProperty('--primary-color', newValue)
   document.documentElement.style.setProperty('--primary-color-shade1', shade1)
   document.documentElement.style.setProperty('--primary-color-shade2', shade2)
   document.documentElement.style.setProperty('--primary-color-shade3', shade3)
-  if (!customTheme.value.common || !customDarkTheme.value.common) return
+  
+  if (!customTheme.value.common || !customDarkTheme.value.common) 
+    return
 
   customTheme.value.common.primaryColor = newValue
   customTheme.value.common.primaryColorHover = shade1
@@ -121,28 +125,17 @@ function setThemeColor(newValue: string) {
   customDarkTheme.value.common.primaryColorHover = shade1
   customDarkTheme.value.common.primaryColorPressed = shade2
   customDarkTheme.value.common.primaryColorSuppl = shade3
-
-  customTheme.value.Button = {
-    color: newValue,
-    colorHover: shade1,
-    colorPressed: shade2,
-    colorFocus: shade3,
-  }
   customDarkTheme.value.common.primaryColor = newValue
-  customDarkTheme.value.Button = {
-    color: newValue,
-    colorHover: shade1,
-    colorPressed: shade2,
-    colorFocus: shade3,
-  }
 }
+
+const placement = computed(() => layout.isRtl ? 'bottom-left' : 'bottom-right')
 </script>
 
 <template>
   <n-config-provider inline-theme-disabled :theme="activeTheme" :theme-overrides="activeThemeOverrides"
-    :rtl="layout.isRtl ? rtlStyles : []" :preflight-style-disabled="false">
-    <n-notification-provider :placement="layout.isRtl ? 'bottom-left' : 'bottom-right'">
-      <n-message-provider placement="bottom-right">
+    :rtl="rtlStyles" :preflight-style-disabled="false">
+    <n-notification-provider :placement="placement">
+      <n-message-provider :placement="placement">
         <n-dialog-provider>
           <DarkModeContainer class="z-1" />
           <RouterView />

@@ -15,20 +15,18 @@ export const useProductStore = defineStore('Product', () => {
     try {
       const response = await productService.getPagedList(options)
       products.value = response.items
-      options.pageCount = Math.ceil(
-        response.totalCount! / options.itemsPerPage!,
-      )
+      options.pageCount = Math.ceil(response.totalCount! / options.pageSize!)
     } finally {
       isLoading.value = false
     }
   }
 
-  async function getTrendingProducts(itemsPerPage = 5) {
+  async function getTrendingProducts(pageSize = 5) {
     isLoading.value = true
     try {
       const response = await productService.getPagedList({
         page: 1,
-        itemsPerPage,
+        pageSize,
       })
       trendingProducts.value = response.items
     } finally {
@@ -46,8 +44,21 @@ export const useProductStore = defineStore('Product', () => {
   }
 
   async function deleteProduct(id: string) {
+    await productService.delete(id)
+    products.value.splice(
+      products.value.findIndex((x: Product) => x.id === id),
+      1,
+    )
+  }
+
+  async function deleteMultipleProducts(ids: string[]) {
+    ids.forEach(async (id) => {
       await productService.delete(id)
-      products.value.splice(products.value.findIndex((x: Product) => x.id === id),1)
+      products.value.splice(
+        products.value.findIndex((x: Product) => x.id === id),
+        1,
+      )
+    })
   }
 
   function editProduct() {}
@@ -63,6 +74,7 @@ export const useProductStore = defineStore('Product', () => {
     deleteProduct,
     editProduct,
     getTrendingProducts,
+    deleteMultipleProducts,
   }
 })
 if (import.meta.hot)

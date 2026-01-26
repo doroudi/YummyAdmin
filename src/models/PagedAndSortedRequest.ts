@@ -2,13 +2,13 @@ export interface PagedAndSortedRequest {
   sortBy?: string
   sortDesc?: string
   page: number
-  itemsPerPage?: number
+  pageSize?: number
   [key: string]: any
 }
 
 const defaultOptions: PagedAndSortedRequest = {
   page: 1,
-  itemsPerPage: 10,
+  pageSize: 10,
 }
 
 export { defaultOptions }

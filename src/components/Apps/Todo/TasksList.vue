@@ -2,7 +2,6 @@
 import {
   Add20Regular as AddIcon,
   Circle20Regular as CircleIcon,
-  Send28Filled as SendIcon,
 } from '@vicons/fluent'
 import { storeToRefs } from 'pinia'
 import type { TaskGroup, TaskItem } from '~/models/Todo'
@@ -99,13 +98,13 @@ function deleteTask(id: number) {
     <div class="flex-1 flex-col justify-end mb-1 overflow-y-auto">
       <n-scrollbar>
         <TaskItem v-for="item of orderedTasks" :key="item.id" :task="item" class="my-2"
-          @toggle="value => toggleDoneTask(item.id, value)" @fav="favTask(item.id)" @delete="deleteTask(item.id)" />
+          @toggle="(value: any) => toggleDoneTask(item.id, value)" @fav="favTask(item.id)" @delete="deleteTask(item.id)" />
 
         <div pt-2 v-if="doneTasks.length">
           <n-collapse>
             <n-collapse-item :title="`${t('todoApp.completed')}  ${doneTasks.length}`" name="done">
               <TaskItem v-for="item of doneTasks" :key="item.id" :task="item" class="my-2"
-                @toggle="value => toggleDoneTask(item.id, value)" @fav="favTask(item.id)"
+                @toggle="(value : any) => toggleDoneTask(item.id, value)" @fav="favTask(item.id)"
                 @delete="deleteTask(item.id)" />
             </n-collapse-item>
           </n-collapse>

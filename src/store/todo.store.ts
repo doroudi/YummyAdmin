@@ -40,20 +40,20 @@ export const useTodoAppStore = defineStore('Todo', () => {
   }
 
   function toggleDoneTask(id: number) {
-    const task = tasks.value.find((x) => x.id === id)
+    const task = tasks.value.find((x: TaskItem) => x.id === id)
     task.isDone = !task.isDone
     task.doneDate = new Date()
   }
 
   function toggleFavTask(id: number) {
-    const task = tasks.value.find((x) => x.id === id)
+    const task = tasks.value.find((x: TaskItem) => x.id === id)
     task.isFavorite = !task.isFavorite
     if (task.isFavorite) window.umami?.track('Todo:FavTask')
   }
 
   function deleteTask(id: number) {
-    const taskIndex = tasks.value.findIndex((x) => x.id === id)
-    if (taskIndex) {
+    const taskIndex = tasks.value.findIndex((x: TaskItem) => x.id === id)
+    if (taskIndex > -1) {
       tasks.value.splice(taskIndex, 1)
     }
   }
@@ -63,6 +63,15 @@ export const useTodoAppStore = defineStore('Todo', () => {
     tasks.value.unshift({ id: result.id, title: task.title })
     window.umami?.track('Todo:CreateTask', { title: task.title })
   }
+
+  const counts = computed(() => {
+    return groups.value.map((g: TaskGroup) => ({
+      id: g.id,
+      count: tasks.value.filter(
+        (x: TaskItem) => x.groupId === g.id && !x.isDone,
+      ).length,
+    }))
+  })
 
   return {
     isLoadingGroups,
@@ -77,6 +86,7 @@ export const useTodoAppStore = defineStore('Todo', () => {
     toggleFavTask,
     deleteGroup,
     deleteTask,
+    counts,
   }
 })
 if (import.meta.hot)

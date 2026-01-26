@@ -1,24 +1,22 @@
 <script setup lang='ts'>
 import {
-  Delete20Regular as DeleteIcon,
   Add24Filled as PlusIcon,
+  FilterDismiss24Regular as FilterIcon
 } from '@vicons/fluent'
-import { useMessage } from 'naive-ui'
-import type { DataTableColumns, DataTableRowKey } from 'naive-ui/es/components'
+import type { DataTableColumns, DataTableRowKey, DataTableSortState } from 'naive-ui/es/components'
 import { NButton, NIcon, NSpace, NSwitch, NText } from 'naive-ui/es/components'
-import type { RowData } from 'naive-ui/es/data-table/src/interface'
+import type { FilterOptionValue, RowData } from 'naive-ui/es/data-table/src/interface'
 import { ProductStatus } from '~/models/Product'
+import YummyDataTable from '../shared/YummyDataTable.vue'
 
+const { enumToFilter } = useFilter()
 const { t } = useI18n()
 const store = useProductStore()
-const message = useMessage()
 const router = useRouter()
 const { renderDeleteActionButton } = useRender()
-const { options } = useOptions()
+const { options, bindOptionsToDataTable, filterApplied, resetFilters } = useOptions()
 
 const { renderPrice, renderRate, renderTag, renderProductImage } = useRender()
-
-onMounted(getItems)
 
 const columns: DataTableColumns<RowData> = [
   {
@@ -46,16 +44,21 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('products.rate'),
     key: 'rate',
+    sorter: true,
     render: (row) => renderRate(row.rate),
   },
   {
     title: t('common.price'),
     key: 'price',
+    sorter: true,
     render: (row) => renderPrice(row.price, t('currencySign')),
   },
   {
     title: t('common.status'),
     key: 'status',
+    filter: true,
+    filterOptionValues: [],
+    filterOptions: enumToFilter(ProductStatus, 'ProductStatus'),
     render: (row) =>
       renderTag(
         row.status,
@@ -80,6 +83,13 @@ const columns: DataTableColumns<RowData> = [
     ],
   },
 ]
+
+onMounted(() => {
+  bindOptionsToDataTable(columns)
+  getItems()
+})
+
+const show = ref(false)
 function getStatusColor(status: ProductStatus) {
   switch (status) {
     case ProductStatus.Draft:
@@ -93,7 +103,7 @@ function getStatusColor(status: ProductStatus) {
 
 async function handleDeleteItem(row: RowData) {
   await store.deleteProduct(row.id)
-  message.success('Product was deleted!')
+  useNotifyStore().success(t('products.deleteMessage'))
 }
 
 function rowKey(row: RowData) {
@@ -108,62 +118,101 @@ function handlePageChange(page: number) {
   getItems()
 }
 
-function handleSorterChange() {
+function onUpdatePageSize(pageSize: number) {
+  options.value.pageSize = pageSize
+  options.value.page = 1
   getItems()
-}
-
-function handleFiltersChange() {
-  getItems()
-}
-
-let searchTimerId: any = null
-function searchInListDebounced(value: string) {
-  clearTimeout(searchTimerId)
-  options.value.query = value
-  searchTimerId = setTimeout(() => {
-    getItems()
-  }, 500) /* 500ms throttle */
 }
 
 const checkedRows = ref<DataTableRowKey[]>([])
 function handleCheck(checkedRowKeys: DataTableRowKey[]) {
   checkedRows.value = checkedRowKeys
 }
+
+async function handleDeleteSelected() {
+  await store.deleteMultipleProducts(checkedRows.value)
+  useNotifyStore().success(t('products.deleteMessage'))
+
+  checkedRows.value = []
+}
+
+function handleSorterChange(sorter: DataTableSortState) {
+  options.value.sortBy = sorter.columnKey
+
+  // if (sorter.order === 'descend')
+  //   options.value.sortDesc = 'true'
+
+  bindOptionsToDataTable(columns)
+  getItems()
+}
+
+function handleFiltersChange(filterValues: FilterOptionValue[] | null) {
+  options.value = { ...options.value, ...filterValues }
+  bindOptionsToDataTable(columns)
+  getItems()
+}
+
+function resetFilter() {
+  resetFilters()
+  bindOptionsToDataTable(columns)
+  getItems()
+}
+
+function fetchProducts(options: any) {
+  store.getProducts(options)
+}
+
 </script>
 
 <template>
   <n-layout>
     <n-layout-content>
       <div class="px-3">
-        <NSpace justify="space-between" class="mb-3">
-          <SearchInput v-model="options.query" @search="getItems" />
-          <div>
-            <n-tooltip v-if="checkedRows.length" trigger="hover">
-              <template #trigger>
-                <NButton mx-2 quaternary circle>
+        <YummyDataTable reload-on-mount :columns="columns" :rows="store.products" :row-key="(row: any) => row.id"
+          :data="store.products" :loading="store.isLoading" :fetch="(opt: any) => fetchProducts(opt)"
+          v-model:checkedRowKeys="checkedRows">
+          <template #toolbar="{ filterApplied, resetFilters }">
+            <!-- <n-button :disabled="!filterApplied" @click="resetFilters()">Reset</n-button>
+            <n-button :disabled="!checkedRows.length" @click="deleteSelected()">Delete</n-button> -->
+
+            <NSpace justify="space-between" class="mb-3">
+              <div>
+                <SearchInput v-model="options.query" @search="getItems" />
+                <NButton v-if="filterApplied" @click="resetFilters()" secondary type="primary" class="ms-2">
                   <template #icon>
                     <NIcon>
-                      <DeleteIcon />
+                      <FilterIcon />
                     </NIcon>
                   </template>
+                  {{ t('common.clearFilter') }}
                 </NButton>
-              </template>
-              <span>{{ t('common.delete') }}</span>
-            </n-tooltip>
-            <NButton type="primary" @click="router.push('/Products/Create')">
-              <template #icon>
-                <NIcon>
-                  <PlusIcon />
-                </NIcon>
-              </template>
-              {{ t('common.new') }}
-            </NButton>
-          </div>
-        </NSpace>
-        <SkeletonTable v-if="store.isLoading" :columns="columns" />
+              </div>
+              <div>
+                <DeleteSelectedItems v-if="checkedRows.length" @delete="handleDeleteSelected" />
+
+                <NButton type="primary" @click="router.push('/Products/Create')">
+                  <template #icon>
+                    <NIcon>
+                      <PlusIcon />
+                    </NIcon>
+                  </template>
+                  {{ t('common.new') }}
+                </NButton>
+              </div>
+            </NSpace>
+          </template>
+
+          <template #empty>
+            No products found.
+          </template>
+        </YummyDataTable>
+
+        <!-- <YummyDataTable :fetch ="(opts)=> store.getProducts(mapToApi(opts))" /> -->
+        <!-- <SkeletonTable v-if="store.isLoading" :columns="columns" />
         <n-data-table v-else remote :columns="columns" :data="store.products" :pagination="options" selectable
-          :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange" @update:filters="handleFiltersChange"
-          @update:checked-row-keys="handleCheck" @update:page="handlePageChange" />
+          :row-key="rowKey" :scroll-x="1000" @update:sorter="handleSorterChange" @update:pageSize="onUpdatePageSize"
+          @update:filters="handleFiltersChange" @update:checked-row-keys="handleCheck"
+          @update:page="handlePageChange" /> -->
       </div>
     </n-layout-content>
   </n-layout>

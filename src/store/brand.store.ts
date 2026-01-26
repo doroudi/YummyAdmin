@@ -18,9 +18,7 @@ export const useBrandStore = defineStore('Brand', () => {
     try {
       const response = await brandService.getPagedList(options)
       brands.value = response.items
-      options.pageCount = Math.ceil(
-        response.totalCount! / options.itemsPerPage!,
-      )
+      options.pageCount = Math.ceil(response.totalCount! / options.pageSize!)
     } catch (err) {
       console.error(err)
     } finally {

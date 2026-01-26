@@ -9,12 +9,11 @@ const { t } = useI18n()
 const store = useCustomerStore()
 const message = useMessage()
 const { options } = useOptions()
-const { renderActionButton, renderDeleteActionButton, renderUserAvatar } =
+const { renderActionButton, renderDeleteActionButton, renderUserAvatar, renderEmailAddress, renderDate } =
   useRender()
 
-onMounted(() => {
-  getItems()
-})
+onMounted(getItems)
+
 const columns: DataTableColumns<RowData> = [
   {
     type: 'expand',
@@ -29,35 +28,17 @@ const columns: DataTableColumns<RowData> = [
   {
     title: t('customers.joinDate'),
     key: 'join-date',
-    render(row) {
-      return h(
-        NText,
-        {},
-        {
-          default: () => new Date(row.joinDate).toLocaleDateString(),
-        },
-      )
-    },
+    render: (row) => renderDate(row.joinDate)
   },
   {
     title: t('customers.phone'),
     key: 'phone',
-    render(row) {
-      return [h(NText, {}, { default: () => row.mobile })]
-    },
+    render: (row) => renderEmailAddress(row.mobile, row.phoneConfirmed)
   },
   {
     title: t('customers.email'),
     key: 'email',
-    render(row) {
-      return h(
-        NText,
-        {},
-        {
-          default: () => row.email.toLowerCase(),
-        },
-      )
-    },
+    render: (row) => renderEmailAddress(row.email, row.emailConfirmed)
   },
   {
     title: t('customers.ordersCount'),
@@ -68,7 +49,7 @@ const columns: DataTableColumns<RowData> = [
     key: 'actions',
     width: 110,
     render: (row) => [
-      renderActionButton(EditIcon, () => {}),
+      renderActionButton(EditIcon, () => { }),
       renderDeleteActionButton(t('common.deleteConfirm'), () =>
         handleDeleteItem(row),
       ),
@@ -94,6 +75,7 @@ function handleDeleteItem(item: RowData) {
 function rowKey(row: RowData) {
   return row.id
 }
+
 function getItems() {
   store.getCustomers(options.value)
 }
@@ -112,8 +94,8 @@ function handlePageChange(page: number) {
           <SearchInput v-model="options.query" @search="getItems" />
         </NSpace>
         <SkeletonTable v-if="store.isLoading" :columns="columns" />
-        <n-data-table v-else remote selectable :columns="columns" :data="store.customers"
-          :pagination="options" :row-key="rowKey" :scroll-x="1000" @update:sorter="getItems" @update:filters="getItems"
+        <n-data-table v-else remote selectable :columns="columns" :data="store.customers" :pagination="options"
+          :row-key="rowKey" :scroll-x="1000" @update:sorter="getItems" @update:filters="getItems"
           @update:page="handlePageChange" @update:checked-row-keys="handleCheck" />
       </div>
     </n-layout-content>

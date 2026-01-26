@@ -26,10 +26,7 @@ function arrayToKeyValue(arr: LocationChartSeries[]) {
 }
 
 function onMapItemClick(areaId: string) {
-  if (areaId === 'IR') {
-    window.umami?.track('VisitIran')
-    window.open('https://www.visitiran.ir/')
-  }
+  
 }
 </script>
 

@@ -1,3 +1,27 @@
+title: لوحة تحكم يامي
+description: لوحة تحكم Vue 3 مجانية
+direction: rtl
+currencySign: درهم
+home: الرئيسية
+not-found: غير موجود
+languages:
+  ar: العربية
+  zn: الصينية
+  de: الألمانية
+  en: الإنجليزية
+  fa: الفارسية
+  tr: التركية
+enums:
+  OrderStatus:
+    Delivered: تم التوصيل
+    Processing: تحت المعالجة
+    ReadyToSend: جاهز للإرسال
+    Sent: تم الإرسال
+    Submitted: تم الإرسال
+  ProductStatus:
+    Active: نشط
+    Draft: مسودة
+    NotActive: غير نشط
 analyticsDashboard:
   bounceRate: معدل الارتداد
   views: وجهات النظر
@@ -79,7 +103,7 @@ common:
   cancel: يلغي
   confirm: يتأكد
   create: يخلق
-  currency: درهم
+  currency: AED
   date: تاریخ
   day: یوم
   delete: يمسح
@@ -102,7 +126,8 @@ common:
   settings: إعدادات
   status: حالة
   week: أسبوع
-currencySign: درهم
+  filter: الفلتر
+  clearFilter: مسح الفلتر
 customers:
   customerName: اسم العميل
   email: البريد الإلكتروني
@@ -152,19 +177,6 @@ dashboard:
       طاب يومك!
       يسعدنا رؤيتك هنا.
     title: مرحباً بعودتك!
-description: لوحة تحكم Vue 3 مجانية
-direction: rtl
-enums:
-  OrderStatus:
-    Delivered: تم التوصيل
-    Processing: تحت المعالجة
-    ReadyToSend: جاهز للإرسال
-    Sent: تم الإرسال
-    Submitted: تم الإرسال
-  ProductStatus:
-    Active: نشط
-    Draft: مسودة
-    NotActive: غير نشط
 forgot:
   button: استعادة
   email: البريد الإلكتروني
@@ -177,14 +189,6 @@ forgot:
   sendEmailSuccess: تم إرسال البريد الإلكتروني بنجاح، يرجى التحقق من بريدك الإلكتروني
   title: نسيت كلمة المرور
   username: اسم المستخدم
-home: الرئيسية
-languages:
-  ar: العربية
-  zn: الصينية
-  de: الألمانية
-  en: الإنجليزية
-  fa: الفارسية
-  tr: التركية
 login:
   createAccount: أنشئ واحداً!
   failedMessage: فشل تسجيل الدخول
@@ -202,10 +206,10 @@ login:
     passwordRequired: كلمة المرور مطلوبة
     userNameRequired: أدخل اسم المستخدم
   welcome:
-    congratulations1: ''
-    congratulations2: ''
-    greeting_message: ''
-    title: ''
+    congratulations1: ""
+    congratulations2: ""
+    greeting_message: ""
+    title: ""
 menu:
   accountSettings: إعدادات الحساب
   analytics: التحليلات
@@ -234,14 +238,14 @@ menu:
   maintenance: صيانة
   messages: الرسائل
   news: الأخبار
-  notFound: '404'
+  notFound: "404"
   notifications: الإشعارات
   orders: الطلبات
   other: آخر
   pages: الصفحات
   productManagement: إدارة المنتجات
   products: المنتجات
-  productsManagement: ''
+  productsManagement: ""
   profile: حساب تعريفي
   register: تسجيل الدخول
   reviews: المراجعات
@@ -252,11 +256,19 @@ menu:
   typography: الطباعة
   users: المستخدمون
   websiteSettings: إعدادات الموقع
-not-found: غير موجود
 notifications:
   clear: مسح كل شيء
   empty: لا يوجد إشعارات
   title: إشعارات
+  order: طلب
+  security: أمان
+  productStock: مخزون المنتج
+  stats: إحصائيات
+  orderSubmitted: تم تقديم طلب جديد
+  passwordExpire: كلمة المرور الخاصة بك ستنتهي في خلال {count} يوم
+  customerRegister: "{count} عميل جديد سجلوا أمس"
+  stockWarning: مخزون المنتج منخفض
+  orderCanceled: تم إلغاء طلب
 notify:
   welcome: >-
     مرحبًا بك في  لوحة تحكم يامي! لوحة إدارة مجانية تعتمد على Naive UI وVue 3،
@@ -285,7 +297,7 @@ products:
     title: إنشاء منتج
   name: الاسم
   rate: التقييم
-  stock: ''
+  stock: ""
   stoke: المخزون
 profile:
   changePassword: تغيير كلمة المرور
@@ -332,7 +344,6 @@ support:
   github:
     title: یحب Github
     tooltip: ادعم هذا المشروع من خلال إعطاء نجمة ⭐️ على GitHub
-title: لوحة تحكم يامي
 todoApp:
   completed: مكتمل
   createGroup: إنشاء مجموعة

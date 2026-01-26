@@ -11,7 +11,7 @@ const options = [
 
 const model = defineModel({
   type: String,
-  default: '',
+  default: '📁',
 })
 
 const items = [
@@ -59,20 +59,19 @@ function renderEmojiPicker() {
 }
 
 function handleSelect(emoji: string) {
-  console.log('Selected emoji:', emoji)
   model.value = emoji
 }
 </script>
 
 <template>
-    <div>
-        <n-dropdown trigger="hover" :options="options" @select="handleSelect" style="max-width: 280px;">
-            <n-button ghost>
-                <span v-if="model">{{ model }}</span>
-                <span v-else>📁</span>
-            </n-button>
-        </n-dropdown>
-    </div>
+  <div>
+    <n-dropdown trigger="hover" :options="options" @select="handleSelect" style="max-width: 280px;">
+      <n-button ghost>
+        <span v-if="model">{{ model }}</span>
+        <span v-else>📁</span>
+      </n-button>
+    </n-dropdown>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

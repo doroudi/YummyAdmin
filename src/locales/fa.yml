@@ -1,3 +1,64 @@
+title: ادمین پنل یامی
+description: داشبورد رایگان vue3
+direction: rtl
+currencySign: ریال
+home: خانه
+not-found: یافت نشد
+languages:
+  ar: عربی
+  zn: چینی
+  de: آلمانی
+  en: انگلیسی
+  fa: فارسی
+  tr: ترکی
+enums:
+  OrderStatus:
+    Delivered: تحویل شده
+    Processing: درحال پردازش
+    ReadyToSend: آماده ارسال
+    Sent: ارسال شده
+    Submitted: ثبت شده
+  ProductStatus:
+    Active: فعال
+    Draft: پیش نویس
+    NotActive: غیر فعال
+common:
+  403Error: خطای دسترسی
+  404Error: 404 خطای
+  404Message: متاسفانه صفحه ای که دنبالش بودید پیدا نشد
+  500Error: خطای سرور
+  500Message: >-
+    مشکلی پیش آمده است. لطفا بعدا تلاش کنید یا اگر مشکل ادامه داشت با مدیر سایت
+    تماس بگیرید.
+  actions: عملیات
+  cancel: لغو کردن
+  confirm: تایید
+  create: ایجاد
+  currency: IRR
+  date: تاریخ
+  day: روز
+  delete: حذف کردن
+  deleteConfirm: آیا از حذف این مورد مطمئن هستید؟
+  deleteMultipleConfirm: آیا از حذف موارد انتخاب شده مطمئن هستید؟
+  deletedMessage: با موفقیت حذف شد
+  goHome: بازگشت به خانه
+  locale: fa-IR
+  maintenance: بروزرسانی
+  maintenanceDetail: |-
+    ما در حال حاضر تعمیر و نگهداری برنامه ریزی شده را انجام می دهیم. 
+    ما به زودی به صورت آنلاین باز خواهیم گشت!
+  month: ماه
+  name: نام
+  new: جدید
+  notFound: پیدا نشد
+  oops: صفحه
+  price: قیمت
+  refresh: تازه کردن
+  search: جستجو
+  settings: تنظیمات
+  status: وضعیت
+  week: هفته
+  perPage: در صفحه
 analyticsDashboard:
   bounceRate: نرخ بازگشت
   summary: خلاصه
@@ -66,42 +127,8 @@ colors:
   validations:
     colorRequired: رنگ الزامی است
     nameRequired: نام رنگ الزامی است
-common:
-  403Error: خطای دسترسی
-  404Error: 404 خطای
-  404Message: متاسفانه صفحه ای که دنبالش بودید پیدا نشد
-  500Error: خطای سرور
-  500Message: >-
-    مشکلی پیش آمده است. لطفا بعدا تلاش کنید یا اگر مشکل ادامه داشت با مدیر سایت
-    تماس بگیرید.
-  actions: عملیات
-  cancel: لغو کردن
-  confirm: تأیید کردن
-  create: ایجاد
-  currency: IRR
-  date: تاریخ
-  day: روز
-  delete: حذف کردن
-  deleteConfirm: آیا از حذف این مورد مطمئن هستید؟
-  deletedMessage: با موفقیت حذف شد
-  goHome: بازگشت به خانه
-  locale: fa-IR
-  maintenance: بروزرسانی
-  maintenanceDetail: |-
-    ما در حال حاضر تعمیر و نگهداری برنامه ریزی شده را انجام می دهیم. 
-    ما به زودی به صورت آنلاین باز خواهیم گشت!
-  month: ماه
-  name: نام
-  new: جدید
-  notFound: پیدا نشد
-  oops: صفحه
-  price: قیمت
-  refresh: تازه کردن
-  search: جستجو
-  settings: تنظیمات
-  status: وضعیت
-  week: هفته
-currencySign: ریال
+  deleteMessage: رنگ با موفقیت حذف شد!
+  createMessage: رنگ جدید با موفقیت اضافه شد
 customers:
   customerName: نام مشتری
   email: ایمیل
@@ -109,6 +136,8 @@ customers:
   ordersCount: تعداد سفارش ها
   phone: موبایل
   title: مشتریان
+  points: امتیاز ها
+  userGroup: گروه کاربری
 customize:
   color: رنگ
   flatDesign: طرح مسطح
@@ -148,19 +177,6 @@ dashboard:
     congratulations2: فروش رسیدید
     greeting_message: روز خوبی داشته باشید! خوشحالیم که اینجا هستید.
     title: خوش آمدید
-description: داشبورد رایگان vue3
-direction: rtl
-enums:
-  OrderStatus:
-    Delivered: تحویل شده
-    Processing: درحال پردازش
-    ReadyToSend: آماده ارسال
-    Sent: ارسال شده
-    Submitted: ثبت شده
-  ProductStatus:
-    Active: فعال
-    Draft: پیش نویس
-    NotActive: غیر فعال
 forgot:
   button: بازیابی
   email: ایمیل
@@ -173,14 +189,6 @@ forgot:
   sendEmailSuccess: ایمیل با موفقیت ارسال شد، لطفا ایمیل خود را بررسی کنید
   title: فراموشی رمز عبور
   username: نام کاربری
-home: خانه
-languages:
-  ar: عربی
-  zn: چینی
-  de: آلمانی
-  en: انگلیسی
-  fa: فارسی
-  tr: ترکی
 login:
   createAccount: یکی بسازید
   failedMessage: خطا در ورود
@@ -198,6 +206,7 @@ login:
     passwordRequired: رمز عبور الزامی است
     userNameRequired: نام کاربری الزامی است
   welcome: خوش آمدید
+  loginUsing: ورود با
 menu:
   accountSettings: تنظیمات کاربر
   analytics: آنالیز
@@ -245,11 +254,19 @@ menu:
   typography: تایپوگرافی
   users: کاربران
   websiteSettings: تنظیمات وبسایت
-not-found: یافت نشد
 notifications:
   clear: همه را پاک کنید
   empty: هیچ اعلانی وجود ندارد
   title: اعلان ها
+  order: سفارش
+  security: امنیت
+  productStock: موجودی محصول
+  stats: آمار
+  orderSubmitted: سفارش جدید ثبت شد
+  passwordExpire: رمز عبور شما در {count} روز دیگر منقضی می‌شود
+  customerRegister: "{count} مشتری جدید دیروز ثبت‌نام کردند"
+  stockWarning: موجودی محصول در حال کاهش است
+  orderCanceled: یک سفارش لغو شد
 notify:
   welcome: >-
     به پنل ادمین یامی خوش آمدید، لطفا این پروژه را با دادن یک ستاره ⭐️ در گیت
@@ -280,6 +297,7 @@ products:
   rate: امتیاز
   stock: موجود
   stoke: موجود
+  deleteMessage: محصول حذف شد
 profile:
   changePassword: تغییر رمز عبور
   confirmPassword: تأیید رمز عبور
@@ -325,7 +343,6 @@ support:
   github:
     title: امتیاز گیت هاب
     tooltip: این پروژه را با دادن یک ستاره ⭐️ در گیت هاب پشتیبانی کنید
-title: ادمین پنل یامی
 todoApp:
   completed: انجام شده
   createGroup:

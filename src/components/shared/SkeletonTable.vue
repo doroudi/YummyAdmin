@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import type { DataTableColumn } from 'naive-ui'
-import { NDataTable, NSkeleton } from 'naive-ui'
+import { NSkeleton } from 'naive-ui'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 
 interface Props {

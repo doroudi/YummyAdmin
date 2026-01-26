@@ -18,9 +18,7 @@ export const useColorStore = defineStore('Color', () => {
     try {
       const response = await colorService.getPagedList(options)
       colors.value = response.items
-      options.pageCount = Math.ceil(
-        response.totalCount! / options.itemsPerPage!,
-      )
+      options.pageCount = Math.ceil(response.totalCount! / options.pageSize!)
     } finally {
       isLoading.value = false
     }
@@ -40,7 +38,12 @@ export const useColorStore = defineStore('Color', () => {
 
   async function deleteColor(id: string) {
     await colorService.delete(id)
-    getColors(defaultOptions)
+    colors.value.splice(
+      colors.value.findIndex((x: Color) => x.id === id),
+      1,
+    )
+
+    // getColors(defaultOptions)
   }
 
   function editColor() {}

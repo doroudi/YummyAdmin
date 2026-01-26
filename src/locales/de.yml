@@ -1,3 +1,27 @@
+title: Yummy Admin
+description: Kostenloses Vue 3 Dashboard
+currencySign: €
+direction: ltr
+home: Startseite
+not-found: Nicht gefunden
+languages:
+  ar: Arabisch
+  zn: Chinesisch
+  de: Deutsch
+  en: Englisch
+  fa: Persisch
+  tr: Türkisch
+enums:
+  OrderStatus:
+    Delivered: Geliefert
+    Processing: Verarbeitung
+    ReadyToSend: Versandbereit
+    Sent: Gesendet
+    Submitted: Eingereicht
+  ProductStatus:
+    Active: Aktiv
+    Draft: Entwurf
+    NotActive: Nicht aktiv
 analyticsDashboard:
   bounceRate: Absprungrate
   views: Ansichten
@@ -104,7 +128,9 @@ common:
   settings: Einstellungen
   status: Status
   week: Woche
-currencySign: €
+  perPage: Per Page
+  filter: Filter
+  clearFilter: Filter löschen
 customers:
   customerName: Kundenname
   email: E-Mail
@@ -154,20 +180,6 @@ dashboard:
       Einen schönen Tag noch!
       Wir freuen uns, Sie hier zu sehen.
     title: Willkommen bei Yummy Administrator
-description: Kostenloses Vue 3 Dashboard
-direction: ltr
-enums:
-  OrderStatus:
-    Delivered: Geliefert
-    Processing: Verarbeitung
-    ReadyToSend: Versandbereit
-    Sent: Gesendet
-    Submitted: Eingereicht
-  ProductStatus:
-    Active: Aktiv
-    Draft: Entwurf
-    NotActive: Nicht aktiv
-fa: ''
 forgot:
   button: Wiederherstellen
   email: E-Mail
@@ -180,14 +192,6 @@ forgot:
   sendEmailSuccess: E-Mail erfolgreich gesendet, bitte überprüfen Sie Ihre E-Mail
   title: Passwort vergessen
   username: Benutzername
-home: Startseite
-languages:
-  ar: Arabisch
-  zn: Chinesisch
-  de: Deutsch
-  en: Englisch
-  fa: Persisch
-  tr: Türkisch
 login:
   createAccount: Erstellen Sie eins!
   failedMessage: Anmeldung fehlgeschlagen
@@ -254,11 +258,19 @@ menu:
   typography: Typografie
   users: Benutzer
   websiteSettings: Instellungen
-not-found: Nicht gefunden
 notifications:
   clear: Alle klar
   empty: Keine Benachrichtigungen
   title: Benachrichtigungen
+  order: Bestellung
+  security: Sicherheit
+  productStock: Produktbestand
+  stats: Statistiken
+  orderSubmitted: Neue Bestellung eingereicht
+  passwordExpire: Ihr Passwort läuft in {count} Tagen ab
+  customerRegister: "{count} neue Kunden haben sich gestern registriert"
+  stockWarning: Produktbestand wird knapp
+  orderCanceled: Eine Bestellung wurde storniert
 notify:
   welcome: >-
     Willkommen bei Yummy Admin! Kostenloses Admin-Panel basierend auf Naive UI
@@ -337,7 +349,6 @@ support:
     tooltip: >-
       Unterstützen Sie dieses Projekt, indem Sie ihm einen Stern ⭐️ auf Github
       geben
-title: Yummy Admin
 todoApp:
   completed: Vollendet
   createGroup:

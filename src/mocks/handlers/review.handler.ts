@@ -8,7 +8,7 @@ const reviews = times(65, createFakeReview)
 const handlers = [
   http.get('/api/review/', async ({ request }) => {
     const response = CreatePagedResponse<Review>(request, reviews)
-    await delay(1500)
+    await delay(1000)
     return HttpResponse.json(response, { status: 200 })
   }),
 ]
@@ -17,7 +17,7 @@ function createFakeReview(): Review {
   return {
     id: faker.number.int().toString(),
     date: faker.date.past(),
-    rate: faker.number.float({ max: 5 }),
+    rate: faker.number.float({ min: 1, max: 5 }),
     product: {
       name: faker.commerce.productName(),
       id: faker.number.int().toString(),

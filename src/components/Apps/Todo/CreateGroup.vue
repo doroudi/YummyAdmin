@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  show: boolean
+    show: boolean
 }
 
 import { Checkmark48Filled as CheckIcon } from '@vicons/fluent'
@@ -13,32 +13,32 @@ const { t } = useI18n()
 const colors = useColors().primaryColors
 const selectedColorIndex = ref(-1)
 
-const groupItem = ref<TaskGroup>({})
+const groupItem = ref<TaskGroup>({ icon: '📁' })
 function setColor(index: number) {
-  selectedColorIndex.value = index
+    selectedColorIndex.value = index
 }
 
 const store = useTodoAppStore()
 
 function createGroup() {
-  if (groupItem.value.title.length === 0) return //TODO: add form validation
+    if (groupItem.value.title.length === 0) return
 
-  const color =
-    selectedColorIndex.value >= 0 ? colors[selectedColorIndex.value] : null
-  groupItem.value.bgColor = color
-  store.createGroup(groupItem.value)
-  emits('created')
-  window.umami?.track('Todo:CreateGroup', { title: groupItem.value.title })
-  groupItem.value = {}
-  selectedColorIndex.value = -1
+    const color =
+        selectedColorIndex.value >= 0 ? colors[selectedColorIndex.value] : null
+    groupItem.value.bgColor = color
+    store.createGroup(groupItem.value)
+    emits('created')
+    window.umami?.track('Todo:CreateGroup', { title: groupItem.value.title })
+    groupItem.value = {}
+    selectedColorIndex.value = -1
 }
 </script>
 
 
 <template>
     <div>
-        <n-modal v-model:show="showModal" @close="emits('close')" preset="card" style="width: 500px" :title="t('todoApp.createGroup.title')">
-            
+        <n-modal v-model:show="showModal" @close="emits('close')" preset="card" style="width: 500px"
+            :title="t('todoApp.createGroup.title')">
             <div class="flex">
                 <EmojiPicker v-model="groupItem.icon" class="me-1" />
                 <n-input v-model:value="groupItem.title" :placeholder="t('todoApp.createGroup.groupTitle')" />

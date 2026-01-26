@@ -25,13 +25,29 @@ async function login() {
         useNotifyStore().success(t('login.successMessage'))
         setTimeout(() => router.push('/'), 500)
       } else {
-        loginFailed.value = true
-        setTimeout(() => {
-          loginFailed.value = false
-        }, 2000)
+        setLoginFailed()
       }
     }
   })
+}
+
+function setLoginFailed() {
+  loginFailed.value = true
+  setTimeout(() => {
+    loginFailed.value = false
+  }, 2000)
+}
+async function socialLogin(provider: string) {
+  const result = await accountStore.socialLogin(provider)
+  if (result) {
+    useNotifyStore().success(t('login.successMessage'))
+    setTimeout(() => router.push('/'), 500)
+  }
+  else {
+    useNotifyStore().error(t('login.failedMessage'))
+    setLoginFailed()
+  }
+
 }
 
 const rules: FormRules = {
@@ -73,17 +89,13 @@ meta:
               <n-input id="name" v-model:value="loginInfo.username" autofocus :placeholder="t('login.username')" />
             </n-form-item>
             <n-form-item class="mb-1" path="password" :label="t('login.password')">
-              <n-input
-                id="name" v-model:value="loginInfo.password" type="password" show-password-on="mousedown"
-                :placeholder="t('login.password')"
-              />
+              <n-input id="name" v-model:value="loginInfo.password" type="password" show-password-on="mousedown"
+                :placeholder="t('login.password')" />
             </n-form-item>
 
             <div class="flex align-items-center justify-between mb-2">
-              <RouterLink
-                to="/Account/ForgotPassword"
-                class="no-underline ml-2 text-blue-500 text-right cursor-pointer"
-              >
+              <RouterLink to="/Account/ForgotPassword"
+                class="no-underline ml-2 text-blue-500 text-right cursor-pointer">
                 {{ t('login.forgetPassword') }}
               </RouterLink>
             </div>
@@ -100,10 +112,10 @@ meta:
 
           <div class="social-login pt-3">
             <div class="separator">
-              <span class="title bg-white dark:bg-slate-800">Or</span>
+              <span class="title bg-white dark:bg-slate-800">{{ t('login.loginUsing') }}</span>
             </div>
             <div class="flex items-center justify-center">
-              <n-button quaternary circle mx-2>
+              <n-button quaternary circle mx-2 @click="socialLogin('google')">
                 <template #icon>
                   <NIcon size="1.4rem">
                     <GoogleIcon />
@@ -111,7 +123,7 @@ meta:
                 </template>
               </n-button>
 
-              <n-button quaternary circle mx-2>
+              <n-button quaternary circle mx-2 @click="socialLogin('microsoft')">
                 <template #icon>
                   <NIcon size="1.4rem">
                     <MicrosoftIcon />
@@ -119,7 +131,7 @@ meta:
                 </template>
               </n-button>
 
-              <n-button quaternary circle mx-2>
+              <n-button quaternary circle mx-2 @click="socialLogin('apple')">
                 <template #icon>
                   <NIcon size="1.4rem">
                     <AppleIcon />
@@ -142,7 +154,7 @@ meta:
 .login-box {
   max-width: 380px;
   position: relative;
-  z-index:2;
+  z-index: 2;
 
   .failed {
     animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
@@ -193,12 +205,13 @@ select:-webkit-autofill:focus {
 .separator {
   border-bottom: solid 1px #ececec;
   margin: 1rem 0;
+
   .title {
     margin-top: -10px;
     color: var(--border);
     font-size: 0.8rem;
     position: absolute;
-    left: calc(50% - 10px);
+    left: calc(50% - 45px);
     padding: 0 0.3rem;
   }
 }

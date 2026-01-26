@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { Delete20Regular as DeleteIcon } from '@vicons/fluent'
-import type { TaskGroup } from '~/models/Todo'
+import type { TaskGroup, TaskItem } from '~/models/Todo'
 
 interface Props {
   groups: TaskGroup[]
@@ -57,10 +57,16 @@ function handleSelect(action: string) {
   }
   showDropdown.value = false
 }
+
+// function getCount(groupId: number) {
+//   const items = [store.tasks.value]
+//   return items.filter((x: TaskItem) => x.groupId === groupId && !x.isDone).length
+// }
 </script>
 
 <template>
   <div>
+    {{ counts }}
     <NList hoverable clickable class="px-1">
       <NListItem v-for="item of groups" :key="item.id" @click="selectGroup(item)"
         @contextmenu="(e: MouseEvent) => handleContextMenu(item, e)"
@@ -68,13 +74,16 @@ function handleSelect(action: string) {
         <template #prefix>
           <span class="icon text-lg">{{ item.icon }}</span>
         </template>
-        <div class="flex flex-col">
+        <div class="flex flex-row justify-between">
           <span class="text-sm text-gray-800 dark:text-white">
             {{ item.title }}
           </span>
+
+          <n-badge  color="var(--primary-color)" />
         </div>
 
       </NListItem>
+      <!-- context menu -->
       <n-dropdown :on-clickoutside="() => showDropdown = false" placement="bottom-start" trigger="manual" :x="x" :y="y"
         :options="options" :show="showDropdown" @select="handleSelect" />
     </NList>

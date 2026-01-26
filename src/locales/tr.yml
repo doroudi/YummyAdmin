@@ -1,3 +1,67 @@
+title: Yummy Admin
+description: Ücretsiz Vue 3 Gösterge Paneli
+direction: ltr
+currencySign: ₺
+home: Ana Sayfa
+not-found: Bulunamadı
+languages:
+  ar: Arapça
+  zn: Çince
+  de: Almanca
+  en: İngilizce
+  fa: Farsça
+  tr: Türkçe
+enums:
+  OrderStatus:
+    Delivered: Teslim Edildi
+    Processing: İşleniyor
+    ReadyToSend: Gönderime Hazır
+    Sent: Gönderildi
+    Submitted: Gönderildi
+  ProductStatus:
+    Active: Aktif
+    Draft: Taslak
+    NotActive: Aktif Değil
+common:
+  403Error: Erişim izniniz yok
+  404Error: 404 Hatası
+  404Message: >-
+    Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya
+    geçici olarak kullanılamıyor
+  500Error: 500 Hata
+  500Message: >-
+    Bir şeyler ters gitti. 
+    Sorun devam ederse lütfen daha sonra tekrar deneyin veya yöneticiyle
+    iletişime geçin.
+  actions: Eylemler
+  cancel: İptal etmek
+  confirm: Onaylamak
+  create: Yaratmak
+  currency: TRY
+  date: Tarih
+  day: Gün
+  locale: tr-TR
+  delete: Silmek
+  deleteConfirm: Bu öğeyi sileceğinizden emin misiniz?
+  deletedMessage: Başarıyla silindi
+  goHome: Ana Sayfaya Dön
+  maintenance: BAŞARILI BAKIM
+  maintenanceDetail: |-
+    Şu anda zamanlanmış bakım gerçekleştiriyoruz. 
+    Kısa bir süre sonra çevrimiçi olacağız!
+  month: Ay
+  name: İsim
+  new: Yeni
+  notFound: Bulunamadı
+  oops: Oops sayfası
+  price: Fiyat
+  refresh: Yenile
+  search: Ara
+  settings: Ayarlar
+  status: Durum
+  week: Hafta
+  filter: Filter
+  clearFilter: Filtreyi Temizle
 analyticsDashboard:
   bounceRate: Hemen Çıkma Oranı
   views: Görünümler
@@ -65,44 +129,6 @@ colors:
   validations:
     colorRequired: Renk seçilmedi
     nameRequired: İsim gerekli
-common:
-  403Error: Erişim izniniz yok
-  404Error: 404 Hatası
-  404Message: >-
-    Üzgünüz, aradığınız sayfa mevcut değil, kaldırılmış, adı değiştirilmiş veya
-    geçici olarak kullanılamıyor
-  500Error: 500 Hata
-  500Message: >-
-    Bir şeyler ters gitti. 
-
-    Sorun devam ederse lütfen daha sonra tekrar deneyin veya yöneticiyle
-    iletişime geçin.
-  actions: Eylemler
-  cancel: İptal etmek
-  confirm: Onaylamak
-  create: Yaratmak
-  date: Tarih
-  day: Gün
-  delete: Silmek
-  deleteConfirm: Bu öğeyi sileceğinizden emin misiniz?
-  deletedMessage: Başarıyla silindi
-  goHome: Ana Sayfaya Dön
-  maintenance: BAŞARILI BAKIM
-  maintenanceDetail: |-
-    Şu anda zamanlanmış bakım gerçekleştiriyoruz. 
-    Kısa bir süre sonra çevrimiçi olacağız!
-  month: Ay
-  name: İsim
-  new: Yeni
-  notFound: Bulunamadı
-  oops: Oops sayfası
-  price: Fiyat
-  refresh: Yenile
-  search: Ara
-  settings: Ayarlar
-  status: Durum
-  week: Hafta
-currencySign: ₺
 customers:
   customerName: Müşteri Adı
   email: Email
@@ -152,20 +178,6 @@ dashboard:
       İyi günler!
       Seni burada gördüğümüz için mutluyuz.
     title: Nefis Yöneticisine Hoş Geldiniz
-description: Ücretsiz Vue 3 Gösterge Paneli
-direction: ltr
-enums:
-  OrderStatus:
-    Delivered: Teslim Edildi
-    Processing: İşleniyor
-    ReadyToSend: Gönderime Hazır
-    Sent: Gönderildi
-    Submitted: Gönderildi
-  ProductStatus:
-    Active: Aktif
-    Draft: Taslak
-    NotActive: Aktif Değil
-fa: Persian
 forgot:
   button: Kurtar
   email: Email
@@ -178,14 +190,6 @@ forgot:
   sendEmailSuccess: Email Başarıyla Gönderildi, Lütfen E-postanızı Kontrol Edin
   title: Şifremi Unuttum
   username: Kullanıcı Adı
-home: Ana Sayfa
-languages:
-  ar: Arapça
-  zn: Çince
-  de: Almanca
-  en: İngilizce
-  fa: Farsça
-  tr: Türkçe
 login:
   createAccount: Hesap Oluştur!
   failedMessage: Giriş Başarısız
@@ -249,11 +253,19 @@ menu:
   typography: Tipografi
   users: Kullanıcılar
   websiteSettings: Website Ayarları
-not-found: Bulunamadı
 notifications:
   clear: Hepsini temizlemek
   empty: Hiçbir bildirim yok
   title: Bildirimler
+  order: Sipariş
+  security: Güvenlik
+  productStock: Ürün Stoku
+  stats: İstatistikler
+  orderSubmitted: Yeni Sipariş Gönderildi
+  passwordExpire: Şifreniz {count} gün sonra geçersiz olacak
+  customerRegister: "Dün {count} Yeni Müşteri Kayıt Oldu"
+  stockWarning: Ürün stoğu azalıyor
+  orderCanceled: Bir sipariş iptal edildia
 notify:
   welcome: >-
     Yummy Admin'e hoş geldiniz! Naive UI ve Vue 3 tabanlı Ücretsiz Admin Paneli,
@@ -329,7 +341,6 @@ support:
   github:
     title: Github Yıldızı
     tooltip: Bu projeye ⭐️ Github'da destek verin
-title: Yummy Admin
 todoApp:
   completed: Tamamlanmış
   createGroup:

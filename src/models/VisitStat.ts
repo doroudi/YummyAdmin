@@ -1,14 +1,14 @@
 export interface VisitStat {
-    pages: PageVisit[]
-    sources: VisitSource[]
+  pages: PageVisit[]
+  sources: VisitSource[]
 }
 
 export interface PageVisit {
-    url: string
-    count: number
+  url: string
+  count: number
 }
 
 export interface VisitSource {
-    name: string
-    count: number
+  name: string
+  count: number
 }

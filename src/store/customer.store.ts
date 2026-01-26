@@ -15,9 +15,7 @@ export const useCustomerStore = defineStore('Customer', () => {
     try {
       const response = await customerService.getList(options)
       customers.value = response.items
-      options.pageCount = Math.ceil(
-        response.totalCount! / options.itemsPerPage!,
-      )
+      options.pageCount = Math.ceil(response.totalCount! / options.pageSize!)
     } finally {
       isLoading.value = false
     }

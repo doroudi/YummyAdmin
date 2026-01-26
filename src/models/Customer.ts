@@ -12,7 +12,7 @@ export interface Customer {
   emailConfirmed?: boolean
   phoneConfirmed?: boolean
   userGroup?: string
-
+  points?: number
   walletBalance?: number
 }
 

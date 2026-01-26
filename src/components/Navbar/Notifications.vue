@@ -82,7 +82,7 @@ const badgeOffset = computed(() => [layoutStore.isRtl ? 4 : -4, 5])
                       </NIcon>
                     </div>
                   </template>
-                  <n-thing :title="item.title" :description="item.message" />
+                  <n-thing :title="t(`notifications.${item.title}`)" :description="t(`notifications.${item.key}`, item.data ?? {})" />
                 </n-list-item>
               </n-list>
             </div>

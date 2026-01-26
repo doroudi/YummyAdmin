@@ -111,7 +111,17 @@ const handlers = [
   }),
 
   http.get('/api/report/visitsData', () => {
-    const pages = ['/', '/products', '/products/1', '/about', '/contact', '/blog', '/blog/1', '/cart', '/checkout']
+    const pages = [
+      '/',
+      '/products',
+      '/products/1',
+      '/about',
+      '/contact',
+      '/blog',
+      '/blog/1',
+      '/cart',
+      '/checkout',
+    ]
     const response: VisitStat = {
       pages: times(8, () => ({
         url: pages[faker.number.int({ min: 0, max: pages.length - 1 })],
@@ -173,7 +183,7 @@ function createFakeLocationData(): LocationChartSeries[] {
     }),
   )
 
-  locationData.push({ key: 'IR', value: { value: 1000, color: '#00A693' } }) //Persian Green 💚 (this product made by love in IRAN)
+  locationData.push({ key: 'IR', value: { value: 1000, color: '#a6002aff' } }) // this product made by love in IRAN 🕊️
 
   return locationData
 }

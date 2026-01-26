@@ -34,7 +34,7 @@ function createFakeProfile(): Profile {
       min: 1,
       max: 100,
     })}`,
-    phone: faker.phone.number(),
+    phone: faker.phone.number('0##########'),
     socials: [
       { name: 'facebook', url: faker.internet.url() },
       { name: 'telegram', url: faker.internet.url() },

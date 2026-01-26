@@ -3,7 +3,6 @@ import {
   Edit32Regular as EditIcon,
   Add20Regular as PlusIcon,
 } from '@vicons/fluent'
-import { useMessage } from 'naive-ui'
 import { type DataTableColumns, NButton, NIcon } from 'naive-ui/es/components'
 import type { RowData } from 'naive-ui/es/data-table/src/interface'
 import { storeToRefs } from 'pinia'
@@ -14,11 +13,11 @@ const showAddDialog = ref(false)
 
 const { t } = useI18n()
 const store = useColorStore()
-const message = useMessage()
 const { options } = useOptions()
 const { renderDeleteActionButton, renderActionButton } = useRender()
 
 onMounted(getItems)
+
 const columns: DataTableColumns<RowData> = [
   {
     title: t('colors.color'),
@@ -41,7 +40,7 @@ const columns: DataTableColumns<RowData> = [
     key: 'actions',
     width: 110,
     render: (row) => [
-      renderActionButton(EditIcon, () => {}),
+      renderActionButton(EditIcon, () => { }),
       renderDeleteActionButton(t('common.deleteConfirm'), () =>
         handleDeleteItem(row),
       ),
@@ -51,7 +50,7 @@ const columns: DataTableColumns<RowData> = [
 
 function handleDeleteItem(row: RowData) {
   store.deleteColor(row.id)
-  message.success('Color was deleted successfully!')
+  useNotifyStore().success(t('colors.deleteMessage'))
 }
 
 function rowKey(row: RowData) {
@@ -91,8 +90,8 @@ function createColor() {
           </NButton>
         </n-space>
         <SkeletonTable v-if="store.isLoading" :columns="columns" />
-        <n-data-table v-else remote :columns="columns" :data="store.colors" :pagination="options"
-          :row-key="rowKey" :scroll-x="1000" @update:filters="handleFiltersChange" @update:page="handlePageChange" />
+        <n-data-table v-else remote :columns="columns" :data="store.colors" :pagination="options" :row-key="rowKey"
+          :scroll-x="1000" @update:filters="handleFiltersChange" @update:page="handlePageChange" />
       </div>
     </n-layout-content>
 
@@ -106,11 +105,11 @@ function createColor() {
 
 <style lang='scss'>
 .color-preview {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    border: solid 3px #FFF;
-    box-shadow: 0 0 3px 0 #989898;
-    border-radius: 50%;
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: solid 3px #FFF;
+  box-shadow: 0 0 3px 0 #989898;
+  border-radius: 50%;
 }
 </style>
