@@ -173,7 +173,7 @@ function createFakeLocationData(): LocationChartSeries[] {
     }),
   )
 
-  locationData.push({ key: 'IR', value: { value: 1000, color: '#00A693' } }) //Persian Green 💚 (this product made by love in IRAN)
+  locationData.push({ key: 'IR', value: { value: 1000, color: '#a6002aff' } }) // this product made by love in IRAN 🕊️
 
   return locationData
 }
