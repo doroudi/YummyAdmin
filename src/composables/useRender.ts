@@ -216,7 +216,7 @@ export function useRender() {
         class: 'en',
         round: true,
         bordered: false,
-        color: { color: 'transparent'}
+        color: { color: 'transparent' },
         // type: confirmed ? 'success' : 'warning',
       },
       {

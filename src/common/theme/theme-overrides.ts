@@ -20,8 +20,8 @@ const themeOverrides: GlobalThemeOverrides = {
     borderColorPopover: '#e4e7ec',
   },
   Notification: {
-    padding: '15px'
-  }
+    padding: '15px',
+  },
 }
 
 export const darkThemeOverrides: GlobalThemeOverrides = {

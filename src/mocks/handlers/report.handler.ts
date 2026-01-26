@@ -111,7 +111,17 @@ const handlers = [
   }),
 
   http.get('/api/report/visitsData', () => {
-    const pages = ['/', '/products', '/products/1', '/about', '/contact', '/blog', '/blog/1', '/cart', '/checkout']
+    const pages = [
+      '/',
+      '/products',
+      '/products/1',
+      '/about',
+      '/contact',
+      '/blog',
+      '/blog/1',
+      '/cart',
+      '/checkout',
+    ]
     const response: VisitStat = {
       pages: times(8, () => ({
         url: pages[faker.number.int({ min: 0, max: pages.length - 1 })],

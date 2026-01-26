@@ -65,7 +65,12 @@ export const useTodoAppStore = defineStore('Todo', () => {
   }
 
   const counts = computed(() => {
-    return groups.value.map((g: TaskGroup) => ({ id: g.id, count: tasks.value.filter((x: TaskItem) => x.groupId === g.id && !x.isDone).length}))
+    return groups.value.map((g: TaskGroup) => ({
+      id: g.id,
+      count: tasks.value.filter(
+        (x: TaskItem) => x.groupId === g.id && !x.isDone,
+      ).length,
+    }))
   })
 
   return {
@@ -81,7 +86,7 @@ export const useTodoAppStore = defineStore('Todo', () => {
     toggleFavTask,
     deleteGroup,
     deleteTask,
-    counts
+    counts,
   }
 })
 if (import.meta.hot)

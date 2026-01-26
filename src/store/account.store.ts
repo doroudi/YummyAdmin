@@ -30,16 +30,13 @@ export const useAccountStore = defineStore(
 
     function socialLogin(provider: string): Promise<boolean> {
       isLoading.value = true
-      return new Promise((resolve,reject) => {
+      return new Promise((resolve) => {
         setTimeout(() => {
-          if(provider !== 'apple')
-            resolve(true)
-          else
-            resolve(false)
+          if (provider !== 'apple') resolve(true)
+          else resolve(false)
 
           isLoading.value = false
         }, 1500)
-        
       })
     }
 

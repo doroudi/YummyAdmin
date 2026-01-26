@@ -1,4 +1,3 @@
-import { filter } from 'lodash'
 import type { ListResult } from '~/models/ListResult'
 import type { PaginatedList } from '~/models/PagedListResult'
 
@@ -11,7 +10,6 @@ export function CreatePagedResponse<T extends { [key: string]: any }>(
   const url = new URL(req.url)
   const query = url.searchParams.get('query')
   const sortBy = url.searchParams.get('sortBy')
-  const sortDescending = url.searchParams.get('sortDesc')
   let filteredItems = getFilteredItems(items, filterParams, url.searchParams)
   if (query)
     filteredItems = items.filter((x) =>
@@ -46,11 +44,11 @@ function getFilteredItems(items: any[], filterParams: any[], params: any) {
         continue
       }
 
-      if(Array.isArray(filterParameter)) {
-        items = items.filter(i => filterParameter.indexOf(x => x[filter] >= 0))
-      }
-      else
-        items = items.filter((x) => x[filter] == filterParameter)
+      if (Array.isArray(filterParameter)) {
+        items = items.filter((_i) =>
+          filterParameter.indexOf((x: any) => x[filter] >= 0),
+        )
+      } else items = items.filter((x) => x[filter] === filterParameter)
     }
   }
 
