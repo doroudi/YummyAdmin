@@ -3,7 +3,7 @@ const route = useRoute()
 if (route.query.lang) {
   const lang = route.query.lang as string
   const layout = useLayoutStore()
-  if (['en', 'ar', 'fa', 'de', 'tr', 'zn'].includes(lang))
+  if (['en','fa','zh'].includes(lang))
     layout.changeLanguage(lang)
 }
 

@@ -2,12 +2,9 @@
 import { Globe20Regular as TranslateIcon } from '@vicons/fluent'
 import { NIcon } from 'naive-ui/es/icon'
 import { storeToRefs } from 'pinia'
-import ArabicIcon from '../CustomIcons/ArabicIcon.vue'
 import ChineseIcon from '../CustomIcons/ChineseIcon.vue'
 import EnglandIcon from '../CustomIcons/EnglandIcon.vue'
-import GermanyIcon from '../CustomIcons/GermanyIcon.vue'
 import PersianIcon from '../CustomIcons/PersianIcon.vue'
-import TurkishIcon from '../CustomIcons/TurkishIcon.vue'
 
 defineProps<{ showTitle?: boolean }>()
 const { t } = useI18n()
@@ -40,15 +37,9 @@ function getLanguageIcon(language: string) {
   switch (language) {
     case 'en':
       return EnglandIcon
-    case 'de':
-      return GermanyIcon
-    case 'ar':
-      return ArabicIcon
-    case 'tr':
-      return TurkishIcon
     case 'fa':
       return PersianIcon
-    case 'zn':
+    case 'zh':
       return ChineseIcon
     default:
       return EnglandIcon
@@ -56,7 +47,7 @@ function getLanguageIcon(language: string) {
 }
 
 function sortLangs(a: string, b: string): number {
-  const ordered = ['en', 'fa', 'zn', 'de', 'ar', 'tr']
+  const ordered = ['en', 'fa', 'zh']
   return ordered.indexOf(a) - ordered.indexOf(b)
 }
 </script>
