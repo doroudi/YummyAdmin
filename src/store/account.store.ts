@@ -29,6 +29,7 @@ export const useAccountStore = defineStore(
     }
 
     function socialLogin(provider: string): Promise<boolean> {
+      //TODO: implement real social login
       isLoading.value = true
       return new Promise((resolve) => {
         setTimeout(() => {

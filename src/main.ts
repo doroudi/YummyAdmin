@@ -57,6 +57,13 @@ Object.values(
 })
 
 router.beforeEach((to, _, next) => {
+  //TODO: uncomment for enable authentication
+  
+  // const { isAuthenticated } = useAccountStore()
+  // if (!isAuthenticated() && !to.meta.allowAnonymous) {
+  //   next('/account/login')
+  //   return
+  // }
   const { t } = i18n.global
   let title = t('title')
   if (to.meta.title) title = `${t(`menu.${to.meta.title}`)} - ${title}`

@@ -49,17 +49,14 @@ function handlePreview(file: UploadFileInfo) {
 }
 
 function parseCurrency(input: string) {
-  const nums = input.replace(/(,|\$|¥|₺|€|ریال|\s)/g, '').trim()
+  const nums = input.replace(/,/g, '').trim()
   if (/^\d+(\.(\d+)?)?$/.test(nums)) return Number(nums)
   return nums === '' ? null : Number.NaN
 }
 
 function formatCurrency(value: number | null) {
   if (value === null) return ''
-  return value.toLocaleString(t('common.locale'), {
-    style: 'currency',
-    currency: t('common.currency'),
-  })
+  return value.toLocaleString('en-US')
 }
 </script>
 
@@ -111,8 +108,13 @@ function formatCurrency(value: number | null) {
         <Card size="small" :title="t('products.create.pricing')" class="mb-2">
           <n-space vertical>
             <n-form-item path="price" :label="t('products.create.price')">
-              <n-input-number :placeholder="t('products.create.price')" class="flex-1" :default-value="0"
-                v-model="productItem.price" :parse="parseCurrency" :show-button="false" :format="formatCurrency" />
+              <n-input :input-props="{ type: 'number' }" :placeholder="t('products.create.price')" class="flex-1"
+                v-model="productItem.price" :parse="parseCurrency" :show-button="false" :format="formatCurrency">
+                <template #suffix>
+                  {{ t('currencySign') }}
+                </template>
+                
+            </n-input>
             </n-form-item>
             <n-form-item path="name" :label="t('products.create.discountedPrice')">
               <n-input-number :placeholder="t('products.create.discountedPrice')" class="flex-1" :default-value="0"

@@ -69,8 +69,6 @@ declare module 'vue' {
     NButton: typeof import('naive-ui')['NButton']
     NCollapse: typeof import('naive-ui')['NCollapse']
     NCollapseItem: typeof import('naive-ui')['NCollapseItem']
-    NCollapseTransition: typeof import('naive-ui')['NCollapseTransition']
-    NColorPicker: typeof import('naive-ui')['NColorPicker']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDataTable: typeof import('naive-ui')['NDataTable']
     NDialogProvider: typeof import('naive-ui')['NDialogProvider']
@@ -87,7 +85,6 @@ declare module 'vue' {
     NGrid: typeof import('naive-ui')['NGrid']
     NIcon: typeof import('naive-ui')['NIcon']
     NImage: typeof import('naive-ui')['NImage']
-    NImg: typeof import('naive-ui')['NImg']
     NInput: typeof import('naive-ui')['NInput']
     NInputNumber: typeof import('naive-ui')['NInputNumber']
     NLayout: typeof import('naive-ui')['NLayout']
@@ -163,6 +160,5 @@ declare module 'vue' {
     VisitSources: typeof import('./components/Dashboard/Analytics/VisitSources.vue')['default']
     WelcomeCard: typeof import('./components/Dashboard/Ecommerce/WelcomeCard.vue')['default']
     YummyDataTable: typeof import('./components/shared/YummyDataTable.vue')['default']
-    YummyTable: typeof import('./components/shared/YummyTable.vue')['default']
   }
 }
