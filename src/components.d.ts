@@ -116,6 +116,7 @@ declare module 'vue' {
     NTooltip: typeof import('naive-ui')['NTooltip']
     NTreeSelect: typeof import('naive-ui')['NTreeSelect']
     NUpload: typeof import('naive-ui')['NUpload']
+    OrderDetailDrawer: typeof import('./components/Orders/OrderDetailDrawer.vue')['default']
     OrderManagement: typeof import('./components/Orders/OrderManagement.vue')['default']
     PersianIcon: typeof import('./components/CustomIcons/PersianIcon.vue')['default']
     PieChart: typeof import('./components/Charts/chart-components/PieChart.vue')['default']

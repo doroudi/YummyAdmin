@@ -6,11 +6,37 @@ import { OrderStatus } from '~/models/Order'
 import { CreatePagedResponse } from '../handlers.utility'
 
 const orders = times(100, createFakeOrder)
+
 const handlers = [
   http.get('/api/order', async ({ request }) => {
     const response = CreatePagedResponse<OrderList>(request, orders, 'customer')
     await delay(1500)
     return HttpResponse.json(response, { status: 200 })
+  }),
+
+  http.put('/api/order/:id/status', async ({ params, request }) => {
+    const { id } = params
+    const body = (await request.json()) as { status: OrderStatus }
+
+    await delay(300)
+
+    const orderIndex = orders.findIndex((o) => o.id === id)
+    if (orderIndex === -1) {
+      return new HttpResponse(null, { status: 404 })
+    }
+
+    const order = orders[orderIndex]
+
+    if (order.status === OrderStatus.Delivered) {
+      return HttpResponse.json(false, { status: 400 })
+    }
+
+    orders[orderIndex] = {
+      ...order,
+      status: body.status,
+    }
+
+    return HttpResponse.json(true, { status: 200 })
   }),
 ]
 
@@ -44,4 +70,5 @@ function createFakeOrder(): OrderList {
     totalPrice: faker.number.int({ min: 10, max: 2000 }),
   }
 }
+
 export default handlers
