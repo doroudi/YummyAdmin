@@ -5,12 +5,9 @@ currencySign: ریال
 home: خانه
 not-found: یافت نشد
 languages:
-  ar: عربی
-  zn: چینی
-  de: آلمانی
+  zh: چینی
   en: انگلیسی
   fa: فارسی
-  tr: ترکی
 enums:
   OrderStatus:
     Delivered: تحویل شده

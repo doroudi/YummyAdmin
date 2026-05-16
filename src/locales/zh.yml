@@ -5,12 +5,9 @@ direction: ltr
 home: 首页
 not-found: 未找到
 languages:
-  ar: 阿拉伯语
-  zn: 中文
-  de: 德语
+  zh: 中文
   en: 英语
   fa: 波斯语
-  tr: 土耳其语
 enums:
   OrderStatus:
     Delivered: 已送达

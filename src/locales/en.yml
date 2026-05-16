@@ -5,12 +5,9 @@ currencySign: $
 home: Home
 not-found: Not found
 languages:
-  ar: Arabic
-  zn: Chinese
-  de: German
+  zh: Chinese
   en: English
   fa: Persian
-  tr: Turkish
 enums:
   OrderStatus:
     Delivered: Delivered

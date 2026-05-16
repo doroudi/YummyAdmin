@@ -47,10 +47,10 @@ function createFakeCustomer(): Customer {
     joinDate: faker.date.past(),
     birthDate: faker.date.birthdate(),
     email: faker.internet.email(),
-    avatar: `https://avatar.iran.liara.run/public/${faker.number.int({
+    avatar: `./assets/images/user-avatar/${faker.number.int({
       min: 1,
-      max: 100,
-    })}`,
+      max: 20,
+    })}.png`,
     emailConfirmed: faker.datatype.boolean({ probability: 0.8 }),
     phoneConfirmed: faker.datatype.boolean({ probability: 0.8 }),
     points: faker.number.int({ min: 0, max: 250 }),
