@@ -1,10 +1,10 @@
 import { faker } from '@faker-js/faker'
-import _ from 'lodash'
 import type { RequestHandler, WebSocketHandler, WebSocketLink } from 'msw'
 import { ws } from 'msw'
 import type { ChatItem } from '~/models/Chat'
+import { times } from '../handlers.utility'
 
-const chatMessages: Array<ChatItem> = _.times(10, createFakeChatMessage)
+const chatMessages: Array<ChatItem> = times(10, createFakeChatMessage)
 export const chat: WebSocketLink = ws.link('wss://localhost:7000/chat')
 const handlers: Array<RequestHandler | WebSocketHandler> = [
   chat.addEventListener('connection', ({ client }) => {

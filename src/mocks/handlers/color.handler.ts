@@ -1,8 +1,7 @@
 import { faker } from '@faker-js/faker/locale/en'
-import times from 'lodash/times'
 import { delay, HttpResponse, http } from 'msw'
 import type { Color, ColorCreateModel } from '~/models/Color'
-import { CreatePagedResponse } from '../handlers.utility'
+import { CreatePagedResponse, times } from '../handlers.utility'
 
 const colors = times(15, createFakeColor)
 const handlers = [

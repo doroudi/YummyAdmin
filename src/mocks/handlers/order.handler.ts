@@ -1,9 +1,8 @@
 import { faker } from '@faker-js/faker/locale/en'
-import times from 'lodash/times'
 import { delay, HttpResponse, http } from 'msw'
 import type { OrderList } from '~/models/Order'
 import { OrderStatus } from '~/models/Order'
-import { CreatePagedResponse } from '../handlers.utility'
+import { CreatePagedResponse, times } from '../handlers.utility'
 
 const orders = times(100, createFakeOrder)
 const handlers = [

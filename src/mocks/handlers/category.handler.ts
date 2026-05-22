@@ -1,8 +1,11 @@
 import { faker } from '@faker-js/faker/locale/en'
-import times from 'lodash/times'
 import { delay, HttpResponse, http } from 'msw'
 import type { Category, CategoryCreateModel } from '~/models/Category'
-import { CreateListResponse, CreatePagedResponse } from '../handlers.utility'
+import {
+  CreateListResponse,
+  CreatePagedResponse,
+  times,
+} from '../handlers.utility'
 
 const categories = times(20, createFakeCategory)
 const handlers = [

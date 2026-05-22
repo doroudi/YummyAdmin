@@ -71,3 +71,13 @@ export function CreateListResponse<T extends { [key: string]: any }>(
     items: filteredItems,
   }
 }
+
+
+export function times(count: number, generator: () => any) {
+  const result = []
+  for (let i = 0; i < count; i++) {
+    result.push(generator())
+  }
+
+  return result
+}

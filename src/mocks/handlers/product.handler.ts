@@ -1,9 +1,8 @@
 import { faker } from '@faker-js/faker/locale/en'
-import times from 'lodash/times'
 import { delay, HttpResponse, http } from 'msw'
 import type { Category } from '~/models/Category'
 import { type ProductListDto, ProductStatus } from '~/models/Product'
-import { CreatePagedResponse } from '../handlers.utility'
+import { CreatePagedResponse, times } from '../handlers.utility'
 
 let counter = 0
 const fakeImages = [

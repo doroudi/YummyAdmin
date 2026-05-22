@@ -1,6 +1,4 @@
 import { faker } from '@faker-js/faker/locale/en'
-import _ from 'lodash'
-import times from 'lodash/times'
 import { delay, HttpResponse, http } from 'msw'
 import type {
   ChartData,
@@ -12,6 +10,7 @@ import type {
   SummaryStatDto,
 } from '~/models/SummaryStat'
 import type { VisitStat } from '~/models/VisitStat'
+import { times } from '../handlers.utility'
 
 const months = [
   'Jan',
@@ -172,7 +171,7 @@ function createFakeGenderData(): SimpleChartSeries[] {
 }
 
 function createFakeLocationData(): LocationChartSeries[] {
-  const locations = _.times(20, () => faker.location.countryCode('alpha-2'))
+  const locations = times(20, () => faker.location.countryCode('alpha-2'))
 
   if (locations.includes('IR')) locations.splice(locations.indexOf('IR'), 1)
 

@@ -1,8 +1,7 @@
 import { faker } from '@faker-js/faker/locale/en'
-import times from 'lodash/times'
 import { delay, HttpResponse, http } from 'msw'
 import type { Brand, BrandCreateModel } from '~/models/Brand'
-import { CreatePagedResponse } from '../handlers.utility'
+import { CreatePagedResponse, times } from '../handlers.utility'
 
 const brands = times(17, createFakeBrand)
 const handlers = [
