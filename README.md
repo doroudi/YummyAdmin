@@ -4,7 +4,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/24e54305-5d97-447e-adba-ed0a7c18513e/deploy-status)](https://app.netlify.com/sites/yummy-admin/deploys)
 <a href="https://coff.ee/doroudi"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" height="20px"></a>
 
-
 Free Vue AdminPanel based on Naive UI and Tailwind CSS. Fairly complete with a beautiful design, Full RTL support and multilingual support.
 Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (MSW), UnoCss, Web Socket
 
@@ -15,11 +14,8 @@ Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (
    <a href="https://yummy-admin.netlify.app?theme=dark">🌑 Dark Mode</a>
    <br>
    Other languages demo:<br />
-   <a href="https://yummy-admin.netlify.app?lang=cn"> Chines</a> |
    <a href="https://yummy-admin.netlify.app?lang=fa"> Persian</a> |
-   <a href="https://yummy-admin.netlify.app?lang=ar"> Arabic</a> |
-   <a href="https://yummy-admin.netlify.app?lang=tr"> Turkish</a> |
-   <a href="https://yummy-admin.netlify.app?lang=de"> Germany</a>
+   <a href="https://yummy-admin.netlify.app?lang=zh"> Chines</a>
 </p>
 
 ![Preview](/docs/banner-light.png "Preview Light")
@@ -42,7 +38,7 @@ Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (
 
 - ☁️ Deploy on Netlify, zero-config
 
-## Try it now!
+## Try it now
 
 > Yummy Admin requires Node >=20.0
 
@@ -92,13 +88,3 @@ And you will see the generated file in `dist`, which is ready to be served.
 ### Deploy on Netlify
 
 Go to [Netlify](https://app.netlify.com/start) and select your clone, `OK` along the way, and your App will be live in a minute.
-
-```bash
-docker buildx build . -t yummyadmin:latest
-```
-
-Run the image and specify port mapping with the `-p` flag.
-
-```bash
-docker run --rm -it -p 8080:80 yummyadmin:latest
-```
