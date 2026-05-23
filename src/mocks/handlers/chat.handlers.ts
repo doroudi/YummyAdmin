@@ -75,10 +75,10 @@ function createFakeChatMessage(): ChatItem {
   const randomCount = faker.number.int({ min: -10, max: 10 })
   return {
     from: {
-      avatar: `https://avatar.iran.liara.run/public/${faker.number.int({
+      avatar: `/assets/images/user-avatar/${faker.number.int({
         min: 1,
-        max: 200,
-      })}`,
+        max: 20,
+      })}.png`,
       name: faker.person.fullName(),
       id: faker.string.uuid(),
     },

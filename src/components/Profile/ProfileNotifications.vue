@@ -26,5 +26,10 @@ const { userSettings } = storeToRefs(store)
       </n-gi>
     </n-grid>
     <ProfileNotificationItem v-for="item in userSettings.notifications" :key="item.type" :item="item" />
+      <div class="flex justify-start pt-5">
+        <n-button attr-type="submit" size="large" type="primary" :loading="isLoading">
+          {{ t('profile.save') }}
+        </n-button>
+      </div>
   </div>
 </template>

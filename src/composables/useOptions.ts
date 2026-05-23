@@ -235,7 +235,7 @@ export function useOptions(autoBind = true) {
     }
 
     // If you want to preserve some other keys, add them here:
-    for (const [k, v] of Object.entries(options.value)) {
+    for (const [k, _] of Object.entries(options.value)) {
       if (keep.has(k)) continue
       // if you have specific keys to preserve, do it here
       // e.g. if (k === 'someMode') next[k] = v

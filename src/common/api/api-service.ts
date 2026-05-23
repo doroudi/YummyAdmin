@@ -99,7 +99,7 @@ export class ApiService {
     for (const prop of Object.keys(options)) {
       const value = options[prop as keyof PagedAndSortedRequest]
       if (Object.hasOwn(options, prop) && value !== null && value !== '') {
-        if (this.isDefaultProperty(prop, value)) continue
+        if (this.isDefaultProperty(prop)) continue
 
         if (Array.isArray(prop)) continue
         result[prop] = value
@@ -109,7 +109,7 @@ export class ApiService {
     return result
   }
 
-  isDefaultProperty(prop: string, value: number) {
+  isDefaultProperty(prop: string) {
     if (
       ['pageCount', 'onUpdatePageSize', 'showSizePicker', 'pageSizes'].includes(
         prop,

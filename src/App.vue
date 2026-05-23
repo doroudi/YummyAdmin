@@ -35,7 +35,7 @@ import useColors from './composables/useColors'
 
 const layout = useLayoutStore()
 
-const rtlStyles = computed(() => !layout.isRtl? [] : [
+const rtlStyles = computed(() => !layout.isRtl ? [] : [
   buttonRtl,
   tableRtl,
   inputRtl,
@@ -101,7 +101,7 @@ watch(
 )
 
 function setThemeColor(newValue: string) {
-  if (newValue === '') 
+  if (newValue === '')
     return
 
   const shade1 = makeLighter(newValue, 0.8)
@@ -112,8 +112,8 @@ function setThemeColor(newValue: string) {
   document.documentElement.style.setProperty('--primary-color-shade1', shade1)
   document.documentElement.style.setProperty('--primary-color-shade2', shade2)
   document.documentElement.style.setProperty('--primary-color-shade3', shade3)
-  
-  if (!customTheme.value.common || !customDarkTheme.value.common) 
+
+  if (!customTheme.value.common || !customDarkTheme.value.common)
     return
 
   customTheme.value.common.primaryColor = newValue
@@ -132,16 +132,17 @@ const placement = computed(() => layout.isRtl ? 'bottom-left' : 'bottom-right')
 </script>
 
 <template>
-  <n-config-provider inline-theme-disabled :theme="activeTheme" :theme-overrides="activeThemeOverrides"
-    :rtl="rtlStyles" :preflight-style-disabled="false">
-    <n-notification-provider :placement="placement">
-      <n-message-provider :placement="placement">
-        <n-dialog-provider>
-          <DarkModeContainer class="z-1" />
-          <RouterView />
-        </n-dialog-provider>
-      </n-message-provider>
-    </n-notification-provider>
+  <n-config-provider inline-theme-disabled :theme="activeTheme" :theme-overrides="activeThemeOverrides" :rtl="rtlStyles"
+    :preflight-style-disabled="false">
+    <n-loading-bar-provider>
+      <n-notification-provider :placement="placement">
+        <n-message-provider :placement="placement">
+          <n-dialog-provider>
+            <Site />
+          </n-dialog-provider>
+        </n-message-provider>
+      </n-notification-provider>
+    </n-loading-bar-provider>
   </n-config-provider>
 </template>
 

@@ -30,10 +30,10 @@ function createFakeProfile(): Profile {
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
     role: 'Administrator',
-    avatar: `https://avatar.iran.liara.run/public/${faker.number.int({
+    avatar: `/assets/images/user-avatar/${faker.number.int({
       min: 1,
-      max: 100,
-    })}`,
+      max: 20,
+    })}.png`,
     phone: faker.phone.number('0##########'),
     socials: [
       { name: 'facebook', url: faker.internet.url() },
