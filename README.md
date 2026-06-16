@@ -6,6 +6,11 @@
 [![Static Badge](https://img.shields.io/badge/Zh-CN?style=flat&label=Lang&color=red)](https://github.com/doroudi/YummyAdmin/blob/main/README.zh-cn.md)
 <a href="https://coff.ee/doroudi"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" height="20px"></a>
 
+> #### Nuxt Version
+> I decided to migrate YummyAdmin to Nuxt and use SSR and its other features, and continue developing it in Nuxt.
+you can access YummyAdmin.Nuxt in this repository: https://github.com/doroudi/YummyAdmin.Nuxt
+[![Preview](/docs/nuxt_version.webp "Preview")](https://github.com/doroudi/YummyAdmin.Nuxt)
+
 Free Vue AdminPanel based on Naive UI and Tailwind CSS. Fairly complete with a beautiful design, Full RTL support and multilingual support.
 Built using modern web technologies like: Pinia, TypeScript, MockServiceWorker (MSW), UnoCss, Web Socket
 

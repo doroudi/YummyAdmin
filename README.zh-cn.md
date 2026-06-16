@@ -6,6 +6,10 @@
 [![Static Badge](https://img.shields.io/badge/Zh-CN?style=flat&label=Lang&color=red)](https://github.com/doroudi/YummyAdmin/blob/main/README.zh-cn.md)
 <a href="https://coff.ee/doroudi"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" height="20px"></a>
 
+> #### Nuxt 版本
+> 我决定将 YummyAdmin 迁移到 Nuxt，并使用 SSR 及其其他功能，同时继续在 Nuine 中进行开发。: https://github.com/doroudi/YummyAdmin.Nuxt
+[![Preview](/docs/nuxt_version.webp "Preview")](https://github.com/doroudi/YummyAdmin.Nuxt)
+
 基于 Naive UI 和 Tailwind CSS 的免费 Vue 管理面板。功能齐全，设计精美，完全支持 RTL 语言和多语言。
 采用 Pinia、TypeScript、MockServiceWorker (MSW)、UnoCSS 和 WebSocket 等现代 Web 技术构建。
 

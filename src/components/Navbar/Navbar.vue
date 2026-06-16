@@ -4,6 +4,7 @@ import {
   PanelLeftExpand20Regular as ExpandIcon,
   Navigation20Regular as MenuIcon,
 } from '@vicons/fluent'
+import { Ni } from 'dist/assets/index-CwhW41Oh';
 
 import { storeToRefs } from 'pinia'
 
@@ -37,6 +38,7 @@ const { collapsed, isRtl, mobileMode } = storeToRefs(layoutStore)
       <div class="flex items-center">
         <Search />
         <!-- <AppsMenu /> -->
+        <NuxtVersion class="mx-1" />
         <ThemeCustomize />
         <ThemeSwitch class="mx-1" />
         <LanguageSelect class="mx-1" />

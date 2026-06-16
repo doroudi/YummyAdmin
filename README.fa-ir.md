@@ -7,6 +7,13 @@
 <a href="https://coff.ee/doroudi"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" height="20px"></a>
 
 <div dir="rtl">
+
+> #### Nuxt نسخه
+> من تصمیم گرفتم YummyAdmin را به Nuxt منتقل کنم و از SSR و سایر ویژگی‌های آن استفاده کنم و توسعه آن را در Nuxt ادامه دهم.
+دسترسی به نسخه Nuxt: 
+https://github.com/doroudi/YummyAdmin.Nuxt
+[![Preview](/docs/nuxt_version.webp "Preview")](https://github.com/doroudi/YummyAdmin.Nuxt)
+
 پنل ادمین رایگان VueJs مبتنی بر NaiveUI و TailwindCss. امکانات کامل به همراه طراحی زیبا ، پشتیبانی کامل چیدمان راست به چپ و چندزبانگی.
 ساخته شده با استفاده از تکنولوژی های مدرن توسعه وب مانند: Pinia, تایپ اسکریپت ، MSW, UnoCss, WebSocket.
 
