@@ -11,8 +11,10 @@
       <div class="box-row">
          <AreaChartDemo w-full p2 />
       </div>
-      <!-- <PieChartDemo />
-      <DonutChartDemo /> -->
+      <div class="box-row">
+         <PieChartDemo w-full p2 />
+         <DonutChartDemo w-full p2 />
+      </div>
    </div>
 </template>
 

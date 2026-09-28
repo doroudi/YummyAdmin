@@ -4,6 +4,9 @@
 
 :root {
   --primary-color: #00ad4c;
+  --primary-color-shade1: #008a3c;
+  --primary-color-shade2: #007935;
+  --primary-color-shade3: #007935;
   --background: #EEE;
   --main-content: #FFF;
   --border-color: #e0dfdf74;
@@ -11,6 +14,18 @@
   --second-background: #FFF;
   --success-color: #00ad4c;
   --error-color: #ff4d4f;
+
+  /* Chart tokens consumed by the vendored uipkge charts
+     (see src/components/ui/charts/useChartTheme.ts).
+     App.vue rewrites --chart-1..5 whenever the theme colour changes. */
+  --chart-1: #00ad4c;
+  --chart-2: #008a3c;
+  --chart-3: #007935;
+  --chart-4: #00692e;
+  --chart-5: #ff7300;
+  --muted-foreground: #6e6b7b;
+  --popover: #ffffff;
+  --popover-foreground: #2f2b3d;
 }
 
 
@@ -19,6 +34,12 @@
   --main-content: #212637;
   --border-color: #20253578;
   --second-background: #1e293b;
+
+  /* ECharts paints on a canvas, so these have to be resolved colours -
+     `.dark` overrides in _override.scss cannot reach them. */
+  --muted-foreground: #b8b6c3;
+  --popover: #2b3144;
+  --popover-foreground: #e9e9ec;
 }
 
 

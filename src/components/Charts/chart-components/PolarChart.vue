@@ -1,20 +1,35 @@
 <script setup lang="ts">
 import BaseChart from './BaseChart.vue'
+import type { SimpleChartSeries } from '~/models/ChartData'
+import type { ChartLegendPosition, ChartOption } from '~/models/ChartsProps'
 
 interface Props {
-  data: any[]
-  colorScheme?: string
-  colors: string[]
+  data?: SimpleChartSeries[] | null
+  colors?: string[] | null
+  colorScheme?: string | null
+  height?: number | string
+  loading?: boolean
+  error?: string | null
+  options?: ChartOption | null
   showLegend?: boolean
-  legendPosition?: 'bottom' | 'right' | 'left'
+  legendPosition?: ChartLegendPosition
 }
-const props = withDefaults(defineProps<Props>(), {
+
+withDefaults(defineProps<Props>(), {
+  data: null,
+  colors: null,
+  colorScheme: null,
+  height: 320,
+  loading: false,
+  error: null,
+  options: null,
   showLegend: true,
   legendPosition: 'bottom',
 })
 </script>
 
 <template>
-    <BaseChart type="polarArea" :data="data" :show-legend="showLegend" :loading="loading"
-        :legend-position="legendPosition" :height="height" :colors="colors" />
+    <BaseChart type="polarArea" v-bind="$attrs" :data="data" :colors="colors" :color-scheme="colorScheme"
+        :height="height" :loading="loading" :error="error" :options="options" :show-legend="showLegend"
+        :legend-position="legendPosition" />
 </template>
