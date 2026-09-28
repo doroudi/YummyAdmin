@@ -1,227 +1,181 @@
-import type { ApexOptions } from 'apexcharts'
+import {
+  chartColors,
+  mergeOptionBlock,
+  resolveCssColor,
+} from '~/components/ui/charts/useChartTheme'
 import type { ChartData } from '~/models/ChartData'
-import type { ChartProps } from '~/models/ChartsProps'
+import type { ChartOption, ChartProps } from '~/models/ChartsProps'
 
+/**
+ * Builds everything the vendored uipkge cartesian wrappers (line / area / bar /
+ * radar) need out of this project's `ChartData` shape:
+ *
+ *   { labels: string[], series: [{ name, data: number[] }] }
+ *     ->
+ *   rows = [{ x: 'Jan', s0: 12, s1: 4 }, ...] with xField 'x', yField ['s0','s1']
+ *
+ * Series keys are positional (`s0`, `s1`, ...) so arbitrary series names stay
+ * safe as object keys; the human-readable names reach the legend/tooltip
+ * through the per-index series merge in `chartOption`.
+ */
 export function useChartOptions(props: ChartProps) {
   const { makeLighter } = useColors()
 
-  const colors = computed(() => {
-    if (!props.colorScheme && !props.colors)
-      return [
-        'var(--primary-color)',
-        'var(--primary-color-shade1)',
-        'var(--primary-color-shade2)',
-        'var(--primary-color-shade3)',
-      ]
-
-    if (props.colors && props.colors.length > 0) return props.colors
-
-    const result = []
-    if (props.data?.series) {
-      for (let i = 0; i < props.data?.series?.length; i++)
-        result.push(makeLighter(props.colorScheme ?? '', 1 - i * 0.25))
-    }
-
-    return result
-  })
-  const defaultOptions = computed<ApexOptions>(() => {
-    const baseOptions: ApexOptions = {
-      chart: {
-        stacked: true,
-        type: props.type,
-        toolbar: {
-          show: false,
-        },
-        animations: {
-          enabled: true,
-          speed: 800,
-          animateGradually: {
-            enabled: true,
-            delay: 150,
-          },
-        },
-        events: {
-          click: () => {
-            // emit('chart-click', event, chartContext, config)
-          },
-        },
-      },
-      grid: {
-        padding: {
-          top: -20,
-          bottom: -10,
-        },
-        yaxis: {
-          lines: {
-            show: false,
-          },
-        },
-        xaxis: {
-          lines: {
-            show: false,
-          },
-        },
-      },
-      xaxis: {
-        categories: safeLabels.value,
-        labels: {
-          style: {
-            colors: '#6E6B7B',
-            fontSize: '0.86rem',
-            fontFamily: 'inherit',
-          },
-        },
-        axisTicks: {
-          show: false,
-        },
-        axisBorder: {
-          show: false,
-        },
-      },
-      legend: {
-        show: false,
-        position: 'top',
-        fontFamily: 'inherit',
-        fontSize: '12px',
-        labels: {
-          colors: '#6E6B7B',
-          useSeriesColors: false,
-        },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      colors: colors.value,
-      plotOptions: {
-        bar: {
-          columnWidth: '17%',
-          borderRadius: 5,
-          dataLabels: {
-            position: 'top',
-          },
-        },
-        // distributed: true,
-      },
-      yaxis: {
-        labels: {
-          style: {
-            colors: '#6E6B7B',
-            fontSize: '0.86rem',
-            fontFamily: 'inherit',
-          },
-          formatter: (value: number) => {
-            if (value >= 1000) {
-              return `${(value / 1000).toFixed(1)}k`
-            }
-            return `${value}`
-          },
-        },
-        forceNiceScale: true,
-        tickAmount: 5,
-        stepSize: 20,
-      },
-      tooltip: {
-        theme: 'dark',
-        style: {
-          fontSize: '12px',
-          fontFamily: 'inherit',
-        },
-        y: {
-          formatter: (value: number) => `${value.toLocaleString()}`,
-        },
-      },
-      responsive: [
-        {
-          breakpoint: 992,
-          options: {
-            plotOptions: {
-              bar: {
-                columnWidth: '29%',
-                borderRadius: 3,
-              },
-            },
-            chart: {
-              height: 250,
-            },
-            yaxis: {
-              labels: {
-                show: true,
-              },
-            },
-          },
-        },
-        {
-          breakpoint: 576,
-          options: {
-            plotOptions: {
-              bar: {
-                columnWidth: '40%',
-              },
-            },
-            chart: {
-              height: 200,
-            },
-            xaxis: {
-              labels: {
-                rotate: -45,
-                style: {
-                  fontSize: '10px',
-                },
-              },
-            },
-          },
-        },
-      ],
-      noData: {
-        text: 'No data available',
-        align: 'center',
-        verticalAlign: 'middle',
-        style: {
-          color: '#6E6B7B',
-          fontSize: '14px',
-          fontFamily: 'inherit',
-        },
-      },
-    }
-    return baseOptions
-  })
-
-  const safeLabels = computed(() => {
+  const safeLabels = computed<string[]>(() => {
     if (!props.data?.labels) return []
     try {
       return props.data.labels.map((label: any) =>
-        label !== null && label !== undefined ? String(label) : '',
+        label === null || label === undefined ? '' : String(label),
       )
     } catch {
       return []
     }
   })
 
-  const safeSeries = computed(() => {
-    if (!validateChartData(props.data)) return []
-
-    try {
-      return props.data!.series.map((series: any) => ({
-        name: series.name || '',
-        data: series.data.map((value: any) => {
-          const num = Number(value)
-          return Number.isNaN(num) ? 0 : num
-        }),
-        ...series,
-      }))
-    } catch {
-      // emit('data-error', 'Failed to process series data')
-      return []
-    }
+  const seriesNames = computed<string[]>(() => {
+    if (!props.data?.series || !Array.isArray(props.data.series)) return []
+    return props.data.series.map(
+      (series: any, index: number) => series?.name || `Series ${index + 1}`,
+    )
   })
 
-  const showChart = computed(() => {
-    return (
-      !props.loading &&
-      !props.error &&
-      validateChartData(props.data) &&
-      safeSeries.value.length > 0
-    )
+  /** Positional field keys handed to the ECharts wrapper. */
+  const fields = computed<string[]>(() =>
+    seriesNames.value.map((_, i) => `s${i}`),
+  )
+
+  const palette = computed<string[]>(() => {
+    if (props.colors && props.colors.length > 0)
+      return props.colors.map(resolveCssColor)
+
+    if (props.colorScheme) {
+      return seriesNames.value.map((_, i) =>
+        makeLighter(props.colorScheme ?? '', 1 - i * 0.25),
+      )
+    }
+
+    return chartColors.value
+  })
+
+  const rows = computed<Record<string, any>[]>(() => {
+    const series = props.data?.series
+    if (!Array.isArray(series)) return []
+
+    return safeLabels.value.map((label, rowIndex) => {
+      const row: Record<string, any> = { x: label }
+      series.forEach((item: any, seriesIndex: number) => {
+        const value = Number(item?.data?.[rowIndex])
+        row[`s${seriesIndex}`] = Number.isNaN(value) ? 0 : value
+      })
+      return row
+    })
+  })
+
+  /** Kept for the previous public shape of this composable. */
+  const safeSeries = computed<number[][]>(() =>
+    fields.value.map((field) => rows.value.map((row) => row[field])),
+  )
+
+  /** Radar needs an explicit `<indicator>` per axis with a computed maximum. */
+  const radarIndicators = computed(() =>
+    safeLabels.value.map((label, index) => {
+      let max = 0
+      for (const field of fields.value)
+        max = Math.max(max, Number(rows.value[index]?.[field]) || 0)
+
+      return { name: label, max: max > 0 ? Math.ceil(max * 1.1) : 1 }
+    }),
+  )
+
+  const radarData = computed(() =>
+    fields.value.map((field, index) => ({
+      name: seriesNames.value[index] ?? field,
+      value: rows.value.map((row) => row[field]),
+    })),
+  )
+
+  /**
+   * Legend overrides.
+   *
+   * Cartesian charts have always shipped without a legend in this project, so
+   * the wrappers default `showLegend` to `false` and callers opt in.
+   * `undefined` means "leave the wrapper's default alone" (a bottom-anchored
+   * legend for multi-series, hidden for single-series).
+   */
+  function legendOption(): ChartOption | undefined {
+    if (props.showLegend !== true) return { show: false }
+
+    // `'auto'` clears the wrapper's default anchor on the opposite edge.
+    switch (props.legendPosition) {
+      case 'top':
+        return { show: true, top: 0, bottom: 'auto' }
+      case 'left':
+        return {
+          show: true,
+          left: 0,
+          right: 'auto',
+          top: 'middle',
+          orient: 'vertical',
+        }
+      case 'right':
+        return {
+          show: true,
+          right: 0,
+          left: 'auto',
+          top: 'middle',
+          orient: 'vertical',
+        }
+      default:
+        return undefined
+    }
+  }
+
+  /**
+   * App-level overrides handed to the wrapper as its `option` prop. The wrapper
+   * merges these per-series (by index) and one level deep for axis blocks, so
+   * partial overrides never clobber the computed `type` / `data`.
+   */
+  const chartOption = computed<ChartOption>(() => {
+    const user: ChartOption = props.options ?? {}
+
+    const baseSeries = seriesNames.value.map((name, index) => ({
+      name,
+      itemStyle: { color: palette.value[index % palette.value.length] },
+    }))
+
+    const userSeries = Array.isArray(user.series) ? user.series : null
+    const seriesCount = Math.max(baseSeries.length, userSeries?.length ?? 0)
+    const series = Array.from({ length: seriesCount }, (_, index) => ({
+      ...(baseSeries[index] ?? {}),
+      ...(userSeries?.[index] ?? {}),
+    }))
+
+    const base: ChartOption = {
+      color: palette.value,
+      series,
+      yAxis: {
+        axisLabel: {
+          formatter: (value: number) =>
+            value >= 1000 ? `${(value / 1000).toFixed(1)}k` : `${value}`,
+        },
+      },
+      tooltip: {
+        valueFormatter: (value: any) =>
+          typeof value === 'number' ? value.toLocaleString() : `${value}`,
+      },
+    }
+
+    const legend = user.legend ?? legendOption()
+
+    return {
+      ...base,
+      ...user,
+      series,
+      legend,
+      color: user.color ?? base.color,
+      yAxis: mergeOptionBlock(base.yAxis, user.yAxis),
+      tooltip: mergeOptionBlock(base.tooltip, user.tooltip),
+    }
   })
 
   const validateChartData = (data: ChartData | null): boolean => {
@@ -230,12 +184,19 @@ export function useChartOptions(props: ChartProps) {
       return false
     if (!data.labels || !Array.isArray(data.labels)) return false
 
-    const hasValidSeries = data.series.every(
+    return data.series.every(
       (series: any) =>
         series && typeof series === 'object' && Array.isArray(series.data),
     )
-    return hasValidSeries
   }
+
+  const showChart = computed(
+    () =>
+      !props.loading &&
+      !props.error &&
+      validateChartData(props.data) &&
+      safeSeries.value.length > 0,
+  )
 
   watch(
     () => props.data,
@@ -248,11 +209,17 @@ export function useChartOptions(props: ChartProps) {
   )
 
   return {
-    defaultOptions,
+    props,
+    palette,
+    chartOption,
     showChart,
     safeSeries,
     safeLabels,
-    props,
+    seriesNames,
+    fields,
+    rows,
+    radarIndicators,
+    radarData,
     validateChartData,
   }
 }

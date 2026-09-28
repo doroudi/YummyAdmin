@@ -1,39 +1,37 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps(), {
-  colors: () => [
-    'var(--primary-color)',
-    'var(--primary-color-shade1)',
-    'var(--primary-color-shade2)',
-    'var(--primary-color-shade3)',
-  ],
+import BaseChart from './BaseChart.vue'
+import type { ChartData } from '~/models/ChartData'
+import type { ChartLegendPosition, ChartOption } from '~/models/ChartsProps'
+
+interface Props {
+  data?: ChartData | null
+  colors?: string[] | null
+  colorScheme?: string | null
+  height?: number | string
+  loading?: boolean
+  error?: string | null
+  options?: ChartOption | null
+  showLegend?: boolean
+  legendPosition?: ChartLegendPosition
+}
+
+withDefaults(defineProps<Props>(), {
+  data: null,
+  colors: null,
+  colorScheme: null,
   height: 400,
   loading: false,
-  data: () => null,
+  error: null,
+  options: null,
+  // Cartesian charts have always rendered without a legend here; pass
+  // `show-legend` to turn one on.
+  showLegend: false,
+  legendPosition: 'bottom',
 })
-
-const options = {
-  chart: {
-    type: 'area',
-    sparkline: {
-      enabled: true,
-    },
-  },
-  fill: {
-    type: 'gradient',
-    gradient: {
-      shade: 'light',
-      gradientToColors: ['var(--main-content)', props.color],
-      type: 'vertical',
-      shadeIntensity: 0,
-      opacityFrom: 0.3,
-      opacityTo: 0.1,
-    },
-  },
-}
 </script>
 
 <template>
-    <BaseChart type="area" :height="height" :data="data" :options="options" :colors="colors" />
+    <BaseChart type="area" v-bind="$attrs" :data="data" :colors="colors" :color-scheme="colorScheme"
+        :height="height" :loading="loading" :error="error" :options="options" :show-legend="showLegend"
+        :legend-position="legendPosition" />
 </template>
-
-<style lang="scss" scoped></style>

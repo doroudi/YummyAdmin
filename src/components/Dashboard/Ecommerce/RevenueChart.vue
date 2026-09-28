@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import VueApexCharts from 'vue3-apexcharts'
 
 const store = useDashboardStore()
 const { revenueStat } = storeToRefs(store)
@@ -9,62 +8,6 @@ const period = ref('day')
 onMounted(() => {
   store.getRevenueStat(period.value)
 })
-const chartOptions = {
-  chart: {
-    type: 'area',
-    sparkline: {
-      enabled: true,
-    },
-    toolbar: {
-      show: false,
-    },
-    zoom: {
-      enabled: false,
-    },
-  },
-  stroke: {
-    width: 2,
-    curve: 'smooth',
-  },
-
-  fill: {
-    type: 'gradient',
-    gradient: {
-      shade: 'light',
-      gradientToColors: ['var(--main-content)', 'var(--primary-color)'],
-      type: 'vertical',
-      shadeIntensity: 0,
-      opacityFrom: 0.3,
-      opacityTo: 0.1,
-    },
-  },
-  colors: ['var(--primary-color)'],
-  grid: {
-    padding: {
-      top: 0,
-      bottom: 10,
-      left: 0,
-      right: 0,
-    },
-  },
-  tooltip: {
-    enabled: false,
-  },
-  markers: {
-    size: 0,
-  },
-}
-const series = ref([{ data: [] }])
-watch(
-  () => revenueStat.value,
-  () => {
-    series.value = [
-      {
-        data: revenueStat.value,
-      },
-    ]
-  },
-)
 
 function updatePeriod(value: string) {
   period.value = value
@@ -79,7 +22,7 @@ const ranges = [
 ]
 
 const total = computed(() =>
-  revenueStat.value.reduce((a: any, b: any) => a + b, 0),
+  (revenueStat.value as number[]).reduce((a, b) => a + b, 0),
 )
 </script>
 
@@ -99,7 +42,7 @@ const total = computed(() =>
 
         <SwitchSelect v-model:value="period" :ranges="ranges" @update:value="updatePeriod" />
         <div v-if="revenueStat.length" class="my-2 -mx-4">
-          <VueApexCharts type="area" width="100%" height="150" :options="chartOptions" :series="series" />
+          <Sparkline :data="revenueStat" width="100%" :height="150" color="var(--primary-color)" />
         </div>
       </div>
     </Card>

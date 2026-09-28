@@ -114,21 +114,19 @@ select:-webkit-autofill:focus {
   border-color: var(--border-color);
 }
 
-// ApexCharts
-.dark {
-  .apexcharts-text {
-    fill: #fff;
-  }
+// Charts
+// The vendored uipkge charts render into a <canvas> via ECharts, so they cannot
+// be restyled with CSS selectors the way ApexCharts' SVG output could. Dark-mode
+// colours come from the `--muted-foreground` / `--popover` / `--border-color`
+// tokens declared under `.dark` in main.scss, which `useChartTheme.ts` reads
+// through getComputedStyle.
 
-  .apexcharts-tooltip,
-  .apexcharts-tooltip-title {
-    background-color: #333 !important;
-    color: #fff !important;
-    border: 1px solid #555 !important;
-  }
-
-  .apexcharts-legend-text {
-    color: #fff !important;
+// The chart wrappers set `tabindex="0"` for keyboard/AT access - keep the focus
+// ring consistent with the rest of the panel.
+[role='img'][aria-label] {
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
   }
 }
 

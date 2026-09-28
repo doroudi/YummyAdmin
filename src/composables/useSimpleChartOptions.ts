@@ -1,161 +1,126 @@
-import type { ApexOptions } from 'apexcharts'
+import {
+  chartColors,
+  resolveCssColor,
+} from '~/components/ui/charts/useChartTheme'
 import type { SimpleChartSeries } from '~/models/ChartData'
-import type { SimpleChartProps } from '~/models/ChartsProps'
+import type { ChartOption, SimpleChartProps } from '~/models/ChartsProps'
 
+/**
+ * Builds options for the vendored uipkge share-of-total wrappers
+ * (`PieChart`, `DonutChart`, `PolarBarChart`) out of this project's
+ * `SimpleChartSeries[]` shape.
+ */
 export function useSimpleChartOptions(props: SimpleChartProps) {
   const { makeLighter } = useColors()
 
-  const colors = computed(() => {
-    if (!props.colorScheme && !props.colors)
-      return [
-        'var(--primary-color)',
-        'var(--primary-color-shade1)',
-        'var(--primary-color-shade2)',
-        'var(--primary-color-shade3)',
-      ]
+  const labels = computed(() =>
+    Array.isArray(props.data)
+      ? props.data.map((item: any) => String(item.name))
+      : [],
+  )
 
-    if (props.colors && props.colors.length > 0) return props.colors
+  const safeSeries = computed<number[]>(() =>
+    Array.isArray(props.data)
+      ? props.data.map((item: any) => Number(item.value) || 0)
+      : [],
+  )
 
-    const result = []
-    if (props.data?.length) {
-      for (let i = 0; i < props.data?.length; i++)
-        result.push(makeLighter(props.colorScheme ?? '', 1 - i * 0.25))
+  const palette = computed<string[]>(() => {
+    if (props.colors && props.colors.length > 0)
+      return props.colors.map(resolveCssColor)
+
+    if (props.colorScheme) {
+      return (Array.isArray(props.data) ? props.data : []).map((_, i) =>
+        makeLighter(props.colorScheme ?? '', 1 - i * 0.25),
+      )
     }
 
-    return result
+    return chartColors.value
   })
 
-  const labels = computed(() => props.data?.map((item: any) => item.name))
-  const safeSeries = computed(() => props.data?.map((item: any) => item.value))
-  const defaultOptions = computed<ApexOptions>(() => {
-    const baseOptions: ApexOptions = {
-      chart: {
-        type: props.type,
-        toolbar: {
-          show: false,
-        },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      legend: {
-        show: props.showLegend,
-        position: props.legendPosition,
-        formatter: (value: any, opts: any): any => {
-          return `${value} - ${opts.w.globals.series[opts.seriesIndex]}`
-        },
-        markers: {
-          onClick: undefined,
-          offsetX: 0,
-          offsetY: 0,
-        },
-      },
-      labels: labels.value,
-      stroke: {
-        width: 0,
-        show: false,
-        curve: 'smooth',
-        lineCap: 'round',
-      },
-      colors: colors.value,
-      grid: {
-        padding: {
-          right: -20,
-          bottom: -8,
-          left: -20,
-        },
-      },
-      plotOptions: {
-        pie: {
-          //   borderRadius: 10,
-          startAngle: -20,
-          donut: {
-            // borderRadius: { size: 10 },
-            labels: {
-              show: true,
-              name: {
-                offsetY: 15,
-              },
-              value: {
-                offsetY: -15,
-                formatter(t: string): any {
-                  return Number.parseInt(t, 10).toString()
-                },
-              },
-              total: {
-                show: true,
-                // offsetY: 15,
-                label: 'Total',
-                formatter(): string {
-                  return (
-                    safeSeries.value?.reduce(
-                      (acc: number, item: any) => acc + item,
-                      0,
-                    ) ?? 0
-                  ).toString()
-                },
-              },
-            },
-          },
-        },
-      },
-      responsive: [
-        {
-          breakpoint: 1325,
-          options: {
-            chart: {
-              height: 150,
-            },
-          },
-        },
-        {
-          breakpoint: 1200,
-          options: {
-            chart: {
-              height: 120,
-            },
-          },
-        },
-        {
-          breakpoint: 1045,
-          options: {
-            chart: {
-              height: 200,
-            },
-          },
-        },
-        {
-          breakpoint: 992,
-          options: {
-            chart: {
-              height: 250,
-            },
-          },
-        },
-      ],
-      noData: {
-        text: 'No data available',
-        align: 'center',
-        verticalAlign: 'middle',
-        style: {
-          color: '#6E6B7B',
-          fontSize: '14px',
-          fontFamily: 'inherit',
-        },
+  const total = computed(() =>
+    safeSeries.value.reduce((acc, value) => acc + value, 0),
+  )
+
+  /** `DonutChart` / `PieChart` / `PolarBarChart` all accept `{ name, value }`. */
+  const simpleData = computed(() =>
+    labels.value.map((name, index) => ({
+      name,
+      value: safeSeries.value[index] ?? 0,
+    })),
+  )
+
+  /**
+   * Legend overrides.
+   *
+   * A `legend` key can only be honoured or overridden wholesale - `PieChart`
+   * and `RadarChart` replace the block outright - so every branch returns a
+   * complete, self-sufficient legend and `show: false` reliably hides it.
+   * `PolarBarChart` hides its legend by default, which is why the bottom case
+   * has to be spelled out rather than left to the wrapper.
+   */
+  function legendOption(): ChartOption {
+    if (props.showLegend === false) return { show: false }
+
+    switch (props.legendPosition) {
+      case 'left':
+        return {
+          show: true,
+          orient: 'vertical',
+          left: 0,
+          right: 'auto',
+          top: 'middle',
+          bottom: 'auto',
+        }
+      case 'right':
+        return {
+          show: true,
+          orient: 'vertical',
+          right: 0,
+          left: 'auto',
+          top: 'middle',
+          bottom: 'auto',
+        }
+      case 'top':
+        return { show: true, top: 0, bottom: 'auto' }
+      default:
+        return { show: true, bottom: 0, left: 'center' }
+    }
+  }
+
+  const chartOption = computed<ChartOption>(() => {
+    const user: ChartOption = props.options ?? {}
+
+    const base: ChartOption = {
+      color: palette.value,
+      tooltip: {
+        valueFormatter: (value: any) =>
+          typeof value === 'number' ? value.toLocaleString() : `${value}`,
       },
     }
-    return baseOptions
-  })
 
-  const showChart = computed(() => {
-    return !props.loading && !props.error && props.data?.length
+    return {
+      ...base,
+      ...user,
+      // Keep the theme palette unless the caller supplied their own.
+      color: user.color ?? palette.value,
+      legend: user.legend ?? legendOption(),
+    }
   })
 
   const validateChartData = () => true
 
+  const showChart = computed(
+    () =>
+      !props.loading &&
+      !props.error &&
+      Array.isArray(props.data) &&
+      props.data.length > 0,
+  )
+
   watch(
     () => props.data,
-    (newData: SimpleChartSeries[]) => {
+    (newData: SimpleChartSeries[] | null) => {
       if (newData && newData.length === 0) {
         // emit('data-error', 'Invalid chart data structure')
       }
@@ -164,11 +129,14 @@ export function useSimpleChartOptions(props: SimpleChartProps) {
   )
 
   return {
-    defaultOptions,
+    props,
+    palette,
+    chartOption,
     showChart,
     safeSeries,
     safeLabels: labels,
-    props,
+    simpleData,
+    total,
     validateChartData,
   }
 }

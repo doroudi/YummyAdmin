@@ -97,6 +97,10 @@ export default defineConfig({
 
     Components({
       extensions: ['vue'],
+      // `globs` replaces `dirs` when set. The vendored uipkge primitives are
+      // imported explicitly, so keep them out of auto-registration - basenames
+      // like `AreaChart.vue` would otherwise shadow the app's own wrappers.
+      globs: ['src/components/**/*.vue', '!src/components/ui/charts/**'],
       resolvers: [NaiveUiResolver()],
       include: [/\.vue$/, /\.vue\?vue/],
       dts: 'src/components.d.ts',
