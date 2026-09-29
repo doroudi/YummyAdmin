@@ -1,10 +1,11 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import type { Review } from '~/models/Review'
-import reviewService from '~/services/review.service'
+import { useReviewService } from '~/services/review.service'
 
 export type ReviewState = {}
 export const useReviewStore = defineStore('Review', () => {
+  const reviewService = useReviewService()
   const reviews = ref<Review[]>([])
 
   const reviewItem = ref<Review>()

@@ -30,6 +30,6 @@
     "*.css": "postcss"
   },
   "editor.formatOnSave": false,
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
   "editor.selectionHighlight": false
 }

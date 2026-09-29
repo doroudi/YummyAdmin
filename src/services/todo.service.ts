@@ -1,4 +1,4 @@
-import { ApiService } from '~/common/api/api-service'
+import { useApi } from '~/composables/useApi'
 import type {
   GroupCreateModel,
   TaskCreateModel,
@@ -6,29 +6,36 @@ import type {
   TaskItem,
 } from '~/models/Todo'
 
-const apiService = new ApiService('todo')
-class TodoService {
-  async loadGroups(): Promise<TaskGroup[]> {
-    const response = await apiService.get<{ items: TaskGroup[] }>('groups')
+export const useTodoService = () => {
+  const api = useApi('todo')
+
+  async function loadGroups(): Promise<TaskGroup[]> {
+    const response = await api.get<{ items: TaskGroup[] }>('groups')
     return response.items
   }
 
-  async loadTasks(groupId: number) {
-    const response = await apiService.get<TaskGroup>(`groups/${groupId}/tasks`)
+  async function loadTasks(groupId: number): Promise<TaskItem[]> {
+    const response = await api.get<TaskItem[]>(`groups/${groupId}/tasks`)
     return response
   }
 
-  async createTask(task: TaskCreateModel) {
-    const response = await apiService.post<TaskItem>(
+  async function createTask(task: TaskCreateModel) {
+    const response = await api.post<TaskItem>(
       `groups/${task.groupId}/tasks`,
       task,
     )
     return response
   }
 
-  async createGroup(group: GroupCreateModel) {
-    const response = await apiService.post<TaskItem>('groups', group)
+  async function createGroup(group: GroupCreateModel) {
+    const response = await api.post<TaskItem>('groups', group)
     return response
   }
+
+  return {
+    loadGroups,
+    loadTasks,
+    createTask,
+    createGroup,
+  }
 }
-export default new TodoService()

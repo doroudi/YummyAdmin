@@ -1,10 +1,11 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Customer } from '~/models/Customer'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
-import customerService from '~/services/customer.service'
+import { useCustomerService } from '~/services/customer.service'
 
 export type CustomerState = {}
 export const useCustomerStore = defineStore('Customer', () => {
+  const customerService = useCustomerService()
   const customers = ref<Customer>([])
   const customerItem = ref<Customer>()
   const isLoading = ref(false)

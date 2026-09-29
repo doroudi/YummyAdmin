@@ -1,8 +1,9 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Profile, ProfileSettings } from '~/models/Profile'
-import ProfileService from '~/services/profile.service'
+import { useProfileService } from '~/services/profile.service'
 
 export const useProfileStore = defineStore('Profile', () => {
+  const profileService = useProfileService()
   const userProfile = ref<Profile>({} as Profile)
   const userSettings = ref<ProfileSettings>({} as ProfileSettings)
   const isLoading = ref(false)
@@ -11,7 +12,7 @@ export const useProfileStore = defineStore('Profile', () => {
     isLoading.value = true
 
     try {
-      const profile = await ProfileService.getUserProfile()
+      const profile = await profileService.getUserProfile()
       userProfile.value = profile
     } finally {
       isLoading.value = false
@@ -19,7 +20,7 @@ export const useProfileStore = defineStore('Profile', () => {
   }
 
   async function loadSettings() {
-    const settings = await ProfileService.getUserSettings()
+    const settings = await profileService.getUserSettings()
     userSettings.value = settings
   }
 

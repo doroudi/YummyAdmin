@@ -15,8 +15,10 @@ export class ApiService {
     this.httpClient = HttpClient(service)
   }
 
-  async get<T>(url = ''): Promise<T> {
-    const response = await this.httpClient.get(`${this.apiBase}/${url}`)
+  async get<T>(url = '', params?: any): Promise<T> {
+    const response = await this.httpClient.get(`${this.apiBase}/${url}`, {
+      params,
+    })
     return response.data
   }
 

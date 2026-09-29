@@ -1,21 +1,25 @@
-import { ApiService } from '~/common/api/api-service'
+import { useApi } from '~/composables/useApi'
 import type { Category } from '~/models/Category'
-import GenericService from './generic.service'
+import { useGenericService } from './generic.service'
 
-const apiService = new ApiService('category')
-class CategoryService extends GenericService<Category, number> {
-  constructor() {
-    super(apiService)
+export const useCategoryService = () => {
+  const base = useGenericService<Category, number>('category')
+  const api = useApi('category')
+
+  function getAll() {
+    return api.getList<Category[]>('all', {})
   }
 
-  getAll() {
-    return apiService.getList<Category[]>
+  function getStats() {
+    return api.get<{
+      summaryStats: any
+      productsByCategoryStat: any
+    }>('stats')
   }
 
-  getStats() {
-    return apiService.get<{ summaryStats: any; productsByCategoryStat: any }>(
-      'stats',
-    )
+  return {
+    ...base,
+    getAll,
+    getStats,
   }
 }
-export default new CategoryService()

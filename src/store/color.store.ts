@@ -4,10 +4,11 @@ import {
   defaultOptions,
   type PagedAndSortedRequest,
 } from '~/models/PagedAndSortedRequest'
-import colorService from '~/services/color.service'
+import { useColorService } from '~/services/color.service'
 
 export type ColorState = {}
 export const useColorStore = defineStore('Color', () => {
+  const colorService = useColorService()
   const colors = ref<Color[]>([])
   const colorItem = ref<Color>()
   const isLoading = ref(false)
@@ -37,7 +38,7 @@ export const useColorStore = defineStore('Color', () => {
   }
 
   async function deleteColor(id: string) {
-    await colorService.delete(id)
+    await colorService.remove(id)
     colors.value.splice(
       colors.value.findIndex((x: Color) => x.id === id),
       1,

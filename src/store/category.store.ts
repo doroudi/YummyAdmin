@@ -6,9 +6,10 @@ import {
   type PagedAndSortedRequest,
 } from '~/models/PagedAndSortedRequest'
 import type { SummaryStatDto } from '~/models/SummaryStat'
-import categoryService from '~/services/category.service'
+import { useCategoryService } from '~/services/category.service'
 
 export const useCategoryStore = defineStore('Category', () => {
+  const categoryService = useCategoryService()
   const categories = ref<Category[]>([])
   const categoryItem = ref<Category>()
   const isLoading = ref(true)
@@ -52,7 +53,7 @@ export const useCategoryStore = defineStore('Category', () => {
   }
 
   async function deleteCategory(id: number) {
-    await categoryService.delete(id)
+    await categoryService.remove(id)
     getCategories()
   }
 

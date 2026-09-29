@@ -1,16 +1,21 @@
-import { ApiService } from '~/common/api/api-service'
+import { useApi } from '~/composables/useApi'
 import type { Profile, ProfileSettings } from '~/models/Profile'
 
-const apiService = new ApiService('Profile')
-class ProfileService {
-  async getUserProfile(): Promise<Profile> {
-    const response = await apiService.get<Profile>('user-profile')
+export const useProfileService = () => {
+  const api = useApi('Profile')
+
+  async function getUserProfile(): Promise<Profile> {
+    const response = await api.get<Profile>('user-profile')
     return response
   }
 
-  async getUserSettings(): Promise<ProfileSettings> {
-    const response = await apiService.get<ProfileSettings>('user-settings')
+  async function getUserSettings(): Promise<ProfileSettings> {
+    const response = await api.get<ProfileSettings>('user-settings')
     return response
   }
+
+  return {
+    getUserProfile,
+    getUserSettings,
+  }
 }
-export default new ProfileService()

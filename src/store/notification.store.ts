@@ -1,12 +1,13 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Notification } from '~/models/Notification'
-import NotificationService from '~/services/notification.service'
+import { useNotificationsService } from '~/services/notification.service'
 
 export const useNotificationStore = defineStore('Notification', () => {
+  const notificationService = useNotificationsService()
   const notifications = ref<Notification[]>([])
   const isLoading = ref(false)
   async function getNotifications() {
-    const response = await NotificationService.getNotificationsList()
+    const response = await notificationService.getNotificationsList()
     notifications.value = response.items
   }
 

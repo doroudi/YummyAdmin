@@ -4,10 +4,11 @@ import {
   defaultOptions,
   type PagedAndSortedRequest,
 } from '~/models/PagedAndSortedRequest'
-import brandService from '~/services/brand.service'
+import { useBrandService } from '~/services/brand.service'
 
 export type BrandState = {}
 export const useBrandStore = defineStore('Brand', () => {
+  const brandService = useBrandService()
   const brands = ref<Brand[]>([])
   const brandItem = ref<Brand>()
   const isLoading = ref(false)
@@ -36,7 +37,7 @@ export const useBrandStore = defineStore('Brand', () => {
   }
 
   async function deleteBrand(id: string) {
-    await brandService.delete(id)
+    await brandService.remove(id)
   }
 
   return {
