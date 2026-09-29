@@ -1,9 +1,10 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 
 import type { TaskCreateModel, TaskGroup, TaskItem } from '~/models/Todo'
-import todoService from '~/services/todo.service'
+import { useTodoService } from '~/services/todo.service'
 
 export const useTodoAppStore = defineStore('Todo', () => {
+  const todoService = useTodoService()
   const groups = ref<TaskGroup[]>([])
   const tasks = ref<TaskItem[]>([])
 

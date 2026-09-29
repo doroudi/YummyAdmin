@@ -3,9 +3,10 @@ import type { FormInst, FormRules } from 'naive-ui/es/form'
 import type { TreeSelectOption } from 'naive-ui/es/tree-select/src/interface'
 import { storeToRefs } from 'pinia'
 import type { Category, CategoryCreateModel } from '~/models/Category'
-import categoryService from '~/services/category.service'
+import { useCategoryService } from '~/services/category.service'
 
 const emits = defineEmits(['close'])
+const categoryService = useCategoryService()
 const categoryStore = useCategoryStore()
 const { isLoading } = storeToRefs(categoryStore)
 const categoryItem = ref<CategoryCreateModel>({ name: '', parentId: 0 })

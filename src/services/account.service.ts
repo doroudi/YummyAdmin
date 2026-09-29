@@ -1,4 +1,4 @@
-import { ApiService } from '~/common/api/api-service'
+import { useApi } from '~/composables/useApi'
 import type {
   ForgetPasswordResponse,
   LoginResponse,
@@ -7,30 +7,34 @@ import type {
   RegisterViewModel,
 } from '~/models/Account'
 
-const apiService = new ApiService('account')
-class AccountService {
-  async login(loginInfo: LoginViewModel): Promise<LoginResponse> {
-    const response = await apiService.post<LoginResponse>('login', loginInfo)
+export const useAccountService = () => {
+  const api = useApi('account')
+
+  async function login(loginInfo: LoginViewModel): Promise<LoginResponse> {
+    const response = await api.post<LoginResponse>('login', loginInfo)
     return response
   }
 
-  async register(registerModel: RegisterViewModel): Promise<RegisterResponse> {
-    const response = await apiService.post<RegisterResponse>(
-      'register',
-      registerModel,
-    )
+  async function register(
+    registerModel: RegisterViewModel,
+  ): Promise<RegisterResponse> {
+    const response = await api.post<RegisterResponse>('register', registerModel)
     return response
   }
 
-  async forgetPassword(
+  async function forgetPassword(
     forgetPasswordModel: LoginViewModel,
   ): Promise<ForgetPasswordResponse> {
-    const response = await apiService.post<ForgetPasswordResponse>(
+    const response = await api.post<ForgetPasswordResponse>(
       'forget-password',
       forgetPasswordModel,
     )
     return response
   }
-}
 
-export default new AccountService()
+  return {
+    login,
+    register,
+    forgetPassword,
+  }
+}

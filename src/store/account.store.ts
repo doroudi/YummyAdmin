@@ -1,10 +1,11 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { Account, LoginViewModel } from '~/models/Account'
-import AccountService from '~/services/account.service'
+import { useAccountService } from '~/services/account.service'
 
 export const useAccountStore = defineStore(
   'account',
   () => {
+    const accountService = useAccountService()
     const user = ref<Account | null>()
     const isLoading = ref(false)
     const loginFailed = ref(false)
@@ -12,7 +13,7 @@ export const useAccountStore = defineStore(
     async function login(loginInfo: LoginViewModel): Promise<boolean> {
       isLoading.value = true
       try {
-        const response = await AccountService.login(loginInfo)
+        const response = await accountService.login(loginInfo)
         if (response.isSucceed) {
           user.value = {
             token: response.token,
@@ -48,7 +49,7 @@ export const useAccountStore = defineStore(
     async function register(registerInfo: any) {
       isLoading.value = true
       try {
-        const response = await AccountService.register(registerInfo)
+        const response = await accountService.register(registerInfo)
         if (response.isSucceed) {
           user.value = {
             token: response.token,

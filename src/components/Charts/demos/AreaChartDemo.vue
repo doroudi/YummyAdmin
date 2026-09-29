@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import type { ChartData } from '~/models/ChartData'
-import reportService from '~/services/report.service'
+import { useReportService } from '~/services/report.service'
 
+const reportService = useReportService()
 const monthlySellStat = ref<ChartData | null>(null)
 const isLoading = ref(true)
 

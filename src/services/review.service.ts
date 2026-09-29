@@ -1,15 +1,19 @@
-import { ApiService } from '~/common/api/api-service'
+import { useApi } from '~/composables/useApi'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import type { PaginatedList } from '~/models/PagedListResult'
 import type { Review } from '~/models/Review'
 
-const apiService = new ApiService('review')
-class ReviewService {
-  async getReviewList(
+export const useReviewService = () => {
+  const api = useApi('review')
+
+  async function getReviewList(
     options: PagedAndSortedRequest,
   ): Promise<PaginatedList<Review>> {
-    const response = await apiService.getPagedList<Review>('', options)
+    const response = await api.getPaginated<Review>('', options)
     return response
   }
+
+  return {
+    getReviewList,
+  }
 }
-export default new ReviewService()

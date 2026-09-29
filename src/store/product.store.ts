@@ -1,9 +1,10 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { PagedAndSortedRequest } from '~/models/PagedAndSortedRequest'
 import type { Product, ProductCreateModel } from '~/models/Product'
-import productService from '~/services/product.service'
+import { useProductService } from '~/services/product.service'
 
 export const useProductStore = defineStore('Product', () => {
+  const productService = useProductService()
   const products = ref<Product[]>([])
   const trendingProducts = ref<Product[]>([])
   const productItem = ref<Product>()
@@ -44,7 +45,7 @@ export const useProductStore = defineStore('Product', () => {
   }
 
   async function deleteProduct(id: string) {
-    await productService.delete(id)
+    await productService.remove(id)
     products.value.splice(
       products.value.findIndex((x: Product) => x.id === id),
       1,
@@ -53,7 +54,7 @@ export const useProductStore = defineStore('Product', () => {
 
   async function deleteMultipleProducts(ids: string[]) {
     ids.forEach(async (id) => {
-      await productService.delete(id)
+      await productService.remove(id)
       products.value.splice(
         products.value.findIndex((x: Product) => x.id === id),
         1,

@@ -1,12 +1,16 @@
-import { ApiService } from '~/common/api/api-service'
+import { useApi } from '~/composables/useApi'
 import type { ListResult } from '~/models/ListResult'
 import type { Notification } from '~/models/Notification'
 
-const apiService = new ApiService('notification')
-class NotificationsService {
-  async getNotificationsList(): Promise<ListResult<Notification>> {
-    const response = await apiService.getList<Notification>('', {})
+export const useNotificationsService = () => {
+  const api = useApi('notification')
+
+  async function getNotificationsList(): Promise<ListResult<Notification>> {
+    const response = await api.getList<Notification>('', {})
     return response
   }
+
+  return {
+    getNotificationsList,
+  }
 }
-export default new NotificationsService()

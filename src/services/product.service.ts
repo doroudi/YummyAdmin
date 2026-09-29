@@ -1,11 +1,9 @@
-import { ApiService } from '~/common/api/api-service'
 import type { Product } from '~/models/Product'
-import GenericService from './generic.service'
+import { useGenericService } from './generic.service'
 
-const apiService = new ApiService('Product')
-class ProductService extends GenericService<Product, string> {
-  constructor() {
-    super(apiService)
+export const useProductService = () => {
+  const base = useGenericService<Product, string>('Product')
+  return {
+    ...base,
   }
 }
-export default new ProductService()
